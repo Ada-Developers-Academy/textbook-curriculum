@@ -34,20 +34,17 @@ In the Ruby community, we try to focus on the people, not the machines.
 ## What is it about Ruby?
 A couple of ideas that you may notice being different from other programming languages you may have tried:
 
-- Object Oriented Programming (OOP) - the concept of "Objects" that have data fields to represent ideas within the program
-- With inheritance & mixins (objects can be parents/children and siblings)
-- Duck typing - the program infers the type of an argument or variable
-
-> When I see a bird that walks like a duck and swims like a duck and quacks like a duck, I call that bird a duck.
-
-- Flexible syntax, there are many ways to write the exact same code.
+- Object Oriented Programming (OOP): the concept of "Objects" that have data fields to represent ideas within the program
+- Inheritance & Mixins: objects can be parents, children, and siblings of other objects.
+- Duck typing: the program infers the type of an argument or variable __When I see a bird that walks like a duck and swims like a duck and quacks like a duck, I call that bird a duck.__
+- Flexible syntax: there are many solutions to most problems, with an emphasis on clarity and low cognitive load.
 
 
 ## `irb`
 Ruby can be directly executed from your terminal using IRB (**I**nteractive **R**u **b**y). `irb` is be a helpful tool for learning, quick computations, documentation, and debugging problems.
 
 ### Do the Ruby with `irb`
-From the command line, enter `irb`. Once you're in irb, try inputting a string, like `hello world`.
+From the command line, enter `irb`. Once you're in irb, try inputting a string, like `"hello world"`.
 
 __Question: What happened???__
 
