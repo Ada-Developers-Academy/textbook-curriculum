@@ -67,7 +67,7 @@ Try doing some arithmetic in `irb`:
 - 10 % 11
 
 ### Variables & Values
-A **variable** is a placeholder for a value. It's like a little post office box can be a number, a string, a piece of code.. it doesn't care how big a thing you put inside it, but you can only put one thing in it at a time.
+A **variable** is a placeholder for a value. It's like a little post office box - it can hold a number, a string, a piece of code. It doesn't care how big a thing you put inside it, but you can only put one thing in it at a time.
 
 ```ruby
 dog = "adorable"
@@ -80,7 +80,7 @@ a = b
 ### Objects & Methods
 We have used a lot of methods up to this point, and we didn't even know it!
 
-In the `Math.sqrt(9)` example, `Math` is an object and `sqrt` is the name of a method. We will talk about objects __a lot__ soon. For now, let's focus on the ideaa that we __call__ the `sqrt` method in the `Math` __object__ with the __parameter__ value _9_.
+In the `Math.sqrt(9)` example, `Math` is an object and `sqrt` is the name of a method. We will talk about objects __a lot__ soon. For now, let's focus on the idea that we __call__ the `sqrt` method in the `Math` __object__ with the __parameter__ value _9_.
 
 `gets.chomp` is another example where we were using a method. In this case, we __call__ the `chomps` method with no __parameters__ on the user input that is provided by `gets`.
 
