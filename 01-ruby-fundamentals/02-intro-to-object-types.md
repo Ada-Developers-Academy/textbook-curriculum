@@ -38,13 +38,17 @@ __Question: What's the difference between dot and operator notation?__
 ### Single or Double Quotes?
 Strings created from single or double quotes are identical in almost every way. The core difference is that double-quoted strings _interpolate_ special characters and Ruby code. Single-quoted strings do not.
 
-For example `\n` is a special character for a new line. Using double quotes tells Ruby to evaluate this character. `#{}` is a special syntax for _interpolating_ Ruby code inside of a string. The code inside of the braces (`{}`) is interpreted by Ruby. The results are then inserted into the containing string.
+For example `\n` is a special character for a new line. Using double quotes tells Ruby to evaluate this character. With single quotes, `\n` is not intepreted as a new line.
 
 ```ruby
 puts 'abc\ndef'  # => abc\nabc
 puts "abc\ndef"  # => abc
                  #    abc
+```
 
+`#{}` is a special syntax for _interpolating_ Ruby code inside of a string. The code inside of the braces (`{}`) is interpreted by Ruby. The results are then inserted into the containing string.
+
+```ruby
 name = "Jeremy"
 'My name is #{name.reverse}' # => "My name is \#{name.reverse}"
 "My name is #{name.reverse}" # => "My name is ymereJ"
