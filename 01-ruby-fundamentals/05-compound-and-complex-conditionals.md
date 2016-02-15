@@ -1,6 +1,6 @@
 # Compound and Complex Conditionals
 ## Learning Goals
-- Explore the _Truth Table_
+- Explore the _Truth Table_ & the _Precedence List_
 - Practice expressing and evaluating complex conditions
 - Learn strategies to manage complex conditions with `elsif` and `case`.
 - Learn two new kinds of iteration using _conditional loops_: `while` and `until`
@@ -21,22 +21,22 @@ false || true  # => false or true is true
 false || false # => false or false is false
 ```
 
-#### Truth Table Practice
-With your chair pair, determine the final `boolean` value of these compound conditions.
+## Evaluating Compound Conditions: Understanding _Precedence_
+Compound comparisons often involve a chain of expressions to be evaluated. Ruby follows strict rules when deciding the order in which expressions are evaluated. These rules can be expressed in terms of their _precedence_. __Operations with a higher _precedence_ are evaluated before operations with lower _precedence_.__ To change the order in which operations are evaluated, add parenthesis `()` around the operations you want evaluated first.
 
-```ruby
-# let's do these first two together
-puts 5 > 4 && false
-puts true && 5 * 2 > 3 * 3
+Here is an abbreviated _Precedence List_ from __highest__ to __lowest__ _precedence_:
 
-puts true && true || false
-puts true && (true || false)
-puts false && false || true
-puts false && (false || true)
-puts 4 == "4" # why?
-puts 4 == "4" || 4 == 4 # why?
-puts 10 % 3 == 10.0 % 3 # why?
-```
+1. `!`, `unary +`
+1. `**`
+1. `unary -`
+1. `*`, `/`, `%`
+1. `+`, `-`
+1. `>`, `>=`, `<`, `<=`
+1. `<=>`, `==`, `===`
+1. `&&`
+1. `||`
+
+__Note:__ _unary +_ and _unary -_ here means assigning a numeric value (_Fixnum_ or _Float_) as either positive or negative, e.g. `-5`, `-12.2`, `+30` and `+2.0`.
 
 ### Another Example of Compound Conditions
 
