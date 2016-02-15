@@ -38,7 +38,7 @@ Here is an abbreviated _Precedence List_ from __highest__ to __lowest__ _precede
 
 __Note:__ _unary +_ and _unary -_ here means assigning a numeric value (_Fixnum_ or _Float_) as either positive or negative, e.g. `-5`, `-12.2`, `+30` and `+2.0`.
 
-### Another Example of Compound Conditions
+### Using Compound Conditions
 
 ```ruby
 puts "What is your first name?"
