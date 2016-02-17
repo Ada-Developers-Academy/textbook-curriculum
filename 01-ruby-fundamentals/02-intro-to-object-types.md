@@ -9,7 +9,7 @@
 - Explore some common _methods_ available to the core _types_
 
 ## `String`
-Ruby _strings_ are a sequence of characters. **This sentence is weird**We use _strings_ for text that's meaningful to humans. Typically, strings are created by enclosing characters (letters, numbers, punctuation symbols, etc.) between a pair of single or double quotes.
+Ruby _strings_ are a sequence of characters. We use _strings_ for text that's meaningful to humans. Typically, strings are created by enclosing characters (letters, numbers, punctuation symbols, etc.) between a pair of single or double quotes.
 
 Once a _string_ has been created, you have access to all of the _methods_ defined for `String`. There are two ways to access these methods: 1) dot notation and 2) operator notation. Let's look at both:
 
