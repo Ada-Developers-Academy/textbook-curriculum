@@ -28,7 +28,7 @@ Let's look at one command: `$ ls -a`
 ### What *is* a Command?
 In UNIX commands are all tiny little programs. They tend to do one small job or task, with a variety of options. We'll be writing our own later on in this program!
 
-In your Terminal, type `$ man ls` (`man` is short for __manu__al).
+In your Terminal, type `$ man ls` (`man` is short for `man`ual).
 
 `man` is awesome. Usually, commands have very detailed manuals. However, be aware that using `man` will put you in a special reading mode. In this mode...
 
