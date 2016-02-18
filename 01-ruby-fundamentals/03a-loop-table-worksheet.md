@@ -5,7 +5,7 @@
 
 ```ruby
 [2,5,8,11,14].each do |x|
-  puts 2x + 7
+  puts 2 * x + 7
 end
 ```
 
