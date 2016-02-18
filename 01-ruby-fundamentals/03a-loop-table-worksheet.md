@@ -1,7 +1,7 @@
-#Loop Table Worksheet
+#Loop Table Worksheet!
 
-##Complete the following loop tables by filling in the values for each iteration of the loop.
 
+1) Complete the following loop table by filling in the values for **loop count**, **value of x**, and **output**.
 
 ```ruby
 [2,5,8,11,14].each do |x|
@@ -9,18 +9,8 @@
 end
 ```
 
-|  Loop  |   x   |  Output  |
-| ------ | ----- | -------- |
-|-       |       |          |
-|-       |       |          |
-|-       |       |          |
-|-       |       |          |
-|-       |       |          |
-|-       |       |          |
 
-___
-
-
+2) Complete the following loop table by filling in the values for **loop count**, **value of critter**, and **output**.
 ```ruby
 ["kittens", "meerkats", "red pandas"].each do |critter|
   affirmation = "I am as amazing as " + critter + "!"
@@ -28,13 +18,7 @@ ___
 end
 ```
 
-| Loop |   Critter   |          Output            |
-| ---- | ----------- | -------------------------- |
-
-
-___
-
-
+3) Complete the following loop table by filling in the values for **loop count**, **value of letter**, **value of s1**, **value of s2**, and **output**.
 ```ruby
 a = ["m", "p", "e", "u", "o", "r", "w", "r"]
 s1 = ""
@@ -50,7 +34,3 @@ a.each do |letter|
   end
 end
 ```
-
-| Loop |    Letter    |    s1     |    s2     |    Output    |
-| ---- | ------------ | --------- | --------- | ------------ |
-
