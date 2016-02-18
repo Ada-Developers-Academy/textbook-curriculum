@@ -1,26 +1,21 @@
-Loop Table Worksheet
+#Loop Table Worksheet
 
-Complete the following loop tables by filling in the values for each iteration of the loop.
+##Complete the following loop tables by filling in the values for each iteration of the loop.
 
-1)
+
 ```ruby
 [2,5,8,11,14].each do |x|
   puts 2x + 7
 end
 ```
 
-| Loop |   x   |  Output  |
-| ---- | ----- | -------- |
-|      |       |          |
-|      |       |          |
-|      |       |          |
-|      |       |          |
-|      |       |          |
-|      |       |          |
-|      |       |          |
+|  Loop  |   x   |  Output  |
+| ------ | ----- | -------- |
 
 
-2)
+___
+
+
 ```ruby
 ["kittens", "meerkats", "red pandas"].each do |critter|
   affirmation = "I am as amazing as " + critter + "!"
@@ -30,14 +25,11 @@ end
 
 | Loop |   Critter   |          Output            |
 | ---- | ----------- | -------------------------- |
-|      |             |                            |
-|      |             |                            |
-|      |             |                            |
-|      |             |                            |
-|      |             |                            |
 
 
-3)
+___
+
+
 ```ruby
 a = ["m", "p", "e", "u", "o", "r", "w", "r"]
 s1 = ""
@@ -56,12 +48,4 @@ end
 
 | Loop |    Letter    |    s1     |    s2     |    Output    |
 | ---- | ------------ | --------- | --------- | ------------ |
-|      |              |           |           |              |
-|      |              |           |           |              |
-|      |              |           |           |              |
-|      |              |           |           |              |
-|      |              |           |           |              |
-|      |              |           |           |              |
-|      |              |           |           |              |
-|      |              |           |           |              |
 
