@@ -1,4 +1,4 @@
-# Creating an Equitable Culture
+# Advocating for an Equitable Culture
 
 #Learning Goals
 + To share strategies for dealing with difficult situations.
