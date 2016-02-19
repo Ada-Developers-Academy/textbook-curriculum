@@ -1,4 +1,4 @@
-# Imposter Syndrome
+# Imposter Syndrome - Prepwork
 
 ## Learning Goal
 To learn more about Imposter Syndrome
