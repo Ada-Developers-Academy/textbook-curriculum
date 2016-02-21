@@ -1,4 +1,4 @@
-# More About Classes: Using Hashes and Establishing Default Values
+# Hashes, Classes, and You
 ## Learning Goals
 - Revisit `Hash` objects
 - Learn how a `Hash` can make our Ruby classes easier to manage
