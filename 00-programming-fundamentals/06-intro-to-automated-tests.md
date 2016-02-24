@@ -19,7 +19,7 @@ Test-driven development is a programming technique that requires you to write so
 You'll often hear this cycle shorthanded as __Red, Green, Refactor__. Write a test and it is __red__ (many testing tools show failing tests in red text). Writing or updating code to make the test pass makes it __green__ (passing tests are usually shown in green text). Before moving on, take a moment to look for emerging patterns, needless duplication, and other oppotunitites to polish and clarify. This is __refactoring__, updating not to extend functionality, but to increase the clarity and consistency of our code. 
 
 ## The Anatomy of a Test
-An _automated test_ is a piece of code in a project that can be run independently to verify the functionality of other code within the project. It exists to verify and clarify the role and use of code in the project. Here's a simplified example of a software test:
+An _automated test_ is a piece of code in a project that can be run independently to verify the functionality of other code within the project. It exists to verify and clarify the role and use of code in the project. Here's an example of a software test:
 
 ```ruby
 def exponate(base, power)
