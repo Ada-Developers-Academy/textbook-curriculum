@@ -68,7 +68,7 @@ If you pass a block to `open`, Ruby will open the file, execute the code within 
 ```ruby
 require 'csv'
 CSV.open("ada_peeps.csv", 'a') do |csv|
-  csv << "5,Charles"
+  csv << [5,"Charles"]
 end
 ```
 
