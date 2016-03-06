@@ -1,8 +1,8 @@
 # `Enumerable`
 ## Learning Goals
 - Recap _object composition_
-- Learn about the _module_ `Enumerable`
 - Try out a Ruby _mixin_
+- Learn about the _module_ `Enumerable`
 - Discover some really, really useful methods provided by `Enumerable`
 
 ## Using _modules_ to make _mixins_
@@ -11,7 +11,7 @@ A _mixin_ is a collection of methods in a _module_ that is _composed_ into a Rub
 Here's an example of extended a class directly. Let's copypasta this into a file in our `sandbox` and give it a try.
 
 ```ruby
-# ~/C5/sandbox/extend-string.rb
+# ~/C5/sandbox/mixins.rb
 class String # <= wat?!? We can do this? We sure can!
   def smiley_spaces
     self.gsub(/\s+/, " :) ")
@@ -25,11 +25,11 @@ Neat, right? Ruby treats all classes--whether provided by Ruby or us--as equal. 
 Let's take this idea and crank it up to eleven. We can create a module and then `include` it in any class we like. The methods in that module then act like they were defined there, becoming available to all instances of the class. In this way, we have created code that can be reused by many classes. Here's a ridiculous example; let's put it in our sandbox and give it a spin in `irb`:
 
 ```ruby
-# ~/C5/sandbox/extend-string.rb
+# ~/C5/sandbox/mixins.rb
 # below the code we wrote earlier, add:
 module AllSmiles
   def to_smile
-    ":)" * self.length
+    ":)" * length
   end
 end
 
@@ -69,7 +69,7 @@ Returns an array containing the items sorted by either their own `<=>` method, o
 Use `sort` when the sorting calculation/algorithm is inexpensive, in terms of memory required and/or objects allocated. Use `sort_by` when the calculation/algorithm is expensive. `sort_by` uses a [Schwartzian Transform](https://en.wikipedia.org/wiki/Schwartzian_transform) to minimize the cost of sorting things that require expensive caluclations. Err on the side of using `sort` unless you explicitely identify it as a performance bottleneck.
 
 ```ruby
-[1,3,6,3,2,346,6,7].sort # => [1, 2, 3, 3, 6, 6, 7, 346]
+[1, 3, 6, 3, 2, 346, 6, 7].sort # => [1, 2, 3, 3, 6, 6, 7, 346]
 
 Product.all.sort_by do |product|
   product.margins_average_year_over_year(adjust_for_inflation: true)
@@ -77,40 +77,48 @@ end
 ```
 
 ### `min`, `max`, `min_by`, & `max_by`
+These methods find the maximum and minimum values in a collection. You can use `max` and `min` if a collection's values can be directly compared (i.e., they are all `Float` and `Fixnum` values).
+
 ```ruby
-[1,2,4].max
-# => 4
-[1,2,4].min
-# => 1
-Sale.all.min_by { |sale| sale.amount }
-Sale.all.max_by { |sale| sale.amount }
+numbers = (1..100).to_a.sample(15)
+
+# finding max with each
+max = 0
+numbers.each do |num|
+  max = num if num > max
+end
+
+# using `max` and `min`
+numbers.max
+numbers.min
 ```
 
-### `group_by`
-```ruby
-Product.all.group_by {|product| product.name.split.last }
-# Returns a hash, the keys being the name of the food type, the values being an array of products.
-```
+If the values are not directly comparable, the `min_by` and `max_by` do similar work but take a block in which you can derive the values to compare:
 
-### `find` & `detect`
 ```ruby
-[1,2,3,4].find {|n| n < 3 }
-# => 1
+# getting the account with the least and the most money
+least = Bank::Account.all.min_by { |account| account.balance }
+most  = Bank::Account.all.max_by { |account| account.balance }
 ```
 
 ### `select` & `reject`
-Use these methods to filter collections by a conditional provided in the block. `select` will filter for elements where the condition is `true`. `reject` filters for elements where the condition is `false`.
+Use these methods to filter collections by a conditional evaluation. `select` will filter for elements where the condition is `true`. `reject` filters for elements where the condition is `false`.
 
 ```ruby
-(1..100).to_a.find {|n| n % 10 == 0 }
+(1..100).to_a.select {|n| n % 10 == 0 }
 # => [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 
 (1..15).to_a.reject { |n| n % 5 == 0 }
 # => [1, 2, 3, 4, 6, 7, 8, 9, 11, 12, 13, 14]
 ```
 
-### `reduce` & `inject`
-
-
 ## There's so much more to discover
 `Enumerable` is one of my favorite things about Ruby. It is immensely useful. With it, we can write expressive, highly semantic code that is also concise. Spend some time with the [Enumerable docs](http://ruby-doc.org/core-2.3.0/Enumerable.html). Good knowledge in here will serve you in every application you build, And not just with Ruby. The methods contained in `Enumerable` describe ideas and patterns you'll find in every programming discipline (and technical interview, just sayin').
+
+## Activity: Divide & Conquor Enumerable
+- `reduce` & `inject`
+- `all?` & `any?`
+- `find` & `detect`
+- `group_by`
+- `zip`
+- `drop_while` & `take_while`
