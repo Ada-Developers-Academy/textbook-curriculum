@@ -8,7 +8,7 @@ To brainstorm personal and organizational ideas/actions to make Ada more hospita
 + Read: [So You Call Yourself an Ally: 10 Things All ‘Allies’ Need to Know](http://everydayfeminism.com/2013/11/things-allies-need-to-know/)
 + (optional) Read: [Why Our Feminism Must Be Intersectional (And 3 Ways to Practice It)](http://everydayfeminism.com/2015/01/why-our-feminism-must-be-intersectional/)
 
-## SLACK CRYSTAL:
+## SLACK Alexandra:
 + (optional) Thoughts from the reading.
 
 ## Return to class prepared to discuss the following:
