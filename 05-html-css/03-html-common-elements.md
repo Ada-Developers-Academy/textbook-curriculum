@@ -1,15 +1,17 @@
-# Common HTML Elements and Best Practices
+# Semantics, Best Practices, and Common HTML Elements
 
 ## Learning Goals
+- Understand the importance of semantic markup
+  - Be able to categorize elements as semantic or non-semantic
+  - Know the difference between HTML and HTML5
+- Gain context and awareness about web accessibility
 - Understand the difference between block-level and inline elements
-- Be able to categorize elements as semantic or non-semantic
-- Know the difference between HTML and HTML5
 - Learn basic best practices
   - Overall
   - For specific elements
   - For accessibility
 
-####A Few Word on Web Accessibility
+###A Few Words on Web Accessibility
 Web accessibility is quickly garnering awareness among developers, many of whom are hadn't realized the importance, scope, or sheer number of folks who need it. What this means is that many developers don't know how to implement techniques for accessibility well or quickly. This in turn means it's easy to get set aside to do later, and then set aside for financial and time reasons.
 
 However. Approximately 20% of Americans have a disability that could affect their ability to access many websites, and an accessible site benefits everyone.
@@ -20,67 +22,61 @@ Accessiblity encompasses, but is not limited to:
 - Users with impaired motor skills
 - Users with cognitive delays
 
-####Block Level vs. Inline elements
-Block level elements mean...
-Inline elements mean...
-We care because...
+### Semantics
+
+Semantics in HTML is the practice of using valid HTML to give meaning to the webpage.
+Semantic code describes what type of content is on the page. For example:
+
+```html
+<h1>The Best Names for Cats</h1>
+
+<ol>
+  <li>Pickles</li>
+  <li>Raquel Welch's Grape Jam</li>
+  <li>Biscuitina Turner</li>
+  <li>Grand Lord Snugglewumps</li>
+  <li>Thunderpaw the Destroyer</li>
+  <li>Impurrator Curiosa (shamelessly stolen from twitter)</li>
+  <li>Kitty Purry</li>
+</ol>
+```
+
+The `<h1>` describes that the text "The Best Names for Cats" is a heading for this page. This designates it as the most important overall piece of information on the page.
+
+The `<ol>` and `<li>` tags create an _ordered list_. The tags define both the structure and relationship of the content. From the markup alone, we understand that _Grand Lord Snugglewumps_ is a better name for a cat than _Kitty Purry_. More importantly, that distinction can be communicated to all users--sighted, visually impaired, or robotic.
+
+#### Question: Why should we care about semantic markup?
+- *Accessibility*. Many low sight or blind users rely on a screen reader to read pages to them. These programs cannot interpret pages very well unless they are clearly organized and communicated. Semantic code is critical to accessibility.
+- *Search Engine Optimization*. Search engines need to understand what your content is about in order to rank you properly on search engines. Semantic code improves your placement on search engines, as it is easier for the "search engine spiders" to understand.
+- *Readability*. Your code will be easier to read by others and future you if you very explicit about the structure and intent of your content.
+
+#### Nesting as Semantics
+
+In the kitty names code example, you may notice that the list item elements are indented. This is called __nesting__, and it communicates that these elements belong to that ordered list. Or, in HTML parlance, the ordered list is the __parent element__ and the list items are its __children__.
+
+Nesting is crucial in denoting the relationship between different parts of your content.
 
 #### HTML5 vs. HTML
-They're both HTML, but HTML5 is the latest version of it. There is a working group called w3c (stands for ...) which decides on the specifications for HTML and CSS - what elements are supported or deprecated, and what new elements to introduce (hopefully to solve a problem in the previous spec).
+They're both HTML, but HTML5 is the latest version of it. There is a working group called w3c (stands for World Wide Web Consortium) which decides on the specifications for HTML and CSS - what elements are supported or deprecated, and what new elements to introduce.
 
-What is noteworthy about HTML5 is that it adds a number of semantic elements like `<nav>, <aside>, <article>, <footer>, <address> (is that true?)` and a number of elements to better handle multimedia content.
+HTML5 adds a number of semantic elements like `<nav>, <aside>, <article>, <footer>, <address>` and a number of elements to better handle multimedia content.
+
+
+####Block Level vs. Inline elements
+Block-level elements occupy the entire space of its parent element (container), thereby creating a "block."
+
+Inline elements occupy only the space bounded by the tags that define the inline element.
 
 
 ### Common Elements
 
-##### Headings
-
-```html
-<h1>Heading 1</h1>
-<h2>Heading 2</h2>
-<h3>Heading 3</h3>
-<h4>Heading 4</h4>
-<h5>Heading 5</h5>
-<h6>Heading 6</h6>
-```
-***screen shot of how this looks in a browser w/o styles
+#### Headings
 
 Headings are block level elements that communicate the priority and page flow of your site. Headings should be used in order of importance (1-6) to create an accurate outline of your content.
 
 There should only be one `<h1>` element, and it should be used for the primary heading on the page.
 
 Don't use headings to just make the text bigger or bold. Use them to add meaning and structure to the page, as you would structure an outline of a paper.
-
-
-For example:
-
-```html
-<h1>The Best Marvel Comics Characters</h1>
-<h2>Jessica Jones</h2>
-<h2>Black Widow</h2>
-<h2>Captain America</h2>
-<h2>Daredevil</h2>
-```
-
-Then:
-
-```html (might have to screen cap something for this bc markdown is the worst)
-<h1>The Best Marvel Comics Characters</h1>
-<h2>Jessica Jones</h2>
-  <h3>Got her powers from a chemical spill</h3>
-  <h3>Doesn't wear a fancy outfit</h3>
-<h2>Black Widow</h2>
-  <h3>Trained as a super spy in Russia from a young age</h3>
-  <h3>No super powers, but she can punch and kick real good
-    <h4>In mid-air</h4>
-    <h4>On moving vehicles</h4>
-    <h4>Against people with knives</h4>
-  <h3>No super powers
-<h2>Captain America</h2>
-  <h3>Super soldier created by US gov't</h3>
-  <h3>Throws a big shield around</h3>
-```
-
 
 
 ###Other Semantic Elements
@@ -111,10 +107,4 @@ Then:
 - `<em>`: Inline level element to emphasize text.
 
 
-a + alt text, with some discussion on good alt text
-img
 
-
-hw or activity: write a html doc with 15 different kinds of elements. At least half should be ones you haven't tried before and/or ones we didn't use in class. Try out some multimedia elements, perhaps. Give a resource(s) for diff elements, as well as for deprecated tags.
-
-live code: making a doc (doctype, head, title, meta, etc), generate code to a basic mock up, placekitten, bacon ipsum. view source.
