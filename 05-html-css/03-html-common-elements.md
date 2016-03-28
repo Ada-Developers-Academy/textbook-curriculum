@@ -67,6 +67,17 @@ Block-level elements occupy the entire space of its parent element (container), 
 
 Inline elements occupy only the space bounded by the tags that define the inline element.
 
+For example:
+```html
+<p style="background-color:red;">This paragraph is a block-level element; its background has been colored to display the paragraph's parent element. Also, you should never do inline styles like Utah is doing.</p>
+
+<p>This <span style="background-color:red;">span</span> is an inline element. Note the background color only applies to the area contained in the `span`.</p>
+```
+
+<p style="background-color:red;">This paragraph is a block-level element; its background has been colored to display the paragraph's parent element.</p>
+
+<p>This <span style="background-color:red;">span</span> is an inline element. Note the background color only applies to the area contained in the `span`.</p>
+
 
 ### Common Elements
 
@@ -74,9 +85,63 @@ Inline elements occupy only the space bounded by the tags that define the inline
 
 Headings are block level elements that communicate the priority and page flow of your site. Headings should be used in order of importance (1-6) to create an accurate outline of your content.
 
+```html
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>
+<h4>Heading 4</h4>
+<h5>Heading 5</h5>
+<h6>Heading 6</h6>
+```
+
 There should only be one `<h1>` element, and it should be used for the primary heading on the page.
 
 Don't use headings to just make the text bigger or bold. Use them to add meaning and structure to the page, as you would structure an outline of a paper.
+
+<h1>The Best Marvel Comics Characters</h1>
+<h2>Jessica Jones</h2>
+<h2>Black Widow</h2>
+<h2>Captain America</h2>
+<h2>Daredevil</h2>
+
+
+
+```html
+<h1>The Best Marvel Comics Characters</h1>
+<h2>Jessica Jones</h2>
+<h3>Got her powers in a chemical spill</h3>
+<h3>Doesn't wear fancy outfit</h3>
+<h2>Black Widow</h2>
+<h3>Trained as a super spy in Russia from a young age</h3>
+<h3>No super powers, but she can punch and kick real good
+<h4>In mid-air</h4>
+<h4>On moving vehicles</h4>
+<h4>Against people with knives</h4>
+<h3>No super powers
+<h2>Captain America</h2>
+<h3>Super soldier created by US gov't</h3>
+<h3>Throws a big shield around</h3>
+<h1>The Best Marvel Comics Characters</h1>
+<h2>Jessica Jones</h2>
+<h2>Black Widow</h2>
+<h2>Captain America</h2>
+<h2>Daredevil</h2>
+```
+
+<h1>The Best Marvel Comics Characters</h1>
+<h2>Jessica Jones</h2>
+<h3>Got her powers in a chemical spill</h3>
+<h3>Doesn't wear fancy outfit</h3>
+<h2>Black Widow</h2>
+<h3>Trained as a super spy in Russia from a young age</h3>
+<h3>No super powers, but she can punch and kick real good
+<h4>In mid-air</h4>
+<h4>On moving vehicles</h4>
+<h4>Against people with knives</h4>
+<h3>No super powers
+<h2>Captain America</h2>
+<h3>Super soldier created by US gov't</h3>
+<h3>Throws a big shield around</h3>
 
 
 ###Other Semantic Elements
@@ -86,25 +151,39 @@ Don't use headings to just make the text bigger or bold. Use them to add meaning
 - `<article>`: Used to distinguish text as self-contained content on some topic. Think the body of a blog post.
 - `<aside>`: Used for "side" content such as sidebars, notes, or inserts.
 - `<footer>`: Identifies the content at the end of the page
+- `<figure>`: Specifies self-contained content, like illustrations, diagrams, photos, code listings, etc.
+- `<figcaption>`: Defines a caption for a `<figure>` element.
 
+```html
+<figure>
+  <img src="nonexistent-img.jpg" alt="Utah is lazy sometimes">
+  <figcaption>Fig1. - This is not a picture because Utah, but usually it would be.</figcaption>
+</figure>
+```
+
+###A Few Non-Semantic Elements
+
+
+`div`, and `span` are purely for building the structure of the site, they don't have any semantic meaning. `div` tags are for content that really doesn't have a semantic counterpart. Avoid relying on divs. `span` tags are used to highlight/emphasize or otherwise identify small, inline pieces of content.
 ```html
 <div>I'm a division</div>
 <section>I'm a section! Jeremy has really strong opinions about when to use me!</section>
 <span>I'm a span!</span>
 ```
 
+###One Example of Semantic v. Non-Semantic Code
 
 
-
-
-
-`div`, `section`, and `span` are purely for building the structure of the site, they don't have any semantic meaning. `div` and `section` are largely interchangeable and are used to divide content into related chunks. `span` tags are used to highlight/emphsize or otherwise identify or callout small, inline pieces of content.
-
-
-- `<b>`: Inline level element to make text bold. I really don't like this tag.
-- `<i>`: Inline element to make text italic. I don't like this tag either. Ask me why!
+- `<b>`: Inline level element to make text bold.
+- `<i>`: Inline element to make text italic.
 - `<strong>`: Inline level element to imply that text is important.
 - `<em>`: Inline level element to emphasize text.
+
+
+- <b>: Inline level element to make text bold.
+- <i>: Inline element to make text italic.
+- <strong>: Inline level element to imply that text is important.
+- <em>: Inline level element to emphasize text.
 
 
 
