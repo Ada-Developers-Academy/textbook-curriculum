@@ -4,12 +4,12 @@
 - Understand the importance of semantic markup
   - Be able to categorize elements as semantic or non-semantic
   - Know the difference between HTML and HTML5
-- Gain context and awareness about web accessibility
+- Gain basic awareness about web accessibility
 - Understand the difference between block-level and inline elements
 - Learn basic best practices
   - Overall
   - For specific elements
-  - For accessibility
+
 
 ###A Few Words on Web Accessibility
 Web accessibility is quickly garnering awareness among developers, many of whom are hadn't realized the importance, scope, or sheer number of folks who need it. What this means is that many developers don't know how to implement techniques for accessibility well or quickly. This in turn means it's easy to get set aside to do later, and then set aside for financial and time reasons.
@@ -98,12 +98,15 @@ There should only be one `<h1>` element, and it should be used for the primary h
 
 Don't use headings to just make the text bigger or bold. Use them to add meaning and structure to the page, as you would structure an outline of a paper.
 
+```html
 <h1>The Best Marvel Comics Characters</h1>
 <h2>Jessica Jones</h2>
 <h2>Black Widow</h2>
-<h2>Captain America</h2>
-<h2>Daredevil</h2>
+```
 
+<h1>The Best Marvel Comics Characters</h1>
+<h2>Jessica Jones</h2>
+<h2>Black Widow</h2>
 
 
 ```html
@@ -116,16 +119,7 @@ Don't use headings to just make the text bigger or bold. Use them to add meaning
 <h3>No super powers, but she can punch and kick real good
 <h4>In mid-air</h4>
 <h4>On moving vehicles</h4>
-<h4>Against people with knives</h4>
 <h3>No super powers
-<h2>Captain America</h2>
-<h3>Super soldier created by US gov't</h3>
-<h3>Throws a big shield around</h3>
-<h1>The Best Marvel Comics Characters</h1>
-<h2>Jessica Jones</h2>
-<h2>Black Widow</h2>
-<h2>Captain America</h2>
-<h2>Daredevil</h2>
 ```
 
 <h1>The Best Marvel Comics Characters</h1>
@@ -137,14 +131,10 @@ Don't use headings to just make the text bigger or bold. Use them to add meaning
 <h3>No super powers, but she can punch and kick real good
 <h4>In mid-air</h4>
 <h4>On moving vehicles</h4>
-<h4>Against people with knives</h4>
 <h3>No super powers
-<h2>Captain America</h2>
-<h3>Super soldier created by US gov't</h3>
-<h3>Throws a big shield around</h3>
 
 
-###Other Semantic Elements
+####Other Semantic Elements
 - `<p>`: Block level paragraph element. Used for chunks of text, often following a header element.
 - `<header>`: Used as an element to hold page header information (logo, navigation, heading)
 - `<nav>`: Used as a container for navigational links
@@ -161,7 +151,7 @@ Don't use headings to just make the text bigger or bold. Use them to add meaning
 </figure>
 ```
 
-###A Few Non-Semantic Elements
+####A Few Non-Semantic Elements
 
 
 `div`, and `span` are purely for building the structure of the site, they don't have any semantic meaning. `div` tags are for content that really doesn't have a semantic counterpart. Avoid relying on divs. `span` tags are used to highlight/emphasize or otherwise identify small, inline pieces of content.
@@ -171,7 +161,7 @@ Don't use headings to just make the text bigger or bold. Use them to add meaning
 <span>I'm a span!</span>
 ```
 
-###One Example of Semantic v. Non-Semantic Code
+####One Example of Semantic v. Non-Semantic Code
 
 
 - `<b>`: Inline level element to make text bold.
