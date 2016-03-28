@@ -140,6 +140,7 @@ Don't use headings to just make the text bigger or bold. Use them to add meaning
 - `<nav>`: Used as a container for navigational links
 - `<article>`: Used to distinguish text as self-contained content on some topic. Think the body of a blog post.
 - `<aside>`: Used for "side" content such as sidebars, notes, or inserts.
+- `<section>`: Used to identify a thematic grouping of content, often including a heading. Also used for trolling Jeremy.
 - `<footer>`: Identifies the content at the end of the page
 - `<figure>`: Specifies self-contained content, like illustrations, diagrams, photos, code listings, etc.
 - `<figcaption>`: Defines a caption for a `<figure>` element.
@@ -157,7 +158,6 @@ Don't use headings to just make the text bigger or bold. Use them to add meaning
 `div`, and `span` are purely for building the structure of the site, they don't have any semantic meaning. `div` tags are for content that really doesn't have a semantic counterpart. Avoid relying on divs. `span` tags are used to highlight/emphasize or otherwise identify small, inline pieces of content.
 ```html
 <div>I'm a division</div>
-<section>I'm a section! Jeremy has really strong opinions about when to use me!</section>
 <span>I'm a span!</span>
 ```
 
