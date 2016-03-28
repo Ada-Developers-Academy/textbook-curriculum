@@ -45,6 +45,8 @@ The `<h1>` describes that the text "The Best Names for Cats" is a heading for th
 
 The `<ol>` and `<li>` tags create an _ordered list_. The tags define both the structure and relationship of the content. From the markup alone, we understand that _Grand Lord Snugglewumps_ is a better name for a cat than _Kitty Purry_. More importantly, that distinction can be communicated to all users--sighted, visually impaired, or robotic.
 
+Semantics are like going to Ikea.
+
 #### Question: Why should we care about semantic markup?
 - *Accessibility*. Many low sight or blind users rely on a screen reader to read pages to them. These programs cannot interpret pages very well unless they are clearly organized and communicated. Semantic code is critical to accessibility.
 - *Search Engine Optimization*. Search engines need to understand what your content is about in order to rank you properly on search engines. Semantic code improves your placement on search engines, as it is easier for the "search engine spiders" to understand.
