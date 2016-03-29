@@ -15,9 +15,9 @@ background color
 - Footer has a border
 - Bonus: make corners of border curved
 
-- Give <figure> a solid border (width & color your
+- Give `<figure>` a solid border (width & color your
 choice) and appropriate padding
-- Give <img> in header 2rem margin top & bottom,
+- Give `<img>` in header 2rem margin top & bottom,
 none left & right
-- Give <nav> a background color and padding
-- Apply a border only to top of <footer>
+- Give `<nav>` a background color and padding
+- Apply a border only to top of `<footer>`
