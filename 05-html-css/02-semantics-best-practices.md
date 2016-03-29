@@ -166,16 +166,13 @@ Don't use headings to just make the text bigger or bold. Use them to add meaning
 ####One Example of Semantic v. Non-Semantic Code
 
 
-- `<b>`: Inline level element to make text bold.
-- `<i>`: Inline element to make text italic.
-- `<strong>`: Inline level element to imply that text is important.
-- `<em>`: Inline level element to emphasize text.
+- `<b>`: Inline level element to make text bold.`</b>`
+- `<i>`: Inline element to make text italic.`</i>`
+- `<strong>`: Inline level element to imply that text is important.`</strong>`
+- `<em>`: Inline level element to emphasize text.`</em>`
 
 
-- <b>: Inline level element to make text bold.
-- <i>: Inline element to make text italic.
-- <strong>: Inline level element to imply that text is important.
-- <em>: Inline level element to emphasize text.
-
-
-
+- <b> Inline level element to make text bold.</b>
+- <i> Inline element to make text italic.</i>
+- <strong> Inline level element to imply that text is important.</strong>
+- <em> Inline level element to emphasize text.</em>
