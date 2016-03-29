@@ -68,11 +68,39 @@ Specificity: The __specificity__ of your selector can clash with the cascade.
     background-color: yellow;
   }
 ```
-In this case, the `.intro` style will not be overridden by the `p` style, even though the `p` comes after `.intro`. This is because a class is more specific than an element. Element < Class < ID.
+In this case, the `.intro` style will _not_ be overridden by the `p` style, even though the `p` comes after `.intro`. This is because a class is more specific than an element. Element < Class < ID.
 
-## Common
+##Combining Selectors:
+You are not limited to a single selector at a time. You have a number of options that allow you be a little more specific.
+- `.class p` - This selects any paragraphs that are _children_ of the class. Notice that there is a space between `.class` and `p`. This is important because this is what defines that we're selecting only `p` elements that are children of `.class`.
+- `p.class` - This selects any `p` that _also_ has that class assigned to it.
+- `.class > p` - This selects any paragraphs that are _direct_ children of the class.
+We are using a class and an element in this example, but you can use combinations of elements, classes, or IDs.
+Combining selectors can be very useful, but you should be careful not to go overboard. The selectors we combine, the more specific we get; The more specific we get, the more likely you are to run into trouble.
 
-**Font Properties**
+##Grouping Selectors:
+If you have some styles that apply to multiple selectors, you can consolidate these. Instead of using a separate rule for each selector, you can group these selectors. This eliminates redundancy.
+```html
+p {background-color: yellow;}
+li {background-color: yellow;}
+footer {background-color: yellow;}
+```
+Group selectors like so:
+```html
+p, li, footer {background-color: yellow;}
+```
+
+##Units
+Many properties require some measure of size (font-size, width, etc). There are a number of common units:
+- __px__ - Pixels are an absolute unit, meaning their size does not change with screen size. This is very common, but has some shortcomings. For instance, if you use pixels, and your user zooms in, your layout is likely to break.
+- __em__ - This is a relative unit. Not to be confused with the `<em>` tag. Em is a proportion of the parent's value. This requires more math and can be more difficult to implement than...
+- __rem__ - Rems are also a relative unit, proportional to a base value, but rems are proportional to the _root_ value of a property for the whole document. This means you can more easily predict the effects. Rems are great for almost every situation.
+- __%__ - This is a unit relative to its containing block.
+
+
+## Common Properties
+
+###Font Properties###
 
 - font-size: a number followed by a measurement of how tall the element's text is, usually in ems (em) or pixels (px)
 - font-family: the name of a typeface, or typefaces
@@ -82,28 +110,24 @@ In this case, the `.intro` style will not be overridden by the `p` style, even t
 measurement of how tall the element's line of is,
 usually in ems (em) or pixels (px)
 
-**Text Properties**
+###Text Properties###
 
 - text-align: left | right | center | justify
 - text-transform: capitalize | uppercase | lowercase | some others
 - text-decoration: underline | overline | line-through | some others
 - Note: A lot of properties will take a value of none
 
-**Colors**
+###Colors###
 
 - To set text colors, the property is color
 - To set background colors, the property is background-color
 - The value can be done a few ways:
   - Hex: #ff0000
   - RGB: rgb(255,0,0)
+  - RGBA: rgb(255,0,0,0)
   - Also possible but not preferred: red
 
 A large list of [common CSS properties here](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference)
 
 
-## More Resources
-- [Hex and RGB Colors](http://www.w3schools.com/tags/ref_colorpicker.asp)
-- [Hex Colors](http://0to255.com)
-- [Pseudo Classes](http://htmldog.com/guides/css/intermediate/pseudoclasses/)
-- [HTML Validator](http://html5.validator.nu)
-- [CSS Validator](http://jigsaw.w3.org/css-validator)
+
