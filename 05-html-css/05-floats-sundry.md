@@ -71,6 +71,7 @@ Possible values are `left`, `right`, `both`, or `none`.
 __Float resources:__
 
 https://css-tricks.com/all-about-floats/
+
 https://www.smashingmagazine.com/2007/05/css-float-theory-things-you-should-know/
 
 
