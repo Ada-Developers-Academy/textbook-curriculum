@@ -68,9 +68,9 @@ When you want other content from flowing around the floated items, apply the `cl
 `selector {clear: value;}`
 Possible values are `left`, `right`, `both`, or `none`.
 
-Float resources:
-https://css-tricks.com/all-about-floats/
+__Float resources:__
 
+https://css-tricks.com/all-about-floats/
 https://www.smashingmagazine.com/2007/05/css-float-theory-things-you-should-know/
 
 
