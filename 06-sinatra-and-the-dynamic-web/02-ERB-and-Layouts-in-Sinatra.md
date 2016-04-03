@@ -5,7 +5,7 @@
 - Learn the special syntax for working with _erb_
 
 ## What is _ERB_
-ERB (Embedded RuBy) is kind of file known as a _preprocessor_. When Sinatra sees a file that has the extension of _.erb_, it will _evaluate_ it for Ruby expressions _before_ doing anything else with it (like sending it to the browser). We call it a _preprocessor_ because it is triggered before anything else happens with the file. It is very common to have files in Sintra (and Rails) projects with names like `index.html.erb`. This tells us (and the webserver) that the file is intended to be _preprocessed_ with _erb_, and the resulting file will be html. This kind of file (`.html.erb`) is known, generically, as a _view template_.
+ERB (Embedded RuBy) is kind of file known as a _preprocessor_. When Sinatra sees a file that has the extension of _.erb_, it will _evaluate_ it for Ruby expressions _before_ doing anything else with it (like sending it to the browser). We call it a _preprocessor_ because it is triggered before anything else happens with the file. It is very common to have files in Sintra (and Rails) projects with names like `index.erb`. This tells us (and the webserver) that the file is intended to be _preprocessed_ with _erb_, and the result of the processing is what should be sent to the browser. This kind of file is known, generically, as a _view template_.
 
 Preprocessing allows us to specify the file contents in any format we want (HTML, CSS, Markdown, etc.) while still _embedding_ Ruby code inside of it, allowing for customization of the content when the _view_ is _rendered_ (preprocessed and sent to the client as HTML).
 
@@ -57,10 +57,10 @@ To get the most benefit from the special tags that _ERB_ provides us, we will ne
 # in our Sinatra app
 get "/products" do
   @all_products = Product.all #returns an array of Product instances
-  erb :products # this tells Sinatra to render views/products.html.erb
+  erb :products # this tells Sinatra to render views/products.erb
 end
 ```
-... and inside of `views/products.html.erb` ...
+... and inside of `views/products.erb` ...
 ```erb
 <html>
   <head></head>
@@ -84,7 +84,7 @@ One of the most helpful features of ERB tags is that they allow us to "compose" 
 
 For example, if we had two HTML pages like this:
 ```erb
-<!-- views/index.html.erb -->
+<!-- views/index.erb -->
 <html>
   <head>
     <title>My Website</title>
@@ -98,7 +98,7 @@ For example, if we had two HTML pages like this:
 ```
 ... and ...
 ```erb
-<!-- views/about-me.html.erb -->
+<!-- views/about-me.erb -->
 <html>
   <head>
     <title>My Website</title>
@@ -112,7 +112,7 @@ For example, if we had two HTML pages like this:
 
 We could remove the redundant parts by creating a _layout_ template:
 ```erb
-<!-- views/layout.html.erb -->
+<!-- views/layout.erb -->
 <html>
   <head>
     <title>My Website</title>
@@ -126,14 +126,14 @@ We could remove the redundant parts by creating a _layout_ template:
 The `yield` command inside of the_ value tag_ in this _layout_ tells ERB that it should replace that tag with the content of another ERB template. With the common code extracted to the _layout_, the other _views_ are now much smaller:
 
 ```erb
-<!-- views/index.html.erb -->
+<!-- views/index.erb -->
 <h1>Welcome to My Website!</h1>
 <p>This is a website that I created. Isn't is awesome?</p>
 <p>Check out my about page <a href="/about_me">here</a>.</p>
 ```
 ... and ...
 ```erb
-<!-- views/about-me.html.erb -->
+<!-- views/about-me.erb -->
 <h1>About Me</h1>
 <p>I am the person that created this website, that's all you need to know.</p>
 ```
@@ -141,7 +141,7 @@ The `yield` command inside of the_ value tag_ in this _layout_ tells ERB that it
 ## Using ERB Layouts with Sinatra
 As mentioned above, the `yield` command is where the _view_ is placed inside the _layout_ template.
 
-With Sinatra we specify the partial template when we use the `erb` command in our routes. Sinatra automatically looks for a layout template in its default location: `views/layout.html.erb`. If that file exists, Sinatra will render that template and then place the content of the partial specified to `erb` in the place where the `yield` command exists in the layout.
+With Sinatra we specify the partial template when we use the `erb` command in our routes. Sinatra automatically looks for a layout template in its default location: `views/layout.erb`. If that file exists, Sinatra will render that template and then place the content of the partial specified to `erb` in the place where the `yield` command exists in the layout.
 
 Example:
 ```ruby
