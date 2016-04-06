@@ -3,7 +3,7 @@
 - Learn about the different kinds of HTTP requests (the HTTP _verbs_)
 - Discuss the sitations for which each _verb_ is suited
   - Define _idempotent_ and _safe_ in the context of HTTP requests
-- Explore how the acronym _CRUD_ (__C__reate __R__ead __U__pdate and __D__elete) relates to both making interactice web applications and HTTP _verbs_.
+- Explore how the acronym _CRUD_ (**C**reate **R**ead **U**pdate and **D**elete) relates to both making interactice web applications and HTTP _verbs_.
 
 ## HTTP _verbs_
 We've met `GET`. In our Sinatra site, we've defined routes using a syntax like `get "/kitty/:name" do` to tell Sinatra how it should handle folks asking for kitty cat names.
@@ -48,4 +48,4 @@ HTTP-spec-wise, `DELETE` operations are _idempotent_. If you `DELETE` a resource
 There is a caveat about `DELETE` idempotence, however. Calling `DELETE` on a resource a second time will often return a 404 (NOT FOUND) since it was already removed and therefore is no longer findable. This, by some opinions, makes DELETE operations no longer _idempotent_, however, the end-state of the resource is the same. Returning a 404 is acceptable and communicates accurately the status of the call.
 
 ## CRUD
-__C__ reate. __R__ ead. __U__ pdate. __D__ elete. This acronym embodies a huge majority of what we do with our web applications both simple and complex. We begin architecting our applications routes and interfaces by considering what kind of actions users will perform (CRUD) and what effects those actions will have on resources within the application (idempotency).
+**C**reate. **R**ead. **U**pdate. **D**elete. This acronym embodies a huge majority of what we do with our web applications both simple and complex. We begin architecting our applications routes and interfaces by considering what kind of actions users will perform (CRUD) and what effects those actions will have on resources within the application (idempotency).
