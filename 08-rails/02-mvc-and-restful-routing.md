@@ -44,12 +44,13 @@ At its simplest, REST is a process in which a web server uses the combination of
 ### A Quick Review
 Let's take a moment and go back to the lecture on [HTTP Verbs, CRUD, and Idempotency](../06-sinatra-and-the-dynamic-web/03-http-verbs-crud-and-idempotency.md)
 
-### Characteristics of a RESTful API
-- Server side is stateless
+### Characteristics of a RESTful Architecture
+- Uses client-server model for separation of concerns
+- Stateless: server does not track client state
+- Has a uniform interface
 - Resource identification with each request
-- Allows for caching
-- Uniform Interface
 - Returned resources are data
+- Allows for caching
 
 ### Pseudo-code Example of RESTful Routes
 __Assumption__: We've got a resource called `user` that can be recalled/manipulated by a unique identifier called `id`. In Sinatra, we'd represent getting a single instance of this resource with something like `get '/users/:id'`. 
@@ -71,12 +72,12 @@ The combination of __VERB__ and __URL__ tell our web server (Sinatra, in this ex
 
 ## Additional Resources
 ### MVC
-- [Short YouTube overview of MVC Architecture](https://www.youtube.com/watch?v=3mQjtk2YDkM)
+- [Short YouTube overview of MVC Architecture from Lynda.com](https://www.youtube.com/watch?v=3mQjtk2YDkM)
 
 ### REST
 - [Dr. Dobbs article describing RESTful Web Services](http://www.drdobbs.com/web-development/restful-web-services-a-tutorial/240169069?pgno=1)
-- [Fielding's original PhD dissertation - very dry, very long, but perhaps worth skimming, ep Chapter 5](http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm)
+- [Fielding's original PhD dissertation - very dry, very long, but perhaps worth skimming, esp Chapter 5](http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm)
 
 ### Sinatra vs. Rails
-- [Side by side comparison](https://blog.engineyard.com/2014/rails-vs-sinatra)
-- [Reddit discussion, mostly tame](https://www.reddit.com/r/ruby/comments/3g54dk/rails_vs_sinatra/)
+- [Side by side comparison from EngineYard blog](https://blog.engineyard.com/2014/rails-vs-sinatra)
+- [archived Reddit discussion](https://www.reddit.com/r/ruby/comments/3g54dk/rails_vs_sinatra/)
