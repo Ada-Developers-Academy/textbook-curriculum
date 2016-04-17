@@ -81,3 +81,6 @@ The combination of __VERB__ and __URL__ tell our web server (Sinatra, in this ex
 ### Sinatra vs. Rails
 - [Side by side comparison from EngineYard blog](https://blog.engineyard.com/2014/rails-vs-sinatra)
 - [archived Reddit discussion](https://www.reddit.com/r/ruby/comments/3g54dk/rails_vs_sinatra/)
+
+### Real world example of REST API
+- [Twitter REST APIs](https://dev.twitter.com/rest/public)
