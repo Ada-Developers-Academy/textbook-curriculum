@@ -75,7 +75,7 @@ The combination of __VERB__ and __URL__ tell our web server (Sinatra, in this ex
 - [Short YouTube overview of MVC Architecture from Lynda.com](https://www.youtube.com/watch?v=3mQjtk2YDkM)
 
 ### REST
-- [Dr. Dobbs article describing RESTful Web Services](http://www.drdobbs.com/web-development/restful-web-services-a-tutorial/240169069?pgno=1)
+- [Dr. Dobbs article by M. Vaqqas describing RESTful Web Services](http://www.drdobbs.com/web-development/restful-web-services-a-tutorial/240169069)
 - [Fielding's original PhD dissertation - very dry, very long, but perhaps worth skimming, esp Chapter 5](http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm)
 
 ### Sinatra vs. Rails
