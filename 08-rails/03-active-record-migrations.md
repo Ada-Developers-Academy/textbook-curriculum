@@ -14,7 +14,7 @@ An important component of the `rails` command line tool is the generator. We can
 Using the generator ensures that we are following Rails _conventions_ and really speeds project set up. Let's run a generator command:
 
 ```bash
-$ rails generate model student name:string cohort:string birthday:datetime
+$ rails generate model student name:string pie:string birthday:datetime
 ```
 
 This command will do three things:
