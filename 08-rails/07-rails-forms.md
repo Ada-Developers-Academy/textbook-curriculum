@@ -3,6 +3,7 @@
 - Explore two ways to handle forms in Rails
   + `form_tag` & `form_for`
 - Discover some useful _view helpers_ specifcally for working with forms
+- Get a feel for handling form data in a _controller_
 
 There are two ways to generate HTML forms within Rails: `form_tag` and `form_for`. On the surface, they are very similar. Both are _view helpers_ that generate HTML form tags. They differ in that `form_tag` is a __generic form__ while `form_for` is __tied to an object__. We'll explore both below.
 
@@ -109,3 +110,33 @@ __Note:__ All of this connectedness depends on your code going along with many R
 Here's a link to the [official docs for form helpers](http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html), which contains a list of the form builder methods for `form_for`.
 
 Likely more helpful is the [Rails Guide for Form Helpers](http://guides.rubyonrails.org/form_helpers.html) which extensively covers both kinds of forms discussed in this document.
+
+## Controllers & Form Data
+Like in Sinatra, submitting a form results in the form data being collected into the _params hash_. The structure of form data follows the same patterns as in Sinatra. This means we can leverage creative naming in the HTML (like `album[artist]`) to create well structured objects in the _params hash_.
+
+If we submitted the `form_for` example above, the params hash would arrive in our _controller action_ looking something like:
+
+```ruby
+  {
+    "utf8" => "✓",
+    "authenticity_token" => "X/be9deLjFilsqYcOVBMM5Fj1vf7OWAr1K9F97JVhbhFmp/Ig9HSp2urbytRAgIoRAupAeZczOtdwbP49R1i8w==",
+    "album" => {
+      "title" => "The Heavy" },
+      "commit" => "Create Album"
+    }
+  }
+```
+
+We can then use the params as attributes for Active Record models. If, for example, we were wanting to make a new Album using the params data above, our _controller action_ would look something like:
+
+```ruby
+# in app/controllers/albums_controller.rb
+def create
+  @album = Album.new(params[:album]) #instantiate a new album
+  if @album.save # save returns true if the database insert succeeds
+    redirect_to root_path # go to the index so we can see the album in the list
+  else # save failed :(
+    render :new # show the new album form view again
+  end 
+end
+```
