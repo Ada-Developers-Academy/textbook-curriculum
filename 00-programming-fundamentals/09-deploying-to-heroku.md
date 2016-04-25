@@ -20,7 +20,21 @@ This is the normal git flow of initializing a repository, adding, and committing
 ## Step 2: Be sure your application has a `config.ru` file
 If you are deploying a Sinatra app, be sure to include a `config.ru` file in your project root. This file is used by `rack`, the underlying framework that Sinatra uses to connect to the internet. Check out the [example `config.ru` file for Sinatra](https://devcenter.heroku.com/articles/rack#sinatra) in Heroku's devcenter for more details.
 
-## Step 3: Create a remote repository for your code on Heroku's servers:
+## Step 3: If you're deploying a Rails app, add some gems to the `production` group of your Gemfile
+Modify your Gemfile to isolate the `sqlite3` gem into the `development` and `test` groups. Then create (if you don't already have) a `production` group and add the `pg` and `rails_12factor` gems to it. It should look something like this:
+
+```ruby
+group :development, :test do
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+```
+
+## Step 4: Create a remote repository for your code on Heroku's servers:
 Heroku is the service that will actually host our application. We will use the [Heroku Toolbelt](https://toolbelt.heroku.com). First we'll use a command that will create a repo on Heroku's server for us to push our application into.
 
 ```bash
@@ -39,7 +53,7 @@ The `heroku create` command creates the repo on Heroku and also creates the git 
 
 __Question:__ What is a git remote? Why is it important that it is called _heroku_?
 
-## Step 4: Push your app to Heroku
+## Step 5: Push your app to Heroku
 Now push your app to Heroku:
 
 ```bash
