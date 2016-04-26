@@ -49,7 +49,7 @@ Implementing these _stories_ is the developer's job. Defining them is typically 
 ## Kanban!
 A Kanban board is visual representation of the _stories_ related to a project. It's used to know, at a glance, what everyone is working on, what's been done, and what's still waiting to be done. The simplest Kanban board consists of three columns: "to-do", "in progress" and "done":
 
-![A simple Kanban board](https://commons.wikimedia.org/wiki/File:Simple-kanban-board-.jpg#/media/File:Simple-kanban-board-.jpg)
+![A simple Kanban board](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Simple-kanban-board-.jpg/1200px-Simple-kanban-board-.jpg)
 
 Typically software projects need more distinction, but three columns are not a bad place to start.
 
