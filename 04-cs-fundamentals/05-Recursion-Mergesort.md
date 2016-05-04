@@ -14,4 +14,5 @@ Mergesort is a recursive sorting algorithm. Mergesort works by splitting a list 
 2. Otherwise, if the size of the array is not larger than 1
   + Assume an array of size 1 or 0 is in order.
 
-Let's look at it in action: [Mergesort Visulatization](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html)
+### Mergesort Visualization
+Let's look at it in action: [Mergesort Visualization](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html)
