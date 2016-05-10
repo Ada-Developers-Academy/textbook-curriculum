@@ -17,6 +17,5 @@ Think about the following as you read the articles below. You don’t need to ty
 + [Tool: Recognizing Microaggressions and the Messages They Send](resources/Microaggressions_Examples.pdf)
 + [Calling In: A Quick Guide on When and How](http://everydayfeminism.com/2015/01/guide-to-calling-in/)
 
-## SLACK CRYSTAL
-(I promise not to tie your name to this feedback)
-+ 1 microaggression that you have experienced (anywhere, anytime) or that you feel you might encounter in the tech industry -- If you do not feel comfortable doing this, slack me that -- I expect some kind of slack response from you regardless of what it is.
+## Anonymous share out
++ [http://goo.gl/forms/OyOhJWaQMa](http://goo.gl/forms/OyOhJWaQMa)
