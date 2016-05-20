@@ -38,7 +38,7 @@ Table of Contents
 
 - You are given a sorted array and you want to find the number N. How do you do the search as quickly as possible (not just traversing each element)?
 
-- How would the performance of your algorithm change if there were lots of duplicates in the array?
+    - How would the performance of your algorithm change if there were lots of duplicates in the array?
 
 - Given two different lists of objects, come up with an efficient solution to find the intersection of the two lists. ([solution](http://www.geeksforgeeks.org/write-a-function-to-get-the-intersection-point-of-two-linked-lists/))
 
@@ -48,7 +48,7 @@ Table of Contents
 
 - Given a list of numbers, assume each number represents the amount of time it takes to execute a task. How would you divide the tasks across two different servers to they finished in the same amount of time?
 
-    - Write a program that will find the 10 most popular words (popularity is determined by how often they occur) in a file. How can you do this efficiently in terms of space? In terms of time? // Sometimes it helps to tell them it is a really big file that can’t fit in memory if they get hung up on timing
+- Write a program that will find the 10 most popular words (popularity is determined by how often they occur) in a file. How can you do this efficiently in terms of space? In terms of time? // Sometimes it helps to tell them it is a really big file that can’t fit in memory if they get hung up on timing
 
 - Given an array what is the longest contiguous increasing subsequence of elements? ([solution)](http://allaboutalgorithms.wordpress.com/2011/10/21/maximum-value-contiguous-subsequence-maximum-contiguous-sum/)
 
