@@ -217,8 +217,38 @@ The most common iterator in Javascript is the `for` loop. It can be executed thr
   ```
 
 ##### [The `for...of` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
+The `for...of` loop works like the `for` loop above, but is optimized for iterating ordered collections. Mos of the time this is an array, but it could also be a JavaScript Map, Set, or even String!
+
+```javascript
+var arr = [1,2,3]
+for (var val of arr) {
+  console.log("val is " + val);
+}
+// the val is 1
+// the val is 2
+// the val is 3
+
+for (var letter of "bark") {
+  console.log("letter is " + letter);
+}
+// letter is b
+// letter is a
+// letter is r
+// letter is k
+```
 
 ##### [The `for...in` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
+The `for...in` loop works very much the same as `for...of`, but it _does not guarantee the order of iteration_. We use it primarily to loop through the _iterable_ properties of an object, including the properties it inherited. Use `for...in` to iterate objects.
+
+```javascript
+var obj = {a:1, b:2, c:3};
+for (var prop in obj) {
+  console.log("obj." + prop + " = " + obj[prop]);
+}
+// obj.a = 1
+// obj.b = 2
+// obj.c = 3
+```
 
 
 #### `while` Loop
