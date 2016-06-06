@@ -1,7 +1,7 @@
 # Fun with Functions!
 ## Learning Goals
 - Learn how Javascript functions are different than Ruby methods
-- Distinguish between a function _expression_ and a function _decleration_
+- Distinguish between a function _expression_ and a function _declaration_
 - Begin exploring what _higher order_ functions are
 
 ## Functional expressions vs. Function declarations
