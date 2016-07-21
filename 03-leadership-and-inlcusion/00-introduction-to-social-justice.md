@@ -23,6 +23,8 @@ Statement of Inclusivity: Ada Developers Academy is designed to be an inclusive,
 1. ["Minimum Bar" Diversity by Ellen Chisa](https://medium.com/@ellenchisa/minimum-bar-diversity-2b8342428de4#.uc9lmzczn)
 1. [Privilege 101 by Sian Ferguson](http://everydayfeminism.com/2014/09/what-is-privilege/)
 
+While you aren't being asked specific follow-up questions on these articles, they will give you an excellent reference point for some of the key concepts we're exploring and will give you some context for the following exercise. 
+
 # Exercises
 
 ##  Breaking Down Identity
