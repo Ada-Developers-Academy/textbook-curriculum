@@ -25,9 +25,11 @@ Statement of Inclusivity: Ada Developers Academy is designed to be an inclusive,
 
 # Exercises
 
-+  Breaking Down Identity
++  BREAKING DOWN IDENTITY
 
 Although we come to Ada because we identify with female community, none of us come here bearing only our gender identity. We will carry with us into Ada all the different parts of ourselves, including race, sexuality, ethnicity, religion, and class, just to name a few. Some parts of ourselves may garner privilege, while others may be culturally marginalized.  We can use the term “intersectionality” to refer to this understanding of multiplicity.
+
+Please answer the following reflection question on a separate paper.
 
 
 1. List as many of your own identity categories as you can: (e.g. race, class, gender, age, religion, education, family structure, etc)
@@ -62,7 +64,9 @@ Although we come to Ada because we identify with female community, none of us co
 
 8. Which part of your identity feels the most marginalized?
 
-+ Vocab
+
+
++ VOCAB
 
 
 Below is a vocabulary list we’d like you to be familiar with when you arrive at Ada. Some of the terms you’ve seen in your readings, some you have not. It is not exhaustive, and we will be increasing our community vocabulary throughout our time together. Write your own definition for the terms you already know and research definitions for anything you aren’t sure of.
@@ -123,7 +127,7 @@ Non-Binary:
 
 # Email Reflection
 
-Send me an email to sarah@adadevelopersacademy.org answering the following questions. This can be as short or long as you want it to be. 
+Send me an email to sarah@adadevelopersacademy.org answering the following questions. This can be as short or long as you want it to be.
 
 1. What was your level of familiarity with these concepts and                                               terms prior to this?
 1. Why do think we do work around social justice at Ada when we're here to learn tech?
