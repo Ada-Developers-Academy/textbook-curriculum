@@ -23,7 +23,7 @@ Statement of Inclusivity: Ada Developers Academy is designed to be an inclusive,
 1. ["Minimum Bar" Diversity by Ellen Chisa](https://medium.com/@ellenchisa/minimum-bar-diversity-2b8342428de4#.uc9lmzczn)
 1. [Privilege 101 by Sian Ferguson](http://everydayfeminism.com/2014/09/what-is-privilege/)
 
-While you aren't being asked specific follow-up questions on these articles, they will give you an excellent reference point for some of the key concepts we're exploring and will give you some context for the following exercise. 
+While you aren't being asked specific follow-up questions on these articles, they will give you an excellent reference point for some of the key concepts we're exploring and will give you some context for the following exercise.
 
 # Exercises
 
@@ -132,4 +132,5 @@ Send me an email to sarah@adadevelopersacademy.org answering the following quest
 
 1. What was your level of familiarity with these concepts and                                               terms prior to this?
 1. Why do think we do work around social justice at Ada when we're here to learn tech?
-1. Any other reactions, thoughts, or reflections you want to share with me?
+1. Do you want to attend the follow-up conversation on August 2 at 4:15 pm? If so, what thoughts or questions make you want to join?
+1. Any other thoughts, concerns, or reflections you want to share with me?
