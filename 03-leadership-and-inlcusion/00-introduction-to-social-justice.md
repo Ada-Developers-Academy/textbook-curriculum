@@ -71,7 +71,6 @@ Please answer the following reflection question on a separate paper.
 
 Below is a vocabulary list we’d like you to be familiar with when you arrive at Ada. Some of the terms you’ve seen in your readings, some you have not. It is not exhaustive, and we will be increasing our community vocabulary throughout our time together. Write your own definition for the terms you already know and research definitions for anything you aren’t sure of.
 
-Terms:
 
 
 Privilege:
