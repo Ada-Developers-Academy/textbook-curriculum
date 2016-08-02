@@ -65,4 +65,4 @@ $ git config --global color.branch auto
 ## Text Editor(s)
 There are many options for text editors. _Sublime Text_, _TextMate_ and _Atom_ are popular **Graphic User Interface (GUI)** editors. _vim_ and _emacs_ are popular editors that operate directly on the command line.
 
-** You should have already installed a text editor in Jump Start, but if not, please install [Atom](https://atom.io/) now. **
+**You should have already installed a text editor in Jump Start, but if not, please install [Atom](https://atom.io/) now.**
