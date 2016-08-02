@@ -8,12 +8,10 @@ If you've got pieces installed, help your fellow students!
 ## Xcode Command-Line Tools
 Xcode is an **integrated development environment** (often called an **IDE**) for creating apps for Mac, iPhone, and iPad. We don't need it in it's entirety, we're just going to download one piece of the whole. _Command Line Tools_ is a component of Xcode that provides a _compiler_ for OS X.
 
-To install the _Command Line Tools_, open Terminal and run: `$ xcode-select --install`.
-
-Follow the instructions. It's a sizeable download, so it will take some time to complete.
+**You should have installed Xcode Command-Line tools in JumpStart.**
 
 ### Trust but Verify
-After intstalling, run `$ xcode-select -p`. If it tells you `/Library/Developer/CommandLineTools`, you're ready to move on.
+Run `$ xcode-select -p`. If it tells you `/Library/Developer/CommandLineTools`, you're ready to move on.
 
 ## Homebrew
 [Homebrew](http://brew.sh/) is a **package manager** that simplifies installing software on OS X. Package managers are very common, and each language/framework/stack tends to have their own or preferred tool.
@@ -50,21 +48,21 @@ $ git config --global color.branch auto
 ## RVM
 [RVM](http://rvm.io) (Ruby Version Manager) is a command-line tool which allows you to easily install, manage, and work with multiple ruby environments from interpreters to sets of gems. In essence, RVM is a package manager specifically for working with Ruby code.
 
-Install RVM with `$ \curl -L https://get.rvm.io | bash -s stable --autolibs=enabled`
-
-After installing, RVM will provide you with one or two commands to copypasta into your Terminal. These commands are specific to your machine. After you run those commands, restart your Terminal.
+**You should have installed RVM in JumpStart.**
 
 ### Trust but Verify
 - `$ rvm version` should tell you something like _rvm 1.26.11 (latest)..._
 
-## Install Ruby! FINALLY!
-- Install Ruby with RVM: `$ rvm install 2.3.0`
-- When it finishes, set it as the default version: `$ rvm use 2.3.0 --default`
+## Upgrade Ruby!
+- Upgrade Ruby to 2.3.1 with RVM: `$ rvm install 2.3.1`
+- When it finishes, set it as the default version: `$ rvm use 2.3.1 --default`
 
 ### Trust but Verify
-- `$ ruby -v` should return _ruby 2.3.0p0 (2015-12-25 revision 53290) [x86_64-darwin14]_
-- `which ruby` should return a path like _/Users/jeremy/.rvm/rubies/ruby-2.3.0/bin/ruby_
-- `which gem` should return a path like _/Users/jeremy/.rvm/rubies/ruby-2.3.0/bin/gem_
+- `$ ruby -v` should return _ruby 2.3.1px_ (your `px` version might be different)
+- `which ruby` should return a path like _/Users/jeremy/.rvm/rubies/ruby-2.3.1/bin/ruby_
+- `which gem` should return a path like _/Users/jeremy/.rvm/rubies/ruby-2.3.1/bin/gem_
 
 ## Text Editor(s)
-There are many options for text editors. _Sublime Text_, _TextMate_ and _Atom_ are popular **Graphic User Interface (GUI)** editors. _vim_ and _emacs_ are popular editors that operate directly on the command line. For class projects, please use either [Atom](https://atom.io/) or [Sublime Text](https://www.sublimetext.com/3).
+There are many options for text editors. _Sublime Text_, _TextMate_ and _Atom_ are popular **Graphic User Interface (GUI)** editors. _vim_ and _emacs_ are popular editors that operate directly on the command line.
+
+** You should have already installed a text editor in Jump Start, but if not, please install [Atom](https://atom.io/) now.
