@@ -115,7 +115,7 @@ Use these methods to filter collections by a conditional evaluation. `select` wi
 ## There's so much more to discover
 `Enumerable` is one of my favorite things about Ruby. It is immensely useful. With it, we can write expressive, highly semantic code that is also concise. Spend some time with the [Enumerable docs](http://ruby-doc.org/core-2.3.0/Enumerable.html). Good knowledge in here will serve you in every application you build, And not just with Ruby. The methods contained in `Enumerable` describe ideas and patterns you'll find in every programming discipline (and technical interview, just sayin').
 
-## Activity: Divide & Conquor Enumerable
+## Activity: Divide & Conquer Enumerable
 - `reduce` & `inject`
 - `all?` & `any?`
 - `find` & `detect`
