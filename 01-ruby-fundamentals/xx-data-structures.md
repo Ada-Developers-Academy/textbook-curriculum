@@ -19,14 +19,14 @@ And you've probably seen some others as well.  Each "*Data Type*" can hold a cer
 
 So for example:
 ```ruby
-name = gets.chomp()  # puts a string into name
+name = gets.chomp    # puts a string into name
 age = 38             # puts a number into age
 pi = 3.14159		 # stores 3.14159 into pi
 ```
 
 However these variables can only hold one piece of information each.  That's limiting.  Often we want to store a list or group of data and perform work on it.
 
-##Arrays and Hashes
+## Arrays and Hashes
 
 Thus enter the *collection* types of Arrays & Hashes.  These data types can store an arbitrary list of data in a single variable.  
 
@@ -36,19 +36,19 @@ An array is a list of data and each item in the list can be accessed or *indexed
 
 ```ruby
 # declaring an Array
-my_list = {"Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon", "Charizard", "Squirtle", "Wartortle"}
+my_list = [ "Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon", "Charizard", "Squirtle", "Wartortle" ]
 
 # Accessing the first element
 puts my_list[0]
 
 # check the length of the array
-puts "My list has #{my_list.length} elements"
+puts "My list has #{ my_list.length } elements"
 ```
 
 **Question**:  1.  How can you find the last element of the Array?
 
 You can loop through an array like this:
-```
+```ruby
 deposits = [300, 250, 128, 64, 3016]
 
 total = 0
@@ -57,7 +57,7 @@ deposits.each do |n|
 	total += n
 end
 ```
-| Loop #  |   n   |   Total   |
+| Loop #  |   n   |   total   |
 |---------|-------|-----------|
 | 1       |  300  |    300    |
 | 2       |  250  |    550    |
@@ -68,16 +68,16 @@ end
 
 This loop does the same thing with slightly different syntax.  
 
-```
+```ruby
 deposits = [300, 250, 128, 64, 3016]
 
 total = 0
 # in this loop n becomes 0 to 4 (inclusive) and is used as the "index" of the array.
-for n in 0..4 do
+(0..4).each do |n|
 	total += deposits[n]
 end
 ```
-| Loop #  |   n   | deposits[n] |   Total   |
+| Loop #  |   n   | deposits[n] |   total   |
 |---------|-------|-----------|--------------
 | 1       |  0    |    300    |   300       |
 | 2       |  1    |    550    |   250       |
@@ -86,19 +86,19 @@ end
 | 5       |  4    |    3758   |   3016      |
 
 
-**Question**: 2.  How could you write it with the *(0..n).each* type of loop?
+**Question**: 2.  How could you write it with the `times` type of loop?
 
 ### Hashes
 
 A Hash is similar to an array in that it's a collection of data.  Hover to access an individual element in an Array you always use a number as a key to get to that element.
 
 So for this list of Pokemon:
+```ruby
+my_list = [ "Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon", "Charizard", "Squirtle", "Wartortle" ]
 ```
-my_list = {"Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon", "Charizard", "Squirtle", "Wartortle"}
-```
-The Array has the following key/value pairs.
+The Array has the following index/value pairs.
 
-| Key | Value     |
+| Index | Value     |
 |-----|-----------|
 |  0  | Bulbasaur |
 |  1  | Ivysaur   |
@@ -113,14 +113,14 @@ However sometimes you want to access values with something other than a number. 
 
 You can declare a Hash like this:
 
-```
+```ruby
 my_hash = { "Venusaur" => "Water", "Charmander" => "Fire", "Charmeleon" => "Fire", "Charizard" => "Fire", "Squirtle" => "Water", "Wartortle" => "Water" }
 ```
 
 One thing to remember is that the keys must be unique.  For example in the Hash above, you couldn't use "Squirtle" to refer to another value.
 
 You access elements in a Hash just like an array, but you need to use the keys to access it.
-```
+```ruby
 puts my_hash["Charizard"]
 ```
 
@@ -134,12 +134,17 @@ Fire
 
 Where it can get interesting is when you have a collection of collections like the one below.
 
-```
-pokemon_types = {"Fire" => ["Charmander", "Charmeleon", "Vulpix", "Ninetales", "Growlithe", "Arcanine"], "Water" => ["Squirtle", "Wartortle", "Blastoise", "Psyduck", "Golduck", "Poliwag"], "Bug" => ["Caterpie", "Metapod", "Pinsir"], "Grass" => ["Tangela", "Bayleef"] }
+```ruby
+pokemon_types = {
+  "Fire"    => ["Charmander", "Charmeleon", "Vulpix", "Ninetales", "Growlithe", "Arcanine"],
+  "Water"   => ["Squirtle", "Wartortle", "Blastoise", "Psyduck", "Golduck", "Poliwag"],
+  "Bug"     => ["Caterpie", "Metapod", "Pinsir"],
+  "Grass"   => ["Tangela", "Bayleef"]
+}
 ```
 
 And running:
-```
+```ruby
 puts pokemon_types["Fire"]
 ```
 
@@ -155,23 +160,26 @@ Arcanine
 ```
 
 And you could access "Bayleef" by doing this:
-```
+```ruby
 pokemon_types["Grass"][1]
 ```
 
-**Question**: 3.  How could you look through printing each of the elements of the pokemon_types Array.  
+**Question**: 3.  How could you look through printing each of the elements of the `pokemon_types` Hash?
 
 ### Looping through Hashes
 
 Similar to an array, you can loop through a Hash like this:
 
-```
-pokemon_types = {"Fire" => ["Charmander", "Charmeleon", "Vulpix", "Ninetales", "Growlithe", "Arcanine"], "Water" => ["Squirtle", "Wartortle", "Blastoise", "Psyduck", "Golduck", "Poliwag"], "Bug" => ["Caterpie", "Metapod", "Pinsir"], "Grass" => ["Tangela", "Bayleef"] }
+```ruby
+pokemon_types = {
+  "Fire"    => ["Charmander", "Charmeleon", "Vulpix", "Ninetales", "Growlithe", "Arcanine"],
+  "Water"   => ["Squirtle", "Wartortle", "Blastoise", "Psyduck", "Golduck", "Poliwag"],
+  "Bug"     => ["Caterpie", "Metapod", "Pinsir"],
+  "Grass"   => ["Tangela", "Bayleef"]
+}
 
 pokemon_types.each do |key, value|
-
 	puts "The " + key.to_s + " type includes " + value.to_s
-
 end
 
 ```
@@ -192,4 +200,4 @@ The Grass type includes ["Tangela", "Bayleef"]
 |  Operation     | Array    |  Hash     |
 |----------------|----------|-----------|
 |  initalization | arr = [] | hash = {} |
-| Initialize with values | arr = ["Pikachu", "Rattata"] | hash = {"Pikachu" => "Electric", "Rattata" => "Normal" |
+| Initialize with values | arr = ["Pikachu", "Rattata"] | hash = { "Pikachu" => "Electric", "Rattata" => "Normal" }|
