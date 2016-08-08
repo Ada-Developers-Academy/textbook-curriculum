@@ -49,9 +49,9 @@ puts "abc\ndef"  # => abc
 `#{}` is a special syntax for _interpolating_ Ruby code inside of a string. The code inside of the braces (`{}`) is interpreted by Ruby. The results are then inserted into the containing string.
 
 ```ruby
-name = "Jeremy"
+name = "Ada"
 'My name is #{name.reverse}' # => "My name is \#{name.reverse}"
-"My name is #{name.reverse}" # => "My name is ymereJ"
+"My name is #{name.reverse}" # => "My name is adA"
 ```
 
 It's best to use double quotes by default. This gives the most flexibility and it's more common that you'd need to use a `'` inside of a sentence than a `"`.
@@ -141,44 +141,50 @@ fibb.last
 ```
 
 ### `Hash`
-The other _object type_ for managing colletions if data is the `Hash`. Every `Hash` is composed of zero to many key/value pairs. This means that every piece of data, called a _value_, in a `Hash` is accessed by referencing its _key_. Most often, these keys are `Symbol`s, but they can also be `String`s or `Fixnum`s.
+The other _object type_ for managing collections if data is the `Hash`. Every `Hash` is composed of zero to many key/value pairs. This means that every piece of data, called a _value_, in a `Hash` is accessed by referencing its _key_. Most often, these keys are `Symbol`s, but they can also be `String`s or `Fixnum`s.
 
 __Unlike `Array`s, `Hash` objects do not guarantee the order of key/value pairs!__ Create a hash by defining key/value pairs between braces (`{}`). The key comes first and can be declared using either _symbol_ or _hashrocket_ notation. The most recent versions of Ruby prefer _symbol_ notation, but both work. Key/value pairs are separated by a comma.
 
 To access a _value_ in a `Hash`, use bracket notation with the corresponding _key_, like `my_hash[:my_key]`. You can use the same notation to create new keys in the `Hash` as well.
 
 ```ruby
-jeremy = {
-  pets: 2, #symbol notation
-  greeting: "Hi!!! ^_^", # symbol notation
-  lucky_number: 13, # symbol notation
-  7 => "seven", # hashrocket notation
-  "eight" => 13, # hashrocket notation
+# hashrocket string notation
+ada = {
+  "pets" => 2,
+  "greeting" => "Hi!!! ^_^",
+  "lucky_number" => 13
+}
+
+# symbol notation
+ada = {
+  pets: 2,
+  greeting: "Hi!!! ^_^",
+  lucky_number: 13
 }
 
 # use the length method to count the number of key/value pairs
-jeremy.length
-# => 5
+ada.length
+# => 3
 
 # access values by giving the associated key between brackets (`[]`)
-jeremy[:lucky_number]
+ada[:lucky_number]
 # => 13
 
 # `keys` returns an array of all defined keys in the array
 # NOTE: THE ORDER IS NOT GUARANTEED
-jeremy.keys
-# => [:pets, :greeting, :lucky_number, 7, "eight"]
+ada.keys
+# => [:pets, :greeting, :lucky_number]
 
 # similarly, `values` returns an array of all the values in the `Hash`
-jeremy.values
-# => [2, "Hi!!! ^_^", 13, "seven", 13]
+ada.values
+# => [2, "Hi!!! ^_^"]
 
 # create a new key in the `Hash`
-jeremy[:elephant] = "hotdog"
+ada[:elephant] = "hotdog"
 
 # now the length has changed
-jeremy.length
-# => 6
+ada.length
+# => 3
 ```
 
 Look at the Ruby docs for [Array](http://www.ruby-doc.org/core-2.3.0/Array.html) and [Hash](http://www.ruby-doc.org/core-2.3.0/Hash.html) for more details about collections.
