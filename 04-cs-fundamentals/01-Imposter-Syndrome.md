@@ -12,7 +12,7 @@ Watch:
 + [Feel Like You're Faking It? That Might Not Be a Bad Thing](http://lifehacker.com/5928639/feel-like-youre-faking-it-that-might-not-be-a-bad-thing)
 + [RailsConf 2014 - You are Not an Impostor by Nickolas Means (33 mins)](https://www.youtube.com/watch?v=l_Vqp1dPuPo)
 
-Think about this graphic:
+Think about this graphic:<br>
 ![What I Know Ven Diagram](images/What-I-Know.png)
 
 #### HW: SLACK CRYSTAL
