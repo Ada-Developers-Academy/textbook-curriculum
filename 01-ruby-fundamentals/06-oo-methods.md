@@ -5,6 +5,7 @@
   - Understand a _method signature_!
   - Figure out the difference between _parameters_ and _arguments_.
   - Identify method signatures for methods we have used
+  - See the difference between using `return` and not using it
 
 ## Methods
 We have seen and used methods before, but we haven't created our own method definitions yet. Let's change that.
