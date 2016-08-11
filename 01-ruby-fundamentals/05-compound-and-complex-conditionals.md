@@ -215,7 +215,7 @@ The _Array method_ `include?` can be used to simplify a complex conditional. It 
 ```ruby
 command = gets.chomp
 
-until ["add", "+", "subtract", "-"].include? command
+until ["add", "+", "subtract", "-"].include?(command)
   puts "Please tell me to add (+) or subtract (-)!"
   command = gets.chomp
 end
