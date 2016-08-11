@@ -5,6 +5,7 @@
   - Understand a _method signature_!
   - Figure out the difference between _parameters_ and _arguments_.
   - Identify method signatures for methods we have used
+  - See the difference between using `return` and not using it
 
 ## Methods
 We have seen and used methods before, but we haven't created our own method definitions yet. Let's change that.
@@ -51,7 +52,7 @@ say_hello("Ada") # <= invoking the method with one argument
 
 In this updated method, `name` is a variable with the value for the argument passed in. When we called the method, the `name` variable was substitued out for the value of string `"Ada"` since that was the value we passed in.
 
-##### Example 3
+#### Example 3
 ```ruby
 def add(num_one, num_two)
   return num_one + num_two
@@ -66,7 +67,7 @@ add(1, 2)
 
 In this example method _call_, the variable `num_one` is substituted with value `1` and the variable `num_two` is substitued with value `2`.
 
-##### Example 3
+#### Example 4
 
 __Question: When do we need to use the `return` keyword?__
 
