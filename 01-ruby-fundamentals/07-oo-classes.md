@@ -1,55 +1,7 @@
-# Object Orientation: Methods, Classes, and Instances
+# Object Orientation: Classes, and Instances
 ## Learning Goals
-  - Learn to write our own methods!
-  - Understand a _method signature_!
-  - Figure out the difference between _parameters_ and _arguments_.
-  - Learn from whence methods come!
   - Discover Ruby's _class_ architecture!
   - Use our first _instance variables_
-
-## Methods
-We have seen and used methods before, but we haven't created our own method definitions yet. Let's change that.
-
-### Creating methods: Signatures and Blocks
-To create a method, you must first understand it's _method signature_. A _method signature_ is comprised of 2 parts: the __name__ of the method, and the __arguments__ it is expecting. Once you have defined those two things, you can create a `def` (method definition) _block_.
-
-```ruby
-def say_hello # <= that's the method signature
-  return "hello world!" # <= that's the block
-end
-```
-
-In this example, `say_hello` is the method __name__. This method has no __arguments__ (more on that shortly), so the _method signature_ is just `say_hello`. The purpose of this method is to print out a string to the user. As we learned earlier, we want to _call_ or _invoke_ a method in order to execute its block:
-
-```ruby
-puts say_hello
-# => hello world!
-greeting = say_hello
-puts greeting
-# => hello world!
-```
-
-__Question: When do we need to use the `return` keyword?__
-
-### Method Arguments (and parameters)
-Okay, let's get this out of the way. Most folks use _argument_ and _parameter_ interchangeably. That's fine and it almost never matters. However, as best as I understand, here's the difference:
-
-__In Ruby, _parameters_ are passed and _arguments_ are accepted.__ The _arguments_ are defined in the _method signature_, and the _parameters_ are the specific values given to the method when it is _invoked_. Like I said, most of the time, this distinction isn't important.
-
-Once we have created a method, we may want to use an _argument_ to provide additional data or context to our method. Think back to our `Math.sqrt(9)` example. The `9` in the `()` is a _parameter_. Looking at this, I can hazard an educated guess that the _method signature_ of `sqrt` looks something like `def sqrt(number)` (name and one argument).
-
-To add a parameter to the `say_hello` method, we need to change the __method signature__:
-
-```ruby
-def say_hello(name) # <= method signature with a name and one argument
-  puts "welcome #{name}! hello world!" # <= the block
-end
-
-say_hello("kari") # <= invoking the method with one parameter
-# => welcome kari! hello world!
-```
-
-In this updated method, `name` is a variable with the value for the parameter passed in. When we called the method, the `name` variable was set equal to the string `"kari"` since that was the value we passed in.
 
 ## Objects Overview
 An `object` is the representation of an idea within a program. Let's look at the common objects we've used already.

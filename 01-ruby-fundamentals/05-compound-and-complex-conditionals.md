@@ -210,7 +210,7 @@ puts "Yay we did it!"
 ```
 
 ### Make it clearer by using `include?`
-The _Array method_ `include?` can be used to simplify a complex conditional. It returens `true` if the provided _parameter_ is equal to any of the parameters in the _Array_, otherwise, it returns `false`:
+The _Array method_ `include?` can be used to simplify a complex conditional. It returns `true` if the provided _parameter_ is equal to any of the parameters in the _Array_, otherwise, it returns `false`:
 
 ```ruby
 command = gets.chomp
