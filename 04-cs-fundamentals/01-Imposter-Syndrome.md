@@ -29,6 +29,9 @@ Think about this graphic:<br>
 + Recognizing we are all human (fears, strengths, accomplishments)
 + Vulnerability in talking about Imposter Syndrome
 
+### Presentation
++ [Imposter Syndrome](https://docs.google.com/presentation/d/1b2_3v4gn14ArR3p4VEsbS71b8aU9PnEpL3pLCwRoJVI/edit?usp=sharing)
+
 ### Opening Activity
 + Share with small group at least one of the following:
   + fears
