@@ -32,14 +32,12 @@ Think about this graphic:<br>
 ### Presentation
 + [Imposter Syndrome](https://docs.google.com/presentation/d/1b2_3v4gn14ArR3p4VEsbS71b8aU9PnEpL3pLCwRoJVI/edit?usp=sharing)
 
-### Opening Activity
+### Activities
 + Share with small group at least one of the following:
   + fears
   + accomplishments
   + things that make you awesome
-+ Share out about someone else
-
-### Thoughts on pre-work / Imposter Syndrome
++ Share out 
 + Open discussion
 + Talk about exposing to others our "behind the scenes" and not letting them only see our "highlight reel"
 + It's ok if you don't have imposter syndrome!
