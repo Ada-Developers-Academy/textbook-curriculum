@@ -193,7 +193,11 @@ The Bug type includes ["Caterpie", "Metapod", "Pinsir"]
 The Grass type includes ["Tangela", "Bayleef"]
 ```
 
-
+## Let's Try It Out!
+Exercise: Let's modify the example above
+1. Switch the `string` keys to Symbols
+1. Update the values to be Arrays filled with Hashes instead of an Arrays filled with Strings. Use the name as one key-value pair and add two new characteristics.
+1. Print out the new data (update the loop) 
 
 ## Reference
 
