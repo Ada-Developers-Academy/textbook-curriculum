@@ -1,14 +1,14 @@
 # Introduction to Automated Testing
 ## Learning Goals
-- Learn about _Test Driven Developement_ (TDD)
+- Learn about _Test Driven Development_ (TDD)
 - Discover techniques to verify our code performs as expected using _automated tests_
 - Write code that can test code using _assertions_
 
-##TDD
+## TDD
 Test-driven development is a programming technique that requires you to write solution code and automated test code simultaneously. The goal is to use _automated tests_ as a exploration of your code. __Tests are transient.__ As you work on a project, your understanding of the problems at hand will change. As they do, your tests will change.
 
 ### How to TDD
-(1) Write a test that describes a feature of the software. Run the test, and watch it fail Watching it fail is crucial! (2) Write code that makes all the tests pass. (3) Look for opportunities to clarify your code.
+(1) Write a test that describes a feature of the software. Run the test, and watch it fail. Watching it fail is crucial! (2) Write code that makes all the tests pass. (3) Look for opportunities to clarify your code.
 
 1. Write a test
 1. Watch it fail
@@ -16,7 +16,7 @@ Test-driven development is a programming technique that requires you to write so
 1. Clarify
 1. Repeat
 
-You'll often hear this cycle shorthanded as __Red, Green, Refactor__. Write a test and it is __red__ (many testing tools show failing tests in red text). Writing or updating code to make the test pass makes it __green__ (passing tests are usually shown in green text). Before moving on, take a moment to look for emerging patterns, needless duplication, and other oppotunitites to polish and clarify. This is __refactoring__, updating not to extend functionality, but to increase the clarity and consistency of our code. 
+You'll often hear this cycle shorthanded as __Red, Green, Refactor__. Write a test and it is __red__ (many testing tools show failing tests in red text). Writing or updating code to make the test pass makes it __green__ (passing tests are usually shown in green text). Before moving on, take a moment to look for emerging patterns, needless duplication, and other opportunities to polish and clarify. This is __refactoring__, updating not to extend functionality, but to increase the clarity and consistency of our code.
 
 ## The Anatomy of a Test
 An _automated test_ is a piece of code in a project that can be run independently to verify the functionality of other code within the project. It exists to verify and clarify the role and use of code in the project. Here's an example of a software test:
@@ -48,12 +48,11 @@ puts exponate(2,2) == 4
 puts exponate(3,2) == 9
 puts exponate(2,10) == 1024
 ```
- 
+
 Now we can run our _test file_ with `$ ruby exponate_test.rb`. We should see output like:
 
 ```bash
-jeremy@iridium ~/sandbox/exponate
-❤️  :: ruby exponate_test.rb 
+/Ada/class-exercises $ ruby exponate_test.rb
 true
 true
 true
@@ -67,7 +66,7 @@ An _assertion_ is the part of the _automated test suite_ that tells us whether o
 ### Exercise: Write an `assert` method
 Let's build our own `assert` method in the `exponate_test.rb` file. Here's what it should look like:
 
-- `assert` accepts two arguments 
+- `assert` accepts two arguments
   - an expression
   - an optional message
 - return true if the expression is true
@@ -82,4 +81,3 @@ With your chair pair, create an `assertions.rb` file. Copy the  `assert` example
 - `assert_nil`, asserts that the passed expression is nil
 - `assert_includes`, asserts that a value is included in an array
 - make up your own assertion
-
