@@ -1,7 +1,7 @@
 # ￼Intro to Git
 ## Learning Goals
 - Learn the What, Why, and How of Version Control
-- Track changes to files with Git.
+- Track changes to files with Git
 - Document our change in with a good commit message
 
 ## Version Control
@@ -21,7 +21,7 @@ As an analogy, it might help to consider the case of a group of artists working 
 With Git, a collection of files, and all of the versions of those files, are called a _repository_ (or repo). Before Git can start _tracking_ the different versions of your files, we need to create a repository:
 
 ```bash
-$ cd ~/C5/sandbox
+$ cd ~/sandbox
 $ mkdir git-learnin
 $ cd git-learnin
 $ git init
@@ -42,15 +42,20 @@ nothing to commit (create/copy files and use "git add" to track)
 ### Putting files into Git
 Great! Now that we have a repository, we need to add some files into it. Lets first create a file so we have something to work with.
 
+##### Create
 ```bash
 $ echo "This is a file!" > first-file.txt
 ```
+
+##### Add
 
 After that we can `add` the file, which prepares it to be put into the repository.
 
 ```bash
 $ git add first-file.txt
 ```
+
+##### Status
 
 Now that we have "staged" the file `first-file.txt` with the `git add` command, we can again use `git status` to check on our repository:
 
@@ -65,6 +70,8 @@ Changes to be committed:
 
           new file:   first-file.txt
 ```
+
+##### Commit
 
 Here we see that Git is telling us we have a pending change to the repository -- adding a new file named `first-file.txt`. However, that change is not yet part of the repository! We can affirm to Git that we really want to do make this change by using `commit`:
 
@@ -85,6 +92,8 @@ When you `commit` a change, Git requires that you explain yourself. This is high
 ### Viewing your history in Git
 Now that we've committed a change to Git we can take a look at the history of our repository, which shows all of the changes that have been committed, in reverse chronological order:
 
+##### Log
+
 ```bash
 $ git log
 commit e88b5ce3fd005121da62a34aea3dcdba497a7d3f
@@ -94,7 +103,11 @@ Date:   Mon Sep 28 16:51:38 2015 -0700
     Add first-file.txt
 ```
 
-Since we've only made a single commit so far, the `log` only shows a single entry. As we make more changes and commit them into the repository, we'll get more entries. Lets try that now!
+Since we've only made a single commit so far, the `log` only shows a single entry.
+
+##### All Together Now!
+
+ As we make more changes and commit them into the repository, we'll get more entries. Lets try that now!
 
 ```bash
 $ echo "This is a second file!" > second-file.txt
@@ -170,7 +183,6 @@ With these two lines Git is showing us first what file we have modified in our p
 ## Commit Early, Commit Often
 Commits, ideally, should be _atomic_. That is, any single commit should include changes that encompass a single idea. This is a habit that must be built. It's easy to "get in the zone" while programming and, before, you know it, you've got fifty changes in ten files and you're not sure how you ended up there. Making _commits_ is fast and provides you a history of how you got from there to here. Here's some good examples of when to _commit_:
 
-- you make a test green
 - you finish a new feature
 - you write code that necessitates two or more lines of comments to explain
 - you make a change to one file that necessitates a change in another
