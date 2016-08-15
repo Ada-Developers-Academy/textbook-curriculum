@@ -54,3 +54,6 @@ exponate(-2, 3, true) #=> 8, why?
 ```
 
 __Question: Is this a good use case for an optional argument?__
+
+*  [Optional Arguments](source/OptionalArguments.rb)
+*  [Slides:  Default Method Arguments](https://docs.google.com/presentation/d/1ifhG3r30N5w8UBc4HKPzvntTlxifnf3T0L-QfEjL6GU/edit#slide=id.p)
