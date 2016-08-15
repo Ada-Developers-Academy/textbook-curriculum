@@ -17,7 +17,7 @@ Array.new
 # => []
 ```
 
-Where we would normally use the _string literal_ `""`, we can also call the `.new` method on the `String` class to create a new string object. A class can be identified by it's __capitialized first letter__. So `""`, `[]`, and `{}` are syntactic sugar; using _literals_ to _initialize_ a new _instance_ of an _object type_. Most classes do **NOT** have this kind of convenience.
+Where we would normally use the _string literal_ `""`, we can also call the `.new` method on the `String` class to create a new string object. A class can be identified by it's __capitalized first letter__. So `""`, `[]`, and `{}` are syntactic sugar; using _literals_ to _initialize_ a new _instance_ of an _object type_. Most classes do **NOT** have this kind of convenience.
 
 ### Creating a custom class
 Although any abstract idea can be represented as an object, it's sometimes easy to think of a physical object to get the idea. Think about you as a human being. You have attributes like `height`, `weight`, and `eye_color`. You have methods like `walk`, `run`, `talk`, and `walk_backwards`. Different kinds of objects have different attributes and methods.
@@ -29,23 +29,23 @@ Let's create a class for a Chair in ruby.
 ```ruby
 class Chair
   def name
-    "Terrible Chair"
+    return "Terrible Chair"
   end  
 
   def weight_in_lbs
-    29
+    return 29
   end
 
   def type
-    "Swivel"
+    return "Swivel"
   end
 
   def color
-    "Pink"
+    return "Black"
   end
 
   def max_height
-    32.625
+    return 32.625
   end
 end
 ```
@@ -86,7 +86,7 @@ class Chair
 end
 ```
 
-That `initialize` method (often called a _constructor_) is called automatically from within the `new` method. So we will use it to "construct" our object. Since `initialize` is a method we create, we can define _arguments_ for it and pass _parameters_ to the `new` method. `new` is kind enough to pass along its _parameters_ to `initialize`.
+That `initialize` method (often called a _constructor_) is called automatically from within the `new` method. So we will use it to "construct" our object. Since `initialize` is a method we create, we can define _parameters_ for it and pass _arguments_ to the `new` method. `new` is kind enough to pass along its _arguments_ to `initialize`.
 
 With those _parameters_, we can create _instance variables_. By prefixing a variable name with an `@` symbol, we create a variable that has visibility within __any instance method of the class__. As long as that specific instance of the class is around, Ruby will retain the value of its _instance variables_. Let's alter our `Chair` _class_ to look like this:
 
@@ -115,7 +115,7 @@ class Chair
 end
 ```
 
-### Use `attr` Methods to Avoid Repitition!
+### Use `attr` Methods to Avoid Repetition!
 The code above allows us to read/get and write/set the color and name properties in the `Chair` _class_. This is done so frequently that Ruby added some syntactic sugar to help us out. Enter `attr_reader` and `attr_writer`:
 
 ```ruby
