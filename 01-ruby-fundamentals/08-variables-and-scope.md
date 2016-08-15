@@ -94,3 +94,10 @@ class User
   end
 end
 ```
+
+*  [Slides](https://docs.google.com/presentation/d/1AArzIhCh0-jAtGf3O9yG1lh7GeFxSS75u_qfZ365ze0/edit)
+*  [VariableScope.rb](source/VariableScope.rb)
+*  [Pacman.rb](source/PacMan.rb)
+*  [Song.rb](source/Song.rb)
+*  [Card.rb](source/Card.rb)
+*  [User.rb](source/User.rb)
