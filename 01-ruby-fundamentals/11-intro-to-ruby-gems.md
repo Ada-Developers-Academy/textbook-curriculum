@@ -71,7 +71,7 @@ puts "This is uncolorized".blue.on_red.uncolorize
 In pods, research the usage of one of the following gems and create a small example showing at least one of the features of the gem.
 
 - [Money](http://rubymoney.github.io/money/)
-- [Awesome Print](https://github.com/michaeldv/awesome_print)
+- [Awesome Print](https://github.com/awesome-print/awesome_print)
 - [lolcat](https://github.com/busyloop/lolcat)
 - [pry](https://github.com/pry/pry)
 - [Chronic](https://github.com/mojombo/chronic)
