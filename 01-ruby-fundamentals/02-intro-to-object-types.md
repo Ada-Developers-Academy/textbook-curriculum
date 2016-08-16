@@ -184,7 +184,7 @@ ada[:elephant] = "hotdog"
 
 # now the length has changed
 ada.length
-# => 3
+# => 4
 ```
 
 Look at the Ruby docs for [Array](http://www.ruby-doc.org/core-2.3.0/Array.html) and [Hash](http://www.ruby-doc.org/core-2.3.0/Hash.html) for more details about collections.
