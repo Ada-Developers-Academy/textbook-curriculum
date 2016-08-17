@@ -32,7 +32,7 @@ Thus enter the *collection* types of Arrays & Hashes.  These data types can stor
 
 ### Arrays
 
-An array is a list of data and each item in the list can be accessed or *indexed* by a number.  The first element of any Array is index number 0.  You can always see the size of the Array can be accessed with the length method.  
+An array is a list of data and each item in the list can be accessed or *indexed* by a number.  The first element of any Array is index number 0.  You can always access the size of the Array with the length method.  
 
 ```ruby
 # declaring an Array
