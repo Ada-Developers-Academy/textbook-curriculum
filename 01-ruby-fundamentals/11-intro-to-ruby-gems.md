@@ -76,3 +76,4 @@ In pods, research the usage of one of the following gems and create a small exam
 - [pry](https://github.com/pry/pry)
 - [Chronic](https://github.com/mojombo/chronic)
 - [Geocoder](http://www.rubygeocoder.com/)
+- [Faker](https://github.com/stympy/faker)
