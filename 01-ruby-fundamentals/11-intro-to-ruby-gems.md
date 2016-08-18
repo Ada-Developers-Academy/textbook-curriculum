@@ -78,3 +78,4 @@ In pods, research the usage of one of the following gems and create a small exam
 - [Geocoder](http://www.rubygeocoder.com/)
 - [Faker](https://github.com/stympy/faker)
 - [Terminal Table](https://github.com/tj/terminal-table)
+- [Gist](https://github.com/defunkt/gist)
