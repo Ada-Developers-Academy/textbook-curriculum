@@ -56,7 +56,7 @@ These do the same thing. The iterate the collection and return an array of the _
 # using `each`
 results = []
 [1,2,3].each { |n| results << n ** 2 }
-results # => [1, 4, 9]
+results # => [1, 2, 3]
 
 # using `map` or `collect`
 results = [1,2,3].map { |n| n ** 2 }
