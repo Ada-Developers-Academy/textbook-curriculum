@@ -1,7 +1,7 @@
 # Attributes, Classes & ID's!
 
 
-## Learning Goals 📚
+## 📚 Learning Goals 📚
 - Know what an Attribute is
 - Differentiate between ID and Classes
 - Identify when to use a Class or an ID
@@ -9,12 +9,16 @@
 
 ## What's an Attribute?
 Attributes appear inside the opening tag and their values sit inside quotation marks. They look something like:
-  <tag attribute="value">Margarine</tag>
+  ```html
+  <tag attribute="value"> Content </tag>
+  ```
 
 An element can have none, one or many attributes.
 
 A real-life example, the 'src' and 'alt' attributes inside of the img tag:
+  ```html
   <img src="http://www.fillmurray.com/1000/500" alt="Bill Murray">
+  ```
 
 There are many different attributes that exist, some are specific to certain HTML elements. Do not worry about knowing them all now. You will pick them up as your learn new tags.
 
