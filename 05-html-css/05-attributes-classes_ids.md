@@ -6,7 +6,7 @@
 - Differentiate between ID and Classes
 - Identify when to use a Class or an ID
 
-
+# Let's Dive In!
 ## What's an Attribute?
 Attributes appear inside the opening tag and their values sit inside quotation marks. They look something like:
   ```html
