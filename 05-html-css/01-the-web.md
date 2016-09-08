@@ -45,11 +45,11 @@ In order for us to access a website,  it's files need to be stored on a computer
 
 ## Browser Compatibility
 
-The internet has evolved a lot since Sir Tim Berners Lee made the first [web page](http://info.cern.ch/) in 1991. HTML and CSS have changed a lot from when they were first used in the 90's. As these front-end languages evolve, browsers need to evolve with them.
+The internet has changed a lot since Sir Tim Berners Lee made the first [web page](http://info.cern.ch/) in 1991. In turn, HTML and CSS have evolved from when they were first used in the 90's. As these front-end languages evolve, browsers need to evolve with them.
 
-The current versions of browsers we are using right now  understand HTML5 and CSS3, which are the newest standards we will be learning.
+The current versions of browsers we are using right now  understand HTML5 and CSS3, which utilize newest web development standards we will be learning.
 
-Be aware that some older browsers do not understand these new versions. You may one day need to develop a site that needs to be accessed by a large demographic, including users with a computer from 2001.
+Be aware that some older browsers do not understand the newest versions of HTML or CSS. One day you many need to develop a site that needs to be accessed by a large demographic, including users with computers from 2001 (or older). Your site may break, or look a lot different on those computer's browsers.
 
 There are also many different browsers (Safari, Internet Explorer, Chrome, Firefox etc). A browser's job is to translate the code that will be displayed. Each browser does this a little bit differently. To ensure a site is widely accessible, developers use browser compatibility tools.
 
