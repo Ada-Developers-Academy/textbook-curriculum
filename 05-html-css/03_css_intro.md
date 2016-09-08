@@ -12,7 +12,7 @@
 
 ## CSS is responsible for a website's presentation
 
-  ### Note: if you want to make a front-end developer cringe. Tell them how CSS makes a website 'pretty'. They'll love it. 
+  ### Note: if you want to make a front-end developer cringe, tell them how CSS makes a website 'pretty'. They'll love it. 
 
 
 ## CSS Syntax Structure
