@@ -35,8 +35,17 @@ Giving Elements an ID or class allows you to target specific elements to style, 
  Classes are useful when you have, or possibly will have in the future, more than one element that shares the same style.
 
 
- (include how to define in html, then how to select in CSS)
- <h1 class="page-title"> Hello World! </h1>
+   ```html
+   <h1 class="page-title"> Hello World! </h1>
+   ```
+
+In css, to select the class, use a period and the class name as the selector. Like so: 
+   ```css
+    .page-title {
+      color: gray;
+      font-size: 2.5em;
+    }
+   ```
 
  Classes are often used to define behavioral styles in addition to visual ones Examples of class names are: tag, comment, toolbar-button, warning-message, or email.
 
