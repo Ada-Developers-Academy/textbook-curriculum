@@ -8,10 +8,10 @@
 ## Using _modules_ to make _mixins_
 A _mixin_ is a collection of methods in a _module_ that is _composed_ into a Ruby class via either `include` (for instance methods) or `extend` (for class methods). Ruby classes can by _dynamically extended_, meaning that, at any point after it is declared, a class can be re-opened and modified.
 
-Here's an example of extended a class directly. Let's copypasta this into a file in our `sandbox` and give it a try.
+Here's an example of extended a class directly. Let's copy this into a file and give it a try.
 
 ```ruby
-# ~/C5/sandbox/mixins.rb
+# mixins.rb
 class String # <= wat?!? We can do this? We sure can!
   def smiley_spaces
     self.gsub(/\s+/, " :) ")
@@ -25,7 +25,7 @@ Neat, right? Ruby treats all classes--whether provided by Ruby or us--as equal. 
 Let's take this idea and crank it up to eleven. We can create a module and then `include` it in any class we like. The methods in that module then act like they were defined there, becoming available to all instances of the class. In this way, we have created code that can be reused by many classes. Here's a ridiculous example; let's put it in our sandbox and give it a spin in `irb`:
 
 ```ruby
-# ~/C5/sandbox/mixins.rb
+# mixins.rb
 # below the code we wrote earlier, add:
 module AllSmiles
   def to_smile
@@ -45,7 +45,7 @@ end
 __Question: Could I `include AllSmiles` in class `Fixnum`? Why?__
 
 ## So what is `Enumerable`?
-`Enumerable` is a `module` that is _mixed in_ to both `Array` and `Hash` (and a couple other classes too, but those are the main ones). Like our _mixin_ above, it is dependent on the class providing a necessary method. For `AllSmiles`, we can only `include` it in classes that repond to the message `length`.
+`Enumerable` is a `module` that is _mixed in_ to both `Array` and `Hash` (and a couple other classes too, but those are the main ones). Like our _mixin_ above, it is dependent on the class providing a necessary method. For `AllSmiles`, we can only `include` it in classes that respond to the message `length`.
 
 For `Enumerable`, that method is `each`. Every method provided by the _mix in_ leverages `each` to do really interesting and useful things with collections. If an object can be `each`ed, it can use `Enumerable`. Here's a run down of __some__ of the fun stuff in `Enumerable`:
 
@@ -59,14 +59,14 @@ results = []
 results # => [1, 4, 9]
 
 # using `map` or `collect`
-results = [1,2,3].collect { |n| n ** 2 }
+results = [1,2,3].map { |n| n ** 2 }
 results # => [1, 4, 9]
 ```
 
 ### `sort` & `sort_by`
 Returns an array containing the items sorted by either their own `<=>` method, or by using the results of the supplied block.
 
-Use `sort` when the sorting calculation/algorithm is inexpensive, in terms of memory required and/or objects allocated. Use `sort_by` when the calculation/algorithm is expensive. `sort_by` uses a [Schwartzian Transform](https://en.wikipedia.org/wiki/Schwartzian_transform) to minimize the cost of sorting things that require expensive caluclations. Err on the side of using `sort` unless you explicitely identify it as a performance bottleneck.
+Use `sort` when the sorting calculation/algorithm is inexpensive, in terms of memory required and/or objects allocated. Use `sort_by` when the calculation/algorithm is expensive. `sort_by` uses a [Schwartzian Transform](https://en.wikipedia.org/wiki/Schwartzian_transform) to minimize the cost of sorting things that require expensive calculations. Err on the side of using `sort` unless you explicitly identify it as a performance bottleneck.
 
 ```ruby
 [1, 3, 6, 3, 2, 346, 6, 7].sort # => [1, 2, 3, 3, 6, 6, 7, 346]

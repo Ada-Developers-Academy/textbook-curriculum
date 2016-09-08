@@ -6,7 +6,7 @@
 - Use `super` to invoke the behavior of a _base class_ in a _subclass 
 
 ## Object Inheritance: _is-a_
-_Inheritance_ is used to model the behavrios of one class after another. We would want to do this when two objects have a clear chain of ownership. Often the parent class, or _base class_, is more general while the child, or _subclass_, is more specific.
+_Inheritance_ is used to model the behaviors of one class after another. We would want to do this when two objects have a clear chain of ownership. Often the parent class, or _base class_, is more general while the child, or _subclass_, is more specific.
 
 For example, we could have a `Bird` class that describes the general behaviors of birds. This is a _base class_. We could create `Penguin` and `Hawk` classes that model more specific behaviors. A `Penguin` is very different than a `Hawk`, but they are both birds. It would make sense then, to declare them _subclasses_ of `Bird`. 
 
