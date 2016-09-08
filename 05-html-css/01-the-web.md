@@ -1,10 +1,11 @@
-# Intro to the web
+# Intro to the web 🌐
 
 
-## Learning Goals
+## Learning Goals 📚
 - Differentiate between a static and dynamic website
 - Differentiate between the front-end and the back-end of a web application
 - Understand relationship between clients and servers
+- Be aware of web standards & browser compatibility
 
 
 
@@ -16,11 +17,21 @@
 
 
 
-##How the Internet Works
+## How the Internet Works
 
 
+## Web Standards Browser Compatibility
 
-##Vocab
+  ### Web Standards
+
+  ### Browser Compatibility
+
+
+## Vocab ✅
+  - Web application
+  
+
+## 🔑 Key Takeaway
 
 
 ### Additional Resources
