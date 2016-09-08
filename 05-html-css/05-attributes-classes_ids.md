@@ -6,7 +6,9 @@
 - Differentiate between ID and Classes
 - Identify when to use a Class or an ID
 
-# Let's Dive In!
+
+
+
 ## What's an Attribute?
 Attributes appear inside the opening tag and their values sit inside quotation marks. They look something like:
   ```html
@@ -22,7 +24,7 @@ A real-life example, the 'src' and 'alt' attributes inside of the img tag:
 
 There are many different attributes that exist, some are specific to certain HTML elements. Do not worry about knowing them all now. You will pick them up as your learn new tags.
 
- This lesson is going to focus on thee attributes 'class' and 'id'.
+ This lesson is going to focus on the attributes 'class' and 'id'.
 
 
 ## Why Use Classes or ID's?
