@@ -1,18 +1,17 @@
-# Content Hierarchy with HTML5
+# Sectioning Elements
 
 
 ## 📚 Learning Goals 📚
-- Can organize content using semantic HTML5 tags
-- Know why we organize content with semantic HTML5 tags
+- Can organize content using semantic sectioning tags
+- Know why we organize content with semantic sectioning tags
+
+## What are Sectioning Elements
+HTML has sectioning elements that allow you to organize your HTML document into logical topical sections.
+
+They bring a big advantage for people having HTML5 browsers and needing the structure to help them understand the page, for instance people needing the help of some assistive technology, like a [screen reader](http://webaim.org/techniques/screenreader/).
 
 
-## But why?
-These allow you to organize your document content into logical topical sections.
-
-They bring a big advantage for people having HTML5 browsers and needing the structure to help them understand the page, for instance people needing the help of some assistive technology.
-
-
-## Sectioning Elements
+Below are tags that group elements together.
 
 ```html
   <body> </body>
@@ -31,22 +30,28 @@ They bring a big advantage for people having HTML5 browsers and needing the stru
 
   <footer> </footer>
 ```
-### Think, Pair, Share
-
+**Think, Pair, Share**
 Take some time to research how to use each of the above tags.
 Then discuss with your chair pair.
-And then high five each other 🖐
+And then high five each other.
 
 ## Organize content with Sectioning Elements
-Sectioning elements wrap around the elements we have already been working with. This will not change anything visually.
+Sectioning elements wrap around the elements we have already been working with. Organizing elements into sectioning elements will also become useful as we start to style the layout of our webpages.
 
-
+Here are a couple of diagrams of how these sectioning elements might be laid out on a webpage.   
 ![Sectioned Elements Diagram](imgs/section_elements.gif)
 ![Sectioned Elements Diagram](imgs/section_elements2.png)
 
 
-## Elements Hierarchy
-When elements become nested inside of each other they start to form relationships. An element that is inside of an other is a child-element, while the one wrapping is the parent.
+## Element Relationships
+When elements become nested inside of each other they start to form relationships.
+- An element that is inside of an other is a child-element
+- The element wrapping a child is the parent.
+- Elements on the same level as each other are sibling elements.
+
+This diagram of the relationship tree for the code below.
+![Element Relationship Diagram](imgs/content-hierarchy-diagram.png)
+
 ```html
 <body>
   <header>
@@ -64,10 +69,8 @@ When elements become nested inside of each other they start to form relationship
 </body>
 ```
 
-![Content Hierarchy Diagram](imgs/content-hierarchy-diagram.png)
 
-
-Draw a hierarchy tree for the html code below:
+Draw a relationship tree for the html code below:
 ```html
   <body>
     <header>
@@ -105,13 +108,11 @@ Draw a hierarchy tree for the html code below:
 ## Vocab ✅
   - Semantic
   - Sectioning
-
-
-## 🔑 Key Takeaway
-
-The new semantic elements introduced in HTML5 bring the ability to describe the structure and the outline of a web document in a standard way.
-
+  - Parent
+  - Child
+  - Sibling
 
 ### Additional Resources
 
 - [Treehouse Blog Post](http://blog.teamtreehouse.com/use-html5-sectioning-elements) (freely available)
+- [Element Relationships](http://www.littlewebhut.com/css/info_element_relationships/)
