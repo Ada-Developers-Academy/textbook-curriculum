@@ -78,7 +78,7 @@ What do all these html tags mean?
 - [Head](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head)
   - [charset](http://stackoverflow.com/questions/2241348/what-is-unicode-utf-8-utf-16)
   - [title]()
-- Body
+- [Body](http://htmldog.com/references/html/tags/body/)
 
 
 ## Validate your HTML
