@@ -15,7 +15,7 @@ HTML is not concerned about how the content *looks*. That job is left to CSS, wh
 
 **Fun Tip** Add the [Web Developer](https://chrome.google.com/webstore/detail/web-developer/bfbameneiokkgbdmiekhjnmfkcnldhhm?hl=en-US) extension to chrome to see how sites look without any CSS!
 
-![Web Developer Chrome Extension](/imgs/web_developer.png)
+![Web Developer Chrome Extension](imgs/web_developer.png)
 After you add it, click on the icon (looks like a gear). A box will popup, click on the CSS tab towards the top left. Then there will be a checkbox you can click to disable CSS on any site your heart desires 💛. Have fun!
 
 
