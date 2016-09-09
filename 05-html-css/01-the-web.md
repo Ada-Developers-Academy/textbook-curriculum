@@ -37,7 +37,7 @@ Fun-Fact: You may hear the phrase 'full-stack developer' thrown around a lot. A 
 
 In order for us to access a website,  it's files need to be stored on a computer that is constantly online, otherwise known as a web server.
 
-![HTTP Response and Request](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_web_server)
+![HTTP Response and Request](https://mdn.mozillademos.org/files/8659/web-server.svg)
 
  A web server uses a protocol called HTTP to take requests from 'clients'. For example, when you type in 'google.com', your browser (the client) will make a request to google's servers. Google's servers will find the right requested files and send them back to the browser.
 
