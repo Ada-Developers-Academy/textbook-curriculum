@@ -67,7 +67,7 @@ As we begin learning about HTML and CSS, we are not going to be concerned about 
 
 
 ## 🔑 Key Takeaway
-This week we will be focusing on creating static sites that focus on front-end code. In order to view the sites we create on the internet, we have to store them on a web server.
+This week we will be focusing on creating static sites with front-end languages, HTML and CSS. In order to view the sites we create on the internet, we have to store them on a web server.
 
 ### Additional Resources
 
