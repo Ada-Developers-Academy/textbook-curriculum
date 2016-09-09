@@ -101,6 +101,4 @@ Validating Web documents is an important step which can dramatically help improv
 HTML is only concerned about how content is structured. Nothing should be changing the appearance.
 
 ### Additional Resources
-
-- []
-- [Learn to Code: HTML & CSS](http://learn.shayhowe.com/html-css/building-your-first-web-page/) (Very well organized with nice visuals. Goes into a lot of depth. Will be a good resource to reference throughout week.)
+- [Learn to Code: HTML & CSS](http://learn.shayhowe.com/html-css/building-your-first-web-page/) ( Will be a good resource to reference throughout week.)
