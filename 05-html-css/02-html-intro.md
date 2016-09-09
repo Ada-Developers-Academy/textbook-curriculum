@@ -4,6 +4,7 @@
 ## 📚 Learning Goals 📚
 - Understand HTML syntax & vocabulary
 - Can identify what tags are most appropriate for specific content
+- Can view document in a browser
 - Can link to other html files
 
 
