@@ -9,9 +9,9 @@
 
 
 ## HTML is the foundation for EVERY website
-HTML structures the content of a webpage. Its purpose is to organize content.
+HTML structures the content of a webpage. Its purpose is to organize content and **Every** website uses it! So it is worth getting to know very well!
 
-HTML is not concerned about how the content *looks*. That job is left to CSS, which is a totally different language we will be learning later.
+**Note:** HTML is not concerned about how the content *looks*. That job is left to CSS, which is a totally different language we will be learning later.
 
 **Fun Tip** Add the [Web Developer](https://chrome.google.com/webstore/detail/web-developer/bfbameneiokkgbdmiekhjnmfkcnldhhm?hl=en-US) extension to chrome to see how sites look without any CSS!
 
@@ -45,8 +45,8 @@ Some elements are self closing. These elements do not 'wrap' around any content.
 ```html
 <img src="/imgs/kittens_in_a_basket.jpg">
 ```
-
-**Note:** To comment in HTML, use '<!-- -->'. Example:  
+### Commenting in an HTML Document
+To comment within HTML, use '<!-- -->'. Example:  
 ```html
 <!-- Your comment here -->
 <h1> Meowspace </h1>
