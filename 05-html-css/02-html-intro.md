@@ -30,7 +30,7 @@ Here is a real-life example of a Title for my social media site for cats. It is 
 ```html
 <h1> Meowspace </h1>
 ```
-
+### Nested Elements
 Sometimes tags will be nested inside of other tags. To maintain readable code, the parent tags (the outer most ones) should each be on a new line with the nested element indented. Example:
 
 ```html
@@ -40,9 +40,9 @@ Sometimes tags will be nested inside of other tags. To maintain readable code, t
 ```
 Start to be mindful of the relationship between nested elements. It will become important as we progress in the week. In the example above, I wanted my site's title to belong, or be part of, my nav ( navigation) element.
 
+### Self Closing Elements
 Some elements are self closing. These elements do not 'wrap' around any content. For example, to display an image, use the self-closing img tag. It use the src attribute to link to the image's source.
 ```html
-<!-- This image path assumes we have an directory called imgs in the same directory that holds a jpg image called 'kittens_in_a_basket' -->
 <img src="/imgs/kittens_in_a_basket.jpg">
 ```
 
