@@ -71,4 +71,4 @@ This week we will be focusing on creating static sites that focus on front-end c
 
 ### Additional Resources
 
-[MDN What is a Web Server]('https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_web_server') (Highly Recommended)
+[MDN What is a Web Server](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_web_server) (Highly Recommended)
