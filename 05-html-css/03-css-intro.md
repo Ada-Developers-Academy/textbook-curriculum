@@ -1,4 +1,4 @@
-# Intro to CSS
+#  CSS { display: Intro; }
 
 
 ## 📚 Learning Goals 📚
