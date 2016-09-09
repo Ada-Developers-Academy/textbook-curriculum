@@ -89,7 +89,7 @@ Validating Web documents is an important step which can dramatically help improv
 - **NEVER** use [inline styles](http://stackoverflow.com/questions/2612483/whats-so-bad-about-in-line-css).
 - Use proper indentation
 - All content should be wrapped by an element
-- Use [W3Schools](http://www.w3schools.com/) documentation with caution.
+- Use caution with [W3Schools](http://www.w3schools.com/) documentation.
   - [MDN](https://developer.mozilla.org/en-US/) is notably more reliable.
 
 ## Vocab ✅
