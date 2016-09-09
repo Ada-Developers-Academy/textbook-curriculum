@@ -7,6 +7,7 @@
 
 
 ## But why?
+These allow you to organize your document content into logical topical sections.
 
 They bring a big advantage for people having HTML5 browsers and needing the structure to help them understand the page, for instance people needing the help of some assistive technology.
 

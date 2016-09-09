@@ -16,6 +16,7 @@
 
 ## The DOM (Document Object Model)
 
+
 ## Vocab ✅
   - DOM:
     - Document Object Model
