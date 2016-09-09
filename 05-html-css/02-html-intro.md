@@ -21,28 +21,41 @@ After you add it, click on the extension's icon (it looks like a gear). A box wi
 
 ## HTML Syntax
 
-Below is an HTML Element. Content of a website is 'wrapped' by an HTML element. It consists of an opening tag where the tag name is defined between the '<' and '>' symbols. The opening tag needs to be paired with a closing tag so the browser knows when to stop the formatting for that element. The closing tag will be the same as the opening but with a forward slash.
+Every part of a website's content is 'wrapped' by its own HTML element. Elements consist of an opening tag where the tag name is defined between the '<' and '>' symbols. The opening tag needs to be paired with a closing tag so the browser knows when to stop the formatting for that element. The closing tag will be the same as the opening but with a forward slash. Example:
 
 ```html
 <tag> Content </tag>
 ```
-Real-life example of a header element for my social media site for cats:
+Here is a real-life example of a Title for my social media site for cats. It is wrapped with an h1 header element:
 ```html
 <h1> Meowspace </h1>
 ```
 
-Sometimes tags will be nested inside of other tags. To maintain readable code, each tag should be on a new line with the nested element indented.
+Sometimes tags will be nested inside of other tags. To maintain readable code, the parent tags (the outer most ones) should each be on a new line with the nested element indented. Example:
 
 ```html
 <nav>
   <h1> Meowspace <h1>
 </nav>
 ```
-Being mindful of the relationship of nested elements will become important as we progress in the week.
+Start to be mindful of the relationship between nested elements. It will become important as we progress in the week. In the example above, I wanted my site's title to belong, or be part of, my nav ( navigation) element.
 
+
+**Note:** To comment in HTML, use '<!-- -->': 
+```html
+<!-- Your comment here -->
+<h1> Meowspace </h1>
+```
 ## Setup an HTML Document
 
+Before we can start to organize our content into html elements, we must setup our HTML documents so that our code can be properly interpreted by browsers.
+
+Create a new directory for this site. Then create a new file called 'index.html'.
+
+
+
 ```html
+<!-- index.html -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -55,20 +68,20 @@ Being mindful of the relationship of nested elements will become important as we
 </html>
 ```
 
-**
+
 
 ## Validate your HTML
 Validating Web documents is an important step which can dramatically help improving and ensuring their quality. Use this link to see if your HTML is following proper HTML grammar: [Markup Validation Service](https://validator.w3.org/nu/#textarea)
 
 ## Best Practices
 
-- **NEVER** use inline styles.
+- **NEVER** use [inline styles](http://stackoverflow.com/questions/2612483/whats-so-bad-about-in-line-css).
 - Use proper indentation
 - All content should be wrapped by an element
 
 ## Vocab ✅
 - Markup language
-- Elements
+- Element
 
 
 ## 🔑 Key Takeaway
