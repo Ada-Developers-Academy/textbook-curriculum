@@ -40,8 +40,13 @@ Sometimes tags will be nested inside of other tags. To maintain readable code, t
 ```
 Start to be mindful of the relationship between nested elements. It will become important as we progress in the week. In the example above, I wanted my site's title to belong, or be part of, my nav ( navigation) element.
 
+Some elements are self closing. These elements do not 'wrap' around any content. For example, to display an image, use the self-closing img tag. It use the src attribute to link to the image's source.
+```html
+<!-- This image path assumes we have an directory called imgs in the same directory that holds a jpg image called 'kittens_in_a_basket' -->
+<img src="/imgs/kittens_in_a_basket.jpg">
+```
 
-**Note:** To comment in HTML, use '<!-- -->': 
+**Note:** To comment in HTML, use '<!-- -->'. Example:  
 ```html
 <!-- Your comment here -->
 <h1> Meowspace </h1>
@@ -51,7 +56,6 @@ Start to be mindful of the relationship between nested elements. It will become 
 Before we can start to organize our content into html elements, we must setup our HTML documents so that our code can be properly interpreted by browsers.
 
 Create a new directory for this site. Then create a new file called 'index.html'.
-
 
 
 ```html
@@ -67,7 +71,14 @@ Create a new directory for this site. Then create a new file called 'index.html'
   </body>
 </html>
 ```
+What do all these html tags mean?
 
+- [DocType](http://stackoverflow.com/questions/414891/what-is-doctype)
+- [HTML](http://stackoverflow.com/questions/3270615/why-we-use-html-tag-although-my-website-runs-perfect-without-html-tag)
+- [Head](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head)
+  - [charset](http://stackoverflow.com/questions/2241348/what-is-unicode-utf-8-utf-16)
+  - [title]()
+- Body
 
 
 ## Validate your HTML
@@ -78,6 +89,8 @@ Validating Web documents is an important step which can dramatically help improv
 - **NEVER** use [inline styles](http://stackoverflow.com/questions/2612483/whats-so-bad-about-in-line-css).
 - Use proper indentation
 - All content should be wrapped by an element
+- Use [W3Schools](http://www.w3schools.com/) documentation with caution.
+  - [MDN](https://developer.mozilla.org/en-US/) is notably more reliable.
 
 ## Vocab ✅
 - Markup language
