@@ -1,4 +1,4 @@
-# Intro to the web 🌐
+# 🌐 Intro to the web 🌐
 
 
 ## 📚 Learning Goals 📚
@@ -30,16 +30,16 @@ Front-end refers to everything that you actually see on the website, in your bro
 
 Back-end refers to the brains, or logic, of a web application. This code remains "server-side" and often interacts with a database. The back-end utilizes programming languages such as ruby, python, PHP, java or JavaScript.
 
-Fun-Fact: You may hear the phrase 'full-stack developer' thrown around a lot. A full-stack developer is familiar with and prefers to work on both the front-end and back-end of a web application.
+**Fun-Fact:** You may hear the phrase 'full-stack developer' thrown around a lot. A full-stack developer is familiar with and prefers to work on both the front-end and back-end of a web application.
 
 
 ## How the Internet Works
 
-In order for us to access a website,  it's files need to be stored on a computer that is constantly online, otherwise known as a web server.
+In order for us to access a website,  it's files need to be stored on a computer that is constantly online, otherwise known as a [web server](https://www.cloudyn.com/blog/10-facts-didnt-know-server-farms/).
 
 ![HTTP Response and Request](https://mdn.mozillademos.org/files/8659/web-server.svg)
 
- A web server uses a protocol called HTTP to take requests from 'clients'. For example, when you type in 'google.com', your browser (the client) will make a request to google's servers. Google's servers will find the right requested files and send them back to the browser.
+ A web server uses a protocol called HTTP to take requests from 'clients'. For example, when you type in 'google.com', your browser (the client) will make a request to google's servers. Google's servers will find the requested files and send them back to the browser.
 
 
 
@@ -51,7 +51,7 @@ The current versions of browsers we are using right now  understand HTML5 and CS
 
 Be aware that some older browsers do not understand the newest versions of HTML or CSS. One day you many need to develop a site that needs to be accessed by a large demographic, including users with computers from 2001 (or older). Your site may break, or look a lot different on those computer's browsers.
 
-There are also many different browsers (Safari, Internet Explorer, Chrome, Firefox etc). A browser's job is to translate the code that will be displayed. Each browser does this a little bit differently. To ensure a site is widely accessible, developers use browser compatibility tools.
+There are also many different browsers (Safari, Internet Explorer, Chrome, Firefox etc). A browser's job is to translate the code that will be displayed. Each browser does this a little bit differently. To ensure a site is widely accessible, developers use browser [compatibility tools](http://www.catswhocode.com/blog/15-techniques-and-tools-for-cross-browser-css-coding).
 
 As we begin learning about HTML and CSS, we are not going to be concerned about our sites' browser compatibility. Instead we are only going to focus on developing with the most recent version of [Chrome](https://www.google.com/chrome/).  
 
@@ -60,14 +60,14 @@ As we begin learning about HTML and CSS, we are not going to be concerned about 
   - Web application
   - Static
   - Dynamic
-  - front-end
-  - back-end
-  - client
-  - server
+  - Front-end
+  - Back-end
+  - Client
+  - Server
 
 
 ## 🔑 Key Takeaway
-
+This week we will be focusing on creating static sites that focus on front-end code. In order to view the sites we create on the internet, we have to store them on a web server.
 
 ### Additional Resources
 
