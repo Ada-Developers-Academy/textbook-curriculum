@@ -1,7 +1,7 @@
 # Intro to CSS
 
 
-## Learning Goals
+## 📚 Learning Goals 📚
 - Identify parts of CSS Syntax
 - Link a stylesheet to an HTML File
 - Can use selectors to target specific elements to add custom style
@@ -81,7 +81,7 @@ Now preview you webpage, and voila! 🎉
 
 ### Explore all the Styles!
 
-To get started, we will use MDN's documentation on Fundamental Font and Text styling to learn common properties and values. [Click here](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals) to get started! 
+To get started, we will use MDN's documentation on Fundamental Font and Text styling to learn common properties and values. [Click here](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals) to get started!
 
 **Note** CSS has ALOT of properties and even more values. It is not at all practical to memorize them all. Instead, looking up a kind of style you want to achieve will yield some code examples with properties and values to try.  
 
@@ -95,13 +95,14 @@ For example, I want to change my font to be larger. I could google 'css change f
 - Keep all styles for a selector in one rule-set
 
 
-##Vocab
+## Vocab ✅
 - Declaration
 - Selector
 - Property
 - Rule-set
 
+## 🔑 Key Takeaway
+Use CSS to define styles for your documents, including the design, layout and variations in display for different devices and screen sizes.
 
 ### Additional Resources
-
 [MDN CSS Syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax)
