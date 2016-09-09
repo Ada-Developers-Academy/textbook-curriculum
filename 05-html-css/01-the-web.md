@@ -14,7 +14,7 @@
 Most modern sites are dynamic. Every time you sign-in to a site and are given custom content based on your preferences (like who you follow), you are interacting with a dynamic site. These sites have logic that is involved in serving content, thus requiring the use of programming languages like ruby, python or PHP.
 Common Examples: Facebook, Gmail and Medium
 
-A static site will never change. Everybody that visits the site will be given the same content. The content will rarely change, and if it does, it is typically by only one or few people. These sites will only use HTML, CSS and possibly basic JavaScript.
+A static site presents the same content to every visitor. Everybody that visits the site will be given the same content. The content will rarely change, and if it does, it is typically by only one or few people manually. These sites will only use HTML, CSS and possibly basic JavaScript.
  Common Examples: restaurants, small business and individual's portfolio sites.
 
 What makes these sites static or dynamic?
