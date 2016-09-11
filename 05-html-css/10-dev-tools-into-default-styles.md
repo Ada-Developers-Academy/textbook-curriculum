@@ -16,6 +16,8 @@
 
 ## The DOM (Document Object Model)
 
+## Look at Element's Defaut Styles
+
 
 ## Vocab ✅
   - DOM:
