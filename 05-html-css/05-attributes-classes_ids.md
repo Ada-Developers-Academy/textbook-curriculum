@@ -39,7 +39,7 @@ Giving Elements an ID or class allows you to target specific elements to style, 
    <h1 class="page-title"> Hello World! </h1>
    ```
 
-In css, to select the class, use a period and the class name as the selector. Like so: 
+In css, to select the class, use a period and the class name as the selector. Like so:
    ```css
     .page-title {
       color: gray;
@@ -61,10 +61,28 @@ Use the ID when you have a single element on the page that will take the style.
 
 
 ## Elements with Multiple Classes
+HTML Elements can have multiple classes. To accomplish this,
+use the same class attribute and add a space in between the two class name values.
 
+```html
+<h1 class="page-title highlight"> Hello World! </h1>
+```
+Then, define your styles with css rule-sets exactly as you have already been. 
+```css
+.page-title {
+  font-family: helvetica;
+  font-size: 5rem;
+}
 
+.highlight {
+  background-color: yellow;
+}
+```
 
 ## 🔑 Key Takeaway
-A class is a type of item and the id is the unique name of an item on the page. Giving Elements an ID or class allows you to target specific elements to style, while providing a semantic, meaningful name to css rules.
+A class is a _type_ of item and the ID is the _unique name_ of an item on the page. Giving elements an ID or class allows you to target specific elements to style, while providing a semantic, meaningful name to for css rules.
 
 ### Additional Resources
+- [HTML Dog Basic Overview](http://www.htmldog.com/guides/css/intermediate/classid/)
+
+[CSS Tricks The Difference Between ID and Class](https://css-tricks.com/the-difference-between-id-and-class/)
