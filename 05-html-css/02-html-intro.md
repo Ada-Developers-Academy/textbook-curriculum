@@ -4,6 +4,7 @@
 ## 📚 Learning Goals 📚
 - Understand HTML syntax & vocabulary
 - Can identify what tags are most appropriate for specific content
+- Can view document in a browser
 - Can link to other html files
 
 
@@ -11,7 +12,7 @@
 ## HTML is the foundation for EVERY website
 HTML structures the content of a webpage. Its purpose is to organize content and **Every** website uses it! So it is worth getting to know very well!
 
-HTML stands for Hypertext Markup Language. It is a markup language, meaning that it only is only concerned about giving content structure. As opposed to a programming language that handles logic and functionality. 
+HTML stands for Hypertext Markup Language. It is a markup language, meaning that it only is only concerned about giving content structure. As opposed to a programming language that handles logic and functionality.
 
 **Note:** HTML is not concerned about how the content *looks*. That job is left to CSS, which is a totally different language we will be learning later.
 
@@ -108,7 +109,8 @@ What do all these html tags mean?
 ```
 
 ## Organize the Content
-I have a few short
+Use lorem ipsum and placeholder photo generators to create and organize content for a page that that has 3 blog posts.
+
 
 ## Validate your HTML
 Validating Web documents is an important step which can help improve and ensure their quality. Use this link to see if your HTML is following proper HTML syntax: [Markup Validation Service](https://validator.w3.org/nu/#textarea)
