@@ -11,6 +11,8 @@
 ## HTML is the foundation for EVERY website
 HTML structures the content of a webpage. Its purpose is to organize content and **Every** website uses it! So it is worth getting to know very well!
 
+HTML stands for Hypertext Markup Language. It is a markup language, meaning that it only is only concerned about giving content structure. As opposed to a programming language that handles logic and functionality. 
+
 **Note:** HTML is not concerned about how the content *looks*. That job is left to CSS, which is a totally different language we will be learning later.
 
 **Fun Tip** Add the [Web Developer](https://chrome.google.com/webstore/detail/web-developer/bfbameneiokkgbdmiekhjnmfkcnldhhm?hl=en-US) extension to chrome to see how sites look without any CSS!
@@ -81,8 +83,35 @@ What do all these html tags mean?
 - [Body](http://htmldog.com/references/html/tags/body/)
 
 
+## Common HTML Tags
+```html
+<!-- headers (h1..h6)-->
+<h1> </h1>
+<h2> </h2>
+<h3> </h3>
+
+<!-- Paragraph -->
+<p> </p>
+
+<!-- A Link  (and my favorite bit of advice.)-->
+<a href="http://google.com"> Google It. </a>
+
+<!-- Image -->
+<img src="http://www.fillmurray.com/1000/500">
+
+<!-- An Unordered List with List Items -->
+<ul>
+  <li> </li>
+  <li> </li>
+  <li> </li>
+<ul>
+```
+
+## Organize the Content
+I have a few short
+
 ## Validate your HTML
-Validating Web documents is an important step which can dramatically help improving and ensuring their quality. Use this link to see if your HTML is following proper HTML grammar: [Markup Validation Service](https://validator.w3.org/nu/#textarea)
+Validating Web documents is an important step which can help improve and ensure their quality. Use this link to see if your HTML is following proper HTML syntax: [Markup Validation Service](https://validator.w3.org/nu/#textarea)
 
 ## Best Practices
 
