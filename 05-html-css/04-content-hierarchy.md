@@ -49,9 +49,10 @@ When elements become nested inside of each other they start to form relationship
 - The element wrapping a child is the parent.
 - Elements on the same level as each other are sibling elements.
 
-This diagram of the relationship tree for the code below.
+A visual diagram of elements relationships to each other:
 ![Element Relationship Diagram](imgs/content-hierarchy-diagram.png)
 
+The relationship tree above is modeled from the following code:
 ```html
 <body>
   <header>
