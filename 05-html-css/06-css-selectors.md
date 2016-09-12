@@ -1,7 +1,5 @@
 # CSS Selectors
 
-
-
 ## Learning Goals 📚
 - Know a variety of ways of targeting elements with Selectors
 - Identify how to properly use each kind of selector
@@ -99,6 +97,8 @@ Here are common selectors based on relationships
 Pseudo-classes and pseudo-elements provide a more extensive set of options to select and manipulate html elements.
 
 ### Additional Resources
-- [MDN CSS Selectors](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Selectors)
+- [MDN CSS Introduction Selectors](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Selectors)
+
+- [MDN Selectors](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started/Selectors) *(more in depth)*
 
 - [Smashing Magazine's Ultimate Guide to CSS Pseudo-Classes And Pseudo-Elements](https://www.smashingmagazine.com/2016/05/an-ultimate-guide-to-css-pseudo-classes-and-pseudo-elements/)
