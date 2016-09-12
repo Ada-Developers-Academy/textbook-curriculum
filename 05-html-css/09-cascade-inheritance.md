@@ -35,11 +35,11 @@ For example:
        color: red
      }
   ```
-Based on the code above, when you open your sample document in your browser, the <strong> elements are bolder than the rest of the text. This comes from the browser's default style for HTML.
+Based on the code above, when you open your sample document in your browser, the strong elements are bolder than the rest of the text. This comes from the browser's default style for HTML.
 
-The <strong> elements are red. This comes from our custom styling.
+The strong elements are red. This comes from our custom styling.
 
-The <strong> elements also inherit much of the <p> element's style, because they are its children. In the same way, the <p> element inherits much of the <body> element's style.
+The strong elements also inherit much of the p element's style, because they are its children. In the same way, the p element inherits much of the body element's style.
 
 ## Specificity
 
@@ -50,6 +50,7 @@ If more than one rule applies to an element and sets the same property, then **C
 Some selectors are more specific than others. For example, the class and ID selectors are more specific than simple HTML element selectors. When two rules select the same element and the properties contradict one another, the rule with the more specific selector takes precedence.
 
 ### Specificity Hierarchy
+
 Every selector has its place in the specificity hierarchy. There are four distinct categories which define the specificity level of a given selector:
 1. Inline styles (Presence of style in document).
 An inline style lives within your XHTML document. It is attached directly to the element to be styled. E.g. <h1 style="color: #fff;">
