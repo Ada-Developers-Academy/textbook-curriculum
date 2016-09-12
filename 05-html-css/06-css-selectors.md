@@ -80,11 +80,11 @@ Remember how we emphasized elements relationship with the sectioning elements le
 Here are common selectors based on relationships
 
 | Selector      | Selects        
-| ------------- |:-------------:|
+| ------------- |-------------|
 | A E      | Any E element that is a descendant of an A element (that is: a child, or a child of a child, etc.) |
 | A > E     | Any E element that is a child (i.e. direct descendant) of an A element     |  
 | E:first-child | Any E element that is the first child of its parent    |  
-| B + E | Any E element that is the next sibling of a B element (that is: the next child of the same parent)    | 
+| B + E | Any E element that is the next sibling of a B element (that is: the next child of the same parent)    |
 
 
 ## Practice!
