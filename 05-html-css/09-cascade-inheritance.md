@@ -35,11 +35,11 @@ For example:
        color: red
      }
   ```
-Based on the code above, when you open your sample document in your browser, the <strong> elements are bolder than the rest of the text. This comes from the browser's default style for HTML.
+Based on the code above, when you open your sample document in your browser, the strong elements are bolder than the rest of the text. This comes from the browser's default style for HTML.
 
-The <strong> elements are red. This comes from our custom styling.
+The strong elements are red. This comes from our custom styling.
 
-The <strong> elements also inherit much of the <p> element's style, because they are its children. In the same way, the <p> element inherits much of the <body> element's style.
+The strong elements also **inherit** much of the p element's style, because they are its children. In the same way, the p element inherits much of the body element's style.
 
 ## Specificity
 
@@ -50,21 +50,27 @@ If more than one rule applies to an element and sets the same property, then **C
 Some selectors are more specific than others. For example, the class and ID selectors are more specific than simple HTML element selectors. When two rules select the same element and the properties contradict one another, the rule with the more specific selector takes precedence.
 
 ### Specificity Hierarchy
+
 Every selector has its place in the specificity hierarchy. There are four distinct categories which define the specificity level of a given selector:
-1. Inline styles (Presence of style in document).
-An inline style lives within your XHTML document. It is attached directly to the element to be styled. E.g. <h1 style="color: #fff;">
-2. IDs (# of ID selectors)
-ID is an identifier for your page elements, such as #div.
-3. Classes, attributes and pseudo-classes (# of class selectors).
-This group includes .classes, [attributes] and pseudo-classes such as :hover, :focus etc.
-4. Elements and pseudo-elements (# of Element (type) selectors).
+
+- Inline styles (Presence of style in document). An inline style lives within your XHTML document. It is attached directly to the element to be styled, for example:
+```html
+  <h1 style="color: #fff;">
+```
+- IDs (# of ID selectors). ID is an identifier for your page elements, such as #div.
+- Classes, attributes and pseudo-classes (# of class selectors). This group includes .classes, [attributes] and pseudo-classes such as :hover, :focus etc.
+- Elements and pseudo-elements (# of Element (type) selectors).
 Including for instance :before and :after.
 
 
 ## Continue Learning
 Understanding CSS selector's specificity can be one of the most difficult parts. It is something that will take practice! Fortunately for us, there are great articles that breakdown this complex topic, such as Smashing Magazine's [*CSS Specificity: Things You Should Know*](https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/) Article.
 
-And for you visual learners and/or Star Wars fans, there is [this](https://stuffandnonsense.co.uk/archives/images/specificitywars-05v2.jpg). *(Each character (selector) is given its own Sith power (specificity value) depending on how powerful they are in the ways of the Dark Side. A storm trooper is less powerful than Vader who is in turn less powerful than the Emperor.)*
+And for you visual learners and/or Star Wars fans, there is [this](https://stuffandnonsense.co.uk/archives/images/specificitywars-05v2.jpg).
+
+
+## Best Practices
+- **Never** use inline styling. It ranks high on the specificity scale and override anything in your css. Since it's mixed in with HTML, it will be difficult to maintain.
 
 ## Vocab ✅
   -
