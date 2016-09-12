@@ -80,9 +80,9 @@ The relationship tree above is modeled from the following code:
         <ul>
           <li><a href="#"> Login  </a></li>
           <li><a href="#"> Signup </a></li>
-        <ul>
-      <nav>
-    <header>
+        </ul>
+      </nav>
+    </header>
     <section>
       <article>
         <h2> Everybody Wants to be a Cat </h2>
@@ -101,7 +101,7 @@ The relationship tree above is modeled from the following code:
       <ul>
         <li><a href="#"> Contact </a></li>
         <li><a href="#"> Careers </a></li>
-      <ul>
+      </ul>
     </footer>
   </body>
 ```
