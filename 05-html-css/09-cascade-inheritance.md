@@ -39,7 +39,7 @@ Based on the code above, when you open your sample document in your browser, the
 
 The strong elements are red. This comes from our custom styling.
 
-The strong elements also inherit much of the p element's style, because they are its children. In the same way, the p element inherits much of the body element's style.
+The strong elements also **inherit** much of the p element's style, because they are its children. In the same way, the p element inherits much of the body element's style.
 
 ## Specificity
 
@@ -54,8 +54,8 @@ Some selectors are more specific than others. For example, the class and ID sele
 Every selector has its place in the specificity hierarchy. There are four distinct categories which define the specificity level of a given selector:
 
 - Inline styles (Presence of style in document). An inline style lives within your XHTML document. It is attached directly to the element to be styled, for example:
-```
-  html <h1 style="color: #fff;">
+```html
+  <h1 style="color: #fff;">
 ```
 - IDs (# of ID selectors). ID is an identifier for your page elements, such as #div.
 - Classes, attributes and pseudo-classes (# of class selectors). This group includes .classes, [attributes] and pseudo-classes such as :hover, :focus etc.
