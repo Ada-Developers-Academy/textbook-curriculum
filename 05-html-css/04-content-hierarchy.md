@@ -8,7 +8,7 @@
 ## What are Sectioning Elements
 HTML has sectioning elements that allow you to organize your HTML document into logical topical sections.
 
-They bring a big advantage for people having HTML5 browsers and needing the structure to help them understand the page, for instance people needing the help of some assistive technology, like a [screen reader](http://webaim.org/techniques/screenreader/).
+They bring a big advantage for people who need the structure to help them understand the page, for instance people needing the help of some assistive technology, like a [screen reader](http://webaim.org/techniques/screenreader/).
 
 
 Below are tags that group elements together.
