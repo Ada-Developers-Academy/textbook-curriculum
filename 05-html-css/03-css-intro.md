@@ -42,18 +42,18 @@ Example:
 ```
 What does the above code do?
 
-**Note** After coming from a backend programming, HTML and CSS can be difficult as it never throws errors if there is a syntax error. Instead it just won't do what you want it to. We will learn some debugging strategies throughout the week.
+**Note** After coming from backend programming, HTML and CSS can be difficult as it never throws errors if there is a syntax error. Instead it just won't do what you want it to. We will learn some debugging strategies throughout the week.
 
 ## Adding CSS to a Website
 There are a few different ways to include CSS in your website. We are only going to use external style sheets to maintain an organized code base.
 
 ### An external style sheet has many advantages. Keeping the styles separate from your HTML content:
--  Helps avoid duplication
+- Helps avoid duplication
 - Makes maintenance easier
 - Allows you to make a site-wide change in one place
 
 ### Create a new CSS Style Sheet Document
-In your project's directory, create a new folder called 'styles'. Inside of your new directory, create a new filed called 'style.css'.
+In your project's directory, create a new folder called 'styles'. Inside of your new directory, create a new file called 'style.css'.
 
 Add a new rule-set, changing all the h1 elements in your html.
 
@@ -80,7 +80,7 @@ Now preview you webpage, and voila! 🎉
 
 To get started, we will use MDN's documentation on Fundamental Font and Text styling to learn common properties and values. [Click here](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals) to get started!
 
-**Note** CSS has ALOT of properties and even more values. It is not at all practical to memorize them all. Instead, looking up a kind of style you want to achieve will yield some code examples with properties and values to try.  
+**Note** CSS has A LOT of properties and even more values. It is not at all practical to memorize them all. Instead, looking up a kind of style you want to achieve will yield some code examples with properties and values to try.  
 
 For example, I want to change my font to be larger. I could google 'css change font size'.
 
@@ -92,7 +92,6 @@ For example, I want to change my font to be larger. I could google 'css change f
 
 
 ## Vocab ✅
-<<<<<<< HEAD
 - Markup language
 - Element
 - Declaration
