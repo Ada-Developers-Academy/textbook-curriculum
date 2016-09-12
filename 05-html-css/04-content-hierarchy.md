@@ -116,3 +116,4 @@ This diagram of the relationship tree for the code below.
 
 - [Treehouse Blog Post](http://blog.teamtreehouse.com/use-html5-sectioning-elements) (freely available)
 - [Element Relationships](http://www.littlewebhut.com/css/info_element_relationships/)
+- [A Look Into Proper HTML5 Semantics](http://www.hongkiat.com/blog/html-5-semantics/)
