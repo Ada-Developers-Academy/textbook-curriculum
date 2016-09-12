@@ -42,8 +42,9 @@ In order for us to access a website,  it's files need to be stored on a computer
  A web server uses a protocol called HTTP to take requests from 'clients'. For example, when you type in 'google.com', your browser (the client) will make a request to google's servers. Google's servers will find the requested files and send them back to the browser.
 
  ![How Information Travels on the Web](imgs/netdiag.gif)
- [Analogy between postal mail and TCP/IP](http://bpastudio.csudh.edu/fac/lpress/471/hout/netech/postofficelayers.htm)
- [Warriors of the Net Video](https://www.youtube.com/watch?v=PBWhzz_Gn10)
+ 
+ - [Analogy between postal mail and TCP/IP](http://bpastudio.csudh.edu/fac/lpress/471/hout/netech/postofficelayers.htm)
+ - [Warriors of the Net Video](https://www.youtube.com/watch?v=PBWhzz_Gn10)
 
 ## Browser Compatibility
 
