@@ -11,12 +11,13 @@
 
 In a document, each element is represented as a rectangular box. Understanding the structure of an elements box is essential in setting it's size and the position.
 
-In CSS, each of these rectangular boxes is described using the standard box model. This model describes the content of the space taken by an element. Each box has four edges: the margin edge, border edge, padding edge, and content edge.
+In CSS, each of these rectangular boxes are described using the standard box model. This model describes the content of the space taken by an element. Each box has four edges: the margin edge, border edge, padding edge, and content edge.
 
 ![Box Model Diagram](imgs/css-box-model.jpg)
 [Image source](http://www.slideshare.net/niciuzza/css-box-model-25142045)
 
-Adding the following code to the top of your CSS file uses
+
+With a site you have already created, add the following
 
 ```css
   * {
