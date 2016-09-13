@@ -115,7 +115,7 @@ Use lorem ipsum and placeholder photo generators to create and organize content 
 ## Validate your HTML
 Validating Web documents is an important step which can help improve and ensure their quality. Use this link to see if your HTML is following proper HTML syntax: [Markup Validation Service](https://validator.w3.org/nu/#textarea)
 
-## Best Practicest
+## Best Practices
 
 - **NEVER** use [inline styles](http://stackoverflow.com/questions/2612483/whats-so-bad-about-in-line-css).
 - Use proper indentation
