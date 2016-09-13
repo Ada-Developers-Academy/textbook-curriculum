@@ -2,7 +2,8 @@
 
 
 ## 📚 Learning Goals 📚
-- Understand how styles are applied
+- See how styles can cascade based on nested and related elements
+- See how CSS prioritizes style choices based on the specificity of the selector
 
 ## What is Cascading?
 
@@ -73,11 +74,11 @@ And for you visual learners and/or Star Wars fans, there is [this](https://stuff
 - **Never** use inline styling. It ranks high on the specificity scale and override anything in your css. Since it's mixed in with HTML, it will be difficult to maintain.
 
 ## Vocab ✅
-  -
-
+  - cascade
+  - specificity
 
 ## 🔑 Key Takeaway
-
+The way in which CSS is applied to your HTML elements can sometimes seem straightforward. The concepts highlighted in this lecture become more and more important when we create more expansive styles. This requires more care and caution to be taken to ensure that styles are being applied in the way you expect.
 
 ### Additional Resources
 
