@@ -12,7 +12,7 @@
 ## HTML is the foundation for EVERY website
 HTML structures the content of a webpage. Its purpose is to organize content and **Every** website uses it! So it is worth getting to know very well!
 
-HTML stands for Hypertext Markup Language. It is a markup language, meaning that it only is only concerned about giving content structure. As opposed to a programming language that handles logic and functionality.
+HTML stands for Hypertext Markup Language. It is a markup language, meaning that it only is concerned about giving content structure. As opposed to a programming language that handles logic and functionality.
 
 **Note:** HTML is not concerned about how the content *looks*. That job is left to CSS, which is a totally different language we will be learning later.
 
@@ -29,7 +29,7 @@ Every part of a website's content is 'wrapped' by its own HTML element. Elements
 ```html
 <tag> Content </tag>
 ```
-Here is a real-life example of a Title for my social media site for cats. It is wrapped with an h1 header element:
+Here is a real-life example of a heading for my social media site for cats. It is wrapped with an h1 header element:
 ```html
 <h1> Meowspace </h1>
 ```
@@ -41,7 +41,7 @@ Sometimes tags will be nested inside of other tags. To maintain readable code, t
   <h1> Meowspace <h1>
 </nav>
 ```
-Start to be mindful of the relationship between nested elements. It will become important as we progress in the week. In the example above, I wanted my site's title to belong, or be part of, my nav ( navigation) element.
+Start to be mindful of the relationship between nested elements. It will become important as we progress in the week. In the example above, I wanted my site's heading to belong, or be part of, my nav (navigation) element.
 
 ### Self Closing Elements
 Some elements are self closing. These elements do not 'wrap' around any content. For example, to display an image, use the self-closing img tag. It use the src attribute to link to the image's source.
@@ -49,7 +49,7 @@ Some elements are self closing. These elements do not 'wrap' around any content.
 <img src="/imgs/kittens_in_a_basket.jpg">
 ```
 ### Commenting in an HTML Document
-To comment within HTML, use '<!-- -->'. Example:  
+To comment within HTML, use `<!-- -->`. Example:  
 ```html
 <!-- Your comment here -->
 <h1> Meowspace </h1>
@@ -109,7 +109,7 @@ What do all these html tags mean?
 ```
 
 ## Organize the Content
-Use lorem ipsum and placeholder photo generators to create and organize content for a page that that has 3 blog posts.
+Use lorem ipsum and placeholder photo generators to create and organize content for a page that has 3 blog posts.
 
 
 ## Validate your HTML
