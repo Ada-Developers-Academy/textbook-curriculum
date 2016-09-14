@@ -7,7 +7,7 @@
 ## Positioning
 The __position__ property is used to modify where an element appears on the screen. Like __float__, it can affect how other elements flow around it. However, __position__ provides a more fine-grained control over element placement.
 
-There are 4 possible values for __position__: `static`, `relative`, `absolute` and `float`
+There are 4 possible values for __position__: `static`, `relative`, `absolute` and `fixed`
 
 ### Static Positioning
 `static` is the default position, applied to all the elements we've worked with so far. A statically positioned element is included normally in the flow of the website.
