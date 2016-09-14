@@ -89,7 +89,11 @@ footer {
 }
 ```
 
-If you don't have a convenient `footer` you can add an empty `div`, or use one of the [https://css-tricks.com/all-about-floats/#article-header-id-4](techniques described here).
+If you don't have a convenient `footer` you could add an empty `div`, but then your document will contain tags without any semantic meaning, making our HTML less POSH.
+
+Another option is to set `overflow: hidden` on the parent element (`main` in this case). This will force the parent to expand to encompass its children. This method can have side effects however, for example an unwanted scrollbar, so use it with caution.
+
+[https://css-tricks.com/all-about-floats/#article-header-id-4](Read more about this oddity of HTML/CSS)
 
 ### Aside: 70% + 30% != 100%
 Be aware that if you increase that 25% to 30%, the two articles won't sit side-by-side. What's going on?
