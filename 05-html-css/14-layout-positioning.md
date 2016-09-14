@@ -48,7 +48,7 @@ img {
 
 ![Rendering Relative Positions](https://github.com/droberts-ada/textbook-curriculum/blob/positioning/05-html-css/imgs/relative_position.png "Rendering Relative Positions")
 
-(This example stolen more-or-less wholesale from the [https://developer.mozilla.org/en-US/docs/Web/CSS/position#Relative_positioning](MDN guide on position))
+(This example stolen more-or-less wholesale from the [MDN guide on position](https://developer.mozilla.org/en-US/docs/Web/CSS/position#Relative_positioning))
 
 ### Absolute Positioning
 When an element has `absolute` positioning, it is rendered relative to the closest ancestor with a non-static position. If all its parents are static, it will be rendered relative to the whole page. Unlike with `relative` positioning, *no space is made in the flow* for the element.
@@ -135,7 +135,7 @@ main {
 }
 ```
 
-It's worth noting that interesting things can happen if you render fixed elements on top of one another - see [https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context](MDN's guide on the stacking context).
+It's worth noting that interesting things can happen if you render fixed elements on top of one another - see [MDN's guide on the stacking context](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context).
 
 ## Vocab ✅
 - `position`
@@ -148,4 +148,4 @@ It's worth noting that interesting things can happen if you render fixed element
 Use the __position__ property to place elements outside the normal flow of the page.
 
 ### Additional Resources
-- [https://developer.mozilla.org/en-US/docs/Web/CSS/position](MDN on position)
+- [MDN on position](https://developer.mozilla.org/en-US/docs/Web/CSS/position)
