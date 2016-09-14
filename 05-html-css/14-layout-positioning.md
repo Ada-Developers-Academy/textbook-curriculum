@@ -46,7 +46,7 @@ img {
 }
 ```
 
-![Rendering Relative Positions](https://github.com/droberts-ada/textbook-curriculum/blob/positioning/05-html-css/imgs/relative_position.png "Rendering Relative Positions")
+![Rendering Relative Positions](https://github.com/Ada-C6/textbook-curriculum/blob/positioning/05-html-css/imgs/relative_position.png "Rendering Relative Positions")
 
 (This example stolen more-or-less wholesale from the [MDN guide on position](https://developer.mozilla.org/en-US/docs/Web/CSS/position#Relative_positioning))
 
@@ -108,7 +108,7 @@ p {
 }
 ```
 
-![Rendering Absolute Positions](https://github.com/droberts-ada/textbook-curriculum/blob/positioning/05-html-css/imgs/absolute_position.png "Rendering Absolute Positions")
+![Rendering Absolute Positions](https://github.com/Ada-c6/textbook-curriculum/blob/positioning/05-html-css/imgs/absolute_position.png "Rendering Absolute Positions")
 
 ### Fixed Positioning
 When an element has `fixed` positioning, it is always rendered at the same place on the screen. Like an `absolute` element, no space will be made for a `fixed` element in the flow of a website. However, while an `absolute` element still moves with the rest of the page, a `fixed` element does not.
