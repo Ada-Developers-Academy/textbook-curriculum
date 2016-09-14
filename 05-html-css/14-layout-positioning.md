@@ -56,6 +56,7 @@ When an element has `absolute` positioning, it is rendered relative to the close
 As an example, lets put some text on top of an image.
 
 ```html
+<!-- index.html -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -74,6 +75,7 @@ As an example, lets put some text on top of an image.
 ```
 
 ```css
+/* styles.css */
 div.image-container {
   display: inline-block;
   position: relative;
@@ -109,11 +111,42 @@ p {
 ![Rendering Absolute Positions](https://github.com/droberts-ada/textbook-curriculum/blob/positioning/05-html-css/imgs/absolute_position.png "Rendering Absolute Positions")
 
 ### Fixed Positioning
+When an element has `fixed` positioning, it is always rendered at the same place on the screen. Like an `absolute` element, no space will be made for a `fixed` element in the flow of a website. However, while an `absolute` element still moves with the rest of the page, a `fixed` element does not.
+
+Common uses of fixed elements include navigation bars that stay at the top of the page and banners or advertisements that scroll with the user.
+
+To demonstrate, we'll add a fixed navigation bar to our [https://github.com/Ada-C6/bob-ross](Bob Ross site) from the previous lecture. These instructions should work with either the version we've modified or a fresh copy.
+
+First, the CSS for the header. Note that we set the width to 100% (of the page). Since a fixed element has no containing element, its size will default to that of its content.
+
+```css
+header {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  margin: 0px auto;
+}
+```
+
+That seems to work, but something is wrong - the header is being drawn over the top of our website! This means some of our content isn't visible. To fix this, add a properly sized top margin to the next section (`main` in this example).
+
+```css
+main {
+  margin: 160px 0 0 0;
+}
+```
+
+It's worth noting that interesting things can happen if you render fixed elements on top of one another - see [https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context](MDN's guide on the stacking context).
 
 ## Vocab ✅
-
+- `position`
+- `static`
+- `relative`
+- `absolute`
+- `fixed`
 
 ## Key Takeaway
-
+Use the __position__ property to place elements outside the normal flow of the page.
 
 ### Additional Resources
+- [https://developer.mozilla.org/en-US/docs/Web/CSS/position](MDN on position)
