@@ -1,7 +1,7 @@
 # Layout: Floats
 
 ## Sample Code
-For this lecture, we'll be modifying [https://github.com/Ada-C6/bob-ross](this silly but plausible website). Go ahead and fork/clone it now.
+For this lecture, we'll be modifying [this silly but plausible website](https://github.com/Ada-C6/bob-ross). Go ahead and fork/clone it now.
 
 ## Learning Goals 📚
 - Use the *float* property to lay out web pages
@@ -17,7 +17,7 @@ What if you want to have multiple block elements side-by-side?
 
 Or wrap text around an image?
 
-Example: [http://www.nytimes.com/](New York Times)
+Example: [New York Times](http://www.nytimes.com/)
 
 ## Float
 The answer is with the float property.
@@ -89,14 +89,18 @@ footer {
 }
 ```
 
-If you don't have a convenient `footer` you can add an empty `div`, or use one of the [https://css-tricks.com/all-about-floats/#article-header-id-4](techniques described here).
+If you don't have a convenient `footer` you could add an empty `div`, but then your document will contain tags without any semantic meaning, making our HTML less POSH.
+
+Another option is to set `overflow: hidden` on the parent element (`main` in this case). This will force the parent to expand to encompass its children. This method can have side effects however, for example an unwanted scrollbar, so use it with caution.
+
+[Read more about this oddity of HTML/CSS](https://css-tricks.com/all-about-floats/#article-header-id-4)
 
 ### Aside: 70% + 30% != 100%
 Be aware that if you increase that 25% to 30%, the two articles won't sit side-by-side. What's going on?
 
 This is a strange quirk of HTML/CSS - the whitespace between the two articles takes up some space, which makes the total more than 100% and bumps the second article.
 
-[http://stackoverflow.com/questions/6871996/css-two-inline-block-width-50-elements-dont-stack](Read more here).
+[Read more here](http://stackoverflow.com/questions/6871996/css-two-inline-block-width-50-elements-dont-stack).
 
 ## Vocab
 - float
@@ -109,4 +113,4 @@ This is a strange quirk of HTML/CSS - the whitespace between the two articles ta
 - If all the children of an element are floated, that element will __collapse__
 
 ### Additional Resources
-- [https://css-tricks.com/all-about-floats/](All About Floats)
+- [All About Floats](https://css-tricks.com/all-about-floats/)
