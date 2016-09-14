@@ -2,8 +2,13 @@
 
 
 ## Learning Goals 📚
--
--
+- Identify the key pieces of the box model:
+  - margin
+  - border
+  - padding
+  - content
+- Understand the difference between block & inline elements
+- Understand the different ways to specify measurements
 
 ## What is the Box Model
 
@@ -34,26 +39,49 @@ Padding and then border expand the dimensions of the box outward from the elemen
 
 
 ### Block Elements vs Inline-Block Elements
-** Block Elements **
-examples: h1..h6, p, ul
+Each HTML element has a default display value of block or inline.
 
-** Inline Elements **
-examples: a, , li
+#### Block Elements
+Block-level elements start on a new line and take up the full width available (stretch from left and right).
+
+Some examples of block-level elements include:
+- `<h1>` through `<h6>`
+- `<p>`
+- `<ul>`
+- `<div>`
+
+
+#### Inline Elements
+Inline elements _do not_ start on a new line and only take up as much width as necessary.
+
+Some examples on inline elements include:
+- `<img>`
+- `<a>`
+
+Let's see it in action! The way we can put together these elements will help us see how they work with one another.
+
+Try:
+- Two small thumbnail images, one after the other
+- Two small thumbnail images, both inside `div` tags
+
+Whats the difference?
+
+We will continue to dive into these types of display properties in a future discussion.
 
 ## Measurements
 
-You site may be viewed on a wide range of devices, from mobile phones to 50" smart TV's.
+You site may be viewed on a wide range of devices, from mobile phones to 50" smart TV's. Creating appropriate measurements are one way that we can ensure that our web sites will be viewed in a visually pleasing way on many different devices.
 
 ### Absolute Measurements
-
-**Pixels**
+One way to specify measurements is by using the screen pixels. This is done by adding `px` to the end of the value.
 
 ### Relative Measurements
 
-** Percentages **
+#### Percentages
+Percentages can be used in measurements that will be a percentage relative to another value. This is done by adding `%` to the end of the value.
 
-
-** em or rem **
+#### `em` or `rem`
+This is a relative measurement based on the heigh of a font. One `em` unit is equivalent to the size of a given font.
 
 ### It all Adds Up!
 
@@ -65,7 +93,7 @@ margin-top + border-top + padding-top + height + padding-bottom + border-bottom 
 
 This is important to consider when setting an element's width. Even if you have two elements with a width of 50%, they will not show up side by side if there is any padding, margin or border adding to the widths.
 
-** Note ** A lot of front-end developers prefer to set the width or height to *include* the padding and border along with the content, but not the margin. [This article](http://www.paulirish.com/2012/box-sizing-border-box-ftw/), written by a google chrome developer, demonstrates how to do so!
+**Note** A lot of front-end developers prefer to set the width or height to **include** the padding and border along with the content, but not the margin. [This article](http://www.paulirish.com/2012/box-sizing-border-box-ftw/), written by a google chrome developer, demonstrates how to do so!
 
 
 ## Use DevTools to View an Element's Box-Model
