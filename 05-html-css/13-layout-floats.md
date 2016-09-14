@@ -1,7 +1,7 @@
 # Layout: Floats
 
 ## Sample Code
-For this lecture, we'll be modifying [https://github.com/droberts-ada/bob-ross](this silly but plausible website). Go ahead and fork/clone it now.
+For this lecture, we'll be modifying [https://github.com/Ada-C6/bob-ross](this silly but plausible website). Go ahead and fork/clone it now.
 
 ## Learning Goals 📚
 - Use the *float* property to lay out web pages
