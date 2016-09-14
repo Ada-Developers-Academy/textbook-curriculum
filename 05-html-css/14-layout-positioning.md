@@ -122,9 +122,8 @@ First, the CSS for the header. Note that we set the width to 100% (of the page).
 ```css
 header {
   position: fixed;
-  width: 100%;
   top: 0px;
-  margin: 0px auto;
+  width: 100%;
 }
 ```
 
