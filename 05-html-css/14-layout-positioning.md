@@ -137,6 +137,14 @@ main {
 
 It's worth noting that interesting things can happen if you render fixed elements on top of one another - see [MDN's guide on the stacking context](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context).
 
+### Comparison of Different `position` Values
+| `position` | Reserves Space in Containing Element's Flow | Coordinates Based on |
+|:-----------|:--------------------------------------------|:---------------------|
+| `relative` | Yes, in original spot                       | Original spot in the flow |
+| `absolute` | No                                          | Closest positioned (non-static) containing element, defaulting to the whole page |
+| `fixed`    | No                                          | The screen |
+
+
 ## Vocab ✅
 - `position`
 - `static`
