@@ -32,7 +32,7 @@ Hypertext Transfer Protocol (HTTP) functions as a __request-response__ protocol.
 
 A client sends a __request__ and a server sends back an __response__. HTTP describes how that request and response are formatted. There are lots of different protocols that describe lots of different kinds of interactions. Common protocols utilized in networked or internet-based applications include HTTP and HTTPS (hypertext transfer protocol secured), IMAP, FTP, SSH, SMTP, LDAP, DHCP, and more.
 
-All of these are, at the end of the day, text sent over the network. A suite of technologies take this text, carry it to the intended destination, and make sense of it. The _protocol_ is the definition of how the _client_ and _server_ understand the information they've received. Most _protocols_ serve a single purpose--displaying web pages (http), sending an email (smtp), trasmitting a file (ftp), etc.
+All of these are, at the end of the day, text sent over the network. A suite of technologies take this text, carry it to the intended destination, and make sense of it. The _protocol_ is the definition of how the _client_ and _server_ understand the information they've received. Most _protocols_ serve a single purpose--displaying web pages (http), sending an email (smtp), transmitting a file (ftp), etc.
 
 ### So what does an _HTTP Request_ look like?
 Kinda like this:
