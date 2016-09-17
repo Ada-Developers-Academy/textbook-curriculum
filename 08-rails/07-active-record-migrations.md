@@ -4,7 +4,7 @@
 - Learn how to use `rails` and AR to control the _schema_ of a database
 - Understand the role of _migrations_ in a Rails application
 
-Active Record is an important piece of the Rails approach to web applicaitons. Distributed as a gem, AR is an **Object Relational Mapping** technique. It is used to abstract, normalize, and simplify the interaction between Ruby code and a relational database. It's primary role is to _model_ data structures and their relationships, providing a Ruby class to represent each collection of data (table) in your application's database.
+Active Record is an important piece of the Rails approach to web applicatons. Distributed as a gem, AR is an **Object Relational Mapping** technique. It is used to abstract, normalize, and simplify the interaction between Ruby code and a relational database. It's primary role is to _model_ data structures and their relationships, providing a Ruby class to represent each collection of data (table) in your application's database.
 
 __Question: What is the role of _models_ in the MVC pattern?__
 
@@ -58,7 +58,7 @@ Within the `change` method, we can use many other method calls provided by `Acti
 - `remove_column(table_name, column_name)`: removes a column from an existing table.
 - `change_column(table_name, column_name, new_data_type)`: changes an existing column from one data type to another.
 
-__Question: Just looking at the name of the migration, which of these methods would we utilize to complete the _migration_?__ 
+__Question: Just looking at the name of the migration, which of these methods would we utilize to complete the _migration_?__
 
 ```ruby
 class AddHobbyToStudents < ActiveRecord::Migration
@@ -93,4 +93,3 @@ By convention, _model_ class and file names are singular. The associated databas
 | Medium                  | media                  | medium.rb           |
 | Person                  | people                 | person.rb           |
 | Deer                    | deers                  | deer.rb             |
-
