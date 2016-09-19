@@ -1,6 +1,6 @@
 # HTTP And The Internet
 ## Learning Goals
-- Examine the _HTTP_ protocol; what does it do? how does it do it?
+- Examine the _HTTP_ protocol; what does it do? How does it do it?
 - Talk about the most common server architecture on the internet: _Client/Server_
 - Define the key pieces in making the internet work:
   + _webserver_
@@ -9,7 +9,7 @@
   + _request_
   + _response_
 
-## So what is the internet?
+## So what is the Internet?
 It's a computer network: a collection of computers and devices connected using communication devices (routers, cables, wifi, fiber, etc).
 
 Computers communicate over a network by sending data over the connection.
