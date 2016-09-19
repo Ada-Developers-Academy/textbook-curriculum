@@ -36,7 +36,7 @@ $ rvm gemset use global
 $ gem uninstall railties
 $ gem uninstall rails
 $ rvm use 2.3.0@rails_gemset --create
-$ gem install rails --version 4.2.6 --no-rdoc --no-ri
+$ gem install rails --version 4.2.7 --no-rdoc --no-ri
 $ rails -v
 ```
 
