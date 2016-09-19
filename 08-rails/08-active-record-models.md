@@ -1,7 +1,7 @@
-# I Love Active Record: Models
+# Active Record: Models
 ## Learning Goals
 - Use AR _models_ to perform CRUD tasks on database records
-- Joyfully embrace the _Rails Console_ 
+- Joyfully embrace the _Rails Console_
 - Begin exploring the AR _query interface_
 
 ## Active Record as a DSL
@@ -29,7 +29,6 @@ For right now, our _models_ will likely be empty Ruby classes. The inherited cla
 Rails provides a REPL (similar to irb and pry) that pre-loads all the application information when started. It's one of the most useful tools I've encountered. Let's spend some time exploring it. From your application root, run `$ rails console`:
 
 ```bash
-jeremy@iridium ~/sandbox/ar-practice
  ❤️  :: rails console
 Running via Spring preloader in process 48975
 Loading development environment (Rails 4.2.6)
@@ -100,7 +99,7 @@ alphabetical_students = Student.order(:name)
 # *and* return them in reverse alphabetical order
 team_apple = Student.where(pie: "Apple").order(name: :desc)
 
-# provide compount conditions to do more specific queries
+# provide compound conditions to do more specific queries
 rosa_and_apple = Student.where(name: "Rosa", pie: "apple")
 
 # use `not` to exclude values from results
@@ -116,9 +115,9 @@ Student.where(id: ids)
 ```
 
 ### Parameter Binding with Active Record
-We learned last week about using _parameter binding_ to (most importantly) make queries more secure (google research: _sql injection_), and to improve the reusability of queries. This idea is equally important in Rails, and AR provides it in a similar manner.
+The concept of _parameter binding_ allows us to make queries more secure (Google research: _sql injection_) and reusable. AR Provides a mechanism that will allow us to utilize this concept.
 
-If you write code using the `where` syntax above (like `Student.where(name: "Rosa")`), Active Record _does parameter binding automatically_. Active Record also provides manual parameter binding similar to how we did it with SQLite:
+If you write code using the `where` syntax above (like `Student.where(name: "Rosa")`), Active Record _does parameter binding automatically_. Active Record also provides manual parameter binding (similar to what you'd see manually with SQLite):
 
 ```ruby
 # using '?'
@@ -129,10 +128,10 @@ Student.where("name = :name AND pie = :pie", name: "Rosa", pie: "apple")
 ```
 
 ### Using AR to modify rows in the database
-Instances of Active Record models can be created from a hash, a block or have their attributes manually set after creation. Once an instance has its data attributes defined, it can be saved to the database, making a persistant record of that data.
+Instances of Active Record models can be created from a hash, a block or have their attributes manually set after creation. Once an instance has its data attributes defined, it can be saved to the database, making a persistent record of that data.
 
 #### `new` vs. `create`
-**.new** returns a new object of that class, but doesn't save it to the database.
+**.new** returns a new object of that class, but _doesn't save it_ to the database.
 
 ```ruby
 # `new` with preset data
