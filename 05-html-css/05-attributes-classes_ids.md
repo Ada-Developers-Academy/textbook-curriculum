@@ -39,11 +39,11 @@ Giving Elements an ID or class allows you to target specific elements to style, 
    <h1 class="page-title"> Hello World! </h1>
    ```
 
-In css, to select the class, use a period and the class name as the selector. Like so:
+In css, to select the class, use a **period** before the class name as the selector. Like so:
    ```css
     .page-title {
       color: gray;
-      font-size: 2.5em;
+      font-size: 2.5rem;
     }
    ```
 
@@ -59,6 +59,18 @@ Use the ID when you have a single element on the page that will take the style.
 - Each element can have only one id
 - Each page can have only one element with that id
 
+To give an element an ID, go inside of it's opening tag, add 'id=' and, in quotes, give your custom ID
+```html
+<h1 id="home-page-title"> Hello World! </h1>
+```
+
+In your CSS, use a **hashtag** in front of the ID name as a selector for your rule-set, like so:
+```css
+#home-page-title {
+  color: teal;
+  font-size: 4rem;
+}
+```
 
 ## Elements with Multiple Classes
 HTML Elements can have multiple classes. To accomplish this,
@@ -67,7 +79,7 @@ use the same class attribute and add a space in between the two class name value
 ```html
 <h1 class="page-title highlight"> Hello World! </h1>
 ```
-Then, define your styles with css rule-sets exactly as you have already been. 
+Then, define your styles with css rule-sets exactly as you have already been.
 ```css
 .page-title {
   font-family: helvetica;

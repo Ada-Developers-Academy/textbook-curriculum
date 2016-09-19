@@ -2,7 +2,7 @@
 ## Learning Goals
 - Refresh on the http request cycle
 - Discuss how a request makes it way through a Rails application
-- Disect the _routes file_ and learn how to define routes
+- Dissect the _routes file_ and learn how to define routes
 - Explore the role of _controllers_ in a Rails application
 
 ## HTTP Request
@@ -20,7 +20,7 @@ The two most important parts of this request are:
 
 
 ## Anatomy of `routes.rb`
-The combination of _request method_ and _path_ comprise the first half of a Rails _route_. The second half is the route _action_, the Ruby class and method that will handle the incoming request. 
+The combination of _request method_ and _path_ comprise the first half of a Rails _route_. The second half is the route _action_, the Ruby class and method that will handle the incoming request.
 
 _Routes_ are analogous to an old-timey telephone switch board. When Rails receives a new HTTP request, the _routes_ connect the request data to the correct _controller action_.
 
@@ -29,7 +29,7 @@ We define routes in our `config/routes.rb` file, which is generated when we run 
 ```ruby
 Rails.application.routes.draw do
   # method path => action
-  get "/users" => "users#index"
+  get "/users", to: "users#index"
 end
 ```
 

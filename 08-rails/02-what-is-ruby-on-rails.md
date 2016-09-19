@@ -20,16 +20,15 @@ You've probably used web applications built in Rails:
 - And a whole lot more
 
 ## Rails is a DSL
-Rails, like Sinatra, is a __DSL__ for creating web pages.
+Rails is a __Domain-Specific Language__ for creating web pages.
 
 Fully open source, it is constantly adapting to new trends and requirements of modern web development. It's distributed as a family of gems; there were ~28 individual gems last time I counted that made up the core of Rails. The philosophy of Rails (ostensibly) can be summarized by two statements:
 
-1. DRY - Don't Repeat Yourself (yawn)
-1. Convention over Configuration (a million tiny hearts, all aflutter)
+1. DRY - Don't Repeat Yourself
+1. Convention over Configuration
 
 ## Creating a New Rails Project
 ```bash
-$ cd ~/C5/sandbox
 $ gem install rails --no-rdoc --no-ri
 $ rails new rails-learning
 ```

@@ -39,10 +39,7 @@ We can think of each of these roles as the responsibility of an object, and use 
 
 REST (Representational State Transfer) is a pattern to help us provide a consistent method of accessing and managing our resources on the web. Many different languages and frameworks implement some sort of RESTful routing.
 
-At its simplest, REST is a process in which a web server uses the combination of the requested __URL__ and __HTTP VERB__ to decide how to respond. The goal is a normalized, predictable structure for handling web requests. We've already done this to some extent with Sinatra; Rails formalizes this approach with a special file just for routes.
-
-### A Quick Review
-Let's take a moment and go back to the lecture on [HTTP Verbs, CRUD, and Idempotency](../06-sinatra-and-the-dynamic-web/03-http-verbs-crud-and-idempotency.md)
+At its simplest, REST is a process in which a web server uses the combination of the requested __URL__ and __HTTP VERB__ to decide how to respond. The goal is a normalized, predictable structure for handling web requests. Rails formalizes this approach with a special file just for routes.
 
 ### Characteristics of a RESTful Architecture
 - Uses client-server model for separation of concerns
@@ -53,22 +50,21 @@ Let's take a moment and go back to the lecture on [HTTP Verbs, CRUD, and Idempot
 - Allows for caching
 
 ### Pseudo-code Example of RESTful Routes
-__Assumption__: We've got a resource called `user` that can be recalled/manipulated by a unique identifier called `id`. In Sinatra, we'd represent getting a single instance of this resource with something like `get '/users/:id'`. 
+__Assumption__: We've got a resource called `user` that can be recalled/manipulated by a unique identifier called `id`. In Rails, we'd represent getting a single instance of this resource with something like `get "/users/:id", to: "users#show"`.
 
 We can extrapolate the entire RESTful suite of actions from this basic pattern. It'd look something like...
 
-```
-# Request         # Verb      # Response
-/users/           GET         -> object: 'users', method: 'index'
-/users/1          GET         -> object: 'users', method: 'show'
-/users/new        GET         -> object: 'users', method: 'new'
-/users/           POST        -> object: 'users', method: 'create'
-/users/1/edit     GET         -> object: 'users', method: 'edit'
-/users/1          PATCH       -> object: 'users', method: 'update'
-/users/1          DELETE      -> object: 'users', method: 'destroy'
-```
+| Verb | URI Pattern     | Controller#Action |
+| :------------- | :------------- | :------------- |
+| GET       | `/users`       | `users#index` |
+| GET       | `/users/:id`       | `users#show` |
+| GET       | `/users/new`       | `users#new` |
+| POST      | `/users`       | `users#create` |
+| GET       | `/users/:id/edit`       | `users#edit` |
+| PATCH     | `/users/:id`       | `users#update` |
+| DELETE    | `/users/:id`       | `users#destroy` |
 
-The combination of __VERB__ and __URL__ tell our web server (Sinatra, in this example) everything it needs to know to formulate an action and response. The methods we're calling on the `users` object follows a convention common to the Ruby community.
+The combination of __VERB__ and __URL__ tell our web server (Rails, in this example) everything it needs to know to formulate an action and response. The methods we're calling on the `users` object follows a convention common to the Ruby community.
 
 ## Additional Resources
 ### MVC
@@ -77,10 +73,6 @@ The combination of __VERB__ and __URL__ tell our web server (Sinatra, in this ex
 ### REST
 - [Dr. Dobbs article by M. Vaqqas describing RESTful Web Services](http://www.drdobbs.com/web-development/restful-web-services-a-tutorial/240169069)
 - [Fielding's original PhD dissertation - very dry, very long, but perhaps worth skimming, esp Chapter 5](http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm)
-
-### Sinatra vs. Rails
-- [Side by side comparison from EngineYard blog](https://blog.engineyard.com/2014/rails-vs-sinatra)
-- [archived Reddit discussion](https://www.reddit.com/r/ruby/comments/3g54dk/rails_vs_sinatra/)
 
 ### Real world example of REST API
 - [Twitter REST APIs](https://dev.twitter.com/rest/public)

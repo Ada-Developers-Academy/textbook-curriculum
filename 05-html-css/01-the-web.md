@@ -14,7 +14,7 @@
 Most modern sites are dynamic. Every time you sign-in to a site and are given custom content based on your preferences (like who you follow), you are interacting with a dynamic site. These sites have logic that is involved in serving content, thus requiring the use of programming languages like ruby, python or PHP.
 Common Examples: Facebook, Gmail and Medium
 
-A static site will never change. Everybody that visits the site will be given the same content. The content will rarely change, and if it does, it is typically by only one or few people. These sites will only use HTML, CSS and possibly basic JavaScript.
+A static site presents the same content to every visitor. Everybody that visits the site will be given the same content. The content will rarely change, and if it does, it is typically by only one or few people manually. These sites will only use HTML, CSS and possibly basic JavaScript.
  Common Examples: restaurants, small business and individual's portfolio sites.
 
 What makes these sites static or dynamic?
@@ -41,7 +41,10 @@ In order for us to access a website,  it's files need to be stored on a computer
 
  A web server uses a protocol called HTTP to take requests from 'clients'. For example, when you type in 'google.com', your browser (the client) will make a request to google's servers. Google's servers will find the requested files and send them back to the browser.
 
-
+ ![How Information Travels on the Web](imgs/netdiag.gif)
+ 
+ - [Analogy between postal mail and TCP/IP](http://bpastudio.csudh.edu/fac/lpress/471/hout/netech/postofficelayers.htm)
+ - [Warriors of the Net Video](https://www.youtube.com/watch?v=PBWhzz_Gn10)
 
 ## Browser Compatibility
 

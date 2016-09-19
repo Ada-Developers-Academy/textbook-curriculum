@@ -8,7 +8,7 @@
 ## What are Sectioning Elements
 HTML has sectioning elements that allow you to organize your HTML document into logical topical sections.
 
-They bring a big advantage for people having HTML5 browsers and needing the structure to help them understand the page, for instance people needing the help of some assistive technology, like a [screen reader](http://webaim.org/techniques/screenreader/).
+They bring a big advantage for people who need the structure to help them understand the page, for instance people needing the help of some assistive technology, like a [screen reader](http://webaim.org/techniques/screenreader/).
 
 
 Below are tags that group elements together.
@@ -49,9 +49,10 @@ When elements become nested inside of each other they start to form relationship
 - The element wrapping a child is the parent.
 - Elements on the same level as each other are sibling elements.
 
-This diagram of the relationship tree for the code below.
+A visual diagram of elements relationships to each other:
 ![Element Relationship Diagram](imgs/content-hierarchy-diagram.png)
 
+The relationship tree above is modeled from the following code:
 ```html
 <body>
   <header>
@@ -79,9 +80,9 @@ This diagram of the relationship tree for the code below.
         <ul>
           <li><a href="#"> Login  </a></li>
           <li><a href="#"> Signup </a></li>
-        <ul>
-      <nav>
-    <header>
+        </ul>
+      </nav>
+    </header>
     <section>
       <article>
         <h2> Everybody Wants to be a Cat </h2>
@@ -100,7 +101,7 @@ This diagram of the relationship tree for the code below.
       <ul>
         <li><a href="#"> Contact </a></li>
         <li><a href="#"> Careers </a></li>
-      <ul>
+      </ul>
     </footer>
   </body>
 ```
@@ -116,3 +117,4 @@ This diagram of the relationship tree for the code below.
 
 - [Treehouse Blog Post](http://blog.teamtreehouse.com/use-html5-sectioning-elements) (freely available)
 - [Element Relationships](http://www.littlewebhut.com/css/info_element_relationships/)
+- [A Look Into Proper HTML5 Semantics](http://www.hongkiat.com/blog/html-5-semantics/)
