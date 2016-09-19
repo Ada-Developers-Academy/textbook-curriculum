@@ -1,4 +1,4 @@
-# HTML Forms, Part 1
+# HTML Forms
 ## Learning Goals
 - Discover the mechanisms in the HTML standard that allow for interactive elements on a website
 - Discuss how to create accessible and semantic forms
@@ -15,32 +15,30 @@ Forms are how users provide input to servers for operation. Everything from auth
   - `<input type="checkbox">`
   - `<input type="radio">`
   - `<input type="password">`
-  - `<input type="file">` and `<input type="image">`
   - `<input type="submit">`
-  - `<input type="reset">` (careful with this one)
   - `<input type="hidden">`
 - `<textarea>`
 - `<select>`
   - `<option>`
-- `<button>`, and `<input type="button">` are primarily used for JavaScript interactions.
+- `<button>`, and `<input type="button">` (primarily used for JavaScript interactions)
 
 ## Creating and Submitting Forms
 Forms are used to create requests to servers that can create, update, and delete resources.
 
-We are going to look at how inputs from a form are passed along through the browser to our server. Let's open our Sintra exercise from a couple of days ago and create a new route and view like:
+We are going to look at how inputs from a form are passed along through the browser to our server. Let's open the web application we have been using and create a new route and view like:
 
 ```bash
-$ touch views/my-first-form.erb
+$ touch app/views/?/form.html.erb
 ```
 
 ```ruby
-# my-site.rb
-get '/my-first-form' do
-  erb :my_first_form
+# app/controllers/?_controller.rb
+def new
+
 end
 ```
 
-Then, let's open `views/my-first-form.erb` in our editor. Add the following code to the page:
+Then, let's open the view (`app/views/?/form.html.erb`) in our editor. Add the following code to the page:
 
 ```html
 <form action="" method="post" accept-charset="utf-8">
@@ -96,7 +94,7 @@ Let's make our form a little bit smarter. We can submit nested data by manipulat
   <input type="text" name="peep[fave_animal]" value="" id="fave_animal">
 ```
 
-In Sinatra (and Rails) this is the way we _model_ data objects. Imagine a `Peep` class where the initialize method is coded to assign attributes from a hash. We would then pass the inner hash to the `new` method and all of our attributes would be assigned.
+In Rails this is the way we _model_ data objects. Imagine a `Peep` class where the initialize method is coded to assign attributes from a hash. We would then pass the inner hash to the `new` method and all of our attributes would be assigned.
 
 ```ruby
 class Peep
