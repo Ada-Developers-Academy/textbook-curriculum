@@ -2,22 +2,22 @@
 ## Learning Goals
 - Explore two ways to handle forms in Rails
   + `form_tag` & `form_for`
-- Discover some useful _view helpers_ specifcally for working with forms
+- Discover some useful _view helpers_ specifically for working with forms
 - Get a feel for handling form data in a _controller_
 
 There are two ways to generate HTML forms within Rails: `form_tag` and `form_for`. On the surface, they are very similar. Both are _view helpers_ that generate HTML form tags. They differ in that `form_tag` is a __generic form__ while `form_for` is __tied to an object__. We'll explore both below.
 
 ## `form_tag`
-`form_tag` generates an HTML `<form>` element. The first option that it takes is the submission path, (the `action` attribute in the `<form>` tag). The `method` attribute defaults to `POST`. Additional arguments can be given after the path in the form of a hash. Common options include applying a CSS class to the form, or changing the form _method_. Here's an example: 
+`form_tag` generates an HTML `<form>` element. The first option that it takes is the submission path, (the `action` attribute in the `<form>` tag). The `method` attribute defaults to `POST`. Additional arguments can be given after the path in the form of a hash. Common options include applying a CSS class to the form, or changing the form _method_. Here's an example:
 
 ```erb
-<%= form_tag "/products", class: "kill_products", method: :delete do %>
+<%= form_tag "/products", class: "delete_products", method: :delete do %>
 
 <% end %>
 ```
 
 ```html
-<form class="kill_products" action="/products" accept-charset="UTF-8" method="post">
+<form class="delete_products" action="/products" accept-charset="UTF-8" method="post">
   <input name="utf8" type="hidden" value="&#x2713;" />
   <input type="hidden" name="_method" value="delete" />
   <input type="hidden" name="authenticity_token" value="5iHVj24QO4ku/VoS9/q3/o1XjIMSnnEtCmGt3iY5nPr8TZSyOkplduDkkyWfqPnlWD/zdQ/73e2DD1vRYXF7sQ==" />
@@ -137,6 +137,6 @@ def create
     redirect_to root_path # go to the index so we can see the album in the list
   else # save failed :(
     render :new # show the new album form view again
-  end 
+  end
 end
 ```

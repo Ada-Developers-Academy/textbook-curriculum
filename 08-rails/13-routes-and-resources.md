@@ -1,6 +1,6 @@
 # Routes & Resources Review
 ## Learning Goals
-- Revist RESTful routing in Rails
+- Revisit RESTful routing in Rails
 - Learn about using the Rails `resources` route helpers
 
 ## Route Order
@@ -21,7 +21,7 @@ get "/products/:id", to: "products#show"
 That general rule is that routes go from most to least specific for any given resource.
 
 ## REST
-Representational state transfer (REST) is an architectual style. This is a recommendation for the structure and style in which a resource (typically represented by a Model) can be represetned and managed through a web server.
+Representational state transfer (REST) is an architectural style. This is a recommendation for the structure and style in which a resource (typically represented by a Model) can be represented and managed through a web server.
 
 The core of this idea can be described through routing. For example, let's look at how to represent a `Market` resource:
 
@@ -29,10 +29,10 @@ The core of this idea can be described through routing. For example, let's look 
 |:----------|:-----:|:-----------|
 | /markets       | GET    | Retrieves a collection of market objects|
 | /markets       | POST   | Creates a market object on the server. |
-| /markets/:id   | GET    | Retrieves an  individual market object through an identifying attribute, givin in the url path.|
-| /markets/:id   | PATCH    | Updates an individual market object through an identifying attribute, givin in the url path.|
-| /markets/:id   | PUT    | Updates an individual market object through an identifying attribute, givin in the url path.|
-| /markets/:id   | DELETE | Removes an individual market object through an identifying attribute, givin in the url path.|
+| /markets/:id   | GET    | Retrieves an  individual market object through an identifying attribute, given in the url path.|
+| /markets/:id   | PATCH    | Updates an individual market object through an identifying attribute, given in the url path.|
+| /markets/:id   | PUT    | Updates an individual market object through an identifying attribute, given in the url path.|
+| /markets/:id   | DELETE | Removes an individual market object through an identifying attribute, given in the url path.|
 
 You can see that many actions can be performed on a market object using only two paths.
 The paths represent the scope of the objects to operate on and the HTTP method indicates what type of action should be performed.
@@ -40,7 +40,7 @@ The paths represent the scope of the objects to operate on and the HTTP method i
 ## Named Routes for REST
 Since the standard RESTful resource only requires two paths, all five actions can be represented by just the two named routes.
 
-The conventional route names for this RESTful resource would be `markets_path` and `market_path`. We use the plural version when referring to a _collection_ of Market objects (`index` action), and the singular version when refrring to an _instance_ or _specific_ Market (`show`, `edit`, etc).
+The conventional route names for this RESTful resource would be `markets_path` and `market_path`. We use the plural version when referring to a _collection_ of Market objects (`index` action), and the singular version when referring to an _instance_ or _specific_ Market (`show`, `edit`, etc).
 
 Here's an example:
 

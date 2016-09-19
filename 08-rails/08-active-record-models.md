@@ -1,7 +1,7 @@
 # I Love Active Record: Models
 ## Learning Goals
 - Use AR _models_ to perform CRUD tasks on database records
-- Joyfully embrace the _Rails Console_ <3 <3 <3
+- Joyfully embrace the _Rails Console_ 
 - Begin exploring the AR _query interface_
 
 ## Active Record as a DSL
@@ -21,7 +21,7 @@ class Student < ActiveRecord::Base
 end
 ```
 
-This is our Student _model_, and it is connected to a table in the database called _students_. We don't have to explicitely tell Rails about that connection; by following the naming conventions (thank you, Inflector!), Rails knows which database table to use with which _model_. By doing this you'll also have the ability to map the columns of each row in that table with the attributes of the instances of your model.
+This is our Student _model_, and it is connected to a table in the database called _students_. We don't have to explicitly tell Rails about that connection; by following the naming conventions (thank you, Inflector!), Rails knows which database table to use with which _model_. By doing this you'll also have the ability to map the columns of each row in that table with the attributes of the instances of your model.
 
 For right now, our _models_ will likely be empty Ruby classes. The inherited class (`ActiveRecord::Base`) provides a tremendous amount of functionality. As we move forward in the curriculum, we will begin filling out our models with additional functionality.
 
@@ -40,20 +40,20 @@ Now we're in the _console_, from here we can do all the stuff that irb and pry p
 
 ```ruby
 2.3.0 :001 > s = Student.new
- => #<Student id: nil, name: nil, pie: nil, motto: nil, created_at: nil, updated_at: nil> 
+ => #<Student id: nil, name: nil, pie: nil, motto: nil, created_at: nil, updated_at: nil>
 2.3.0 :002 > s.attributes
- => {"id"=>nil, "name"=>nil, "pie"=>nil, "motto"=>nil, "created_at"=>nil, "updated_at"=>nil} 
+ => {"id"=>nil, "name"=>nil, "pie"=>nil, "motto"=>nil, "created_at"=>nil, "updated_at"=>nil}
 2.3.0 :003 >
 ```
 
 We can assign data to the instance using plain Ruby:
 ```ruby
 2.3.0 :003 > s.name = "Libby"
- => "Libby" 
+ => "Libby"
 2.3.0 :004 > s.pie = "Apple"
  => "Apple"
 2.3.0 :006 > s.attributes
- => {"id"=>nil, "name"=>"Libby", "pie"=>"Apple", "motto"=>nil, "created_at"=>nil, "updated_at"=>nil} 
+ => {"id"=>nil, "name"=>"Libby", "pie"=>"Apple", "motto"=>nil, "created_at"=>nil, "updated_at"=>nil}
 ```
 
 When we are happy with the data in our _model_, we can write it to the database using a single command:
@@ -63,7 +63,7 @@ When we are happy with the data in our _model_, we can write it to the database 
    (0.3ms)  begin transaction
   SQL (1.8ms)  INSERT INTO "students" ("name", "pie", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Libby"], ["pie", "Apple"], ["created_at", "2016-04-17 18:17:52.649965"], ["updated_at", "2016-04-17 18:17:52.649965"]]
    (1.5ms)  commit transaction
- => true 
+ => true
 2.3.0 :008 >
 ```
 
@@ -121,7 +121,7 @@ We learned last week about using _parameter binding_ to (most importantly) make 
 If you write code using the `where` syntax above (like `Student.where(name: "Rosa")`), Active Record _does parameter binding automatically_. Active Record also provides manual parameter binding similar to how we did it with SQLite:
 
 ```ruby
-# using '?' 
+# using '?'
 Student.where("name = ?", "Rosa")
 
 # using named parameters
@@ -194,7 +194,7 @@ libby.destroy
 (0.1ms)  begin transaction
 SQL (1.5ms)  DELETE FROM "students" WHERE "students"."id" = ?  [["id", 7]]
 (1.5ms)  commit transaction
- #=> <Student id: 7, name: "Libby", pie: nil, motto: nil, birthday: nil, created_at: "2016-04-17 20:04:01", updated_at: "2016-04-17 20:04:01", hobby: nil> 
+ #=> <Student id: 7, name: "Libby", pie: nil, motto: nil, birthday: nil, created_at: "2016-04-17 20:04:01", updated_at: "2016-04-17 20:04:01", hobby: nil>
 
 # count our students again
 Student.count #=> 6
