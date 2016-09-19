@@ -50,17 +50,17 @@ Both code tags and value tags can be combined to create loops with Ruby code tha
 </ul>
 ```
 
-## Using ERB Tags with Sinatra
-To get the most benefit from the special tags that _ERB_ provides us, we will need a way to provide _ERB_ with variables that can be used inside of those tags. To do this, create instance variables within your Sinatra _routes_, and then reference those instance variables inside of your _views_.
+## Using ERB Tags with Rails
+To get the most benefit from the special tags that _ERB_ provides us, we will need a way to provide _ERB_ with variables that can be used inside of those tags. To do this, create instance variables within your Rails _controller_, and then reference those instance variables inside of your _views_.
 
 ```ruby
-# in our Sinatra app
-get "/products" do
+# in our Rails controller
+def index
   @all_products = Product.all #returns an array of Product instances
-  erb :products # this tells Sinatra to render views/products.erb
+  render :index # this tells Rails to render app/views/products/index.html.erb
 end
 ```
-... and inside of `views/products.erb` ...
+... and inside of `app/views/products/index.html.erb` ...
 ```erb
 <html>
   <head></head>
@@ -77,14 +77,14 @@ end
 </html>
 ```
 
-By using our Sinatra route block to create variables with the data that we want to dislay, we can customize our views in an infinite number of ways and create enormously powerful websites with very little code.
+By using our Rails controller to create variables with the data that we want to display, we can customize our views in an infinite number of ways and create enormously powerful websites with very little code.
 
 ## Layouts
 One of the most helpful features of ERB tags is that they allow us to "compose" multiple ERB templates together. This means we are placing the content of a single ERB template at a specific point within a different ERB template. When we have multiple HTML pages that use much of the same content on every page, we can extract the repeated content into a reusable template. This extracted template is known as a _layout_.
 
 For example, if we had two HTML pages like this:
 ```erb
-<!-- views/index.erb -->
+<!-- app/views/website/index.html.erb -->
 <html>
   <head>
     <title>My Website</title>
@@ -98,7 +98,7 @@ For example, if we had two HTML pages like this:
 ```
 ... and ...
 ```erb
-<!-- views/about-me.erb -->
+<!-- app/views/website/about-me.html.erb -->
 <html>
   <head>
     <title>My Website</title>
@@ -110,15 +110,21 @@ For example, if we had two HTML pages like this:
 </html>
 ```
 
-We could remove the redundant parts by creating a _layout_ template:
+We could remove the redundant parts by utilizing a _layout_ template:
 ```erb
-<!-- views/layout.erb -->
+<!-- views/layouts/application.html.erb -->
+<!DOCTYPE html>
 <html>
   <head>
     <title>My Website</title>
+
+    <!-- Below are things that Rails includes by default -->
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
   </head>
   <body>
-    <%= yield %>
+    <%= yield %> <!-- This is the key to utilizing the layout -->
   </body>
 </html>
 ```
@@ -126,28 +132,29 @@ We could remove the redundant parts by creating a _layout_ template:
 The `yield` command inside of the_ value tag_ in this _layout_ tells ERB that it should replace that tag with the content of another ERB template. With the common code extracted to the _layout_, the other _views_ are now much smaller:
 
 ```erb
-<!-- views/index.erb -->
+<!-- app/views/website/index.html.erb -->
 <h1>Welcome to My Website!</h1>
 <p>This is a website that I created. Isn't is awesome?</p>
 <p>Check out my about page <a href="/about_me">here</a>.</p>
 ```
 ... and ...
 ```erb
-<!-- views/about-me.erb -->
+<!-- app/views/website/about-me.html.erb -->
 <h1>About Me</h1>
 <p>I am the person that created this website, that's all you need to know.</p>
 ```
 
-## Using ERB Layouts with Sinatra
+## Using ERB Layouts with Rails
 As mentioned above, the `yield` command is where the _view_ is placed inside the _layout_ template.
 
-With Sinatra we specify the partial template when we use the `erb` command in our routes. Sinatra automatically looks for a layout template in its default location: `views/layout.erb`. If that file exists, Sinatra will render that template and then place the content of the partial specified to `erb` in the place where the `yield` command exists in the layout.
+With Rails we specify the partial template when we use the `render` command in our controllers. Rails automatically looks for a layout template in its default location, relative to the controller you are requesting: `app/views/website/` folder is you are in the `website_controller.rb` file. If that file exists, Rails will render that template and then place the content of the partial specified to `.html.erb` in the place where the `yield` command exists in the layout.
 
 Example:
 ```ruby
-get "/about_me" do
-  erb :about_me
+# app/controllers/website_controller.rb
+def about_me
+  render :about_me
 end
 ```
 
-This will render the `views/layout.erb` file, and then place the contents of `views/about_me.erb` in place of the `<%= yield %>` value tag.
+This will render the `views/layouts/application.html.erb` file, and then place the contents of `app/views/website/about_me.html.erb` in place of the `<%= yield %>` value tag.
