@@ -51,7 +51,7 @@ Let's break down this code:
 ## Setting Up a Controller
 Before we go further lets set up our own Controller class.  A Rails Controller is the central manager of a Rails application.  It takes requests from the web server, pulls information from data models and makes decisions.  It then hands information to the views for rendering the data back to the user.  Below we will setup a Controller to list a set of book titles.
 
-Rails can go ahead and create a Controller for us with the following commands.
+Rails can go ahead and create a Controller and View for us with the following commands.
 
 ```bash
 bin/rails generate controller Books index
@@ -59,28 +59,11 @@ bin/rails generate controller Books index
 
 This command has Rails generate a Controller and Views for the /books path, so when you bring up http://localhost:3000/index you will get the following HTML file.  
 
-```html
-<!DOCTYPE html>
-<html>
-<head>
-  <title>RailsLearning</title>
-  <link rel="stylesheet" media="all" href="/assets/books.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="true" />
-<link rel="stylesheet" media="all" href="/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" data-turbolinks-track="true" />
-  <script src="/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" data-turbolinks-track="true"></script>
-<script src="/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" data-turbolinks-track="true"></script>
-<script src="/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" data-turbolinks-track="true"></script>
-<script src="/assets/books.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="true"></script>
-<script src="/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" data-turbolinks-track="true"></script>
-  <meta name="csrf-param" content="authenticity_token" />
-<meta name="csrf-token" content="VIS6RH1BMIj/At3tJda9hVCaTa3FkyMW5Yo0yZubMG+ByVfgA5+f+5ZN94KFycAYd/1aDCN0fhi0has3cUokfw==" />
-</head>
-<body>
+![view in browser](images/index.html.erb.png)
 
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
-
-</body>
-</html>
+When generating a Controller/View you can specify as many methods or actions as you wish for example:
+```bash
+$ bin/rails generate Books index new update delete show
 ```
 
 ### The Controller Class
