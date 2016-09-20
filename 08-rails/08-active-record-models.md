@@ -117,8 +117,7 @@ Student.where(id: ids)
 
 ### Parameter Binding with Active Record
 
-
-Active Record uses something called _parameter binding_ to take our requests and convert them into SQL, the nearly universal language of databases and (most importantly) make queries more secure (google research: _sql injection_), and to improve the reusability of queries. This idea is very important in Rails, and AR provides it.
+Active Record uses something called _parameter binding_ to take our requests and convert them into SQL, the nearly universal language of databases and (most importantly) make queries more secure (google research: [_sql injection_](https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=sql%20injection)), and to improve the reusability of queries. This idea is very important in Rails, and AR provides it.
 
 If you write code using the `where` syntax above in the rails console (like `Student.where(name: "Rosa")`), Active Record _does parameter binding automatically_. Active Record can also provides manual parameter binding:
 
