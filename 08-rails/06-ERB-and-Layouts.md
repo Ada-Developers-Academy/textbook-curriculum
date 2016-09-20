@@ -60,7 +60,7 @@ def index
               "Ruby: How to Program", "Web Design with HTML, CSS, JavaScript"]
 end
 ```
-... and inside of `app/views/books` ...
+... and inside of `app/views/books` ... there is a view file named after the index action. `index.html.erb`.  This is an example of how Ruby favors convention over configuration.  The default view for an action/method is named after it and stored in a folder named after the class.  
 ```erb
 <h1>Books#update</h1>
 <p>Find me in app/views/books/update.html.erb</p>
