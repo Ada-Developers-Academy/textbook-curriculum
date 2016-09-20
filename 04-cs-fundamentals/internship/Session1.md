@@ -4,8 +4,6 @@
 + Linked List
 + Big O and efficiency
 
-## In Class
-+ Wait for it! :-)
 
 ## Offline Reading Material
 Go through what you've already learned:
@@ -27,3 +25,32 @@ Find the reading material that helps you learn from the below links:
 + In "Cracking the Coding Interview" book, "Chapter 2: Linked Lists"
 + In "Cracking the Coding Interview" book, "Chapter 11: Sorting and Searching"
 + CareerCup [Linked List Interview Questions](https://www.careercup.com/page?pid=linked-lists-interview-questions)
+
+## In Class
+Time permitting, here's the problems we'll cover in class.
+Design and implement pseudo code for:
++ 1. Check if a singly linked list has a cycle
++ 2. Find the middle node in a singly linked list
++ 3. Find the nth node from the end of a singly linked list
++ 4. Insert a node into a singly linked list sorted in ascending order of data
++ 5. Remove the first 5 nodes in a singly linked list
++ 6. Empty a singly linked list
++ 7. Empty an array of size 20. Empty = uninitialize all cells to -1
++ 8. Insert a node into a sorted singly linked list
++ 9. Add an element to a sorted array. The array is of size 20. All unassigned cells have value -1 and are at the end of the array. 
++ 10. Delete nodes in a singly linked list with specified data value e.g. int value of 5
++ 11. Remove entries from an array with specified data value e.g. int value of 5 The array is of size 20 and all unassigned cells have value -1 and are at the end of the array
++ 12. Print the largest integer data value in a singly linked list
++ 13. Print the largest integer data value in a native int array
++ 14. Print all integer data values in a singly linked list
++ 15. Print all integer data values in a native int array
++ 16. Reverse a singly linked list
++ 17. Append a node to the beginning of a singly linked list
++ 18. Check if the singly linked list contains a given integer value.
++ 19. Check if a native integer array contains a given integer value.
++ 20. Reverse a native integer array without using helper methods available in higher level programming languages </br>
+<b>Note</b>: For all singly linked list questions, assume each node in the linked list to be: </br>
+struct node { </br>
+  &nbsp; int data; </br>
+  &nbsp; struct node *next; </br>
+}; </br>
