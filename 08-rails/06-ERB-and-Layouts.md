@@ -50,37 +50,40 @@ Both code tags and value tags can be combined to create loops with Ruby code tha
 </ul>
 ```
 
-## Using ERB Tags with Sinatra
-To get the most benefit from the special tags that _ERB_ provides us, we will need a way to provide _ERB_ with variables that can be used inside of those tags. To do this, create instance variables within your Sinatra _routes_, and then reference those instance variables inside of your _views_.
+## Using ERB Tags with Rails
+To get the most benefit from the special tags that _ERB_ provides us, we will need a way to provide _ERB_ with variables that can be used inside of those tags.  To do this we can create variables in our controller.
 
 ```ruby
-# in our Sinatra app
-get "/products" do
-  @all_products = Product.all #returns an array of Product instances
-  erb :products # this tells Sinatra to render views/products.erb
+# in our controller app/controllers/books_controller.rb
+def index
+  @books = ["Once and Future King", "Fellowship of the ring",
+              "Ruby: How to Program", "Web Design with HTML, CSS, JavaScript"]
 end
 ```
-... and inside of `views/products.erb` ...
+... and inside of `app/views/books` ... there is a view file named after the index action. `index.html.erb`.  This is an example of how Ruby favors convention over configuration.  The default view for an action/method is named after it and stored in a folder named after the class.  
 ```erb
-<html>
-  <head></head>
-  <body>
-    <h1>Our Products</h1>
-    <% @all_products.each do |product| %>
-      <div id="<%= product.id %>" class="product">
-        <h3><%= product.name %></h3>
-        <p><%= product.description %></p>
-        <a href="/product/<%= product.id %>/purchase">Buy Now</a>
-      </div>
-    <% end %>
-  </body>
-</html>
+<h1>Books#update</h1>
+<p>Find me in app/views/books/update.html.erb</p>
 ```
 
-By using our Sinatra route block to create variables with the data that we want to dislay, we can customize our views in an infinite number of ways and create enormously powerful websites with very little code.
+We can modify the view to display data from the `@books` instance variable like this:
+```ruby
+<h1>Books</h1>
+<ul>
+  <% @books.each do |book|  %>
+    <li><%= book %></li>
+  <% end %>
+</ul>
+```
+![View Rendered](images/view1.png)
+
+By using our Rails controller method to create variables with the data that we want to display, we can customize our views in an infinite number of ways and create enormously powerful websites with very little code.  
 
 ## Layouts
-One of the most helpful features of ERB tags is that they allow us to "compose" multiple ERB templates together. This means we are placing the content of a single ERB template at a specific point within a different ERB template. When we have multiple HTML pages that use much of the same content on every page, we can extract the repeated content into a reusable template. This extracted template is known as a _layout_.
+
+Did you notice that the view doesn't have a full html file?  Freaky huh?  That's because Rails uses a concept of common layouts to DRY out their code.  In a website many of your pages will follow a common layout, and have the content area rendered differently by a view specific to that particular route.  
+
+One of the most helpful features of ERB tags is that they allow us to "compose" multiple ERB templates together. This means we are placing the content of a single ERB template, called a view, at a specific point within a different ERB template, in this case a layout. When we have multiple HTML pages that use much of the same content on every page, we can extract the repeated content into a reusable template. This extracted template is known as a _layout_.
 
 For example, if we had two HTML pages like this:
 ```erb
@@ -138,16 +141,36 @@ The `yield` command inside of the_ value tag_ in this _layout_ tells ERB that it
 <p>I am the person that created this website, that's all you need to know.</p>
 ```
 
-## Using ERB Layouts with Sinatra
+## Using ERB Layouts with Rails
 As mentioned above, the `yield` command is where the _view_ is placed inside the _layout_ template.
 
-With Sinatra we specify the partial template when we use the `erb` command in our routes. Sinatra automatically looks for a layout template in its default location: `views/layout.erb`. If that file exists, Sinatra will render that template and then place the content of the partial specified to `erb` in the place where the `yield` command exists in the layout.
+With Rails the partial template, known as a _view_ is stored in a folder named after the resource with a filename named after the method.  So for the books/index path the view is `app/views/books/index.html.erb`.  Rails automatically looks for a layout template in its default location: `app/views/layouts/application.html.erb`. If that file exists, Rails will render that template and then place the content of the partial view in the place where the `yield` command exists in the layout.
 
-Example:
 ```ruby
-get "/about_me" do
-  erb :about_me
-end
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RailsLearning</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
 ```
 
-This will render the `views/layout.erb` file, and then place the contents of `views/about_me.erb` in place of the `<%= yield %>` value tag.
+This will render the `app/views/layouts/application.html.erb` file, and then place the contents of `app/views/books/index.html.erb` in place of the `<%= yield %>` value tag.
+
+## Notes on JavaScript & CSS Links
+If you examine the layout above you will notice embedded ruby with `stylesheet_link_tag` and another with `javascript_include_tag`.  These methods are used to link in CSS and JavaScript content. We will see later how to include our own CSS content.  
+
+The `csrf_meta_tag` is used place, essentially a digital signature acting as verification that requests coming into Rails are in fact from properly logged in users.  You can do a view-source and look at what the csrf meta tag does.  More information is available [here](http://www.gnucitizen.org/blog/csrf-demystified/).
+
+## Resources 
+
+-  [Rails Views Tutorials Point](https://www.tutorialspoint.com/ruby-on-rails/rails-views.htm)
+- [Rails Controllers and Views (video)](https://www.youtube.com/watch?v=hp66U7Q8YXY)
