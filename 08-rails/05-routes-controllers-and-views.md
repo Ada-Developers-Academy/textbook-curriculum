@@ -68,7 +68,7 @@ $ bin/rails generate Books index new update delete show
 
 ### The Controller Class
 
-Ruby places controller classes in the `app/controllers` folder.  In the case of the Controller we just generated it will be in the `books_controller.rb` class.
+Rails places controller classes in the `app/controllers` folder.  In the case of the Controller we just generated it will be in the `books_controller.rb` class.
 
 Opening the Controller file you will find the code below:
 
