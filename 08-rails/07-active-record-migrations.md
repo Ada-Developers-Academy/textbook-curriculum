@@ -8,6 +8,12 @@ Active Record is an important piece of the Rails approach to web applications. D
 
 __Question: What is the role of _models_ in the MVC pattern?__
 
+## A Few Terms
+-  A Database _schema_ is the structure of a database.  It's the logical view of the tables and how they are related to one another.  
+-  A _migration_ is a change to that database schema.
+
+So in this lesson we will be learning how to create, change and structure the Model layer of our application.  
+
 ## Generating New Rails Models & Migrations
 An important component of the `rails` command line tool is the generator. We can use the generator to automatically create idiomatic classes and files in the appropriate directories for the most common application roles.
 
@@ -54,9 +60,10 @@ All _migrations_ will be a class that inherits from `ActiveRecord::Migration`. _
 Within the `change` method, we can use many other method calls provided by `ActiveRecord::Migration` to describe how to modify the database _schema_. Here are the most common methods you'll encounter in _migrations_:
 
 - `create_table(table_name)`: Creates a new table in the database, this is the command that the `Post` migration used.
-- `add_column(table_name, column_name, data_type, options)`: adds a column to an existing table.
-- `remove_column(table_name, column_name)`: removes a column from an existing table.
-- `change_column(table_name, column_name, new_data_type)`: changes an existing column from one data type to another.
+- `add_column(table_name, column_name, data_type, options)`: Adds a column to an existing table.
+- `remove_column(table_name, column_name)`: Removes a column from an existing table.
+- `change_column(table_name, column_name, new_data_type)`: Changes an existing column from one data type to another.
+-  `rename_column(table_name, old_column, new_column)`: Renames a column to match the newly given column name.
 
 __Question: Just looking at the name of the migration, which of these methods would we utilize to complete the _migration_?__
 
@@ -93,3 +100,5 @@ By convention, _model_ class and file names are singular. The associated databas
 | Medium                  | media                  | medium.rb           |
 | Person                  | people                 | person.rb           |
 | Deer                    | deers                  | deer.rb             |
+
+
