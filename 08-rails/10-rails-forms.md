@@ -112,7 +112,7 @@ Here's a link to the [official docs for form helpers](http://api.rubyonrails.org
 Likely more helpful is the [Rails Guide for Form Helpers](http://guides.rubyonrails.org/form_helpers.html) which extensively covers both kinds of forms discussed in this document.
 
 ## Controllers & Form Data
-Like in Sinatra, submitting a form results in the form data being collected into the _params hash_. The structure of form data follows the same patterns as in Sinatra. This means we can leverage creative naming in the HTML (like `album[artist]`) to create well structured objects in the _params hash_.
+Submitting a form results in the form data being collected into the _params hash_. The structure of form data follows the same patterns as in other frameworks. This means we can leverage creative naming in the HTML (like `album[artist]`) to create well structured objects in the _params hash_.
 
 If we submitted the `form_for` example above, the params hash would arrive in our _controller action_ looking something like:
 
