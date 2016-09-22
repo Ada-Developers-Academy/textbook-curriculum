@@ -26,11 +26,11 @@ This is our Student _model_, and it is connected to a table in the database call
 For right now, our _models_ will likely be empty Ruby classes. The inherited class (`ActiveRecord::Base`) provides a tremendous amount of functionality. As we move forward in the curriculum, we will begin filling out our models with additional functionality.
 
 ## Interacting with models in the _Rails console_
-Rails provides a REPL (similar to irb and pry) that pre-loads all the application information when started. It's one of the most useful tools I've encountered. Let's spend some time exploring it. From your application root, run `$ rails console`:
+Rails provides a REPL (similar to irb and pry) that pre-loads all the application information when started. It's one of the most useful tools I've encountered. Let's spend some time exploring it. From your application root, run `$ bin/rails console`:
 
 ```bash
-jeremy@iridium ~/sandbox/ar-practice
- ❤️  :: rails console
+instructor@ada cd ~/sandbox/ar-practice
+ ❤️  :: bin/rails console
 Running via Spring preloader in process 48975
 Loading development environment (Rails 4.2.6)
 2.3.0 :001 >
@@ -116,9 +116,10 @@ Student.where(id: ids)
 ```
 
 ### Parameter Binding with Active Record
-We learned last week about using _parameter binding_ to (most importantly) make queries more secure (google research: _sql injection_), and to improve the reusability of queries. This idea is equally important in Rails, and AR provides it in a similar manner.
 
-If you write code using the `where` syntax above (like `Student.where(name: "Rosa")`), Active Record _does parameter binding automatically_. Active Record also provides manual parameter binding similar to how we did it with SQLite:
+Active Record uses something called _parameter binding_ to take our requests and convert them into SQL, the nearly universal language of databases and (most importantly) make queries more secure (google research: [_sql injection_](https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=sql%20injection)), and to improve the reusability of queries. This idea is very important in Rails, and AR provides it.
+
+If you write code using the `where` syntax above in the rails console (like `Student.where(name: "Rosa")`), Active Record _does parameter binding automatically_. Active Record can also provides manual parameter binding:
 
 ```ruby
 # using '?'
@@ -128,11 +129,21 @@ Student.where("name = ?", "Rosa")
 Student.where("name = :name AND pie = :pie", name: "Rosa", pie: "apple")
 ```
 
+The first line above uses the `?` symbol as a placeholder, and inserts the second argument into that position.  So it is looking for students where the name is "Rosa."
+
+The second line makes a more complicated query and has 2 named parameters, `:name` and `:pie` and passes in a hash where the named parameter values are passed in.  
+
+So something like this would work as well:
+
+```ruby
+Student.where("name = :name OR pie = :pie", {name: "Sheena", pie: "apple"})
+```
+
 ### Using AR to modify rows in the database
-Instances of Active Record models can be created from a hash, a block or have their attributes manually set after creation. Once an instance has its data attributes defined, it can be saved to the database, making a persistant record of that data.
+Instances of Active Record models can be created from a hash, a block or have their attributes manually set after creation. Once an instance has its data attributes defined, it can be saved to the database, making a persistent record of that data.
 
 #### `new` vs. `create`
-**.new** returns a new object of that class, but doesn't save it to the database.
+`new` returns a new object of that class, but doesn't save it to the database.
 
 ```ruby
 # `new` with preset data
@@ -203,6 +214,9 @@ Student.count #=> 6
 libby = Student.find_by(name: "Libby") #=> nil
 ```
 
+**WARNING:** An AR model does also have a `delete` method and it will delete the instance from the database, but it does **[not](http://stackoverflow.com/questions/22757450/difference-between-destroy-and-delete)** do exactly the same thing.  We will discuss it a bit later when we introduce relationships.  For now, just avoid using it.    
+
+
 ## What We Learned
 - Active Record is an _ORM_, and provides a _DSL_ for modeling queries
 - We explored how to create an Active Record _model_ and _migration_
@@ -212,3 +226,4 @@ libby = Student.find_by(name: "Libby") #=> nil
 - http://guides.rubyonrails.org/active_record_basics.html
 - http://guides.rubyonrails.org/migrations.html  
 - http://guides.rubyonrails.org/active_record_querying.html  
+- http://guides.rubyonrails.org/active_model_basics.html 
