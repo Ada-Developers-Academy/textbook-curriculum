@@ -77,7 +77,7 @@ We can modify the view to display data from the `@books` instance variable like 
   <% end %>
 </ul>
 ```
-![View Rendered](../images/view1.png)
+![View Rendered](images/view1.png)
 
 By using our Rails controller method to create variables with the data that we want to display, we can customize our views in an infinite number of ways and create enormously powerful websites with very little code.  
 
