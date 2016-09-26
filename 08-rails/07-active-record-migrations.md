@@ -1,6 +1,6 @@
-# I Love Active Record: Migrations
+# Active Record: Migrations
 ## Learning Goals
-- Why do I love AR (Active Record) _migrations_ so much?
+- What is an AR (Active Record) _migration_?
 - Learn how to use `rails` and AR to control the _schema_ of a database
 - Understand the role of _migrations_ in a Rails application
 

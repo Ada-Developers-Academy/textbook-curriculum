@@ -51,6 +51,7 @@ Both code tags and value tags can be combined to create loops with Ruby code tha
 ```
 
 ## Using ERB Tags with Rails
+
 To get the most benefit from the special tags that _ERB_ provides us, we will need a way to provide _ERB_ with variables that can be used inside of those tags.  To do this we can create variables in our controller.
 
 ```ruby
@@ -61,6 +62,7 @@ def index
 end
 ```
 ... and inside of `app/views/books` ... there is a view file named after the index action. `index.html.erb`.  This is an example of how Ruby favors convention over configuration.  The default view for an action/method is named after it and stored in a folder named after the class.  
+
 ```erb
 <h1>Books#update</h1>
 <p>Find me in app/views/books/update.html.erb</p>
@@ -75,7 +77,7 @@ We can modify the view to display data from the `@books` instance variable like 
   <% end %>
 </ul>
 ```
-![View Rendered](images/view1.png)
+![View Rendered](../images/view1.png)
 
 By using our Rails controller method to create variables with the data that we want to display, we can customize our views in an infinite number of ways and create enormously powerful websites with very little code.  
 
@@ -87,7 +89,7 @@ One of the most helpful features of ERB tags is that they allow us to "compose" 
 
 For example, if we had two HTML pages like this:
 ```erb
-<!-- views/index.erb -->
+<!-- app/views/website/index.html.erb -->
 <html>
   <head>
     <title>My Website</title>
@@ -101,7 +103,7 @@ For example, if we had two HTML pages like this:
 ```
 ... and ...
 ```erb
-<!-- views/about-me.erb -->
+<!-- app/views/website/about-me.html.erb -->
 <html>
   <head>
     <title>My Website</title>
@@ -113,15 +115,21 @@ For example, if we had two HTML pages like this:
 </html>
 ```
 
-We could remove the redundant parts by creating a _layout_ template:
+We could remove the redundant parts by utilizing a _layout_ template:
 ```erb
-<!-- views/layout.erb -->
+<!-- views/layouts/application.html.erb -->
+<!DOCTYPE html>
 <html>
   <head>
     <title>My Website</title>
+
+    <!-- Below are things that Rails includes by default -->
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
   </head>
   <body>
-    <%= yield %>
+    <%= yield %> <!-- This is the key to utilizing the layout -->
   </body>
 </html>
 ```
@@ -129,14 +137,14 @@ We could remove the redundant parts by creating a _layout_ template:
 The `yield` command inside of the_ value tag_ in this _layout_ tells ERB that it should replace that tag with the content of another ERB template. With the common code extracted to the _layout_, the other _views_ are now much smaller:
 
 ```erb
-<!-- views/index.erb -->
+<!-- app/views/website/index.html.erb -->
 <h1>Welcome to My Website!</h1>
 <p>This is a website that I created. Isn't is awesome?</p>
 <p>Check out my about page <a href="/about_me">here</a>.</p>
 ```
 ... and ...
 ```erb
-<!-- views/about-me.erb -->
+<!-- app/views/website/about-me.html.erb -->
 <h1>About Me</h1>
 <p>I am the person that created this website, that's all you need to know.</p>
 ```
@@ -170,7 +178,7 @@ If you examine the layout above you will notice embedded ruby with `stylesheet_l
 
 The `csrf_meta_tag` is used place, essentially a digital signature acting as verification that requests coming into Rails are in fact from properly logged in users.  You can do a view-source and look at what the csrf meta tag does.  More information is available [here](http://www.gnucitizen.org/blog/csrf-demystified/).
 
-## Resources 
+## Resources
 
 -  [Rails Views Tutorials Point](https://www.tutorialspoint.com/ruby-on-rails/rails-views.htm)
 - [Rails Controllers and Views (video)](https://www.youtube.com/watch?v=hp66U7Q8YXY)

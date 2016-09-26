@@ -1,7 +1,7 @@
-# I Love Active Record: Models
+# Active Record: Models
 ## Learning Goals
 - Use AR _models_ to perform CRUD tasks on database records
-- Joyfully embrace the _Rails Console_ 
+- Joyfully embrace the _Rails Console_
 - Begin exploring the AR _query interface_
 
 ## Active Record as a DSL
@@ -29,8 +29,7 @@ For right now, our _models_ will likely be empty Ruby classes. The inherited cla
 Rails provides a REPL (similar to irb and pry) that pre-loads all the application information when started. It's one of the most useful tools I've encountered. Let's spend some time exploring it. From your application root, run `$ bin/rails console`:
 
 ```bash
-instructor@ada cd ~/sandbox/ar-practice
- ❤️  :: bin/rails console
+ ❤️  :: rails console
 Running via Spring preloader in process 48975
 Loading development environment (Rails 4.2.6)
 2.3.0 :001 >
@@ -100,7 +99,7 @@ alphabetical_students = Student.order(:name)
 # *and* return them in reverse alphabetical order
 team_apple = Student.where(pie: "Apple").order(name: :desc)
 
-# provide compount conditions to do more specific queries
+# provide compound conditions to do more specific queries
 rosa_and_apple = Student.where(name: "Rosa", pie: "apple")
 
 # use `not` to exclude values from results
@@ -226,4 +225,4 @@ libby = Student.find_by(name: "Libby") #=> nil
 - http://guides.rubyonrails.org/active_record_basics.html
 - http://guides.rubyonrails.org/migrations.html  
 - http://guides.rubyonrails.org/active_record_querying.html  
-- http://guides.rubyonrails.org/active_model_basics.html 
+- http://guides.rubyonrails.org/active_model_basics.html
