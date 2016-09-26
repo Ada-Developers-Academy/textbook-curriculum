@@ -33,7 +33,7 @@ We can think of each of these roles as the responsibility of an object, and use 
 ![MVC in Rails](images/railsmvc.png)
 
 
-##RESTful Routing
+## RESTful Routing
 
 ### What is REST?
 
