@@ -48,4 +48,4 @@ The above `image_tag` will give you this HTML:
 ## Helpful Links
 - [An overview of helpers](http://guides.rubyonrails.org/action_view_overview.html#overview-of-helpers-provided-by-action-view)
 - [Complete documentation on view helpers](http://api.rubyonrails.org/classes/ActionView/Helpers.html)
-- [Guide on `button_to`]()
+- [Guide on `button_to`](http://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html#method-i-button_to)
