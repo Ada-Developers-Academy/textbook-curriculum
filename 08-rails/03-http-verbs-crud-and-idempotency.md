@@ -6,7 +6,31 @@
 - Explore how the acronym _CRUD_ (**C**reate **R**ead **U**pdate and **D**elete) relates to both making interactice web applications and HTTP _verbs_.
 
 ## HTTP _verbs_
-We've met `GET`. In our Sinatra site, we've defined routes using a syntax like `get "/kitty/:name" do` to tell Sinatra how it should handle folks asking for kitty cat names.
+The typical http request from a client is a `GET`.  When your browser goes to [http://localhost:3000/orders](http://localhost:3000/orders) it sends an http get request.
+
+### So what does an _HTTP GET Request_ look like?
+Kinda like this:
+
+```
+# this is the request
+GET /orders HTTP/1.1
+User-Agent: curl/7.30.0
+Host: localhost:8080
+Content-Length: 6
+Accept: */*
+```
+
+```
+# and the corresponding response
+HTTP/1.1 200 OK
+Content-Type: text/html
+Server: WEBrick/1.3.1 (Ruby/2.1.2/2014-05-08)
+Date: Mon, 22 Sep 2014 19:19:57 GMT
+Content-Length: 21
+Connection: Keep-Alive
+
+# then a bunch of html
+```
 
 So what is `GET` exactly, and why do I keep typing it in all caps? Short answer: `GET` is one of a family of HTTP _verbs_ that we use to describe the nature of a request. Some _verbs_ are responsible for fetching information from the server; others are responsible for doing things like telling the server to update or even delete data. There's quite a few default _verbs_ in the HTTP spec, though we (Ruby/Rails devs) mostly just use `GET`, `POST`, `PUT` (and `PATCH`), and `DELETE`.
 
@@ -17,7 +41,7 @@ The HTTP `GET` method is used to __read__ (or retrieve) a representation of a re
 
 According to the design of the HTTP specification, `GET` requests are used only to __read__ data and not change it. Therefore, when used this way, they are considered 'safe'. That is, they can be called without risk of data modification or corruption. To say it another way, calling a resource with `GET` once has the same effect as calling it 10 times. Or a 1000.
 
-`GET` is _idempotent_, which means that making multiple identical requests ends up having the same result as a single request. While idempotent operations produce the same result on the server (no side effects), the response itself may not be the same (e.g. a resource's state may change between requests). For example, `get "/temperature"` gets the current temperature outside. The temperature may change between requests, but nothing about the actual process of requesting the `/temperature` route will cause the temperature to change. `GET` should never modify any resources on the server.
+`GET` is _idempotent_, __which means that making multiple identical requests ends up having the same result as a single request.__ While idempotent operations produce the same result on the server (no side effects), the response itself may not be the same (e.g. a resource's state may change between requests). For example, `get "/temperature"` gets the current temperature outside. The temperature may change between requests, but nothing about the actual process of requesting the `/temperature` route will cause the temperature to change. `GET` should never modify any resources on the server.
 
 ### POST
 The `POST` verb is most often utilized to __create__ new resources. In particular, it's used to create _subordinate_ resources. Think of subordinate resources as representing a single instance of a _parent_ resource. You wouldn't use `POST` to define what a `Person` object is, but you would use `POST` to __create__ data attributes about a specific `Person`.
