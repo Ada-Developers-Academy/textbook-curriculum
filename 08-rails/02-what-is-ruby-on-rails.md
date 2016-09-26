@@ -37,6 +37,7 @@ $ gem uninstall railties
 $ gem uninstall rails
 $ rvm use 2.3.0@rails_gemset --create
 $ gem install rails --version 4.2.7 --no-rdoc --no-ri
+$ echo 'rvm use 2.3.0@rails_gemset' >>~/.profile
 $ rails -v
 ```
 
