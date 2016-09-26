@@ -64,4 +64,4 @@ We will use Ruby--specifically a collection of Gems--to create a _webserver_.
 The _webserver_ is a program on the _server_ which monitors incoming _HTTP requests_
 and then responds with an _HTTP response_. A _webserver_ interfaces your application with incoming _HTTP requests_ on the server. By using Ruby, we can introduce logic into our server so that it can make decisions, process user input, query data, and more.
 
-![The Request Cycle](images/request-cycle.jpg)
+![The Request Cycle](images/rails-request-cycle.jpg)
