@@ -50,8 +50,8 @@ By default, on successful creation, a `POST` should return HTTP status 201, and 
 
 `POST` is neither safe nor idempotent. It is therefore recommended for non-idempotent resource requests. Making two identical `POST` requests will most-likely result in two separate resources containing the same information.
 
-### PUT (and PATCH)
-`PUT` is most-often utilized for __update__ capabilities. We `PUT` to a known resource with a request body containing newly-updated representation of the original resource.
+### PATCH (and PUT)
+`PUT` and `PATCH` are most-often utilized for __update__ capabilities. We `PUT` to a known resource with a request body containing newly-updated representation of the original resource.
 
 On successful `PUT`, send a response code of 200 (OK; has response body) or 204 (OK; no response body). It is not necessary to return a link via a Location header in the creation case since the client already set the resource ID.
 
@@ -59,8 +59,8 @@ On successful `PUT`, send a response code of 200 (OK; has response body) or 204 
 
 This idea of crafting _idempotent_ requests is a design ideal. There's nothing stopping us from creating `PUT` requests that mutate the resource in a way that is not _idempotent_. For instance, calling `PUT` on a resource that increments a counter within the resource would make the call no longer _idempotent_. However, it's recommended to keep `PUT` requests _idempotent_. Use `POST` for non-_idempotent_, mutating requests.
 
-#### A note about PATCH and Rails
-We're not covering `PATCH` much right now. It serves essentially the same purpose as `PUT`, but there's some technical wiggly bits that won't be relevant until we're in Rails. If it's now the future instead of the present and we're knee-deep in Rails, [here's the deets on how we're now preferring `PATCH` to `PUT`](http://weblog.rubyonrails.org/2012/2/26/edge-rails-patch-is-the-new-primary-http-method-for-updates/).
+#### A note about PUT, PATCH and Rails
+In the wild, `PUT` and `PATCH` are used interchangeably - they both indicate the server should update a resource. They are not the same however - `PUT` indicates the resource should be _replaced_, while `PATCH` allows a _partial update_ to a resource. [The official Rails documentation prefers `PATCH`](http://weblog.rubyonrails.org/2012/2/26/edge-rails-patch-is-the-new-primary-http-method-for-updates/) for most uses.
 
 ### DELETE
 `DELETE` does what it says on the tin. It is used to __delete__ a resource.
