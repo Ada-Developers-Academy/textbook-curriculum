@@ -5,7 +5,7 @@
 - Learn the special syntax for working with _erb_
 
 ## What is _ERB_
-ERB (Embedded RuBy) is kind of file known as a _preprocessor_. When Sinatra sees a file that has the extension of _.erb_, it will _evaluate_ it for Ruby expressions _before_ doing anything else with it (like sending it to the browser). We call it a _preprocessor_ because it is triggered before anything else happens with the file. It is very common to have files in Sintra (and Rails) projects with names like `index.erb`. This tells us (and the webserver) that the file is intended to be _preprocessed_ with _erb_, and the result of the processing is what should be sent to the browser. This kind of file is known, generically, as a _view template_.
+ERB (Embedded RuBy) is kind of file known as a _preprocessor_. When Sinatra sees a file that has the extension of _.erb_, it will _evaluate_ it for Ruby expressions _before_ doing anything else with it (like sending it to the browser). We call it a _preprocessor_ because it is triggered before anything else happens with the file. It is very common to have files in Sinatra (and Rails) projects with names like `index.erb`. This tells us (and the webserver) that the file is intended to be _preprocessed_ with _erb_, and the result of the processing is what should be sent to the browser. This kind of file is known, generically, as a _view template_.
 
 Preprocessing allows us to specify the file contents in any format we want (HTML, CSS, Markdown, etc.) while still _embedding_ Ruby code inside of it, allowing for customization of the content when the _view_ is _rendered_ (preprocessed and sent to the client as HTML).
 
@@ -77,7 +77,7 @@ end
 </html>
 ```
 
-By using our Sinatra route block to create variables with the data that we want to dislay, we can customize our views in an infinite number of ways and create enormously powerful websites with very little code.
+By using our Sinatra route block to create variables with the data that we want to display, we can customize our views in an infinite number of ways and create enormously powerful websites with very little code.
 
 ## Layouts
 One of the most helpful features of ERB tags is that they allow us to "compose" multiple ERB templates together. This means we are placing the content of a single ERB template at a specific point within a different ERB template. When we have multiple HTML pages that use much of the same content on every page, we can extract the repeated content into a reusable template. This extracted template is known as a _layout_.

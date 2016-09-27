@@ -7,7 +7,7 @@
 - Acknowledge that _fixtures_ are equal parts cool and weird.
 
 ## A DSL in every pot
-Like every-damn-thing elsein Rails, testing is baked right in and there's a really-friendly-but-kinda-weird DSL sitting on top of it. The good news is that it's all Minitest, the same testing framework we've used in past projects and in the Weekend Warrior exercises.
+Like every-damn-thing else in Rails, testing is baked right in and there's a really-friendly-but-kinda-weird DSL sitting on top of it. The good news is that it's all Minitest, the same testing framework we've used in past projects and in the Weekend Warrior exercises.
 
 ### Finding the tests
 So when we use `rails generate` commands to create files, we usually get some empty test files too. Right in the project root is a `test/` directory that houses all of our tests. Inside `test/`, tests are further organized into directories based on what kind of file they're testing. There's a directory for models, controllers, views, mailers, and helpers.
@@ -24,13 +24,13 @@ Figuring out what to test can be really confusing. You'll develop a sense of wha
 
 I say _at least one_ test because it often makes sense to test different combinations of information. For example, with _validations_ I like to write a test that verifies what kind of data is valid and a separate test that provides an example of invalid data. I write both a _positive_ and _negative_ test case.
 
-### Contructing test cases
+### Constructing test cases
 Let's say our model looks like this:
 
 ```ruby
 class Album < ActiveRecord::Base
   belongs_to :artist
-  validates :title, presense: true, uniqueness: true
+  validates :title, presence: true, uniqueness: true
 end
 ```
 
@@ -144,7 +144,7 @@ end
 # app/models/albums.rb
 class Album < ActiveRecord::Base
   belongs_to :album
-  validates :name, presense: true, uniqueness: true
+  validates :name, presence: true, uniqueness: true
 end
 ```
 
@@ -160,4 +160,3 @@ class ArtistTest < ActiveSupport::TestCase
   end
 end
 ```
-

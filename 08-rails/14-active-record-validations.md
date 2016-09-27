@@ -1,7 +1,7 @@
 # Active Record Validations
 ## Learning Goals
 - Explore the _validations library_ provided by Active Record
-- Discuss the role _valications_ play in data management
+- Discuss the role _validations_ play in data management
 - Guide users towards providing better data
 
 ## Validating User Input
@@ -11,7 +11,7 @@ Rails gives us a nice way to validate data before we try to put it into the data
 To prevent harmful side effects. A common example is a system trying to send an email to something that isn't an email address. Validating user input--and providing users an opportunity to correct invalid input--increases the reliability and quality of our applications and data.
 
 ## Using Active Record Validations
-Using the example above, if our application depends on a user having an email address (to show on their profile, usee as part of the login process, and/or to send emails), we will want to _validate_ that the string provided is an email address.
+Using the example above, if our application depends on a user having an email address (to show on their profile, use as part of the login process, and/or to send emails), we will want to _validate_ that the string provided is an email address.
 
 In an Active Record model we can use the `validates` method to describe what valid data looks like. The `validates` method takes two arguments. First is the field name to
 validate (`:email`). The second is a hash describing how we want to validate it (`presence: true`)

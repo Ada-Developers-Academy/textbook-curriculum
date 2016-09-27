@@ -6,7 +6,31 @@
 - Explore how the acronym _CRUD_ (**C**reate **R**ead **U**pdate and **D**elete) relates to both making interactice web applications and HTTP _verbs_.
 
 ## HTTP _verbs_
-We've met `GET`. In our Sinatra site, we've defined routes using a syntax like `get "/kitty/:name" do` to tell Sinatra how it should handle folks asking for kitty cat names.
+The typical http request from a client is a `GET`.  When your browser goes to [http://localhost:3000/orders](http://localhost:3000/orders) it sends an http get request.
+
+### So what does an _HTTP GET Request_ look like?
+Kinda like this:
+
+```
+# this is the request
+GET /orders HTTP/1.1
+User-Agent: curl/7.30.0
+Host: localhost:8080
+Content-Length: 6
+Accept: */*
+```
+
+```
+# and the corresponding response
+HTTP/1.1 200 OK
+Content-Type: text/html
+Server: WEBrick/1.3.1 (Ruby/2.1.2/2014-05-08)
+Date: Mon, 22 Sep 2014 19:19:57 GMT
+Content-Length: 21
+Connection: Keep-Alive
+
+# then a bunch of html
+```
 
 So what is `GET` exactly, and why do I keep typing it in all caps? Short answer: `GET` is one of a family of HTTP _verbs_ that we use to describe the nature of a request. Some _verbs_ are responsible for fetching information from the server; others are responsible for doing things like telling the server to update or even delete data. There's quite a few default _verbs_ in the HTTP spec, though we (Ruby/Rails devs) mostly just use `GET`, `POST`, `PUT` (and `PATCH`), and `DELETE`.
 
@@ -17,7 +41,7 @@ The HTTP `GET` method is used to __read__ (or retrieve) a representation of a re
 
 According to the design of the HTTP specification, `GET` requests are used only to __read__ data and not change it. Therefore, when used this way, they are considered 'safe'. That is, they can be called without risk of data modification or corruption. To say it another way, calling a resource with `GET` once has the same effect as calling it 10 times. Or a 1000.
 
-`GET` is _idempotent_, which means that making multiple identical requests ends up having the same result as a single request. While idempotent operations produce the same result on the server (no side effects), the response itself may not be the same (e.g. a resource's state may change between requests). For example, `get "/temperature"` gets the current temperature outside. The temperature may change between requests, but nothing about the actual process of requesting the `/temperature` route will cause the temperature to change. `GET` should never modify any resources on the server.
+`GET` is _idempotent_, __which means that making multiple identical requests ends up having the same result as a single request.__ While idempotent operations produce the same result on the server (no side effects), the response itself may not be the same (e.g. a resource's state may change between requests). For example, `get "/temperature"` gets the current temperature outside. The temperature may change between requests, but nothing about the actual process of requesting the `/temperature` route will cause the temperature to change. `GET` should never modify any resources on the server.
 
 ### POST
 The `POST` verb is most often utilized to __create__ new resources. In particular, it's used to create _subordinate_ resources. Think of subordinate resources as representing a single instance of a _parent_ resource. You wouldn't use `POST` to define what a `Person` object is, but you would use `POST` to __create__ data attributes about a specific `Person`.
@@ -26,8 +50,8 @@ By default, on successful creation, a `POST` should return HTTP status 201, and 
 
 `POST` is neither safe nor idempotent. It is therefore recommended for non-idempotent resource requests. Making two identical `POST` requests will most-likely result in two separate resources containing the same information.
 
-### PUT (and PATCH)
-`PUT` is most-often utilized for __update__ capabilities. We `PUT` to a known resource with a request body containing newly-updated representation of the original resource.
+### PATCH (and PUT)
+`PUT` and `PATCH` are most-often utilized for __update__ capabilities. We `PUT` to a known resource with a request body containing newly-updated representation of the original resource.
 
 On successful `PUT`, send a response code of 200 (OK; has response body) or 204 (OK; no response body). It is not necessary to return a link via a Location header in the creation case since the client already set the resource ID.
 
@@ -35,8 +59,8 @@ On successful `PUT`, send a response code of 200 (OK; has response body) or 204 
 
 This idea of crafting _idempotent_ requests is a design ideal. There's nothing stopping us from creating `PUT` requests that mutate the resource in a way that is not _idempotent_. For instance, calling `PUT` on a resource that increments a counter within the resource would make the call no longer _idempotent_. However, it's recommended to keep `PUT` requests _idempotent_. Use `POST` for non-_idempotent_, mutating requests.
 
-#### A note about PATCH and Rails
-We're not covering `PATCH` much right now. It serves essentially the same purpose as `PUT`, but there's some technical wiggly bits that won't be relevant until we're in Rails. If it's now the future instead of the present and we're knee-deep in Rails, [here's the deets on how we're now preferring `PATCH` to `PUT`](http://weblog.rubyonrails.org/2012/2/26/edge-rails-patch-is-the-new-primary-http-method-for-updates/).
+#### A note about PUT, PATCH and Rails
+In the wild, `PUT` and `PATCH` are used interchangeably - they both indicate the server should update a resource. They are not the same however - `PUT` indicates the resource should be _replaced_, while `PATCH` allows a _partial update_ to a resource. [The official Rails documentation prefers `PATCH`](http://weblog.rubyonrails.org/2012/2/26/edge-rails-patch-is-the-new-primary-http-method-for-updates/) for most uses.
 
 ### DELETE
 `DELETE` does what it says on the tin. It is used to __delete__ a resource.

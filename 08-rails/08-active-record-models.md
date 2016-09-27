@@ -1,7 +1,7 @@
-# I Love Active Record: Models
+# Active Record: Models
 ## Learning Goals
 - Use AR _models_ to perform CRUD tasks on database records
-- Joyfully embrace the _Rails Console_ <3 <3 <3
+- Joyfully embrace the _Rails Console_
 - Begin exploring the AR _query interface_
 
 ## Active Record as a DSL
@@ -21,15 +21,14 @@ class Student < ActiveRecord::Base
 end
 ```
 
-This is our Student _model_, and it is connected to a table in the database called _students_. We don't have to explicitely tell Rails about that connection; by following the naming conventions (thank you, Inflector!), Rails knows which database table to use with which _model_. By doing this you'll also have the ability to map the columns of each row in that table with the attributes of the instances of your model.
+This is our Student _model_, and it is connected to a table in the database called _students_. We don't have to explicitly tell Rails about that connection; by following the naming conventions (thank you, Inflector!), Rails knows which database table to use with which _model_. By doing this you'll also have the ability to map the columns of each row in that table with the attributes of the instances of your model.
 
 For right now, our _models_ will likely be empty Ruby classes. The inherited class (`ActiveRecord::Base`) provides a tremendous amount of functionality. As we move forward in the curriculum, we will begin filling out our models with additional functionality.
 
 ## Interacting with models in the _Rails console_
-Rails provides a REPL (similar to irb and pry) that pre-loads all the application information when started. It's one of the most useful tools I've encountered. Let's spend some time exploring it. From your application root, run `$ rails console`:
+Rails provides a REPL (similar to irb and pry) that pre-loads all the application information when started. It's one of the most useful tools I've encountered. Let's spend some time exploring it. From your application root, run `$ bin/rails console`:
 
 ```bash
-jeremy@iridium ~/sandbox/ar-practice
  ❤️  :: rails console
 Running via Spring preloader in process 48975
 Loading development environment (Rails 4.2.6)
@@ -40,20 +39,20 @@ Now we're in the _console_, from here we can do all the stuff that irb and pry p
 
 ```ruby
 2.3.0 :001 > s = Student.new
- => #<Student id: nil, name: nil, pie: nil, motto: nil, created_at: nil, updated_at: nil> 
+ => #<Student id: nil, name: nil, pie: nil, motto: nil, created_at: nil, updated_at: nil>
 2.3.0 :002 > s.attributes
- => {"id"=>nil, "name"=>nil, "pie"=>nil, "motto"=>nil, "created_at"=>nil, "updated_at"=>nil} 
+ => {"id"=>nil, "name"=>nil, "pie"=>nil, "motto"=>nil, "created_at"=>nil, "updated_at"=>nil}
 2.3.0 :003 >
 ```
 
 We can assign data to the instance using plain Ruby:
 ```ruby
 2.3.0 :003 > s.name = "Libby"
- => "Libby" 
+ => "Libby"
 2.3.0 :004 > s.pie = "Apple"
  => "Apple"
 2.3.0 :006 > s.attributes
- => {"id"=>nil, "name"=>"Libby", "pie"=>"Apple", "motto"=>nil, "created_at"=>nil, "updated_at"=>nil} 
+ => {"id"=>nil, "name"=>"Libby", "pie"=>"Apple", "motto"=>nil, "created_at"=>nil, "updated_at"=>nil}
 ```
 
 When we are happy with the data in our _model_, we can write it to the database using a single command:
@@ -63,7 +62,7 @@ When we are happy with the data in our _model_, we can write it to the database 
    (0.3ms)  begin transaction
   SQL (1.8ms)  INSERT INTO "students" ("name", "pie", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Libby"], ["pie", "Apple"], ["created_at", "2016-04-17 18:17:52.649965"], ["updated_at", "2016-04-17 18:17:52.649965"]]
    (1.5ms)  commit transaction
- => true 
+ => true
 2.3.0 :008 >
 ```
 
@@ -100,7 +99,7 @@ alphabetical_students = Student.order(:name)
 # *and* return them in reverse alphabetical order
 team_apple = Student.where(pie: "Apple").order(name: :desc)
 
-# provide compount conditions to do more specific queries
+# provide compound conditions to do more specific queries
 rosa_and_apple = Student.where(name: "Rosa", pie: "apple")
 
 # use `not` to exclude values from results
@@ -116,23 +115,34 @@ Student.where(id: ids)
 ```
 
 ### Parameter Binding with Active Record
-We learned last week about using _parameter binding_ to (most importantly) make queries more secure (google research: _sql injection_), and to improve the reusability of queries. This idea is equally important in Rails, and AR provides it in a similar manner.
 
-If you write code using the `where` syntax above (like `Student.where(name: "Rosa")`), Active Record _does parameter binding automatically_. Active Record also provides manual parameter binding similar to how we did it with SQLite:
+Active Record uses something called _parameter binding_ to take our requests and convert them into SQL, the nearly universal language of databases and (most importantly) make queries more secure (google research: [_sql injection_](https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=sql%20injection)), and to improve the reusability of queries. This idea is very important in Rails, and AR provides it.
+
+If you write code using the `where` syntax above in the rails console (like `Student.where(name: "Rosa")`), Active Record _does parameter binding automatically_. Active Record can also provides manual parameter binding:
 
 ```ruby
-# using '?' 
+# using '?'
 Student.where("name = ?", "Rosa")
 
 # using named parameters
 Student.where("name = :name AND pie = :pie", name: "Rosa", pie: "apple")
 ```
 
+The first line above uses the `?` symbol as a placeholder, and inserts the second argument into that position.  So it is looking for students where the name is "Rosa."
+
+The second line makes a more complicated query and has 2 named parameters, `:name` and `:pie` and passes in a hash where the named parameter values are passed in.  
+
+So something like this would work as well:
+
+```ruby
+Student.where("name = :name OR pie = :pie", {name: "Sheena", pie: "apple"})
+```
+
 ### Using AR to modify rows in the database
-Instances of Active Record models can be created from a hash, a block or have their attributes manually set after creation. Once an instance has its data attributes defined, it can be saved to the database, making a persistant record of that data.
+Instances of Active Record models can be created from a hash, a block or have their attributes manually set after creation. Once an instance has its data attributes defined, it can be saved to the database, making a persistent record of that data.
 
 #### `new` vs. `create`
-**.new** returns a new object of that class, but doesn't save it to the database.
+`new` returns a new object of that class, but doesn't save it to the database.
 
 ```ruby
 # `new` with preset data
@@ -194,7 +204,7 @@ libby.destroy
 (0.1ms)  begin transaction
 SQL (1.5ms)  DELETE FROM "students" WHERE "students"."id" = ?  [["id", 7]]
 (1.5ms)  commit transaction
- #=> <Student id: 7, name: "Libby", pie: nil, motto: nil, birthday: nil, created_at: "2016-04-17 20:04:01", updated_at: "2016-04-17 20:04:01", hobby: nil> 
+ #=> <Student id: 7, name: "Libby", pie: nil, motto: nil, birthday: nil, created_at: "2016-04-17 20:04:01", updated_at: "2016-04-17 20:04:01", hobby: nil>
 
 # count our students again
 Student.count #=> 6
@@ -202,6 +212,9 @@ Student.count #=> 6
 # now there's not a libby in the database
 libby = Student.find_by(name: "Libby") #=> nil
 ```
+
+**WARNING:** An AR model does also have a `delete` method and it will delete the instance from the database, but it does **[not](http://stackoverflow.com/questions/22757450/difference-between-destroy-and-delete)** do exactly the same thing.  We will discuss it a bit later when we introduce relationships.  For now, just avoid using it.    
+
 
 ## What We Learned
 - Active Record is an _ORM_, and provides a _DSL_ for modeling queries
@@ -212,3 +225,4 @@ libby = Student.find_by(name: "Libby") #=> nil
 - http://guides.rubyonrails.org/active_record_basics.html
 - http://guides.rubyonrails.org/migrations.html  
 - http://guides.rubyonrails.org/active_record_querying.html  
+- http://guides.rubyonrails.org/active_model_basics.html
