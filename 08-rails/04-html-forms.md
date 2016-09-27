@@ -42,6 +42,10 @@ Then, let's open the view (`app/views/?/new.html.erb`) in our editor. Add the fo
 
 ```html
 <form action="/entries" method="post" accept-charset="utf-8">
+  <!-- SPECIAL INPUT TO ALLOW RAILS TO USE THIS FORM -->
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+
+
   <label for="title">Title</label>
   <input type="text" name="title" value="" id="title">
 
