@@ -63,7 +63,7 @@ This command has Rails generate a Controller and Views for the /books path, so w
 
 When generating a Controller/View you can specify as many methods or actions as you wish for example:
 ```bash
-$ bin/rails generate Books index new update delete show
+$ bin/rails generate controller Books index new update delete show
 ```
 
 ### The Controller Class
