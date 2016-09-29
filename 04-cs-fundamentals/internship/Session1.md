@@ -16,8 +16,10 @@ Find the reading material that helps you learn from the below links:
 + Kal academy's material on [Linked List](https://drive.google.com/open?id=0BxHords9odw3am9SWEtGSkdrRTA)
 + Stanford CS Education Library material on [Linked List basics](http://cslibrary.stanford.edu/103/)
 + Read through and watch videos on [Linked List vs Array](http://www.geeksforgeeks.org/linked-list-vs-array/)
++ Stanford Lecture Handout on [Introduction to Pointers](http://web.stanford.edu/~fringer/teaching/operating_systems_03/handouts/lecture9.pdf)
 + Stanford CS Education Library material on [Pointer basics](http://cslibrary.stanford.edu/106/)
 + Stanford CS Education Library material on [Pointers and memory](http://cslibrary.stanford.edu/102/)
++ Cornell Lecture slides on [Pointers and arrays](http://www.cs.cornell.edu/courses/cs2022/2011sp/lectures/lect04.pdf)
 
 ## Offline Problem Sets
 + Stanford CS Education Library material on [Linked List Problems](http://cslibrary.stanford.edu/105/)
