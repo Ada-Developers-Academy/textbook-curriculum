@@ -1,4 +1,4 @@
-# Session 1
+# Session 2
 ## Goal
 + Trees and traversal - iterative and recursive approach
 
