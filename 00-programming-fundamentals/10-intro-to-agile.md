@@ -7,7 +7,7 @@
 
 
 ## Two Competing Ideas in Creating Software: Iterative vs Waterfall
-Agile developement is a set of methodologies that promotes iterative, adaptive, and rapid development. I really like agile. Waterfall is an older methodology that puts forth the idea that software can be designed, beginning to end, before development begins. Here are the primary differences:
+Agile development is a set of methodologies that promotes iterative, adaptive, and rapid development. I really like agile. Waterfall is an older methodology that puts forth the idea that software can be designed, beginning to end, before development begins. Here are the primary differences:
 
 ### Waterfall
 - Project focused
