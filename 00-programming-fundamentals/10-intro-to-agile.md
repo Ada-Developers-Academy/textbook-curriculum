@@ -66,3 +66,4 @@ We're going to practice the style of project management by using an online syste
 - [Pair Programming](http://en.wikipedia.org/wiki/Pair_programming)
 - [Agile "Manifesto"](http://agilemanifesto.org/)
 - [Parens Sample Trello Board](https://trello.com/b/CzsyAnKG)
+- [MIT Open Course on Agile Game Development](https://www.youtube.com/watch?v=UxMpn92vGXs)
