@@ -65,3 +65,4 @@ We're going to practice the style of project management by using an online syste
 - [Continuous Integration (CI)](http://en.wikipedia.org/wiki/Continuous_integration)
 - [Pair Programming](http://en.wikipedia.org/wiki/Pair_programming)
 - [Agile "Manifesto"](http://agilemanifesto.org/)
+- [Parens Sample Trello Board](https://trello.com/b/CzsyAnKG)
