@@ -50,7 +50,7 @@ A whole slew of nice lookup methods that help us build queries for the associate
 
 ### belongs_to :artist
 - `album.artist`: get the Artist associated with this Album
-- `album.artist= artist_object`: reassign this Album to a different Artist
+- `album.artist = artist_object`: reassign this Album to a different Artist
 - `album.build_artist(artist_hash)`: instantiate a new Artist object, associated with this Album, using the provided hash
 - `album.create_artist(artist_hash)`: just like `build_artist`, but call `save` after instantiating the Artist.
 
@@ -62,3 +62,20 @@ A whole slew of nice lookup methods that help us build queries for the associate
 - `artist.albums.where(conditions_hash)`: get the Albums associated with this Artist that also satisfy the conditions in the `where` hash (much more useful)
 - `artist.albums.build(album_hash)`: instantiate a new Album with the provided attribute hash and associate it with this Artist
 - `artist.albums.create(album_hash)`: instantiate a new Album with the provided attribute hash and associate it with this Artist, then call `save` on the new Album object.
+
+And, for the table-oriented among you:
+
+| Call | Returns | Touches DB | Note |
+|:----:|:-------:|:----------:|:----:|
+| `album.artist` | Artist object | Memoized | |
+| `album.artist = artist_object` | Artist object | No (requires save) | |
+| `album.artist.update(artist: artist_object)` | Artist object | Yes | |
+| `album.build_artist(artist_hash)` | Artist object | No | Does **not** set album.artist_id |
+| `album.create_artist(artist_hash)` | Artist object | Yes | Does **not** set `album.artist_id` |
+| `artist.albums` | Collection of albums | Memoized | |
+| `artist.albums << album_object` | Collection of albums | Yes | **Does** set `album.artist_id` |
+| `artist.albums = album_collection` | Collection of albums | Yes | |
+| `artist.albums.find(id)` |  Album object | Yes | |
+| `artist.albums.where(condition)` |  Collection of albums | Yes | |
+| `artist.albums.build(album_hash)` | Album object | No | **Does** set `album.artist_id` |
+| `artist.albums.create(album_hash)` | Album object | Yes | **Does** set `album.artist_id` |
