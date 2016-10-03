@@ -24,3 +24,7 @@ Much of this discussion is going to happen on the whiteboard with sticky notes a
   - Rebase then applies new commits from the specified branch to the current branch
   - Finally, rebase applies the commits unique to the current branch _as new commits to the top of the current branch_.
 - `git pull [remote] --rebase`: Same as `rebase`, except it directs Git to rebase a _remote branch_ with the current local branch.
+
+## Resources
+[Git SCM Documentation](https://git-scm.com/book/ch3-2.html)  
+[Atlassian Tutorial](https://www.atlassian.com/git/tutorials/using-branches/git-branch)
