@@ -1,7 +1,8 @@
-# Session 1
+# Arrays, Linked Lists, Pointers
 ## Goal
 + Arrays
 + Linked List
++ Memory and Pointer basics
 + Big O and efficiency
 
 
@@ -12,6 +13,7 @@ Go through what you've already learned:
 + Revise classroom session on [Sorting Efficiency](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/03-Sorting-Efficiency.md)
 
 Find the reading material that helps you learn from the below links:
++ Classroom handout on [Introduction to pointers](https://www.slideshare.net/secret/qCrOIS4xRIAE4k) licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
 + Kal academy's material on [Linear Data Structures](https://drive.google.com/open?id=0BxHords9odw3cDhCdGMxcWFVRms)
 + Kal academy's material on [Linked List](https://drive.google.com/open?id=0BxHords9odw3am9SWEtGSkdrRTA)
 + Stanford CS Education Library material on [Linked List basics](http://cslibrary.stanford.edu/103/)
@@ -59,4 +61,5 @@ struct node { </br>
 
 ##Slide Deck
 + Slide Deck used in class</br>
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://www.slideshare.net/secret/K2Ui5jdn6QjW47">Arrays and Linked Lists</a></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://www.linkedin.com/in/shruti-van-wicklen" property="cc:attributionName" rel="cc:attributionURL">Shruti Van Wicklen</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
+<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://www.slideshare.net/secret/K2Ui5jdn6QjW47">Arrays and Linked Lists</a></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</br>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />
