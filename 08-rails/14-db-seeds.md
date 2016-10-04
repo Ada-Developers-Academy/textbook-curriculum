@@ -46,7 +46,7 @@ rails console
 2.3.1 :001> Student.all
 ```
 
-If you want to delete all the data in the database (be very very careful) and reseed you can also use Rake.
+If you want to delete all the data in the database (be very very careful) and reseed you can also use Rake reset.
 
 ```bash
 rake db:reset
