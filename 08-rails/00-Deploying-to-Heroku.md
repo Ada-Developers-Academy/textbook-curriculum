@@ -79,15 +79,16 @@ Password (Typing will be hidden):
 Authentication successful.
 ```
 
-Then we need to create an application on Heroku
+Then we need to create and give a name to our application on Heroku. 
+The name you choose will be in the url for you hosted application, ex: http:/adies-app.herokuapp.com
 ```bash
-ada ~/path/to/my_rails_app $ heroku create
-Creating glacial-journey-5528... done, stack is ceder
-http://glacial-journey-5528.herokuapp.com/ | git@he...
+ada ~/path/to/my_rails_app $ heroku create adies-app
+Creating adies-app... done, stack is ceder
+http:/adies-app.herokuapp.com/ | git@he...
 Git remote heroku added
 ```
 
-**Pay very close attention**:  The link in terminal provided is a link to your app.  In this example it's http://glacial-journey-5528.herokuapp.com/  You can also see your apps listed in https://dashboard.heroku.com/apps.  
+**Pay very close attention**:  The link in terminal provided is a link to your app.  In this example it's http:/adies-app.herokuapp.com  You can also see your apps listed in https://dashboard.heroku.com/apps.  
 
 Now everything is ready to deploy your app.  You can use git push to push the current state of the master branch to Heroku:
 
