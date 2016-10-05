@@ -36,4 +36,5 @@ TODO EXAMPLE
 TODO
 
 ## Resources
-[Custom Validations](http://guides.rubyonrails.org/active_record_validations.html#performing-custom-validations)
+[Custom Validations](http://guides.rubyonrails.org/active_record_validations.html#performing-custom-validations)  
+[Conditional Validations](http://guides.rubyonrails.org/active_record_validations.html#conditional-validation)  
