@@ -35,7 +35,7 @@ The argument in this render statement corresponds to the name of the shared part
 #### Step 3
 Lastly, we need to handle the difference between the forms using a local variable.
 
-We can pass local variables along with the `render partial` command in the view, and then these variables can subsequently used in the partial.
+We can pass local variables along with the `render partial` command in the view, and then these variables can subsequently be used in the partial.
 
 Let's update the `new` and `edit` views to utilize a variable.
 
