@@ -39,11 +39,20 @@ We can pass local variables along with the `render partial` command in the view,
 
 Let's update the `new` and `edit` views to utilize a variable.
 
+`edit` view:
+
 ```ruby
 <%= render partial: "form", locals: { action_name: "Edit" } %>
 ```
 
-Then, if we want to utilize this `action_name` variable, we can update the submit button to utilize this descriptor for the given action:
+
+`new` view:
+
+```ruby
+<%= render partial: "form", locals: { action_name: "New" } %>
+```
+
+Then, if we want to utilize this `action_name` variable, we can update the submit button in the `partial` view to utilize this descriptor for the given action:
 ```ruby
 <%= f.submit action_name %>
 ```
