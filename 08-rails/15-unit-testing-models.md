@@ -164,3 +164,6 @@ end
 ```
 
 The way we associate the fixture data is by referencing the appropriate fixture file. Since we are using the `test/fixtures/albums.yml` file, we use `albums()` to reference that fixture data. We use the symbol syntax to refer to each of the objects we created in our corresponding fixture files.
+
+## Resources
+(The Rails Guide on testing: Models)[http://guides.rubyonrails.org/testing.html#model-testing]   
