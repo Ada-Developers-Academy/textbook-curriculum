@@ -28,9 +28,16 @@ To be able to deploy an App on Heroku you first need an account go to https://si
 
 ![Heroku Signup](images/heroku.png)
 
+
 ## Step 2 - Download Heroku Command Line Tools
 
 Then go to https://devcenter.heroku.com/articles/heroku-command-line and download and install the Heroku commandline tools.
+
+After installing Heroku command line tool, go to your terminal and sign in to Heroku
+
+```bash
+ $ heroku login
+```
 
 ## Step 3 - Go to your Application folder
 
