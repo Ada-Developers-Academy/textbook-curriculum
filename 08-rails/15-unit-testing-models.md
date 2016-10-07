@@ -92,6 +92,8 @@ Finished in 0.094177s, 42.4733 runs/s, 95.5650 assertions/s.
 ## Creating test data with _fixtures_
 Writing tests for objects that interact with a database often involves test data. In Rails, we define _fixtures_--temporary data used to populate models in tests--for test data. _Fixtures_ are kept in `test/fixtures` and are defined as [YAML](http://yaml.org/) files.
 
+Note that though the purpose may sound similar, _fixtures_ are different than _seeds_ because _fixtures_ are used in the tests only, and _seeds_ are used in our development database.
+
 Each YAML file defines default data for one model. So we'd use `test/fixtures/artists.yml` to create some test data for use when testing `Artist` models. Here's what YAML looks like:
 
 ```yml
@@ -160,3 +162,5 @@ class ArtistTest < ActiveSupport::TestCase
   end
 end
 ```
+
+The way we associate the fixture data is by referencing the appropriate fixture file. Since we are using the `test/fixtures/albums.yml` file, we use `albums()` to reference that fixture data. We use the symbol syntax to refer to each of the objects we created in our corresponding fixture files.
