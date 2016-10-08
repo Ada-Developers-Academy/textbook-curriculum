@@ -25,14 +25,14 @@ Representational state transfer (REST) is an architectural style. This is a reco
 
 The core of this idea can be described through routing. For example, let's look at how to represent a `Market` resource:
 
-|PATH        | METHOD| DESCRIPTION|
-|:----------|:-----:|:-----------|
-| /markets       | GET    | Retrieves a collection of market objects|
-| /markets       | POST   | Creates a market object on the server. |
-| /markets/:id   | GET    | Retrieves an  individual market object through an identifying attribute, given in the url path.|
-| /markets/:id   | PATCH    | Updates an individual market object through an identifying attribute, given in the url path.|
-| /markets/:id   | PUT    | Updates an individual market object through an identifying attribute, given in the url path.|
-| /markets/:id   | DELETE | Removes an individual market object through an identifying attribute, given in the url path.|
+| PATH         | METHOD | DESCRIPTION                                                                                    | Path Helper Name | 
+|--------------|--------|------------------------------------------------------------------------------------------------|------------------| 
+| /markets     | GET    | Retrieves a collection of market objects                                                       | markets_path     | 
+| /markets     | POST   | Creates a market object on the server.                                                         | markets_path     | 
+| /markets/:id | GET    | Retrieves an individual market object through an identifying attribute, given in the url path. | market_path(:id) | 
+| /markets/:id | PATCH  | Updates an individual market object through an identifying attribute, given in the url path.   | market_path(:id) | 
+| /markets/:id | PUT    | Updates an individual market object through an identifying attribute, given in the url path.   | market_path(:id) | 
+| /markets/:id | DELETE | Removes an individual market object through an identifying attribute, given in the url path.   | market_path(:id) | 
 
 You can see that many actions can be performed on a market object using only two paths.
 The paths represent the scope of the objects to operate on and the HTTP method indicates what type of action should be performed.
