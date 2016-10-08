@@ -7,7 +7,8 @@
 - Acknowledge that _fixtures_ are equal parts cool and weird.
 
 ## A DSL in every pot
-Like every-damn-thing else in Rails, testing is baked right in and there's a really-friendly-but-kinda-weird DSL sitting on top of it. The good news is that it's all Minitest, the same testing framework we've used in past projects and in the Weekend Warrior exercises.
+Like every-damn-thing else in Rails, testing is baked right in and there's a really-friendly-but-kinda-weird DSL sitting on top of it. The good news is that it's all Minitest, the same testing framework we've used in past projects.
+
 
 ### Finding the tests
 So when we use `rails generate` commands to create files, we usually get some empty test files too. Right in the project root is a `test/` directory that houses all of our tests. Inside `test/`, tests are further organized into directories based on what kind of file they're testing. There's a directory for models, controllers, views, mailers, and helpers.
