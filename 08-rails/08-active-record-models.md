@@ -215,6 +215,49 @@ libby = Student.find_by(name: "Libby") #=> nil
 
 **WARNING:** An AR model does also have a `delete` method and it will delete the instance from the database, but it does **[not](http://stackoverflow.com/questions/22757450/difference-between-destroy-and-delete)** do exactly the same thing.  We will discuss it a bit later when we introduce relationships.  For now, just avoid using it.    
 
+## Summary Tables
+For any call that takes a hash, the argument will be of form `attribute: value` or `attribute: [list, of, possible, values]`. To check multiple attributes, add them to the hash: `name: 'libby', pie: 'apple'`. You can also pass a hash object to any of these.
+
+Calls that talk to the DB will always result in a SQL query. Calls that are memoized will result in a SQL query the first time only (so subsequent changes to the database will not be shown).
+
+### Retrieving Entries from the DB
+These can be run on an ActiveRecord class (like `Student`) or on any collection (like the result of `Student.all`).
+
+| Method                           | Description                        | Arguments  | Returns                | Talks to DB |
+|:---------------------------------|:-----------------------------------|:-----------|:-----------------------|:------------|
+| `Student.all`                    | Get all table entries              | N/A        | Collection of Students | Yes         |
+| `Student.first`, `Student.last`  | Get entry with lowest / highest ID | N/A        | One Student            | Yes         |
+| `Student.find(4)`                | Get the entry in row 4             | Fixnum     | One Student            | Yes         |
+| `Student.where(name: 'libby')`   | Get entries that match             | Hash       | Collection of Students | Yes         |
+| `Student.find_by(name: 'libby')` | Get matching entry with lowest ID  | Hash       | One Student            | Yes         |
+| `Student.order(:name)`           | Sort entries                       | Field Name | Collection of Students | Yes         |
+| `Student.count`                  | Count entries                      | N/A        | Fixnum                 | Yes         |
+| `Student.size`                   | Count entries                      | N/A        | Fixnum                 | Memoized    |
+| `Student.empty?`                 | Are there zero entries?            | N/A        | Boolean                | Memoized    |
+
+### Interacting with a Retrieved Entry
+Assume that `libby` is a local copy of an entry in the table, as returned by a call like `Student.first`. Remember that any changes made to a local copy will not be reflected in the database until `save` is called on that copy.
+
+| Method                | Description                                | Arguments | Returns | Talks to DB |
+|:----------------------|:-------------------------------------------|:----------|:--------|:------------|
+| `libby.attributes`    | Get a hash containing all fields           | N/A       | Hash    | No          |
+| `libby.name`          | Get the value of one field                 | N/A       | Value   | No          |
+| `libby.id`            | Get the unique ID assigned by ActiveRecord | N/A       | Value   | No          |
+| `libby.pie = 'peach'` | Modify the value of one field              | Value     | Value   | No          |
+
+### Modifying the DB
+`save`, `create`, `update`, and `destroy` are the only ways to change what's stored in the database - other methods just change local copies of the data. To use the vocabulary we learned for HTTP verbs, these methods are _unsafe_.
+
+| Method                                        | Description                                    | Arguments | Returns     | Talks to DB |
+|:----------------------------------------------|:-----------------------------------------------|:----------|:------------|:------------|
+| `libby = Student.new`                         | Make a new entry, stored in a local variable   | Hash      | One Student | No          |
+| `libby.save`                                  | Save a local copy of an entry to the DB        | N/A       | Boolean     | Yes         |
+| `Student.create(name: 'libby', pie: 'peach')` | Make a new a entry and save to the DB          | Hash      | One Student | Yes         |
+| `libby.update(pie: apple)`                    | Modify an entry and save to the DB             | Hash      | One Student | Yes         |
+| `libby.destroy`                               | Remove an entry from the DB, freeze local copy | N/A       | One Student | Yes         |
+
+
+
 
 ## What We Learned
 - Active Record is an _ORM_, and provides a _DSL_ for modeling queries
