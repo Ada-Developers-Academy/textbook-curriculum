@@ -4,7 +4,7 @@ Binary Seach Tree
 + Search
 + Insert value
 + Delete value
-+ Fing height
++ Find height
 + Depth first traversals - recursive and iterative
 + Breadth first traversal
 
@@ -47,7 +47,7 @@ Find the reading material that helps you learn from the below links:
 Time permitting, here's the problems we'll cover in class.
 Design and implement pseudo code for:
 + 1. Delete a given value from a Binary Search Tree using recursive solution.
-+ 2. Print all values in a Binary Tree using Pre-order and In-order traversals. Implement each solution iteratively. Assume you are provided a Stack data structure for 'struct Node*'
++ 2. Print all values in a Binary Tree using Pre-order and In-order traversals. Implement at least one traversal solution iteratively. Assume you are provided a Stack data structure for 'struct Node*'
 + 3. Print all values in a Binary Tree using Pre-order, Post-order and In-order traversals. Implement each solution recursively.
 + 4. Find the height of Binary Tree. Implement the recursive solution.
 + 5. Insert a given value in a Binary Search Tree. Implement both iterative and recursive solutions.
@@ -59,3 +59,8 @@ struct Node { </br>
   &nbsp; struct Node *left; </br>
   &nbsp; struct Node *right; </br>
 }; </br>
+
+##Slide Deck
++ Slide Deck used in class</br>
+<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://www.slideshare.net/secret/1BRYeQtfdLjeus">Binary Search Trees</a></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</br>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />
