@@ -39,6 +39,7 @@ By using Foundation's already made css code, we can more quickly setup a layout 
 ## Best Practices
 - NEVER change any CSS in Foundation's documents
   - It's _okay_ to override them, if necessary, but do so in your own CSS documents.
+- Comment your HTML & CSS by sections to stay organized
 - Keep Validating your HTML Code!
 
 ## Vocab ✅
