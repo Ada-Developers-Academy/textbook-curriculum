@@ -105,7 +105,7 @@ What do all these html tags mean?
   <li> </li>
   <li> </li>
   <li> </li>
-<ul>
+</ul>
 ```
 
 ## Organize the Content
