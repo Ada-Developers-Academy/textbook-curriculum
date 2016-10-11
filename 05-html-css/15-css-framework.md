@@ -15,7 +15,7 @@ The usual components are:
 - Solutions for cases of browser incompatibility so the site displays correctly in all browsers.
 - Creation of standard CSS classes which can be used to style advanced components of the user interface.
 
-The most popular frameworks are Bootstrap and Foundation. We'll be digging into Foundation to focus on it's grid features.
+The most popular frameworks are Bootstrap and Foundation. Here's [an article](https://www.upwork.com/hiring/development/bootstrap-vs-foundation-which-framework-is-right-for-you/) comparing the two Frameworks. We'll be digging into Foundation to focus on it's grid features.
 
 By using Foundation's already made css code, we can more quickly setup a layout for our site by simply, yet strategically, adding classes to html elements!
 
