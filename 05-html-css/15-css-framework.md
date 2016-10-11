@@ -6,12 +6,33 @@
 
 ## What is a Front-end Framework?
 
+Front-end frameworks (or CSS Frameworks) usually consist of a package made up of a structure of files and folders of standardized front-end code (HTML, CSS, JS ).
 
+The usual components are:
 
-By using Foundation's already made css code, we can more quickly setup a layout for our site by strategically adding classes to html elements.
+- CSS source code to create a grid: this allows the developer to position the different elements that make up the site design in a simple and versatile fashion.
+- Typography style definitions for HTML elements.
+- Solutions for cases of browser incompatibility so the site displays correctly in all browsers.
+- Creation of standard CSS classes which can be used to style advanced components of the user interface.
+
+The most popular frameworks are Bootstrap and Foundation. Here's [an article](https://www.upwork.com/hiring/development/bootstrap-vs-foundation-which-framework-is-right-for-you/) comparing the two Frameworks. We'll be digging into Foundation to focus on it's grid features.
+
+By using Foundation's already made css code, we can more quickly setup a layout for our site by simply, yet strategically, adding classes to html elements!
+
+NOTE: CSS Frameworks, like Bootstrap and Foundation are different that Front-end JavaScript frameworks like React, Angular and Ember.
 
 ## Mobile First
+As browsing on phones has increasingly become popular, so has the philosophy of designing mobile first.  Mobile first is planning the design of your site for a very small screen before anything else.
 
+Doing so will help you concentrate on visual hierarchy and boiling your content down to what is most important.
+
+![mobile first visual](http://metamonks.com/wp-content/uploads/responsive-vs-mobile-first-webdesign-022-1024x689.png)
+
+That means creating separate wireframes for the different ways a user may interact with your site. Ex: A phone vertically, a phone horizontally, a large table in either direction, a laptop, a large-screen  television, I could go on forever!
+
+In effort to not overwhelm ourselves, we’ll only be concerned on three generic screen sizes: small, medium and large.
+
+Think of small as a very narrow viewport, like your phone horizontally. Medium when you are split screening your laptop screen with your browser on one half and another application on the other. And large as your browser full-screen on your laptop.
 
 ## Grid Layout
 A grid system is an invisible foundation of web page layout, which is used to divide the web page multiple grids.
@@ -21,9 +42,8 @@ A grid system is an invisible foundation of web page layout, which is used to di
 Grids have long been used in design to provide structure to provide foundation and balance for layout out content. Interested in learning more about grid theory? [Read this](https://designschool.canva.com/blog/grid-design/)
 
 
+### Foundation uses a 12 column grid.
 ![Foundation Grid](http://foundation.zurb.com/assets/img/seo/feature-grid-1.png)
-
-Foundation uses a 12 column grid by default.
 
 Any elements that you want to be in the same row with each require a parent element with the class of “row".
 
@@ -48,6 +68,8 @@ The amount of columns to be taken up by an element can be specified by varied wi
 ```
 In the example above, our large screen sizes will be the same as the medium, since we did not specify large. When our view port reaches the breakpoint between medium and small, the third element will take up it’s own row and the first two will each be half of a row.
 
+Click [this link](http://foundation.zurb.com/grid-1.html) to see it in action!
+
 ## Block Grid
 
 If all elements within a row are going to have the same widths applied, using the block grid is more efficient.
@@ -66,18 +88,16 @@ Each child element will still require a class of ‘column’ or ‘columns’. 
 ```
 In this example, on our screens with a large width
 
-## Grid Nesting
-  A more complicated layout may require you to nest a grid inside of another.
 
-  A common example is if your layout has a column that extends multiple rows.
-
+## More Grid Functionality
+Of course there is SO SO SO much more to learn. Have a look the documentation for [Foundation's Grids](http://foundation.zurb.com/sites/docs/v/5.5.3/components/grid.html) and some articles, like [this one](https://scotch.io/tutorials/understanding-zurb-foundation-5s-grid-system)!
 
 ## Further Customization
 It is typical to use Sass when developing with Foundation. Using Sass allows you to customize easily by setting variables, yes variables in CSS! It's amazing!
 
 But we're not there yet.
 
-Instead you'll have to overwrite Foundations styles in the app.css. You can also set some customizations before downloading on [this page](http://foundation.zurb.com/sites/download.html/).
+Instead you'll have to overwrite Foundations styles your own css files, like app.css. You can also set some customizations before downloading with [this page](http://foundation.zurb.com/sites/download.html/).
 
 
 
