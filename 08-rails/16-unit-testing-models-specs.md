@@ -285,3 +285,4 @@ end
   
 - [Adding Color to Minitest Output](http://chriskottom.com/blog/2014/06/dress-up-your-minitest-output/)
 - [Ruby on Rails Guide - Model Testing](http://guides.rubyonrails.org/testing.html#model-testing)
+-  [Minitest Rails Spec Documentation](http://blowmage.com/minitest-rails/)
