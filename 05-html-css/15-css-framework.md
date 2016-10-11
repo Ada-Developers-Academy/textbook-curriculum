@@ -6,9 +6,20 @@
 
 ## What is a Front-end Framework?
 
+Front-end frameworks (or CSS Frameworks) usually consist of a package made up of a structure of files and folders of standardized front-end code (HTML, CSS, JS ).
 
+The usual components are:
 
-By using Foundation's already made css code, we can more quickly setup a layout for our site by strategically adding classes to html elements.
+- CSS source code to create a grid: this allows the developer to position the different elements that make up the site design in a simple and versatile fashion.
+- Typography style definitions for HTML elements.
+- Solutions for cases of browser incompatibility so the site displays correctly in all browsers.
+- Creation of standard CSS classes which can be used to style advanced components of the user interface.
+
+The most popular frameworks are Bootstrap and Foundation. We'll be digging into Foundation to focus on it's grid features.
+
+By using Foundation's already made css code, we can more quickly setup a layout for our site by simply, yet strategically, adding classes to html elements!
+
+NOTE: CSS Frameworks, like Bootstrap and Foundation are different that Front-end JavaScript frameworks like React, Angular and Ember.
 
 ## Mobile First
 As browsing on phones has increasingly become popular, so has the philosophy of designing mobile first.  Mobile first is planning the design of your site for a very small screen before anything else.
