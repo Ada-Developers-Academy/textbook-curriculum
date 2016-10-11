@@ -4,14 +4,17 @@
 -
 -
 
+
 ## What is a Front-end Framework?
+
+
 
 By using Foundation's already made css code, we can more quickly setup a layout for our site by strategically adding classes to html elements.
 
-### Mobile First
+## Mobile First
 
 
-### Grid Layout
+## Grid Layout
 
 ```HTML
 
@@ -21,18 +24,22 @@ By using Foundation's already made css code, we can more quickly setup a layout 
 ![]()
 [MDN guide on position]()
 
-### Block Grid
+## Block Grid
 
 ```html
 
 ```
 
 
-### Grid Nesting
+## Grid Nesting
 
 
-### Further Customization
+## Further Customization
+It is typical to use Sass when developing with Foundation. Using Sass allows you to customize easily by setting variables, yes variable in CSS! It's amazing!
 
+But we're not there yet.
+
+Instead you'll have to overwrite Foundations styles in the app.css. You can also set some customizations before downloading on [this page](http://foundation.zurb.com/sites/download.html/).
 
 
 
@@ -48,7 +55,7 @@ By using Foundation's already made css code, we can more quickly setup a layout 
 
 
 ## 🔑 Key Takeaway
-
+Using a front-end framework like Foundation or Bootstrap will allow you to more rapidly develop a structured visual layout that responsively changes across varied screen sizes.
 
 ### Additional Resources
 - [Columns: Using Small Medium and Large](http://zurb.com/university/lessons/using-small-medium-and-large-in-a-foundation-for-sites-grid
