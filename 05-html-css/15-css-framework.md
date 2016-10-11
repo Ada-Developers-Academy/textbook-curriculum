@@ -16,7 +16,7 @@ By using Foundation's already made css code, we can more quickly setup a layout 
 ## Grid Layout
 A grid system is an invisible foundation of web page layout, which is used to divide the web page multiple grids.
 
-![grid](Img:https://designschool.canva.com/wp-content/uploads/sites/2/cache/2015/04/7_Grid1/7_Grid1-530x265.jpg)
+![grid](https://designschool.canva.com/wp-content/uploads/sites/2/cache/2015/04/7_Grid1/7_Grid1-530x265.jpg)
 
 Grids have long been used in design to provide structure to provide foundation and balance for layout out content. Interested in learning more about grid theory? [Read this](https://designschool.canva.com/blog/grid-design/)
 
@@ -57,11 +57,19 @@ The row will define the space each child element takes up. Instead of specifying
 Each child element will still require a class of ‘column’ or ‘columns’. Both work, some prefer to use the singular with block grids and plural otherwise. Whatever you choose, be consistent!
 
 ```html
-
+<ul class="row small-up-2 medium-up-3 large-up-6" >
+  <li class="column"> </li>
+  <li class="column"> </li>
+  <li class="column"> </li>
+  <li class="column"> </li>
+</ul>
 ```
-
+In this example, on our screens with a large width
 
 ## Grid Nesting
+  A more complicated layout may require you to nest a grid inside of another.
+
+  A common example is if your layout has a column that extends multiple rows.
 
 
 ## Further Customization
@@ -88,6 +96,7 @@ Instead you'll have to overwrite Foundations styles in the app.css. You can also
 Using a front-end framework like Foundation or Bootstrap will allow you to more rapidly develop a structured visual layout that responsively changes across varied screen sizes.
 
 ### Additional Resources
+- [Treehouse's Beginners Guide to Foundation 5 Grids](http://blog.teamtreehouse.com/beginners-guide-grids-zurb-foundation-5)
 - [Columns: Using Small Medium and Large](http://zurb.com/university/lessons/using-small-medium-and-large-in-a-foundation-for-sites-grid
 )
 - [Media Queries Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries
