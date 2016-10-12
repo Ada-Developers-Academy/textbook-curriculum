@@ -15,6 +15,21 @@ So when we use `rails generate` commands to create files, we usually get some em
 
 All those kinds of files server different roles in the Rails infrastructure, so each has its own testing needs. We're gonna start with models because they're the most like the things we've tested before.
 
+### Getting Setup with Colors
+This part is optional, but **important** because colors make life brighter and developers happier.  In the Gemfile & `test/test_helper.rb` you will need to add minitest-reporters with:
+
+Gemfile:
+```ruby
+group :test do
+  gem 'minitest-reporters'
+end
+```
+`test/test_helper.rb`
+```ruby
+require "minitest/reporters"
+```
+
+
 ## Testing Active Record models
 Figuring out what to test can be really confusing. You'll develop a sense of what needs tested as you gain experience and exposure, but I can at least set you up with guidelines:
 
@@ -23,7 +38,7 @@ Figuring out what to test can be really confusing. You'll develop a sense of wha
 - Write at least one test for each _model relationship_ on a model
 - Write at least one test for each _scope_ on a model (we'll talk about scopes next week)
 
-I say _at least one_ test because it often makes sense to test different combinations of information. For example, with _validations_ I like to write a test that verifies what kind of data is valid and a separate test that provides an example of invalid data. I write both a _positive_ and _negative_ test case.
+I say _at least one_ test because it often makes sense to test different combinations of information. For example, with _validations_ I like to write a test that verifies what kind of data is valid and a separate test that provides an example of invalid data. I write both a _positive_ and _negative_ test case.  Look to test edge-cases and boundaries between when a model becomes valid and invalid.  For example you should test normal looking data for validity, but also test instances with the minimal number of fields.  For example an Album must have a title and must be linked to an artist, but all other fields are optional.  So test an instance with only an artist and title as well as normal amounts of data.  An Album price should never be negative, so test instances where it's positive, negative and zero.  
 
 ### Constructing test cases
 Let's say our model looks like this:
@@ -67,15 +82,15 @@ Nice! There's a couple things to note in the above example. First and foremost i
 Also check our the _assertions_. They look like Minitest _assertions_ because they are. [There's a bunch of available _assertions_](http://guides.rubyonrails.org/testing.html#available-assertions), but I get most of my testing done with just a small set:
 
 - assert(expression, fail_message)
-- assert_not(expression, fail_message)
-- assert_equal(expr1, expr2, fail_message)
-- assert_includes(collection, object, fail_message)
-- assert_not_nil(expression, fail_message)
+- assert\_not(expression, fail_message)
+- assert\_equal(expr1, expr2, fail_message)
+- assert\_includes(collection, object, fail_message)
+- assert\_not\_nil(expression, fail_message)
 
 __Question: is the test above a _positive_ or _negative_ test? What would the other test look like?__
 
 ## Running tests
-(The Rails Guide on testing)[http://guides.rubyonrails.org/testing.html#rake-tasks-for-running-your-tests] has a specific section for how to run tests that's definitely worth reading. The short version is that from the project root, we can run all of our tests with `rake test`. If you want to run just the model tests, run `rake test:models`. The output will probably look pretty familiar by now:
+[The Rails Guide on testing](http://guides.rubyonrails.org/testing.html#rake-tasks-for-running-your-tests) has a specific section for how to run tests that's definitely worth reading. The short version is that from the project root, we can run all of our tests with `rake test`. If you want to run just the model tests, run `rake test:models`. The output will probably look pretty familiar by now:
 
 ```
 $ rake test
@@ -125,7 +140,9 @@ house_that_dirt_built:
 
 In this example, we define two data sets, each representing one `Album`. Each _fixture_ contains quite a bit of data. Take a look at the values for the `artist` key in each _fixture_. Because we're using Rails, and because Rails knows that an `Album` `belongs_to` an `Artist`, and because we're defining our test data with _fixtures_, we can __reference other _fixture_ data in related models by key__. So `artist: the_heavy` will connect the _fixture_ `house_that_dirt_built` with the `Artist` _fixture_ `the_heavy`. This connection will be critical when we begin testing model relationships.
 
-### Managing the test database
+You can also use ERB code in the fixtures to programmatically generate sample data, but try to avoid that for now as most testing can be done with a small data set.  
+
+### Managing The Test Database
 So now you've got this test data, what do you do with it? Short answer: put it in the test database. When Rails runs tests, it does so in the __test environment__. This means that we can configure Rails to do things like load different gems or use a different database when running tests. Using a different database is important because we don't want to impact the development database by writing potentially invalid or corrupt data.
 
 The test database is meant to be transient. By default, Rails will reset the test database _between every test_. Data saved to the database in one test won't exist in other tests. The exception is fixture data, which is always available in every test. However, any changes to fixture data in a test will not be preserved into the next test.
@@ -161,3 +178,10 @@ class ArtistTest < ActiveSupport::TestCase
   end
 end
 ```
+
+## References
+  
+- [Adding Color to Minitest Output](http://chriskottom.com/blog/2014/06/dress-up-your-minitest-output/)
+- [Ruby on Rails Guide - Model Testing](http://guides.rubyonrails.org/testing.html#model-testing)
+- [Minitest Quick Reference](http://www.mattsears.com/articles/2011/12/10/minitest-quick-reference/)
+- [Minitest Model Testing for Beginners](http://buildingrails.com/a/rails_unit_testing_with_minitest_for_beginners)
