@@ -100,6 +100,7 @@ But we're not there yet.
 
 Instead you can overwrite Foundations styles your own css files. You can also set some customizations before downloading with [this page](http://foundation.zurb.com/sites/download.html/).
 
+**Note:** There is a rails-foundation gem that seamlessly incorporates foundation into a rails application. The gem has the assumption that you want to utilize most of foundation’s functionality and that you know Sass. It is not recommended to use this gem quite yet. It includes a lot more of foundation’s functionality that we have not covered and may be overwhelming while you’re working on a new project.  But hey, if you’re feeling adventurous, go for it!
 
 
 ## Best Practices
