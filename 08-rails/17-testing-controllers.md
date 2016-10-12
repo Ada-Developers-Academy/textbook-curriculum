@@ -29,6 +29,13 @@ assert_template 'posts/index'
 assert_template partial: '_customer', count: 2
 ```
 
+Last is a way to ensure that the controller action appropriately changes the related model. We'll see some examples for exactly how this works in a bit.
+```ruby
+assert_difference('Post.count', -1) do
+  # Controller here that would delete something
+end
+```
+
 ### Test Setup
 First, we need to execute the controller action that we would like to test. We use the verb along with the controller action to execute the controller.
 
@@ -109,5 +116,43 @@ class StudentsControllerTest < ActionController::TestCase
 end
 ```
 
+### Test the Difference
+We have model tests to ensure that models act the way we anticipate. Oftentimes controllers still create, and delete model objects, so we can check these types of changes in controller tests.
+
+What is a type of controller action that would affect the number of Model objects? Create!
+
+Let's see how a post test would look:
+```ruby
+test "should create an entity" do
+  post_params = { student: { first_name: "Grace", last_name: "Hopper" }}
+  post :create, post_params
+end
+```
+
+We must have appropriate parameters that would match up with parameters that would be populated from the form. These parameters must be passed along with the request.
+
+The successful create action should redirect to the index view, so we should update our test to assert that:
+```ruby
+test "should create an entity" do
+  post_params = { student: { first_name: "Grace", last_name: "Hopper" }}
+  post :create, post_params
+  assert_redirect_to students_path
+end
+```
+
+Next, we can check that the count of model object has changed by 1 using the `assert_difference` matcher. For this assertion, in the first parameter, you put the expression that you would like to evaluate before and after the block you specify. In the second parameter, you can put a numeric value indicating how you expect the expression to change.
+
+```ruby
+test "should create an entity" do
+  assert_difference('Student.count', 1) do
+    post_params = { student: { first_name: "Grace", last_name: "Hopper" }}
+    post :create, post_params
+  end
+
+  assert_redirect_to students_path  
+end
+```
+
 ## Resources
 [The Rails Guide on testing: Controllers](http://guides.rubyonrails.org/testing.html#functional-tests-for-your-controllers)  
+[Testing Assertions](http://api.rubyonrails.org/classes/ActiveSupport/Testing/Assertions.html)  
