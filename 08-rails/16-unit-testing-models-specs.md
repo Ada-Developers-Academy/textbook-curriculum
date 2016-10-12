@@ -56,22 +56,38 @@ config.generators do |g|
 end
 ```
 
-Lastly edit test/test_helper.rb to tell Rails to use the Minitest-spec style tests with `atom test/test_helper.rb` and insert the code:
+Lastly edit test/test_helper.rb to tell Rails to use the Minitest-spec style tests with `atom test/test_helper.rb` and replace it with this
 
 ```ruby
+ENV["RAILS_ENV"] = "test"
+require File.expand_path("../../config/environment", __FILE__)
+require "rails/test_help"  
+require "minitest/rails"  # for Spec-Style Testing
+require "minitest/reporters"  # for Colorized output
+
+#  Tell Rails-Minitest to use specs by default.
+Minitest::Reporters.use!(
+  Minitest::Reporters::SpecReporter.new,
+  ENV,
+  Minitest.backtrace_filter
+)
+
+# To add Capybara feature tests add `gem "minitest-rails-capybara"`
+# to the test group in the Gemfile and uncomment the following:
+# require "minitest/rails/capybara"
+
+# Uncomment for awesome colorful output
+require "minitest/pride"
+
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
-  reporter_options = { color: true } # makes output colored
-  Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(reporter_options)]
-  # Add more helper methods to be used by all tests here...
-  extend MiniTest::Spec::DSL   # mix-in the minitest-spec helper methods
-  # use TestCase when describing an ActiveRecord model
-  register_spec_type self do |desc|  
-      desc < ActiveRecord::Base if desc.is_a? Class
-  end
+  ActiveRecord::Migration.check_pending!
+
 end
 ```
+
+
 Now we can run the tests with any of the following commands:
 
 | Command               | Result                    |
@@ -284,3 +300,4 @@ end
 
 - [Adding Color to Minitest Output](http://chriskottom.com/blog/2014/06/dress-up-your-minitest-output/)
 - [Ruby on Rails Guide - Model Testing](http://guides.rubyonrails.org/testing.html#model-testing)
+-  [Minitest Rails Spec Documentation](http://blowmage.com/minitest-rails/)
