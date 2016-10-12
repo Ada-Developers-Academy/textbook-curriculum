@@ -27,7 +27,11 @@ end
 ```ruby
 require "minitest/reporters"
 ```
+and inside the class include
 
+```ruby
+Minitest::Reporters.use!  # use Minitest Reporters for colored output.
+```
 
 ## Testing Active Record models
 Figuring out what to test can be really confusing. You'll develop a sense of what needs tested as you gain experience and exposure, but we can at least set you up with guidelines:
