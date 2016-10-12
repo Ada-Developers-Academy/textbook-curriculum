@@ -161,8 +161,8 @@ end
 
 # app/models/albums.rb
 class Album < ActiveRecord::Base
-  belongs_to :album
-  validates :name, presence: true, uniqueness: true
+  belongs_to :artist
+  validates :title, presence: true, uniqueness: true
 end
 ```
 
@@ -180,7 +180,7 @@ end
 ```
 
 ## References
-  
+
 - [Adding Color to Minitest Output](http://chriskottom.com/blog/2014/06/dress-up-your-minitest-output/)
 - [Ruby on Rails Guide - Model Testing](http://guides.rubyonrails.org/testing.html#model-testing)
 - [Minitest Quick Reference](http://www.mattsears.com/articles/2011/12/10/minitest-quick-reference/)
