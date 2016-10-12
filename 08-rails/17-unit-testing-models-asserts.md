@@ -37,11 +37,7 @@ Figuring out what to test can be really confusing. You'll develop a sense of wha
 - Write at least one test for each _model relationship_ on a model
 - Write at least one test for each _scope_ on a model (we'll talk about scopes next week)
 
-<<<<<<< HEAD:08-rails/00-unit-testing-models-asserts.md
-We say _at least one_ test because it often makes sense to test different combinations of information. For example, with _validations_ I like to write a test that verifies what kind of data is valid and a separate test that provides an example of invalid data. We write both a _positive_ and _negative_ test case.
-=======
-I say _at least one_ test because it often makes sense to test different combinations of information. For example, with _validations_ I like to write a test that verifies what kind of data is valid and a separate test that provides an example of invalid data. I write both a _positive_ and _negative_ test case.  Look to test edge-cases and boundaries between when a model becomes valid and invalid.  For example you should test normal looking data for validity, but also test instances with the minimal number of fields.  For example an Album must have a title and must be linked to an artist, but all other fields are optional.  So test an instance with only an artist and title as well as normal amounts of data.  An Album price should never be negative, so test instances where it's positive, negative and zero.  
->>>>>>> master:08-rails/17-unit-testing-models-asserts.md
+We say _at least one_ test because it often makes sense to test different combinations of information. For example, with _validations_ I like to write a test that verifies what kind of data is valid and a separate test that provides an example of invalid data. We write both a _positive_ and _negative_ test case.  Look to test edge-cases and boundaries between when a model becomes valid and invalid.  For example you should test normal looking data for validity, but also test instances with the minimal number of fields.  For example an Album must have a title and must be linked to an artist, but all other fields are optional.  So test an instance with only an artist and title as well as normal amounts of data.  An Album price should never be negative, so test instances where it's positive, negative and zero.  
 
 ### Constructing test cases
 Let's say our model looks like this:
