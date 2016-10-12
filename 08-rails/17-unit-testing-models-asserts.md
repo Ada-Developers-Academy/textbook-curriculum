@@ -4,16 +4,15 @@
 - Be comforted knowing it's Minitest under the hood, and we know how to Minitest
 - Talk about how to test Active Record models
 - Get some basic strategies for where to start with testing
-- Acknowledge that _fixtures_ are equal parts cool and weird.
+- Acknowledge that _fixtures_ are equal parts cool and weird
 
 ## A DSL in every pot
 Like every-damn-thing else in Rails, testing is baked right in and there's a really-friendly-but-kinda-weird DSL sitting on top of it. The good news is that it's all Minitest, the same testing framework we've used in past projects.
 
-
 ### Finding the tests
 So when we use `rails generate` commands to create files, we usually get some empty test files too. Right in the project root is a `test/` directory that houses all of our tests. Inside `test/`, tests are further organized into directories based on what kind of file they're testing. There's a directory for models, controllers, views, mailers, and helpers.
 
-All those kinds of files server different roles in the Rails infrastructure, so each has its own testing needs. We're gonna start with models because they're the most like the things we've tested before.
+All those kinds of files serve different roles in the Rails infrastructure, so each has its own testing needs. We're gonna start with models because they're the most like the things we've tested before.
 
 ### Getting Setup with Colors
 This part is optional, but **important** because colors make life brighter and developers happier.  In the Gemfile & `test/test_helper.rb` you will need to add minitest-reporters with:
@@ -31,14 +30,18 @@ require "minitest/reporters"
 
 
 ## Testing Active Record models
-Figuring out what to test can be really confusing. You'll develop a sense of what needs tested as you gain experience and exposure, but I can at least set you up with guidelines:
+Figuring out what to test can be really confusing. You'll develop a sense of what needs tested as you gain experience and exposure, but we can at least set you up with guidelines:
 
 - Write at least one test for each _validation_ on a model
 - Write at least one test for each _custom method_ on a model
 - Write at least one test for each _model relationship_ on a model
 - Write at least one test for each _scope_ on a model (we'll talk about scopes next week)
 
+<<<<<<< HEAD:08-rails/00-unit-testing-models-asserts.md
+We say _at least one_ test because it often makes sense to test different combinations of information. For example, with _validations_ I like to write a test that verifies what kind of data is valid and a separate test that provides an example of invalid data. We write both a _positive_ and _negative_ test case.
+=======
 I say _at least one_ test because it often makes sense to test different combinations of information. For example, with _validations_ I like to write a test that verifies what kind of data is valid and a separate test that provides an example of invalid data. I write both a _positive_ and _negative_ test case.  Look to test edge-cases and boundaries between when a model becomes valid and invalid.  For example you should test normal looking data for validity, but also test instances with the minimal number of fields.  For example an Album must have a title and must be linked to an artist, but all other fields are optional.  So test an instance with only an artist and title as well as normal amounts of data.  An Album price should never be negative, so test instances where it's positive, negative and zero.  
+>>>>>>> master:08-rails/17-unit-testing-models-asserts.md
 
 ### Constructing test cases
 Let's say our model looks like this:
@@ -79,7 +82,7 @@ end
 
 Nice! There's a couple things to note in the above example. First and foremost is that we are invoking our model directly with `Album.new`. This test file has scope to the full application due to how things are structured in the `test_helper` and parent class.
 
-Also check our the _assertions_. They look like Minitest _assertions_ because they are. [There's a bunch of available _assertions_](http://guides.rubyonrails.org/testing.html#available-assertions), but I get most of my testing done with just a small set:
+Also check out the _assertions_. They look like Minitest _assertions_ because they are. [There's a bunch of available _assertions_](http://guides.rubyonrails.org/testing.html#available-assertions), but we can get most of our testing done with just a small set:
 
 - assert(expression, fail_message)
 - assert\_not(expression, fail_message)
@@ -108,6 +111,8 @@ Finished in 0.094177s, 42.4733 runs/s, 95.5650 assertions/s.
 ## Creating test data with _fixtures_
 Writing tests for objects that interact with a database often involves test data. In Rails, we define _fixtures_--temporary data used to populate models in tests--for test data. _Fixtures_ are kept in `test/fixtures` and are defined as [YAML](http://yaml.org/) files.
 
+Note that though the purpose may sound similar, _fixtures_ are different than _seeds_ because _fixtures_ are used in the tests only, and _seeds_ are used in our development database.
+
 Each YAML file defines default data for one model. So we'd use `test/fixtures/artists.yml` to create some test data for use when testing `Artist` models. Here's what YAML looks like:
 
 ```yml
@@ -119,7 +124,7 @@ tmonk:
   name: Thelonious Monk
 ```
 
-YML is a set of key/value pairs separated by a colon. It's also __white space sensitive__. It knows how to nest key/value pairs based on their indentation, so pay close attention to your formatting. In the example above, we define three sets of data with keys `the_heavy`, `the_clast`, and `tmonk`. Each of those keys has a value which is a second set of key/value pairs (like a hash of hashes). Because our `Artist` model doesn't track much data, the _fixtures_ are pretty small. Let's take a look at another set of _fixtures_, this time for the `Album` model:
+YML is a set of key/value pairs separated by a colon. It's also __white space sensitive__. It knows how to nest key/value pairs based on their indentation, so pay close attention to your formatting. In the example above, we define three sets of data with keys `the_heavy`, `the_clash`, and `tmonk`. Each of those keys has a value which is a second set of key/value pairs (like a hash of hashes). Because our `Artist` model doesn't track much data, the _fixtures_ are pretty small. Let's take a look at another set of _fixtures_, this time for the `Album` model:
 
 ```yml
 combat_rock:
@@ -166,7 +171,7 @@ class Album < ActiveRecord::Base
 end
 ```
 
-I want to test that an instance of `Artist` can retrieve the associated `Album` instances. In the test, I'll use the _fixture_ data to confirm that, starting with an `Artist` (that I know should have an associated artist), I can get their associated `Album` instances. I'll use `assert_include` to verify that the `Album` object (from the _fixture_ data) is in the returned collection:
+We want to test that an instance of `Artist` can retrieve the associated `Album` instances. In the test, I'll use the _fixture_ data to confirm that, starting with an `Artist` (that we know should have an associated artist), we can get their associated `Album` instances. We'll use `assert_include` to verify that the `Album` object (from the _fixture_ data) is in the returned collection:
 
 ```ruby
 # test/models/artist_test.rb
@@ -178,6 +183,8 @@ class ArtistTest < ActiveSupport::TestCase
   end
 end
 ```
+
+The way we associate the fixture data is by referencing the appropriate fixture file. Since we are using the `test/fixtures/albums.yml` file, we use `albums()` to reference that fixture data. We use the symbol syntax to refer to each of the objects we created in our corresponding fixture files.
 
 ## References
 
