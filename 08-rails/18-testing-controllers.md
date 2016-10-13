@@ -18,9 +18,9 @@ assert_response :error
 
 Next, we have the redirect assertions. This indicates that a controller action should be redirecting to another location. What is one example of a redirect in a controller action we have seen before?
 ```ruby
-assert_redirect_to "/"
-assert_redirect_to root_path
-assert_redirect_to { controller: 'posts', action: 'index' }
+assert_redirected_to "/"
+assert_redirected_to root_path
+assert_redirected_to { controller: 'posts', action: 'index' }
 ```
 
 Next, is the template assertion. This ensures that the appropriate template has been rendered. This is good for controller actions whose primary goal is to show a view.
@@ -136,7 +136,7 @@ The successful create action should redirect to the index view, so we should upd
 test "should create an entity" do
   post_params = { student: { first_name: "Grace", last_name: "Hopper" }}
   post :create, post_params
-  assert_redirect_to students_path
+  assert_students_path
 end
 ```
 
