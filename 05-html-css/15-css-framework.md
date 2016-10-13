@@ -84,10 +84,20 @@ Each child element will still require a class of `column` or `columns`. Both wor
   <li class="column"> </li>
   <li class="column"> </li>
   <li class="column"> </li>
+  <li class="column"> </li>
+  <li class="column"> </li>
+  <li class="column"> </li>
+  <li class="column"> </li>
 </ul>
 ```
-In this example, on our screens with a large width
-TODO: Finish this section
+In this example, when a viewport has a large width there will be 6 columns per row, where each column contains one of the elements with the class 'column'.
+
+That means a large screen size will have a top row with 6 of the <li> elements, with the remaining two in the 2nd row.
+
+A medium screen size can have up to 3 <li> elements per row.
+A small screen size can have up to 2 elements per row.
+
+
 
 
 ## More Grid Functionality
