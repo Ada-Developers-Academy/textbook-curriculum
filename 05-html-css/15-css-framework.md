@@ -71,7 +71,6 @@ In the example above, our large screen sizes will be the same as the medium, sin
 Click [this link](http://foundation.zurb.com/grid-1.html) to see it in action!
 
 ## Block Grid
-
 If all elements within a row are going to have the same widths applied, using the block grid is more efficient.
 
 The `row` will define the space each child element takes up. Instead of specifying the number of columns (like with the basic grid we worked with above), the set number is how many of those elements we want to be on a row.
@@ -97,9 +96,6 @@ That means a large screen size will have a top row with 6 of the <li> elements, 
 A medium screen size can have up to 3 <li> elements per row.
 A small screen size can have up to 2 elements per row.
 
-
-
-
 ## More Grid Functionality
 As usual, there is always SO SO SO much more to learn. Have a look the documentation for [Foundation's Grids](http://foundation.zurb.com/sites/docs/v/5.5.3/components/grid.html) and some articles, like [this one](https://scotch.io/tutorials/understanding-zurb-foundation-5s-grid-system)!
 
@@ -112,6 +108,36 @@ Instead you can overwrite Foundations styles your own css files. You can also se
 
 **Note:** There is a rails-foundation gem that seamlessly incorporates foundation into a rails application. The gem has the assumption that you want to utilize most of foundation’s functionality and that you know Sass. It is not recommended to use this gem quite yet. It includes a lot more of foundation’s functionality that we have not covered and may be overwhelming while you’re working on a new project.  But hey, if you’re feeling adventurous, go for it!
 
+
+## Add Foundation to your project
+Go to [Foundation's Download page](http://foundation.zurb.com/sites/download.html/) and download the Complete framework by clicking the 'Download Everything' button.
+
+The download will contain the following files:
+  - index.html _(HTML file with linking to Foundation's CSS and JavaScript files)_
+  - /css
+    - app.css _(File to write your own, custom CSS)_
+    - foundation.css _(Foundation's pre-written CSS, in human readable form. Ideal for development.)_
+    - foundation.min.css _(The same code as foundation.css, without any spaces or line breaks. Minified files are more efficient for production.)
+  - /js _(Blissfuly ignore the contents of this directory for now)_
+    - app.js
+    - /vendor
+      - foundation.js
+      - foundation.min.js
+      - jquery.js
+      - what-input.js
+
+If you're working on a static site, you're set!
+
+If you're working on a rails app, add the CSS file foundation.css to app/assets/stylesheets.
+
+In application.css (The pre-existing rails file), Link to foundation.css by adding this line to the top:
+
+```css
+  @import url('foundation.css');
+```
+
+That's it!
+To focus on only working with making our sites responsive using the grid, we are going to not worry about the other files for now. 
 
 ## Best Practices
 - NEVER change any CSS in Foundation's documents
