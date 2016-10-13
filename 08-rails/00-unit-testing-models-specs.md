@@ -90,22 +90,22 @@ end
 
 Now we can run the tests with any of the following commands:
 
-| Command               | Result                    | 
-|-----------------------|---------------------------| 
-| rake                  | runs all tests            | 
-| rake test             | Also runs all tests       | 
-| rake test:models      | Runs tests on Models      | 
-| rake test:controllers | Runs tests on controllers | 
+| Command               | Result                    |
+|-----------------------|---------------------------|
+| rake                  | runs all tests            |
+| rake test             | Also runs all tests       |
+| rake test:models      | Runs tests on Models      |
+| rake test:controllers | Runs tests on controllers |
 
 In **Rails 5** you can run the tests with:
 
-| Command                                | Result                             | 
-|----------------------------------------|------------------------------------| 
-| rails test                             | Runs all Tests                     | 
-| rails test test/models                 | Runs tests in tests/models         | 
-| rails test test/jobs                   | Runs tests in tests/jobs           | 
-| rails test test/jobs test/models       | Runs tests in both                 | 
-| rails test test/models/user_test.rb:14 | Run test in that file on that line | 
+| Command                                | Result                             |
+|----------------------------------------|------------------------------------|
+| rails test                             | Runs all Tests                     |
+| rails test test/models                 | Runs tests in tests/models         |
+| rails test test/jobs                   | Runs tests in tests/jobs           |
+| rails test test/jobs test/models       | Runs tests in both                 |
+| rails test test/models/user_test.rb:14 | Run test in that file on that line |
 
 
 
@@ -118,14 +118,14 @@ So when we use `rails generate` commands to create files, we usually get some em
 All those kinds of files serve different roles in the Rails infrastructure, so each has its own testing needs. We're gonna start with models because they're the most like the things we've tested before.
 
 ## Testing Active Record Models
-Figuring out what to test can be really confusing. You'll develop a sense of what needs tested as you gain experience and exposure, but I can at least set you up with guidelines:
+Figuring out what to test can be really confusing. You'll develop a sense of what needs tested as you gain experience and exposure, but we can at least set you up with guidelines:
 
 - Write at least one test for each _validation_ on a model
 - Write at least one test for each _custom method_ on a model
 - Write at least one test for each _model relationship_ on a model
 - Write at least one test for each _scope_ on a model (we'll talk about scopes next week)
 
-I say _at least one_ test because it often makes sense to test different combinations of information. For example, with _validations_ I like to write a test that verifies what kind of data is valid and a separate test that provides an example of invalid data. I write both a _positive_ and _negative_ test case.  Look to test edge-cases and boundaries between when a model becomes valid and invalid.  For example you should test normal looking data for validity, but also test instances with the minimal number of fields.  For example an Album must have a title and must be linked to an artist, but all other fields are optional.  So test an instance with only an artist and title as well as normal amounts of data.  An Album price should never be negative, so test instances where it's positive, negative and zero.  
+We say _at least one_ test because it often makes sense to test different combinations of information. For example, with _validations_ we like to write a test that verifies what kind of data is valid and a separate test that provides an example of invalid data. We write both a _positive_ and _negative_ test case.  Look to test edge-cases and boundaries between when a model becomes valid and invalid.  For example you should test normal looking data for validity, but also test instances with the minimal number of fields.  For example an Album must have a title and must be linked to an artist, but all other fields are optional.  So test an instance with only an artist and title as well as normal amounts of data.  An Album price should never be negative, so test instances where it's positive, negative and zero.  
 
 ### Constructing Test Cases
 Let's say our model looks like this:
@@ -137,10 +137,9 @@ class Album < ActiveRecord::Base
 end
 ```
 
-Just in this small bit of code, I see three or four things to test. First are the validations. Writing a _positive_ and _negative_ test case for each validation is four or so tests. Then there's the `belongs_to` relationship. We should test that too. It gets a positive test--an associated `Artist` is defined--and a negative test--it should still be able to save/retrieve/etc. even if an `Artist` isn't associated. If we go over to `test/models`, we should find an `album_test.rb` file. 
+Just in this small bit of code, we see three or four things to test. First are the validations. Writing a _positive_ and _negative_ test case for each validation is four or so tests. Then there's the `belongs_to` relationship. We should test that too. It gets a positive test--an associated `Artist` is defined--and a negative test--it should still be able to save/retrieve/etc. even if an `Artist` isn't associated. If we go over to `test/models`, we should find an `album_test.rb` file.
 
 It was created for us when we generated the model. If the models were created prior to setting up Minitest Spec, it'll look like this:
-
 
 ```ruby
 require 'test_helper'
@@ -171,16 +170,16 @@ end
 require 'test_helper'
 
 describe Album do
-  let (:emptyAlbum) {Album.new}
+  let (:empty_album) {Album.new}
 
   it "An album title can't be blank" do
-    emptyAlbum.wont_be :valid?
-    emptyAlbum.errors.keys.must_include :title, "Title is not in the errors hash"
+    empty_album.wont_be :valid?
+    empty_album.errors.keys.must_include :title, "Title is not in the errors hash"
   end
 end
 ```
 
-Otherwise the Rails will generate spec style tests like below.  We can replace the assert-style tests by deleting the original file and regenerating the model, or by replacing the text with describe & it blocks.
+Otherwise Rails will generate spec style tests like below.  We can replace the assert-style tests by deleting the original file and regenerating the model, or by replacing the text with describe & it blocks.
 
 ```ruby
 require "test_helper"
@@ -281,7 +280,7 @@ class Album < ActiveRecord::Base
 end
 ```
 
-I want to test that an instance of `Artist` can retrieve the associated `Album` instances. In the test, I'll use the _fixture_ data to confirm that, starting with an `Artist` (that I know should have an associated artist), I can get their associated `Album` instances. I'll use `assert_include` to verify that the `Album` object (from the _fixture_ data) is in the returned collection:
+We want to test that an instance of `Artist` can retrieve the associated `Album` instances. In the test, we'll use the _fixture_ data to confirm that, starting with an `Artist` (that I know should have an associated artist), we can get their associated `Album` instances. We'll use `assert_include` to verify that the `Album` object (from the _fixture_ data) is in the returned collection:
 
 ```ruby
 # test/models/artist_test.rb
@@ -298,7 +297,7 @@ end
 - [Minitest Quick Reference](http://www.mattsears.com/articles/2011/12/10/minitest-quick-reference/)
 - [Minitest Expectations](http://ruby-doc.org/stdlib-trunk/libdoc/minitest/spec/rdoc/MiniTest/Expectations.html)
 - [Adding Minitest Spec in Rails 4](http://blowmage.com/2013/07/08/minitest-spec-rails4)
-  
+
 - [Adding Color to Minitest Output](http://chriskottom.com/blog/2014/06/dress-up-your-minitest-output/)
 - [Ruby on Rails Guide - Model Testing](http://guides.rubyonrails.org/testing.html#model-testing)
 -  [Minitest Rails Spec Documentation](http://blowmage.com/minitest-rails/)]

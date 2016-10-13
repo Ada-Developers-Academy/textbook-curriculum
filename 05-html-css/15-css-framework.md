@@ -10,16 +10,16 @@ Front-end frameworks (or CSS Frameworks) usually consist of a package made up of
 
 The usual components are:
 
-- CSS source code to create a grid: this allows the developer to position the different elements that make up the site design in a simple and versatile fashion.
-- Typography style definitions for HTML elements.
-- Solutions for cases of browser incompatibility so the site displays correctly in all browsers.
-- Creation of standard CSS classes which can be used to style advanced components of the user interface.
+- CSS source code to create a **grid**: this allows the developer to position the different elements that make up the site design in a simple and versatile fashion.
+- Typography **style definitions** for HTML elements.
+- **Browser compatibility** solutions so there is consistent style across browsers.
+- Creation of standard **CSS classes** which can be used to style advanced components of the user interface.
 
 The most popular frameworks are Bootstrap and Foundation. Here's [an article](https://www.upwork.com/hiring/development/bootstrap-vs-foundation-which-framework-is-right-for-you/) comparing the two Frameworks. We'll be digging into Foundation to focus on it's grid features.
 
 By using Foundation's already made css code, we can more quickly setup a layout for our site by simply, yet strategically, adding classes to html elements!
 
-NOTE: CSS Frameworks, like Bootstrap and Foundation are different that Front-end JavaScript frameworks like React, Angular and Ember.
+NOTE: _CSS Frameworks_, like Bootstrap and Foundation are different that _Front-end JavaScript frameworks_ like React, Angular and Ember.
 
 ## Mobile First
 As browsing on phones has increasingly become popular, so has the philosophy of designing mobile first.  Mobile first is planning the design of your site for a very small screen before anything else.
@@ -30,7 +30,7 @@ Doing so will help you concentrate on visual hierarchy and boiling your content 
 
 That means creating separate wireframes for the different ways a user may interact with your site. Ex: A phone vertically, a phone horizontally, a large table in either direction, a laptop, a large-screen  television, I could go on forever!
 
-In effort to not overwhelm ourselves, we’ll only be concerned on three generic screen sizes: small, medium and large.
+In an effort to not overwhelm ourselves, we’ll only be concerned on three generic screen sizes: small, medium and large. We refer to the user's visible area of a web page as the **viewport**.
 
 Think of small as a very narrow viewport, like your phone horizontally. Medium when you are split screening your laptop screen with your browser on one half and another application on the other. And large as your browser full-screen on your laptop.
 
@@ -45,9 +45,9 @@ Grids have long been used in design to provide structure to provide foundation a
 ### Foundation uses a 12 column grid.
 ![Foundation Grid](http://foundation.zurb.com/assets/img/seo/feature-grid-1.png)
 
-Any elements that you want to be in the same row with each require a parent element with the class of “row".
+Any elements that you want to be in the same row with each require a parent element with the class of `row`.
 
-Those sibling elements, nested inside of row, will then need to specify how many of those twelve columns they should take up, making sure not to not add up over twelve. These elements will use multiple classes to do so. The first is simply ‘columns’, the next a size with a number representing the amount of columns to take up.
+Those sibling elements, nested inside of `row`, will then need to specify how many of those twelve columns they should take up, making sure not to not add up over twelve. These elements will use multiple classes to do so. The first is simply `columns`, the next a size with a number representing the amount of columns to take up.
 
 
 ```HTML
@@ -57,13 +57,13 @@ Those sibling elements, nested inside of row, will then need to specify how many
     <p class="small-6 columns"> </p>
   </div>
 ```
-The amount of columns to be taken up by an element can be specified by varied widths of a browser’s viewport. There is small, medium and large. Larger sizes will inherit from a smaller one is not specified.
+The number of columns to be taken up by an element can be specified by varied widths of a browser’s viewport. There is small, medium and large. Larger sizes will inherit from a smaller one if it is not specified.
 
 ```HTML
 <div class="row">
 <p class="small-6 medium-3 columns"> </p>
 <p class="small-6 medium-3 columns"> </p>
-<p class="small-12  medium-6 columns"> </p>
+<p class="small-12 medium-6 columns"> </p>
 </div>
 ```
 In the example above, our large screen sizes will be the same as the medium, since we did not specify large. When our view port reaches the breakpoint between medium and small, the third element will take up it’s own row and the first two will each be half of a row.
@@ -71,12 +71,11 @@ In the example above, our large screen sizes will be the same as the medium, sin
 Click [this link](http://foundation.zurb.com/grid-1.html) to see it in action!
 
 ## Block Grid
-
 If all elements within a row are going to have the same widths applied, using the block grid is more efficient.
 
-The row will define the space each child element takes up. Instead of specifying the amount of columns (like with the basic grid we worked with above), the set number is how many of those elements we want to be on a row.
+The `row` will define the space each child element takes up. Instead of specifying the number of columns (like with the basic grid we worked with above), the set number is how many of those elements we want to be on a row.
 
-Each child element will still require a class of ‘column’ or ‘columns’. Both work, some prefer to use the singular with block grids and plural otherwise. Whatever you choose, be consistent!
+Each child element will still require a class of `column` or `columns`. Both work, some prefer to use the singular with block grids and plural otherwise. Whatever you choose, be consistent!
 
 ```html
 <ul class="row small-up-2 medium-up-3 large-up-6" >
@@ -84,22 +83,61 @@ Each child element will still require a class of ‘column’ or ‘columns’. 
   <li class="column"> </li>
   <li class="column"> </li>
   <li class="column"> </li>
+  <li class="column"> </li>
+  <li class="column"> </li>
+  <li class="column"> </li>
+  <li class="column"> </li>
 </ul>
 ```
-In this example, on our screens with a large width
+In this example, when a viewport has a large width there will be 6 columns per row, where each column contains one of the elements with the class 'column'.
 
+That means a large screen size will have a top row with 6 of the <li> elements, with the remaining two in the 2nd row.
+
+A medium screen size can have up to 3 <li> elements per row.
+A small screen size can have up to 2 elements per row.
 
 ## More Grid Functionality
-Of course there is SO SO SO much more to learn. Have a look the documentation for [Foundation's Grids](http://foundation.zurb.com/sites/docs/v/5.5.3/components/grid.html) and some articles, like [this one](https://scotch.io/tutorials/understanding-zurb-foundation-5s-grid-system)!
+As usual, there is always SO SO SO much more to learn. Have a look the documentation for [Foundation's Grids](http://foundation.zurb.com/sites/docs/v/5.5.3/components/grid.html) and some articles, like [this one](https://scotch.io/tutorials/understanding-zurb-foundation-5s-grid-system)!
 
 ## Further Customization
 It is typical to use Sass when developing with Foundation. Using Sass allows you to customize easily by setting variables, yes variables in CSS! It's amazing!
 
 But we're not there yet.
 
-Instead you'll have to overwrite Foundations styles your own css files, like app.css. You can also set some customizations before downloading with [this page](http://foundation.zurb.com/sites/download.html/).
+Instead you can overwrite Foundations styles your own css files. You can also set some customizations before downloading with [this page](http://foundation.zurb.com/sites/download.html/).
+
+**Note:** There is a rails-foundation gem that seamlessly incorporates foundation into a rails application. The gem has the assumption that you want to utilize most of foundation’s functionality and that you know Sass. It is not recommended to use this gem quite yet. It includes a lot more of foundation’s functionality that we have not covered and may be overwhelming while you’re working on a new project.  But hey, if you’re feeling adventurous, go for it!
 
 
+## Add Foundation to your project
+Go to [Foundation's Download page](http://foundation.zurb.com/sites/download.html/) and download the Complete framework by clicking the 'Download Everything' button.
+
+The download will contain the following files:
+  - index.html _(HTML file with linking to Foundation's CSS and JavaScript files)_
+  - /css
+    - app.css _(File to write your own, custom CSS)_
+    - foundation.css _(Foundation's pre-written CSS, in human readable form. Ideal for development.)_
+    - foundation.min.css _(The same code as foundation.css, without any spaces or line breaks. Minified files are more efficient for production.)
+  - /js _(Blissfuly ignore the contents of this directory for now)_
+    - app.js
+    - /vendor
+      - foundation.js
+      - foundation.min.js
+      - jquery.js
+      - what-input.js
+
+If you're working on a static site, you're set!
+
+If you're working on a rails app, add the CSS file foundation.css to app/assets/stylesheets.
+
+In application.css (The pre-existing rails file), Link to foundation.css by adding this line to the top:
+
+```css
+  @import url('foundation.css');
+```
+
+That's it!
+To focus on only working with making our sites responsive using the grid, we are going to not worry about the other files for now. 
 
 ## Best Practices
 - NEVER change any CSS in Foundation's documents
@@ -110,6 +148,7 @@ Instead you'll have to overwrite Foundations styles your own css files, like app
 ## Vocab ✅
 - Mobile First
 - Grid Layout
+- Viewport
 
 
 ## 🔑 Key Takeaway
