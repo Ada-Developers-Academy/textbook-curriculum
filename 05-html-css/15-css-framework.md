@@ -39,7 +39,7 @@ A grid system is an invisible foundation of web page layout, which is used to di
 
 ![grid](https://designschool.canva.com/wp-content/uploads/sites/2/cache/2015/04/7_Grid1/7_Grid1-530x265.jpg)
 
-Grids have long been used in design to provide structure to provide foundation and balance for layout out content. Interested in learning more about grid theory? [Read this](https://designschool.canva.com/blog/grid-design/)
+Grids have long been used in design to provide structure and balance for content in a layout. Interested in learning more about grid theory? [Read this](https://designschool.canva.com/blog/grid-design/)
 
 
 ### Foundation uses a 12 column grid.
