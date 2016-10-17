@@ -39,12 +39,12 @@ After registration you will be given a `client id` and a `client secret`:
 
 **Note:** These credentials are the equivalent of passwords to your Github account. Keep them safe; never, ever post them in public places or commit them in git.
 
-##### Initializers && ENV
+### Initializers && ENV
 Now that you have application credentials, let's configure Rails to use them. To do this, create a new _initializer file_. Initializers are files that run as part of the Rails boot process. Initializers go in the `config/initializers/` directory. From the terminal, create a new initializer with `$ touch config/initializers/omniauth.rb`. Open this file and add the following code:
 
 ```ruby
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :github, ENV["GITHUB_CLIENT_ID"], ENV["GITHUB_CLIENT_SECRET"]
+  provider :github, ENV["GITHUB_CLIENT_ID"], ENV["GITHUB_CLIENT_SECRET"], scope: "user:email"
 end
 ```
 
