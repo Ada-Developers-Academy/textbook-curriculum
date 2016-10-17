@@ -144,13 +144,14 @@ Remember to migrate the database: `$ rake db:migrate`. Next add some validations
 class User < ActiveRecord::Base
   validates :email, :uid, :provider, presence: true
 
-  def self.find_or_create_from_github(auth_hash)
-    # Find or create a user based on the information in the auth_hash
-    user       = User.find_or_initialize_by(uid: auth_hash[:uid], provider: 'github')
+  def self.build_from_github(auth_hash)
+    user       = User.new
+    user.uid   = auth_hash[:uid]
+    user.provider = 'github'
     user.name  = auth_hash['info']['name']
     user.email = auth_hash['info']['email']
 
-    user.save
+    return user
   end
 end
 ```
@@ -189,12 +190,12 @@ class SessionsController < ApplicationController
     auth_hash = request.env['omniauth.auth']
     redirect to root_path, notice: "Failed to authenticate" unless auth_hash['uid']
 
-    @user = User.send "find_or_create_from_#{ params[:provider] }".to_sym, auth_hash
-    if @user
-      session[:user_id] = @user.id # saving the user id for future requests
-      redirect_to root_path, notice: "Hello #{ @user.name }!"
-    else
-      redirect_to root_path, notice: "Failed to save the user"
+    @user = User.find_by(uid: auth_hash[:uid], provider: 'github')
+    if @user.nil?
+      # User doesn't match anything in the DB.
+      # Attempt to create a new user.
+      @user = User.build_from_github(auth_hash)
+      render :creation_failure unless @user.save
     end
   end
 end
