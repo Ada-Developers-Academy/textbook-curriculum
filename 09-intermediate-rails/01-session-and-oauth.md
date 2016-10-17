@@ -18,7 +18,7 @@ In both of these examples `:provider` is a named parameter that will equal the n
 
 ![OmniAuth Dance](./images/omniauth-dance.png)
 
-### Let's do this!
+### Installing OmniAuth
 Enough with talking, lets implement this into a quick application. Head over to your sandbox Rails app and open your Gemfile. Add the following lines to it:
 
 ```ruby
@@ -28,7 +28,7 @@ gem "omniauth-github"
 
 Save your Gemfile, then head over to your terminal, where you'll need to `$ bundle`. Notice that there's a specific gem for autheticating with Github. Each _provider_ has a small Ruby gem that's responsible for the specifics of how to authenticate with that service.
 
-#### Configuration
+### Configuration
 Each provider requires you to provide some credentials for your application, so they can keep track of which website is authorizing which user. [Login to Github and register a new "application"](https://github.com/settings/applications/new).
 
 ![Github Application Registration](./images/github-application.png)
