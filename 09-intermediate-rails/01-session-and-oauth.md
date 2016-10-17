@@ -142,7 +142,7 @@ Don't forget to migrate the database: `$ rake db:migrate`. Next add some validat
 ```ruby
 # app/models/user.rb
 class User < ActiveRecord::Base
-  validates :email, :name, :uid, :provider, presence: true
+  validates :email, :uid, :provider, presence: true
 
   def self.find_or_create_from_github(auth_hash)
     # Find or create a user based on the information in the auth_hash
