@@ -82,7 +82,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 end
 ```
 
-This tells Rails to use OmniAuth for authentication. Specifically, it tells Rails that it will be communicating with Github, and where it can find the application credentials that Github expects.
+This tells Rails to use OmniAuth for authentication. Specifically, it tells Rails that it will be communicating with Github, and where it can find the application credentials that Github expects: in the `ENV` variable we populated earlier.
 
 ## OMG USERS FINALLY
 Well, no, not yet. First Rails needs a way to manage the information it will receive from Github about the authenticating user.
@@ -104,7 +104,7 @@ class SessionsController < ApplicationController
 end
 ```
 
-Refresh the page in the browser and have a look at `auth_hash`, the local variable assigned to the value of `request.env['omniauth.auth']`. This is information stored in the `headers` of the HTTP request. This data is a hash that will likely have some combiantion of the data described in the [OmniAuth README](https://github.com/intridea/omniauth/wiki/Auth-Hash-Schema), but the key/values returned varies by provider (there's lots of documentation reading in your future). Github will return the following important keys:
+Refresh the page in the browser and have a look at `auth_hash`, the local variable assigned to the value of `request.env['omniauth.auth']`. This is information stored in the `headers` of the HTTP request. This data is a hash that will likely have some combination of the data described in the [OmniAuth README](https://github.com/intridea/omniauth/wiki/Auth-Hash-Schema), but the key/values returned varies by provider (there's lots of documentation reading in your future). Github will return the following important keys:
 
 ```ruby
 # the `uid` is an identifier for the user from the provider's system
@@ -119,7 +119,7 @@ auth_hash["info"]["email"]
 
 With information returned by Github you can create a database record for uniquely identifying a user.
 
-#### For reals creating users this time
+### Modeling Users
 Start with a `User` model and migration: `$ rails generate model user`. Open the generated migration and add some columns to the database table:
 
 ```ruby
@@ -129,7 +129,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.integer :uid, null: false # this is the identifier provided by Github
-      t.string :provider, null: false # this tells us who provided the identifer
+      t.string :provider, null: false # this tells us who provided the identifier
 
       t.timestamps null: false
     end
@@ -137,7 +137,7 @@ class CreateUsers < ActiveRecord::Migration
 end
 ```
 
-Don't forget to migrate the database: `$ rake db:migrate`. Next add some validations to the User model:
+Remember to migrate the database: `$ rake db:migrate`. Next add some validations to the User model:
 
 ```ruby
 # app/models/user.rb
@@ -155,7 +155,7 @@ class User < ActiveRecord::Base
 end
 ```
 
-## The `session` Object
+### The `session` Object
 The `session` is a hash-like-object similar to `params`. The key difference between `session` and `params` is that `session` _persists across requests_.
 
 Sessions use a _cookie_ in the browser to identify each unique session. Each client request sends along its unique session identifier, from which Rails can recall existing session data. Session data is, by necessity, very small (typically less than 4kb).
@@ -179,7 +179,7 @@ class UsersController < ApplicationController
 end
 ```
 
-#### Handling the request
+#### Handling the Auth Callback
 Now everything is in place to initialize a User using the hash that is returned from the provider request:
 
 ```ruby
