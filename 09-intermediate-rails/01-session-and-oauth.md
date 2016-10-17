@@ -190,21 +190,7 @@ end
 
 __Question:__ Why save the user id? What does that mean for the next request?
 
-
-#### Testing Authentication
-Unit tests should always mock objects not actively being tested. Moreso, tests shouldn't be dependent on external objects or network connections in order to run. To be able to mock the interaction with Github, add this info to the test helper:
-
-```ruby
-# /test/test_helper.rb
-def setup
-  # Once you have enabled test mode, all requests
-  # to OmniAuth will be short circuited to use the mock authentication hash.
-  # A request to /auth/provider will redirect immediately to /auth/provider/callback.
-  OmniAuth.config.test_mode = true
-
-  # The mock_auth configuration allows you to set per-provider (or default) authentication
-  # hashes to return during testing.
-  OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
-    provider: 'github', uid: '123545', info: { email: "a@b.com", name: "Ada" }
-  })
-end
+## Additional Resources
+[Sessions, Cookies and Authentication ](http://www.theodinproject.com/courses/ruby-on-rails/lessons/sessions-cookies-and-authentication)(not including 'Rolling Your Own Auth')  
+[How Sessions Work](http://www.justinweiss.com/articles/how-rails-sessions-work/)  
+[Rails Guides: Accessing the Session](http://guides.rubyonrails.org/action_controller_overview.html#accessing-the-session)
