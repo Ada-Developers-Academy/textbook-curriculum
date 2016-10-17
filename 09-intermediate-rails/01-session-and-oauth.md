@@ -156,32 +156,38 @@ class User < ActiveRecord::Base
 end
 ```
 
-### The `session` Object
+### Handling the Auth Callback
+Now everything is in place to initialize a User using the hash that is returned from the provider request:
+
+```ruby
+# app/controllers/sessions_controller.rb
+# NOTE: this version is not final
+class SessionsController < ApplicationController
+  def create
+    auth_hash = request.env['omniauth.auth']
+    redirect to login_failure_path unless auth_hash['uid']
+
+    @user = User.find_by(uid: auth_hash[:uid], provider: 'github')
+    if @user.nil?
+      # User doesn't match anything in the DB.
+      # Attempt to create a new user.
+      @user = User.build_from_github(auth_hash)
+      render :creation_failure unless @user.save
+    end
+
+    redirect_to sessions_path
+  end
+end
+```
+
+Now that we've successfully authenticated a user and built a database entry for them, what happens next? The login ought to be _persistent_ - that is, the user should be logged in as long as they are on the site, even if they move from page to page. Moreover, we don't want to embed the user ID in the URI, since then you could impersonate a user just by changing the address.
+
+#### The `session` Object
 The `session` is a hash-like-object similar to `params`. The key difference between `session` and `params` is that `session` _persists across requests_.
 
 Sessions use a _cookie_ in the browser to identify each unique session. Each client request sends along its unique session identifier, from which Rails can recall existing session data. Session data is, by necessity, very small (typically less than 4kb).
 
 The most common use of `session` is to store the id of an authenticated user. From within a controller, we can get and set `session` keys using the familiar hash access syntax:
-
-```ruby
-class UsersController < ApplicationController
-
-  def create
-    @user = User.new
-    if @user.save
-      session[:user_id] = @user.id # < sets a new key/value pair in the session
-      redirect_to root_path
-    end
-  end
-
-  def show
-    @user = User.find(session[:user_id]) # < recalls the value set in a previous request
-  end
-end
-```
-
-#### Handling the Auth Callback
-Now everything is in place to initialize a User using the hash that is returned from the provider request:
 
 ```ruby
 # app/controllers/sessions_controller.rb
@@ -197,11 +203,20 @@ class SessionsController < ApplicationController
       @user = User.build_from_github(auth_hash)
       render :creation_failure unless @user.save
     end
+
+    # Save the user ID in the session
+    session[:user_id] = @user.id
+
+    redirect_to sessions_path
+  end
+
+  def index
+    @user = User.find(session[:user_id]) # < recalls the value set in a previous request
   end
 end
 ```
 
-__Question:__ Why save the user id? What does that mean for the next request?
+Before the `session` is sent to the browser it is encrypted. This means its contents are _opaque_ to the browser. All the browser sees is several KB of garbled nonsense, which it can neither interpret nor change. This makes the `session` ideal for things like storing the ID of an authenticated user, since there's no way for a malicious browser to fake a login.
 
 ## Additional Resources
 [Sessions, Cookies and Authentication ](http://www.theodinproject.com/courses/ruby-on-rails/lessons/sessions-cookies-and-authentication)(not including 'Rolling Your Own Auth')  
