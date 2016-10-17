@@ -1,34 +1,10 @@
 # Session && OAuth
 ## Learning Goals
-- How do we deal with needing to know data _across_ multiple HTTP requests?
 - Discover what's really happening when we "Sign in with Facebook" (or any other 3rd party provider)
 - Understand the basic workflow of OAuth, and how it protects users
 - Implement user login/logout using Github as an _OAuth provider_
 - What is an environment variable?
-
-## The `session` Object
-The `session` is a hash-like-object similar to `params`. The key difference between `session` and `params` is that `session` _persists across requests_.
-
-Sessions use a _cookie_ in the browser to identify each unique session. Each client request sends along its unique session identifier, from which Rails can recall existing session data. Session data is, by necessity, very small (typically less than 4kb).
-
-The most common use of `session` is to store the id of an authenticated user. From within a controller, we can get and set `session` keys using the familiar hash access syntax:
-
-```ruby
-class UsersController < ApplicationController
-
-  def create
-    @user = User.new
-    if @user.save
-      session[:user_id] = @user.id # < sets a new key/value pair in the session
-      redirect_to root_path
-    end
-  end
-
-  def show
-    @user = User.find(session[:user_id]) # < recalls the value set in a previous request
-  end
-end
-```
+- How do we deal with needing to know data _across_ multiple HTTP requests?
 
 ## Authentication with OmniAuth
 [OmniAuth](https://github.com/omniauth/omniauth) is a Ruby gem that standardizes the authentication process. It uses the [OAuth](https://oauth.net/) protocol for authenticating users. OAuth is an open standard for authorization, commonly used as a way for users to log in websites using 3rd-party credentials (like Google, Facebook, Twitter, etc) without exposing their password.
@@ -163,6 +139,30 @@ class User < ActiveRecord::Base
     user.email = auth_hash['info']['email']
 
     user.save
+  end
+end
+```
+
+## The `session` Object
+The `session` is a hash-like-object similar to `params`. The key difference between `session` and `params` is that `session` _persists across requests_.
+
+Sessions use a _cookie_ in the browser to identify each unique session. Each client request sends along its unique session identifier, from which Rails can recall existing session data. Session data is, by necessity, very small (typically less than 4kb).
+
+The most common use of `session` is to store the id of an authenticated user. From within a controller, we can get and set `session` keys using the familiar hash access syntax:
+
+```ruby
+class UsersController < ApplicationController
+
+  def create
+    @user = User.new
+    if @user.save
+      session[:user_id] = @user.id # < sets a new key/value pair in the session
+      redirect_to root_path
+    end
+  end
+
+  def show
+    @user = User.find(session[:user_id]) # < recalls the value set in a previous request
   end
 end
 ```
