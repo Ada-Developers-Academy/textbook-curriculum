@@ -28,7 +28,7 @@ gem "omniauth-github"
 
 Save your Gemfile, then head over to your terminal, where you'll need to `$ bundle`. Notice that there's a specific gem for autheticating with Github. Each _provider_ has a small Ruby gem that's responsible for the specifics of how to authenticate with that service.
 
-### Configuration
+### Github Credentials
 Each provider requires you to provide some credentials for your application, so they can keep track of which website is authorizing which user. [Login to Github and register a new "application"](https://github.com/settings/applications/new).
 
 ![Github Application Registration](./images/github-application.png)
@@ -39,16 +39,8 @@ After registration you will be given a `client id` and a `client secret`:
 
 **Note:** These credentials are the equivalent of passwords to your Github account. Keep them safe; never, ever post them in public places or commit them in git.
 
-### Initializers && ENV
-Now that you have application credentials, let's configure Rails to use them. To do this, create a new _initializer file_. Initializers are files that run as part of the Rails boot process. Initializers go in the `config/initializers/` directory. From the terminal, create a new initializer with `$ touch config/initializers/omniauth.rb`. Open this file and add the following code:
-
-```ruby
-Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :github, ENV["GITHUB_CLIENT_ID"], ENV["GITHUB_CLIENT_SECRET"], scope: "user:email"
-end
-```
-
-This tells Rails to use OmniAuth for authentication. Specifically, it tells Rails that it will be communicating with Github, and where it can find the application credentials that Github expects. Because they cannot be commited to git, the Github application credentials must be loaded external of the Rails application. The most common way to do this is to create a file called `.env` in the project root. Dot files (called that because they start with a dot) are typically excluded from version control and are well suited for secrets. __NEVER COMMIT A `.env` TO GIT!__
+#### Storing Credentials
+Because they cannot be committed to git, the Github application credentials must be loaded external of the Rails application. The most common way to do this is to create a file called `.env` in the project root. Dot files (called that because they start with a dot) are typically excluded from version control and are well suited for secrets. __NEVER COMMIT A `.env` TO GIT!__
 
 To use a `.env` with Rails, head back to the Gemfile. Add `gem 'dotenv-rails'` to the `:development` group in the Gemfile:
 
@@ -61,9 +53,18 @@ group :development, :test do
 end
 ```
 
+Then head to the terminal for Yet Another Bundle® (`$ bundle`).
+
 __QUESTION:__ Why add it to the `:development` group? Why's it matter?
 
-Next, head to the terminal for Yet Another Bundle® (`$ bundle`). Now create the `.env` file with `$ touch .env`. This file is a collection of key/value pairs; add the application credentials from Github like this:
+Next, before we create the file we will add it to our `.gitignore`. This will help prevent us from accidentally publishing it on GitHub. Open up `.gitignore` in the project root, and add these lines:
+
+```
+# Ignore the .env file (it's full of secrets!)
+.env
+```
+
+Now create the `.env` file with `$ touch .env`. This file is a collection of key/value pairs; add the application credentials from Github like this:
 
 ```bash
 GITHUB_CLIENT_ID: fd6XXXXXXXX
@@ -72,10 +73,21 @@ GITHUB_CLIENT_SECRET: y6wXXXXXXX
 
 With that done, the Github application credentials will now be available to Rails via the `ENV` constant.
 
-#### OMG USERS FINALLY
+#### Accessing Credentials
+Now that you have application credentials, let's configure Rails to use them. To do this, create a new _initializer file_. Initializers are files that run as part of the Rails boot process. Initializers go in the `config/initializers/` directory. From the terminal, create a new initializer with `$ touch config/initializers/omniauth.rb`. Open this file and add the following code:
+
+```ruby
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :github, ENV["GITHUB_CLIENT_ID"], ENV["GITHUB_CLIENT_SECRET"], scope: "user:email"
+end
+```
+
+This tells Rails to use OmniAuth for authentication. Specifically, it tells Rails that it will be communicating with Github, and where it can find the application credentials that Github expects.
+
+## OMG USERS FINALLY
 Well, no, not yet. First Rails needs a way to manage the information it will receive from Github about the authenticating user.
 
-Start the Rails server and point at browser at `http://localhost:3000/auth/github`. Amazingly, the request is redirected to Github to login and grant permission! After authenticating and granting, Github redirects the browser to `localhost:3000/auth/github/callback`. Here, you'll see a bunch of information in the url parameters. Let's create a route to better explore this information. Open `routes.rb` and add:
+Start the Rails server and point a browser at `http://localhost:3000/auth/github`. Amazingly, the request is redirected to Github to login and grant permission! After authenticating and granting, Github redirects the browser to `localhost:3000/auth/github/callback`. Here, you'll see a bunch of information in the url parameters. Let's create a route to better explore this information. Open `routes.rb` and add:
 
 ```ruby
 get "/auth/:provider/callback" =>  "sessions#create"
