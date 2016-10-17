@@ -136,7 +136,7 @@ The successful create action should redirect to the index view, so we should upd
 test "should create an entity" do
   post_params = { student: { first_name: "Grace", last_name: "Hopper" }}
   post :create, post_params
-  assert_students_path
+  assert_redirect_to students_path
 end
 ```
 
