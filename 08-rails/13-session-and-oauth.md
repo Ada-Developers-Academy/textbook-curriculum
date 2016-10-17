@@ -102,7 +102,7 @@ Well, no, not yet. First Rails needs a way to manage the information it will rec
 Start the Rails server and point at browser at `http://localhost:3000/auth/github`. Amazingly, the request is redirected to Github to login and grant permission! After authenticating and granting, Github redirects the browser to `localhost:3000/auth/github/callback`. Here, you'll see a bunch of information in the url parameters. Let's create a route to better explore this information. Open `routes.rb` and add:
 
 ```ruby
-get "/auth/:provider/callback" => to: "sessions#create"
+get "/auth/:provider/callback" =>  "sessions#create"
 ```
 
 This route points to a `create` action in a sessions controller. You'll need to create this controller in your terminal with `$ rails generate controller sessions`. Open it in your editor and add a `create` action that looks like this:
