@@ -17,8 +17,23 @@ Within the model class where you would like to use the new validation, you use `
 
 These new validator classes should be placed in the `app/validators` folder so that Rails can load them automatically for your use.
 
+
 ```ruby
-TODO EXAMPLE
+
+     # in app/validators/MyValidator.rb
+   class MyValidator < ActiveModel::Validator
+    def validate(task)
+      unless task.due_date >= Date.now
+        record.errors[:due_date] << 'The task must be due at a future date!'
+      end
+    end
+  end
+ 
+  # in app/models/Task.rb
+  class Task < ActiveRecord::Base
+    validate :name, presence: :true
+    validates_with MyValidator
+  end
 ```
 
 ### Custom methods
@@ -28,8 +43,22 @@ Within the model class you use `validates` to specify the custom validation meth
 
 Since these custom methods exist within the model class itself, there is no additional work that needs to be done to integrate the custom methods with the model.
 
+This example is from a MediaRanker Item model.
+
 ```ruby
-TODO EXAMPLE
+class Item < ActiveRecord::Base
+
+  # Defining Custom validator method
+  validate :type_must_be_limited
+
+  # A MediaRanker Item can only be a book, movie or album.
+  def type_must_be_limited
+    if kind != "Movie" && kind != "Book" && kind != "Album"
+      errors.add(:kind, "Must be a Book, Movie or Album")
+    end
+  end
+
+end
 ```
 
 ### Conditional Validations
