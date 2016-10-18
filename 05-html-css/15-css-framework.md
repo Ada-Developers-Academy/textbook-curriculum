@@ -39,7 +39,7 @@ A grid system is an invisible foundation of web page layout, which is used to di
 
 ![grid](https://designschool.canva.com/wp-content/uploads/sites/2/cache/2015/04/7_Grid1/7_Grid1-530x265.jpg)
 
-Grids have long been used in design to provide structure to provide foundation and balance for layout out content. Interested in learning more about grid theory? [Read this](https://designschool.canva.com/blog/grid-design/)
+Grids have long been used in design to provide structure and balance for content in a layout. Interested in learning more about grid theory? [Read this](https://designschool.canva.com/blog/grid-design/)
 
 
 ### Foundation uses a 12 column grid.
@@ -113,7 +113,7 @@ Instead you can overwrite Foundations styles your own css files. You can also se
 Go to [Foundation's Download page](http://foundation.zurb.com/sites/download.html/) and download the Complete framework by clicking the 'Download Everything' button.
 
 The download will contain the following files:
-  - index.html _(HTML file with linking to Foundation's CSS and JavaScript files)_
+  - index.html _(HTML file, linking to Foundation's CSS and JavaScript files with demo code to reference)_
   - /css
     - app.css _(File to write your own, custom CSS)_
     - foundation.css _(Foundation's pre-written CSS, in human readable form. Ideal for development.)_
@@ -137,7 +137,7 @@ In application.css (The pre-existing rails file), Link to foundation.css by addi
 ```
 
 That's it!
-To focus on only working with making our sites responsive using the grid, we are going to not worry about the other files for now. 
+To focus on only working with making our sites responsive using the grid, we are going to not worry about the other files for now.
 
 ## Best Practices
 - NEVER change any CSS in Foundation's documents
