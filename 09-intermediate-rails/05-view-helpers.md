@@ -47,7 +47,6 @@ Another example which generates a random image:
     end
     ["<img src='", url, width,"/" ,height, "' alt='random image'>"].join.html_safe
   end
-end
 ```
 And in the view:
 ```erb
