@@ -26,3 +26,54 @@ end
 ```
 
 The above code will populate the OmniAuth request data hash with the information that you have provided here. This is especially useful and necessary when you are testing controller action that may require a user to be logged in.
+
+#### In your Test-cases
+
+Then you can test your session controller like this:
+
+```ruby
+  def login_a_user
+    request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:github]
+    get :create,  {provider: "github"}
+  end
+  
+  test "Can Create a user" do
+    assert_difference('User.count', 1) do
+      login_a_user
+      assert_response :redirect
+      assert_redirected_to root_path
+  	end
+  end
+  
+  test "If a user logs in twice it doesn't create a 2nd user" do
+    assert_difference('User.count', 1) do
+      login_a_user
+    end
+    assert_no_difference('User.count') do
+      login_a_user
+      assert_response :redirect
+      assert_redirected_to root_path
+    end
+  end
+```
+
+You can test your other controllers which require a user to be logged in like this:
+
+```ruby
+  test "If a user is not logged in they cannot see their task." do
+    session[:user_id] = nil  # ensure no one is logged in
+     
+    get :show, id: tasks(:sample_task).id
+    # if they are not logged in they cannot see the resource and are redirected to login.  
+    assert_redirected session_path
+    assert_equal "You must be logged in first", flash[:notice]
+  end
+```
+
+In this manner you can write tests to ensure:
+-  That a visitor cannot see a protected resource without logging in first.
+-  That the user can log in properly
+-  That multiple copies of the same user do not enter the database.
+-  That the correct message is sent to the visitor when they visit a page for which they do not have access.  
+-  That the logout link works properly.
+
