@@ -9,7 +9,7 @@
 From the [rails docs](http://guides.rubyonrails.org/action_controller_overview.html#filters):  
   `Filters are methods that are run before, after or "around" a controller action.`
 
-`before_action` and `after_action` are the most common.
+`before_action` and `after_action` are the most common, though there is also `around_action`.
 
 ### DRY Up Your Controllers
 Another good way to use controller filters is to DRY up your code.
@@ -61,7 +61,7 @@ end
 
 How many times did we duplicate the code `@student = Student.find(params[:id])`? A bunch! Instead of having this code duplicated in _each controller action_, we can use a `before_action` to DRY things up.
 
-First, we create a new `private` method in our controller.
+First, we create a new `private` method in our controller. It is  `private` because it is _only_ used within this Controller, and is not needed outside of the Controller.
 ```ruby
 private
 
@@ -70,13 +70,15 @@ def find_student
 end
 ```
 
-Next, we should set each of these controller methods up to use this new method using a controller filter.
+Next, we should set each of these controller methods up to use this new method using a controller filter. We specify the `only` portion to ensure that this `before_action` will only happen for the specified actions.
 ```ruby
 class StudentsController < ApplicationController
   before_action :find_student only: [:show, :edit, :update]
 
   ...
 ```
+
+Similar to routes, in a controller filter we can use `only` as well as `except` depending on whether we want to use the positive case or the negative one.
 
 Lastly, we can now remove each of the duplicated lines of code from our original controller methods.
 ```ruby
@@ -117,12 +119,14 @@ class StudentsController < ApplicationController
   def student_params
     params.require(:student).permit(:first_name, :last_name)
   end
+
+  def find_student
+    @student = Student.find(params[:id])
+  end
 end
 ```
 
 ### User Login
-Filters are inherited, so if you set a filter on `ApplicationController`, it will be run on every controller in your application.
-
 "Before" filters may halt the request cycle. A common "before" filter is one which requires that a user is logged in for an action to be run. You can define the filter method this way:
 
 ### Example
@@ -137,16 +141,21 @@ In the `app/controllers/application_controller.rb`:
   def require_login
     if current_user.nil?
       flash[:error] = "You must be logged in to view this section"
-      redirect_to new_session_path
+      redirect_to session_path
     end
   end
 ```
 
 If we add this to our application currently, it will cause issues since every action will require login and based on the logic inside of the `require_login` method, every action will then redirect to the login page again and again and again...
 
-We want to ensure that our users can login without already being logged in! We can accomplish this by excluding this `require_login` `before_action` on the login controller actions.
+We want to ensure that our users can login without already being logged in! We can accomplish this by **excluding** this `require_login` `before_action` on the login controller actions.
 
 In the `app/controllers/sessions_controller.rb`:
 ```ruby
-skip_before_action :require_login, only: [:new, :create]
+skip_before_action :require_login, only: [:create]
 ```
+
+This ensures that the `require_login` method is **not** called before the `create` action to ensure that the user can successfully log in.
+
+### Additional Resources
+- [Rails docs](http://guides.rubyonrails.org/action_controller_overview.html#filters)
