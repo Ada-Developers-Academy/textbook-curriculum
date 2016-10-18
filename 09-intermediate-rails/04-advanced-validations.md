@@ -28,7 +28,7 @@ These new validator classes should be placed in the `app/validators` folder so t
       end
     end
   end
- 
+
   # in app/models/Task.rb
   class Task < ActiveRecord::Base
     validate :name, presence: :true
@@ -62,7 +62,47 @@ end
 ```
 
 ### Conditional Validations
-TODO
+Rails also allows you to specify times when a validation is not run. For example, imagine a user sign up system where if the user provides a username, we use that to identify them, and otherwise use their email. The system should check the length of the username only if it was provided.
+
+```ruby
+class User < ActiveRecord::Base
+  # If the user provided a username, it must be at least 8 characters
+  validates :username, length: { minimum: 8 }, if: :has_username?
+
+  def has_username?
+    !(username.nil? || username.empty?)
+  end
+end
+```
+
+Experimenting with the validation:
+```ruby
+u = User.new
+u.valid?            # => true
+u.name = "short"
+u.valid?            # => false
+u.errors.messages   # => {:name=>["is too short (minimum is 8 characters)"]}
+u.name = "something_longer"
+u.valid?            # => true
+```
+
+In the example above, a symbol corresponding to an instance method was passed via the `if` argument to `validates`. `unless` can also be used, and either argument can take a string (passed to `eval`) or a proc. The next two code samples are equivalent to the previous one:
+
+```ruby
+class User < ActiveRecord::Base
+  # If the user provided a username, it must be at least 8 characters
+  validates :username, length: { minimum: 8 },
+                unless: "username.nil? || username.empty?"
+end
+```
+
+```ruby
+class User < ActiveRecord::Base
+  # If the user provided a username, it must be at least 8 characters
+  validates :username, length: { minimum: 8 },
+                unless: Proc.new { |u| u.username.nil? || u.username.empty? }
+end
+```
 
 ## Resources
 [Custom Validations](http://guides.rubyonrails.org/active_record_validations.html#performing-custom-validations)  
