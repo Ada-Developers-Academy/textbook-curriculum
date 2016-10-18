@@ -73,7 +73,7 @@ end
 Next, we should set each of these controller methods up to use this new method using a controller filter. We specify the `only` portion to ensure that this `before_action` will only happen for the specified actions.
 ```ruby
 class StudentsController < ApplicationController
-  before_action :find_student only: [:show, :edit, :update]
+  before_action :find_student, only: [:show, :edit, :update]
 
   ...
 ```
