@@ -36,16 +36,16 @@ Another example which generates a random image:
 ```ruby
   def random_image(width, height)
     number = rand(3)
-    picture = ""
+    url = ""
     case number
       when 0
-      picture = "http://www.fillmurray.com/"
+      url = "http://www.fillmurray.com/"
       when 1
-        picture = "http://www.placecage.com/"
+        url = "http://www.placecage.com/"
       when 2
-        picture = "http://placekitten.com/"
+        url = "http://placekitten.com/"
     end
-    ["<img src='", picture, width,"/" ,height, "' alt='random image'>"].join.html_safe
+    ["<img src='", url, width,"/" ,height, "' alt='random image'>"].join.html_safe
   end
 end
 ```
