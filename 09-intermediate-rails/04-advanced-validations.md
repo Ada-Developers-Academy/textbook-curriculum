@@ -20,11 +20,11 @@ These new validator classes should be placed in the `app/validators` folder so t
 
 ```ruby
 
-     # in app/validators/MyValidator.rb
+     # in app/validators/myvalidator.rb
    class MyValidator < ActiveModel::Validator
     def validate(task)
       unless task.due_date >= Date.now
-        record.errors[:due_date] << 'The task must be due at a future date!'
+        task.errors[:due_date] << 'The task must be due at a future date!'
       end
     end
   end
