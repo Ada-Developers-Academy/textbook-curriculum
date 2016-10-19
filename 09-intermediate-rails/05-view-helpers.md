@@ -10,14 +10,14 @@ New helper methods are defined in within the `app/helpers` directory. All of the
 
 Let's define a new method that transforms a date object into something readable:
 ```ruby
-  def readable_date(date)
-    "<span class='date'>" + date.strftime("%A, %b %d") + "</span>"
-  end
+def readable_date(date)
+  ("<span class='date'>" + date.strftime("%A, %b %d") + "</span>").html_safe
+end
 ```
 Then within any view I could use this method, and pass in any date or time object:
 ```html
 <h1><%= @book.title %></h1>
-<%= readable_date(@book.created_at).html_safe %>
+<%= readable_date(@book.created_at) %>
 ```
 This would produce the HTML
 ```html
@@ -34,19 +34,19 @@ By using html_safe you demonstrate that you are "trusting" the given string to h
 Another example which generates a random image:
 
 ```ruby
-  def random_image(width, height)
-    number = rand(3)
-    url = ""
-    case number
-      when 0
-      url = "http://www.fillmurray.com/"
-      when 1
-        url = "http://www.placecage.com/"
-      when 2
-        url = "http://placekitten.com/"
-    end
-    ["<img src='", url, width,"/" ,height, "' alt='random image'>"].join.html_safe
+def random_image(width, height)
+  number = rand(3)
+  url = ""
+  case number
+  when 0
+    url = "http://www.fillmurray.com/"
+  when 1
+    url = "http://www.placecage.com/"
+  when 2
+    url = "http://placekitten.com/"
   end
+  ["<img src='", url, width,"/" ,height, "' alt='random image'>"].join.html_safe
+end
 ```
 And in the view:
 ```erb
