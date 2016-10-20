@@ -2,17 +2,17 @@
 
 ## Questions
 ### Strings
-1. Strip whitespace from a string in-place e.g. "H e llo W orl     d" --> "HelloWorld"
-1. Remove duplicate chars from a string e.g. "AAA BBB" -> "A B"
-1. Find the first non-repeating character in a string e.g. "ABCA" -> B
-1. Reverse a string e.g. "Hello" --> "olleH"
-1. Reverse words in a string (words are separated by one or more spaces).  e.g. "This is stuff" --> "stuff is This" _Extra fun: Do it in-place._
+1. Strip whitespace from a string in-place e.g. `"H e  llo W orl     d"` --> `"HelloWorld"`
+1. Remove duplicate chars from a string e.g. `"AAA BBB"` -> `"A B"`
+1. Find the first non-repeating character in a string e.g. `"ABCA"` -> `B`
+1. Reverse a string e.g. `"Hello"` --> `"olleH"`
+1. Reverse words in a string (words are separated by one or more spaces).  e.g. `"This is stuff"` --> `"stuff is This"` _Extra fun: Do it in-place._
 
 ### Arrays
 1. You are given an unsorted array with integers between 1 and 1,000,000. One integer is in the array twice. Determine which one. _Extra fun: Do it without sorting._
 1. You are given an unsorted array containing all integers between 1 and 1,000,000. One integer is missing. How can you determine which one? _Extra fun: Can you think of a way to do it by iterating through the array only once, without sorting?_
-1. Return the sum of the two largest integers in an array e.g. Given [19, 4, 2, -19, 100, 9], return 119 (100 + 19)
-1. Return the largest sum of contiguous integers in the array e.g. Given [-10, 2, 3, -2, 0, 5, -15], the largest sum is 8 (2 + 3 + -2 + 0 + 5)
+1. Return the sum of the two largest integers in an array e.g. Given `[19, 4, 2, -19, 100, 9]`, return `119` (100 + 19)
+1. Return the largest sum of contiguous integers in the array e.g. Given `[-10, 2, 3, -2, 0, 5, -15]`, the largest sum is `8` (2 + 3 + -2 + 0 + 5)
 
 <!-- UNSURE IF ANY OF THESE ARE ANY GOOD TO SHARE WITH STUDENTS - will look at later.
 
