@@ -2,7 +2,16 @@
 
 ## Questions
 ### Strings
-1. Strip whitespace from a string in-place e.g. `"H e  llo W orl     d"` --> `"HelloWorld"`
+1. Strip whitespace from a string in-place e.g.
+
+  ```ruby
+  "H e  llo W orl     d"
+  ```
+  becomes
+  ```ruby
+  "HelloWorld"
+  ```
+
 1. Remove duplicate chars from a string e.g. `"AAA BBB"` -> `"A B"`
 1. Find the first non-repeating character in a string e.g. `"ABCA"` -> `B`
 1. Reverse a string e.g. `"Hello"` --> `"olleH"`
