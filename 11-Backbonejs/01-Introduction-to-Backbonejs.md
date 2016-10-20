@@ -37,4 +37,21 @@ Backbone has 5 Components
 1.  Routers:  Used for Single Page Applications
 
 
+## Installing Backbonejs
+
+To install Backbonejs you will need 3 Javascript Libraries
+- **JQuery**, which we use to interact with the DOM.
+	- We will use JQuery 3.1.1
+- **Underscore**, which allows us to prepare templates which we can render in our views.
+	- We will use Underscore 1.8.3
+- **Backbonejs**, which is the Backbone library.  
+	- We will use Backbonejs 1.3.3
+	
+You can find these files [here](resources/backbonejs.zip) 
+
+
+
+
+
+
   
