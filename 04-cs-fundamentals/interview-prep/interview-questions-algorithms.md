@@ -11,6 +11,8 @@
 + Return the largest sum of contiguous integers in the array e.g. Given [-10, 2, 3, -2, 0, 5, -15], the largest sum is 8 (2 + 3 + -2 + 0 + 5)
 + Return the sum of the two largest integers in an array e.g. Given [19, 4, 2, -19, 100, 9], return 119 (119)
 
+<!-- UNSURE IF ANY OF THESE ARE ANY GOOD TO SHARE WITH STUDENTS - will look at later.
+
 ## Advanced Questions
 + Prison Guard
   - You're the guard of a prison, you want to keep an eye on the most dangerous prisoner. Each prisoner has a danger rank of his own and a group of friends (prisoners, who also have danger ranks). The guard has a list of prisoners with their corresponding danger ranks and he also has a list of the friends of each of the prisoners in the prison.
@@ -37,3 +39,4 @@
   - O(n)?
 + Poker Hand
   - Given a hand of 5 cards, determine the best hand that can be made from those cards (Royal Flush... High Card)
+  -->
