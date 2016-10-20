@@ -222,3 +222,4 @@ Before the `session` is sent to the browser it is encrypted. This means its cont
 [Sessions, Cookies and Authentication ](http://www.theodinproject.com/courses/ruby-on-rails/lessons/sessions-cookies-and-authentication)(not including 'Rolling Your Own Auth')  
 [How Sessions Work](http://www.justinweiss.com/articles/how-rails-sessions-work/)  
 [Rails Guides: Accessing the Session](http://guides.rubyonrails.org/action_controller_overview.html#accessing-the-session)
+[How to Set Environment Variables in Heroku](https://devcenter.heroku.com/articles/config-vars)
