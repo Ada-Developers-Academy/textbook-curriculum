@@ -1,17 +1,15 @@
 # Interview Questions - Algorithms
 
 ## Questions
-+ Reverse words in a string (words are separated by one or more spaces). Now do it in-place. By far the most popular string question!
-+ Reverse a string
-+ Strip whitespace from a string in-place `void StripWhitespace(char* szStr)`
-+ Remove duplicate chars from a string ("AAA BBB" -> "A B") `int RemoveDups(char* szStr)`
-+ Find the first non-repeating character in a string:("ABCA" -> B ) `int FindFirstUnique(char* szStr)`
-+ You are given an array with integers between 1 and 1,000,000. One integer is in the array twice. How can you determine which one? Can you think of a way to do it using little extra memory.
-+ You are given an array with integers between 1 and 1,000,000. One integer is missing. How can you determine which one? Can you think of a way to do it while iterating through the array only once. Is overflow a problem in the solution? Why not?
-+ Returns the largest sum of contiguous integers in the array Example: if the input is (-10, 2, 3, -2, 0, 5, -15), the largest sum is 8 `int GetLargestContiguousSum(int* anData, int len)`
-+ Implement Shuffle given an array containing a deck of cards and the number of cards. Now make it O(n).
-+ Return the sum two largest integers in an array `int SumTwoLargest(int* anData, int size)`
-+ Sum n largest integers in an array of integers where every integer is between 0 and 9 `int SumNLargest(int* anData, int size, int n)`
++ Reverse words in a string (words are separated by one or more spaces).  e.g. "This is stuff" --> "stuff is This" _Extra fun: Do it in-place._
++ Reverse a string e.g. "Hello" --> "olleH"
++ Strip whitespace from a string in-place e.g. "H e llo W orl     d" --> "HelloWorld"
++ Remove duplicate chars from a string e.g. "AAA BBB" -> "A B"
++ Find the first non-repeating character in a string e.g. "ABCA" -> B 
++ You are given an array with integers between 1 and 1,000,000. One integer is in the array twice. Determine which one.
++ You are given an array with integers between 1 and 1,000,000. One integer is missing. How can you determine which one? _Extra fun: Can you think of a way to do it while iterating through the array only once._
++ Return the largest sum of contiguous integers in the array e.g. Given [-10, 2, 3, -2, 0, 5, -15], the largest sum is 8 (2 + 3 + -2 + 0 + 5)
++ Return the sum of the two largest integers in an array e.g. Given [19, 4, 2, -19, 100, 9], return 119 (119)
 
 ## Advanced Questions
 + Prison Guard
