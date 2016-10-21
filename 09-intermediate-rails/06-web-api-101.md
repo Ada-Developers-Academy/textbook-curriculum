@@ -95,32 +95,35 @@ Here is the same data from above, but represented in XML:
 </products>
 ```
 
-### Authentication
-Oftentimes APIs are available for general use to the public. To ensure that the API creator can appropriately monitor and secure their API, oftentimes they require the API consumer to unique identify themselves using an **API Key**. Each API creator determines how to provide the key along with your request, so it is different for different providers. 
-
 ### Some Examples
 
-#### Weather API
 
-http://openweathermap.org/API is used for current weather data, forecasting, searching, and weather maps.
 
-- **Documentation**: http://openweathermap.org/API
-- **Base URI**: http://api.openweathermap.org/data/2.5/
-- **Example**:
-    - http://api.openweathermap.org/data/2.5/weather?q=Seattle
-    - http://api.openweathermap.org/data/2.5/forecast?q=Seattle
-    - http://api.openweathermap.org/data/2.5/find?q=Seattle&mode=xml
+#### GitHub API
+
+The GitHub API is used for accessing all things GitHub!
+
+- **Documentation**: [GitHub API Docs](https://developer.github.com/v3/)
+- **Base URI**: http://api.github.com
+- **Example Endpoints**:
+    - [https://api.github.com/orgs/AdaGold/repos](https://api.github.com/orgs/AdaGold/repos)
+    - https://api.github.com/users/<your_user_name_here>
 
 #### Google Books API
-The google books api is used to request and information about books.
+The Google Books API is used to request and information about books.
 
 - **Base URI**: https://www.googleapis.com/books/v1
 - **Documentation**: [Google API](https://developers.google.com/books/docs/v1/using)
-- **Example**: [https://www.googleapis.com/books/v1/volumes?q=twain](https://www.googleapis.com/books/v1/volumes?q=twain)
+- **Example Endpoint**: [https://www.googleapis.com/books/v1/volumes?q=twain](https://www.googleapis.com/books/v1/volumes?q=twain)
 
-#### Flickr API
-Used to retrieve photos by album, collection, user, and search.
+#### iTunes API
+Used to retrieve information about all different media types within iTunes.
 
-- **Base URI**: http://api.flickr.com/services/rest/
-- **Documentation**: http://www.flickr.com/services/api/
-- **Example**: http://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=INSERT_API_KEY_HERE&format=json
+- **Base URI**: http://itunes.apple.com/
+- **Documentation**: [https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api)
+- **Example Endpoint**: [https://itunes.apple.com/search?term=tegan+and+sara](https://itunes.apple.com/search?term=tegan+and+sara)
+
+### Authentication
+Oftentimes APIs are available for general use to the public. To ensure that the API creator can appropriately monitor and secure their API, they require the API consumer to unique identify themselves using an **API Key**. Each API creator determines how to provide the key along with your request, so it is different for different providers.
+
+The three examples above do not require an API key, so we can make requests and see the responses without doing anything special. Most of these APIs provide _some_ amount of data without authenticating, but certain things will be locked down. For example, the API endpoint to retrieve the GitHub teams for a given organization (https://api.github.com/orgs/AdaGold/teams) requires authentication.
