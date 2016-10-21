@@ -39,7 +39,7 @@ myPeople.add( new Person( {name: "Korica", title: "Program Coordinator"} ) );
 
 Looking at the model in the console we can see the Models are stored in the collection under the models attribute, an array, and each instance has an index number.  They also have an attribute called a `cid` which is an id that Backbone assigns to each Model instance.  Models synched with a server also have a persistent ID assigned by the server.
 
-![Client Server](11-Backbonejs/images/modelconsole.png)
+![Client Server](images/modelconsole.png)
 
 
 
