@@ -102,7 +102,29 @@ ada.unset("skills");
 console.log(ada.get("skills"));
 ```
 
-##
+## Adding Additional Methods to a Model
+
+You can add additional models to a method like other attributes:
+
+```javascript
+var Person = Backbone.Model.extend( {
+  defaults: {
+      name: "Ada",
+      age: 21
+  },
+  initialize: function() {
+    console.log("Person has been Created");
+  },
+  sayhi: function() {
+    console.log(this.get("name") + " says HI!");
+  }
+});
+
+var myPerson = new Person();
+
+// Will cause 'Ada says HI!' to print to the console.
+myPerson.sayHi();
+```
 
 ## Resources
 - [Backbone Model & View Documentation](http://backbonejs.org/#Model-View-separation)
