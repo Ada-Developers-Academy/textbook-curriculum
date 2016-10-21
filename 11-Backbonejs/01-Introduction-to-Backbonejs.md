@@ -30,8 +30,12 @@ Backbone implements the familiar MVC architecture from Rails in a slightly diffe
 
 Backbone has 5 Components
 
-1.  Events:  These are used by components to publish content or subscribe to content.  
+1.  Events:  Events are a module that can be mixed in to any object, giving the object the ability to bind and trigger custom named events.  
 1.  Models:  These include the application data and business logic.  These are similar to Rails models.
+	- Models:
+		- Orchestrates data and business logic.  
+		- Loads and saves from the server.   
+		- Emits events when data changes.  
 1.  Collections:  These are ordered sets of models
 1.  Views:  These render the models and listen for DOM/Model events.
 1.  Routers:  Used for Single Page Applications
@@ -50,6 +54,10 @@ To install Backbonejs you will need 3 Javascript Libraries
 You can find these files [here](resources/backbonejs.zip) 
 
 
+## Resources
+- [Underscore Documentation](http://underscorejs.org/)
+- [Backbone Documentation](http://backbonejs.org/)
+- [jQuery Documentation](http://api.jquery.com/)
 
 
 
