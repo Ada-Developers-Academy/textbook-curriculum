@@ -44,16 +44,20 @@ Looking at the model in the console we can see the Models are stored in the coll
 
 
 
-## Getting Our Models!
+## Getting At Our Models!
 
-You can retrieve a model from a Backbone collection via the get method which will take either the index number of the model and the Collection's `at` attribute, or via it's cid.
+You can retrieve a model from a Backbone collection via the `get` method which will take either the index number of the model and the Collection's `at` attribute, or via it's cid.
 
 ```javascript
-// will print Dan's model
-console.log(myPeople.at(1) );
+// will print Kari's model
+console.log(myPeople.at(0) );
+var kari = myPeople.at(0);
 
 // Will retrieve the model with cid equal to "c3" from the collection, if it exists.
 console.log(myPeople.get("c1"));
+
+var dan = myPeople.get("c1");
+
 ```
 
 
@@ -68,13 +72,16 @@ myPeople.remove(personToRemove);
 
 
 
-## Looping through a collection
+## Looping Through a Collection
 
 You can loop through a collection, known as iterating, using the `each` method.  This method takes an anonymous function and applies it to each model in turn.  The models are passed into the function one at a time as a parameter. 
 
 
 ```javascript
+
+// Causes 
 myPeople.each(function(person) {
   person.sayhi();
 });
 ```
+
