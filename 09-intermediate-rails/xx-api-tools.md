@@ -29,7 +29,7 @@ $ curl -H "Accept: application/json" -H "Content-type: application/json" -X POST
 
 #### Using The Native Mac Postman App
 
-To use the Postman Native App you can download it from [getpostman.com](https://www.getpostman.com) and download the App.  You can paste it into your Applications folder to keep it available.  
+To use the Postman Native App you can download it from [getpostman.com](https://www.getpostman.com) and download the App.  You can paste it into your Applications folder to keep it available.  [It has a few advantages over the Chrome extension](https://www.getpostman.com/docs/why_native).
 
 ![Postman in Applications Folder](images/postman1.png)
 
