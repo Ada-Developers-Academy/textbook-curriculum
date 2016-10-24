@@ -142,3 +142,23 @@ Orbits are a fancy way to provide a carousel effect in your page, it can be a mi
 </div>
 
 ```
+
+## Foundation Variables
+
+In the `App-->assets-->stylesheets-->_settings.scss` file you can find a variety of variables in Foundation.  These variables change how the framework works in terms of color, and styling.
+
+They are set by:  $VARIABLE_NAME:  VALUE;
+
+So you can change if the Accordion Menu has arrows with this variable:
+```scss
+$accordionmenu-arrows: false;
+```
+
+And you can change the body font-family with:
+```css
+$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+```
+
+Mostly however you will use these variables rarely to turn off or on features.   You can override styling with your own styles in `application.scss`.  
+
+
