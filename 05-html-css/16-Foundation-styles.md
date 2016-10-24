@@ -64,6 +64,8 @@ $(document).on('turbolinks:load', function() {
   $(function(){ $(document).foundation(); });
 });
 ```
+	- This makes sure that the Foundation Javascript is called whenever you enter a new page.  Rails 4 has a feature called turbo links which loads views without refreshing the page.  
+
 
 ## Example Styling
 
