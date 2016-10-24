@@ -56,7 +56,8 @@ We will set up a sample request to see the repositories of the Ada-c6 organizati
 1.  In Github [register a new oAuth Application](https://github.com/settings/developers) and save the client_id and secret.  
 	- The Homepage URL:  [https://www.getpostman.com](https://www.getpostman.com)  
 	- The Authorization Callback URL:  [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback)
-![Github Authentication Screen](images/postman3.png)
+	
+![Github Authentication Screen](images/postman0.png)
 1.  Then in Postman go to Authorization (under the URL line) and select oAuth 2.0.
 ![Postman Authorization](images/postman5.png)
 1.  Click on `Get New Access Token`  
