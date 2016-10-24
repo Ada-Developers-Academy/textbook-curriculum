@@ -59,9 +59,9 @@ We will set up a sample request to see the repositories of the Ada-c6 organizati
 	
 ![Github Authentication Screen](images/postman0.png)  
 1.  Then in Postman go to Authorization (under the URL line) and select oAuth 2.0.
-![Postman Authorization](images/postman5.png)
+![Postman Authorization](images/postman5.png)  
 1.  Click on `Get New Access Token`  
-![Get new Access Token](images/postman6.png)
+![Get new Access Token](images/postman6.png)  
 1.  Then fill in the form with:
 	- Auth URL:  **https://github.com/login/oauth/authorize**
 	- Access Token URL:  **https://github.com/login/oauth/access_token**
@@ -70,21 +70,21 @@ We will set up a sample request to see the repositories of the Ada-c6 organizati
 	- Scope:  **repo**
 		- Github grants different levels of access depending on the scope variable.  You can read more about it [here](https://developer.github.com/v3/oauth/#scopes).
 	- Grant Type:  **Authorization Code**  
-![Github Authorization](images/postman7.png)
+![Github Authorization](images/postman7.png)  
 1.  Then Choose to add the token you have created into the header.
-![Add the oAuth token](images/postman8.png)
+![Add the oAuth token](images/postman8.png)  
 1.  Next enter:  `https://api.github.com/orgs/:org/repos` into the URL bar.
 	- :org just like in Rails is a placeholder or variable which we can fill in with any value we like.
 1.  Click on Params and add a parameter for :org as ada-c6
 1.  Then click send and look at the results:  
-![Response](images/postman9.png)
+![Response](images/postman9.png)  
 
 Congratulations you've made your first Postman API call.  Note that the Content type is `application/json; charset=utf-8` and that the result looks like a Ruby Hash.  One of the key uses of APIs is to retrieve data from remote servers.  
 
 ##### Saving the Request
 
 We can save or bookmark our API call by clicking on the save-as button and save the request into a folder on the left sidebar.  
-![Saving](images/postman10.png)
+![Saving](images/postman10.png)  
 
 ##### Going Further:  
 
