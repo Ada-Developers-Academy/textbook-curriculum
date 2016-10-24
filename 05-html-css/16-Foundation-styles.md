@@ -40,7 +40,7 @@ Overwrite /Users/Chris/ada/StudentWork/Foundation/foundation_example/app/views/l
 
 The installer adds the following files to your app/assets folder.  
 
-![foundation files](img/foundationfiles.png)
+![foundation files](imgs/foundationfiles.png)
 
 
 ## A Little Configuration
