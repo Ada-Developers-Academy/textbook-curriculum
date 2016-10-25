@@ -8,18 +8,18 @@
 
 Technical interviews can be stressful, but like most anything else, they are a learned, practiced skill. DON'T PANIC! Technical interviews are not necessarily about evaluating the validity of your solution, but often are more about evaluating a candidate's technical communication skills and problem solving approach.
 
-## Read these articles
+## 1. Read these articles
   + [Big O Notation: Using not-boring math to measure code's efficiency](https://www.interviewcake.com/article/big-o-notation-time-and-space-complexity)
   + [Coding Interview Tips: How to get better at technical interviews without practicing](https://www.interviewcake.com/article/coding-interview-tips)
 
-## Chit-chat Questions
+## 2. Chit-chat Questions
 Come up with 1 example for each of the following:
   1. example of an interesting technical problem you solved
   1. example of an interpersonal conflict you overcame
   1. example of leadership or ownership
   1. story about what you should have done differently in a past project
 
-## Practice
+## 3. Practice
 Practice solving a problem in front of another person and talking out your solutions. This person can be a peer/partner/friend and they can be technical or not technical. Your goal is to spend 15-20 minutes tackling a problem in front of someone else. Ideally on a whiteboard, but if you don't have a whiteboard, on paper. Have the person you are working with read you a question from [here](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/interview-prep/interview-questions-algorithms.md). **Don't stress about the solution! Make sure you understand the problem, state your assumptions, talk out loud!**
 
 Technical Questions: Problem Solving approach
