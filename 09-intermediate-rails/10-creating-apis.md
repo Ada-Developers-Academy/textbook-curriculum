@@ -67,3 +67,65 @@ end
 ```
 
 Note that we have removed the `@pets` instance variable here that we are normally used to creating. Why do you think we've done that?
+
+### Response Codes
+
+We've built a simple API that responds with some data. We could let the consumer of our API parse that data to figure out if their request was successful or if there was an error of some sort, but that seems like cumbersome for them. Instead, we should use HTTP status codes to provide a quick and easy way for our API's users to see the status of their request.
+
+To set status code in your controller, just pass `:status` to our render method.
+
+```ruby
+def index
+  pets = Pet.all
+  render :json => pets, :status => :ok
+end
+```
+
+Notice in the example above, I used both `:ok` as well as the official numeric value of 200 to inform the consumer that the request was a success. I tend to use the built-in Rails symbols for this, as they're more explicit, however its good to know at least the most common [HTTP status codes](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes).
+
++ 200 - :ok
++ 204 - :no_content
++ 400 - :bad_request
++ 401 - :unauthorized
++ 403 - :forbidden
++ 404 - :not_found
++ 500 - :internal_server_error
+
+### `show`
+Let's add this same approach for the show action, start by adding a route, then updating the controller:
+
+```ruby
+# pets_controller.rb
+def show
+  pet = Pet.find(params[:id])
+  render :json => pet
+end
+```
+
+#### What if we can't find a pet?
+What if we get params that don't match a pet? What do we do? How should our code change? At the very least, we should make sure that we don't throw an error. Also, we should return a **status code** that indicates to the consumer that we couldn't find any content to match their request. Fortunately, the `204` status code exists for exactly this reason. Let's change our `show` method to:
+
+**Note** that we switch from using the `find` method to the `find_by` method because `find` will return an error before getting to the conditional if the given Pet has not been found.
+
+```ruby
+def show
+  pet = Pet.find_by(id: params[:id])
+
+  if pet
+    render :json => pet, :status => :ok
+  else
+    render :json => [], :status => :no_content
+  end
+end
+```
+
+## Activity: Adding Search with your Chair Pair
+1. Write at least one positive (search found pets) and one negative (search didn't find pets) test.
+1. Implement the search feature in the `Pet` model
+1. Create a route and controller action for searching for a pet by name
+1. Make the action return a collection of pets as json
+
+## Resources
+- [`.as_json` documentation](http://api.rubyonrails.org/classes/ActiveModel/Serializers/JSON.html#method-i-as_json)
+- [ActiveModel Serializers](http://railscasts.com/episodes/409-active-model-serializers)
+- [blog post by thoughtbot about serialization](http://robots.thoughtbot.com/better-serialization-less-as-json)
