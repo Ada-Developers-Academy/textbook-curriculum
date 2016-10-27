@@ -51,6 +51,8 @@ Each interaction is recorded as a **cassette**. We can load cassettes in our tes
 
   Now you're ready to test your API!!
 
+  We wrap the code where an API call would be made in the `VCR.use_cassette` block. This will ensure that the code inside the block will use the cassette if it has not already been generated. 
+
   ```ruby
   test "Retrieve the Channel data" do
     VCR.use_cassette("channels") do
