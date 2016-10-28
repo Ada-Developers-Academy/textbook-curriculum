@@ -35,12 +35,12 @@ Given the context of our application, we should have a model and controller that
 
 [https://github.com/AdaGold/ada-pets](https://github.com/AdaGold/ada-pets)
 
-###
+### Let's Get Started
 We are going to approach this application creation from a TDD approach. Right now, you'll see that we have a few tests already created for you. You can run the tests using the usual `rake test`.
 
 You'll notice that we have one basic get route created for pets, and one basic controller action that corresponds with that route.
 
-This error is where we diverge from our "normal" rails approach. Normally, we'd create a view that would correspond with our controller action.  The error should be something like:
+The error below is where we diverge from our "normal" rails approach. Normally, we'd create a view that would correspond with our controller action.  The error should be something like:
 
 ```bash
 Missing template pets/index, application/index...
