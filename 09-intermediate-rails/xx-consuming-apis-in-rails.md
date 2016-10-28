@@ -2,25 +2,26 @@
 
 ## Learning Goals
 
-- Use HTTParty in the context of Rails
-- do something
+- Interact with an API that requires authentication
+- Build an API wrapper in the context of a Rails app
+- Use data from an API in a Rails site
 
 ## Initial Setup
-TODO: link
+**TODO: link**
 
 [Download the initial project setup]()
 
 What's here?
 - Standard Rails app setup
 - No Models!
-  - Why?
 - One controller
+- Views and such are already set up
 - An extra file: `lib/api_wrapper.rb`
 
 ## The Slack API
-Today, we'll be experimenting with Slack's API. This API lets you post and read messages, among other things. People have used it to write all sorts of interesting plugins, for things like sending a message in a certain channel when a test run is finished, to commenting with details when someone mentions a bug number.
+Today, we'll be experimenting with Slack's API. This API is the same one used by the Slack app, and lets you (among other things) post and read messages. People have used it to write all sorts of interesting plugins, from things like sending a message in a certain channel when a test run is finished, to commenting with details when someone mentions a bug number.
 
-[You can read the details of Slack's API here.](https://api.slack.com/)
+[You can read about the details of Slack's API here.](https://api.slack.com/)
 
 ### Sending a Message
 Open up Postman, and send a `POST` request to `https://slack.com/api/chat.postMessage`, with these params:
@@ -158,11 +159,25 @@ end
 
 Verify it works through the rails console: `SlackWrapper.send_message("@<username>", "test test test")`
 
-### The Messages Controller
+### The Channels Controller
+**TODO: Modify based on our actual implementation**
+
 The last step is to call our new API wrapper, so that we can build a nice website around it. Since you're all already experts in Rails, we've gone ahead and built most of the views for you - the only thing left is to tie it into the controller.
 
 First, for `index`, make the full list of channels available to the view via the `@channels` instance variable.
 
 Second, for `send_message`, actually send the message using the `channel` and `message` variables.
 
-And voila! A little Rails app that talks to Slack.
+And voila! A neat little Rails app that talks to Slack.
+
+## What Have We Accomplished?
+
+- Experimented with the Slack API using Postman
+- Set ourselves up with an authentication token
+- Stored that token securely in a Rails app
+- Wrote a wrapper for the Slack API as a Rails library
+- Used that wrapper library in the rest of our app
+
+## Additional Resources
+- [Slack API documentation](https://api.slack.com/)
+- [The Odin Project on working with external APIs](http://www.theodinproject.com/courses/ruby-on-rails/lessons/working-with-external-apis)
