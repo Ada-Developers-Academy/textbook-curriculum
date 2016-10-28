@@ -114,8 +114,10 @@ end
 
 And that should do it. To verify it worked, spin up the rails console, and run `SlackWrapper.new`. It should return a new instance of SlackWrapper, instead of throwing an error.
 
+You'll have to restart the rails server in order for it to load the new library.
+
 #### Building the Wrapper
-Our wrapper will have two methods. `list_channels` will return a list of all the channel names for our Slack team. `send_message(channel, message)` will send the given message to the given channel.
+Our wrapper will have two methods. `channels` will return a list of all the channel names for our Slack team. `send_message(channel, message)` will send the given message to the given channel.
 
 To start, let's set up some useful constants:
 
@@ -131,10 +133,10 @@ end
 
 The `BASE_URL` is the beginning of every request, and the `TOKEN` will be the Slack API token we made available through the .env file earlier.
 
-Next, we'll add an implementation of `list_channels`. This will send a `GET` request to the corresponding API end point, returning the results as an array. Note that we also pass the `exclude_archived` parameter, because we don't want to be able to send to archived channels.
+Next, we'll add an implementation of `channels`. This will send a `GET` request to the corresponding API end point, returning the results as an array. Note that we also pass the `exclude_archived` parameter, because we don't want to be able to send to archived channels.
 
 ```ruby
-def self.listchannels()
+def self.channels()
   url = BASE_URL + "channels.list?" + "token=#{TOKEN}" + "&exclude_archived=1"
   data = HTTParty.get(url)
   if data["channels"]
@@ -154,4 +156,13 @@ def self.send_message(channel, msg)
 end
 ```
 
+Verify it works through the rails console: `SlackWrapper.send_message("@<username>", "test test test")`
+
 ### The Messages Controller
+The last step is to call our new API wrapper, so that we can build a nice website around it. Since you're all already experts in Rails, we've gone ahead and built most of the views for you - the only thing left is to tie it into the controller.
+
+First, for `index`, make the full list of channels available to the view via the `@channels` instance variable.
+
+Second, for `send_message`, actually send the message using the `channel` and `message` variables.
+
+And voila! A little Rails app that talks to Slack.
