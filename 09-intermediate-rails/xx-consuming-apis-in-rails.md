@@ -120,7 +120,7 @@ And that should do it. To verify it worked, spin up the rails console, and run `
 You'll have to restart the rails server in order for it to load the new library.
 
 #### Building the API Wrapper
-Our wrapper will have two methods. `list_channels` will return a list of all the channel names for our Slack team. `sendmsg(channel, message)` will send the given message to the given channel.
+Our wrapper will have two methods. `listchannels` will return a list of all the channel names for our Slack team. `sendmsg(channel, message)` will send the given message to the given channel.
 
 To start, let's set up some useful constants:
 
