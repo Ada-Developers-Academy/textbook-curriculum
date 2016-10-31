@@ -7,9 +7,9 @@
 - Use data from an API in a Rails site
 
 ## Initial Setup
-**TODO: link**
 
-[Download the initial project setup]()
+To start clone or fork and clone the [initial project setup](https://github.com/Ada-C6/slack_api_example).
+
 
 What's here?
 - Standard Rails app setup
@@ -47,6 +47,8 @@ The token we're about to create is a secret! Keep it safe, just like you would a
 
 To generate a token, navigate to https://api.slack.com/docs/oauth-test-tokens, find the entry for the `adacohort6` channel, and click `Create token`.
 
+![Slack API Token](images/slack-api-token.png)  
+
 To use the token, add it to the params in your Postman request:
 
 | Key       | Value                                    |
@@ -65,7 +67,7 @@ POST https://slack.com/api/chat.postMessage
 but there are many more. The whole list is at https://api.slack.com/methods
 
 ## Using the API from Rails
-Take a moment to browse through the starter Rails app. Notice that there's no model! This is because we're not storing any data locally, we're going to send it all straight to Slack.
+Take a moment to browse through the starter Rails app. Notice that there's no model! This is because we're not storing any data locally, we're going to pull it from and send it to Slack.
 
 The idea for our app is simple: it should display a list of all public channels for the Slack team. When a channel is selected, the user should be directed to a form where they can write a message to send to that channel.
 
@@ -85,16 +87,16 @@ Rails doesn't have any magic around consuming APIs like it does for models or vi
 #### Setup
 We will put the wrapper for our Slack API under the `lib` folder:
 ```
-$ touch lib/slack_wrapper.rb
+$ touch lib/slack_api_wrapper.rb
 ```
 
 And in that file (to start)
 
 ```ruby
-# lib/slack_wrapper.rb
+# lib/slack_api_wrapper.rb
 require `httparty`
 
-class SlackWrapper
+class SlackApiWrapper
 end
 ```
 
@@ -160,7 +162,6 @@ end
 Verify it works through the rails console: `SlackWrapper.send_message("@<username>", "test test test")`
 
 ### The Channels Controller
-**TODO: Modify based on our actual implementation**
 
 The last step is to call our new API wrapper, so that we can build a nice website around it. Since you're all already experts in Rails, we've gone ahead and built most of the views for you - the only thing left is to tie it into the controller.
 
@@ -177,6 +178,10 @@ And voila! A neat little Rails app that talks to Slack.
 - Stored that token securely in a Rails app
 - Wrote a wrapper for the Slack API as a Rails library
 - Used that wrapper library in the rest of our app
+
+## Refactoring
+
+Right now our controller is reading and writing directly to our API Wrapper.  We can separate out our controller/view from the specific implementation by creating a Channel class which can represent a Slack Channel.  Then we use normal object methods to access Channel fields.  
 
 ## Additional Resources
 - [Slack API documentation](https://api.slack.com/)
