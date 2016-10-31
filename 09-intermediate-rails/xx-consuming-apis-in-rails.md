@@ -119,16 +119,16 @@ And that should do it. To verify it worked, spin up the rails console, and run `
 
 You'll have to restart the rails server in order for it to load the new library.
 
-#### Building the Wrapper
-Our wrapper will have two methods. `channels` will return a list of all the channel names for our Slack team. `send_message(channel, message)` will send the given message to the given channel.
+#### Building the API Wrapper
+Our wrapper will have two methods. `listchannels` will return a list of all the channel names for our Slack team. `sendmsg(channel, message)` will send the given message to the given channel.
 
 To start, let's set up some useful constants:
 
 ```ruby
-# lib/slack_wrapper.rb
+# lib/slack_api_wrapper.rb
 require 'httparty'
 
-class SlackWrapper
+class SlackApiWrapper
   BASE_URL = "https://slack.com/api/"
   TOKEN = ENV["SLACK_TOKEN"]
 end
@@ -136,10 +136,10 @@ end
 
 The `BASE_URL` is the beginning of every request, and the `TOKEN` will be the Slack API token we made available through the .env file earlier.
 
-Next, we'll add an implementation of `channels`. This will send a `GET` request to the corresponding API end point, returning the results as an array. Note that we also pass the `exclude_archived` parameter, because we don't want to be able to send to archived channels.
+Next, we'll add an implementation of `listchannels`. This will send a `GET` request to the corresponding API end point, returning the results as an array. Note that we also pass the `exclude_archived` parameter, because we don't want to be able to send to archived channels.
 
 ```ruby
-def self.channels()
+def self.listchannels()
   url = BASE_URL + "channels.list?" + "token=#{TOKEN}" + "&exclude_archived=1"
   data = HTTParty.get(url)
   if data["channels"]
@@ -150,26 +150,90 @@ def self.channels()
 end
 ```
 
-And finally, `send_message`:
+And finally, `sendmsg`:
 
 ```ruby
-def self.send_message(channel, msg)
-  url = BASE_URL + "chat.postMessage?" + "token=#{TOKEN}" + "&text=#{msg}&channel=#{channel}"
-  data = HTTParty.post(url)
+def self.sendmsg(channel, msg, token = nil)
+  token = TOKEN if token == nil
+  puts "Sending message to channel #{channel}: #{msg}"
+
+  url = BASE_URL + "chat.postMessage?" + "token=#{token}"
+  data = HTTParty.post(url,
+  body:  {
+    "text" => "#{msg}",
+    "channel" => "#{channel}",
+    "username" => "Roberts-Robit",
+    "icon_emoji" => ":robot_face:",
+    "as_user" => "false"
+  },
+  :headers => { 'Content-Type' => 'application/x-www-form-urlencoded' })
 end
 ```
 
-Verify it works through the rails console: `SlackWrapper.send_message("@<username>", "test test test")`
+Verify it works through the rails console: `SlackWrapper.sendmsg("@<username>", "test test test")`
 
-### The Channels Controller
+### The Controller
 
 The last step is to call our new API wrapper, so that we can build a nice website around it. Since you're all already experts in Rails, we've gone ahead and built most of the views for you - the only thing left is to tie it into the controller.
 
-First, for `index`, make the full list of channels available to the view via the `@channels` instance variable.
+This will all take place in `app/controllers/homepages_controller.rb`
 
-Second, for `send_message`, actually send the message using the `channel` and `message` variables.
+First, for `index`, make the full list of channels available to the view via the `@data` instance variable.
+
+Second, for `sendmsg`, actually send the message using the `channel` and `message` variables.
 
 And voila! A neat little Rails app that talks to Slack.
+
+### Cleaning Up: The Channel Object
+Right now, we just return a bunch of Ruby hash objects, that are structured after whatever we got back from the API. This has a few drawbacks:
+
+- Whatever's downstream of us (in this case our Rails app) needs to know about how the server formatted the data
+- If the API changes, the way we format our data will change
+
+This defeats the whole point of wrapping the API! Instead, let's build a `Channel` object to make life a little easier for someone (like us in 20 minutes)
+
+A `Channel` should have a publicly visible name, as well as other fields we get back from the API.
+
+**QUESTION:** should name be an `attr_reader`, `attr_writer`, or `attr_accessor`? Why?
+
+Here's one possible implementation of `Channel`:
+
+```ruby
+# lib/channel.rb
+class Channel
+  attr_reader :name, :id, :purpose, :is_archived, :members
+
+  def initialize(name, id, options = {} )
+    raise ArgumentError if name == nil || name == "" || id == nil || id == ""
+
+    @name = name
+    @id = id
+
+    @purpose = options[:purpose]
+    @is_archived = options[:is_archived]
+    @is_general = options[:is_archived]
+    @members = options[:members]
+  end
+end
+```
+
+And modifications to our API wrapper:
+
+```ruby
+# lib/slack_api_wrapper.rb
+def self.channels()
+  url = BASE_URL + "channels.list?" + "token=#{TOKEN}" + "&pretty=1&exclude_archived=1"
+  data = HTTParty.get(url)
+  channel_list = []
+  if data["channels"]
+    data["channels"].each do |channel|
+      wrapper = Channel.new channel["name"], channel["id"] , purpose: channel["purpose"], is_archived: channel["is_archived"], members: channel["members"]
+      channel_list << wrapper
+    end
+  end
+  return channel_list
+end
+```
 
 ## What Have We Accomplished?
 
