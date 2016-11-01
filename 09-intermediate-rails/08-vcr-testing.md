@@ -7,6 +7,7 @@
 
 ### How is testing APIs different?
 We know why testing is important, we have seen the importance of the TDD cycle. When testing APIs it is important to note that we are now relying on external sources for our own code to work. There are a few things to consider when testing external sources:
+
 1. If they're down, we're down
 1. Every API call costs something (whether it be counting against your # of free calls or actually costing real $)
 
@@ -42,7 +43,8 @@ Each interaction is recorded as a **cassette**. We can load cassettes in our tes
     config.cassette_library_dir = 'test/cassettes' # folder where casettes will be located
     config.hook_into :webmock # tie into this other tool called webmock
     config.default_cassette_options = {
-      :record => :new_episodes    # record new data when we don't have it yet
+      :record => :new_episodes,    # record new data when we don't have it yet
+      :match_requests_on => [:method, :uri, :body] # The http method, URI and body of a request all need to match
     }
   end
   ```
@@ -51,31 +53,32 @@ Each interaction is recorded as a **cassette**. We can load cassettes in our tes
 
   Now you're ready to test your API!!
 
-  We wrap the code where an API call would be made in the `VCR.use_cassette` block. This will ensure that the code inside the block will use the cassette if it has not already been generated. 
+  We wrap the code where an API call would be made in the `VCR.use_cassette` block. This will ensure that the code inside the block will use the cassette if it has not already been generated.
 
   ```ruby
-  test "Retrieve the Channel data" do
+  test "Can send valid message to real channel" do
     VCR.use_cassette("channels") do
-      response = ApiWrapper.list_channels
-      assert response.length > 0
-      # Anything else contextual about API data?
+      message = "test message"
+      response = SlackApiWrapper.sendmsg("test-api-brackets", message)
+      assert response["ok"]
+      assert_equal response["message"]["text"], message
     end
   end
   ```
 
-  TODO: Instructors... Is there a negative case?  
   Test a negative case:
   ```ruby
-  test "Retrieve the Channel data" do
-    VCR.use_cassette("no_channels") do
-      response = ApiWrapper.list_channels
-      assert_not response.length > 0
+  test "Can't send message to fake channel" do
+    VCR.use_cassette("channels") do
+      response = SlackApiWrapper.sendmsg("this-channel-does-not-exist", "test message")
+      assert_not response["ok"]
+      assert_not_nil response["error"]
     end
   end
   ```
 
-  Once you run a test that uses VCR, you'll notice that there will be a files in the `test/cassettes` folder with the name corresponding to the parameter provided in the `use_cassette` method.
+Once you run a test that uses VCR, you'll notice that there will be a file in the `test/cassettes` folder with the name corresponding to the parameter provided in the `use_cassette` method.
 
-  If you expect the response data to change, you must delete the cassette file.
+If you expect the response data to change, you must delete the cassette file.
 
-  Once the cassette file is created, how do we know that our tests are not still calling the API directly? One (very manual) way of doing this is by turning off your Wifi. If you ensure you have the VCR cassette files, then turn off your Wifi and run your tests again, your tests should still pass! Huzzah!
+Once the cassette file is created, how do we know that our tests are not still calling the API directly? One (very manual) way of doing this is by turning off your Wifi. If you ensure you have the VCR cassette files, then turn off your Wifi and run your tests again, your tests should still pass! Huzzah!
