@@ -46,8 +46,16 @@ Each interaction is recorded as a **cassette**. We can load cassettes in our tes
       :record => :new_episodes,    # record new data when we don't have it yet
       :match_requests_on => [:method, :uri, :body] # The http method, URI and body of a request all need to match
     }
+    # Don't leave our Slack token lying around in a cassette file.
+    config.filter_sensitive_data("<SLACK_TOKEN>") do
+      ENV['SLACK_TOKEN']
+    end
   end
   ```
+
+  The last section, beginning with `config.filter_sensitive_data`, tells VCR not to put your slack token into the cassette file, instead replacing it with the string `"<SLACK_TOKEN>"`. That way when the cassettes end up in your git repo, you won't be exposing your secrets to the world. You'll need a separate call to `config.filter_sensitive_data` for every piece of data you want to omit from your cassettes.
+
+  Cassette files usually should be checked into git - they fill the same role as test fixtures.
 
 3. **Tests**
 
