@@ -1,7 +1,7 @@
 # List Implementations Continued
 
 ## Assignment
-+ [list-implementations-cont](https://github.com/Ada-C6/list-implementations-cont)
++ [AdaGold/list-implementations-cont](https://github.com/AdaGold/list-implementations-cont)
 
 ## Notes
 

@@ -4,7 +4,7 @@
 + [Trees](https://drive.google.com/open?id=1fZg27PvgsRCDd3vVkDH1Bc672na5dg5ZYyDw-FjeJY8)
 
 ## Assignment
-+ [Tree Practice](https://github.com/AdaGold/tree-practice)
++ [AdaGold/tree-practice](https://github.com/AdaGold/tree-practice)
 
 ## Notes
 
