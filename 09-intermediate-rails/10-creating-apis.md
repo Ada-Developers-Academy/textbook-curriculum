@@ -60,6 +60,21 @@ end
 
 Note that we have removed the `@pets` instance variable here that we are normally used to creating. Why do you think we've done that?
 
+### Filtering Fields
+You won't always want to send _everything_ in your database to the user. Databases often contain sensitive data that should be treated judiciously. Or, that data might just not be relevant, like `created_at` or `updated_at`. Right now Rails is sending all these fields back in the JSON response.
+
+To filter what Rails sends back, you can use the `as_json` method as follows:
+
+```ruby
+# pets_controller.rb
+def index
+  pets = Pet.all
+  render json: pets.as_json(only: [:id, :name, :age, :human]), status: :ok
+end
+```
+
+Rails is smart enough to know how to use `as_json` for both a Collection and an individual Model, so this same technique will work later when we test and implement `show`.
+
 ### Response Codes
 
 We've built a simple API that responds with some data. We could let the consumer of our API parse that data to figure out if their request was successful or if there was an error of some sort, but that seems cumbersome for them. Instead, we should use HTTP status codes to provide a quick and easy way for our API's users to see the status of their request.
