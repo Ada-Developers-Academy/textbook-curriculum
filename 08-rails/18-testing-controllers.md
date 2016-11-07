@@ -158,10 +158,9 @@ end
 Controller tests are all about how your website responds to the input a user might give it. This includes a friendly user doing what they should, an idiot user banging into things, and a malicious user trying to break your site. This makes it a little different from the testing we've seen before.
 
 Exactly what's worth testing will come with time, but here are some general guidelines.
-- If your controller action reads a Model ID from the URL, you need at least 3 cases:
+- If your controller action reads a Model ID from the URL, you need at least 2 cases:
   - The ID corresponds to a model in the DB
   - The ID is not found in the DB
-  - The ID isn't a number
 - If your controller action reads form data and creates a model object, you need at least 2 cases:
   - The data was valid
   - The data was bad and validations failed
