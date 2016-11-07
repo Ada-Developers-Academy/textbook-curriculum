@@ -23,14 +23,6 @@ Let's build a small Rails app that will act as an API for providing data about o
 - `/pets/:id` shows a pet with the provided id
 - `/pets/search?query=<the search term>` fuzzy searches pets by name, shows all matching pets
 
-Rails has a standard installation that gives us the default tools necessary to create an API. This setting will configure our application to exclude some of the things that are included with Rails by default. One other key difference is that controllers will inherit from `ActionController::API` rather than `ActionController::Base`.
-
-```bash
-rails new ada-pets --api
-```
-
-For the sake of time we aren't going to create everything from scratch, but you should still know that this is how you will want to start things off when you do this from scratch.
-
 Given the context of our application, we should have a model and controller that reference our main resource, pets. Once you clone this repo, you'll notice that we have these things already created for you!
 
 [https://github.com/AdaGold/ada-pets](https://github.com/AdaGold/ada-pets)
@@ -129,3 +121,36 @@ end
 - [`.as_json` documentation](http://api.rubyonrails.org/classes/ActiveModel/Serializers/JSON.html#method-i-as_json)
 - [ActiveModel Serializers](http://railscasts.com/episodes/409-active-model-serializers)
 - [blog post by thoughtbot about serialization](http://robots.thoughtbot.com/better-serialization-less-as-json)
+
+### Appendix A: Performance
+Rails does have an alternate configuration optimized for APIs. It takes enough extra setup that we're not going to bother with it in class, but it's worth knowing about.
+
+Following these steps will turn off many of the features that allow Rails to serve normal websites, and turn it into a lean, mean, API-serving machine. In particular, it disables the ERB templating engine, giving a reasonable improvement in both memory footprint and performance.
+
+First, when you build your rails application, add the `--api` flag:
+```bash
+rails new ada-pets --api
+```
+
+Second, includ the `rails-api` gem:
+```ruby
+# Gemfile
+gem 'rails-api'
+```
+
+Remember to `bundle install`.
+
+Third, make your `ApplicationController` inherit from `ActionController::API` instead of `ActionController::Base`:
+```ruby
+# app/controllers/application_controller.rb
+class ApplicationController < ActionController::API
+  # Prevent CSRF attacks by raising an exception.
+  # For APIs, you may want to use :null_session instead.
+  protect_from_forgery with: :exception
+end
+```
+
+That's it. Your Rails app is now set up to _only_ serve APIs.
+
+You can read more about all this here:
+- [Rails API Development Guide](http://edgeguides.rubyonrails.org/api_app.html)
