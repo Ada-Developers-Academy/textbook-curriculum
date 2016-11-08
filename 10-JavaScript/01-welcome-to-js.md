@@ -15,7 +15,7 @@ The change of name from LiveScript to JavaScript roughly coincided with Netscape
 ## Node is changing the game
 [Node.js](https://nodejs.org/en/) is an open-source, cross-platform runtime environment for developing server-side Web applications. Although Node.js is not a JavaScript framework,[3] many of its basic modules are written in JavaScript, and developers can write new modules in JavaScript. The runtime environment interprets JavaScript using Google's V8 JavaScript engine (same as what's in Chrome).
 
-We'll be learning a lot about Node over the next few weeks. To get started, let's install node using `$ brew install node`. It should go something like this:
+To get started, let's install node using `$ brew install node`. It should go something like this:
 
 ```
  jeremy@iridium ~
