@@ -41,7 +41,7 @@ JavaScript doesn't have an inheritance operator or keyword like Ruby's `<`. Inst
 
 So where's `FuzzyPets` in that setup? How would we create `MyPets` such that it inherits from `FuzzyPets` in JavaScript?
 
-## Ineritance Using Object Prototypes
+## Inheritance Using Object Prototypes
 Let's copypasta this code block into our Node REPL:
 
 ```javascript
@@ -100,7 +100,7 @@ calc.subtract(14); // -8
 ```
 
 ## A note about using `Object.create()`
-Introduced in ES5, `Object.create()` is a function that creates new objects. It takes one or two paramters. The first is an object that will be the new object's prototype. The second parameter is an optional object. If the second parameter is provided, it's properties and functions will be applied to the newly created object. You can read more about using `Object.create()` [over at MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create).
+Introduced in ES5, `Object.create()` is a function that creates new objects. It takes one or two parameters. The first is an object that will be the new object's prototype. The second parameter is an optional object. If the second parameter is provided, it's properties and functions will be applied to the newly created object. You can read more about using `Object.create()` [over at MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create).
 
 There are a couple of gotchas and (to me, at least) unintuitive behaviors with using `Object.create()`, so be sure to read the docs carefully when you try using it.
 
