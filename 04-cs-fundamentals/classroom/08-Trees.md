@@ -41,6 +41,7 @@
 
 ### Tree vs Linked List
 
+![Trees vs linked list](images/bst.png)
 
 
 ### Traversing a Tree
