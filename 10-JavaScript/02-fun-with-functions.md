@@ -68,30 +68,58 @@ var backwards = function(x, y){
 [4, 2, 5, 1, 9, 5].sort( backwards ); //=> [9, 5, 5, 4, 2, 1];
 ```
 
-### Call vs. Apply
-* `foo.apply( bar, [a1, a2, a3] )`
-* `foo.call( bar, a1, a2, a3 )`
-* The difference is that `apply` lets you invoke the function with __arguments as an array__; `call` requires the parameters be __listed explicitly__.
-* The real power in `apply` and `call` is in the `bar` variable in the above examples. We will discuss it in detail in the next couple of lessons.
+### Functions
+Functions in JavaScript are __awesome__. Rather than using the `def` keyword like we're used to, JavaScript uses the `function` keyword to declare a function. They are more "pure" than Ruby methods and can be put in variables, and passed around like any other type. We will spend a lot of time talking about functions as they are the cornerstone of understanding JavaScript.
 
 ```javascript
-function lunch_alert(name, food) {
-    alert("My name is " + name + " and I am hungry for " + food + ".");
+function choicier(choice1, choice2) {
+  if (choice1 == choice2) {
+    return "These are the same!";
+  } else {
+    return "These are not the same!"
+  }
 }
-lunch_alert("Jeremy", "tacos");
-lunch_alert.apply(undefined, ["Rosa", "tacos as well"]);
-lunch_alert.call(undefined, "Raquel", "world domination");
+
+// You **must** use parens to execute a function
+choicier; // this returns the function
+choicier(4, 4) // "These are the same!" - execute the function and returns the result
 ```
 
+```javascript
+var adder = function (a, b) {
+  return a + b;   // You need to explicitly call return in JavaScript
+}
 
-### Arguments!
-A pseudo-array of the arguments that are passed into a function.
+// You need to use parens to call your function!
+adder;        // this returns the function that you just declared
+adder(1, 2);  // 3 - this executes the function and returns the result
+```
+
+#### A note about `this`
+The keyword `this` is probably the most misunderstood concept in JavaScript. At its core, `this`, when invoked inside a function, refers to the invocation _context_ of the containing function (wat). Essentially, `this` is kinda like `self` in Ruby (this object, right here), but it is much, much more common in JavaScript for functions to be executed in contexts beyond where they were declared.
+
+As we explore how functions work, we will also discover the ins and outs of `this`. For now, we can think of `this` to mean _this object, right here_.
 
 ```javascript
-var hello = function(name){
-  var args = Array.prototype.slice.call(arguments, 1);
-  console.log( "Hello " + name + ", " + args.join(' ') );
-};
+  var repeater = function(word) {
+    console.log(this);
+    return word + word;
+  };
 
-hello( "Jeremy", "what", "are", "you", "doing" ); //=> "Hello Jeremy, what are you doing"
+  var repeater_object = {
+    dog: " bark bark ",
+    repeater: function(word) {
+      console.log(this);
+      return word + word;
+    },
+    repeat_dog: function(word) {
+      // `this` refers to the current object in context
+      // most of the time, this will be repeater_object
+      return word + this.dog + word + this.dog;
+    }
+  };
+
+  repeater("cat"); //omg so much stuff
+  repeater_object.repeater("cat"); //lots less stuff; why?
+  repeater_object.repeat_dog("cat"); //cat bark bark cat bark bark
 ```
