@@ -1,7 +1,7 @@
 # Trees
 
 ## Presentation
-+ [Trees](https://drive.google.com/open?id=1fZg27PvgsRCDd3vVkDH1Bc672na5dg5ZYyDw-FjeJY8)
++ [Trees](https://docs.google.com/presentation/d/1UMlgBfobtBKtwhirtFU76XKk9e_oSr9CaUAukN_lvC8/edit#slide=id.g659367895_0_57)
 
 ## Assignment
 + [AdaGold/tree-practice](https://github.com/AdaGold/tree-practice)
@@ -41,7 +41,16 @@
 
 ### Tree vs Linked List
 
-![Trees vs linked list](images/bst.png)
+Binary Search Trees have a few differences compared to linked lists.
+
+Superficially
+-  Each node can link to up to two other nodes
+-  There is no single end to a tree, rather many `leaves`.  
+
+Performance:
+-  It's potentially much faster to find elements in a Binary Search Tree.  
+-  Each Node is slightly bigger in terms of memory footprint and there is some overhead involved in keeping the tree `balanced`.  
+
 
 
 ### Traversing a Tree
