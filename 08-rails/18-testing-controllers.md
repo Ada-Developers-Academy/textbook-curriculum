@@ -4,6 +4,7 @@
 - Setup controller tests with HTTP verb and action
 - Use parameters in controller tests
 - Utilize fixture data to populate parameters
+- Understand what sort of functionality ought to be covered by a controller test
 
 ### Assertions
 In controller tests, you have several new assertions to use.
@@ -152,6 +153,25 @@ test "should create an entity" do
   assert_redirect_to students_path  
 end
 ```
+
+### What Kind of Thing Should You Test in the Controller?
+Controller tests are all about how your website responds to the input a user might give it. This includes a friendly user doing what they should, an idiot user banging into things, and a malicious user trying to break your site. This makes it a little different from the testing we've seen before.
+
+Exactly what's worth testing will come with time, but here are some general guidelines.
+- If your controller action reads a Model ID from the URL, you need at least 2 cases:
+  - The ID corresponds to a model in the DB
+  - The ID is not found in the DB
+- If your controller action reads form data and creates a model object, you need at least 2 cases:
+  - The data was valid
+  - The data was bad and validations failed
+- If your controller action reads something like a user ID from the session (we'll talk about this soon), you need 2 or more cases:
+  - Someone is logged in
+  - No one is logged in
+  - If the action touches a Model that belongs to the user, then you also need to test when the wrong user is logged in
+
+That's not an exhaustive list, but it's a good starting point.
+
+In general, controller tests should operate at a higher level than Model tests. For example, while in Model testing you need 2 or more test cases for every validation, when testing the corresponding Controller you only need to test the case where all validations pass, and the case where one or more fail, since those are the two different behaviors you Controller action can exhibit. You do, however, need to test both those cases for both the `create` and `update` actions.
 
 ## Resources
 [The Rails Guide on testing: Controllers](http://guides.rubyonrails.org/testing.html#functional-tests-for-your-controllers)  
