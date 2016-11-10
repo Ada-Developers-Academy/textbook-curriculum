@@ -1,4 +1,4 @@
-# JavaScipt 103: Objects & Inheritance.
+# JavaScript 103: Objects & Inheritance
 ## Learning Goals
 - Compare Ruby's _classical inheritance_ with JavaScript's _prototypal inheritance_
 - Refactor some code to inherit behavior from a prototype
