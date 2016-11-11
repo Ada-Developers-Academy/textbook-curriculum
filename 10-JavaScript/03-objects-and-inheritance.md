@@ -29,7 +29,7 @@ FuzzyPet.dog        # 'borf!'
 Now, let's try the same thing with JavaScript! hmmmm, how do we do this?
 
 ```javascript
-var FuzzyPet = function(){
+var FuzzyPet = {
   nap_hours: 7,
   dog: function() { console.log("borf!"); },
   cat: function() { console.log("mrow!"); }
