@@ -41,18 +41,3 @@ $("body").keydown(function(event) {
   }
 });
 ```
-
-## jQuery Documentation
-
-The many splendors of jQuery are explained in great detail here:
-
-[http://api.jquery.com/](http://api.jquery.com/)
-
-The following functions are of practical value. Look 'em up!
-
-* .append()
-* .prepend()
-* .css()
-* .html()
-* .click()
-* .submit()
