@@ -101,6 +101,8 @@ function MyPet() {
 
 MyPet.prototype = FuzzyPet;
 var my_pets = new MyPet();
+
+console.log(typeof(my_pets)); // Interesting!
 ```
 
 ### What did we just do?
