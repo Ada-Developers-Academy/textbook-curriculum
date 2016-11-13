@@ -18,23 +18,19 @@ The change of name from LiveScript to JavaScript roughly coincided with Netscape
 To get started, let's install node using `$ brew install node`. It should go something like this:
 
 ```
- jeremy@iridium ~
- ❤️  :: brew install node
-==> Downloading https://homebrew.bintray.com/bottles/node-6.0.0.el_capitan.bottle.tar.gz
-######################################################################## 100.0%
-==> Pouring node-6.0.0.el_capitan.bottle.tar.gz
-==> Caveats
-Please note by default only English locale support is provided. If you need
-full locale support you should:
-  `brew reinstall node --with-full-icu`
+$ brew install node
+==> Downloading
+...
+...
+...
 
 Bash completion has been installed to:
   /usr/local/etc/bash_completion.d
 ==> Summary
-🍺  /usr/local/Cellar/node/6.0.0: 3,655 files, 38.8M
+🍺  /usr/local/Cellar/node/7.0.0: 3,655 files, 38.8M
 ```
 
-Alright. Now, `node --version` should report to you something like `v6.0.0`. Yay! We'll use Node's command line program to do all the same things we did with Ruby's. We can use Node to run JavaScript programs (`$ node my_program.js`) and use Node as a _REPL_ (`$ node`).
+Alright. Now, `node --version` should report to you something like `v7.0.0`. Yay! We'll use Node's command line program to do all the same things we did with Ruby's. We can use Node to run JavaScript programs (`$ node my_program.js`) and use Node as a _REPL_ (`$ node`).
 
 Node is also packaged with __npm__, the _Node Package Manager_. npm is to Node like gem is to Ruby. We'll use npm to define, install, and manage dependencies in our Node applications.
 
@@ -61,8 +57,7 @@ Ok, don't let these similarities lull you into thinking JS is just like Ruby. Wh
 Start the REPL by typing `node` in the terminal. You'll get a caret (`>`) prompt. From here, you can enter code and have it evaluated, just like using `irb` or the Rails console:
 
 ```
- jeremy@iridium ~
- ❤️  :: node
+$ node
 > var x = 7;
 undefined
 > x + 2
@@ -74,7 +69,7 @@ undefined
 
 __Hint: Use `.exit` to get out of the Node REPL__
 
-Now that we've got a REPL available to us, let's jump in with some JavaScript specifics. We are going to talk about __varaiables__, __datatypes__, and __functions__.
+Now that we've got a REPL available to us, let's jump in with some JavaScript specifics. We are going to talk about __variables__, __datatypes__, and __functions__.
 
 ### Variables
 __Declare all variables with the var operator!__
@@ -216,39 +211,9 @@ The most common iterator in Javascript is the `for` loop. It can be executed thr
   }
   ```
 
-##### [The `for...of` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
-The `for...of` loop works like the `for` loop above, but is optimized for iterating ordered collections. Mos of the time this is an array, but it could also be a JavaScript Map, Set, or even String!
 
-```javascript
-var arr = [1,2,3]
-for (var val of arr) {
-  console.log("val is " + val);
-}
-// the val is 1
-// the val is 2
-// the val is 3
+##### [The `forEach` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
 
-for (var letter of "bark") {
-  console.log("letter is " + letter);
-}
-// letter is b
-// letter is a
-// letter is r
-// letter is k
-```
-
-##### [The `for...in` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
-The `for...in` loop works very much the same as `for...of`, but it _does not guarantee the order of iteration_. We use it primarily to loop through the _iterable_ properties of an object, including the properties it inherited. Use `for...in` to iterate objects.
-
-```javascript
-var obj = {a:1, b:2, c:3};
-for (var prop in obj) {
-  console.log("obj." + prop + " = " + obj[prop]);
-}
-// obj.a = 1
-// obj.b = 2
-// obj.c = 3
-```
 
 
 #### `while` Loop
@@ -261,62 +226,6 @@ while (i < 10) {
     i++;
 }
 console.log(text);
-```
-
-### Functions
-Functions in JavaScript are __awesome__. Rather than using the `def` keyword like we're used to, JavaScript uses the `function` keyword to declare a function. They are more "pure" than Ruby methods and can be put in variables, and passed around like any other type. We will spend a lot of time talking about functions as they are the cornerstone of understanding JavaScript.
-
-```javascript
-function choicier(choice1, choice2) {
-  if (choice1 == choice2) {
-    return "These are the same!";
-  } else {
-    return "These are not the same!"
-  }
-}
-
-// You **must** use parens to execute a function
-choicier; // this returns the function
-choicier(4, 4) // "These are the same!" - execute the function and returns the result
-```
-
-```javascript
-var adder = function (a, b) {
-  return a + b;   // You need to explicitly call return in JavaScript
-}
-
-// You need to use parens to call your function!
-adder;        // this returns the function that you just declared
-adder(1, 2);  // 3 - this executes the function and returns the result
-```
-
-#### A note about `this`
-The keyword `this` is probably the most misunderstood concept in JavaScript. At its core, `this`, when invoked inside a function, refers to the invocation _context_ of the containing function (wat). Essentially, `this` is kinda like `self` in Ruby (this object, right here), but it is much, much more common in JavaScript for functions to be executed in contexts beyond where they were declared.
-
-As we explore how functions work, we will also discover the ins and outs of `this`. For now, we can think of `this` to mean _this object, right here_.
-
-```javascript
-  var repeater = function(word) {
-    console.log(this);
-    return word + word;
-  };
-
-  var repeater_object = {
-    dog: " bark bark ",
-    repeater: function(word) {
-      console.log(this);
-      return word + word;
-    },
-    repeat_dog: function(word) {
-      // `this` refers to the current object in context
-      // most of the time, this will be repeater_object
-      return word + this.dog + word + this.dog;
-    }
-  };
-
-  repeater("cat"); //omg so much stuff
-  repeater_object.repeater("cat"); //lots less stuff; why?
-  repeater_object.repeat_dog("cat"); //cat bark bark cat bark bark 
 ```
 
 # JavaScript Exercises
@@ -345,4 +254,3 @@ function getBiggest(array) {
 var biggest = getBiggest(arrayOfNums);
 console.log("The biggest is: ", biggest);
 ```
-

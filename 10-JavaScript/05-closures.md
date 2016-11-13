@@ -10,12 +10,11 @@ To see how closures are used in Javascript, let's make some objects in both Ruby
 ### To the sandbox!
 
 ```bash
-$ cd ~/C5/sandbox
 $ mkdir closure-practice
 $ cd closure-practice
 $ touch closure.rb
 $ touch closure.js
-$ subl .
+$ atom .
 ```
 
 In your editor, open `closure.rb` and paste this code:
@@ -52,7 +51,7 @@ Ok. Same thing. Let's take a look at this in the node REPL. Start the REPL by ty
 
 So, same questions: what if our requirements changed and we suddenly needed to raise numbers to the 9th power? 5th power? What are our options?
 
-### Enter Closures.
+### Enter Closures
 So the paragraph at the top of the page told us that a closure is created when a function access variables not defined in its local scope, but in its parent scope.  Using this idea, we can create a function that provides us the functionality and flexibility we're looking for. Let's modify `closure.js` to leverage a closure:
 
 ```javascript
