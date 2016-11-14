@@ -124,3 +124,7 @@ As we explore how functions work, we will also discover the ins and outs of `thi
   repeater_object.repeater("cat"); //lots less stuff; why?
   repeater_object.repeat_dog("cat"); //cat bark bark cat bark bark
 ```
+
+## Additional Resources
+* [Slides Used in Class](https://docs.google.com/presentation/d/1QboS170RoaKq2dVwLgXmUZHhzz8I5Cs1H08w0euvmY8/edit?usp=sharing)
+* [MDN on Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
