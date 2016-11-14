@@ -220,6 +220,7 @@ The most common iterator in Javascript is the `for` loop. It can be executed thr
 JavaScript also uses the `while` loop in a similar way to the way we use it in Ruby.
 
 ```javascript
+var text = "";
 var i = 0;
 while (i < 10) {
     text += "The number is " + i;
