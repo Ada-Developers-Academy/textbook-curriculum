@@ -11,6 +11,7 @@ Javascript's appeal and power and flexibility are in the myriad ways we can inte
 * `var foo = function(bar){};` vs. `function foo(bar){}`
 * In _many_ cases, the differences here are nominal, but it's important to understand the first example is an __expression__ while the second is a __declaration__.
 * [This StackOverflow answer is one of the best I've seen in describing the difference and when it matters](http://stackoverflow.com/questions/3887408/javascript-function-declaration-and-evaluation-order).
+* In general you should always prefer the expression syntax when defining functions. The expression syntax can be used anywhere that the declaration syntax can be used, as well as additional places. Plus, the expression syntax has semantics that match the semantics of regular variables which is important because functions are variables!
 
 ### Functions, methods, constructor calls
 ```javascript
