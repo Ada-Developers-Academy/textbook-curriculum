@@ -89,7 +89,7 @@ Let's copypasta this code block into our Node REPL:
 
 ```javascript
 var FuzzyPet = {
-  nap_hours: 7,
+  napHours: 7,
   dog: function() { console.log('borf!'); },
   cat: function() { console.log('mrow!'); }
 };
@@ -100,7 +100,7 @@ function MyPet() {
 
 
 MyPet.prototype = FuzzyPet;
-var my_pets = new MyPet();
+var myPets = new MyPet();
 
 console.log(typeof(my_pets)); // Interesting!
 ```
@@ -111,16 +111,16 @@ console.log(typeof(my_pets)); // Interesting!
 Ok. So now what? Well, let's take a look at what we can do with `my_pets`:
 
 ```javascript
-my_pets.bird(); // my_pets -> MyPet
-my_pets.dog(); // my_pets -> MyPet -> my_pets.prototype -> dog()
-my_pets.cat(); // my_pets -> MyPet -> my_pets.prototype -> cat()
-my_pets.nap_hours; // my_pets -> my_pets.prototype -> nap_hours
+myPets.bird(); // myPets -> MyPet
+myPets.dog(); // myPets -> MyPet -> myPets.prototype -> dog()
+myPets.cat(); // myPets -> MyPet -> myPets.prototype -> cat()
+myPets.napHours; // myPets -> myPets.prototype -> napHours
 ```
 
 ### So how did we instantiate `MyPet`?
 The `new` keyword is responsible for creating the instance. Notice that we invoked the function too! The whole line is `new MyPet()`. Invoking the function triggers the function body of `MyPet`, essentially using the function body as the constructor/initializer for the object.
 
-So `my_pets` has a `bird()` function that it got as part of the invocation of `MyPet()`. The function body of `MyPet()` is the constructor for new instances.
+So `myPets` has a `bird()` function that it got as part of the invocation of `MyPet()`. The function body of `MyPet()` is the constructor for new instances.
 
 ### What can we do with this?
 We can build complex functions that look and act like objects we'd use in Ruby. For an example, I built the following `Calculator()` function to be able to do multiple operations on demand. In this example, I used `prototype` to add new functions to `Calculator()` function. Using this, I can _instantiate_ as many calculators as I need. Consuming this function looks like this:
