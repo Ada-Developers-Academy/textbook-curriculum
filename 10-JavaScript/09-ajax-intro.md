@@ -1,12 +1,10 @@
 # Intro to AJAX
 
-
-
 ## Learning Goals
 - Request data from a sever to render client-side using JavaScript
 - Render data from server without reloading a page
-
-
+- Use Jquery to make AJAX requests
+- Can use GET and POST methods with AJAX
 
 
 Single page applications (SPA) have gained popularity in recent years for
@@ -45,6 +43,9 @@ When we make a request with AJAX, we are also not asking for the entire pages's 
 
 Note that in order for AJAX to work, we must make requests to a running server. It can be local or online, however we cannot make requests to a file on our computer.
 
+
+This is how to do it using vanilla JavaScript
+
 [ highlight callback functions ]
 [ Using Vanilla JS first]
 
@@ -62,11 +63,20 @@ Note that in order for AJAX to work, we must make requests to a running server. 
  var request = new XMLHTTPRequest();
 
 
- // Create a callback function
+ // Create a callback function, with event handler
  request.onreadystatechange = function () {
-   if (request.readyState === 4) {
-     document.getElementByID('pet').innerHTML = response.responseText;
-   }
+
+  if (request.readyState === 4) {
+
+    if (response.status === 200) {
+      document.getElementByID('pet').innerHTML = response.responseText;
+    } else if (response.status == 404) {
+        // display message for user if file not found
+    } else if (response.staus == 500) {
+        // display message for user if Server had a problem
+    }
+
+  }
 };
 
 // Prepare the request with the HTTP METHOD (GET and POST most common) and
@@ -78,10 +88,26 @@ function getPet(){
 };
 
 ```
+(NOTE: will change the url provided to point to an already hosted API, probably.)
 
 
 A callback function is...
 In AJAX a callback function is used when you send your request, the browser knows not to execute the code that is in a callback until a response from the server has arrived. This allows a user to still interact with the webpage and use other JavaScript features until that response has come back.
+
+
+## AJAX responses
+
+
+## AJAX with JQuery
+
+JQuery _really_ likes to make our lives easier.
+
+
+## Make a POST request
+uses query string
+'?name=Peanut'
+
+
 
 ## Best Practices
 
