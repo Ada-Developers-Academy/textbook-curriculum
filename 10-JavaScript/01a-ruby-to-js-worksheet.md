@@ -64,7 +64,7 @@ Each problem stands alone. Variables from previous problems do not exist.
   i = 0
 
   while i < 3
-    puts “hi”
+    puts "hi"
     i = i + 1
   end
   ```
@@ -74,7 +74,7 @@ Each problem stands alone. Variables from previous problems do not exist.
   i = 0
 
   while i < 3
-    puts “hi”
+    puts "hi"
     i = i + 1
   end
 
