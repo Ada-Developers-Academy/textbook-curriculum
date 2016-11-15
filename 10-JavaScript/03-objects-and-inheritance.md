@@ -92,11 +92,11 @@ var FuzzyPet = {
   nap_hours: 7,
   dog: function() { console.log('borf!'); },
   cat: function() { console.log('mrow!'); }
-}
+};
 
 function MyPet() {
-  this.bird = function() { console.log('cherp!'); }
-};
+  this.bird = function() { console.log('cherp!'); };
+}
 
 
 MyPet.prototype = FuzzyPet;
