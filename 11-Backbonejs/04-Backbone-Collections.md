@@ -85,8 +85,40 @@ myPeople.each(function(person) {
 });
 ```
 
-## TODO - Illustrate Rendering a Collection
+## Filtering Models
 
-## Resources
--  [Developing Backbone.js Applications](https://addyosmani.com/backbone-fundamentals/#collections)
--  [Star CDNJS Backbone Lessons](https://cdnjs.com/libraries/backbone.js/tutorials/what-is-a-collection)
+You can also get a collection of filtered results with the `where` method.  The `where` method finds array of Models matching the given attributes.
+
+```javascript
+// Results in Dan, Jamie, Chris
+var adaInstructors = myPeople.where( { title: "Ada Instructor" });
+
+for (var i = 0; i < adaInstructors.length; i++) {
+  console.log(adaInstructors[i].get("name")
+}
+```
+
+If you only want to find the first occurrence of the matching condition then you can use the the `findWhere` method.  The findWhere method returns the first matching model in the collection.  
+
+```Javascript
+// Returns the model with { name: "Cynthia", title: "Executive Director" }
+var matchingInstructor = myPeople.findWhere( { name: "Cynthia" } );
+```
+
+## Pushing and Popping 
+
+Backbone Collections also have the `push` and pop methods which add an element to the rear and take an element off the rear of the collection.  
+
+```javascript
+// Takes Cynthia off the collection
+var popped = myPeople.pop();
+
+var newPerson = new Person({name: "Uma", title: "Community Engagement Manager" });
+// Put Uma into the list at the rear.
+myPeople.push(newPerson);
+```
+
+
+## TODO Rendering Backbone Collections
+
+

@@ -32,7 +32,7 @@ sqlite>
 __Question: what is `current_date` in the _query_ above?__
 
 ### Creating a _table_
-Now that we have a connection to the database, let's describe our _schema_ to SQLite by creating a _table_. To do this, we much use the [_CREATE TABLE_ command](https://www.sqlite.org/lang_createtable.html).
+Now that we have a connection to the database, let's describe our _schema_ to SQLite by creating a _table_. To do this, we must use the [_CREATE TABLE_ command](https://www.sqlite.org/lang_createtable.html).
 
 ```sql
 sqlite> CREATE TABLE posts (
@@ -99,7 +99,7 @@ id      title   body
 
 __Question: What is the _WHERE_ clause doing in the above _query_?__
 
-Finally, let's delete the a row from the table:
+Finally, let's delete the row from the table:
 ```sql
 sqlite> DELETE FROM posts WHERE id = 1;
 sqlite> select * from posts;
