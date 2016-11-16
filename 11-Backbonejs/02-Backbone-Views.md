@@ -79,12 +79,55 @@ This will display in the browser:
 Welcome to Backbone Ada Lovelace!
 ```
 
+## Templates
+
+Rails views are awesome!  They are written in an HTMLish format with special handles `<% %>` to mark areas where code goes in.  Backbone doesn't have a similar method to create formatted HTML output.  
+
+### Underscorejs
+
+That's where [Underscorejs](http://underscorejs.org/) comes in.  Underscore is a Javascript library with tons of useful helper functions.  One of the primary uses for Underscore however is in templating.  With Underscore you can build a template in your HTML like this:
+
+```html
+    <script type="text/template" id="tpl-person">
+      <div class="media-heading">
+        <h3>
+          Name:  <%= name %> </h3>
+          <p>  Age:  <%= age %>
+        </p>
+      </div>
+      <hr>
+    </script>
+```
+Notice the `<%= %>` handles.  Like in Rails, this takes the output from the given expression or variable into the template.  You can identify this as a template by the script tag and the type identifying it as a template.  
+
+Underscore supports the following kinds of templates:
+-  `<%= %>` Interpolates the given expression into the surrounding HTML.  
+- `<% %>`   Executes the given Javascript expression 
+- `<%- %>`  Interpolates the value and makes it HTML escaped, meaning it allows the Javascript output as HTML.
+
+In your Javascript code you can build an underscore object and use jQuery to render the object.
+
+```javascript
+    $(document).ready(function(){
+      var person =  {
+        name: "Ada",
+        age: 300
+      }
+
+      var template =  _.template($('#tpl-person').html());
+      $('#person').html(template(person));
+    });
+```
+
+The `$(document).ready` function executes the provided anonymous function when the document is fully loaded.  Then we create a Javascript object with the properties the template expects `name` and `age`.  Then we can use the template to set the HTML inside the `#person` div.  
+
+Underscore template make a handy way to setup the presentation of your views.  However you can use other templating engines to render your views.
+
 
 ## Resources
 -  [Underscore Documentation](http://underscorejs.org/)
 -  [Backbonejs View Documentation](http://backbonejs.org/#View)
 -  [Backbone.js Applications Intro to Views](https://addyosmani.com/backbone-fundamentals/#views-1)
-
-
+-  [Handlebars an alternative templating engine](http://handlebarsjs.com/) 
 
   
