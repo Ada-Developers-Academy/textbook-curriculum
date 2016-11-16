@@ -16,7 +16,7 @@ Collections are useful for storing and manipulating a group of models.
 
 ## Creating a Collection
 
-To Create a Backbone Collection you will need to extend the Backbone.Collection class.  As shown below you can also 
+To create a Backbone Collection you will need to extend Backbone.Collection.  As shown below you can also add models into the collection when you instantiate it.  
 
 ```javascript
 var People = Backbone.Collection.extend({
@@ -85,3 +85,8 @@ myPeople.each(function(person) {
 });
 ```
 
+## TODO - Illustrate Rendering a Collection
+
+## Resources
+-  [Developing Backbone.js Applications](https://addyosmani.com/backbone-fundamentals/#collections)
+-  [Star CDNJS Backbone Lessons](https://cdnjs.com/libraries/backbone.js/tutorials/what-is-a-collection)

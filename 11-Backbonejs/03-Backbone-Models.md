@@ -1,7 +1,7 @@
 
-# Intro to Backbonejs
+# Intro to Backbonejs Models
 
-Learning Goals
+##Learning Goals
 
 By the end of this lesson you should be able to:
 
@@ -49,7 +49,7 @@ So if the script above is run the console will result in:
 A new person has been instantiated.
 ```
 
-The defaults method lets you set default values to attributes for your model.  You can then retrieve attribute values with the `get` function.  
+The defaults property lets you set default values to attributes for your model.  You can then retrieve attribute values with the `get` function.  
 
 ```javascript
 var Person = Backbone.Model.extend( {
@@ -126,9 +126,12 @@ var myPerson = new Person();
 myPerson.sayHi();
 ```
 
+## TODO - Demonstrate Rendering a model
+
 ## Resources
 - [Backbone Model & View Documentation](http://backbonejs.org/#Model-View-separation)
 -  [An Intro to Backbone Models & Collections](http://liquidmedia.org/blog/2011/01/backbone-js-part-1/)
+-  [Backbone Fundamentals, Models Chapter](https://addyosmani.com/backbone-fundamentals/#models-1)
 
 
   
