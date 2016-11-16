@@ -62,6 +62,7 @@ var PersonView = Backbone.View.extend({
    },
    render: function(){
       $(this.el).append("<ul> <li>Welcome to Backbone" + this.name "!</li> </ul>");
+      return this;
     }
 });
 
@@ -72,7 +73,7 @@ $(document).ready(function(){
 });
 ```
 
-This will display in the browser
+This will display in the browser:
 
 ```
 Welcome to Backbone Ada Lovelace!
