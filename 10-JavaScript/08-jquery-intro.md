@@ -128,6 +128,8 @@ Usually the owner of a library will give instructions for how to include it via 
   crossorigin="anonymous"></script>
 ```
 
+Pro tip: Foundation can also be sourced from a CDN.
+
 ## Exercise: Rendering Data with jQuery
 This exercise should be completed on your own computer, with Atom and Chrome. CodePen is great, but we want to practice including jQuery.
 
@@ -135,13 +137,17 @@ Your task is to take following data, and dynamically render it in a table:
 
 ```javascript
 var pets = [
-  { name: 'kylo', species: 'dog', human: 'kari' },
-  { name: 'gecky', species: 'lizard', human: 'dan' },
-  { name: 'hedwig', species: 'owl', human: 'harry' },
-  { name: 'crookshanks', species: 'cat', human: 'hermione' },
-  { name: 'scabbers', species: 'rat', human: 'ron' }
+  { name: 'kylo', species: 'dog', human: 'kari', mammal: true },
+  { name: 'gecky', species: 'lizard', human: 'dan', mammal: false },
+  { name: 'hedwig', species: 'owl', human: 'harry', mammal: false },
+  { name: 'crookshanks', species: 'cat', human: 'hermione', mammal: true },
+  { name: 'scabbers', species: 'rat', human: 'ron', mammal: true }
 ]
 ```
+
+Once you've got that going, add some CSS. Format your table so that rows for mammals are colored blue, and rows for non-mammals are colored orange. You might need to [read the docs](https://api.jquery.com/) a bit.
+
+Then, figure out how to link against Foundation via CDN! (and then figure out how to fix your table formatting)
 
 ## What Have We Accomplished?
 - Experiment with the basics of jQuery
