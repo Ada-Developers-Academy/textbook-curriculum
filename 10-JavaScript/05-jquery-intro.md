@@ -145,7 +145,7 @@ var pets = [
 ]
 ```
 
-Once you've got that going, add some CSS. Format your table so that rows for mammals are colored blue, and rows for non-mammals are colored orange. You might need to [read the docs](https://api.jquery.com/) a bit.
+Once you've got that going, add some CSS. Format your table so that rows for mammals are colored blue, and rows for non-mammals are colored orange. You might need to [read the docs](https://api.jquery.com/) a bit - maybe something about adding a class to an element?
 
 Then, figure out how to link against Foundation via CDN! (and then figure out how to fix your table formatting)
 

@@ -1,9 +1,9 @@
 # JavaScript in the Browser
 
 ## Motivation
-* So far, we've only run JavaScript in the console
+* So far, we've only run JavaScript in the terminal
 * JavaScript is the language of the web
-  * It's chief advantage is that it's the one language that every browser understands
+  * It's chief advantage is that it's the one language every browser understands
 * Let's get JavaScript running in the browser!
 
 ## Learning Goals
@@ -11,9 +11,37 @@
 * Define the _DOM_
 * Understand the basics of _DOM manipulation_
 
-## Running JavaScript in the Browser
+## Running JavaScript In the Browser
+### Via the Developer Console
+In your browser, open a new empty tab, and pull up your developer tools. Click on the `Console` tab. This is where calls to `console.log()` will end up. It's also where you'll see any errors that occur.
 
-### Project Setup
+Notice also that there is something that looks like a command prompt. Let's see what it does.
+
+```javascript
+console.log('live, from the browser!');
+```
+
+Nice, there it is. OK, let's do something a little more interesting - a popup box.
+
+```javascript
+alert('four score and seven years ago...');
+```
+
+Pops right up! Can't do that in the terminal!
+
+What happens if we make a mistake? Let's reference an undefined variable.
+
+```javascript
+console.log(doesNotExist);
+```
+
+OK, so that's what an error looks like. If you double click on the message or click on the `(...)`, it'll show you more details.
+
+The Chrome console is kind of like the rails console. It gives you access to all the variables you've defined in your scripts, allowing you to write JavaScript live and see the effects immediately. Use it well.
+
+### In a Real Web Site
+Obviously we don't expect users to type out all their own JavaScript by hand. Instead, we'll add a link to our JavaScript file in our HTML, similar to the way we included CSS before.
+
 Create a new directory called `browser-js`, with two files: `index.html` and `index.js`:
 ```bash
 $ mkdir browser-js
@@ -50,7 +78,7 @@ And finally, add some JavaScript to `index.js`:
 console.log("This is a test");
 ```
 
-### Linking them Together
+#### Linking Them Together
 To run your JavaScript file from your webpage, add a `<script>` tag at the end of `<body>`, before the closing `</body>` tag:
 
 ```html
@@ -89,17 +117,18 @@ To keep things simple, **in this class we'll always load our scripts at the end 
 ## Manipulating the DOM
 Logging to the console is alright, but the true power of JavaScript is that it can dynamically change the contents of the webpage. The interface JavaScript provides for changing the way the page looks is called the _DOM_.
 
-### What is the DOM
+### What Is the DOM?
 _DOM_ stands for Document Object Model. The document in question is our web page!
 
-The DOM is a set of JavaScript objects and methods that provide access to the HTML structure of the webpage. It's sort of like the Ruby gems we've seen in the past, an extension rather than a core part of the language. The only difference is, when running JS in the browser, you get the DOM automatically - no `require`s necessary.
+In JavaScript, the DOM is exposed through a set of objects and methods that provide access to the HTML structure of the webpage. These act sort of like the Ruby gems we've seen in the past, an extension rather than a core part of the language. The only difference is, when running JS in the browser, you get access to these DOM functions automatically - no `require`s necessary.
 
-Before we go on, it's worth noting that the raw interface provided by the DOM isn't great. It's clunky, and lots of pieces are slightly different in different browsers. In the next lecture, we'll talk about what to do about that.
+Before we go on, it's worth noting that the raw interface JavaScript provides for the DOM isn't great. It's clunky, and lots of pieces are slightly different in different browsers. In the next lecture, we'll talk about what to do about that.
 
-### Changing the DOM from our Script
+### Changing the DOM From Our Script
 The DOM is accessed through an object called `document`. Let's update our `index.js` to use it:
 
 ```javascript
+// index.js
 console.log("This is a test");
 
 var target = document.getElementById('jsLectureTarget');
