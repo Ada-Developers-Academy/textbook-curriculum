@@ -1,4 +1,4 @@
-#BackBone Views
+# BackBone Views Rendering Models
 
 ## Learning Goals
 By the end of this document you should be:
