@@ -50,7 +50,7 @@ And finally, add some JavaScript to `index.js`:
 console.log("This is a test");
 ```
 
-### Linking them Together
+### Linking Them Together
 To run your JavaScript file from your webpage, add a `<script>` tag at the end of `<body>`, before the closing `</body>` tag:
 
 ```html
@@ -89,17 +89,18 @@ To keep things simple, **in this class we'll always load our scripts at the end 
 ## Manipulating the DOM
 Logging to the console is alright, but the true power of JavaScript is that it can dynamically change the contents of the webpage. The interface JavaScript provides for changing the way the page looks is called the _DOM_.
 
-### What is the DOM
+### What Is the DOM?
 _DOM_ stands for Document Object Model. The document in question is our web page!
 
-The DOM is a set of JavaScript objects and methods that provide access to the HTML structure of the webpage. It's sort of like the Ruby gems we've seen in the past, an extension rather than a core part of the language. The only difference is, when running JS in the browser, you get the DOM automatically - no `require`s necessary.
+In JavaScript, the DOM is exposed through a set of objects and methods that provide access to the HTML structure of the webpage. These act sort of like the Ruby gems we've seen in the past, an extension rather than a core part of the language. The only difference is, when running JS in the browser, you get access to these DOM functions automatically - no `require`s necessary.
 
-Before we go on, it's worth noting that the raw interface provided by the DOM isn't great. It's clunky, and lots of pieces are slightly different in different browsers. In the next lecture, we'll talk about what to do about that.
+Before we go on, it's worth noting that the raw interface JavaScript provides for the DOM isn't great. It's clunky, and lots of pieces are slightly different in different browsers. In the next lecture, we'll talk about what to do about that.
 
-### Changing the DOM from our Script
+### Changing the DOM From Our Script
 The DOM is accessed through an object called `document`. Let's update our `index.js` to use it:
 
 ```javascript
+// index.js
 console.log("This is a test");
 
 var target = document.getElementById('jsLectureTarget');
