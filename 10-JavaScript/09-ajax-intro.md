@@ -83,7 +83,6 @@ This is how to do it using vanilla JavaScript
 
   }
 };
-
 // Prepare the request with the HTTP METHOD (GET and POST most common) and
 response.open('GET', 'localhost:3000/pets');
 
@@ -145,13 +144,59 @@ $(document).ready(function() {
 
 
 ```
+The $.getJSON function can also take in query string data. See if you can figure out how.
 
 jquery handles response codes, callback function will only run when the request is complete and successful.
 
 
 ## Make a POST request
-uses query string
-'?name=Peanut'
+```javascript
+  var url = '';
+  var data = {
+    name: 'Chestnut';
+  };
+  $.post(url, data, callback)
+```
+
+Submitting data from a form to a sever with AJAX.
+
+```javascript
+$(document).ready(function(){
+  $('form').submit(function(evt) {
+
+    evt.preventDefault();
+    var url = $(this).attr("action");
+    var fromData = $(this).serialize();
+
+    $.post(url, formData, function(response){
+      $('#message').html('<p> Pet added! </p>');
+    });
+
+  });
+});
+```
+
+With $.ajax
+```javascript
+$(document).ready(function(){
+  $('form').submit(function(evt) {
+
+    evt.preventDefault();
+    var url = $(this).attr("action");
+    var fromData = $(this).serialize();
+
+    $.ajax(url, {
+      data: formData,
+      type: "POST",
+      success: function(response){
+        $('#message').html('<p> Pet added! </p>')
+      }
+    });
+
+  });
+});
+```
+$.ajax allows for more flexibility.
 
 
 
