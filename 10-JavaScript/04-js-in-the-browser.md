@@ -45,9 +45,9 @@ Obviously we don't expect users to type out all their own JavaScript by hand. In
 Create a new directory called `browser-js`, with two files: `index.html` and `index.js`:
 ```bash
 $ mkdir browser-js
-$ touch browser-js/index.html
-$ touch browser-js/index.js
 $ cd browser-js
+$ touch index.html
+$ touch index.js
 $ ls
     index.html
     index.js
