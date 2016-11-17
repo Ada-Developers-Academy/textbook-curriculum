@@ -50,8 +50,8 @@ This is how to do it using vanilla JavaScript
 [ Using Vanilla JS first]
 
 ```html
-<button id="load" onclick="getPet()"> Fetch! </button>
- <div class="pet">
+<button id="load" onclick="getPets()"> Fetch! </button>
+ <div id="pets">
 
  </div>
 ```
@@ -69,10 +69,15 @@ This is how to do it using vanilla JavaScript
   if (request.readyState === 4) {
 
     if (response.status === 200) {
-      document.getElementByID('pet').innerHTML = response.responseText;
+      var pets = JSON.parse(response.responseText);
+      petsHTML = '';
+      for (var i=0; i<employees.length; i+= 1){
+        petsHTML += '<h3>' + pets[i].name + '</h3>'
+      }
+      document.getElementByID('pets').innerHTML = petsHTML;
     } else if (response.status == 404) {
         // display message for user if file not found
-    } else if (response.staus == 500) {
+    } else if (response.status == 500) {
         // display message for user if Server had a problem
     }
 
@@ -80,27 +85,68 @@ This is how to do it using vanilla JavaScript
 };
 
 // Prepare the request with the HTTP METHOD (GET and POST most common) and
-response.open('GET', 'localhost:3000/pets/1');
+response.open('GET', 'localhost:3000/pets');
 
 // Create a function to send the request, in response to an event (button onClick)
-function getPet(){
+function getPets(){
   request.send();
 };
 
 ```
 (NOTE: will change the url provided to point to an already hosted API, probably.)
 
+Let's havea  look at all the moving parts.
 
-A callback function is...
+
+The Call back Function:
 In AJAX a callback function is used when you send your request, the browser knows not to execute the code that is in a callback until a response from the server has arrived. This allows a user to still interact with the webpage and use other JavaScript features until that response has come back.
 
-
-## AJAX responses
-
+Writing this in plain JS is rather tedious
 
 ## AJAX with JQuery
 
 JQuery _really_ likes to make our lives easier.
+
+[link to Jquery docs for Ajax]
+
+
+with $.get function
+```javascript
+
+var url = 'localhost:3000/pets';
+
+//Query String data
+var data = {
+  name: 'Peanut'
+};
+var callback = function (response) {
+  //the code to execute after a response is successful and complete
+};
+
+
+$.get(url, data, callback)
+```
+
+
+With $.getJSON function
+```javascript
+
+$(document).ready(function() {
+
+  var url = 'localhost:3000/pets';
+  var petHTML = ''
+  $.getJSON(url, function(response){
+    $.each(response, function(index, pet) {
+      petHTML += '<h3>' + pets[i].name '</h3>'
+    });
+  });
+  $('#pets').html(petsHTML);
+});
+
+
+```
+
+jquery handles response codes, callback function will only run when the request is complete and successful.
 
 
 ## Make a POST request
