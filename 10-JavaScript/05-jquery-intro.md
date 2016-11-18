@@ -155,4 +155,5 @@ Then, figure out how to link against Foundation via CDN! (and then figure out ho
 
 ## Additional Resources
 - [jQuery API](http://api.jquery.com/)
+- [What is $(document).ready](https://learn.jquery.com/using-jquery-core/document-ready/)
 - [jQuery Google Slides](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/10-JavaScript/05-jquery-intro.md)
