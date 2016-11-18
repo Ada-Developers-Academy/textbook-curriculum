@@ -115,7 +115,7 @@ Out in the wild you'll see other techniques, like downloading the scripts asynch
 To keep things simple, **in this class we'll always load our scripts at the end of the body.**
 
 ## Manipulating the DOM
-Logging to the console is alright, but the true power of JavaScript is that it can dynamically change the contents of the webpage. The interface JavaScript provides for changing the way the page looks is called the _DOM_.
+Logging to the console is alright, but the true power of JavaScript is that it can dynamically change the contents of the webpage. The interface the browser provides for dynamically changing the way the page looks is called the _DOM_.
 
 ### What Is the DOM?
 _DOM_ stands for Document Object Model. The document in question is our web page!
