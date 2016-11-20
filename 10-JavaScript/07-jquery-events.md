@@ -5,8 +5,9 @@
 - Being able to respond to these events is the core of making a web page dynamic
 
 ## Learning Goals
-- See jQuery events
+- Become familiar with jQuery _event-handling_ syntax
 - Use jQuery events to manipulate the DOM
+- Use _event delegation_ to streamline complex event logic
 
 ## jQuery Event Handling
 ### First, an Example
@@ -68,10 +69,37 @@ Hints:
 - Detecting keys like space and enter is a little different than letter keys. Look it up!
 - `console.log()` is your friend.
 
+## Advanced Event Handling
+### Binding to Multiple Elements
+In the above examples, we only used ID selectors for jQuery, which means our event was only attached to one object. However, a CSS selector can select multiple elements. [Take this CodePen](http://codepen.io/droberts-ada/pen/jVygpR?editors=1010) for example. When you click on any of the list items, the click handler activates.
+
+Instead of alerting with a generic message, let's tell the user which list item they clicked on. In order to do so, we'll need to figure out which element was clicked. Fortunately, jQuery lets us know which element we're in via `this`.
+
+It's important to be aware that `this` is the raw JavaScript DOM object for the clicked element. If we want access to our nice `jQuery` functionality, just pass it into the `$` function:
+
+```javascript
+$(this)
+```
+
+Armed with `this` knowledge, let's get back to our task: telling the user what element they clicked on. Change the JavaScript in the CodePen to the following:
+
+```javascript
+$(document).ready(function() {
+  $('li').click(function(event) {
+    alert('Got a click on an <li> containing "' + $(this).html() + '"');
+  });
+});
+```
+
+### Event Delegation
+
+
 ## What Have We Accomplished?
 - Learn how to listen for user events
 - Explore some different types of events, including clicks and key presses
+- Discover how event delegation causes events to bubble up the document tree
 
 ## Additional Resources
 - [MDN on events](https://learn.jquery.com/events/introduction-to-events/)
-- [jQuery: event.which()](https://api.jquery.com/event.which/)
+- [jQuery documentation on event.which](https://api.jquery.com/event.which/)
+- [jQuery documentation on event delegation](https://learn.jquery.com/events/event-delegation/)
