@@ -97,3 +97,9 @@ console.log(f(5)); // 5
 console.log(f(5)); // 10
 console.log(f(300)); // 310
 ```
+
+### What Did We Learn?
+Any of the various ways that functions can be passed around as __values__, and invoked in other locations, are all examples of observing/exercising closure.
+
+### Additional Resources
+[Closures](http://javascriptissexy.com/understand-javascript-closures-with-ease/)
