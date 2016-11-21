@@ -112,3 +112,6 @@ console.log(taco); // [ 'tortilla', 'seasoned beef', 'cheese' ]
 Node implements `const` completely, so use it anytime you'd like in Node projects.
 
 Browser support is much more spotty. Again, [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const#Browser_compatibility) has the details.
+
+### Additional Resources
+[Scope & Closures](https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch3.md)
