@@ -31,7 +31,7 @@ AJAX stands for 'Asynchronous JavaScript And XML'
   - JavaScript is the programming language that is used to make AJAX do it thing.
   - XML was originally the format responses were preferred to be sent in. However, nowadays, JSON has taken over as the preferred response format.
 
-![ajax](https://cms-assets.tutsplus.com/uploads%2Fusers%2F30%2Fposts%2F25099%2Fimage-1453383492163.png)
+![ajax](images/ajax.png)
 
 A request is made to the server. The server processes that request and sends a response back to the client. Nothing new there. However, with AJAX, we use JavaScript to only change the parts of a page that need to be, instead of reloading a whole new page.
 

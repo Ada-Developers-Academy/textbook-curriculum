@@ -60,6 +60,7 @@ You can find these files [here](resources/backbonejs.zip)
 - [Underscore Documentation](http://underscorejs.org/)
 - [Backbone Documentation](http://backbonejs.org/)
 - [jQuery Documentation](http://api.jquery.com/)
+- [Stack Overflow - Difference between a Framework & Library](http://stackoverflow.com/questions/11576018/what-is-the-difference-between-a-javascript-framework-and-a-library)
 
 
 
