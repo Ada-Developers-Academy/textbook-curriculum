@@ -7,7 +7,8 @@
 - Can use GET and POST methods with AJAX
 
 
-Single page applications (SPA) have gained popularity in recent years for
+Single page applications (SPA) have gained popularity in recent years for many reasons, one being that requires less *things* to load at once.
+
 Learning AJAX is a stepping stone to understand how the dynamic, single page web applications we know today work.
 
 ### You have used AJAX before
@@ -17,7 +18,7 @@ When you scroll through Facebook, Instagram or Pintrest and you see the page loa
 
 When you want to upvote a post on reddit or StackOverflow. That's AJAX.
 
-Let's procrastinate a bit and hop on Pintrest. While browsing, if I open my console in Chrome, and right-click to select 'Log XMLHTTPRequests', I can SEE AJAX HAPPENING!
+Let's procrastinate a bit and hop on Pintrest. While browsing, if we open our consoles in Chrome, and right-click to select 'Log XMLHTTPRequests', we can SEE AJAX HAPPENING!
 
 
 So this is cool, right?! But now let's make our own magic happen!
@@ -94,13 +95,13 @@ function getPets(){
 ```
 (NOTE: will change the url provided to point to an already hosted API, probably.)
 
-Let's havea  look at all the moving parts.
+Let's have a  look at all the moving parts.
 
 
 The Call back Function:
 In AJAX a callback function is used when you send your request, the browser knows not to execute the code that is in a callback until a response from the server has arrived. This allows a user to still interact with the webpage and use other JavaScript features until that response has come back.
 
-Writing this in plain JS is rather tedious
+Writing this in plain JS is rather tedious.
 
 ## AJAX with JQuery
 
@@ -130,17 +131,17 @@ $.get(url, data, callback)
 With $.getJSON function
 ```javascript
 
-$(document).ready(function() {
-
   var url = 'localhost:3000/pets';
   var petHTML = ''
   $.getJSON(url, function(response){
     $.each(response, function(index, pet) {
       petHTML += '<h3>' + pets[i].name '</h3>'
     });
+  }).fail(function (jqXHR) {
+    $('#message').html('<h4>' + jqXHR.status + '</h4>');
   });
+
   $('#pets').html(petsHTML);
-});
 
 
 ```
@@ -161,24 +162,24 @@ jquery handles response codes, callback function will only run when the request 
 Submitting data from a form to a sever with AJAX.
 
 ```javascript
-$(document).ready(function(){
-  $('form').submit(function(evt) {
 
-    evt.preventDefault();
+  $('form').submit(function(e) {
+
+    e.preventDefault();
+
     var url = $(this).attr("action");
     var fromData = $(this).serialize();
 
     $.post(url, formData, function(response){
       $('#message').html('<p> Pet added! </p>');
     });
-
   });
-});
+
 ```
 
 With $.ajax
 ```javascript
-$(document).ready(function(){
+
   $('form').submit(function(evt) {
 
     evt.preventDefault();
@@ -194,19 +195,31 @@ $(document).ready(function(){
     });
 
   });
-});
+
 ```
 $.ajax allows for more flexibility.
 
+But wait, this code doesn't handle any errors! How can we make sure our users know when something didn't respond successfully?
 
+
+## Challenge: Let's make our Pet's API into a Single Page Application!
+Using AJAX, create a client side interface that uses a slightly modified version of the pet API we made a couple weeks ago.
+
+The interface will be a single page application, meaning we will use a single html page to show different sets of data, for example:
+- An index of all pets
+- Show data for a single pet
+- And a form to call dibs on a pet and submit your name.
+  - This will update the pet's record in API's database.
 
 ## Best Practices
-
+- Keep your JavaScript organized and easy to read. If one block is doing too much, split into functions.
+- Code should be within $(document).ready(function() { };
 
 
 ## Vocab
 - Asynchronous
 - Callback Function
+- Single Page Application
 
 
 ## Key Takeaway
@@ -215,3 +228,5 @@ Now that we are comfortable making web applications, we can focus on making them
 
 ## Additional Resources
 - [AJAX for Front-End Designers](https://webdesign.tutsplus.com/series/ajax-for-front-end-designers--cms-967)
+- [MDN AJAX Guide](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started)
+- [JQuery AJAX Documentation](http://api.jquery.com/jquery.ajax/)
