@@ -4,7 +4,7 @@
 - Request data from a sever to render client-side using JavaScript
 - Render data from server without reloading a page
 - Use jQuery to make AJAX requests
-- Can use GET and POST methods with AJAX
+- Can use GET method with AJAX
 
 
 Single page applications (SPA) have gained popularity in recent years for many reasons, one being that they require less *things* to load at once.
@@ -117,7 +117,10 @@ $.get('https://petdibs.herokuapp.com/pets',
   });
 ```
 
+### Other Tools
 A similar way we can do the same thing (in this context) is by using the `$.getJSON` functionality. See more about that [here](http://api.jquery.com/jquery.getjson/).
+
+In addition, `$.get` is just a simplification of the overall `$.ajax` that jQuery provides for all HTTP verbs. See more about that [here](http://api.jquery.com/jquery.ajax/).
 
 ### Callback functions
 As we have learned as experienced programmers, things don't always go according to plan. jQuery has provided us with  some callbacks on our AJAX calls to ensure we have appropriate places to handle these situations.
@@ -140,9 +143,9 @@ jQuery handles the response and the callback function(s) will run when the reque
 The syntax gets a bit weird, so let's see how it looks. We add the callbacks as _chained functions_ after the initial `$.get` function.
 ```javascript
 $.get('https://petdibs.herokuapp.com/pets',
-  data: { name: 'Peanut' },
   function(response){
     console.log('success!');
+    console.log(response);
   })
     .fail(function(){
       console.log('failure');
@@ -152,77 +155,28 @@ $.get('https://petdibs.herokuapp.com/pets',
     }); // Note that this is where the semi-colon ends up
 ```
 
-## Make a POST request
-```javascript
-  var url = '';
-  var data = {
-    name: 'Chestnut';
-  };
-  $.post(url, data, callback);
-```
+### Exercise: Let's Finish This Off
+Let's complete our Pet's SPA!
 
-Submitting data from a form to a sever with AJAX.
+With the person sitting near you:  
+- Update your `success` function to iterate through the response and create new DOM elements to display each pet's name, breed and age.
 
-```javascript
+- Update your `fail` function to create a new DOM element that shows the user that an error has occurred.
 
-  $('form').submit(function(e) {
+- Leave the `always` function as-is since we don't have a good context for updating this right now
 
-    e.preventDefault();
+- Add the **"show"** action for each individual pet. Each "show" action should send a new AJAX request.
 
-    var url = $(this).attr("action");
-    var fromData = $(this).serialize();
-
-    $.post(url, formData, function(response){
-      $('#message').html('<p> Pet added! </p>');
-    });
-  });
-
-```
-
-With $.ajax
-```javascript
-
-  $('form').submit(function(evt) {
-
-    evt.preventDefault();
-    var url = $(this).attr("action");
-    var fromData = $(this).serialize();
-
-    $.ajax(url, {
-      data: formData,
-      type: "POST",
-      success: function(response){
-        $('#message').html('<p> Pet added! </p>')
-      }
-    });
-
-  });
-
-```
-$.ajax allows for more flexibility.
-
-But wait, this code doesn't handle any errors! How can we make sure our users know when something didn't respond successfully?
-
-
-## Challenge: Let's make our Pet's API into a Single Page Application!
-Using AJAX, create a client side interface that uses a slightly modified version of the pet API we made a couple weeks ago.
-
-The interface will be a single page application, meaning we will use a single html page to show different sets of data, for example:
-- An index of all pets
-- Show data for a single pet
-- And a form to call dibs on a pet and submit your name
-  - This will update the pet's record in API's database
 
 ## Best Practices
 - Keep your JavaScript organized and easy to read. If one block is doing too much, split into functions.
-- Code should be within $(document).ready(function() { };
+- Code should be within `$(document).ready(function() { };`
 
 
 ## Vocab
 - Asynchronous
 - Callback Function
 - Single Page Application
-
 
 ## Key Takeaway
 Now that we are comfortable making web applications, we can focus on making them more efficient. By only loading what is needed, our client does not need to make as many requests or process as many responses. This results is much faster and more responsive applications our users can more seamlessly use... and procrastinate with.
