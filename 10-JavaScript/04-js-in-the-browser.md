@@ -115,12 +115,23 @@ Out in the wild you'll see other techniques, like downloading the scripts asynch
 To keep things simple, **in this class we'll always load our scripts at the end of the body.**
 
 ## Manipulating the DOM
-Logging to the console is alright, but the true power of JavaScript is that it can dynamically change the contents of the webpage. The interface JavaScript provides for changing the way the page looks is called the _DOM_.
+Logging to the console is alright, but the true power of JavaScript is that it can dynamically change the contents of the webpage. The interface the browser provides for dynamically changing the page's content, behavior, and appearance is called the _DOM_.
+
+When we say that it _dynamically_ changes the page, we mean that the changes are made to the "living" copy of the page that the browser has in its memory. Until now our web applications have rendered _static_ HTML which defines a webpage. They have then sent it to the browser which in turn builds the DOM from that HTML.
+
+When we use JavaScript to manipulate the DOM, we do not change the original HTML that was sent to the browser, instead we change the browser's internal representation of that same webpage. An important consequence of this distinction is that all of our changes disappear as soon as the browser forgets about that webpage (e.g. if we close the tab or the whole browser).
 
 ### What Is the DOM?
-_DOM_ stands for Document Object Model. The document in question is our web page!
+_DOM_ stands for Document Object Model. The document in question is our web page! The "Object Model" part is for distinguishing the DOM approach from other ways of accessing a document (which are not available in the browser). You can see the DOM for any webpage your browser has loaded by opening the developer tools and selecting the Elements tab (in Chrome).
 
+The DOM is effectively a tree, like the ones we've learned about in CS fundamentals. In general each node in the tree matches up to an individual HTML tag such as `div` or `img`.
+
+Nodes in the DOM have properties that match the attributes set on them in the HTML (e.g. an `img` node might have `src` and `id` properties). DOM nodes also have children, which are all of the other nodes nested within them (e.g. a `div` node might have a `table` child node).
+
+### JavaScript and the DOM
 In JavaScript, the DOM is exposed through a set of objects and methods that provide access to the HTML structure of the webpage. These act sort of like the Ruby gems we've seen in the past, an extension rather than a core part of the language. The only difference is, when running JS in the browser, you get access to these DOM functions automatically - no `require`s necessary.
+
+The methods for DOM manipulation in JavaScript allow you to add and remove nodes from the DOM tree, change the attributes of a node, and enable interactions from the user such as clicking on a button (or any other type of HTML tag).
 
 Before we go on, it's worth noting that the raw interface JavaScript provides for the DOM isn't great. It's clunky, and lots of pieces are slightly different in different browsers. In the next lecture, we'll talk about what to do about that.
 
