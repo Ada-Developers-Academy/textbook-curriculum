@@ -44,19 +44,12 @@ When we make a request with AJAX, we are not asking for the entire pages's conte
 Note that in order for AJAX to work, we must make requests to a running server. It can be local or online, however we cannot make requests to a file on our computer.
 
 
-This is how to do it using vanilla JavaScript
-
-[ highlight callback functions ]
-[ Using Vanilla JS first]
+This is how to do it using vanilla JavaScript:
 
 ```html
-<button id="load" onclick="getPets()"> Fetch! </button>
- <div id="pets">
-
- </div>
+<button id="load"> Fetch! </button>
+<div id="pets"></div>
 ```
-
-
 
 ```javascript
 // Setting up AJAX request (create a new one for each request)
@@ -67,7 +60,7 @@ This is how to do it using vanilla JavaScript
   if (request.readyState === 4) {
     if (response.status === 200) {
       var pets = JSON.parse(response.responseText);
-      petsHTML = '';
+      var petsHTML = '';
       for (var i=0; i<employees.length; i+= 1){
         petsHTML += '<h3>' + pets[i].name + '</h3>'
       }
@@ -86,9 +79,10 @@ response.open('GET', 'https://petdibs.herokuapp.com/pets');
 function getPets(){
   request.send();
 };
-```
-(NOTE: will change the url provided to point to an already hosted API, probably.)
 
+var loadItem = document.getElementById("load");
+loadItem.onclick = getPets();
+```
 Let's have a look at all of the moving parts.
 
 
