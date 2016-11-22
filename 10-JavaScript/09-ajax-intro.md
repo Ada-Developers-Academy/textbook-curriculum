@@ -3,21 +3,22 @@
 ## Learning Goals
 - Request data from a sever to render client-side using JavaScript
 - Render data from server without reloading a page
-- Use Jquery to make AJAX requests
-- Can use GET and POST methods with AJAX
+- Use jQuery to make AJAX requests
+- Can use GET method with AJAX
 
 
-Single page applications (SPA) have gained popularity in recent years for
+Single page applications (SPA) have gained popularity in recent years for many reasons, one being that they require less *things* to load at once.
+
 Learning AJAX is a stepping stone to understand how the dynamic, single page web applications we know today work.
 
 ### You have used AJAX before
 Like, a lot.  
 
-When you scroll through Facebook, Instagram or Pintrest and you see the page loading more content as you continue to endless scroll and procrastinate. That's AJAX.
+When you scroll through Facebook, Instagram or Pinterest and you see the page loading more content as you continue to endless scroll and procrastinate. That's AJAX.
 
 When you want to upvote a post on reddit or StackOverflow. That's AJAX.
 
-Let's procrastinate a bit and hop on Pintrest. While browsing, if I open my console in Chrome, and right-click to select 'Log XMLHTTPRequests', I can SEE AJAX HAPPENING!
+Let's procrastinate a bit and hop on Pinterest. While browsing, if we open our consoles in Chrome, and right-click to select 'Log XMLHTTPRequests', we can SEE AJAX HAPPENING!
 
 
 So this is cool, right?! But now let's make our own magic happen!
@@ -26,51 +27,40 @@ So this is cool, right?! But now let's make our own magic happen!
 
 Back in '95, Microsoft first implement AJAX into Internet Explorer. So it's been around. It originally went by the name of XMLHTTPRequest Object, or XHR.  
 
-AJAX stands for 'Asynchronous JavaScript And XML'
+**AJAX** stands for **'Asynchronous JavaScript And XML'**
   - **Asynchronous** means that you can do many things at once. With AJAX, that means you can still interact with a web page while waiting for a request/response. Your page won't freeze and with for the response to come back. Even better, you can send multiple AJAX requests at a time!
   - JavaScript is the programming language that is used to make AJAX do it thing.
   - XML was originally the format responses were preferred to be sent in. However, nowadays, JSON has taken over as the preferred response format.
 
 ![ajax](https://cms-assets.tutsplus.com/uploads%2Fusers%2F30%2Fposts%2F25099%2Fimage-1453383492163.png)
 
-A request is made to the server. The server processes that request and sends a response back to the client. Nothing new there. However, with AJAX, we use JavaScript to only change the parts of a page that need to be, instead of reloading a whole new page.
+A request is made to the server. The server processes that request and sends a response back to the client. Nothing new there. However, with AJAX, we use **JavaScript** to change the parts of a page that need to be changed, instead of reloading a whole new page.
 
-When we make a request with AJAX, we are also not asking for the entire pages's content, like we have been doing. Instead our request is only asking for
+When we make a request with AJAX, we are not asking for the entire pages's content. Instead our request is only asking for the relevant parts which we want to update.
 
 
 ## Let's Make an AJAX call!
 
-
 Note that in order for AJAX to work, we must make requests to a running server. It can be local or online, however we cannot make requests to a file on our computer.
 
 
-This is how to do it using vanilla JavaScript
-
-[ highlight callback functions ]
-[ Using Vanilla JS first]
+This is how to do it using vanilla JavaScript:
 
 ```html
-<button id="load" onclick="getPets()"> Fetch! </button>
- <div id="pets">
-
- </div>
+<button id="load"> Fetch! </button>
+<div id="pets"></div>
 ```
-
-
 
 ```javascript
 // Setting up AJAX request (create a new one for each request)
  var request = new XMLHTTPRequest();
 
-
  // Create a callback function, with event handler
  request.onreadystatechange = function () {
-
   if (request.readyState === 4) {
-
     if (response.status === 200) {
       var pets = JSON.parse(response.responseText);
-      petsHTML = '';
+      var petsHTML = '';
       for (var i=0; i<employees.length; i+= 1){
         petsHTML += '<h3>' + pets[i].name + '</h3>'
       }
@@ -80,134 +70,113 @@ This is how to do it using vanilla JavaScript
     } else if (response.status == 500) {
         // display message for user if Server had a problem
     }
-
   }
 };
 // Prepare the request with the HTTP METHOD (GET and POST most common) and
-response.open('GET', 'localhost:3000/pets');
+response.open('GET', 'https://petdibs.herokuapp.com/pets');
 
 // Create a function to send the request, in response to an event (button onClick)
 function getPets(){
   request.send();
 };
 
+var loadItem = document.getElementById("load");
+loadItem.onclick = getPets();
 ```
-(NOTE: will change the url provided to point to an already hosted API, probably.)
-
-Let's havea  look at all the moving parts.
+Let's have a look at all of the moving parts.
 
 
-The Call back Function:
+The Callback Function:
 In AJAX a callback function is used when you send your request, the browser knows not to execute the code that is in a callback until a response from the server has arrived. This allows a user to still interact with the webpage and use other JavaScript features until that response has come back.
 
-Writing this in plain JS is rather tedious
+Writing this in plain JS is rather tedious.
 
-## AJAX with JQuery
+## AJAX with jQuery
 
-JQuery _really_ likes to make our lives easier.
+When it comes to AJAX, jQuery _really_ likes to make our lives easier.
 
-[link to Jquery docs for Ajax]
-
-
-with $.get function
+### `get`
 ```javascript
+// Which URL do we want to 'get'?
+var url = 'https://petdibs.herokuapp.com/pets';
 
-var url = 'localhost:3000/pets';
-
-//Query String data
-var data = {
-  name: 'Peanut'
-};
-var callback = function (response) {
-  //the code to execute after a response is successful and complete
+// What do we want to happen when we get our response?
+var successCallback = function (response) {
+  console.log('success!');
 };
 
 
-$.get(url, data, callback)
+$.get(url, successCallback);
 ```
 
-
-With $.getJSON function
+Oftentimes, you'll see the above collapsed into one function call:
 ```javascript
-
-$(document).ready(function() {
-
-  var url = 'localhost:3000/pets';
-  var petHTML = ''
-  $.getJSON(url, function(response){
-    $.each(response, function(index, pet) {
-      petHTML += '<h3>' + pets[i].name '</h3>'
-    });
+$.get('https://petdibs.herokuapp.com/pets',
+  function(response){
+    console.log('success!');
   });
-  $('#pets').html(petsHTML);
-});
-
-
 ```
-The $.getJSON function can also take in query string data. See if you can figure out how.
 
-jquery handles response codes, callback function will only run when the request is complete and successful.
+### Other Tools
+A similar way we can do the same thing (in this context) is by using the `$.getJSON` functionality. See more about that [here](http://api.jquery.com/jquery.getjson/).
 
+In addition, `$.get` is just a simplification of the overall `$.ajax` that jQuery provides for all HTTP verbs. See more about that [here](http://api.jquery.com/jquery.ajax/).
 
-## Make a POST request
+### Callback functions
+As we have learned as experienced programmers, things don't always go according to plan. jQuery has provided us with  some callbacks on our AJAX calls to ensure we have appropriate places to handle these situations.
+
+- `.success`  
+  This is the function that we are implicitly including in the example above. If we do not specify any other function explicitly, success is the one that is provided. Will be called upon receiving 200 - Success code.
+
+- `.done`  
+  When provided along with `.success` this acts as a _second_ success function.
+
+- `.fail`  
+  Allows you to handle unexpected or expected errors.
+
+- `.always`  
+  Will always execute, whether success or failure has occurred.
+
+jQuery handles the response and the callback function(s) will run when the request is complete and one of the corresponding success or error scenarios have occurred.
+
+#### Let's add callbacks to our `get` example above
+The syntax gets a bit weird, so let's see how it looks. We add the callbacks as _chained functions_ after the initial `$.get` function.
 ```javascript
-  var url = '';
-  var data = {
-    name: 'Chestnut';
-  };
-  $.post(url, data, callback)
+$.get('https://petdibs.herokuapp.com/pets',
+  function(response){
+    console.log('success!');
+    console.log(response);
+  })
+    .fail(function(){
+      console.log('failure');
+    })
+    .always(function(){
+      console.log('always even if we have success or failure');
+    }); // Note that this is where the semi-colon ends up
 ```
 
-Submitting data from a form to a sever with AJAX.
+### Exercise: Let's Finish This Off
+Let's complete our Pet's SPA!
 
-```javascript
-$(document).ready(function(){
-  $('form').submit(function(evt) {
+With the person sitting near you:  
+- Update your `success` function to iterate through the response and create new DOM elements to display each pet's name, breed and age.
 
-    evt.preventDefault();
-    var url = $(this).attr("action");
-    var fromData = $(this).serialize();
+- Update your `fail` function to create a new DOM element that shows the user that an error has occurred.
 
-    $.post(url, formData, function(response){
-      $('#message').html('<p> Pet added! </p>');
-    });
+- Leave the `always` function as-is since we don't have a good context for updating this right now
 
-  });
-});
-```
-
-With $.ajax
-```javascript
-$(document).ready(function(){
-  $('form').submit(function(evt) {
-
-    evt.preventDefault();
-    var url = $(this).attr("action");
-    var fromData = $(this).serialize();
-
-    $.ajax(url, {
-      data: formData,
-      type: "POST",
-      success: function(response){
-        $('#message').html('<p> Pet added! </p>')
-      }
-    });
-
-  });
-});
-```
-$.ajax allows for more flexibility.
-
+- Add the **"show"** action for each individual pet. Each "show" action should send a new AJAX request.
 
 
 ## Best Practices
-
+- Keep your JavaScript organized and easy to read. If one block is doing too much, split into functions.
+- Code should be within `$(document).ready(function() { };`
 
 
 ## Vocab
 - Asynchronous
 - Callback Function
-
+- Single Page Application
 
 ## Key Takeaway
 Now that we are comfortable making web applications, we can focus on making them more efficient. By only loading what is needed, our client does not need to make as many requests or process as many responses. This results is much faster and more responsive applications our users can more seamlessly use... and procrastinate with.
@@ -215,3 +184,5 @@ Now that we are comfortable making web applications, we can focus on making them
 
 ## Additional Resources
 - [AJAX for Front-End Designers](https://webdesign.tutsplus.com/series/ajax-for-front-end-designers--cms-967)
+- [MDN AJAX Guide](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started)
+- [jQuery AJAX Documentation](http://api.jquery.com/jquery.ajax/)
