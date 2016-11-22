@@ -73,8 +73,6 @@ In the example above, the `foo` function _will not_ be hoisted because it is an 
 
 Function `bar` _will_ be hoisted because it is a **declaration**.
 
-## Key Takeaways
-
 
 ## Additional Resources
 - [You Don't Know JS: Hoisting](https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch4.md)
