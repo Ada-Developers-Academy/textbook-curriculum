@@ -29,7 +29,7 @@ Back in '95, Microsoft first implement AJAX into Internet Explorer. So it's been
 
 **AJAX** stands for **'Asynchronous JavaScript And XML'**
   - **Asynchronous** means that you can do many things at once. With AJAX, that means you can still interact with a web page while waiting for a request/response. Your page won't freeze and with for the response to come back. Even better, you can send multiple AJAX requests at a time!
-  - JavaScript is the programming language that is used to make AJAX do it thing.
+  - JavaScript is the programming language that is used to make AJAX do it's thing.
   - XML was originally the format responses were preferred to be sent in. However, nowadays, JSON has taken over as the preferred response format.
 
 ![ajax](https://cms-assets.tutsplus.com/uploads%2Fusers%2F30%2Fposts%2F25099%2Fimage-1453383492163.png)
