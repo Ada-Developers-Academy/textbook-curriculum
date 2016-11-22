@@ -1,12 +1,12 @@
 
-# Intro to Backbonejs Views
+# Intro to Backbone Views
 
 ## Learning Goals
 
 By the end of this lesson you should be able to:
 
--  Explain a Backbone.js views and how to create them.
--  Be able to render a view into an underscore.js template.  
+-  Explain Backbone views and how to create them.
+-  Be able to render a view as an underscore.js template.  
 
 ## What is a View?
 
@@ -17,7 +17,7 @@ Backbone views are kind of middle-people in the Backbone world.  They coordinate
 Views can be created by extending Backbone.View.
 
 ```javascript
-var PersonView = Backbone.View.extend( { 
+var PersonView = Backbone.View.extend( {
   initialize: function() {
     this.name = "Theon Greyjoy";
   }
@@ -27,46 +27,39 @@ var PersonView = Backbone.View.extend( {
 var myPersonView = new PersonView();
 ```
 
-Inside the curly braces `{}` you place properties for the View object.  One of the most important properties is the `el` property.  The `el` property refers to a DOM object created by the browser.  If you do not define an `el` property  Backbone creates one for you which is an empty `div` element.  
+Inside the curly braces `{}` you place properties for the View object.  One of the most important properties is the `el` property.  The `el` property refers to a DOM object created by the browser.  If you do not define an `el` property Backbone creates one for you which is an empty `div` element.  
 
 Below we set the the `el` property to a specific div in the DOM.
 
 ```html
-    <div id="person">
-    </div>
-	
-	<script>
-		var PersonView = Backbone.View.extend( { 
-  			initialize: function() {
-  			  this.render();
-  			},
+<div id="person">
+</div>
+```
+```javascript
+var PersonView = Backbone.View.extend( {
+  initialize: function() {
+    this.render();
+  }
+});
 
-		});
-
-		var myPersonView = new PersonView({ el: $("#person") });
-	</script>
+var myPersonView = new PersonView({ el: $("#person") });
 ```
 
-### Your 1st Full View!
+### Your First Full View!
 
-
-Drawing the view is done in the `render` function which sets how the view appears in the DOM.  Below the 
-
+Drawing the view is done in the `render` function which determines how the view displays in the DOM.  Below the
 
 ```javascript
 var PersonView = Backbone.View.extend({
-
   initialize: function(){
-      this.name = "Ada Lovelace";
-      this.render();
-   },
-   render: function(){
-      $(this.el).append("<ul> <li>Welcome to Backbone" + this.name "!</li> </ul>");
-      return this;
-    }
+    this.name = "Ada Lovelace";
+    this.render();
+  },
+  render: function(){
+    $(this.el).append("<ul> <li>Welcome to Backbone" + this.name "!</li> </ul>");
+    return this;
+  }
 });
-
-
 
 $(document).ready(function(){
 	var myPersonView = new PersonView({ el: $("#person") });
@@ -85,25 +78,27 @@ Rails views are awesome!  They are written in an HTMLish format with special han
 
 ### Underscorejs
 
-That's where [Underscorejs](http://underscorejs.org/) comes in.  Underscore is a Javascript library with tons of useful helper functions.  One of the primary uses for Underscore however is in templating.  With Underscore you can build a template in your HTML like this:
+That's where [Underscorejs](http://underscorejs.org/) comes in.  Underscore is a Javascript library with tons of useful helper functions.  One of the primary uses for Underscore however is in templating.  We are going to use Underscore in conjunction with Backbone, though Underscore can exist and be used independently.
+
+With Underscore you can build a template in your HTML like this:
 
 ```html
-    <script type="text/template" id="tpl-person">
-      <div class="media-heading">
-        <h3>
-          Name:  <%= name %> </h3>
-          <p>  Age:  <%= age %>
-        </p>
-      </div>
-      <hr>
-    </script>
+  <script type="text/template" id="tpl-person">
+    <div class="media-heading">
+      <h3>
+        Name:  <%= name %> </h3>
+        <p>  Age:  <%= age %>
+      </p>
+    </div>
+    <hr>
+  </script>
 ```
-Notice the `<%= %>` handles.  Like in Rails, this takes the output from the given expression or variable into the template.  You can identify this as a template by the script tag and the type identifying it as a template.  
+Notice the `<%= %>` handles.  Like in Rails, this will pre-process the result of the given expression or variable and put the result into the template.  You can identify this as a template by the script tag and the type attribute with the value of `text/template`.  
 
-Underscore supports the following kinds of templates:
--  `<%= %>` Interpolates the given expression into the surrounding HTML.  
-- `<% %>`   Executes the given Javascript expression 
-- `<%- %>`  Interpolates the value and makes it HTML escaped, meaning it allows the Javascript output as HTML.
+Underscore supports the following template functions:
+- `<%= %>` Interpolates the given expression into the surrounding HTML
+- `<% %>`   Executes the given Javascript expression
+- `<%- %>`  Interpolates the value and makes it HTML escaped, meaning it allows the Javascript output as HTML
 
 In your Javascript code you can build an underscore object and use jQuery to render the object.
 
@@ -112,7 +107,7 @@ In your Javascript code you can build an underscore object and use jQuery to ren
       var person =  {
         name: "Ada",
         age: 300
-      }
+      };
 
       var template =  _.template($('#tpl-person').html());
       $('#person').html(template(person));
@@ -128,6 +123,4 @@ Underscore template make a handy way to setup the presentation of your views.  H
 -  [Underscore Documentation](http://underscorejs.org/)
 -  [Backbonejs View Documentation](http://backbonejs.org/#View)
 -  [Backbone.js Applications Intro to Views](https://addyosmani.com/backbone-fundamentals/#views-1)
--  [Handlebars an alternative templating engine](http://handlebarsjs.com/) 
-
-  
+-  [Handlebars: An alternative templating engine](http://handlebarsjs.com/)
