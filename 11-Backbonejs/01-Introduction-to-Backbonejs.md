@@ -53,7 +53,9 @@ To install Backbonejs you will need 3 Javascript Libraries
 - **Backbonejs**, which is the Backbone library.  
 	- We will use Backbonejs 1.3.3
 	
-You can find these files [here](resources/backbonejs.zip) 
+TODO:  Provide our Repo for backbonejs development:
+
+<!-- Take out for the Backbonejs Repo:  You can find these files [here](resources/backbonejs.zip) -->
 
 
 ## Resources
