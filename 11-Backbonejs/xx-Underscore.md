@@ -32,7 +32,7 @@ var todoData = [
     assignedTo: ['Kari', 'Charles']
   }, {
     title: 'Go to the Bank',
-    description: 'Need to make a transfer'
+    description: 'Need to make a transfer',
     assignedTo: ['Dan', 'Jamie', 'Chris']
   }
 ]
@@ -70,12 +70,11 @@ The `<script>` tag has two attributes. First is `id` - this is what we'll use to
 Right now our template is empty, so our next step is to add some contents. Underscore's syntax is inspired by ERB, so this ought to look familiar.
 
 ```html
-<script id="my-template" type="text/template">
+<script id="todo-item-template" type="text/template">
   <section>
-    <p>
-      <strong>Title:</strong>
+    <h2>
       <%- data.title %>
-    </p>
+    </h2>
     <p>
       <strong>Description:</strong>
       <%- data.description %>
@@ -95,6 +94,8 @@ Like ERB, freestanding HTML and text will be copied verbatim. Several different 
 - `<% %>`  Executes JavaScript without adding anything to the HTML
 - `<%- %>` Acts like `<%=`, except the string is HTML-escaped before being inserted
 
+Any JavaScript variables accessed in any of these tags will need to be passed in later, when we _invoke_ the template.
+
 What's the difference between `<%=` and `<%-`? Consider the following template:
 
 ```javascript
@@ -104,14 +105,62 @@ What's the difference between `<%=` and `<%-`? Consider the following template:
 
 For the first line, the string will be inserted into the document as-is, so that the browser will render it as "_italic?_".
 
-For the second line, the string is HTML-escaped before being added, which means things like angle brackets will print out. The browser would render it as `<em>italic?</em>`.
+For the second line, the string is HTML-escaped before being added, which means things like angle brackets will print out. The browser would render it as "&lt;em&gt;italic?&lt;em&gt;".
 
 **Question:** Which should you make a habit of using, and why?
 
+### Compiling the Template
+The next step is to _compile_ the template. This is accomplished using Underscore's `template` method. The template only needs to be compiled once, and can be used to generate HTML many times, so put the compilation somewhere that only happens once.
 
+```javascript
+$(document).ready(function() {
+  var todoTemplate = _.template($('#todo-item-template').html());
+});
+```
+
+It's only one line but there's a lot going on here, so let's break it down.
+
+First, notice that we've put this bit of code in `$(document).ready`. Even though our template is being ignored by the browser, it's still part of the document, which means we can't be sure we'll have access to it unless we wait for `$(document).ready`.
+
+Next, lets look at the big structure of the line:
+
+```javascript
+var todoTemplate = _.template(/* some stuff */);
+```
+
+Here we're calling `_.template`, Underscore's template compiler, and saving the result in a variable named `todoTemplate`.
+
+Last but not least, the arguments to `_.template`:
+
+```javascript
+$('#todo-item-template').html()
+```
+
+We've seen this before - it's not Underscore at all, just good old jQuery. We select the element with ID `todo-item-template`, and get its contents.
+
+### Using the Template
+Turns out the compiled template is just a function. Underscore uses some fancy closure work to make sure it has access to everything it needs, but we don't need to worry about that.
+
+The template function takes one argument, a hash of variables to make available in the template. Invoking the template looks like this:
+
+```javascript
+for (var i = 0; i < todoData.length; i++) {
+  var generatedHtml = todoTemplate({
+    data: todoData[i]
+  });
+  $('#todo-list').append($(generatedHtml));
+}
+```
+
+Note that Underscore doesn't assume we have access to jQuery. That means the return value from the template is just a vanilla JavaScript DOM object. If you want to do fancy jQuery things with it, you'll have to pass it through `$`, like we do here.
+
+### Putting It All Together
+[Here is a CodePen](http://codepen.io/droberts-ada/pen/wodpWe?editors=1011) that does all the things we just talked about!
 
 ## What We've Accomplished
+- Define, compile and use an underscore template
 
 ## Additional Resources
 - [Underscore documentation](http://underscorejs.org/)
 - [SitePoint Underscore tutorial](https://www.sitepoint.com/getting-started-with-underscore-js/)
+- [Handlebars: An alternative templating engine](http://handlebarsjs.com/)
