@@ -146,7 +146,7 @@ First we need to build a template to render the collection into.
 </script>
 ```
 
-And then the view to render the collection using the template.
+And then the view to render the collection using the template.  Notice we use `that.$('.media-list)`.  Backbone provides a jQuery object you can use to select elements within the view's HTML.  We use that to select an article within the HTML to append each items' views to.  
 
 ```javascript
 TodoManager.Views.TodoList = Backbone.View.extend( {
