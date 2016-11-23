@@ -71,7 +71,7 @@ myPeople.remove(personToRemove);
 
 ## Looping Through a Collection
 
-You can loop through a collection, known as iterating, using the `each` method.  This method takes an anonymous function and applies it to `each` model in turn.  The models are passed into the function one at a time as a parameter.
+You can loop through a collection, known as iterating, using the `each` method.  This method takes an anonymous function and applies it to each model in turn.  The models are passed into the function one at a time as a parameter.
 
 
 ```javascript

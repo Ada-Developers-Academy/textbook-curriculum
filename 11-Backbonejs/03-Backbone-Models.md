@@ -50,7 +50,7 @@ So if the script above is run the console will result in:
 A new person has been instantiated.
 ```
 
-The defaults property lets you set default values to **attributes** for your model.  You can then retrieve those  attribute values with the `get` function.  We add additional data to the object we pass in to `extend` by comma-separating those values.
+The defaults property lets you set default values to **attributes** for your model.  You can then retrieve those attribute values with the `get` function. We can also provide other properties to the model by including them in the object we pass to `extend`.
 
 ```javascript
 var Person = Backbone.Model.extend( {
@@ -83,7 +83,7 @@ These attributes do not necessarily need to have default values specified, or re
 
 ## Get, Set & Unset
 
-Once you have an instance of your Model you can use `get` & `set` methods to set it's attributes. You may pass individual keys with values, or you may pass an object containing any and all data that you might want to change.
+Once you have an instance of your Model you can use `get` & `set` functions to set its attributes. For the `set` function you may pass two arguments, an attribute name and the attribute's value. Or you may pass an object containing multiple attributes to be set on the model.
 
 Setting **each key/value**:
 ```javascript
@@ -111,9 +111,9 @@ ada.unset("skills");
 console.log(ada.get("skills")); // undefined
 ```
 
-## Adding Additional Methods to a Model
+## Adding Additional Functions to a Model
 
-You can add additional methods to a Model like other attributes:
+You can add additional functions to a Model like other properties:
 
 ```javascript
 var Person = Backbone.Model.extend( {

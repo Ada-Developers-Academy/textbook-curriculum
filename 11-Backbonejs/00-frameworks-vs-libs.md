@@ -17,9 +17,10 @@ A library is a collection of functions and/or objects that serve one particular 
 Examples:
 - jQuery
 - Backbone
+- Underscore
 
 ## Why One Over The Other?
-To determine whether you want to use a library or a framework, you really need to this about the level of control you'd like to have over the application. 
+To determine whether you want to use a library or a framework, you really need to this about the level of control you'd like to have over the application.
 
 ## Additional Resources
 - [Top JavaScript Frameworks, Libraries and Tools and When to Use Them](https://www.sitepoint.com/top-javascript-frameworks-libraries-tools-use/)

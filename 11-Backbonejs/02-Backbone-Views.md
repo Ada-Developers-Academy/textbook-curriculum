@@ -76,9 +76,9 @@ Welcome to Backbone Ada Lovelace!
 
 Rails views are awesome!  They are written in an HTMLish format with special handles `<% %>` to mark areas where code goes in.  Backbone doesn't have a similar method to create formatted HTML output.  
 
-### Underscorejs
+### Underscore
 
-That's where [Underscorejs](http://underscorejs.org/) comes in.  Underscore is a Javascript library with tons of useful helper functions.  One of the primary uses for Underscore however is in templating.  We are going to use Underscore in conjunction with Backbone, though Underscore can exist and be used independently.
+That's where [Underscore](http://underscorejs.org/) comes in.  Underscore is a Javascript library with tons of useful helper functions.  One of the primary uses for Underscore however is in templating.  We are going to use Underscore in conjunction with Backbone, though Underscore can exist and be used independently.
 
 With Underscore you can build a template in your HTML like this:
 

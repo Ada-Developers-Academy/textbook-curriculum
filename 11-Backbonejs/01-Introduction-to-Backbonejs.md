@@ -39,7 +39,7 @@ Backbone implements the familiar MVC architecture that we learned in Rails in a 
 1.  **Views**:  These render the models and listen for DOM/Model events.  Views can be used to render a single model to render or a collection.  
 1.  **Routers**:  Used for Single Page Applications, routers let you add paths to the URL so that you can maintain history and allow users to jump to a specific state in your single-page-application.  A router always contains at least one route and a function to map that particular route to.  
 
-![Backbone JS Architecture from https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=0ahUKEwiknZLWnrDQAhULrVQKHdKdDtsQjxwIAw&url=http%3A%2F%2Fwww.slideshare.net%2Fronreiter%2Fwriting-html5-web-apps-using-backbonejs-and-gae&psig=AFQjCNHvjo7n-Xt_eytdroPc3zdRUVQY7g&ust=1479487463101423](images/backbonejs-architecture.jpg)
+![Backbone JS Architecture from http://www.slideshare.net/ronreiter/writing-html5-web-apps-using-backbonejs-and-gae](images/backbonejs-architecture.jpg)
 
 
 ## Installing Backbone
