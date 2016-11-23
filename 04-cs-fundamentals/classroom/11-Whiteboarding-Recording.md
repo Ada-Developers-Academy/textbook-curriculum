@@ -1,11 +1,14 @@
 # Recording yourself Whiteboarding
 
 ## Time Schedule
-20 mins first partner recorded interview
-20 mins second partner recorded interview 
-15 mins to watch your own recording
-15 mins debrief with your partner about what you oberserved and how you can 
-5 mins  
+- 20 mins first partner recorded interview
+- 20 mins second partner recorded interview 
+- 15 mins to watch your own recording
+- 15 mins debrief with your partner about what you oberserved and how you can 
+- 5 mins  
+
+## Recording
+Use Photobooth on your own computer to record your interview. You do not need to share this video with anyone, and yes, you can delete it right after if you want.
 
 ## Questions
 
