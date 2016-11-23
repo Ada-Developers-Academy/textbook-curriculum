@@ -71,9 +71,17 @@ To install Backbone you will need 3 JavaScript Libraries
 - **Backbone**, which is the Backbone library.  
 	- We will use Backbone 1.3.3
 
-You can find these files [here](resources/backbonejs.zip)
+You can find these files [here](resources/backbonejs.zip). Or, if you want to use a CDN, include the following scripts in order:
+
+```html
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<script src="https://cdn.jsdelivr.net/underscorejs/1.8.3/underscore.js"></script>
+<script src="https://cdn.jsdelivr.net/g/backbonejs@1.3.3"></script>
+```
 
 ## Resources
 - [Underscore Documentation](http://underscorejs.org/)
 - [Backbone Documentation](http://backbonejs.org/)
 - [jQuery Documentation](http://api.jquery.com/)
+- [Top JavaScript Frameworks, Libraries and Tools and When to Use Them](https://www.sitepoint.com/top-javascript-frameworks-libraries-tools-use/)
+- [StackOverflow on the difference between a Framework and a Library](http://stackoverflow.com/questions/3057526/framework-vs-toolkit-vs-library)
