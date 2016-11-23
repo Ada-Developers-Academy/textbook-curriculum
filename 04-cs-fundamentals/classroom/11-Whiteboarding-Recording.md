@@ -23,5 +23,5 @@ View markdown when you are ready to ask
 4. Given any integer, print an English phrase that describes the integer (e.g. One Thousand Two Hundred Thirty Four).
 -->
 
-## What to work on
+## Self Assessment
 https://goo.gl/forms/4KyuYKCUxmJjZQNm1
