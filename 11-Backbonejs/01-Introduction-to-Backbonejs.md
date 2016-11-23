@@ -46,19 +46,17 @@ A good example of a Single Page Application is Gmail.  In Gmail new e-mails are 
 
 ## Backbone MV*
 
-Backbone implements the familiar MVC architecture that we learned in Rails in a slightly different way. In Backbone the views & controllers are combined, thus Backbone is called an MV* architecture.  
+Backbone implements the familiar MVC architecture that we learned in Rails in a slightly different way. In Backbone the views & controllers are combined, thus Backbone is called an MV* architecture.
 
 ### Backbone has 5 Components
-
-1.  **Events**:  Events are a module that can be mixed in to any object, giving the object the ability to bind and trigger custom named events.  
-1.  **Models**:  These include the application data and business logic.  These are similar to Rails models.
-	- Models:
-		- Organize data and business logic.  
-		- Load and save data from and to the server.   
-		- Emit events when data changes.  
-1.  **Collections**:  These are ordered sets of models
-1.  **Views**:  These render the models and listen for DOM/Model events.  Views can be used to render a single model to render or a collection.  
-1.  **Routers**:  Used for Single Page Applications, routers let you add paths to the URL so that you can maintain history and allow users to jump to a specific state in your single-page-application.  A router always contains at least one route and a function to map that particular route to.  
+1. **Models**: Similar to Rails models, these include the application data and business logic. Models can:
+	- Organize data and business logic.
+	- Load and save data from and to the server.
+	- Emit events when data changes.
+1. **Collections**: These are ordered sets of models
+1. **Views**: These render models and collections, and listen for DOM/Model events. Backbone views are really closer to Rails controllers, which has been confusing everyone for years.
+1. **Events**: Events are a module that can be mixed in to any object, giving the object the ability to bind and trigger custom named events.
+1. **Routers**: Routers let you add paths to the URL so that you can maintain history and allow users to jump to a specific state in your single-page-application.
 
 ![Backbone JS Architecture from http://www.slideshare.net/ronreiter/writing-html5-web-apps-using-backbonejs-and-gae](images/backbonejs-architecture.jpg)
 
