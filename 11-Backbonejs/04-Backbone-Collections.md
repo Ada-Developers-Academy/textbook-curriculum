@@ -159,13 +159,15 @@ TodoManager.Views.TodoList = Backbone.View.extend( {
   render:  function() {
     var html = this.template();
     var that = this;
-    this.$el.html('');
+    this.$el.html(html);
     _.each( that.collection.models, function(item) {
 
       var myTodoView = new TodoManager.Views.Todo ({
           model: item
         });
-      that.$el.append(myTodoView.render().el);
+        // Select the Media-List class article inside the template
+        // then append the item's view.
+      that.$('.media-list').append(myTodoView.render().el);
     });
 
     return this;
