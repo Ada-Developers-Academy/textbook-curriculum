@@ -102,11 +102,7 @@ If you only want to find the first occurrence of the matching condition then you
 var matchingInstructor = myPeople.findWhere( { name: "Cynthia" } );
 ```
 
-<<<<<<< HEAD
 ## Pushing & Popping 
-=======
-## Pushing and Popping
->>>>>>> 29855c4b4d99d6f5a6585c17fedc465492272d35
 
 Backbone Collections also have the `push` and `pop` methods which add an element to the rear and take an element off the rear of the collection.  
 
@@ -120,7 +116,6 @@ myPeople.push(newPerson);
 ```
 
 
-<<<<<<< HEAD
 ## Rendering Backbone Collections
 
 So Backbone Collections can store groups of Models, but how does that apply to my webpage.  Often you wan to render collections of Models not Models 1-by-1.  So you can build a View for a collection.
@@ -162,6 +157,3 @@ First we need to build a template to render the collection into.
 ## Resources
 
 
-=======
-## TODO Rendering Backbone Collections
->>>>>>> 29855c4b4d99d6f5a6585c17fedc465492272d35
