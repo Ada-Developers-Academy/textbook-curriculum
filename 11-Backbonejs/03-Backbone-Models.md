@@ -7,7 +7,7 @@ By the end of this lesson you should be able to:
 
 - Explain what a Backbone Model is
 - Create your own Backbone Model
-- Instantiate an instance of a Backbone Model and assign attributes
+- Instantiate your Backbone Model and assign attributes
 - Use some basic Backbone Model methods
 
 ## Creating a Backbone Model
