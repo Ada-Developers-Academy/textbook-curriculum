@@ -3,14 +3,14 @@
 ## Learning Goals
 
 At the end of this you should:
-- Be able to explain what a Backbone Collection is
+- Be able to explain what a Backbone collection is
 - Be able to place Models into a collection
 - Be able to manipulate models in a collection
 - Be able to filter models within a collection
 
 ## Collection Introduction
 
-In Backbone a Collection is really a type of Model, one that has other model instances inside it.  You can think of it as similar to an Array, an ordered collection of Models.  
+In Backbone a Collection is a type of Model that has other Model instances inside it.  You can think of it as similar to an Array, as an ordered collection of Models.  
 
 Collections are useful for storing and manipulating a group of models.
 
@@ -42,22 +42,19 @@ Looking at the model in the console we can see the Models are stored in the coll
 ![Client Server](images/modelconsole.png)
 
 
-
-
 ## Getting At Our Models!
 
 You can retrieve a model from a Backbone collection via the `get` method which will take either the index number of the model and the Collection's `at` attribute, or via it's cid.
 
 ```javascript
 // will print Kari's model
-console.log(myPeople.at(0) );
+console.log(myPeople.at(0));
 var kari = myPeople.at(0);
 
-// Will retrieve the model with cid equal to "c3" from the collection, if it exists.
+// Will retrieve the model with cid equal to "c1" from the collection, if it exists.
 console.log(myPeople.get("c1"));
 
 var dan = myPeople.get("c1");
-
 ```
 
 
@@ -74,14 +71,14 @@ myPeople.remove(personToRemove);
 
 ## Looping Through a Collection
 
-You can loop through a collection, known as iterating, using the `each` method.  This method takes an anonymous function and applies it to each model in turn.  The models are passed into the function one at a time as a parameter. 
+You can loop through a collection, known as iterating, using the `each` method.  This method takes an anonymous function and applies it to each model in turn.  The models are passed into the function one at a time as a parameter.
 
 
 ```javascript
 
-// Causes 
+// Causes
 myPeople.each(function(person) {
-  person.sayhi();
+  person.sayHi();
 });
 ```
 
@@ -94,23 +91,27 @@ You can also get a collection of filtered results with the `where` method.  The 
 var adaInstructors = myPeople.where( { title: "Ada Instructor" });
 
 for (var i = 0; i < adaInstructors.length; i++) {
-  console.log(adaInstructors[i].get("name")
+  console.log(adaInstructors[i].get("name");
 }
 ```
 
-If you only want to find the first occurrence of the matching condition then you can use the the `findWhere` method.  The findWhere method returns the first matching model in the collection.  
+If you only want to find the first occurrence of the matching condition then you can use the the `findWhere` method.  The `findWhere` method returns the first matching model in the collection.  
 
-```Javascript
+```javascript
 // Returns the model with { name: "Cynthia", title: "Executive Director" }
 var matchingInstructor = myPeople.findWhere( { name: "Cynthia" } );
 ```
 
+<<<<<<< HEAD
 ## Pushing & Popping 
+=======
+## Pushing and Popping
+>>>>>>> 29855c4b4d99d6f5a6585c17fedc465492272d35
 
-Backbone Collections also have the `push` and pop methods which add an element to the rear and take an element off the rear of the collection.  
+Backbone Collections also have the `push` and `pop` methods which add an element to the rear and take an element off the rear of the collection.  
 
 ```javascript
-// Takes Cynthia off the collection
+// Returns Cynthia object and takes it off the collection
 var popped = myPeople.pop();
 
 var newPerson = new Person({name: "Uma", title: "Community Engagement Manager" });
@@ -119,6 +120,7 @@ myPeople.push(newPerson);
 ```
 
 
+<<<<<<< HEAD
 ## Rendering Backbone Collections
 
 So Backbone Collections can store groups of Models, but how does that apply to my webpage.  Often you wan to render collections of Models not Models 1-by-1.  So you can build a View for a collection.
@@ -160,3 +162,6 @@ First we need to build a template to render the collection into.
 ## Resources
 
 
+=======
+## TODO Rendering Backbone Collections
+>>>>>>> 29855c4b4d99d6f5a6585c17fedc465492272d35
