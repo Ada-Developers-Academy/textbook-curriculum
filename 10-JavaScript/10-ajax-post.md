@@ -39,14 +39,14 @@ Most of the time, the request data is not hard-coded like the example above. Usu
 
 ```html
 <div id="message"></div>
-<form action="/pets" method="post">
+<form action="https://petdibs.herokuapp.com/pets" method="post">
   <section>
     <label>Name</label>
-    <input type="text" id="name" name="pet_name"></input>
+    <input type="text" id="name" name="name"></input>
   </section>
   <section>
     <label>Age</label>
-    <input type="text" id="age" name="pet_age"></input>
+    <input type="text" id="age" name="age"></input>
   </section>
 
   <section class="button">
