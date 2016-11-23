@@ -148,6 +148,7 @@ First we need to build a template to render the collection into.
 
 And then the view to render the collection using the template.  Notice we use `that.$('.media-list)`.  Backbone provides a jQuery object you can use to select elements within the view's HTML.  We use that to select an article within the HTML to append each items' views to.  
 
+
 ```javascript
 TodoManager.Views.TodoList = Backbone.View.extend( {
   tagName: 'section',
@@ -157,9 +158,9 @@ TodoManager.Views.TodoList = Backbone.View.extend( {
     // put event listeners here!
   },
   render:  function() {
-    var html = this.template();
     var that = this;
-    this.$el.html(html);
+      // Clear the HTML with the fresh template when rendering
+    this.$el.html(this.template());
     _.each( that.collection.models, function(item) {
 
       var myTodoView = new TodoManager.Views.Todo ({
