@@ -105,7 +105,7 @@ If you only want to find the first occurrence of the matching condition then you
 var matchingInstructor = myPeople.findWhere( { name: "Cynthia" } );
 ```
 
-## Pushing and Popping 
+## Pushing & Popping 
 
 Backbone Collections also have the `push` and pop methods which add an element to the rear and take an element off the rear of the collection.  
 
@@ -119,6 +119,44 @@ myPeople.push(newPerson);
 ```
 
 
-## TODO Rendering Backbone Collections
+## Rendering Backbone Collections
+
+So Backbone Collections can store groups of Models, but how does that apply to my webpage.  Often you wan to render collections of Models not Models 1-by-1.  So you can build a View for a collection.
+
+We will use the following collection to match our Todo-list application.
+
+```javascript
+// app/js/collections/todolist.js
+
+TodoManager.Collections.TodoList = Backbone.Collection.extend({
+  initialize: function() {
+    // Event listeners go here
+
+  },
+  model: TodoManager.Models.Todo
+});
+```
+
+First we need to build a template to render the collection into.
+
+```html
+    <script type="text/template" id="tpl-todos">
+      <h2 class="page-header text-center">List of Todo Items</h2>
+      <p class="text-center">
+        <a href="#todos/new" class="btn btn-lg btn-outline">Add Todo Item</a>
+      </p>
+      <article></article>
+    </script>
+```
+
+
+
+
+
+```javascript
+
+```
+
+## Resources
 
 
