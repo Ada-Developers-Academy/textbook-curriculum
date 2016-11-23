@@ -185,4 +185,5 @@ Now that we are comfortable making web applications, we can focus on making them
 ## Additional Resources
 - [AJAX for Front-End Designers](https://webdesign.tutsplus.com/series/ajax-for-front-end-designers--cms-967)
 - [MDN AJAX Guide](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started)
+- [jQuery AJAX GET Documentation]()
 - [jQuery AJAX Documentation](http://api.jquery.com/jquery.ajax/)
