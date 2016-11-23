@@ -137,22 +137,62 @@ TodoManager.Collections.TodoList = Backbone.Collection.extend({
 First we need to build a template to render the collection into.
 
 ```html
-    <script type="text/template" id="tpl-todos">
-      <h2 class="page-header text-center">List of Todo Items</h2>
+<script type="text/template" id="tpl-todolist">
+      <h2 class="page-header text-center">Things To Do</h2>
       <p class="text-center">
-        <a href="#todos/new" class="btn btn-lg btn-outline">Add Todo Item</a>
+        <a href="#todo/new" class="btn btn-lg btn-outline">Add Item</a>
       </p>
-      <article></article>
-    </script>
+      <article class="media-list media-list row small-up-1 medium-up-2 large-up-4 todolist-container "></article>
+</script>
 ```
 
+And then the view to render the collection using the template.
 
+```javascript
+TodoManager.Views.TodoList = Backbone.View.extend( {
+  tagName: 'section',
+  className: 'media no-bullet column',
+  template: _.template($('#tpl-todolist').html()),
+  initialize:  function() {
+    // put event listeners here!
+  },
+  render:  function() {
+    var html = this.template();
+    var that = this;
+    this.$el.html('');
+    _.each( that.collection.models, function(item) {
 
+      var myTodoView = new TodoManager.Views.Todo ({
+          model: item
+        });
+      that.$el.append(myTodoView.render().el);
+    });
+
+    return this;
+  }
+});
+```
+
+And then in `app/js/app.js` we can create the collection and view and render it.
 
 
 ```javascript
-
+  // Build TodoList Collection
+var myTodoList = new TodoManager.Collections.TodoList( [
+                    new TodoManager.Models.Todo({description: "JavaScript Rules", title: "Learn JavaScript", id: 1}),
+                    new TodoManager.Models.Todo({description: "Backbone Structures JavaScript", title: "Study Backbone", id: 2}),
+                    new TodoManager.Models.Todo({description: "Jamie taught us", title: "Master AJAX", id: 3}),
+                    new TodoManager.Models.Todo({description: "Rails 5", title: "Master Rails", id: 4})
+                  ]);
+  // Build TodoList View 
+var todoListView = new TodoManager.Views.TodoList({
+     collection:  myTodoList
+});
+   //  Render the view
+$('#todocontainer').append(todoListView.render().$el);
 ```
+And the collection should then be rendered in the browser.  
+
 
 ## Resources
 
