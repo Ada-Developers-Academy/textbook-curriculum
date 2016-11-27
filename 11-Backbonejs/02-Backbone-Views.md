@@ -145,75 +145,100 @@ $(document).ready(function() {
 });
 ```
 
-**Check-in Point:** Right now, your `app.js` should look [like this](https://gist.github.com/droberts-ada/41c26e15772b2c6986a765d002a25e82).
+**Check-in Point:** Right now, your `app.js` should look [like this](https://gist.github.com/droberts-ada/41c26e15772b2c6986a765d002a25e82), and your site should show three different tasks.
 
-### Templating
+## Templating
+One of the most painful parts of working with JavaScript and jQuery so far has been generating HTML. Even for small structures like our `<li>` above it's unwieldy, and the thought of building large amounts of HTML using inline strings is enough to make even the bravest Adie tremble.
 
+Enter Underscore templates. Underscore is a JavaScript utility library which (like jQuery) makes its functions available through a global `_` object. One of these functions is a templating library, which works a lot like ERB did with Rails.
 
-So how do Underscore templates play into this?
+To add Underscore to your project, add the following line to the top of your `app.js` file:
 
-Rendering raw html in the render function is both time consuming and painful to do.  Instead we can use a template attribute into our view.
+```javascript
+import _ from 'underscore';
+```
 
-First we'll add an underscore template to our view:
+Without diving too deep into it, to use an underscore template you must do three things:
+1. Define the template (once)
+1. Compile the template (once)
+1. Use the compiled template (every time you generate HTML)
+
+### Defining a Template
+To define the template, add the following to `build/index.html`, before the `<script src='/app.bundle.js'>` tag:
 
 ```html
-    <script type="text/template" id="tpl-person">
-      <h2>Welcome to Backbone <%- name %> </h2>
-      <p><strong>Age: </strong> <%- age %></p>
-    </script>
+<script type="text/template" id="task-template">
+  <li class="task">
+    <h2>
+      <%- task.title %>
+    </h2>
+    <p>
+      <%- task.description %>
+    </p>
+  </li>
+</script>
 ```
 
-Next we'll add another attribute to the view, `template: _.template('#tpl-person').html()`.  So we are binding the template to an HTML element and then
+If this looks a lot like ERB, it's no coincidence - Underscore's templating syntax was inspired by ERB.
 
-Next we can determine the data we want to render with a JSON object as another attribute.  
-```javascript
-model: {
-	title: "Eat Mod Pizza",
-	description: "Because I'm SOOOOO hungry",
-	completed: false
-}
-```
-
-And in our render method we can then render the template with the data.
+### Compiling and Using a Template
+Before a template can be used, it must be compiled. To do so, select the template using jQuery and pass it to the `_.template()` function:
 
 ```javascript
-this.$el.html(this.template(this.model));
-```
-
-With the resulting JavaScript Code:
-
-```javascript
-var TodoView = Backbone.View.extend({
-
-  el: $('#todo'),
-  initialize: function(){
-  		// render immediately upon creation.
-      this.render();
-
-   },
-   		// bind the underscore template & compile the HTML
-   template: _.template($('#tpl-todo').html()),
-   		// render the template inside the `el` element.  
-   render: function(){
-      this.$el.html(this.template(this.model));
-    }
-});
-
-
-$(document).ready(function(){
-		// Create a Todo with data.
-    var todoView = new PersonView({
-    model: {
-      title: "Slack Kari",
-      description: "I need to ask her for more homework!",
-      completed: false
-    }
-    });
-
+// app.js
+$(document).ready(function() {
+  var taskTemplate = _.template($('#task-template'));
 });
 ```
 
+The thing you get back from `_.template()` (`taskTemplate` in this case) is a function. When you invoke it, it generates a bunch of HTML. Unlike Rails, we don't have access to instance variables, so anything that we want our template to use we have to pass in manually:
 
+```javascript
+var generatedHtml = taskTemplate({task: taskData[0]});
+```
+
+Compiling a template is generally an expensive operation, but once compiled a template can be used many times. So for our task list, we should compile the template only once and share it between all the task views.
+
+```javascript
+$(document).ready(function() {
+  var taskTemplate = _.template($('#task-template').html());
+  var taskListElement = $('#task-list');
+  var taskViews = []
+  taskData.forEach(function(task) {
+      var taskView = new TaskView({
+        task: task,
+        template: taskTemplate
+      });
+      taskViews.push(taskView);
+      taskListElement.append(taskView.render().$el);
+  });
+});
+```
+
+And finally, use our template in our view:
+
+```javascript
+var TaskView = Backbone.View.extend({
+  initialize: function(options) {
+    this.task = options.task;
+    this.template = options.template;
+  },
+
+  render: function() {
+    var html = this.template({task: this.task})
+    this.$el.html(html);
+
+    // Enable chained calls
+    return this;
+  }
+});
+```
+
+And that's it. If you open up the page, you should see the same thing as before. Now, however our concerns are separated, our JavaScript is beautiful, and our app is much more maintainable.
+
+## A View of Views
+
+## File Organization
 
 ## Resources
 - [Backbonejs View Documentation](http://backbonejs.org/#View)
