@@ -1,4 +1,4 @@
-# BackBone Views Rendering Models
+# BackBone Views Further Rendering Models
 
 ## Learning Goals
 By the end of this document you should be:
@@ -7,12 +7,12 @@ By the end of this document you should be:
 
 ## Rendering a Model
 
-So we've demonstrated how to create a Model, but we've not bound it to a view to be rendered in the browser.  We can look at how to do this now.
+So we've demonstrated how to create a Model, and we've seen how to render it with a view.
 
-We can set up a new Model for a Todo List, to go with the View we created at the end of lesson 2.  
+We  set up a new Model for a Todo List, to go with the View we created at the end of lesson 2.  
 
 ```javascript
-TodoManager.Models.Todo = Backbone.Model.extend( {
+Todo = Backbone.Model.extend( {
   defaults: {
     title: "Something to do",
     description: "",
@@ -22,7 +22,7 @@ TodoManager.Models.Todo = Backbone.Model.extend( {
 
 ```
 
-Now in our view we want it to actually render the Backbone Model instead of a generic JavaScript Object.  So we will use the model and call it's `.toJSON()` function.  
+Now in our view we want it to render the Backbone Model.  So we will use the model and call it's `.toJSON()` function.  
 
 ```javascript
 // views/todo.js
@@ -44,21 +44,16 @@ TodoView = Backbone.View.extend( {
 
 And lastly to put them together in our `app.js` file.
 ```javascript
-window.TodoManager = {
-  Models: {},
-  Collections: {},
-  Views: {}
 
-};
 $(function() {
     // create a new Model object
-  var myTodo = new TodoManager.Models.Todo({
+  var myTodo = new Todo({
       title: "Learn Backbone!",
       description: "Structure my code!",
       completed: false
   });
     // create a new View with the Model attribute set.
-  var todoView = new TodoManager.Views.Todo({
+  var todoView = new TodoView({
     model: myTodo
     });
     $('#todocontainer').append(todoView.render().$el);
@@ -67,9 +62,9 @@ $(function() {
 ### Collections and Views
 
 **TODO:  Requires more clarity**  
-You can also pass a View a Collection of Models.  In the example below pay **very** close attention to how `self` is used.  We have to use `self` to append each view to the larger collection's view because of the nature of the nested methods.  The anonymous function, `function(person)` is a function being applied to each model in the collection and if we want to append the view's results to the `PeopleView` then we need to have saved a reference to it as we did with self.
+You can also pass a View a Collection of Models.  In the example below pay **very** close attention to how `self` is used.  We have to use `self` to append each view to the larger collection's view because of the nature of the nested methods.  The anonymous function, `function(todo)` is a function being applied to each model in the collection and if we want to append the view's results to the `TaskListView` then we need to have saved a reference to it as we did with self.
 
-```
+```javascript
 
 // Create a type of view for a collection of People Models
 
@@ -107,8 +102,8 @@ myPeopleView.render();
 ```
 
 
-
-
 ## Responding to DOM & Model Events
+
+
 
 ## Templates

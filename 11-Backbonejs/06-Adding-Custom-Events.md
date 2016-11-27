@@ -200,6 +200,16 @@ So the Bus is really simply a shared object which can register Events and callba
 
 When we want to establish events on one view which trigger actions in another, we can use this 'bus' technique to let them communicate.  
 
+## Events & Collections
+
+Collections also have a set of Events which are very handy when combined with Views.
+
+Collection Events:
+*  `add` - This event is triggered when a model is added to the collection.
+*  `remove` - This event is triggered when a model is removed from the collection
+*  `change` - This event is triggered when a model is changed in the collection.  
+
+
 
 ## Resources
 - [Backbone.js Basics: Bringing an App to Life with Events](https://www.sitepoint.com/backbone-basics-events/)
