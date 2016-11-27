@@ -125,12 +125,12 @@ We will use the following collection to match our Todo-list application.
 ```javascript
 // app/js/collections/todolist.js
 
-TodoManager.Collections.TodoList = Backbone.Collection.extend({
+TodoList = Backbone.Collection.extend({
   initialize: function() {
     // Event listeners go here
 
   },
-  model: TodoManager.Models.Todo
+  model: Todo
 });
 ```
 
@@ -150,7 +150,7 @@ And then the view to render the collection using the template.  Notice we use `t
 
 
 ```javascript
-TodoManager.Views.TodoList = Backbone.View.extend( {
+TodoListView = Backbone.View.extend( {
   tagName: 'section',
   className: 'media no-bullet column',
   template: _.template($('#tpl-todolist').html()),
@@ -163,7 +163,7 @@ TodoManager.Views.TodoList = Backbone.View.extend( {
     this.$el.html(this.template());
     _.each( that.collection.models, function(item) {
 
-      var myTodoView = new TodoManager.Views.Todo ({
+      var myTodoView = new TodoView ({
           model: item
         });
         // Select the Media-List class article inside the template
@@ -176,19 +176,19 @@ TodoManager.Views.TodoList = Backbone.View.extend( {
 });
 ```
 
-And then in `app/js/app.js` we can create the collection and view and render it.
+And then in our JavaScript file we can create the collection and view and render it.
 
 
 ```javascript
   // Build TodoList Collection
 var myTodoList = new TodoManager.Collections.TodoList( [
-                    new TodoManager.Models.Todo({description: "JavaScript Rules", title: "Learn JavaScript", id: 1}),
-                    new TodoManager.Models.Todo({description: "Backbone Structures JavaScript", title: "Study Backbone", id: 2}),
-                    new TodoManager.Models.Todo({description: "Jamie taught us", title: "Master AJAX", id: 3}),
-                    new TodoManager.Models.Todo({description: "Rails 5", title: "Master Rails", id: 4})
+                    new Todo({description: "JavaScript Rules", title: "Learn JavaScript", id: 1}),
+                    new Todo({description: "Backbone Structures JavaScript", title: "Study Backbone", id: 2}),
+                    new Todo({description: "Jamie taught us", title: "Master AJAX", id: 3}),
+                    new Todo({description: "Rails 5", title: "Master Rails", id: 4})
                   ]);
   // Build TodoList View 
-var todoListView = new TodoManager.Views.TodoList({
+var todoListView = new TodoList({
      collection:  myTodoList
 });
    //  Render the view
@@ -198,5 +198,5 @@ And the collection should then be rendered in the browser.
 
 
 ## Resources
-
+- [CNDJS - What is a Collection](https://cdnjs.com/libraries/backbone.js/tutorials/what-is-a-collection)
 
