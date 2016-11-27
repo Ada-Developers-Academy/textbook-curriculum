@@ -134,7 +134,65 @@ var myPerson = new Person();
 myPerson.sayHi(); // 'Ada says HI!'
 ```
 
-## TODO - Demonstrate Rendering a model
+## Rendering a Model
+
+So we've demonstrated how to create a Model, but we've not bound it to a view to be rendered in the browser.  We can look at how to do this now.
+
+We can set up a new Model for a Todo List, to go with the View we created at the end of lesson 2.  
+
+```javascript
+TodoManager.Models.Todo = Backbone.Model.extend( {
+  defaults: {
+    title: "Something to do",
+    description: "",
+    completed: false
+  }
+});
+
+```
+
+Now in our view we want it to actually render the Backbone Model instead of a generic JavaScript Object.  So we will use the model and call it's `.toJSON()` function.  
+
+```javascript
+// app/views/todo.js
+TodoManager.Views.Todo = Backbone.View.extend( {
+  tagName: 'section',
+  className: 'media no-bullet column',
+  template: _.template($('#tpl-todo').html()),
+  initialize:  function() {
+    // put event listeners here!
+  },
+  render: function() {
+  						// convert the model to JSON for the template
+    this.$el.html(this.template(this.model.toJSON()));
+    return this;
+  }
+});
+
+```
+
+And lastly to put them together in our `app/js/app.js` file.
+```javascript
+window.TodoManager = {
+  Models: {},
+  Collections: {},
+  Views: {}
+
+};
+$(function() {
+    // create a new Model object
+  var myTodo = new TodoManager.Models.Todo({
+      title: "Learn Backbone!",
+      description: "Structure my code!",
+      completed: false
+  });
+    // create a new View with the Model attribute set.
+  var todoView = new TodoManager.Views.Todo({
+    model: myTodo
+    });
+    $('#todocontainer').append(todoView.render().$el);
+});
+```
 
 ## Resources
 - [Backbone Model & View Documentation](http://backbonejs.org/#Model-View-separation)

@@ -102,7 +102,7 @@ If you only want to find the first occurrence of the matching condition then you
 var matchingInstructor = myPeople.findWhere( { name: "Cynthia" } );
 ```
 
-## Pushing and Popping
+## Pushing & Popping 
 
 Backbone Collections also have the `push` and `pop` methods which add an element to the rear and take an element off the rear of the collection.  
 
@@ -116,4 +116,87 @@ myPeople.push(newPerson);
 ```
 
 
-## TODO Rendering Backbone Collections
+## Rendering Backbone Collections
+
+So Backbone Collections can store groups of Models, but how does that apply to my webpage.  Often you wan to render collections of Models not Models 1-by-1.  So you can build a View for a collection.
+
+We will use the following collection to match our Todo-list application.
+
+```javascript
+// app/js/collections/todolist.js
+
+TodoManager.Collections.TodoList = Backbone.Collection.extend({
+  initialize: function() {
+    // Event listeners go here
+
+  },
+  model: TodoManager.Models.Todo
+});
+```
+
+First we need to build a template to render the collection into.
+
+```html
+<script type="text/template" id="tpl-todolist">
+      <h2 class="page-header text-center">Things To Do</h2>
+      <p class="text-center">
+        <a href="#todo/new" class="btn btn-lg btn-outline">Add Item</a>
+      </p>
+      <article class="media-list media-list row small-up-1 medium-up-2 large-up-4 todolist-container "></article>
+</script>
+```
+
+And then the view to render the collection using the template.  Notice we use `that.$('.media-list)`.  Backbone provides a jQuery object you can use to select elements within the view's HTML.  We use that to select an article within the HTML to append each items' views to.  
+
+
+```javascript
+TodoManager.Views.TodoList = Backbone.View.extend( {
+  tagName: 'section',
+  className: 'media no-bullet column',
+  template: _.template($('#tpl-todolist').html()),
+  initialize:  function() {
+    // put event listeners here!
+  },
+  render:  function() {
+    var that = this;
+      // Clear the HTML with the fresh template when rendering
+    this.$el.html(this.template());
+    _.each( that.collection.models, function(item) {
+
+      var myTodoView = new TodoManager.Views.Todo ({
+          model: item
+        });
+        // Select the Media-List class article inside the template
+        // then append the item's view.
+      that.$('.media-list').append(myTodoView.render().el);
+    });
+
+    return this;
+  }
+});
+```
+
+And then in `app/js/app.js` we can create the collection and view and render it.
+
+
+```javascript
+  // Build TodoList Collection
+var myTodoList = new TodoManager.Collections.TodoList( [
+                    new TodoManager.Models.Todo({description: "JavaScript Rules", title: "Learn JavaScript", id: 1}),
+                    new TodoManager.Models.Todo({description: "Backbone Structures JavaScript", title: "Study Backbone", id: 2}),
+                    new TodoManager.Models.Todo({description: "Jamie taught us", title: "Master AJAX", id: 3}),
+                    new TodoManager.Models.Todo({description: "Rails 5", title: "Master Rails", id: 4})
+                  ]);
+  // Build TodoList View 
+var todoListView = new TodoManager.Views.TodoList({
+     collection:  myTodoList
+});
+   //  Render the view
+$('#todocontainer').append(todoListView.render().$el);
+```
+And the collection should then be rendered in the browser.  
+
+
+## Resources
+
+
