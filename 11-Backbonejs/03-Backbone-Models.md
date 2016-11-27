@@ -172,15 +172,13 @@ TodoView = Backbone.View.extend( {
     return this;
   }
 });
-
 ```
 
 And lastly to put them together.
 ```javascript
-
-$( document ).ready() {
+$( document ).ready( function() {
     // create a new Model object
-  var myTodo = new TodoManager.Models.Todo({
+  var myTodo = new Todo({
       title: "Learn Backbone!",
       description: "Backbone will help me structure my code!",
       completed: false
@@ -189,7 +187,7 @@ $( document ).ready() {
   var todoView = new TodoView({
     model: myTodo
     });
-    $('#todocontainer').append(todoView.render().$el);
+    $('#container').append(todoView.render().$el);
 });
 ```
 
