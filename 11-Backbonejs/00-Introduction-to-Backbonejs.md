@@ -71,13 +71,45 @@ To install Backbone you will need 3 JavaScript Libraries
 - **Backbone**, which is the Backbone library.  
 	- We will use Backbone 1.3.3
 
-You can find these files [here](resources/backbonejs.zip). Or, if you want to use a CDN, include the following scripts in order:
+You can find these files [here](resources/backbonejs.zip).
 
-```html
-<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-<script src="https://cdn.jsdelivr.net/underscorejs/1.8.3/underscore.js"></script>
-<script src="https://cdn.jsdelivr.net/g/backbonejs@1.3.3"></script>
+## Live Code: Task List
+As we learn about Backbone, we'll be using a running example: a task list, similar to the one we built at the beginning of Rails. The difference is, this task list will be a Single Page Application. You can find the initial setup [on GitHub](https://github.com/Ada-C6/backbone-live-code). We'll be using a very similar setup for this week's project.
+
+The live code setup is a little more complex than what we've done in the past with JavaScript. Instead of directing your browser straight to a file, we'll run a simple webserver, kind of like what we did with Rails. To get started, run the following in the command line:
+
+```bash
+$ git clone https://github.com/Ada-C6/backbone-live-code.git
+$ cd backbone-live-code
+$ npm install
+$ npm start
 ```
+
+`npm start` runs the webserver - that's what all those green boxes are. If you navigate to http://localhost:8081, you should see the words `Hello World!` in the familiar Foundation font on a white background.
+
+### Modules
+The webserver is called **webpack**, and it is what's known as a "bundler". Much like the Rails server, its job is to keep track of all the JavaScript files we write and libraries we use, and pull them all together into one application. It can even do clever tricks like detecting when the code has changed and automatically refreshing your browser window.
+
+In addition to webpack, we've included a module called **babel**. Babel is called a transpiler, and it helps deal with the fact that most browsers haven't implemented the newest version of JavaScript (ES6). Babel takes our ES6 code and turns it into older versions of JavaScript. Because we've tied it into webpack, this happens automatically - you should be able to write ES6 code and have it work in any browser.
+
+In addition to those two several other libraries have been pre-installed, including jQuery, Backbone itself, and Underscore (a Backbone dependency). These are specified in `package.json`, which will act sort of like your Gemfile in a Rails app (with `npm install` taking the place of `bundle`).
+
+For those with an unquenchable thirst for understanding, here is some documentation on this stuff:
+- [npm install](https://docs.npmjs.com/getting-started/what-is-npm)
+- [webpack](http://webpack.github.io/docs/what-is-webpack.html)
+- [babel](https://babeljs.io/)
+
+#### Relation to Backbone
+Neither babel nor webpack have anything to do whatsoever with Backbone!
+
+You can use Backbone without them, and use them without Backbone - in fact, right now Backbone is installed, but we're not using it at all. So why are we jumping through all these hoops? Because we've been learning JavaScript for 2 whole weeks, and it's time to switch to a big kids development environment!
+
+### Directory Structure
+Let's take a look at the directory structure. There are two folders we're interested in: `build` and `src`. Both these names are completely arbitrary - you can see them specified in `webpack.config.js`.
+
+Inside `build` are `index.html` and `styles`. `index.html` is the page that will be served to the browser, and `styles` is full of CSS.
+
+The `src` folder is where we'll put our JavaScript. There are a few empty folders in here which we will use eventually, but to start everything will go in `app.js`.
 
 ## Resources
 - [Underscore Documentation](http://underscorejs.org/)
