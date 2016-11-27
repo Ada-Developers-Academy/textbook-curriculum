@@ -15,71 +15,72 @@ By the end of this lesson you should be able to:
 You create your own Model classes by extending the `Backbone.Model` class:
 
 ```javascript
-var Person = Backbone.Model.extend( {
+var Todo = Backbone.Model.extend( {
 
 });
 ```
 
-Then you can create your own instances of this `Person` model:
+Then you can create your own instances of this `Todo` model:
 
 ```javascript
-var ada = new Person();
+var doThis = new Todo();
 ```
 
 Note that we use a capital letter for our Backbone model to indicate that this is a Model object.
 
 ## Constructors & Initialize
 
-Just like with Ruby, you can create constructors to initialize attributes and set up your Model.  
+Just like with Ruby, you can initialize attributes and set up your Model in an initialize function.  
 
 The `initialize` function runs, when a new instance is created. We specify the `initialize` as an object that we pass into the `extend` function.
 
 ```javascript
-var Person = Backbone.Model.extend( {
+var Todo = Backbone.Model.extend( {
   initialize: function() {
-    console.log("A new person has been instantiated.");
+    console.log("A new task has been instantiated.");
 	}
 });
 
-var ada = new Person();
+var doThis = new Todo();
 ```
 
 So if the script above is run the console will result in:
 
 ```console
-A new person has been instantiated.
+A new task has been instantiated.
 ```
 
 The defaults property lets you set default values to **attributes** for your model.  You can then retrieve those attribute values with the `get` function. We can also provide other properties to the model by including them in the object we pass to `extend`.
 
 ```javascript
-var Person = Backbone.Model.extend( {
+var Todo = Backbone.Model.extend( {
   defaults: {
-      name: "Ada",
-      age: 21
+      title: "Another task to perform",
+      description: "Gotta get it done!",
+      completed: false
   },
   initialize: function() {
-    console.log("Person has been Created");
+    console.log("Task has been Created");
   }
 });
 
-var ada = new Person();
-console.log("The person is named " + ada.get("name"));
+var job = new Todo();
+console.log("The task has a title of " + ada.get("title"));
 ```
 
 Results in:
 ```console
-Person has been Created
-The person is named Ada
+Task has been Created
+The task has a title of Another task to perform
 ```
 
 You can also pass in **attributes** to a model at instantiation via a JSON object in the parameters to new.
 
 ```javascript
-var babbage = new Person({name: "Charles Babbage", age: 65, skills: "Hardware Design, Mathematics, Flower Arrangement."});
+var danTask = new Todo({title: "Proofread Chris' work!", description: "Make sure he knows his stuff!", skillsToCheck: "Model Creation, method syntax, jQuery & AJAX"});
 ```
 
-These attributes do not necessarily need to have default values specified, or really be specified in any way. In the example above, we've provided two of the fields that we decided to set defaults for, and added another, `skills`.
+These attributes do not necessarily need to have default values specified, or really be specified in any way. In the example above, we've provided two of the fields that we decided to set defaults for, and added another, `skillsToCheck`.
 
 ## Get, Set & Unset
 
@@ -87,28 +88,28 @@ Once you have an instance of your Model you can use `get` & `set` functions to s
 
 Setting **each key/value**:
 ```javascript
-ada.set("skills", "Programming, Mathematics, Mountain Climbing.");
-ada.set("phone", "(444) 465-9122");
+danTask.set("skillsToCheck", "Programming, Mathematics, Mountain Climbing.");
+danTask.set("priority", "URGENT");
 ```
 
 Setting using an **object**:
 ```javascript
-ada.set({
-  skills: "Programming, Mathematics, Mountain Climbing.",
-  phone: "(444) 465-9122"
+danTask.set({
+  skillsToCheck: "Programming, Mathematics, Mountain Climbing.",
+  priority: "Super Urgent!"
 });
 ```
 
 ```javascript
-console.log(ada.get("phone")); // '(444) 465 9122'
-console.log(ada.get("skills")); // 'Programming, Mathematics, Mountain Climbing.'
+console.log(ada.get("priority")); // 'Super Urgent'
+console.log(ada.get("skillsToCheck")); // 'Programming, Mathematics, Mountain Climbing.'
 ```
 
 You can use `unset` to remove an attribute.
 ```javascript
-ada.unset("skills");
+ada.unset("skillsToChek");
 
-console.log(ada.get("skills")); // undefined
+console.log(ada.get("skillsToCheck")); // undefined
 ```
 
 ## Adding Additional Functions to a Model
@@ -116,22 +117,27 @@ console.log(ada.get("skills")); // undefined
 You can add additional functions to a Model like other properties:
 
 ```javascript
-var Person = Backbone.Model.extend( {
+var Todo = Backbone.Model.extend( {
   defaults: {
-      name: "Ada",
-      age: 21
+      title: "Study more Backbone!",
+      description: "Because it's an awesome Library!",
+      completed: false
   },
   initialize: function() {
-    console.log("Person has been Created");
+    console.log("Todo has been Created");
   },
-  sayHi: function() {
-    console.log(this.get("name") + " says HI!");
+  finished: function() {
+  	if (this.get("completed"))
+    	console.log(this.get("title") + " is completed!");
+    else
+    	console.log(this.get("title") + " is NOT completed!");
+
   }
 });
 
-var myPerson = new Person();
+var myTodo = new Todo();
 
-myPerson.sayHi(); // 'Ada says HI!'
+myTodo.finished(); // 'Study more Backbone! is NOT completed!'
 ```
 
 ## Rendering a Model
@@ -141,21 +147,19 @@ So we've demonstrated how to create a Model, but we've not bound it to a view to
 We can set up a new Model for a Todo List, to go with the View we created at the end of lesson 2.  
 
 ```javascript
-TodoManager.Models.Todo = Backbone.Model.extend( {
+Todo = Backbone.Model.extend( {
   defaults: {
     title: "Something to do",
     description: "",
     completed: false
   }
 });
-
 ```
 
 Now in our view we want it to actually render the Backbone Model instead of a generic JavaScript Object.  So we will use the model and call it's `.toJSON()` function.  
 
 ```javascript
-// app/views/todo.js
-TodoManager.Views.Todo = Backbone.View.extend( {
+TodoView = Backbone.View.extend( {
   tagName: 'section',
   className: 'media no-bullet column',
   template: _.template($('#tpl-todo').html()),
@@ -171,23 +175,18 @@ TodoManager.Views.Todo = Backbone.View.extend( {
 
 ```
 
-And lastly to put them together in our `app/js/app.js` file.
+And lastly to put them together.
 ```javascript
-window.TodoManager = {
-  Models: {},
-  Collections: {},
-  Views: {}
 
-};
-$(function() {
+$( document ).ready() {
     // create a new Model object
   var myTodo = new TodoManager.Models.Todo({
       title: "Learn Backbone!",
-      description: "Structure my code!",
+      description: "Backbone will help me structure my code!",
       completed: false
   });
     // create a new View with the Model attribute set.
-  var todoView = new TodoManager.Views.Todo({
+  var todoView = new TodoView({
     model: myTodo
     });
     $('#todocontainer').append(todoView.render().$el);

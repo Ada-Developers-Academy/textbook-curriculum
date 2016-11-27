@@ -163,4 +163,5 @@ Note that Underscore doesn't assume we have access to jQuery. That means the ret
 ## Additional Resources
 - [Underscore documentation](http://underscorejs.org/)
 - [SitePoint Underscore tutorial](https://www.sitepoint.com/getting-started-with-underscore-js/)
+- [Stackoverflow example of using an if-statement in a template](http://stackoverflow.com/questions/7230470/how-to-use-if-statements-in-underscore-js-templates)
 - [Handlebars: An alternative templating engine](http://handlebarsjs.com/)
