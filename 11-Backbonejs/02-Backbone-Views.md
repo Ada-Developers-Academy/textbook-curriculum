@@ -329,7 +329,51 @@ Notice that we before we start looping, we call `empty()` on the DOM object. Thi
 Right now, your code should look [like this](https://gist.github.com/droberts-ada/c415d22e2f3ab68ad22eaffbf6522020). The functionality should be the same as after we finished `TaskView`: three different tasks rendered in a list.
 
 ## File Organization
+We've written a lot of code so far in `app.js`, and if we keep down this path we're going to end up with a big gross mess. Lets take advantage of this fancy development environment to split our code into multiple files.
 
-## Resources
-- [Backbonejs View Documentation](http://backbonejs.org/#View)
-- [Backbone.js Applications Intro to Views](https://addyosmani.com/backbone-fundamentals/#views-1)
+Before we continue, it's important to note that this has absolutely nothing to do with Backbone. However, doing this organization now will help us streamline the Backbone code we write next.
+
+Much like in Rails, we're going to have each view live in a separate file. We've already got a folder for these files: `src/app/views`. Go ahead and create two files in there, `task_view.js` and `task_list_view.js`, and cut-paste the two views into those files.
+
+### Imports and Exports
+Remember how we had a bunch of lines like `import $ from 'jQuery';` at the top of app.js? You'll need similar lines at the top of your two new file. We don't need every library in every view, so try and be conservative about what you import.
+
+Next, we need to link all of our files together. At the bottoms of `task_view.js` and `task_list_view.js` add the following lines:
+
+```javascript
+// task_view.js
+export default TaskView;
+
+// task_list_view.js
+export default TaskListView;
+```
+
+Export makes something defined in this .js file available in another file. The 'default' keyword means that this is the "main" thing we're exporting from this file, and will make importing it easier.
+
+Finally, we need to import our new files where they're needed. `TaskListView` depends on `TaskView`, so add the following line to the top of `task_list_view.js`:
+
+```javascript
+import TaskView from 'app/views/task_view';
+```
+
+And similarly, our application requires `TaskListView`, so add the following line to the top of `app.js`:
+
+```javascript
+import TaskListView from 'app/views/task_list_view';
+```
+
+Notice that import paths are relative to the `src` directory. Once we've written our imports and exports, webpack should take care of the rest - you should be able to head to chrome and see the same page as before.
+
+## What Did We Accomplish?
+- Create a basic Backbone view to display a task. It had two functions:
+  - `initialize()` is run once to set everything up
+  - `render()` generates HTML, and may be run many times
+- Use the underscore templating engine to separate concerns and clean up our rendering code
+- Create a more complex Backbone view to manage our whole application
+- Organize our application into multiple files
+
+## Additional Resources
+- [Backbone View Documentation](http://backbonejs.org/#View)
+- [Backbone Applications Intro to Views](https://addyosmani.com/backbone-fundamentals/#views-1)
+- [Underscore documentation](http://underscorejs.org/)
+- [SitePoint Underscore tutorial](https://www.sitepoint.com/getting-started-with-underscore-js/)
