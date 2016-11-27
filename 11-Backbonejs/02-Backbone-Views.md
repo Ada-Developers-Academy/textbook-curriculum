@@ -28,12 +28,12 @@ var taskData = [
 Just like before we knew about Backbone, in order to display our data we'll need somewhere in our page to put it. In `build/index.html`, replace the `<div>` with the following HTML:
 
 ```html
-<main class="row">
+<main class="row" id="application">
   <section class="small-12 columns">
     <h1>Task List</h1>
   </section>
 
-  <ul id="task-list" class="small-12 large-6 columns end">
+  <ul class="task-list small-12 large-6 columns end">
   </ul>
 </main>
 ```
@@ -115,7 +115,7 @@ Then in `$(document).ready()`, call `render()`.
 
 ```javascript
 $(document).ready(function() {
-  var taskListElement = $('#task-list');
+  var taskListElement = $('.task-list');
   var taskView = new TaskView({task: taskData[0]});
   taskListElement.append(taskView.render().$el);
 });
@@ -135,7 +135,7 @@ One last step remains. Right now we're only viewing one task, but we want to see
 
 ```javascript
 $(document).ready(function() {
-  var taskListElement = $('#task-list');
+  var taskListElement = $('.task-list');
   var taskViews = []
   taskData.forEach(function(task) {
       var taskView = new TaskView({task: task});
@@ -202,7 +202,7 @@ Compiling a template is generally an expensive operation, but once compiled a te
 ```javascript
 $(document).ready(function() {
   var taskTemplate = _.template($('#task-template').html());
-  var taskListElement = $('#task-list');
+  var taskListElement = $('.task-list');
   var taskViews = []
   taskData.forEach(function(task) {
       var taskView = new TaskView({
@@ -215,7 +215,7 @@ $(document).ready(function() {
 });
 ```
 
-And finally, use our template in our view:
+And finally, use the template in our view:
 
 ```javascript
 var TaskView = Backbone.View.extend({
