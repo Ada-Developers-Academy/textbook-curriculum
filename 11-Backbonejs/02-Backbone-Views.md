@@ -145,7 +145,10 @@ $(document).ready(function() {
 });
 ```
 
-**Check-in Point:** Right now, your `app.js` should look [like this](https://gist.github.com/droberts-ada/41c26e15772b2c6986a765d002a25e82), and your site should show three different tasks.
+### Check-in Point
+Right now, your `app.js` should look [like this](https://gist.github.com/droberts-ada/41c26e15772b2c6986a765d002a25e82), and your site should show three different tasks.
+
+That's all the new functionality we'll add this lesson. There's still a lot of work to be done cleaning up our code, organizing it and preparing it for functionality added in future lessons, but the HTML that is rendered should stay the same.
 
 ## Templating
 One of the most painful parts of working with JavaScript and jQuery so far has been generating HTML. Even for small structures like our `<li>` above it's unwieldy, and the thought of building large amounts of HTML using inline strings is enough to make even the bravest Adie tremble.
@@ -236,7 +239,94 @@ var TaskView = Backbone.View.extend({
 
 And that's it. If you open up the page, you should see the same thing as before. Now, however our concerns are separated, our JavaScript is beautiful, and our app is much more maintainable.
 
-## A View of Views
+## The Application: A View of Views
+Right now, all the code to drive our application lives in `$(document).ready()`. So far this has been fine, but as we begin to grow our app adding new features and functionality will become more and more difficult unless we impose some sort of structure. To provide this structure, let's create a view for the entire app, a `TaskListView`. Similar to our `TaskView`, it will have `initialize()` and `render()` functions, which set things up and modify the DOM.
+
+```javascript
+var TaskListView = Backbone.View.extend({
+  initialize: function(options) {
+  },
+  render: function() {
+    return this; // enable chained calls
+  }
+});
+```
+
+### Using a `TaskListView`
+We will begin by discussing how our `TaskListView` ought to be used. In `$(document).ready()`, we initialize a `TaskListView` and call its `render()` function. The initialization takes two arguments. The first is our raw `taskData`, which will be rendered by the view. The second is something called `el`, which we've set to the result of a jQuery selection.
+
+```javascript
+$(document).ready(function() {
+  var taskListView = new TaskListView({
+    el: $('#application'),
+    taskData: taskData
+  });
+  taskListView.render();
+});
+```
+
+We've seen `el` before, in our `TaskView` - it's the element around which our view is wrapped. By passing it in to `initialize()`, we're telling Backbone to bind our view to an existing DOM element, rather than creating a new element that's not yet in the DOM. This has two main effects:
+- When our view changes `this.$el`, the changes will immediately be reflected in the DOM
+- Our view can do jQuery selections within its element by calling `this.$()`
+
+We are, in essence, giving our view control over part of our web page, and giving it free reign to modify that section as it needs.
+
+### Initialize
+`TaskListView.initialize()` will be responsible for most of the things we did in `$(document).ready()` before: compiling an underscore template for tasks, keeping track of the DOM object where tasks should appear, and initializing the list of `TaskView`s.
+
+```javascript
+initialize: function(options) {
+  // Store a the full list of tasks
+  this.taskData = options.taskData;
+
+  // Compile a template to be shared between the individual tasks
+  this.taskTemplate = _.template($('#task-template').html());
+
+  // Keep track of the <ul> element
+  this.listElement = this.$('.task-list');
+
+  // Create a TaskView for each task
+  this.taskViews = [];
+  this.taskData.forEach(function(task) {
+    var taskView = new TaskView({
+      task: task,
+      template: this.taskTemplate
+    });
+    this.taskViews.push(taskView);
+  }, this); // bind `this` so it's available inside forEach
+},
+```
+
+Notice that we select the `listElement` using `this.$()`, which performs a jQuery search on the element that was passed in when the view was constructed.
+
+Notice also that we don't need to save `el`. Because `el` is a Backbone thing, Backbone will keep track of it for us automatically.
+
+### Render
+In `TaskListView.render()`, we loop through the list of `TaskView`s, render each one and append the result to our DOM object.
+
+```javascript
+render: function() {
+  // Make sure the list in the DOM is empty
+  // before we start appending items
+  this.listElement.empty();
+
+  // Loop through the data assigned to this view
+  this.taskViews.forEach(function(taskView) {
+    // Cause the task to render
+    taskView.render();
+
+    // Add that HTML to our task list
+    this.listElement.append(taskView.$el);
+  }, this);
+
+  return this; // enable chained calls
+}
+```
+
+Notice that we before we start looping, we call `empty()` on the DOM object. This is important because in the future `render()` might be called many times, and if we don't clear the element first we'll get the same `TaskView`'s HTML more than once.
+
+### Check-in Point
+Right now, your code should look [like this](https://gist.github.com/droberts-ada/c415d22e2f3ab68ad22eaffbf6522020). The functionality should be the same as after we finished `TaskView`: three different tasks rendered in a list.
 
 ## File Organization
 
