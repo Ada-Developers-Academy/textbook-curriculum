@@ -47,6 +47,11 @@ var TodoView = Backbone.View.extend( {
 var myTodoView = new TodoView({ el: $("#todo") });
 ```
 
+#### el vs $el
+
+Note:  in Backbone Views `el` is the HTML element your View is rendering.  However Backbone also provides a jQuery object referencing that element named `$el`.  So `el` gives you the DOM element directly and `$el` gives you a jQuery object with all the wonderful functions jQuery provides (.hide, .show, .toggle, .css etc).  
+
+
 ### Your First Full View!
 
 Drawing the view is done in the `render` function which determines how the view displays in the DOM.  Below the
