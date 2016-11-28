@@ -158,38 +158,42 @@ Task = Backbone.Model.extend( {
 
 Now in our view we want it to actually render the Backbone Model instead of a generic JavaScript Object.  So we will use the model and call it's `.toJSON()` function.  
 
+
 ```javascript
-TaskView = Backbone.View.extend( {
-  tagName: 'section',
-  className: 'media no-bullet column',
-  template: _.template($('#tpl-task').html()),
-  initialize:  function() {
-    // put event listeners here!
-  },
+  // The render function from TaskView
   render: function() {
-  						// convert the model to JSON for the template
-    this.$el.html(this.template(this.model.toJSON()));
+  			// Notice that we've added .toJSON()
+    var html = this.template({task: this.task.toJSON()})
+    this.$el.html(html);
+
+    // Enable chained calls
     return this;
   }
+```
+
+
+And lastly to use our Models in the main Application.  
+
+
+```javascript
+$(document).ready(function() {
+  var taskList = [];
+
+  for (var i = 0; i < taskData.length; i++) {
+  		// Create each task with a title & description
+    var task = new Task(taskData[i]);
+    taskList.push(task);
+  }
+
+  var template = _.template($('#task-template').html());
+
+  var myTaskListView = new TaskListView({taskData: taskList, template: template, el: $('#application')});
+  myTaskListView.render();
 });
 ```
 
-And lastly to put them together.
-```javascript
-$( document ).ready( function() {
-    // create a new Model object
-  var myTask = new Task({
-      title: "Learn Backbone!",
-      description: "Backbone will help me structure my code!",
-      completed: false
-  });
-    // create a new View with the Model attribute set.
-  var taskView = new TaskView({
-    model: myTask
-    });
-    $('#container').append(taskView.render().$el);
-});
-```
+
+
 
 ## Resources
 - [Backbone Model & View Documentation](http://backbonejs.org/#Model-View-separation)
