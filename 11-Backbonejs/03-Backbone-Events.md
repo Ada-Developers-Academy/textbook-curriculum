@@ -51,10 +51,10 @@ $('.my-form').submit(callbackFunction);
 
 One tricky thing: by default, _any_ button in a form will emit a submit event when clicked. To disable this behavior, you need to give your HTML button a `type="button"` attribute (like we have for our clear button).
 
-### Clearing the Form
+## Clearing the Form
 It's not quite as glamorous as adding a new task, but clearing the form provides a good introduction to Backbone's event system without tying us up in complex logic, so we'll start there.
 
-#### The `events` View Property
+### The `events` View Property
 Since there's one new task form for our whole application, the `TaskListView` will be responsible for handling these events. In fact, `TaskListView` is the _only_ thing we'll need to modify for this entire lecture! All this code will go in `src/app/views/task_list_view.js`.
 
 One of the things Backbone looks for in a view besides `initialize()` and `render()` is an object called `events`, which will look something like this:
@@ -92,7 +92,7 @@ clearInput: function(event) {
 
 Now when you click the button, your application should log to the console.
 
-#### Handling the Event
+### Handling the Event
 Now that our callback is being called, we need to handle the event. We know from our experience with jQuery that we need to do the following:
 
 1. Select the DOM elements for the form inputs
@@ -115,7 +115,7 @@ initialize: function() {
 Next, in `getInput()` we need to clear those elements. The following JavaScript should do the trick:
 
 ```javascript
-clearInput: function() {
+clearInput: function(event) {
   this.input.title.val('');
   this.input.description.val('');
 }
@@ -124,7 +124,81 @@ clearInput: function() {
 #### Check-in Point
 Right now, you should be able to type things in both form fields, and when you click the "Clear" button, everything you typed should go away. Your code should look [like this](Ada C6 Backbone Views Checkin 2).
 
-### Adding a Task
+## Adding a Task
+### Try It Yourself!
+Now that you've seen how to do event handling in Backbone, work with the person next to you and attempt to add a task to the list. Remember, you're listening for a "submit" event on the `<form>`.
+
+### Listening For The Event
+Our initial setup will be very similar to the clearInput event:
+
+```javascript
+// inside TaskListView
+events: {
+  'submit .new-task': 'addTask',
+  'click .clear-button': 'clearInput'
+},
+
+addTask: function(event) {
+  event.preventDefault();
+  console.log('addTask called');
+},
+```
+
+Notice the `event.preventDefault()`. You might have seen something similar last week. What does it do? What happens if we comment it out?
+
+### Handling the Event
+Handling the addTask event will be a little trickier than clearing the form. We'll have to follow these steps:
+
+1. Get the input data from the form and turn it into a task
+  - This would be a good thing to do in a function. Let's call it `getInput()`.
+1. Add the new task to our list of tasks
+1. Create a card for the new task, and add it to our card list
+  - These two steps will look very similar to what we did in `initialize()`
+1. Re-render the whole list, now including the new card
+1. Clear the input form so the user can add another task
+  - We just wrote a function to do this in the last section!
+
+Code to do so might look like the following:
+
+```javascript
+// in TaskListView
+addTask: function(event) {
+  // Normally a form submission will refresh the page.
+  // Suppress that behavior.
+  event.preventDefault();
+
+  // Get the input data from the form and turn it into a task
+  var task = this.getInput();
+
+  // Add the new task to our list of tasks
+  this.taskData.push(task);
+
+  // Create a card for the new task, and add it to our card list
+  var card = new TaskView({
+    task: task,
+    template: this.taskTemplate
+  });
+  this.cardList.push(card);
+
+  // Re-render the whole list, now including the new card
+  this.render();
+
+  // Clear the input form so the user can add another task
+  this.clearInput();
+},
+
+// Build a task from the data entered in the .new-task form
+getInput: function() {
+  var task = {
+    title: this.input.title.val(),
+    description: this.input.description.val()
+  };
+  return task;
+},
+```
+
+#### Check-in Point
+You should now be able to add a task to the list! The clear button should also still work. Your code ought to look something [like this](https://gist.github.com/droberts-ada/b94a3bc5108e31e3d3341bafe7098445).
 
 ## What Have We Accomplished?
 
