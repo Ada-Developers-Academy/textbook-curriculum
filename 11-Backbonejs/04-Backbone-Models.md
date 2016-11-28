@@ -156,7 +156,7 @@ Task = Backbone.Model.extend( {
 });
 ```
 
-Now in our view we want it to actually render the Backbone Model instead of a generic JavaScript Object.  So we will use the model and call it's `.toJSON()` function.  
+Now in our view we want it to actually render the Backbone Model instead of a generic JavaScript Object.  So we will use the model and call it's `.toJSON()` function.  The `toJSON()` function converts our model to a generic JavaScript object and with the Model's properties.  
 
 
 ```javascript
