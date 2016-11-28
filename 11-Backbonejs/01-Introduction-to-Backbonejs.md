@@ -5,7 +5,7 @@
 By the end of this lesson you should be able to:
 
 - Explain what Backbone provides for you as a developer
-- Explain the MV* structure of Backbone
+- Explain the MV\* structure of Backbone
 
 ## What Is Backbone?
 
@@ -44,9 +44,9 @@ Backbone is typically used to create *Single Page Applications*.  In a Single Pa
 
 A good example of a Single Page Application is Gmail.  In Gmail new e-mails are loaded dynamically and when you send e-mail the page sends the information to the server without reloading the page.  This is an example of an asynchronous application.
 
-## Backbone MV*
+## Backbone MV\*
 
-Backbone implements the familiar MVC architecture that we learned in Rails in a slightly different way. In Backbone the views & controllers are combined, thus Backbone is called an MV* architecture.
+Backbone implements the familiar MVC architecture that we learned in Rails in a slightly different way. In Backbone the views & controllers are combined, thus Backbone is called an MV\* architecture.
 
 ### Backbone has 5 Components
 1. **Models**: Similar to Rails models, these include the application data and business logic. Models can:
