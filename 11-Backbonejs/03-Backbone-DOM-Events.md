@@ -139,20 +139,20 @@ Our initial setup will be very similar to the clearInput event:
 ```javascript
 // inside TaskListView
 events: {
-  'submit .new-task': 'addTask',
+  'submit .new-task': 'createTask',
   'click .clear-button': 'clearInput'
 },
 
-addTask: function(event) {
+createTask: function(event) {
   event.preventDefault();
-  console.log('addTask called');
+  console.log('createTask called');
 },
 ```
 
 Notice the `event.preventDefault()`. You might have seen something similar last week. What does it do? What happens if we comment it out?
 
 ### Handling the Event
-Handling the addTask event will be a little trickier than clearing the form. We'll have to follow these steps:
+Handling the createTask event will be a little trickier than clearing the form. We'll have to follow these steps:
 
 1. Get the input data from the form and turn it into a task
   - This would be a good thing to do in a function. Let's call it `getInput()`.
@@ -167,7 +167,7 @@ Code to do so might look like the following:
 
 ```javascript
 // in TaskListView
-addTask: function(event) {
+createTask: function(event) {
   // Normally a form submission will refresh the page.
   // Suppress that behavior.
   event.preventDefault();
@@ -201,6 +201,8 @@ getInput: function() {
   return task;
 },
 ```
+
+The observant among you might notice that we've got some shared code in `initialize()` and `createTask()`, and postulate that we might DRY up this code somehow. We will address this in the next lesson.
 
 #### Check-in Point
 You should now be able to add a task to the list! The clear button should also still work. Your code ought to look something [like this](https://gist.github.com/droberts-ada/b94a3bc5108e31e3d3341bafe7098445).
