@@ -81,10 +81,7 @@ In addition to webpack, we've included a module called **babel**. Babel is calle
 
 In addition to those two several other libraries have been pre-installed, including jQuery, Backbone itself, and Underscore (a Backbone dependency). These are specified in `package.json`, which will act sort of like your Gemfile in a Rails app (with `npm install` taking the place of `bundle`).
 
-For those with an unquenchable thirst for understanding, here is some documentation on this stuff:
-- [npm install](https://docs.npmjs.com/getting-started/what-is-npm)
-- [webpack](http://webpack.github.io/docs/what-is-webpack.html)
-- [babel](https://babeljs.io/)
+For those with an unquenchable thirst for understanding, [Ada's Backbone scaffold repository](https://github.com/AdaGold/backbone-baseline) has additional details.
 
 #### Relation to Backbone
 Neither babel nor webpack have anything to do whatsoever with Backbone!
