@@ -164,7 +164,7 @@ Now in our view we want it to actually render the Backbone Model instead of a ge
   // The render function from TaskView
   render: function() {
   			// Notice that we've added .attributes
-    var html = this.template({task: this.task.attributes})
+    var html = this.template({task: this.task.attributes});
     this.$el.html(html);
 
     // Enable chained calls
