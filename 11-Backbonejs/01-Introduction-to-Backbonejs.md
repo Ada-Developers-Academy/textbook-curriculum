@@ -60,19 +60,6 @@ Backbone implements the familiar MVC architecture that we learned in Rails in a 
 
 ![Backbone JS Architecture from http://www.slideshare.net/ronreiter/writing-html5-web-apps-using-backbonejs-and-gae](images/backbonejs-architecture.jpg)
 
-
-## Installing Backbone
-
-To install Backbone you will need 3 JavaScript Libraries
-- **jQuery**, which we use to interact with the DOM.
-	- We will use jQuery 3.1.1
-- **Underscore**, which allows us to prepare templates which we can render in our views.
-	- We will use Underscore 1.8.3
-- **Backbone**, which is the Backbone library.  
-	- We will use Backbone 1.3.3
-
-You can find these files [here](resources/backbonejs.zip).
-
 ## Live Code: Task List
 As we learn about Backbone, we'll be using a running example: a task list, similar to the one we built at the beginning of Rails. The difference is, this task list will be a Single Page Application. You can find the initial setup [on GitHub](https://github.com/Ada-C6/backbone-live-code). The initial setup lives on the branch `master`, and the final result that we're working toward lives on `live-code-sequence`.
 
