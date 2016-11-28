@@ -73,7 +73,7 @@ Let's start with `initialize()`. This function will be run once when the view is
 Views are created with the familiar `new` keyword. It will look something like this:
 
 ```javascript
-var taskView = new TaskView();
+var card = new TaskView();
 ```
 
 Right now our view isn't doing anything, so let's give it some data to keep track of. We'll create each view around one of the tasks in our list.
@@ -91,7 +91,7 @@ var TaskView = Backbone.View.extend({
 });
 
 $(document).ready(function() {
-  var taskView = new TaskView({task: taskData[0]});
+  var card = new TaskView({task: taskData[0]});
 });
 ```
 
@@ -116,16 +116,16 @@ Then in `$(document).ready()`, call `render()`.
 ```javascript
 $(document).ready(function() {
   var taskListElement = $('.task-list');
-  var taskView = new TaskView({task: taskData[0]});
-  taskListElement.append(taskView.render().$el);
+  var card = new TaskView({task: taskData[0]});
+  taskListElement.append(card.render().$el);
 });
 ```
 
 Notice that we use jQuery to select the task list in the DOM, and call `append()` to make our generated HTML show up. Notice also that, because we return `this` from `render()`, we can combine the call to `render()` and the call to `append()` in one line. This isn't strictly necessary - we could just as easily have said
 
 ```javascript
-taskView.render();
-taskListElement.append(taskView.$el);
+card.render();
+taskListElement.append(card.$el);
 ```
 
 Chaining on `render()` is a very common thing in Backbone, and much of the code you'll find on the internet assumes you're using it. It will be much less painful to get into the habit of always returning `this` from `render()` now.
@@ -136,11 +136,11 @@ One last step remains. Right now we're only viewing one task, but we want to see
 ```javascript
 $(document).ready(function() {
   var taskListElement = $('.task-list');
-  var taskViews = []
+  var cardList = []
   taskData.forEach(function(task) {
-      var taskView = new TaskView({task: task});
-      taskViews.push(taskView);
-      taskListElement.append(taskView.render().$el);
+      var card = new TaskView({task: task});
+      cardList.push(card);
+      taskListElement.append(card.render().$el);
   });
 });
 ```
@@ -162,9 +162,9 @@ import _ from 'underscore';
 ```
 
 Without diving too deep into it, to use an underscore template you must do three things:
-1. Define the template (once)
-1. Compile the template (once)
-1. Use the compiled template (every time you generate HTML)
+1.  Define the template (once)
+1.  Compile the template (once)
+1.  Use the compiled template (every time you generate HTML)
 
 ### Defining a Template
 To define the template, add the following to `build/index.html`, before the `<script src='/app.bundle.js'>` tag:
@@ -206,14 +206,14 @@ Compiling a template is generally an expensive operation, but once compiled a te
 $(document).ready(function() {
   var taskTemplate = _.template($('#task-template').html());
   var taskListElement = $('.task-list');
-  var taskViews = []
+  var cardList = []
   taskData.forEach(function(task) {
-      var taskView = new TaskView({
+      var card = new TaskView({
         task: task,
         template: taskTemplate
       });
-      taskViews.push(taskView);
-      taskListElement.append(taskView.render().$el);
+      cardList.push(card);
+      taskListElement.append(card.render().$el);
   });
 });
 ```
@@ -257,11 +257,11 @@ We will begin by discussing how our `TaskListView` ought to be used. In `$(docum
 
 ```javascript
 $(document).ready(function() {
-  var taskListView = new TaskListView({
+  var application = new TaskListView({
     el: $('#application'),
     taskData: taskData
   });
-  taskListView.render();
+  application.render();
 });
 ```
 
@@ -286,13 +286,13 @@ initialize: function(options) {
   this.listElement = this.$('.task-list');
 
   // Create a TaskView for each task
-  this.taskViews = [];
+  this.cardList = [];
   this.taskData.forEach(function(task) {
-    var taskView = new TaskView({
+    var card = new TaskView({
       task: task,
       template: this.taskTemplate
     });
-    this.taskViews.push(taskView);
+    this.cardList.push(card);
   }, this); // bind `this` so it's available inside forEach
 },
 ```
@@ -311,12 +311,12 @@ render: function() {
   this.listElement.empty();
 
   // Loop through the data assigned to this view
-  this.taskViews.forEach(function(taskView) {
+  this.cardList.forEach(function(card) {
     // Cause the task to render
-    taskView.render();
+    card.render();
 
     // Add that HTML to our task list
-    this.listElement.append(taskView.$el);
+    this.listElement.append(card.$el);
   }, this);
 
   return this; // enable chained calls
