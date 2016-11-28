@@ -162,9 +162,10 @@ import _ from 'underscore';
 ```
 
 Without diving too deep into it, to use an underscore template you must do three things:
-1.  Define the template (once)
-1.  Compile the template (once)
-1.  Use the compiled template (every time you generate HTML)
+
+1. Define the template (once)
+1. Compile the template (once)
+1. Use the compiled template (every time you generate HTML)
 
 ### Defining a Template
 To define the template, add the following to `build/index.html`, before the `<script src='/app.bundle.js'>` tag:
