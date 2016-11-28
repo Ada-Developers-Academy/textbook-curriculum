@@ -109,7 +109,7 @@ console.log(ada.get("skillsToCheck")); // 'Programming, Mathematics, Mountain Cl
 
 You can use `unset` to remove an attribute.
 ```javascript
-ada.unset("skillsToChek");
+ada.unset("skillsToCheck");
 
 console.log(ada.get("skillsToCheck")); // undefined
 ```
