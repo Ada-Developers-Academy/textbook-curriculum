@@ -1,6 +1,11 @@
 # Backbone Events
 
 ## Learning Goals
+By the end of this lecture, you should be able to...
+
+- Respond to DOM events in Backbone views
+- Compare handling events in Backbone to doing so using just jQuery
+- Confidently use Backbone event handlers to make changes to the underlying data
 
 ## Responding to User Events
 So far, our Backbone application has only been able to serve static, hard-coded data. This isn't very useful, and it's not very interesting, so let's give the user the ability to add a task to the list.
@@ -202,4 +207,12 @@ You should now be able to add a task to the list! The clear button should also s
 
 ## What Have We Accomplished?
 
+- Added an HTML form to our page to allow the user to add a task
+- Created a simple event handler to clear the form inputs
+- Created a more complex event handler to add a new task to the list
+
 ## Additional Resources
+
+- [Backbone view events](http://backbonejs.org/#View-events)
+- [Backbone event library](http://backbonejs.org/#Events)
+- [Site-point tutorial on Backbone events](http://backbonejs.org/#Events)
