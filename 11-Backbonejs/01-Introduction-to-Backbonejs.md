@@ -5,7 +5,7 @@
 By the end of this lesson you should be able to:
 
 - Explain what Backbone provides for you as a developer
-- Explain the MV* structure of Backbone
+- Explain the MV\* structure of Backbone
 
 ## What Is Backbone?
 
@@ -44,9 +44,9 @@ Backbone is typically used to create *Single Page Applications*.  In a Single Pa
 
 A good example of a Single Page Application is Gmail.  In Gmail new e-mails are loaded dynamically and when you send e-mail the page sends the information to the server without reloading the page.  This is an example of an asynchronous application.
 
-## Backbone MV*
+## Backbone MV\*
 
-Backbone implements the familiar MVC architecture that we learned in Rails in a slightly different way. In Backbone the views & controllers are combined, thus Backbone is called an MV* architecture.
+Backbone implements the familiar MVC architecture that we learned in Rails in a slightly different way. In Backbone the views & controllers are combined, thus Backbone is called an MV\* architecture.
 
 ### Backbone has 5 Components
 1. **Models**: Similar to Rails models, these include the application data and business logic. Models can:
@@ -59,19 +59,6 @@ Backbone implements the familiar MVC architecture that we learned in Rails in a 
 1. **Routers**: Routers let you add paths to the URL so that you can maintain history and allow users to jump to a specific state in your single-page-application.
 
 ![Backbone JS Architecture from http://www.slideshare.net/ronreiter/writing-html5-web-apps-using-backbonejs-and-gae](images/backbonejs-architecture.jpg)
-
-
-## Installing Backbone
-
-To install Backbone you will need 3 JavaScript Libraries
-- **jQuery**, which we use to interact with the DOM.
-	- We will use jQuery 3.1.1
-- **Underscore**, which allows us to prepare templates which we can render in our views.
-	- We will use Underscore 1.8.3
-- **Backbone**, which is the Backbone library.  
-	- We will use Backbone 1.3.3
-
-You can find these files [here](resources/backbonejs.zip).
 
 ## Live Code: Task List
 As we learn about Backbone, we'll be using a running example: a task list, similar to the one we built at the beginning of Rails. The difference is, this task list will be a Single Page Application. You can find the initial setup [on GitHub](https://github.com/Ada-C6/backbone-live-code). The initial setup lives on the branch `master`, and the final result that we're working toward lives on `live-code-sequence`.
@@ -94,10 +81,7 @@ In addition to webpack, we've included a module called **babel**. Babel is calle
 
 In addition to those two several other libraries have been pre-installed, including jQuery, Backbone itself, and Underscore (a Backbone dependency). These are specified in `package.json`, which will act sort of like your Gemfile in a Rails app (with `npm install` taking the place of `bundle`).
 
-For those with an unquenchable thirst for understanding, here is some documentation on this stuff:
-- [npm install](https://docs.npmjs.com/getting-started/what-is-npm)
-- [webpack](http://webpack.github.io/docs/what-is-webpack.html)
-- [babel](https://babeljs.io/)
+For those with an unquenchable thirst for understanding, [Ada's Backbone scaffold repository](https://github.com/AdaGold/backbone-baseline) has additional details.
 
 #### Relation to Backbone
 Neither babel nor webpack have anything to do whatsoever with Backbone!
