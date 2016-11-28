@@ -19,25 +19,27 @@ Collections are useful for storing and manipulating a group of models.
 To create a Backbone Collection you will need to extend Backbone.Collection.  As shown below you can also add models into the collection when you instantiate it.  
 
 ```javascript
-var People = Backbone.Collection.extend({
+var TaskList = Backbone.Collection.extend({
 
 });
 
 // Instantiating a People collection and starting it with some models.
-var myPeople = new People([
-					new Person({name: "Kari", title: "Ada Lead Instructor"}),
-					new Person({name: "Dan", title: "Ada Instructor"}),
-					new Person({name: "Jamie", title: "Ada Instructor"}),
-					new Person({name: "Chris", title: "Ada Instructor"}),
-					new Person({name: "Crystal", title: "Program Director"}),
-					new Person({name: "Cynthia", title: "Executive Director"})
-]);
+var myJobs = new TaskList([
+					new Task({title: 'Mow the lawn', 
+							description: 'Must be finished before BBQ on Sat afternoon'}),
+					new Task({title: 'Clean the Grill', 
+							description: 'Must be finished before the weeds swallow the dog.'}),
+					new Task({title: 'Wash the car', 
+							description: 'Due after the rain stops'}),
+					new Task({title: 'Buy the Soda', 
+							description: 'Must be at least 1/2 Dr. Pepper'})
+					]);
 
-// Adding a Person via the add method.
-myPeople.add( new Person( {name: "Korica", title: "Program Coordinator"} ) );
+// Adding a Task via the add method.
+myJobs.add( new Task( {title: "Make my list", description: "Create a shopping list"} ) );
 ```
 
-Looking at the model in the console we can see the Models are stored in the collection under the models attribute, an array, and each instance has an index number.  They also have an attribute called a `cid` which is an id that Backbone assigns to each Model instance.  Models synched with a server also have a persistent ID assigned by the server.
+Looking at the model in the console we can see the Models are stored in the collection under the models attribute, an array, and each instance has an index number.  They also have an attribute called a `cid` which is an id that Backbone assigns to each Model instance.  Models synched with a server also have a persistent `id` assigned by the server.
 
 ![Client Server](images/modelconsole.png)
 
@@ -47,14 +49,14 @@ Looking at the model in the console we can see the Models are stored in the coll
 You can retrieve a model from a Backbone collection via the `get` method which will take either the index number of the model and the Collection's `at` attribute, or via it's cid.
 
 ```javascript
-// will print Kari's model
-console.log(myPeople.at(0));
-var kari = myPeople.at(0);
+// will print a model
+console.log(myJobs.at(0));
+var task1 = myJobs.at(0);
 
 // Will retrieve the model with cid equal to "c1" from the collection, if it exists.
-console.log(myPeople.get("c1"));
+console.log(myJobs.get("c1"));
 
-var dan = myPeople.get("c1");
+var task2 = myJobs.get("c1");
 ```
 
 
@@ -63,8 +65,8 @@ var dan = myPeople.get("c1");
 You can remove models in Backbone via it's `remove` method.
 
 ```javascript
-var personToRemove = myPeople.at(3);
-myPeople.remove(personToRemove);
+var taskToRemove = myJobs.at(3);
+myJobs.remove(taskToRemove);
 ```
 
 
@@ -76,9 +78,9 @@ You can loop through a collection, known as iterating, using the `each` method. 
 
 ```javascript
 
-// Causes
-myPeople.each(function(person) {
-  person.sayHi();
+// Causes each title to print
+myJobs.each(function(task) {
+  console.log(task.get("title"));
 });
 ```
 
@@ -87,19 +89,18 @@ myPeople.each(function(person) {
 You can also get a collection of filtered results with the `where` method.  The `where` method finds array of Models matching the given attributes.
 
 ```javascript
-// Results in Dan, Jamie, Chris
-var adaInstructors = myPeople.where( { title: "Ada Instructor" });
+var jobs = myJobs.where( { title: "Wash the car" });
 
-for (var i = 0; i < adaInstructors.length; i++) {
-  console.log(adaInstructors[i].get("name");
+for (var i = 0; i < jobs.length; i++) {
+  console.log(jobs[i].get("description");
 }
 ```
 
 If you only want to find the first occurrence of the matching condition then you can use the the `findWhere` method.  The `findWhere` method returns the first matching model in the collection.  
 
 ```javascript
-// Returns the model with { name: "Cynthia", title: "Executive Director" }
-var matchingInstructor = myPeople.findWhere( { name: "Cynthia" } );
+// Returns the model with {title: 'Mow the lawn', description: 'Must be finished before BBQ on Sat afternoon'}
+var matchingInstructor = myPeople.findWhere( {title: 'Mow the lawn', description: 'Must be finished before BBQ on Sat afternoon'} );
 ```
 
 ## Pushing & Popping 
@@ -107,12 +108,11 @@ var matchingInstructor = myPeople.findWhere( { name: "Cynthia" } );
 Backbone Collections also have the `push` and `pop` methods which add an element to the rear and take an element off the rear of the collection.  
 
 ```javascript
-// Returns Cynthia object and takes it off the collection
-var popped = myPeople.pop();
+// Returns the first Task Model and takes it off the collection
+var popped = myJobs.pop();
 
-var newPerson = new Person({name: "Uma", title: "Community Engagement Manager" });
-// Put Uma into the list at the rear.
-myPeople.push(newPerson);
+var newJob = new Task({title: "Hire new Dev", description: "Need a React Dev for project X"});
+myJobs.push(newJob);
 ```
 
 
@@ -120,81 +120,84 @@ myPeople.push(newPerson);
 
 So Backbone Collections can store groups of Models, but how does that apply to my webpage.  Often you wan to render collections of Models not Models 1-by-1.  So you can build a View for a collection.
 
-We will use the following collection to match our Todo-list application.
+We will use the following collection to match our Task-list application.  We can create a new file in `src/app/collections/TaskList.js`
 
 ```javascript
-// app/js/collections/todolist.js
+// src/app/collections/TaskList.js
+import Task from 'app/models/Task';
 
-TodoList = Backbone.Collection.extend({
+var TaskList = Backbone.Collection.extend({
   initialize: function() {
     // Event listeners go here
-
   },
-  model: Todo
+  model: Task
 });
+
+export default TaskList;
 ```
 
-First we need to build a template to render the collection into.
-
-```html
-<script type="text/template" id="tpl-todolist">
-      <h2 class="page-header text-center">Things To Do</h2>
-      <p class="text-center">
-        <a href="#todo/new" class="btn btn-lg btn-outline">Add Item</a>
-      </p>
-      <article class="media-list media-list row small-up-1 medium-up-2 large-up-4 todolist-container "></article>
-</script>
-```
-
-And then the view to render the collection using the template.  Notice we use `that.$('.media-list)`.  Backbone provides a jQuery object you can use to select elements within the view's HTML.  We use that to select an article within the HTML to append each items' views to.  
-
+Then we can edit the `src/app/views/TaskListView.js` file to enable it to use our new Backbone Collection.  We only need to edit the initialize function to use the model's `.each` function instead of the Array `.forEach` function.  
 
 ```javascript
-TodoListView = Backbone.View.extend( {
-  tagName: 'section',
-  className: 'media no-bullet column',
-  template: _.template($('#tpl-todolist').html()),
-  initialize:  function() {
-    // put event listeners here!
-  },
-  render:  function() {
-    var that = this;
-      // Clear the HTML with the fresh template when rendering
-    this.$el.html(this.template());
-    _.each( that.collection.models, function(item) {
+initialize: function(options) {
+	// Set the input buttons for events.
+  this.input = {
+          title: $('#title'),
+          description: $('#description')
+  };
+  // Store a the full list of tasks
+  this.taskData = options.taskData;
 
-      var myTodoView = new TodoView ({
-          model: item
-        });
-        // Select the Media-List class article inside the template
-        // then append the item's view.
-      that.$('.media-list').append(myTodoView.render().el);
+  // Compile a template to be shared between the individual tasks
+  this.taskTemplate = _.template($('#task-template').html());
+
+  // Keep track of the <ul> element
+  this.listElement = this.$('.task-list');
+
+  // Create a TaskView for each task
+  this.cardList = [];
+  
+	// notice that we are using the Collection .each function
+  this.taskData.each(function(task) {
+    var card = new TaskView({
+      task: task,
+      template: this.taskTemplate
     });
-
-    return this;
-  }
-});
+    this.cardList.push(card);
+  }, this); // bind `this` so it's available inside forEach
+},
 ```
 
-And then in our JavaScript file we can create the collection and view and render it.
-
+And now we can edit `app.js` to use a Collection to store the Model data.  
 
 ```javascript
-  // Build TodoList Collection
-var myTodoList = new TodoManager.Collections.TodoList( [
-                    new Todo({description: "JavaScript Rules", title: "Learn JavaScript", id: 1}),
-                    new Todo({description: "Backbone Structures JavaScript", title: "Study Backbone", id: 2}),
-                    new Todo({description: "Jamie taught us", title: "Master AJAX", id: 3}),
-                    new Todo({description: "Rails 5", title: "Master Rails", id: 4})
-                  ]);
-  // Build TodoList View 
-var todoListView = new TodoList({
-     collection:  myTodoList
+$(document).ready(function() {
+	// create the Collection
+  var taskList = new TaskList([
+    new Task({
+      title: 'Mow the lawn',
+      description: 'Must be finished before BBQ on Sat afternoon'
+    }),
+    new Task({
+      title: 'Go to the Bank',
+      description: 'Need to make a transfer'
+    }),
+    new Task({
+      title: 'Tune the Piano',
+      description: 'High C is missing or something???'
+    })
+  ]);
+
+	// Create the template
+  var template = _.template($('#task-template').html());
+  
+	// Create the view of the collection
+  var myTaskListView = new TaskListView({taskData: taskList, template: template, el: $('#application')});
+  myTaskListView.render();
 });
-   //  Render the view
-$('#todocontainer').append(todoListView.render().$el);
 ```
-And the collection should then be rendered in the browser.  
+
+So it works now, but we're not really using the Power of a Collection.   Backbone Collections can provide events to communicate changes to the collection.  In the next unit we will see how to add events to our TaskList and enable them to communicate.  
 
 
 ## Resources
