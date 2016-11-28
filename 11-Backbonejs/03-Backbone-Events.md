@@ -54,7 +54,75 @@ One tricky thing: by default, _any_ button in a form will emit a submit event wh
 ### Clearing the Form
 It's not quite as glamorous as adding a new task, but clearing the form provides a good introduction to Backbone's event system without tying us up in complex logic, so we'll start there.
 
+#### The `events` View Property
+Since there's one new task form for our whole application, the `TaskListView` will be responsible for handling these events. In fact, `TaskListView` is the _only_ thing we'll need to modify for this entire lecture! All this code will go in `src/app/views/task_list_view.js`.
 
+One of the things Backbone looks for in a view besides `initialize()` and `render()` is an object called `events`, which will look something like this:
+
+```javascript
+// src/app/views/task_list_view.js
+var TaskListView = Backbone.View.extend({
+  initialize: function(options) {
+    // ...
+  },
+
+  render: function() {
+    // ...
+  },
+
+  events: {
+    'click .clear-button': 'clearInput'
+  }
+});
+```
+
+The keys in the `events` object are event strings, which have the form `"event css-selector"`. The event is the name of the event to listen for - something like "click", "submit" or "keydown". The CSS selector tells Backbone on which element(s) to expect the event. So in our example, we're looking for a "click" event on an element with class "clear-button".
+
+The values in the `events` object are the stringified names of functions to call when the corresponding event happens. So when we get a click on an element with class clear-button, Backbone will search our view for a function called clearInput and call it. We'd better go ahead and add one:
+
+```javascript
+events: {
+  'click .clear-button': 'clearInput'
+},
+
+clearInput: function(event) {
+    console.log("clearInput called");
+}
+```
+
+Now when you click the button, your application should log to the console.
+
+#### Handling the Event
+Now that our callback is being called, we need to handle the event. We know from our experience with jQuery that we need to do the following:
+
+1. Select the DOM elements for the form inputs
+1. Call `val('')` to set the current value of the input to an empty string
+
+Since the form elements aren't ever going to go away, it makes sense to keep track of them in `initialize()`. The following lines use jQuery to find the input elements and put them in an object:
+
+```javascript
+initialize: function() {
+  // ... whatever was here before ...
+
+  // Keep track of our form input fields
+  this.input = {
+    title: this.$('.new-task input[name="title"]'),
+    description: this.$('.new-task input[name="description"]')
+  };
+}
+```
+
+Next, in `getInput()` we need to clear those elements. The following JavaScript should do the trick:
+
+```javascript
+clearInput: function() {
+  this.input.title.val('');
+  this.input.description.val('');
+}
+```
+
+#### Check-in Point
+Right now, you should be able to type things in both form fields, and when you click the "Clear" button, everything you typed should go away. Your code should look [like this](Ada C6 Backbone Views Checkin 2).
 
 ### Adding a Task
 
