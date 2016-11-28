@@ -23,7 +23,7 @@ This is where Backbone models come in. Models in Backbone fill the same role the
 
 Organizing all this functionality ourselves would be a giant pain in the butt, so let's add a model to our task list!
 
-## Adding a Model
+## Adding Models
 In this first section, we will add a model to our task list without adding any new functionality. Later we'll take advantage of the model to add some new features that would be much more difficult without a model.
 
 ### Defining the Model
@@ -159,6 +159,54 @@ var TaskView = Backbone.View.extend({
 
 #### Check-in Point
 Your site should now be functioning again. We haven't added any new functionality, but you should be able to see the 3 initial tasks and add new ones. Your code should look [like this](https://gist.github.com/droberts-ada/269a7dd0d809a5c8aab5e44891499d27).
+
+## Marking a Task Complete
+To explore how Backbone models work, let's add a new feature to our site: a button to mark a task complete. A completed task should be rendered with a <strike>strike</strike> through the name, and the "mark complete" button should instead "mark incomplete".
+
+### Setup
+First, lets modify our task template to reflect this:
+
+```html
+<script type="text/template" id="task-template">
+  <li class="task row">
+    <div class="small-12 large-10 columns">
+      <h2>
+        <% if (task.complete) { %>
+          <strike>
+        <% } %>
+        <%- task.title %>
+        <% if (task.complete) { %>
+          </strike>
+        <% } %>
+      </h2>
+      <p>
+        <%- task.description %>
+      </p>
+    </div>
+    <button class="button small-12 large-2 columns complete-button">
+      Mark <%= task.complete ? "Incomplete" : "Complete" %>
+    </button>
+  </li>
+</script>
+```
+
+**Question:** Given what we know so far about views and models, what changes will we need to make to our JavaScript in order to make this happen?
+
+### Control Flow
+**XXX TODO DPR**
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Creating a Backbone Model
 
