@@ -125,6 +125,137 @@ Collection Events:
 *  `change` - This event is triggered when a model is changed in the collection.  
 
 
+## Events in our Todo App
+
+So right now we can add Tasks to our list, but we can't remove tasks and we cannot mark them as complete.  
+
+To start, lets update our card template to add buttons to each taskView that we can later use to mark the task as complete and delete it.  
+
+Take a minute to look and examine the template, just like ERB, we have if statements in our display logic.  We are also using a ternary operator with our button text.  
+
+
+```html
+<script type="text/template" id="task-template">
+    <li class="task row">
+      <div class="small-12 large-10 columns">
+        
+          <% if (task.complete) { %>
+            <h2 class="strikethrough">
+          <% } else  { %>
+          	 <h2>
+          <% } >
+          		<%- task.title %>
+        	</h2>
+        <p>
+          <%- task.description %>
+        </p>
+      </div>
+      <button class="button small-6 large-2 columns complete-button">
+        Mark <%= task.complete ? "Incomplete" : "Complete" %>
+      </button>
+      <button class="alert button small-6 large-2 columns delete-button">
+        Delete
+      </button>
+    </li>
+</script>
+```
+
+Next we can add event handlers to our TaskView so they can respond when the button is clicked on.  
+
+```javascript
+  initialize: function(options) {
+
+
+    this.template = options.template;
+
+    // Listen to our model, and re-render whenever it
+    // changes. 
+    this.listenTo(this.model, 'change', this.render);
+  },
+  events: {
+    "click .complete-button": "toggleComplete",
+    "click .delete-button": "confirmDelete"
+  },
+```
+
+Notice above that we are using listenTo, to listen for any changes to our View's model.  When the model changes the view's render method is called to redraw the Card.
+
+Next we need to put in the callback functions.  When we want to remove a model from a collection we can call it's `destroy` function which will remove that model from all collections.  
+
+```javascript
+  toggleComplete: function() {
+  		// Look ma!  No render!
+    this.model.toggleComplete();
+  },
+
+  confirmDelete: function() {
+  	this.model.destroy();
+  }
+```
+
+Notice that ToggleComplete doesn't call the render function.  Why?
+
+
+### Collection Events
+
+We also need our TaskListView to listen to the collection for when an element is removed.  When that happens we need to remove the cooresponding view from our Array of views and the list needs to be redrawn.  
+
+In our initialize function:
+
+```javascript
+// in src/views/task_list_view.js
+
+  initialize: function(options) {
+    // Compile a template to be shared between the individual tasks
+    this.taskTemplate = _.template($('#task-template').html());
+
+    // Note that we do not need to save el or model. Because
+    // these are backbone things, it copies them for us.
+
+    // Keep track of the <ul> element
+    this.listElement = this.$('.task-list');
+
+    // Keep track of our form input fields
+    this.input = {
+      title: this.$('.new-task input[name="title"]'),
+      description: this.$('.new-task input[name="description"]')
+    };
+
+    // Create a TaskView for each task
+    this.taskViews = [];
+    this.model.each(function(task) {
+      var taskView = new TaskView({
+        model: task,
+        template: this.taskTemplate
+      });
+      this.taskViews.push(taskView);
+    }, this);
+
+
+    this.listenTo(this.model, 'remove', this.removeTask);
+  },
+```
+
+And implement our callback function which will remove the deleted model's view and then redraw the entire list.
+
+```javascript
+  // The add & remove callbacks for a Collection pass us 3 arguments, 
+  // the model, collection and any options.
+  removeTask: function(model) {
+    this.taskViews = this.taskViews.filter(function(taskView) {
+      // Keep all views that don't have the deleted model
+      return taskView.model != model;
+    });
+    // after the item is deleted, redraw the list.  
+    this.render();
+  },
+```
+
+## Check-in
+
+At this point your views should look like [this:]()
+
+
 #### Word Of Caution:
 
 Sometimes you may have a View listening for events on a particular Model.  If you remove the View in the course of your program without removing the corresponding Model and without turning off any event listening this will cause the View to hang around in memory as the Model still thinks it has to notify the 'ghost view' about events, even though the View has been removed from the the program.  This is a common form of 'memory leak' in Backbone.  

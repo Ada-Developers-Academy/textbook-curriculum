@@ -116,7 +116,7 @@ myJobs.push(newJob);
 ```
 
 
-## Rendering Backbone Collections
+## Backbone Collections in Our Todo App
 
 So Backbone Collections can store groups of Models, but how does that apply to my webpage.  Often you wan to render collections of Models not Models 1-by-1.  So you can build a View for a collection.
 
@@ -172,28 +172,20 @@ And now we can edit `app.js` to use a Collection to store the Model data.
 
 ```javascript
 $(document).ready(function() {
-	// create the Collection
-  var taskList = new TaskList([
-    new Task({
-      title: 'Mow the lawn',
-      description: 'Must be finished before BBQ on Sat afternoon'
-    }),
-    new Task({
-      title: 'Go to the Bank',
-      description: 'Need to make a transfer'
-    }),
-    new Task({
-      title: 'Tune the Piano',
-      description: 'High C is missing or something???'
-    })
-  ]);
-
-	// Create the template
-  var template = _.template($('#task-template').html());
+	// Create a Collection
+  var taskList = new TaskList([]);
+  for (var i = 0; i < taskData.length; i++) {
+    taskList.add(new Task(taskData[i]));
+  }
   
-	// Create the view of the collection
-  var myTaskListView = new TaskListView({taskData: taskList, template: template, el: $('#application')});
-  myTaskListView.render();
+	// Create a TaskListView
+  var taskListView = new TaskListView({
+    el: $('#application'),
+    model: taskList
+  });
+  
+	// Render the view
+  taskListView.render();
 });
 ```
 

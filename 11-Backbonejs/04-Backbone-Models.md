@@ -50,6 +50,8 @@ So if the script above is run the console will result in:
 A new task has been instantiated.
 ```
 
+### Default Property
+
 The defaults property lets you set default values to **attributes** for your model.  You can then retrieve those attribute values with the `get` function. We can also provide other properties to the model by including them in the object we pass to `extend`.
 
 ```javascript
@@ -126,12 +128,11 @@ var Task = Backbone.Model.extend( {
   initialize: function() {
     console.log("Task has been Created");
   },
-  finished: function() {
-  	if (this.get("completed"))
-    	console.log(this.get("title") + " is completed!");
-    else
-    	console.log(this.get("title") + " is NOT completed!");
-
+  // If the task was complete mark it incomplete.
+  // If the task was incomplete mark it complete.  
+  toggleComplete: function() {
+  	var status = this.get("complete");
+  	this.set("complete", !status);
   }
 });
 
@@ -156,21 +157,31 @@ Task = Backbone.Model.extend( {
 });
 ```
 
-Now in our view we want it to actually render the Backbone Model instead of a generic JavaScript Object.  So we will use the model and call it's `.toJSON()` function.  The `toJSON()` function converts our model to a generic JavaScript object and with the Model's properties.  
+Now in our view we want it to actually render the Backbone Model instead of a generic JavaScript Object.  So we will use the model and call it's `.attributes` property.  The `attributes` property is a generic JavaScript object with our Task's properties title & description.    
 
 
 ```javascript
   // The render function from TaskView
   render: function() {
-  			// Notice that we've added .toJSON()
-    var html = this.template({task: this.task.toJSON()})
+  			// Notice that we've added .attributes
+    var html = this.template({task: this.task.attributes})
     this.$el.html(html);
 
     // Enable chained calls
     return this;
   }
 ```
+You will also need to update the TaskListView `getInput` function to use a Task model.
 
+```javascript
+  getInput: function() {
+    var task = new Task({
+      title: this.input.title.val(),
+      description: this.input.description.val()
+    });
+    return task;
+  },
+```
 
 And lastly to use our Models in the main Application.  
 
@@ -192,7 +203,10 @@ $(document).ready(function() {
 });
 ```
 
+### Check-in Point
 
+Todo:
+Your code at this point should look like this:  
 
 
 ## Resources
