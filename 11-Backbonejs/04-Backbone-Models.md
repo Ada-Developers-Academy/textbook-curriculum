@@ -205,8 +205,7 @@ $(document).ready(function() {
 
 ### Check-in Point
 
-Todo:
-Your code at this point should look like this:  
+Your code at this point should look like [this:](https://gist.github.com/CheezItMan/733e901802f3915d2387a6509a59ac3d)  
 
 
 ## Resources
