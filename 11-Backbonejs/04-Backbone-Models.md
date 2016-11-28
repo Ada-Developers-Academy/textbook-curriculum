@@ -15,15 +15,15 @@ By the end of this lesson you should be able to:
 You create your own Model classes by extending the `Backbone.Model` class:
 
 ```javascript
-var Todo = Backbone.Model.extend( {
+var Task = Backbone.Model.extend( {
 
 });
 ```
 
-Then you can create your own instances of this `Todo` model:
+Then you can create your own instances of this `Task` model:
 
 ```javascript
-var doThis = new Todo();
+var doThis = new Task();
 ```
 
 Note that we use a capital letter for our Backbone model to indicate that this is a Model object.
@@ -35,13 +35,13 @@ Just like with Ruby, you can initialize attributes and set up your Model in an i
 The `initialize` function runs, when a new instance is created. We specify the `initialize` as an object that we pass into the `extend` function.
 
 ```javascript
-var Todo = Backbone.Model.extend( {
+var Task = Backbone.Model.extend( {
   initialize: function() {
     console.log("A new task has been instantiated.");
 	}
 });
 
-var doThis = new Todo();
+var doThis = new Task();
 ```
 
 So if the script above is run the console will result in:
@@ -53,7 +53,7 @@ A new task has been instantiated.
 The defaults property lets you set default values to **attributes** for your model.  You can then retrieve those attribute values with the `get` function. We can also provide other properties to the model by including them in the object we pass to `extend`.
 
 ```javascript
-var Todo = Backbone.Model.extend( {
+var Task = Backbone.Model.extend( {
   defaults: {
       title: "Another task to perform",
       description: "Gotta get it done!",
@@ -64,7 +64,7 @@ var Todo = Backbone.Model.extend( {
   }
 });
 
-var job = new Todo();
+var job = new Task();
 console.log("The task has a title of " + ada.get("title"));
 ```
 
@@ -77,7 +77,7 @@ The task has a title of Another task to perform
 You can also pass in **attributes** to a model at instantiation via a JSON object in the parameters to new.
 
 ```javascript
-var danTask = new Todo({title: "Proofread Chris' work!", description: "Make sure he knows his stuff!", skillsToCheck: "Model Creation, method syntax, jQuery & AJAX"});
+var danTask = new Task({title: "Proofread Chris' work!", description: "Make sure he knows his stuff!", skillsToCheck: "Model Creation, method syntax, jQuery & AJAX"});
 ```
 
 These attributes do not necessarily need to have default values specified, or really be specified in any way. In the example above, we've provided two of the fields that we decided to set defaults for, and added another, `skillsToCheck`.
@@ -117,14 +117,14 @@ console.log(ada.get("skillsToCheck")); // undefined
 You can add additional functions to a Model like other properties:
 
 ```javascript
-var Todo = Backbone.Model.extend( {
+var Task = Backbone.Model.extend( {
   defaults: {
       title: "Study more Backbone!",
       description: "Because it's an awesome Library!",
       completed: false
   },
   initialize: function() {
-    console.log("Todo has been Created");
+    console.log("Task has been Created");
   },
   finished: function() {
   	if (this.get("completed"))
@@ -135,19 +135,19 @@ var Todo = Backbone.Model.extend( {
   }
 });
 
-var myTodo = new Todo();
+var myTask = new Task();
 
-myTodo.finished(); // 'Study more Backbone! is NOT completed!'
+mytask.finished(); // 'Study more Backbone! is NOT completed!'
 ```
 
 ## Rendering a Model
 
 So we've demonstrated how to create a Model, but we've not bound it to a view to be rendered in the browser.  We can look at how to do this now.
 
-We can set up a new Model for a Todo List, to go with the View we created at the end of lesson 2.  
+We can set up a new Model for a Task List, to go with the View we created at the end of lesson 2.  
 
 ```javascript
-Todo = Backbone.Model.extend( {
+Task = Backbone.Model.extend( {
   defaults: {
     title: "Something to do",
     description: "",
@@ -159,10 +159,10 @@ Todo = Backbone.Model.extend( {
 Now in our view we want it to actually render the Backbone Model instead of a generic JavaScript Object.  So we will use the model and call it's `.toJSON()` function.  
 
 ```javascript
-TodoView = Backbone.View.extend( {
+TaskView = Backbone.View.extend( {
   tagName: 'section',
   className: 'media no-bullet column',
-  template: _.template($('#tpl-todo').html()),
+  template: _.template($('#tpl-task').html()),
   initialize:  function() {
     // put event listeners here!
   },
@@ -178,16 +178,16 @@ And lastly to put them together.
 ```javascript
 $( document ).ready( function() {
     // create a new Model object
-  var myTodo = new Todo({
+  var myTask = new Task({
       title: "Learn Backbone!",
       description: "Backbone will help me structure my code!",
       completed: false
   });
     // create a new View with the Model attribute set.
-  var todoView = new TodoView({
-    model: myTodo
+  var taskView = new TaskView({
+    model: myTask
     });
-    $('#container').append(todoView.render().$el);
+    $('#container').append(taskView.render().$el);
 });
 ```
 
