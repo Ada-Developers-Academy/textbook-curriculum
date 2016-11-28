@@ -104,7 +104,7 @@ render: function() {
   html += '<h2>' + this.task.title + '</h2>';
   html += '<p>' + this.task.description + '</p>';
   html += '</li>';
-  this.$el.html($(html));
+  this.$el.html(html);
 
   // Enable chained calls
   return this;
