@@ -14,7 +14,7 @@ In Backbone a Collection is a type of Model that has other Model instances insid
 
 Using a Collection instead of an Array will bring us similar benefits to using a Model instead of a raw JavaScript Object. Collections can abstract away complex bits of logic (like only selecting Models that match a condition), they're really good at talking to APIs, and they emit events when they change.
 
-This lecture will be split into to parts, similar to the Models lecture. In the first part, we will retrofit our task list app to use a Collection instead of an array of Models, without adding any new functionality. In the second part, we will take advantage of this Collection to add a feature: the ability to delete a task.
+This lecture will be split into two parts, similar to the Models lecture. In the first part, we will retrofit our task list app to use a Collection instead of an array of Models, without adding any new functionality. In the second part, we will take advantage of this Collection to add a feature: the ability to delete a task.
 
 ## Adding a Collection
 ### Defining the Collection
@@ -34,7 +34,7 @@ export default TaskList;
 ```
 
 ### Assembling the Collection
-In `app.js`, well create a new instance of our Collection from our raw task data, and pass it to our View. First, import our new `TaskList` constructor:
+In `app.js`, we'll create a new instance of our Collection from our raw task data, and pass it to our View. First, import our new `TaskList` constructor:
 
 ```javascript
 // app.js
@@ -137,14 +137,19 @@ var TaskListView = Backbone.View.extend({
 ### Render on Update
 Our app should be back to a functional state, but there's one more change we should make now, still in `TaskListView`. Remember how bummed out we were in the last lecture about calling `render()` in `createTask()`? Well now that our View is backed by a Collection, we can do something about it.
 
-From the [Backbone docs](http://backbonejs.org/#Collection-add), when a Model is added to a Collection the collection will emit an `'update'` event. Several other actions, such as removing a Model, will also trigger this event. Subscribing to this event will look very similar to what we did with Models earlier.
+From the [Backbone docs](http://backbonejs.org/#Collection-add), when a Model is added to a Collection the collection will emit to events: an `'add'` event and an `'update'` event, in that order. Several other actions, such as removing a Model, will also trigger the `'update'` event.
 
-Let's add a call to `this.listenTo()` inside `TaskListView.initialize()`:
+Our strategy will be to listen to both events. The `'add'` handler will create a card for the newly added model, and add it to our list of cards. The `'update'` handler will re-render the page. Conveniently, we already have functions that do both these things: `addTask()` and `render()`. Because the events will always be emitted in that order, we know that the new card will be ready by the time `render()` is called.
+
+We'll add a couple calls to `this.listenTo()` inside `TaskListView.initialize()`:
 
 ```javascript
 var TaskListView = Backbone.View.extend({
   initialize: function(options) {
     // ...
+
+    // When a model is added to the collection, add a card for it
+    this.listenTo(this.model, 'add', this.addTask);
 
     // Re-render the whole list when the collection changes
     this.listenTo(this.model, 'update', this.render);
@@ -153,7 +158,28 @@ var TaskListView = Backbone.View.extend({
 });
 ```
 
-Then if you remove the call to `render()` from `createTask()`, your app should continue to work.
+Now we can remove the calls to both `addTask()` and `render()` from `createTask()`. The result is a much more compact function:
+
+```javascript
+var TaskListView = Backbone.View.extend({
+  // ...
+
+  createTask: function(event) {
+    // Normally a form submission will refresh the page.
+    // Suppress that behavior.
+    event.preventDefault();
+
+    // Add the task to our Collection
+    var rawTask = this.getInput();
+    this.model.add(rawTask);
+
+    // Clear the input form so the user can add another task
+    this.clearInput();
+  },
+
+  // ...
+});
+```
 
 #### Check-in Point
 Right now, your application should have the same functionality as before: tasks can be created and marked complete. Your code should look [like this](https://gist.github.com/droberts-ada/a1e6ed27aea789d5fddf545c843058b6).
@@ -240,16 +266,6 @@ var TaskListView = Backbone.View.extend({
     this.cardList = filteredList;
   }
 });
-```
-
-Or more succinctly
-
-```javascript
-removeTask: function(task) {
-  this.cardList = this.cardList.filter(function(card) {
-    return card.model != task;
-  });
-}
 ```
 
 ## What Have We Accomplished?
