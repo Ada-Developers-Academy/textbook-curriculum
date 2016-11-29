@@ -135,9 +135,29 @@ var TaskListView = Backbone.View.extend({
 #### Check-in Point
 Right now, your application should have the same functionality as before: tasks can be created and marked complete. Your code should look [like this](https://gist.github.com/droberts-ada/a1e6ed27aea789d5fddf545c843058b6).
 
+## Deleting Tasks
+The next feature we will add to our task list app is the ability to a delete a task. This will give us exposure to how Collections interact with the Models they contain, as well as the types of events emitted by Collections.
+
+**Question:** Given what we've seen so far with Models, what code will we need to change to achieve this feature? What will the control flow look like in the app once it's done?
+
+### Setup
+First, we need to add a delete button. Since tasks should be deleted one by one, we'll add it to our template next to the "Mark Complete" button.
+
+```html
+<button class="button small-6 large-2 columns complete-button">
+	Mark <%= task.complete ? "Incomplete" : "Complete" %>
+</button>
+<button class="alert button small-6 large-2 columns delete-button">
+	Delete
+</button>
+```
 
 
-## Creating a Collection
+
+
+
+
+## More on Collections
 
 To create a Backbone Collection you will need to extend Backbone.Collection.  As shown below you can also add models into the collection when you instantiate it.  
 
