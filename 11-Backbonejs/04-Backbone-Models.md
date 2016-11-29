@@ -255,7 +255,7 @@ var TaskView = Backbone.View.extend({
     this.template = options.template;
 
     // Listen to our model, and re-render whenever it changes.
-    this.model.bind('change', this.render.bind(this));
+    this.listenTo(this.model, 'change', this.render);
   },
 
   // ... render(), events, completeHandler() ...
@@ -265,15 +265,16 @@ var TaskView = Backbone.View.extend({
 That's pretty complex for one line, so let's break it down a little. The basic way to subscribe to a Backbone event is as follows:
 
 ```javascript
-thingThatEmitsEvents.bind('event-name', callbackFunction);
+this.listenTo(thingThatEmitsEvents, 'event-name', callbackFunction);
 ```
 
-So in our case `thingThatEmitsEvents` is `this.model`, and `'event-name'` is `'change'`. We're waiting for `this.model` to emit a `'change'` event, and then we want to call some function.
+So in our case:
 
-#### Bind and Bind
-For `callbackFunction`, we've got `this.render.bind(this)`. To understand what's going on here, remember that the `this` keyword doesn't always do what you want in a callback function. Saying `this.render.bind(this)` is like saying "I want to use `this.render`, but I also want `this` to mean what I think it means". It's similar to supplying `this` as the second argument to `forEach()` like we did yesterday. You could with some effort use a closure to accomplish the same thing.
+- `thingThatEmitsEvents` is `this.model`
+- `event-name` is `change`
+- `callbackFunction` is `this.render`
 
-The fact that calling `bind()` on a Backbone object and on a function do completely different things has the potential to be very confusing. That's OK! It's confusing stuff.
+When `this.model` emits a `change` event, `this.render` will be called.
 
 #### Why Not Render From completeHandler?
 An astute and wary student might point out: all this `get()` and `set()` and binding to model events seems like an awful amount of trouble to go to. In the last lecture, we just called `render()` directly from `TaskListView.createTask()`. Why not do the same from `TaskView.completeHandler()`?
@@ -298,4 +299,3 @@ Our new functionality should now be working. When the "Mark Complete" button is 
 - [Backbone Model & View Documentation](http://backbonejs.org/#Model-View-separation)
 - [An Intro to Backbone Models & Collections](http://liquidmedia.org/blog/2011/01/backbone-js-part-1/)
 - [Backbone Fundamentals, Models Chapter](https://addyosmani.com/backbone-fundamentals/#models-1)
-- [Tutorial on JavaScript bind()](http://javascriptissexy.com/javascript-apply-call-and-bind-methods-are-essential-for-javascript-professionals/)
