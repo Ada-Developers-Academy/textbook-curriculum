@@ -2,17 +2,140 @@
 
 ## Learning Goals
 
-At the end of this you should:
-- Be able to explain what a Backbone collection is
-- Be able to place Models into a collection
-- Be able to manipulate models in a collection
-- Be able to filter models within a collection
+At the end of this you should be able to:
+- Explain what a Backbone collection is
+- Place Models into a collection
+- Manipulate models in a collection
+- Filter models within a collection
 
-## Collection Introduction
+## Introduction
 
-In Backbone a Collection is a type of Model that has other Model instances inside it.  You can think of it as similar to an Array, as an ordered collection of Models.  
+In Backbone a Collection is a type of Model that has other Model instances inside it.  You can think of it as similar to an Array: an ordered collection of Models.  
 
-Collections are useful for storing and manipulating a group of models.
+Using a Collection instead of an Array will bring us similar benefits to using a Model instead of a raw JavaScript Object. Collections can abstract away complex bits of logic (like only selecting Models that match a condition), they're really good at talking to APIs, and they emit events when they change.
+
+This lecture will be split into to parts, similar to the Models lecture. In the first part, we will retrofit our task list app to use a Collection instead of an array of Models, without adding any new functionality. In the second part, we will take advantage of this Collection to add a feature: the ability to delete a task.
+
+## Adding a Collection
+### Defining the Collection
+The first thing we need to do is create the collection itself.  Our collection will get its own file: `app/collections/task_list.js`. As with models and views, we will call `extend()` on `Backbone.Collection`.
+
+```javascript
+// app/collections/task_list.js
+import Backbone from 'backbone';
+
+import Task from 'app/models/task';
+
+var TaskList = Backbone.Collection.extend({
+  model: Task
+});
+
+export default TaskList;
+```
+
+### Assembling the Collection
+In `app.js`, well create a new instance of our Collection from our raw task data, and pass it to our View. First, import our new `TaskList` constructor:
+
+```javascript
+// app.js
+import TaskList from 'app/collections/task_list';
+```
+
+Second, in `$(document).ready()`, instead of passing in an array of JavaScript objects when we create the `TaskListView`, we'll use them to create a `TaskList` and pass that instead.
+
+```javascript
+// app.js
+$(document).ready(function() {
+  var taskList = new TaskList(taskData);
+  var application = new TaskListView({
+    el: $('#application'),
+    model: taskList
+  });
+  application.render();
+});
+```
+
+Just like you can create a Model from a raw JavaScript object, you can create a Collection from an array of raw JavaScript objects.
+
+Remember that a Collection is just a special type of Model. This means we can pass the Collection in under the `model` property, and Backbone will mostly know what to do. In fact, most of the changes to `TaskListView` will involve _removing_ code.
+
+### Using the Collection
+We'll need to tinker with `TaskListView` in a few places - everywhere it interacts with our list of tasks. [Here is a diff](https://gist.github.com/droberts-ada/a1e6ed27aea789d5fddf545c843058b6/revisions?diff=split) if you find such things helpful.
+
+#### addTask()
+First, let's change the `addTask()` function we wrote in the model lecture. We'll no longer be working with raw JavaScript objects, so we'll accept a task Model instead, and we'll just create a view for it and add that view to our list.
+
+```javascript
+// app/views/task_list_view.js
+var TaskListView = Backbone.View.extend({
+	// ...
+
+	// Create a card for a task and add that card to our list of cards.
+  addTask: function(task) {
+    // Create a card for the new task
+    var card = new TaskView({
+      model: task,
+      template: this.taskTemplate
+    });
+
+    // Add the card to our card list
+    this.cardList.push(card);
+  },
+
+	// ...
+});
+```
+
+#### initialize()
+Next, `initialize()`. We don't need to create an empty array to store tasks, since they now live in `this.model` (our Collection). Similarly, we'll need to loop through `this.model` to add cards. Because we've already changed `addTask()`, the inside of the loop can stay the same.
+
+```javascript
+var TaskListView = Backbone.View.extend({
+  initialize: function(options) {
+    // ...
+
+    // We'll keep track of a list of task models and a list
+    // of task views.
+    this.cardList = [];
+
+    // Process each task
+    this.model.forEach(function(task) {
+      this.addTask(task);
+    }, this); // bind `this` so it's available inside forEach
+
+    // ...
+  },
+	// ...
+});
+```
+
+#### createTask()
+Finally, since `addTask()` has changed, in `createTask()` we need to turn the raw task we get from `getInput()` into a task Model and add it to our Collection. We can almost get away with a one-line change.
+
+```javascript
+// Get the input data from the form and turn it into a task
+var TaskListView = Backbone.View.extend({
+	// ...
+  render: function() {
+		// ...
+
+		// Get the input data from the form and turn it into a task
+    var rawTask = this.getInput();
+    var task = this.model.add(rawTask);
+
+    // Create a card
+    this.addTask(task);
+
+		// ...
+	},
+	// ...
+});
+```
+
+#### Check-in Point
+Right now, your application should have the same functionality as before: tasks can be created and marked complete. Your code should look [like this](https://gist.github.com/droberts-ada/a1e6ed27aea789d5fddf545c843058b6).
+
+
 
 ## Creating a Collection
 
@@ -91,7 +214,7 @@ You can also get a collection of filtered results with the `where` method.  The 
 var adaInstructors = myPeople.where( { title: "Ada Instructor" });
 
 for (var i = 0; i < adaInstructors.length; i++) {
-  console.log(adaInstructors[i].get("name");
+  console.log(adaInstructors[i].get("name"));
 }
 ```
 
@@ -102,7 +225,7 @@ If you only want to find the first occurrence of the matching condition then you
 var matchingInstructor = myPeople.findWhere( { name: "Cynthia" } );
 ```
 
-## Pushing & Popping 
+## Pushing & Popping
 
 Backbone Collections also have the `push` and `pop` methods which add an element to the rear and take an element off the rear of the collection.  
 
@@ -187,7 +310,7 @@ var myTodoList = new TodoManager.Collections.TodoList( [
                     new TodoManager.Models.Todo({description: "Jamie taught us", title: "Master AJAX", id: 3}),
                     new TodoManager.Models.Todo({description: "Rails 5", title: "Master Rails", id: 4})
                   ]);
-  // Build TodoList View 
+  // Build TodoList View
 var todoListView = new TodoManager.Views.TodoList({
      collection:  myTodoList
 });
@@ -198,5 +321,3 @@ And the collection should then be rendered in the browser.
 
 
 ## Resources
-
-
