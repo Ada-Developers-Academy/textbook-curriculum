@@ -4,9 +4,9 @@
 
 At the end of this you should be able to:
 - Explain what a Backbone collection is
-- Place Models into a collection
+- Place models into a collection
 - Manipulate models in a collection
-- Filter models within a collection
+- Respond to events emitted by collections
 
 ## Introduction
 
@@ -252,5 +252,12 @@ removeTask: function(task) {
 }
 ```
 
+## What Have We Accomplished?
 
-## Resources
+- Replace the array of Models in our `TaskListView` with a proper Backbone Collection
+- Listen to events on the Collection to know when to update our View
+- Add the ability to delete a task from our task list
+
+## Additional Resources
+- [Backbone docs on Collections](http://backbonejs.org/#Collection)
+- [cdnjs on Collections](https://cdnjs.com/libraries/backbone.js/tutorials/what-is-a-collection)
