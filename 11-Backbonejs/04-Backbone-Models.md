@@ -8,6 +8,8 @@ By the end of this lesson you should be able to:
 - Create your own Backbone Model
 - Instantiate your Backbone Model and assign attributes
 - Use some basic Backbone Model methods
+- Listen to Backbone Model events
+- Explain why `get()` and `set()` should be used on a Backbone Model
 
 ## What is a Backbone Model
 So far, all our views have been built around raw data. This works fine when the data is simple and static, but will start to become very messy as the things we do with our data get more complex.
@@ -24,9 +26,9 @@ This is where Backbone models come in. Models in Backbone fill the same role the
 Organizing all this functionality ourselves would be a giant pain in the butt, so let's add a model to our task list!
 
 ## Adding Models
-In this first section, we will add a model to our task list without adding any new functionality. Later we'll take advantage of the model to add some new features that would be much more difficult without a model.
+In this first section, we will create a model to represent a single task. We will add this model to our application without adding any new functionality. Later we'll take advantage of the model to add some new features that would be much more difficult without it.
 
-### Defining the Model
+### Defining the Task Model
 The first thing we need to do is create the model itself. Just like with views, we'll call `extend()`, this time on `Backbone.Model`. Our model will get its own file: `src/app/models/task.js`.
 
 ```javascript
@@ -46,14 +48,14 @@ var Task = Backbone.Model.extend({
 export default Task;
 ```
 
-I lied when I said we weren't going to add any new functionality. We've provided two properties in our call to `extends()`, both of which get us something new.
+I may have lied when I said we weren't going to add any new functionality. We've provided two properties in our call to `extends()`, both of which get us something new.
 
 The first property is an object called `defaults`, which sets default values for our model's attribute. When a new model is created, any attributes that aren't provided will be filled in from here. The `defaults` object is not required, nor are you required to provide a default for every attribute.
 
 The second property is one we've seen before in our views: `initialize()`. This function is called once when the model is created, and can be used to set up anything special. Right now we just log to the console.
 
 ### Using the Model
-Now that we've defined a model, we need to use it in our application.
+Now that we've defined a model to represent a task, we need to use it in our application.
 
 #### TaskListView
 Most of the work will be in `TaskListView`. We're going to be making a bunch of changes, so it might make sense to [consult this diff](https://gist.github.com/droberts-ada/78472d66dbdb3b02fde52ea6cfc3a674/revisions?diff=split).
@@ -192,207 +194,108 @@ First, lets modify our task template to reflect this:
 
 **Question:** Given what we know so far about views and models, what changes will we need to make to our JavaScript in order to make this happen?
 
-### Control Flow
-**XXX TODO DPR**
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Creating a Backbone Model
-
-You create your own Model classes by extending the `Backbone.Model` class:
+### DOM Events
+As before, we'll need to register an event handler to listen for the DOM event emitted when the user clicks the "Mark Complete" button. The button will be part of a card, and cards are managed by `TaskView`s, so we should listen for our click event there.
 
 ```javascript
-var Person = Backbone.Model.extend( {
-
-});
-```
-
-Then you can create your own instances of this `Person` model:
-
-```javascript
-var ada = new Person();
-```
-
-Note that we use a capital letter for our Backbone model to indicate that this is a Model object.
-
-## Constructors & Initialize
-
-Just like with Ruby, you can create constructors to initialize attributes and set up your Model.  
-
-The `initialize` function runs, when a new instance is created. We specify the `initialize` as an object that we pass into the `extend` function.
-
-```javascript
-var Person = Backbone.Model.extend( {
-  initialize: function() {
-    console.log("A new person has been instantiated.");
-	}
-});
-
-var ada = new Person();
-```
-
-So if the script above is run the console will result in:
-
-```console
-A new person has been instantiated.
-```
-
-The defaults property lets you set default values to **attributes** for your model.  You can then retrieve those attribute values with the `get` function. We can also provide other properties to the model by including them in the object we pass to `extend`.
-
-```javascript
-var Person = Backbone.Model.extend( {
-  defaults: {
-      name: "Ada",
-      age: 21
+// app/views/task_view.js
+var TaskView = Backbone.View.extend({
+  // ... initialize() and render() ...
+  events: {
+    "click .complete-button": "completeHandler"
   },
-  initialize: function() {
-    console.log("Person has been Created");
+
+  completeHandler: function(event) {
+    console.log("completeHandler called!");
   }
 });
-
-var ada = new Person();
-console.log("The person is named " + ada.get("name"));
 ```
 
-Results in:
-```console
-Person has been Created
-The person is named Ada
-```
-
-You can also pass in **attributes** to a model at instantiation via a JSON object in the parameters to new.
+What should `completeHandler()` do? We could have it modify the model directly, but that's not great design. Instead, as in Rails, we should put as much of our business logic as possible in the model. We'll create a `toggleComplete()` method in the model, and simply call it from the view.
 
 ```javascript
-var babbage = new Person({name: "Charles Babbage", age: 65, skills: "Hardware Design, Mathematics, Flower Arrangement."});
-```
+// app/models/task.js
+var Task = Backbone.Model.extend({
+  // ... defaults, initialize() ...
 
-These attributes do not necessarily need to have default values specified, or really be specified in any way. In the example above, we've provided two of the fields that we decided to set defaults for, and added another, `skills`.
-
-## Get, Set & Unset
-
-Once you have an instance of your Model you can use `get` & `set` functions to set its attributes. For the `set` function you may pass two arguments, an attribute name and the attribute's value. Or you may pass an object containing multiple attributes to be set on the model.
-
-Setting **each key/value**:
-```javascript
-ada.set("skills", "Programming, Mathematics, Mountain Climbing.");
-ada.set("phone", "(444) 465-9122");
-```
-
-Setting using an **object**:
-```javascript
-ada.set({
-  skills: "Programming, Mathematics, Mountain Climbing.",
-  phone: "(444) 465-9122"
-});
-```
-
-```javascript
-console.log(ada.get("phone")); // '(444) 465 9122'
-console.log(ada.get("skills")); // 'Programming, Mathematics, Mountain Climbing.'
-```
-
-You can use `unset` to remove an attribute.
-```javascript
-ada.unset("skills");
-
-console.log(ada.get("skills")); // undefined
-```
-
-## Adding Additional Functions to a Model
-
-You can add additional functions to a Model like other properties:
-
-```javascript
-var Person = Backbone.Model.extend( {
-  defaults: {
-      name: "Ada",
-      age: 21
-  },
-  initialize: function() {
-    console.log("Person has been Created");
-  },
-  sayHi: function() {
-    console.log(this.get("name") + " says HI!");
+  toggleComplete: function() {
+    var newStatus = !this.get('complete');
+    this.set('complete', newStatus);
   }
 });
-
-var myPerson = new Person();
-
-myPerson.sayHi(); // 'Ada says HI!'
 ```
 
-## Rendering a Model
-
-So we've demonstrated how to create a Model, but we've not bound it to a view to be rendered in the browser.  We can look at how to do this now.
-
-We can set up a new Model for a Todo List, to go with the View we created at the end of lesson 2.  
-
 ```javascript
-TodoManager.Models.Todo = Backbone.Model.extend( {
-  defaults: {
-    title: "Something to do",
-    description: "",
-    completed: false
-  }
-});
-
-```
-
-Now in our view we want it to actually render the Backbone Model instead of a generic JavaScript Object.  So we will use the model and call it's `.toJSON()` function.  
-
-```javascript
-// app/views/todo.js
-TodoManager.Views.Todo = Backbone.View.extend( {
-  tagName: 'section',
-  className: 'media no-bullet column',
-  template: _.template($('#tpl-todo').html()),
-  initialize:  function() {
-    // put event listeners here!
+// app/views/task_view.js
+var TaskView = Backbone.View.extend({
+  // ... initialize(), render() ...
+  events: {
+    "click .complete-button": "completeHandler"
   },
-  render: function() {
-  						// convert the model to JSON for the template
-    this.$el.html(this.template(this.model.toJSON()));
-    return this;
+
+  completeHandler: function(event) {
+    console.log("completeHandler called!");
+    this.model.toggleComplete();
   }
 });
-
 ```
 
-And lastly to put them together in our `app/js/app.js` file.
-```javascript
-window.TodoManager = {
-  Models: {},
-  Collections: {},
-  Views: {}
+### Model Events
+Notice that rather than accessing `this.complete` directly in the model, we use `this.get('complete')` and `this.set('complete', value)`. You can also use `this.unset('complete')`. **You should always use `get()` and `set()` to access or modify model data.** This allows Backbone to intercept these calls and do extra things, like validating the data or triggering events.
 
-};
-$(function() {
-    // create a new Model object
-  var myTodo = new TodoManager.Models.Todo({
-      title: "Learn Backbone!",
-      description: "Structure my code!",
-      completed: false
-  });
-    // create a new View with the Model attribute set.
-  var todoView = new TodoManager.Views.Todo({
-    model: myTodo
-    });
-    $('#todocontainer').append(todoView.render().$el);
+Model events are one of the big reasons to use Backbone models over regular JavaScript objects. When `set()` is called on a model object, it triggers the model's `change` event. It's common for a view wrapping a model to listen for that `change` event, and re-render itself when the event occurs.
+
+#### Binding to a Model Event
+A weird fact about Backbone is that the view's `events` property can only be used for DOM events. This means we'll have to bind an event handler manually, in our view's `initialize()` function.
+
+```javascript
+// app/views/task_view.js
+var TaskView = Backbone.View.extend({
+  initialize: function(options) {
+    this.template = options.template;
+
+    // Listen to our model, and re-render whenever it changes.
+    this.model.bind('change', this.render.bind(this));
+  },
+
+  // ... render(), events, completeHandler() ...
 });
 ```
+
+That's pretty complex for one line, so let's break it down a little. The basic way to subscribe to a Backbone event is as follows:
+
+```javascript
+thingThatEmitsEvents.bind('event-name', callbackFunction);
+```
+
+So in our case `thingThatEmitsEvents` is `this.model`, and `'event-name'` is `'change'`. We're waiting for `this.model` to emit a `'change'` event, and then we want to call some function.
+
+#### Bind and Bind
+For `callbackFunction`, we've got `this.render.bind(this)`. To understand what's going on here, remember that the `this` keyword doesn't always do what you want in a callback function. Saying `this.render.bind(this)` is like saying "I want to use `this.render`, but I also want `this` to mean what I think it means". It's similar to supplying `this` as the second argument to `forEach()` like we did yesterday. You could with some effort use a closure to accomplish the same thing.
+
+The fact that calling `bind()` on a Backbone object and on a function do completely different things has the potential to be very confusing. That's OK! It's confusing stuff.
+
+#### Why Not Render From completeHandler?
+An astute and wary student might point out: all this `get()` and `set()` and binding to model events seems like an awful amount of trouble to go to. In the last lecture, we just called `render()` directly from `TaskListView.createTask()`. Why not do the same from `TaskView.completeHandler()`?
+
+Good catch, hypothetical student! Ideally we shouldn't be calling `render()` in `createTask()` either, and we'll be removing it in the next lecture once we've learned a little about collections. But that doesn't address the core of the question: why listen for model events at all?
+
+The reason is, if you're a view, you have no guarantee that all changes to the model will come through you. Maybe the model comes from a database server and is updated periodically. Maybe there are multiple views for the same model, and when one changes the others should pick it up. Model events can be an effective solution to all of these problems.
+
+#### Check-in Point
+Our new functionality should now be working. When the "Mark Complete" button is clicked, the title of the task gets struck out, and the button text changes to "Mark Incomplete". Your code should look [like this](https://gist.github.com/droberts-ada/0a18925644f6f1e5db1ec11eddf7dbba).
+
+**Question:** With the person next to you, come up with a list of steps for how the app goes from button click to striking the title of the task.
+
+## What Have We Accomplished
+- Create a basic Backbone model to represent a task
+- Replace the raw JavaScript objects in our application with this model
+- Add a button to our TaskView that will mark the task complete
+- Plumb the DOM event through the TaskView to update the model
+- Listen to events on our model and re-render the card when the model changes
 
 ## Resources
 - [Backbone Model & View Documentation](http://backbonejs.org/#Model-View-separation)
--  [An Intro to Backbone Models & Collections](http://liquidmedia.org/blog/2011/01/backbone-js-part-1/)
--  [Backbone Fundamentals, Models Chapter](https://addyosmani.com/backbone-fundamentals/#models-1)
+- [An Intro to Backbone Models & Collections](http://liquidmedia.org/blog/2011/01/backbone-js-part-1/)
+- [Backbone Fundamentals, Models Chapter](https://addyosmani.com/backbone-fundamentals/#models-1)
+- [Tutorial on JavaScript bind()](http://javascriptissexy.com/javascript-apply-call-and-bind-methods-are-essential-for-javascript-professionals/)
