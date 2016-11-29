@@ -283,6 +283,23 @@ Good catch, hypothetical student! Ideally we shouldn't be calling `render()` in 
 
 The reason is, if you're a view, you have no guarantee that all changes to the model will come through you. Maybe the model comes from a database server and is updated periodically. Maybe there are multiple views for the same model, and when one changes the others should pick it up. Model events can be an effective solution to all of these problems.
 
+### Re-Delegating DOM Events
+There's a bug in our application. Marking a task complete works fine, and adding a new task works fine, but once a new task has been added you can't mark _any_ task complete. Weird!
+
+The reason has to do with how DOM event listeners work. Remember that our `completeHandler` is bound to a click event on a specific button owned by our `TaskView`. But, look at `TaskListView.render()`. The first line reads
+
+```javascript
+this.listElement.empty();
+```
+
+That wipes out all the HTML in our task list, including all the buttons the `TaskView` click handlers are attached to! All the HTML is re-generated, but the click handlers are not.
+
+The solution is to rebind `TaskView`'s click handler, whenever a `TaskView` generates new HTML. In `TaskView.render()`, add the following line:
+
+```javascript
+this.delegateEvents();
+```
+
 #### Check-in Point
 Our new functionality should now be working. When the "Mark Complete" button is clicked, the title of the task gets struck out, and the button text changes to "Mark Incomplete". Your code should look [like this](https://gist.github.com/droberts-ada/0a18925644f6f1e5db1ec11eddf7dbba).
 
