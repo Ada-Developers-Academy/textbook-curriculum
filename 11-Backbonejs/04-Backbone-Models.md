@@ -137,7 +137,6 @@ createTask: function(event) {
   // Clear the input form so the user can add another task
   this.clearInput();
 },
->>>>>>> 4ca9ec335e610e80c9ead87d002f5553c1bcdd26
 ```
 
 #### TaskView
