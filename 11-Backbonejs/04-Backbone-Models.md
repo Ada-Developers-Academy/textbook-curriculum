@@ -59,7 +59,6 @@ Now that we've defined a model to represent a task, we need to use it in our app
 
 #### TaskListView
 Most of the work will be in `TaskListView`. We're going to be making a bunch of changes, so it might make sense to [consult this diff](https://gist.github.com/droberts-ada/78472d66dbdb3b02fde52ea6cfc3a674/revisions?diff=split).
->>>>>>> 4ca9ec335e610e80c9ead87d002f5553c1bcdd26
 
 Since the `Task` model is defined in a separate file, we need to import it:
 
