@@ -125,135 +125,67 @@ Collection Events:
 *  `change` - This event is triggered when a model is changed in the collection.  
 
 
-## Events in our Todo App
+## Events in our TaskList App
 
-So right now we can add Tasks to our list, but we can't remove tasks and we cannot mark them as complete.  
+Right now we can create, delete and view our Tasks, but what about editing?  Well we could Edit the cards by reusing the existing input fields.
 
-To start, lets update our card template to add buttons to each taskView that we can later use to mark the task as complete and delete it.  
+So what we'll do:  
 
-Take a minute to look and examine the template, just like ERB, we have if statements in our display logic.  We are also using a ternary operator with our button text.  
+1.  Setup an event handler for when a task card is clicked on.  
+1.  Then we can 'trigger' an event letting our TaskListView know that we want to edit this task.
+1.  When the task Lists' listener 'hears' the event it can delete the card being edited, and put the title & description fields in the input tags.
 
+There will be drawbacks, but we'll see how it works.
 
-```html
-<script type="text/template" id="task-template">
-    <li class="task row">
-      <div class="small-12 large-10 columns">
-        
-          <% if (task.complete) { %>
-            <h2 class="strikethrough">
-          <% } else  { %>
-          	 <h2>
-          <% } >
-          		<%- task.title %>
-        	</h2>
-        <p>
-          <%- task.description %>
-        </p>
-      </div>
-      <button class="button small-6 large-2 columns complete-button">
-        Mark <%= task.complete ? "Incomplete" : "Complete" %>
-      </button>
-      <button class="alert button small-6 large-2 columns delete-button">
-        Delete
-      </button>
-    </li>
-</script>
-```
-
-Next we can add event handlers to our TaskView so they can respond when the button is clicked on.  
+### First create an Event listener in TaskView for when the `<div>` in the template is clicked on:
 
 ```javascript
-  initialize: function(options) {
-
-
-    this.template = options.template;
-
-    // Listen to our model, and re-render whenever it
-    // changes. 
-    this.listenTo(this.model, 'change', this.render);
-  },
   events: {
-    "click .complete-button": "toggleComplete",
-    "click .delete-button": "confirmDelete"
+    'click .complete-button': 'completeHandler',
+    'click .delete-button': 'deleteTask',
+    'click div': 'editTask'
+  },
+  editTask: function() {
+    // Trigger the editMe event
+    this.trigger('editMe', this);
   },
 ```
 
-Notice above that we are using listenTo, to listen for any changes to our View's model.  When the model changes the view's render method is called to redraw the Card.
+Notice that above we are **triggering** an event called `editMe` and passing any listeners a copy of `this` object.  
 
-Next we need to put in the callback functions.  When we want to remove a model from a collection we can call it's `destroy` function which will remove that model from all collections.  
-
-```javascript
-  toggleComplete: function() {
-  		// Look ma!  No render!
-    this.model.toggleComplete();
-  },
-
-  confirmDelete: function() {
-  	this.model.destroy();
-  }
-```
-
-Notice that ToggleComplete doesn't call the render function.  Why?
-
-
-### Collection Events
-
-We also need our TaskListView to listen to the collection for when an element is removed.  When that happens we need to remove the cooresponding view from our Array of views and the list needs to be redrawn.  
-
-In our initialize function:
+TaskListView needs to listen to the event however, so we'll need to add a Listener to each 'card' in our view and define a callback function.  
 
 ```javascript
-// in src/views/task_list_view.js
-
-  initialize: function(options) {
-    // Compile a template to be shared between the individual tasks
-    this.taskTemplate = _.template($('#task-template').html());
-
-    // Note that we do not need to save el or model. Because
-    // these are backbone things, it copies them for us.
-
-    // Keep track of the <ul> element
-    this.listElement = this.$('.task-list');
-
-    // Keep track of our form input fields
-    this.input = {
-      title: this.$('.new-task input[name="title"]'),
-      description: this.$('.new-task input[name="description"]')
-    };
-
-    // Create a TaskView for each task
-    this.taskViews = [];
-    this.model.each(function(task) {
-      var taskView = new TaskView({
-        model: task,
-        template: this.taskTemplate
-      });
-      this.taskViews.push(taskView);
-    }, this);
-
-
-    this.listenTo(this.model, 'remove', this.removeTask);
-  },
-```
-
-And implement our callback function which will remove the deleted model's view and then redraw the entire list.
-
-```javascript
-  // The add & remove callbacks for a Collection pass us 3 arguments, 
-  // the model, collection and any options.
-  removeTask: function(model) {
-    this.taskViews = this.taskViews.filter(function(taskView) {
-      // Keep all views that don't have the deleted model
-      return taskView.model != model;
+  addTask: function(task) {
+    var card = new TaskView({
+      model: task,
+      template: this.taskTemplate
     });
-    // after the item is deleted, redraw the list.  
-    this.render();
+    this.cardList.push(card);
+    this.listenTo(card, "editMe", this.editCard);
+  },
+  editCard: function(card) {
+      // set the title to the selected Card's title
+      this.input.title.val( card.model.get("title"));
+
+      // set the description to the selected card's description
+      this.input.description.val(card.model.get("description"));
+
+      // remove the Task from the collection
+      this.model.remove(card.model);
   },
 ```
+
+Now our TaskListView will listen for any TaskView it contains.  Further when the `editMe` event occurs our `editCard` function will run setting the form fields to the fields in the selected card's model.  Then we remove the card from our collection.  
+
+Why don't we have to remove it from our `cardList` array?  
+
+Further, if we click on cards randomly we end up deleting them...  How could we handle this better?  
+
 
 ## Check-in
 
-At this point your views should look like [this:]()
+At this point your views should look like [this:](https://gist.github.com/CheezItMan/14346e3bcf1cb25879341713a849015d)
 
 
 #### Word Of Caution:
