@@ -115,22 +115,22 @@ Finally, since `addTask()` has changed, in `createTask()` we need to turn the ra
 ```javascript
 // Get the input data from the form and turn it into a task
 var TaskListView = Backbone.View.extend({
-	// ...
-  render: function() {
-		// ...
+  // ...
+  createTask: function(event) {
+    // ...
 
-		// Get the input data from the form and turn it into a task
+    // Get the input data from the form and turn it into a task
     var task = new Task(this.getInput());
 
     // Create a card for the task
     this.addTask(task);
 
-		// Add the task to our Collection
-		this.model.add(task);
+    // Add the task to our Collection
+    this.model.add(task);
 
-		// ...
-	},
-	// ...
+    // ...
+  },
+  // ...
 });
 ```
 
