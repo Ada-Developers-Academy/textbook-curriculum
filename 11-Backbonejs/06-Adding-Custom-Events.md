@@ -140,6 +140,7 @@ There will be drawbacks, but we'll see how it works.
 ### First create an Event listener in TaskView for when the `<div>` in the template is clicked on:
 
 ```javascript
+   // in task_view.js
   events: {
     'click .complete-button': 'completeHandler',
     'click .delete-button': 'deleteTask',
@@ -156,6 +157,7 @@ Notice that above we are **triggering** an event called `editMe` and passing any
 TaskListView needs to listen to the event however, so we'll need to add a Listener to each 'card' in our view and define a callback function.  
 
 ```javascript
+    // In task_list_view.js
   addTask: function(task) {
     var card = new TaskView({
       model: task,
