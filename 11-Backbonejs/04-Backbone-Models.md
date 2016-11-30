@@ -191,7 +191,6 @@ First, lets modify our task template to reflect this:
   </li>
 </script>
 ```
->>>>>>> 4ca9ec335e610e80c9ead87d002f5553c1bcdd26
 
 **Question:** Given what we know so far about views and models, what changes will we need to make to our JavaScript in order to make this happen?
 
@@ -209,7 +208,6 @@ var TaskView = Backbone.View.extend({
   completeHandler: function(event) {
     console.log("completeHandler called!");
   }
->>>>>>> 4ca9ec335e610e80c9ead87d002f5553c1bcdd26
 });
 ```
 
@@ -225,7 +223,6 @@ var Task = Backbone.Model.extend({
     this.set('complete', newStatus);
   }
 });
->>>>>>> 4ca9ec335e610e80c9ead87d002f5553c1bcdd26
 ```
 
 ```javascript
@@ -241,7 +238,6 @@ var TaskView = Backbone.View.extend({
     this.model.toggleComplete();
   }
 });
->>>>>>> 4ca9ec335e610e80c9ead87d002f5553c1bcdd26
 ```
 
 ### Model Events
@@ -263,7 +259,6 @@ var TaskView = Backbone.View.extend({
   },
 
   // ... render(), events, completeHandler() ...
->>>>>>> 4ca9ec335e610e80c9ead87d002f5553c1bcdd26
 });
 ```
 
@@ -271,7 +266,6 @@ That's pretty complex for one line, so let's break it down a little. The basic w
 
 ```javascript
 this.listenTo(thingThatEmitsEvents, 'event-name', callbackFunction);
->>>>>>> 4ca9ec335e610e80c9ead87d002f5553c1bcdd26
 ```
 
 So in our case:
@@ -296,7 +290,6 @@ The reason has to do with how DOM event listeners work. Remember that our `compl
 
 ```javascript
 this.listElement.empty();
->>>>>>> 4ca9ec335e610e80c9ead87d002f5553c1bcdd26
 ```
 You will also need to update the TaskListView `getInput` function to use a Task model.
 
@@ -319,7 +312,6 @@ Our new functionality should now be working. When the "Mark Complete" button is 
 - Add a button to our TaskView that will mark the task complete
 - Plumb the DOM event through the TaskView to update the model
 - Listen to events on our model and re-render the card when the model changes
->>>>>>> 4ca9ec335e610e80c9ead87d002f5553c1bcdd26
 
 ## Resources
 - [Backbone Model & View Documentation](http://backbonejs.org/#Model-View-separation)
