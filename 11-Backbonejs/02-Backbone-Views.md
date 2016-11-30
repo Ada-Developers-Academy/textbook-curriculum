@@ -191,7 +191,7 @@ Before a template can be used, it must be compiled. To do so, select the templat
 ```javascript
 // app.js
 $(document).ready(function() {
-  var taskTemplate = _.template($('#task-template'));
+  var taskTemplate = _.template($('#task-template').html());
 });
 ```
 
