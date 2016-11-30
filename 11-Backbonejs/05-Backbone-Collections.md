@@ -272,7 +272,6 @@ var TaskListView = Backbone.View.extend({
 - Replace the array of Models in our `TaskListView` with a proper Backbone Collection
 - Listen to events on the Collection to know when to update our View
 - Add the ability to delete a task from our task list
->>>>>>> 4ca9ec335e610e80c9ead87d002f5553c1bcdd26
 
 ## Additional Resources
 - [Backbone docs on Collections](http://backbonejs.org/#Collection)
