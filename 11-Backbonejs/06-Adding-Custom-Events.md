@@ -117,7 +117,7 @@ this.listenTo(this.task, 'change:completed', this.filterOne);
 this.task.on('change:completed', this.filterOne);
 ```
 
-Notice that the `listenTo()` method has the listening object subscribe to another object's event.  The on method has the model, which generates the event remember to notify the callback function.  
+Notice that the `listenTo()` method has the listening object subscribe to another object's event.  The `on()` function has the task, which generates the event, remember to notify the callback function.  
 
 There's another difference between `listenTo()` and `on()`.  If you call another function `stopListening` any listeners added by `listenTo()` will be removed.  Similarly if a view is removed with the `remove()` function, all listeners using `listenTo()` will be removed because `remove` calls `stoplistening()`.  Models behave the same way, models deleted with the `destroy()` function will call `stopListening` on any subscribers using `listenTo()`.
 
@@ -132,17 +132,17 @@ You can do something like this where the last argument is the context of the eve
 
 // prints the view to the console
 this.model.on("update", function() {
-  console.log("this is:  ", this);
+  console.log("Using on this is:  ", this);
 }, this);  // <--- Note the "this" 3rd parameter.
 
 // prints the view to the console
 this.listenTo(this.model, "update", function() {
-  console.log("listenTo this = ", this);
+  console.log("Using listenTo this is ", this);
 });
 
 // prints the model to the console. 
 this.model.on("update", function() {
-  console.log("this is:  ", this);
+  console.log("Using on without 3rd argument this is: ", this);
 });
 ```
 
