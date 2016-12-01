@@ -42,7 +42,7 @@ var task = {
 
 _.extend(task, Backbone.Events);
 
-task.on("PastDue", function(message) {
+task.on("Past_Due", function(message) {
     $("#content").append("<h2>Your Task <span class='red'>" + this.task + 
     	"</span> is " + message.msg + ".</h2> <p> Current Date: " +
     	 message.date.toLocaleDateString('en-US') + "</p>")
@@ -64,7 +64,7 @@ You can have objects start and stop listening to events by using the `on()` and 
 
 The `on()` function lets the browser know that the given function is listening for the given event and to call it when that event occurs.  
 
-The `off` function causes the object to stop all or a single specific callback 'listening' to the event.  Think of it as unsubscribing to the event.  You can see it in action [here](http://codepen.io/CheezItMan/pen/bBroxm).  It's important to know that if you call off like `task.off("pastDue")` with only the name of the Event passed as an argument you will unsubscribe **all** callbacks listening to the Event.  If you want to only unsubscribe a single callback that function must be passed as the 2nd argument.  For example: `task.off("pastDue", sampleFunction);`
+The `off` function causes the object to stop all or a single specific callback 'listening' to the event.  Think of it as unsubscribing to the event.  You can see it in action [here](http://codepen.io/CheezItMan/pen/bBroxm).  It's important to know that if you call off like `task.off("Past_Due")` with only the name of the Event passed as an argument you will unsubscribe **all** callbacks listening to the Event.  If you want to only unsubscribe a single callback that function must be passed as the 2nd argument.  For example: `task.off("Past_Due", sampleFunction);`
 
 The `trigger` function causes all callbacks to the given Event to run.  You can specify an argument to pass to the callback function as a 2nd argument.  In the example above we did so here:  `task.trigger("Past_Due", {msg: "past due",
                             date: new Date()                        
