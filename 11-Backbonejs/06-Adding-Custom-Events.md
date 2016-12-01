@@ -56,7 +56,7 @@ task.trigger("Past_Due", {msg: "past due",
 You can play with this in action [here:](http://codepen.io/CheezItMan/pen/JbyrOG).
 
 
-When you fire an event with `.trigger`.  The function takes 2 parameters.  The first is the name of the event to trigger, while the second is an optional pargument to send to the function handling the event.  In the case above it was a simple message about the task being overdue.  Like above, when you need to pass multiple parameters you can simply pass a JavaScript object as the second parameter.   
+When you fire an event with `.trigger`.  The function takes 2 parameters.  The first is the name of the event to trigger, while the second is an optional argument to send to the function handling the event.  In the case above it was a simple message about the task being overdue.  Like above, when you need to pass multiple parameters you can simply pass a JavaScript object as the second parameter.   
 
 ### Events: on, off & trigger
 
