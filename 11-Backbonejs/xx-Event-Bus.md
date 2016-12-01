@@ -70,16 +70,16 @@ Now we can create an Event in the Bus and let the TodoView trigger that event to
 In the CurrentTaskView we can specify an Event on the Bus that we want to listen to.  In the initialize method: 
 
 ```javascript
-  	initialize: function(options) {
-    	this.bus = options.bus;
-    	var that = this;
-    	bus.on('taskSelected', function(model) {
-    	if (model) {
-   			that.model = model;
-   			that.render();
-    	}
-  	});
-  },
+initialize: function(options) {
+  this.bus = options.bus;
+  var that = this;
+  bus.on('taskSelected', function(model) {
+    if (model) {
+      that.model = model;
+      that.render();
+    }
+  });
+},
 ```
 
 And we can set the TodoView to trigger this event in it's click Event Handler.
