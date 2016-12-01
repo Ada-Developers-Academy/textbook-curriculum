@@ -25,11 +25,13 @@ $('#sample-button').on('click', function() {
 
 In this we added a jQuery Event to the button and caused an alert to 'fire' when the button was pressed.  Similarly we can use the Backbone.Events module to give any object the ability to 'listen to' and 'trigger' events.  
 
-Below we have created a generic JavaScript object and then used Underscore to mix-in the Backbone.Events module into the object.  Then we add an event listener for an event called, "Past_Due" to the object and Triggered the event with the `.trigger` function.  
+## Enter Backbone Custom Events
 
-Notice the `_.extend(task, Backbone.Events)` line.  The authors of Backbone have created a way to define custom events with an Object called Events, similar to the DOM events we have used earlier.  Events provides a few functions (`on()` and `listenTo()`) for event handlers to subscribe to events and a single function to "trigger" an event (named `trigger`).  
+Below we have created a generic JavaScript object and using the Backbone Events API.  
 
-Remember [Ruby Mix-ins](https://www.tutorialspoint.com/ruby/ruby_modules.htm)?  In Ruby we can define a model and use include or extend to bring those methods into existing classes as static or instance methods.  By default JavaScript doesn't really do Mix-ins, but the wonderful developers of Underscore provides a way to **Mix-in** functions from one object into another.  So below we Rubyfy Javascript to add in functionality in a mix-in fashion.  
+Notice the `_.extend(task, Backbone.Events)` line.  The authors of Backbone have created a way to define custom events with an Object called Events, similar to the DOM events we have used earlier.  Events provides a few functions (`on()` and `listenTo()`) for event handlers to subscribe to events and a single function to "trigger" an event (named `trigger`).  We're going to stick to using `listenTo()` & `trigger()` for the moment because `on()` can have unexpected consequences.  If you're burning to know why you can find out [here](http://stackoverflow.com/a/20675056/6840529).
+
+Remember [Ruby Mix-ins](https://www.tutorialspoint.com/ruby/ruby_modules.htm)?  In Ruby we can define a module and use include or extend to bring those methods into existing classes as static or instance methods.  By default JavaScript doesn't really do Mix-ins, but the wonderful developers of Underscore provides a way to **Mix-in** functions from one object into another.  So below we "Rubyfy" Javascript to add in functionality in a mix-in fashion.  
 
 ```javascript
 // generic Javascript example
@@ -42,7 +44,7 @@ var task = {
 
 _.extend(task, Backbone.Events);
 
-task.on("Past_Due", function(message) {
+task.listenTo(task, "Past_Due", function(message) {
     $("#content").append("<h2>Your Task <span class='red'>" + this.task + 
     	"</span> is " + message.msg + ".</h2> <p> Current Date: " +
     	 message.date.toLocaleDateString('en-US') + "</p>")
@@ -56,22 +58,25 @@ task.trigger("Past_Due", {msg: "past due",
 You can play with this in action [here:](http://codepen.io/CheezItMan/pen/JbyrOG).
 
 
-When you fire an event with `.trigger`.  The function takes 2 parameters.  The first is the name of the event to trigger, while the second is an optional argument to send to the function handling the event.  In the case above it was a simple message about the task being overdue.  Like above, when you need to pass multiple parameters you can simply pass a JavaScript object as the second parameter.   
+When you fire an event with `.trigger`.  The function takes 3 parameters.  
 
-### Events: on, off & trigger
+1.  The name of the object we are listening to.  In this simple case, the task is listening to itself.  Later we'll have views listening to models etc.
+1.  The name of the event to trigger, which can be any name you define, for a custom event.   
+1.  The function handling the event.  That function can be sent an optional parameter.  In this case above it was a simple message about the task being overdue.  Notice that we had it sent a JavaScript object as a parameter as a sneaky way to send it multiple values.  
 
-You can have objects start and stop listening to events by using the `on()` and `off()` functions.  
 
-The `on()` function lets the browser know that the given function is listening for the given event and to call it when that event occurs.  As we will see below there's a newer `listenTo()` function available which behaves in a similar fashion to `on()`.  
+### Events: `ListenTo()` & `trigger()`
 
-The `off` function causes the object to stop all or a single specific callback 'listening' to the event.  Think of it as unsubscribing to the event.  You can see it in action [here](http://codepen.io/CheezItMan/pen/bBroxm).  It's important to know that if you call off like `task.off("Past_Due")` with only the name of the Event passed as an argument you will unsubscribe **all** callbacks listening to the Event.  If you want to only unsubscribe a single callback that function must be passed as the 2nd argument.  For example: `task.off("Past_Due", sampleFunction);`
+Notice that listenTo takes 3 parameters, one of which is the object being listened to.  To keep the example short, I have task listening for it's own event, but you can have any object, with Events mixed in listen for another object's events.  This is a great way to get otherwise unrelated objects to communicate.  
 
-The `trigger` function causes all callbacks to the given Event to run.  You can specify an argument to pass to the callback function as a 2nd argument.  In the example above we did so here:  `task.trigger("Past_Due", {msg: "past due", date: new Date()                        
+You can cancel a `listenTo()` with  `stopListening()`.   For example: `view.stopListening(model);`, The stopListening function takes an optional argument which tells the listener which object to stop listening to.  Otherwise the listener stops listening to **everything**.  
+
+
+The `trigger()` function causes all callbacks to the given Event to run.  You can specify an argument to pass to the callback function as a 2nd argument.  In the example above we did so here:  `task.trigger("Past_Due", {msg: "past due", date: new Date()                        
 });`.
 
 
-
-## Adding Events To A View
+### Adding Events To A View
 
 There are two types of Events a View can listen for in Backbone.  The first are DOM events like we've dealt with earlier.  The second are custom events using Backbone's Event API like we've seen above.  
 
@@ -101,54 +106,9 @@ var TaskView = Backbone.View.extend({
 If you wanted to listen for a specific item within the view you could, with jQuery, specify the item using a CSS Selector.  For example if there was a block within the view with a class `title` and you wanted to listen for clicks on that block, you could put this line into the events hash `"click .title": "onTitleClick"`.  This would cause the View to listen for clicks on any element within the view and with the `title` class.  When any sub-element with that class is clicked on the `onTitleClick` event handler will run.
 
 
-Backbone Events API allows you to add event handlers with the `.on` method as you saw earlier.  This lets you create custom events that can be triggered in your Models or Views to update other objects when something occurs, a change in status, user interaction etc.  
+Backbone Events API allows you to add event handlers with the `.listenTo` method as you saw earlier.  This lets you create custom events that can be triggered in your Models or Views to update other objects when something occurs, a change in status, user interaction etc.  
 
-Looking at the TaskViews in the Codepen, we can see when a task is clicked on using a DOM event.  However it would be REALLY useful if we could update another view when a Todo item is clicked on, for example to show more details on the selected Todo item.  Thus we will return to the Backbone Events API and the idea of an Event Bus later.
-
-### listenTo 
-
-Similar to the `.on` function, the `.listenTo()` method lets a Backbone object listen to an event that occurs on another object.  Look below and see how `listenTo()` differs from the `on()` function.  The main difference between the two is the context in which they add callbacks.  `on()` lets you directly add a callback function to another object.  `listenTo()` tells an object to listen for events on another object.  This allows the 'listener' to keep track of the objects for which it is listening.  
-
-Here's another example:
-
-```javascript
-// A view listening to a Task Model's event.
-this.listenTo(this.task, 'change:completed', this.filterOne);
-this.task.on('change:completed', this.filterOne);
-```
-
-Notice that the `listenTo()` method has the listening object subscribe to another object's event.  The `on()` function has the task, which generates the event, remember to notify the callback function.  
-
-There's another difference between `listenTo()` and `on()`.  If you call another function `stopListening` any listeners added by `listenTo()` will be removed.  Similarly if a view is removed with the `remove()` function, all listeners using `listenTo()` will be removed because `remove` calls `stoplistening()`.  Models behave the same way, models deleted with the `destroy()` function will call `stopListening` on any subscribers using `listenTo()`.
-
-On the other hand listeners registered with `on()` will only stop listening if explicitly told to stop using the `off()` function.  This could result in listeners waiting around for events on models or views which have been removed, wasting memory and potentially causing unexpected errors.  
-
-The only advantage `on()` has is that with on, you can pass the context of the event.  In other words you can decide what `this` will be in the callback function.  By default, `this` in the callback function is the object that generated the event, the object who's on method you called.  However you can specify an alternative.  
-
-You can do something like this where the last argument is the context of the event handler (what `this` will refer to in the event handler).  
-
-```javascript
-// in app/views/task_list_view
-
-// prints the view to the console
-this.model.on("update", function() {
-  console.log("Using on this is:  ", this);
-}, this);  // <--- Note the "this" 3rd parameter.
-
-// prints the view to the console
-this.listenTo(this.model, "update", function() {
-  console.log("Using listenTo this is ", this);
-});
-
-// prints the model to the console. 
-this.model.on("update", function() {
-  console.log("Using on without 3rd argument this is: ", this);
-});
-```
-
-Honestly it's something that will *almost* never be used.
-
-So... when in doubt use `listenTo()`.  
+Looking at the TaskViews in the Codepen, we can see when a task is clicked on using a DOM event.  However it would be REALLY useful if we could update another view when a Task item is clicked on, for example to show more details on the selected Todo item.  Thus we will return to the Backbone Events API and the idea of an Event Bus later.
 
 
 ## Events & Collections
@@ -237,9 +197,6 @@ editCard: function(card) {
 
 Now our TaskListView will listen for any TaskView it contains.  Further when the `editMe` event occurs our `editCard` function will run setting the form fields to the fields in the selected card's model.  Then we remove the card from our collection.  
 
-Why don't we have to remove it from our `cardList` array?  
-
-Further, if we click on cards randomly we end up deleting them...  How could we handle this better?  
 
 
 ## Check-in
@@ -247,11 +204,15 @@ Further, if we click on cards randomly we end up deleting them...  How could we 
 At this point your views should look like [this:](https://gist.github.com/CheezItMan/14346e3bcf1cb25879341713a849015d)
 
 
-#### Word Of Caution:
+### Questions:  
 
-Sometimes you may have a View listening for events on a particular Model.  If you remove the View in the course of your program without removing the corresponding Model and without turning off any event listening this will cause the View to hang around in memory as the Model still thinks it has to notify the 'ghost view' about events, even though the View has been removed from the the program.  This is a common form of 'memory leak' in Backbone.  If you use `on()` you will need to make darn sure you stop listening to events manually before removing any listeners.  
+Why don't we have to remove it from our `cardList` array?  
 
-A good reason to use `listenTo()`!
+Further, if we click on cards randomly we end up deleting them...  How could we handle this better?  
+
+
+
+
 
 
 ## Resources
