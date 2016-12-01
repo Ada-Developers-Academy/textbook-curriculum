@@ -37,7 +37,9 @@ var task = {
 _.extend(task, Backbone.Events);
 
 task.on("PastDue", function(message) {
-    $("#content").append("<h2>Your Task <span class='red'>" + this.task + "</span> is " + message.msg + ".</h2> <p> Current Date: " + message.date.toLocaleDateString('en-US') + "</p>")
+    $("#content").append("<h2>Your Task <span class='red'>" + this.task + 
+    	"</span> is " + message.msg + ".</h2> <p> Current Date: " +
+    	 message.date.toLocaleDateString('en-US') + "</p>")
 });
 
 task.trigger("Past_Due", {msg: "past due",
