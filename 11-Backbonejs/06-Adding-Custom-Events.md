@@ -117,7 +117,11 @@ this.listenTo(this.task, 'change:completed', this.filterOne);
 this.task.on('change:completed', this.filterOne);
 ```
 
-Notice that the `listenTo()` method has the listening object subscribe to another object's event.  The on method has the model, which generates the event remember to notify the callback function.  There's another difference between `listenTo()` and `on()`.  If you call another function `stopListening` any listeners added by `listenTo()` will be removed.  Similarly if a view is removed with the `remove` method all listeners using `listenTo()` will be removed.  Models behave the same way, models deleted with the `destroy` method will call `stopListening` on any subscribers using `listenTo()`  In the **old** days, the only way to subscribe to an event was with the `on()` function.  That caused problems because when a view or model was removed the callback functions were still listening for events, which wasted memory and lead to unexpected behaviors.    
+Notice that the `listenTo()` method has the listening object subscribe to another object's event.  The on method has the model, which generates the event remember to notify the callback function.  
+
+There's another difference between `listenTo()` and `on()`.  If you call another function `stopListening` any listeners added by `listenTo()` will be removed.  Similarly if a view is removed with the `remove()` function, all listeners using `listenTo()` will be removed because `remove` calls `stoplistening()`.  Models behave the same way, models deleted with the `destroy()` function will call `stopListening` on any subscribers using `listenTo()`.
+
+On the other hand listeners registered with `on()` will only stop listening if explicitly told to stop using the `off()` function.  This could result in listeners waiting around for events on models or views which have been removed, wasting memory and potentially causing unexpected errors.  
 
 The only advantage `on()` has is that with on, you can pass the context of the event.  In other words you can decide what `this` will be in the callback function.  By default, `this` in the callback function is the object that generated the event, the object who's on method you called.  However you can specify an alternative.  
 
