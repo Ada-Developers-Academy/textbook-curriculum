@@ -23,7 +23,6 @@ The first thing we need to do is create the collection itself.  Our collection w
 ```javascript
 // app/collections/task_list.js
 import Backbone from 'backbone';
-
 import Task from 'app/models/task';
 
 var TaskList = Backbone.Collection.extend({

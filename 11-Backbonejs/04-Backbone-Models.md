@@ -291,7 +291,6 @@ The reason has to do with how DOM event listeners work. Remember that our `compl
 ```javascript
 this.listElement.empty();
 ```
-
 That wipes out all the HTML in our task list, including all the buttons the `TaskView` click handlers are attached to! All the HTML is re-generated, but the click handlers are not.
 
 The solution is to rebind `TaskView`'s click handler, whenever a `TaskView` generates new HTML. In `TaskView.render()`, add the following line:
