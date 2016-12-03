@@ -4,8 +4,6 @@
 By the end of this document you should be able:
 -   to explain how the Backbone Event API works
 -   to add custom events to Backbone Views, Collections & Models.
--   to explain the concept of an Event Bus
--   to use an Event Bus to enable Backbone objects to communicate.  
 
 ## Adding An Event To An Object
 
