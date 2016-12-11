@@ -15,6 +15,11 @@ We will be focusing on back-end testing of JavaScript, since it is close to what
 ### Setup
 We will utilize the basic application structure that we have used for our Backbone applications which has given us a file structure as well as some of the necessary dependencies.
 
+1. Clone this repo: https://github.com/AdaGold/scrabble-jasmine-baseline
+1. `npm install`
+1. `npm test`
+1. Copy in your original Scrabble code - watch out for those pieces that are in the baseline code that say "Do not remove"
+
 We will start with the JavaScript file `scrabble.js` which will contain our code as well as a starter spec file `scrabble.spec.js` where we will write our tests.
 
 Testing using Jasmine for JavaScript is fairly similar to what we saw with testing Ruby and Rails. As always, there are some specific differences.
