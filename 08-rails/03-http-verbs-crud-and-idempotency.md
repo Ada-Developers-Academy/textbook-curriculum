@@ -3,7 +3,7 @@
 - Learn about the different kinds of HTTP requests (the HTTP _verbs_)
 - Discuss the situations for which each _verb_ is suited
   - Define _idempotent_ and _safe_ in the context of HTTP requests
-- Explore how the acronym _CRUD_ (**C**reate **R**ead **U**pdate and **D**elete) relates to both making interactice web applications and HTTP _verbs_.
+- Explore how the acronym _CRUD_ (**C**reate **R**ead **U**pdate and **D**elete) relates to both making interactive web applications and HTTP _verbs_.
 
 ## HTTP _verbs_
 The typical http request from a client is a `GET`.  When your browser goes to [http://localhost:3000/orders](http://localhost:3000/orders) it sends an http get request.
