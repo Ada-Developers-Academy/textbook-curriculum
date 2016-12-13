@@ -22,6 +22,8 @@ We will utilize the basic application structure that we have used for our Backbo
 
 We will start with the JavaScript file `scrabble.js` which will contain our code as well as a starter spec file `scrabble.spec.js` where we will write our tests.
 
+Just be aware that you'll need to change the:  `module.exports = Scrabble;` to:  `export default Game;`  This is because we're using webpack framework we set up for Backbone.
+
 Testing using Jasmine for JavaScript is fairly similar to what we saw with testing Ruby and Rails. As always, there are some specific differences.
 
 ### Anatomy of a Test
