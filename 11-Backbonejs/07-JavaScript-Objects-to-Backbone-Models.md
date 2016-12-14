@@ -128,7 +128,7 @@ initialize: function(options) {
   this.scrabble = new Scrabble();
 }
 ```
-Because the initialize function plays much the same role as a constructor in Backbone we do many of the same actions in the initializemethod.  
+Because the initialize function plays much the same role as a constructor in Backbone we do many of the same actions in the initialize method.  
 
 We also left the defaults object in, just so we can add to it later at the end.
 
