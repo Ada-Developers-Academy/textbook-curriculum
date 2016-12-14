@@ -39,8 +39,8 @@ console.log(player1.hasWon());
 Scrabble is a fairly simple JavaScript object it has only 3 functions, one of which is a helper function.  `scoreLetter()` and `highestScoreFrom()`.  So we can first Modify it by changing the generic object to instead extend Backbone.Model.
 
 ```javascript
-const Scrabble = Backbone.Model.extend( 
-{
+const Scrabble = Backbone.Model.extend( {
+
 });
 ```
 
