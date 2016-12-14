@@ -9,7 +9,7 @@ With this live code/lecture you should develop the following skills:
 
 
 ### Baseline Setup
-The starting code with Scrabble & Player objects are located [here](https://github.com/Ada-C6/scrabble-js-to-backbone).  The file has two JavaScript files `src/scrabble.js` and `src/player.js`.  It also has two spec files `spec/scrabble_spec.js` and `spec/player_spec.js`.  
+The starting code with Scrabble & Player objects are located [here](https://github.com/CheezItMan/scrabble-js-to-backbone).  The file has two JavaScript files `src/scrabble.js` and `src/player.js`.  It also has two spec files `spec/scrabble_spec.js` and `spec/player_spec.js`.  
 
 Go ahead and fork & clone the repo.  
 
@@ -27,7 +27,7 @@ To access the REPL you should use the command `npm run repl` in your project dir
 
 ```javascript
 const Scrabble = require('scrabble').default;
-console.log(Scrabble.score("Ada");
+console.log(Scrabble.score("Ada"));
 
 const Player = require('player').default;
 var player1 = new Player("Ada");
@@ -45,17 +45,15 @@ const Scrabble = Backbone.Model.extend({
 });
 ```
 
-Note I have 2 parameters here in the extend function.  The first parameter is a JavaScript object listing instance variables that any new instance of the model will receive.  The second is a Javascript object listing static methods and attributes that will apply to the Model.  In other words if you provided an attribute to the second parameter attribute all instances of Scrabble would share that property.  
+The argument to extend a JavaScript object listing attributes and functions that any new instance of the model will have.  The second is optional and we'll skip it here.  
 
-Since the generic Scrabble object only had static methods, no instance data, we can give it only static functions.
+Since the generic Scrabble object only a few functions, no instance data, that makes a conversion relatively straightforward.
 
 As an example if we wanted to give a static function `sample()` to Scrabble we could do it this way:
 
 ```javascript
-const Scrabble = Backbone.Model.extend({
-  // instance functions/attributes go here!
-},
-{  // static functions go here!
+const Scrabble = Backbone.Model.extend(
+{  
   sample: function() {
     console.log("This works!");
   }
@@ -109,8 +107,8 @@ const Player = Backbone.Model.extend({
   initialize: function(options) {
     this.name = options.name;
     this.plays = [];
+    this.scrabble = new Scrabble();
   },
-  {} // optional static properties object
 });
 ```
 
@@ -120,6 +118,7 @@ Notice that we changed this:
 const Player = function(name) {
   this.name = name;
   this.plays = [];
+  this.scrabble = new Scrabble();
 };
 ```
 
@@ -129,6 +128,7 @@ to this:
 initialize: function(options) {
   this.name = options.name;
   this.plays = [];
+  this.scrabble = new Scrabble();
 }
 ```
 Because the initialize function plays much the same role as a constructor in Backbone.  
@@ -185,7 +185,7 @@ const Player = Backbone.Model.extend({
     name: "Player-?"
   },
   initialize: function(options) {
-
+    this.scrabble = new Scrabble();
   },
 	...
 ```
@@ -199,6 +199,8 @@ var player1 = new Player({
 ```
 
 
+
+
 ## What!  All My Tests Broke!
 
 Yes, the tests were written using the attribute instead of using `get()` and `set()`, and yes OMG that's a lot to change.  
@@ -209,6 +211,7 @@ The primary changes in the JavaScript tests are:
 
 1.  Convert direct changes of an attribute to use the `set()` function.  `player1.name = "bob";` to `player1.set('name', 'bob');`
 1.  Convert reads of the attribute to use the `get()` function.
+1.  You will have to change the `beforeEach()` function to create the Player in a Backbone fashion
 
 
 ## JS Objects vs Backbone Models
@@ -227,5 +230,4 @@ When you use Backbone Models you need to remember:
 -  Thanks to Emily for the original JavaScript code
 -  [Backbone & Jasmine Testing](https://www.youtube.com/watch?v=GqEzbKoKbsI&t=1144s)
 	- [Source Code](https://github.com/brendajin/jasmine-backbone)
-
 
