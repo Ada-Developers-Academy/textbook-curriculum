@@ -141,6 +141,8 @@ beforeEach(function() {
 });
 ```
 
+*Note:* `beforeEach()` is a handy way to DRY-up your testing code.  It gets run before every test.
+
 ### Now add the rest of the functions
 
 Next you and your partner finish migrating the rest of the functions into the Backbone Model.
