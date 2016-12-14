@@ -46,7 +46,7 @@ const Scrabble = Backbone.Model.extend( {
 
 The argument to extend is a JavaScript object listing attributes and functions that any new instance of the model will have.  The second is optional and we'll skip it here.  
 
-Since the generic Scrabble object only a few functions, no instance data, that makes a conversion relatively straightforward.
+Since the generic Scrabble object only has a few functions, no instance data, that makes a conversion relatively straightforward.
 
 As an example if we wanted to give a function `sample()` to Scrabble we could do it this way:
 
