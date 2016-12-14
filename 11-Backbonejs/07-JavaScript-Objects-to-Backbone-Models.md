@@ -39,8 +39,7 @@ console.log(player1.hasWon());
 Scrabble is a fairly simple JavaScript object it has only 3 'static' function, one of which is a helper function.  `scoreLetter()` and `highestScoreFrom()`.  So we can first Modify it by changing the generic object to instead extend Backbone.Model.
 
 ```javascript
-const Scrabble = Backbone.Model.extend({
-}, 
+const Scrabble = Backbone.Model.extend( 
 {
 });
 ```
@@ -63,9 +62,7 @@ const Scrabble = Backbone.Model.extend(
 Notice that the function has the `name: function() { ...` syntax instead of `Scrabble.prototype.name = function() {...`.  We can convert the scoreLetter function this way.
 
 ```javascript
-const Scrabble = Backbone.Model.extend({
-
-}, 
+const Scrabble = Backbone.Model.extend(
 {
   scoreLetter: function(letter) {
     letter = letter.toUpperCase();
@@ -131,7 +128,7 @@ initialize: function(options) {
   this.scrabble = new Scrabble();
 }
 ```
-Because the initialize function plays much the same role as a constructor in Backbone.  
+Because the initialize function plays much the same role as a constructor in Backbone we do many of the same actions in the initializemethod.  
 
 We also left the defaults object in, just so we can add to it later at the end.
 
@@ -146,7 +143,7 @@ beforeEach(function() {
 
 ### Now add the rest of the functions
 
-Next you an your partner finish migrating the rest of the functions into the Backbone Model.
+Next you and your partner finish migrating the rest of the functions into the Backbone Model.
 
 Then run your tests with `npm test`
 
@@ -172,7 +169,7 @@ For this we need to understand the difference between Backbone attributes (which
 
 For what we're doing so far, Backbone Attributes are a bit of overkill, but they do provide a few features which could be useful in... Tic-Tac-Toe!
 
-1.  Changing a Backbone Attribute triggers the `change` event on the model, which can be critical in rendering a model in a view.  
+1.  Changing a Backbone Attribute triggers the `change` event on the model, which can be critical in rendering a model using a view.  
 1.  Backbone has a `fetch()` and a `save()` function which could potentially help you connect a model with a server's API to get and save data, assuming the attributes match attributes specified in the API.  Hmmm... maybe reading an API ahead of time is a good idea.  Don't worry, if they don't exactly match, there's a work-around.  
 
 You can convert plays and name to attributes here.
@@ -203,7 +200,7 @@ var player1 = new Player({
 
 ## What!  All My Tests Broke!
 
-Yes, the tests were written using the attribute instead of using `get()` and `set()`, and yes OMG that's a lot to change.  
+Yes, the tests were written using instance variables instead of using `get()` and `set()`, and yes **OMG** that's a lot to change.  
 
 Don't worry, you can find working tests [here](https://gist.github.com/CheezItMan/2d617fc903bf381c549b2859cc13c0bf).
 
@@ -220,7 +217,7 @@ Backbone Models are JavaScript Objects with a number of additional functions inh
 
 When you use Backbone Models you need to remember:
 
-1.  You can determine how the model is set up with the `initialize()` function.  
+1.  You can decide how the model is set up with the `initialize()` function.  
 1.  Instance functions are passed in via an object in the 1st argument to the extend function.  
 1.  Static functions are passed in via an optional 2nd argument to extend.  
 1.  Backbone attributes are useful when you want to synch data with a server via an API or when you want the `change` event to trigger when they are modified.  
