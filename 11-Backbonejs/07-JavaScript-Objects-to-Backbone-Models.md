@@ -18,7 +18,7 @@ Then take a minute to look at the `scrabble.js` and `player.js` together with yo
 #### Commands
 Because this uses the scaffold you still need to run `npm install` after forking and cloning the repository. **You do not need to run** `npm start` as we won't have a web application.
 
-To run your tests you should use the command `npm test`.
+To run your tests you should use the command `npm test`.  **Please Run your tests before starting to make sure things are working.**
 
 #### Using the REPL
 If you want to interact with the Scrabble objects in the terminal via a REPL, you'll need to do things in a specific way (due to the scaffold's use of webpack).
