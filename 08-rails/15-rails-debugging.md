@@ -1,4 +1,4 @@
-# Rails Request State
+# Rails Debugging
 ## Learning Goals
 - Practice tracking and identifying the _state_ of a Rails application at any point
 - Practice with a _better errors_, a debugging tool to help us understand _state_
@@ -44,7 +44,7 @@ Ruby code works by calling a series of methods.  Each time a method is called, r
 
 If we take a look at the _stack trace_ above we will see the error we encountered. We can skip the first two lines because we didn't write that code. These were added *after* the error occurred, as the app was trying to figure out if it could rescue itself. The third line, highlighted, is where our error actually happened. Below that third line is the history of files, classes and methods leading up to the error.
 
-Only a few times in my career has the error been the fault of code I didn't write, like a bug in Rails or similar. In almost every case, I broke it. When reading a _stack trace_, start at the top and go down until you find a reference to some code that _you_ wrote and begin your debugging/research there. 
+Only a few times in my career has the error been the fault of code I didn't write, like a bug in Rails or similar. In almost every case, I broke it. When reading a _stack trace_, start at the top and go down until you find a reference to some code that _you_ wrote and begin your debugging/research there.
 
 ## Debugging _state_
 
