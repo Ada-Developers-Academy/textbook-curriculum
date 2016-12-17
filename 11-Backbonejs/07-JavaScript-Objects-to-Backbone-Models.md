@@ -36,7 +36,7 @@ console.log(player1.hasWon());
 
 ## Converting Scrabble to a Backbone Model
 
-Scrabble is a fairly simple JavaScript object it has only 3 functions, one of which is a helper function.  `scoreLetter()` and `highestScoreFrom()`.  So we can first Modify it by changing the generic object to instead extend Backbone.Model.
+Scrabble is a fairly simple JavaScript object. It has only 3 functions, one of which is a helper function.  `scoreLetter()` and `highestScoreFrom()`.  So we can first Modify it by changing the generic object to instead extend Backbone.Model.
 
 ```javascript
 const Scrabble = Backbone.Model.extend( {
@@ -91,7 +91,7 @@ Now check your results with [this Gist](https://gist.github.com/CheezItMan/b8e42
 
 ## Converting Player to Backbone
 
-Player is a bit more complicated, the player has some instance data, plays and name and a bunch of instance methods.  We'll take a two step approach, one step to get it working and then to improve our code and make it a bit more "Backbony." (tm).  
+Player is a bit more complicated, the player has some instance data, plays and name and a bunch of instance methods.  We'll take a two step approach, one step to get it working and then to improve our code and make it a bit more "Backbony&trade;".  
 
 ### Getting the darn thing working!
 
@@ -138,6 +138,7 @@ Before working on your own, you will also need to modify the `beforeEach()` func
 beforeEach(function() {
   player = new Player({
     name: "bob"
+  });
 });
 ```
 
