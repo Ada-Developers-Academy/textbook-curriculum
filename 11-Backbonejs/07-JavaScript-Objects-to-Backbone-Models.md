@@ -25,6 +25,7 @@ If you want to interact with the Scrabble objects in the terminal via a REPL, yo
 
 To access the REPL you should use the command `npm run repl` in your project directory. Once in the REPL, you'll need to use the following syntax to import your file (this example assumes it was named `src/scrabble.js`):
 
+
 ```javascript
 const Scrabble = require('scrabble').default;
 console.log(Scrabble.score("Ada"));
@@ -33,6 +34,10 @@ const Player = require('player').default;
 var player1 = new Player("Ada");
 console.log(player1.hasWon());
 ```
+
+### A brief word on `const`
+
+In JavaScript `const` is used to create a constant, in i.e. a variable which cannot be reassigned or changed.  You have to initialize the constant on the same line in which you declare it.  
 
 ## Converting Scrabble to a Backbone Model
 
