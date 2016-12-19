@@ -230,7 +230,7 @@ When you use Backbone Models you need to remember:
 ## What Did We Learn here?
 
 1.  JavaScript objects can be quickly converted into Backbone Models
-1.  Backbone Model attributes are special instance variables that trigger events when they are modified and can be synched with an API.
+1.  Backbone Model attributes are special instance variables that can be accessed with `get()` and `set()` functions and  can both trigger events when they are modified and can be synched with an API (more on that later).
 1.  We've practiced using Jasmine to test our Backbone Models
 
 
