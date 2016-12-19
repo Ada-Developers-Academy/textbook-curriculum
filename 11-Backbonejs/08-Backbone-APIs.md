@@ -13,7 +13,7 @@ For this live-code, we'll be using the same Backbone task list we've used so far
 
 Our task list has a lot of features so far, but it's also got one major problem: tasks are not persistent. Every time we reload the page, we get the same old static data, without any of our changes.
 
-In order to add persistence, we'll need to make our app talk to an external API. The [Ada TaskList API](https://github.com/droberts-ada/ada-tasklist-api) ought to do nicely. Follow the instructions in the README to run the server locally, and take a few minutes to familiarize yourself with the API.
+In order to add persistence, we'll need to make our app talk to an external API. The [Ada TaskList API](https://github.com/ada-c6/ada-tasklist-api) ought to do nicely. Follow the instructions in the README to run the server locally, and take a few minutes to familiarize yourself with the API.
 
 Note that these instructions will work just as well for a deployed API - just change the URL.
 
