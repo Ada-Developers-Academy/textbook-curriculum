@@ -1,6 +1,8 @@
 # Using Backbone With an API
 
 ## Learning Goals
+By the end of this lesson you should be able to...
+
 - Use Backbone to retrieve and render data from an API
 - Send Backbone data to an API
 - Write custom parsers and formatters to match API data and Backbone Models
@@ -48,6 +50,8 @@ $(document).ready(function() {
 });
 ```
 
+Let's emphasize that call to `fetch()`. It's easy to forget, and without it you'll be left wondering why your data isn't loading.
+
 #### Configuring Backbone for Our API
 Backbone doesn't just magically know where our API is or how it works - we have to tell it. Open up `src/app/collections/task_list.js`.
 
@@ -84,7 +88,7 @@ The one exception to this is "Delete", which _does_ seem to persist. What's goin
 
 Turns out that most APIs follow a predictable pattern, and Backbone is tuned into this. When you `add` a Model to a Collection with a URI, Backbone guesses that the Model's URI will be `<collection-uri>/<id>`. In our case, it's correct.
 
-Moreover, [according to the Backbone documentation](http://backbonejs.org/#Model-destroy), `Model.destroy()` (which we used for "Delete") automatically sends a HTTP `DELETE` request against that URI. So that's why removing a task persists.
+Moreover, [according to the Backbone documentation](http://backbonejs.org/#Model-destroy), `Model.destroy()` (which we used for "Delete") automatically sends a HTTP `DELETE` request against that URI. So that's why removed tasks are gone forever.
 
 
 #### Mark Complete
@@ -119,6 +123,9 @@ Not all APIs follow the standard RESTful convention. Fortunately, Backbone's API
 We saw an example of this above, when we implemented `parse()` in our Collection. Other ways to customize include overriding the `toJSON()` methods in the Model and Collection, and the `url()` function in the Model. Read the docs for more info!
 
 ## What Did We Accomplish?
+- Remove all that gross static data from our javascript file
+- Load data into Backbone dynamically from an API
+- Write Backbone data back to an API
 
 ## Additional Resources
 - [Backbone docs on API integration](http://backbonejs.org/#API-integration)
