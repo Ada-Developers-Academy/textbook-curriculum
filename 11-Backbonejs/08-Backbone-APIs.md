@@ -77,12 +77,49 @@ var TaskList = Backbone.Collection.extend({
 Note that you only need a `parse()` function if the data sent by your API doesn't match what Backbone expects (an array of objects). If that is the format, you can omit `parse()`.
 
 ### Writing Data To an API
+Our original goal was to make our data persistent: if we make changes, the next time we load the page we should see them. We're not quite there yet - if you make some changes to your tasks and then reload the page the changes will be gone. The reason is we haven't told Backbone to write those changes to the API.
 
-### Custom Parsers and Formatters
+#### Delete
+The one exception to this is "Delete", which _does_ seem to persist. What's going on?
+
+Turns out that most APIs follow a predictable pattern, and Backbone is tuned into this. When you `add` a Model to a Collection with a URI, Backbone guesses that the Model's URI will be `<collection-uri>/<id>`. In our case, it's correct.
+
+Moreover, [according to the Backbone documentation](http://backbonejs.org/#Model-destroy), `Model.destroy()` (which we used for "Delete") automatically sends a HTTP `DELETE` request against that URI. So that's why removing a task persists.
+
+
+#### Mark Complete
+The fact that "Delete" already works is good news - it means we've got our Models and Collections set up in more-or-less the right way. It should just be a few small changes to get the whole app up and running. We'll start with marking a task complete.
+
+**Question:** How do we currently mark a task as complete? What does the Backbone documentation have to say about that?
+
+When the "Mark Complete" button is pressed, we end up in `Task.toggleComplete()`, where we use `this.set()` to modify the task. The Backbone doc for `Model.set()` doesn't say anything about making API calls, so we'll need to tell Backbone to do so ourselves. A call to `this.save()` should do the trick:
+
+```javascript
+// app/models/task.js
+var Task = Backbone.Model.extend({
+  // ...
+  toggleComplete: function() {
+    var newStatus = !(this.get('complete'));
+    this.set('complete', newStatus);
+    this.save();
+  }
+});
+```
+
+If this looks remarkably similar to saving ActiveRecord Models in Rails, it's no coincidence. The two tasks are very closely related, so it makes sense that Rails and Backbone would provide similar interfaces.
+
+#### Adding a Task
+Work with a partner to make adding a new task persistent! You should follow a similar process to what we did for "Mark Complete" - find where we currently add a task and start reading documentation.
+
+We're going to pass over "Edit" in this lecture, because the way we implemented it doesn't match up with an API well. It's worth spending some time looking at our current implementation to figure out why it will be difficult, and thinking about how we could have implemented it better.
+
+### Matching Backbone to Non-standard APIs
+Not all APIs follow the standard RESTful convention. Fortunately, Backbone's API integration is flexible enough to fit most any oddly-shaped web service.
+
+We saw an example of this above, when we implemented `parse()` in our Collection. Other ways to customize include overriding the `toJSON()` methods in the Model and Collection, and the `url()` function in the Model. Read the docs for more info!
 
 ## What Did We Accomplish?
 
 ## Additional Resources
 - [Backbone docs on API integration](http://backbonejs.org/#API-integration)
-- [Building a public API in Rails](http://davidsulc.com/blog/2011/04/10/implementing-a-public-api-in-rails-3/comment-page-1/)
-- [Consuming a public API in jQuery](http://davidsulc.com/blog/2011/04/17/consuming-a-public-rails-api-with-jquery/)
+- [MDN on Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
