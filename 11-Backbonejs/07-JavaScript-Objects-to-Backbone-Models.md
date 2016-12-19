@@ -44,7 +44,7 @@ In JavaScript `const` is used to create a constant, in i.e. a variable which can
 Scrabble is a fairly simple JavaScript object. It has only 3 functions, one of which is a helper function.  `scoreLetter()` and `highestScoreFrom()`.  So we can first Modify it by changing the generic object to instead extend Backbone.Model.
 
 ```javascript
-const Scrabble = Backbone.Model.extend( {
+const Scrabble = Backbone.Model.extend({
 
 });
 ```
@@ -56,8 +56,7 @@ Since the generic Scrabble object only has a few functions, no instance data, th
 As an example if we wanted to give a function `sample()` to Scrabble we could do it this way:
 
 ```javascript
-const Scrabble = Backbone.Model.extend(
-{  
+const Scrabble = Backbone.Model.extend({
   sample: function() {
     console.log("This works!");
   }
@@ -67,8 +66,7 @@ const Scrabble = Backbone.Model.extend(
 Notice that the function has the `name: function() { ...` syntax instead of `Scrabble.prototype.name = function() {...`.  We can convert the scoreLetter function this way.
 
 ```javascript
-const Scrabble = Backbone.Model.extend(
-{
+const Scrabble = Backbone.Model.extend({
   scoreLetter: function(letter) {
     letter = letter.toUpperCase();
     var letters = ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T', 'D', 'G', 'B', 'C', 'M', 'P', 'F', 'H', 'V', 'W', 'Y', 'K', 'J', 'X', 'Q', 'Z'];
@@ -164,7 +162,7 @@ When you finish you can check your code [here](https://gist.github.com/CheezItMa
 You can then create new player instances with:
 
 ```javascript
-var player1 = new Player( {
+var player1 = new Player({
   name: 'Ms. Lovelace'
 });
 ```
@@ -195,12 +193,12 @@ const Player = Backbone.Model.extend({
 	...
 ```
 
-People create a new player like this:
+People can still create a new player as before:
 
 ```javascript
 var player1 = new Player({
   name: 'Ada Lovelace'
-  });
+});
 ```
 
 
@@ -226,7 +224,7 @@ Backbone Models are JavaScript Objects with a number of additional functions inh
 When you use Backbone Models you need to remember:
 
 1.  You can decide how the model is set up with the `initialize()` function.  
-1.  Instance functions are passed in via an object in the 1st argument to the extend function.  
+1.  Instance functions are passed in via an object in the 1st argument to the `extend()` function.
 1.  Backbone attributes are useful when you want to synch data with a server via an API or when you want the `change` event to trigger when they are modified.  
 
 ## What Did We Learn here?
