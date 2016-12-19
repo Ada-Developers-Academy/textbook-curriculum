@@ -227,6 +227,12 @@ When you use Backbone Models you need to remember:
 1.  Instance functions are passed in via an object in the 1st argument to the `extend()` function.
 1.  Backbone attributes are useful when you want to synch data with a server via an API or when you want the `change` event to trigger when they are modified.  
 
+## What Did We Learn here?
+
+1.  JavaScript objects can be quickly converted into Backbone Models
+1.  Backbone Model attributes are special instance variables that trigger events when they are modified and can be synched with an API.
+1.  We've practiced using Jasmine to test our Backbone Models
+
 
 # Resources & Notes
 -  Thanks to Emily for the original JavaScript code
