@@ -11,9 +11,11 @@ For this live-code, we'll be using the same Backbone task list we've used so far
 
 Our task list has a lot of features so far, but it's also got one major problem: tasks are not persistent. Every time we reload the page, we get the same old static data, without any of our changes.
 
-In order to add persistence, we'll need to make our app talk to an external API. The [Ada TaskList API](https://ada-tasklist-api.herokuapp.com/tasks), [documented here](https://github.com/droberts-ada/ada-tasklist-api), ought to do nicely.
+In order to add persistence, we'll need to make our app talk to an external API. The [Ada TaskList API](https://github.com/droberts-ada/ada-tasklist-api) ought to do nicely. Follow the instructions in the README to run the server locally, and take a few minutes to familiarize yourself with the API.
 
-**Question:** How do you make your app talk to an API? Which Backbone components ought to be responsible for this behavior?
+Note that these instructions will work just as well for a deployed API - just change the URL.
+
+**Question:** How might you make your app talk to an API? Which Backbone components ought to be responsible for this behavior?
 
 **Question:** How is this similar to what we've done in Rails?
 
