@@ -217,4 +217,4 @@ You should now be able to add a task to the list! The clear button should also s
 
 - [Backbone view events](http://backbonejs.org/#View-events)
 - [Backbone event library](http://backbonejs.org/#Events)
-- [Site-point tutorial on Backbone events](http://backbonejs.org/#Events)
+- [Site-point tutorial on Backbone events](https://www.sitepoint.com/backbone-basics-events/)
