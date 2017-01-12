@@ -11,7 +11,6 @@ Xcode is an **integrated development environment** (often called an **IDE**) for
 **You should have installed Xcode Command-Line tools in JumpStart.**
 
 ### Trust but Verify
-Run `$ xcode-select -p`. If it tells you `/Library/Developer/CommandLineTools`, you're ready to move on.
 
 If the Xcode Command-Line tools are not installed you can install it with:
 `xcode-select -p` and be patient because it will take time to install.
