@@ -15,7 +15,7 @@ Xcode is an **integrated development environment** (often called an **IDE**) for
 If the Xcode Command-Line tools are not installed you can install it with:
 `xcode-select -p` If the command shows a directory path like `/Applications/Xcode.app/Contents/Developer` then it's installed properly.  
 
-If the command does not show a directory path you can install it with `xcode-select --install` select install and then grab coffee because it will take a bit of time.  
+If the command does not show a directory path and instead something like `xcode-select: error: unable to get active developer directory, use xcode-select --switch to set one (or see man xcode-select)` you can install it with `xcode-select --install` select install and then grab coffee because it will take a bit of time.  
 
 ## Homebrew
 [Homebrew](http://brew.sh/) is a **package manager** that simplifies installing software on OS X. Package managers are very common, and each language/framework/stack tends to have their own or preferred tool.
