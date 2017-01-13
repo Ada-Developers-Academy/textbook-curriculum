@@ -19,15 +19,20 @@ What are some of the key similarities? They both use **routes** to determine wha
 
 Let's build a small Rails app that will act as an API for providing data about our amazing, adorable pets, to other applications. The app will have the following routes:
 
-- `/pets` show all pets
-- `/pets/:id` shows a pet with the provided id
-- `/pets/search?query=<the search term>` fuzzy searches pets by name, shows all matching pets
+- `GET /pets` show all pets
+- `GET /pets/:id` shows a pet with the provided id
+- `POST /pets` add a pet to the collection
 
 Given the context of our application, we should have a model and controller that reference our main resource, pets. Once you clone this repo, you'll notice that we have these things already created for you!
 
 [https://github.com/AdaGold/ada-pets](https://github.com/AdaGold/ada-pets)
 
-### Let's Get Started
+Once you've downloaded it, take a few minutes to go through this Rails app with the person next to you.
+
+- What components does the project have?
+- What steps would you perform to set up a project like this from scratch?
+
+## Listing Pets
 We are going to approach this application creation from a TDD approach. Right now, you'll see that we have a few tests already created for you. You can run the tests using the usual `rake test`.
 
 You'll notice that we have one basic get route created for pets, and one basic controller action that corresponds with that route.
@@ -43,7 +48,6 @@ Since we are building a JSON API, we don't want to render an HTML template (or r
 ```ruby
 # pets_controller.rb
 def index
-  @pets = Pet.all
   render :json => { ready_for_lunch: "yassss" }
 end
 ```
@@ -88,7 +92,7 @@ def index
 end
 ```
 
-Notice in the example above, I used `:ok` instead of the official numeric value of 200 to inform the consumer that the request was a success. I tend to use the built-in Rails symbols for this, as they're more explicit, however its good to know at least the most common [HTTP status codes](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes).
+Notice in the example above, I used `:ok` instead of the official numeric value of 200 to inform the consumer that the request was a success. I tend to use the built-in Rails symbols for this, as they're easier to read, but its good to know at least the most common [HTTP status codes](http://billpatrianakos.me/blog/2013/10/13/list-of-rails-status-code-symbols/).
 
 + 200 - :ok
 + 204 - :no_content
@@ -98,39 +102,16 @@ Notice in the example above, I used `:ok` instead of the official numeric value 
 + 404 - :not_found
 + 500 - :internal_server_error
 
-### `show`
-Let's add this same approach for the show action, start by adding a route, then updating the controller:
+## Showing Pet Details
+Working with the person next to you, and following the same pattern we used for `index`, implement the `show` action.
 
-```ruby
-# pets_controller.rb
-def show
-  pet = Pet.find(params[:id])
-  render :json => pet
-end
-```
+Questions to consider:
+- How will `show` be different than `index`?
+- What fields should be returned?
+- What should you do if the user asks for a pet that doesn't exist?
+- What test cases might be useful for this endpoint?
 
-#### What if we can't find a pet?
-What if we get params that don't match a pet? What do we do? How should our code change? At the very least, we should make sure that we don't throw an error. Also, we should return a **status code** that indicates to the consumer that we couldn't find any content to match their request. Fortunately, the `204` status code exists for exactly this reason. Let's change our `show` method to:
-
-**Note** that we switch from using the `find` method to the `find_by` method because `find` will return an error before getting to the conditional if the given Pet has not been found.
-
-```ruby
-def show
-  pet = Pet.find_by(id: params[:id])
-
-  if pet
-    render :json => pet, :status => :ok
-  else
-    render :json => [], :status => :no_content
-  end
-end
-```
-
-## Activity: Adding Search with your Chair Pair
-1. Write at least one positive (search found pets) and one negative (search didn't find pets) test.
-1. Implement the search feature in the `Pet` model
-1. Create a route and controller action for searching for a pet by name
-1. Make the action return a collection of pets as json
+## Adding a New Pet
 
 ## Resources
 - [`.as_json` documentation](http://api.rubyonrails.org/classes/ActiveModel/Serializers/JSON.html#method-i-as_json)
