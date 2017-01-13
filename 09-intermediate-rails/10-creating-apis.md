@@ -1,9 +1,11 @@
 # Creating an API
 
 ## Learning Goals
-- Apply our Rails knowledge to a new construct
-- See how to render results other than views
-- Use status codes to communicate outcomes
+Students should be able to...
+
+- Compare and contrast web applications and APIs
+- Develop a Rails API to provide CRUD functionality
+- Use HTTP status codes to communicate outcomes
 
 ### Introduction
 Last week, we learned about using APIs that already exist. Now, our goal is to create APIs ourselves.
