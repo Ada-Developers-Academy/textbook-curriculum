@@ -11,7 +11,11 @@ Xcode is an **integrated development environment** (often called an **IDE**) for
 **You should have installed Xcode Command-Line tools in JumpStart.**
 
 ### Trust but Verify
-Run `$ xcode-select -p`. If it tells you `/Library/Developer/CommandLineTools`, you're ready to move on.
+
+If the Xcode Command-Line tools are not installed you can install it with:
+`xcode-select -p` If the command shows a directory path like `/Applications/Xcode.app/Contents/Developer` then it's installed properly.  
+
+If the command does not show a directory path and instead something like `xcode-select: error: unable to get active developer directory, use xcode-select --switch to set one (or see man xcode-select)` you can install it with `xcode-select --install` select install and then grab coffee because it will take a bit of time.  
 
 ## Homebrew
 [Homebrew](http://brew.sh/) is a **package manager** that simplifies installing software on OS X. Package managers are very common, and each language/framework/stack tends to have their own or preferred tool.
@@ -48,19 +52,19 @@ $ git config --global color.branch auto
 ## RVM
 [RVM](http://rvm.io) (Ruby Version Manager) is a command-line tool which allows you to easily install, manage, and work with multiple ruby environments from interpreters to sets of gems. In essence, RVM is a package manager specifically for working with Ruby code.
 
-**You should have installed RVM in JumpStart.**
+[**You should have installed RVM in JumpStart.**](https://github.com/Ada-Developers-Academy/jump-start/blob/master/lessons/07-environment-setup/notes/installfest.md)
 
 ### Trust but Verify
 - `$ rvm version` should tell you something like _rvm 1.26.11 (latest)..._
 
 ## Upgrade Ruby!
-- Upgrade Ruby to 2.3.1 with RVM: `$ rvm install 2.3.1`
-- When it finishes, set it as the default version: `$ rvm use 2.3.1 --default`
+- Upgrade Ruby to 2.4.0 with RVM: `$ rvm install 2.4.0`
+- When it finishes, set it as the default version: `$ rvm use 2.4.0 --default`
 
 ### Trust but Verify
-- `$ ruby -v` should return _ruby 2.3.1px_ (your `px` version might be different)
-- `which ruby` should return a path like _/Users/jeremy/.rvm/rubies/ruby-2.3.1/bin/ruby_
-- `which gem` should return a path like _/Users/jeremy/.rvm/rubies/ruby-2.3.1/bin/gem_
+- `$ ruby -v` should return _ruby 2.4.0p0_ (your `p` version might be different)
+- `which ruby` should return a path like _/Users/ada/.rvm/rubies/ruby-2.4.0/bin/ruby_
+- `which gem` should return a path like _/Users/ada/.rvm/rubies/ruby-2.4.0/bin/gem_
 
 ## Text Editor(s)
 There are many options for text editors. _Sublime Text_, _TextMate_ and _Atom_ are popular **Graphic User Interface (GUI)** editors. _vim_ and _emacs_ are popular editors that operate directly on the command line.
