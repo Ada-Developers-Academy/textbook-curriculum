@@ -120,7 +120,9 @@ In order for the EB CLI to have access to your AWS account you need to provide i
 1. Type `y` to indicate that you're using Ruby.
 1. Choose "Ruby 2.3 (Puma)" from the list of platforms.
 1. Type `n` to skip using CodeCommit.
-1. Type `n` to skip using SSH.
+1. Type `y` to setup SSH.
+1. Choose a name for your SSH keypair (or use the default).
+1. Enter a passphrase for your SSH keypair and confirm it.
 
 ### Create an Environment
 Now that we've created an EB Application and setup the EB CLI to allow us to work with it, we need to create an Environment. In the context of EB an Environment represents a particular deployed version of your application, including all of the configuration for load balancers, code versions (i.e. what commit/branch is being used), and connected databases.
@@ -129,7 +131,7 @@ This allows us to have a single Application with multiple Environments, for exam
 
 Run the following command to create your first EB Environment:
 ```bash
-$ eb create example-env -db -db.engine postgres -db.i db.t2.micro -i t2.micro
+$ eb create example-env -db -db.engine postgres -db.i db.t2.micro -i t2.micro --envvars SECRET_KEY_BASE=`bundle exec rake secret`
 ```
 
 This sets up a new Environment using mostly the default options. However, we've explicitly asked for the environment to include a database (specificially a PostgreSQL database), and it opts for using the smallest _instance types_ for both the database and the web app servers.
@@ -139,3 +141,4 @@ Instance type is the term AWS uses to identify which "size" of resource is being
 When the EB CLI prompts you for a database username and password, keep the default `ebroot` for the username and type `password` for the password.
 
 ### Check out the application
+Run the command `eb open` to open your browser to the deployed application URL.
