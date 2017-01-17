@@ -3,6 +3,7 @@ In this lecture we will learn about an alternative option for deploying back-end
 
 ## Learning Goals
 After following along with this lecture you should be able to:
+
 1. Explain what AWS is and how it differs from Heroku
 1. Explain what Elastic Beanstalk is and how it relates to Heroku
 1. Explain what components of AWS are used with Elastic Beanstalk
