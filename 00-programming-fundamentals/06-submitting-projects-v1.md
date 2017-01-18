@@ -11,19 +11,20 @@ We utilize GitHub for all of our curriculum and project submissions. Before we l
 
 ### Steps
 These steps should be executed once you are **complete** with your assignment. There are ways to edit/modify the files, but it will be easier if you just do this last to prevent any confusion.
-1. Fork from the Ada-CX repository
-**Debugging Notes**: `AdaGold` _should definitely not_ be in the URL or header of GitHub
+
+1. Fork from the Ada-CX repository  
+**Debugging Notes**: `AdaGold` _should definitely not_ be in the URL or header of GitHub  
 ![Git Fork Step](./images/git-fork-step.png)
 
-1. Check: Are you on your fork?
+1. Check: Are you on your fork?  
 ![Your Fork](./images/your-fork.png)
 
-1. Create a new file
+1. Create a new file  
 ![Create file](./images/create-file.png)
 
 1. Give it a name with a file extension
 
-1. Paste in your code
+1. Paste in your code  
 ![Code Snippet](./images/code-snippet.png)
 
 1. Commit the new file. (You may use all of the default settings here)
