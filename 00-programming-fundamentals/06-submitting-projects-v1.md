@@ -12,6 +12,8 @@ We utilize GitHub for all of our curriculum and project submissions. Before we l
 ### Steps
 These steps should be executed once you are **complete** with your assignment. There are ways to edit/modify the files, but it will be easier if you just do this last to prevent any confusion.
 
+
+#### Add the file
 1. Fork from the Ada-CX repository  
 **Debugging Notes**: `AdaGold` _should definitely not_ be in the URL or header of GitHub  
 ![Git Fork Step](./images/git-fork-step.png)
@@ -30,6 +32,8 @@ These steps should be executed once you are **complete** with your assignment. T
 1. Commit the new file. (You may use all of the default settings here)
 ![Commit and Pull Request](./images/commit.png)
 **Note**: This saves the file to your personal fork. Next step allows it to become visible to your instructors.
+
+#### Create a Pull Request
 
 1. Create a New Pull Request
 ![New PR](./images/new-pr.png)
