@@ -3,6 +3,8 @@
 We utilize GitHub for all of our curriculum and project submissions. Before we learn how to use GitHub via the command line (terminal) we will need to be able to submit our projects using a process where we'll only use the web interface. Bookmark this page!
 
 ### Vocabulary
+**Repository**: The term that GitHub uses for a collection of files that are all part of the same project. Every repository on GitHub is owned by an individual (e.g. [Hamled/dotnvim](https://github.com/Hamled/dotnvim)) or an organization (e.g. [github/hub](https://github.com/github/hub)).
+
 **Fork**: A copy of the repository (right now, mostly just a `README` file) on your own personal GitHub account
 
 **Pull Request**: For our immediate purpose, this is the step which your instructors will check for your submission. In practice in the general programming universe, this is where you submit your code to someone to review and then include in the overall project.
