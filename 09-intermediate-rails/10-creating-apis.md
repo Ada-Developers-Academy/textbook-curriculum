@@ -20,7 +20,10 @@ When creating an API, usually the goal is to provide data to a consumer, whether
 | Client   | Who- or whatever is consuming our API | A mobile app
 
 ### APIs vs Web Apps
-When we think about using an API vs using a web application, what is the key difference? **HTML** for humans to consume versus **JSON** for systems to consume.
+When we think about using an API vs using a web application, what is the key difference?
+
+- Web apps produce **HTML** for humans to consume
+- APIs produce **JSON** for machines to consume
 
 What are some of the key similarities? They both use **routes** to provide structure, and there is also some sort of **data** involved. Many APIs (including the one we'll build today) provide some sort of CRUD functionality, and our RESTful design principals and general Rails knowledge will continue to serve us well.
 
@@ -35,6 +38,16 @@ Let's build a small Rails app that will act as an API for providing data about o
 Given the context of our application, we should have a model and controller that reference our main resource, pets. Once you clone this repo, you'll notice that we have these things already created for you!
 
 [https://github.com/AdaGold/ada-pets](https://github.com/AdaGold/ada-pets)
+
+To make it go:
+
+```bash
+$ git clone git@github.com:AdaGold/ada-pets.git
+$ cd ada-pets
+$ bundle install
+$ rails db:migrate
+$ rails server
+```
 
 Once you've downloaded it, take a few minutes to go through this Rails app with the person next to you.
 
@@ -112,15 +125,19 @@ Notice in the example above, I used `:ok` instead of the official numeric value 
 + 500 - :internal_server_error
 
 ## Showing Pet Details
-Working with the person next to you, and following the same pattern we used for `index`, implement the `show` action.
+Working with the person next to you, and following the same pattern we used for `index`, implement the `show` endpoint.
 
 Questions to consider:
 - How will `show` be different than `index`?
-- What URI and HTTP verb should be used?
+- How will this endpoint be accessed?
+  - HTTP verb
+  - URI
 - What fields should be returned?
-- What should you do if the user asks for a pet that doesn't exist?
+- What should the API do if the client asks for a pet that doesn't exist?
+  - Status code
+  - Response body
 - What test cases might be useful for this endpoint?
-- How do the two actions we've implemented so far compare to similar actions in a non-API Rails app?
+- How do the two endpoints we've implemented so far compare to similar functionality in a non-API Rails app?
 
 ## Creating a New Pet
 Now that we can send data via our API, the next step is to consume data sent to us. To demonstrate this, we'll create an endpoint that allows a client to add their own pet to our list.
