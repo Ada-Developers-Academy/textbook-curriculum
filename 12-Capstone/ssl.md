@@ -113,6 +113,7 @@ Finally, press Enter at the Lets Encrypt prompt to complete the Certificate Sign
 
 ### Installing the Certificate on AWS
 If you don't already have the AWS CLI set up already, you'll need an access key pair. This can be accomplished through AWS's Identity and Access Management (IAM) interface.
+
 1. Go to console.aws.amazon.com
 1. Open `Services` menu in upper left
 1. Under `Security, Identity and Compliance` click `IAM`
