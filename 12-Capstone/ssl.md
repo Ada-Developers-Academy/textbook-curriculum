@@ -109,9 +109,14 @@ eb setenv LE_AUTH_REQUEST=fh3f820jf2f0h23f8
 eb setenv LE_AUTH_RESPONSE=fh3f820jf2f0h23f8.fh29f8230f23fhg23802fg23pf3f9m
 ```
 
-Finally, press Enter at the Lets Encrypt prompt to complete the Certificate Signing Request process.
+Finally, press Enter at the Lets Encrypt prompt to complete the Certificate Signing Request process. This should create several new files, all with the `.pem` extension - these are your certs.
 
-### Installing the Certificate on AWS
+### Installing the Certificate
+
+#### On Heroku
+Unfortunately, Heroku does not support SSL on its free tier. If you are using a paid tier, you can follow the [instructions in the Heroku documentation](https://devcenter.heroku.com/articles/ssl). For the two files they ask you to provide, `server.crt` will be `0000_cert.pem`, and `server.key` will be `privkey.pem`.
+
+#### On AWS
 If you don't already have the AWS CLI set up already, you'll need an access key pair. This can be accomplished through AWS's Identity and Access Management (IAM) interface.
 
 1. Go to console.aws.amazon.com
@@ -142,7 +147,7 @@ $ cd <your project directory>/ssl
 $ aws iam upload-server-certificate --server-certificate-name elastic-beanstalk-x509 --certificate-chain file://0000_chain.pem --certificate-body file://0000_cert.pem --private-key file://privkey.pem
 ```
 
-### Configuring AWS to Use the Installed Cert
+#### Configuring AWS to Use the Installed Cert
 1. Go to console.aws.amazon.com
 1. Open `Services` menu in upper left
 1. Under `Compute` click `Elastic Beanstalk`
