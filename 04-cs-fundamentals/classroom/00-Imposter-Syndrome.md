@@ -16,10 +16,10 @@ Think about this graphic:<br>
 ![What I Know Ven Diagram](images/What-I-Know.png)
 
 #### HW: SLACK CRYSTAL
-+ List 1 of your fears
-+ List 1 accomplishment you have made in the last two weeks
-+ List 1 thing that makes you awesome (programming aside)
-+ (optional) Reflections on Imposter Syndrome
++ Reflections on Imposter Syndrome
++ (optional) 1+ of your fears of Ada
++ (optional) 1+ new coding-related learning you've made in the last month
++ (optional) 1+ thing that makes you a great addition to the Ada Family! \<3 (programming aside)
 
 <hr>
 
