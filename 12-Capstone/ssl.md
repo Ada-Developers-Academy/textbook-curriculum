@@ -127,10 +127,18 @@ If you don't already have the AWS CLI set up already, you'll need an access key 
 1. Click the blue `Create User` button
 1. Stay on this page! For security, AWS will only show you the keys once, so you'll need to copy-paste them in below before navigating away.
 
+Then set up the AWS CLI:
 ```bash
-$ cd <your project directory>/ssl
 $ brew install awscli
 $ aws configure
+```
+
+It will ask you for the access key ID and token you just generated. You can leave the other fields blank.
+
+Next, we'll use the AWS CLI to deploy our new cert.
+
+```bash
+$ cd <your project directory>/ssl
 $ aws iam upload-server-certificate --server-certificate-name elastic-beanstalk-x509 --certificate-chain file://0000_chain.pem --certificate-body file://0000_cert.pem --private-key file://privkey.pem
 ```
 
