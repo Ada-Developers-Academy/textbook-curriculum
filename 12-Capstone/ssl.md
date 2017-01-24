@@ -63,10 +63,12 @@ Very recently (in the final months of 2015) the first completely free certificat
 Let's Encrypt has to verify you control a domain before they'll give you a certification for it. To do so, they give you a secret key, and ask you to serve it from a well-known route on your server. Setting up that route is our first step.
 
 1. Add this route to your Rails project:
+
   ```ruby
     get "/.well-known/acme-challenge/#{ENV['LE_AUTH_REQUEST']}", to: 'welcome#letsencrypt'
   ```
 1. And add this action into the WelcomeController (or whichever controller your route goes to):
+
   ```ruby
     def letsencrypt
       render plain: ENV['LE_AUTH_RESPONSE']
