@@ -117,11 +117,19 @@ Print Screen (application window, PC: Alt + Print Screen) | Command + Shift + 4,
 ## Custom Shortcuts
 
 
-There might be applications that will do some or all of this for you, but I opted to make the changes manually. Some function keys were easier to reprogram than others. You'll need to open __System Preferences__ and go into __Keyboard__ settings. In the __Shortcuts__ tab, check out your options in the list on the lift. It should say things like __Launchpad & Dock__, __Mission Control__, and __Keyboard__. Click on __App Shortcuts__ at the bottom. Now you can customize your own shortcuts!
+You can add custom shortcuts by going to System Preferences and Selecting Keyboard.
 
-To create a shortcut, click the __+__ below the right options list. You'll see right away that you can choose between creating a shortcut for all applications or just for individual ones. The next thing you'll see is a field that asks for the __Menu Title__. To create a shortcut, all you have to do is find the menu option and type _exactly_ what it says into this field. Finally, click or tab over to the __Keyboard Shortcut__ field, and press the shortcut you'd like this functionality to be associated with. Hit the __Add__ button, and you're finished. It should work now. Try out your new keyboard shortcut and make sure it works right!
+![System Preferences](images/systempreferences.png)
+![Keyboard](images/keyboard.png)
 
-Unfortunately, not all applications use the same menu options for the same functions, so sometimes you may have to create multiple shortcuts to add the functionality you are looking for. For example, to restore the _F11_ / _Full Screen_ functionality to my Macbook, I had to create four separate entries in the Shortcuts creator. For restore the _F1_ / _Help_ dialog functionality, I had to create a separate shortcut for every application. So keep this in mind! Some things are easier to create as shortcuts than others.
+Then select the shortcuts tab.
+
+![Shortcuts](images/shortcuts.png)
+
+Then select the **App Shortcuts** and use the `+` sign to add a shortcut.  You will need to give it a name & use the keyboard shortcut in the little box provided.  You can create shortcuts for a particular app or all apps in general.  If two conflicting shortcuts exist MacOS will use the one for the more specific application.  So if there's a general shortcut and one for Chrome, Mac will use the Chrome specific shortcut for that app.
+
+![App Shortcuts](images/appshortcuts.png)
+
 
 ---
 ## Resources
