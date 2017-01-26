@@ -120,6 +120,7 @@ Print Screen (application window, PC: Alt + Print Screen) | Command + Shift + 4,
 You can add custom shortcuts by going to System Preferences and Selecting Keyboard.
 
 ![System Preferences](images/systempreferences.png)
+
 ![Keyboard](images/keyboard.png)
 
 Then select the shortcuts tab.
