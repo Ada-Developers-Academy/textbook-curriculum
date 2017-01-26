@@ -9,8 +9,10 @@ Below are some useful OSX apps for productivity as a developer.
 | App Name  | Description  |
 |---|---|
 | [Alfred](http://www.alfredapp.com/)  | Alfred is a replacement for Spotlight as an application launcher or automation tool.    |
+| [Flux](https://justgetflux.com/)  | f.lux fixes this: it makes the color of your computer's display adapt to the time of day, warm at night and like sunlight during the day.    |
+| [Spectacle](https://www.spectacleapp.com/)  | Move and resize windows with ease.    |
 | [Slack](https://slack.com/downloads/osx)  | Slack has a desktop client for Mac Users.  |
-| [Skype](http://go.redirectingat.com/?id=33330X911647&site=lifehacker.com&xs=1&isjs=1&url=http%3A%2F%2Fwww.skype.com%2Fintl%2Fen-us%2Fget-skype%2Fon-your-computer%2Fmacosx%2F&xguid=bd1e0c37f8315cbb58f0ddc5af5cd3cf&xuuid=c4a826cac2b655f0cc28f1e690038801&xsessid=6fff8fe3e294a269d51c8bf3cbe0988d&xcreo=0&xed=0&sref=http%3A%2F%2Flifehacker.com%2Flifehacker-pack-for-mac-our-list-of-the-essential-mac-635303836&pref=https%3A%2F%2Fwww.google.com%2F&xtz=480)  | Skype is a great way to call friends and family online or directly to their phones.    |
+| [Skype](https://www.skype.com/en/download-skype/skype-for-mac/)  | Skype is a great way to call friends and family online or directly to their phones.    |
 | [Dropbox](http://dropbox.com/)  | Dropbox, OneDrive & Google Drive are great ways to backup your files to the cloud.  Use one:  **Back up your files!**  |
 | [OneDrive](https://onedrive.live.com/about/en-us/download/)  | Dropbox, OneDrive & Google Drive are great ways to backup your files to the cloud.  Use one:  **Back up your files!**  |
 | [Google Drive](https://www.google.com/drive/download/)  | Dropbox, OneDrive & Google Drive are great ways to backup your files to the cloud.  Use one:  **Back up your files!**  |
