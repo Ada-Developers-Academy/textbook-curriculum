@@ -132,5 +132,5 @@ Then select the **App Shortcuts** and use the `+` sign to add a shortcut.  You w
 
 
 ---
-## Resources
+## Source of much of this material
 *  [Jeri's Guide to Going from PC to Mac](https://gist.github.com/drvonnjerryxlii/9898254abef2d184c659)
