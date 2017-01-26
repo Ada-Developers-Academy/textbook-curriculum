@@ -28,8 +28,7 @@ By the end of this you should:
 * [Creating Your Own Shortcuts](#custom-shortcuts)
 
 
-## <a name="#learning-the-menu-symbols"></a>
- Learning the Menu Symbols
+## <a name="#learning-the-menu-symbols"></a>  Learning the Menu Symbols
 
 
 Whenever you open a menu, it will use these symbols to show you which keyboard shortcuts you can use to run the menu option at hand. It can be quite helpful to make a set of flashcards to remember these. I thought they were really _weird_ at first, and flashcards were a quick and easy method for me to test whether I'd learned the symbols correctly. 
