@@ -20,7 +20,7 @@ By the end of this you should:
 
 
 * [Learning the Menu Symbols](#learning-the-menu-symbols)
-* [Common Hotkeys that will save your life!](#Common-Hotkeys-that-will-save-your-life)
+* [Common Hotkeys that will save your life!](#common-hotkeys-that-will-save-your-life)
 	* [Text Editing Keyboard Combos](#text-keyboard-combos)
 	* [System Navigation Keyboard Combinations](#sys-navigation-combos)
 * [With PC-style External Keyboard](external-keyboard)
