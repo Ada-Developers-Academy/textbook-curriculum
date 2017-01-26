@@ -33,7 +33,7 @@ By the end of this you should:
 
 Whenever you open a menu, it will use these symbols to show you which keyboard shortcuts you can use to run the menu option at hand. It can be quite helpful to make a set of flashcards to remember these. I thought they were really _weird_ at first, and flashcards were a quick and easy method for me to test whether I'd learned the symbols correctly. 
 
-Button | Mac Symbol | How I Remember It
+Button | Mac Symbol | How To Remember It
 -------|:----------:|------------------
 Command | ⌘ | Ah, here's where I left those four robots I can command to open menus / do other computer stuff for me.
 Option | ⌥ | Sliding down a bookcase lined with options & picking the first one that looks good.
