@@ -26,6 +26,7 @@ Below are some useful OSX apps for productivity as a developer.
 | [Postman](https://chrome.google.com/webstore/detail/postman-interceptor/aicmkgpgakddgnaphhhpliifpcfhicfo)  |  A useful app later at Ada to test APIs.  
 | [AdBlock](https://chrome.google.com/webstore/detail/adblock-for-youtube/cmedhionkhpnakcndndgjdbohmhepckk) | Yes Ads pay for the Internet, but... sometimes I don't want  to see them.  This extension blocks ads on websites.  Handy.
 | [LucidChart](https://chrome.google.com/webstore/detail/lucidchart-diagrams-deskt/djejicklhojeokkfmdelnempiecmdomj) | This is a great service.  It lets you draw charts in the browser.  It connects to Google Apps and lets you save them there.  The free version is limited, but the paid version isn't too expensive at:  $5 per month.  
+| [Momentum](https://chrome.google.com/webstore/detail/momentum/laookkfknpbbblfpciffpaejjkokdgca) | A new daily image is shown on each new tab, and it lets you build a todo list.  
 
 ---
 ## Resources
