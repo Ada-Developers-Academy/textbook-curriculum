@@ -102,7 +102,6 @@ Steve Jobs had a weird thing about single-button mice.  Trust me, it's bizarre. 
 
 
 <a id="#using-a-windows-keyboard"></a>
-
 ### Using a Windows Keyboard & Mouse ###
 
 
