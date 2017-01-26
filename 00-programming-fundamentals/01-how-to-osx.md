@@ -7,7 +7,6 @@ The mouse is slow, especially on a laptop. There are *tons* of hotkeys, tricks, 
 ## Learning Goals
 By the end of this you should:
 *  Be able to explain the important modifier keys such as control, shift, command, option on the OSX keyboard.
-*  Be able to recognize the menu shortcuts.
 *  Use the keyboard alone to close windows, quit applications, switch applications and switch tabs within a browser.
 *  Be able to page up & down, jump the cursor to the beginning and end of a line of text, cut, paste, copy, delete, undo, redo, find & replace using keyboard shortcuts.  
 *  Remember that you **can** create your own keyboard shortcuts.  
@@ -53,7 +52,7 @@ Caps Lock | ⇪ | And stay up! Here's a box to help. You can stand on it. :)
 
 Below are a series of keyboard shortcuts that will help you in a text-editor writing code.
 
-Hot Key Combo | Mac Symbols | How I Remember It
+Hot Key Combo | Mac Symbols | What It Does
 --------|:----------:|------------------
 Command-s  | `⌘s` | Save code in the text editor!  **Do this a lot!**
 Command-c  | `⌘c` | Copy the text currently highlighted (ctrl-c in windows).
@@ -71,7 +70,7 @@ Shift-Arrow | `⇧<cursor movement command>` | Highlight from the start and end 
 
 These keyboard shortcuts work with a variety of applications to let you navigate within an application or between applications.  
 
-Hot Key Combo | Mac Symbols | How I Remember It
+Hot Key Combo | Mac Symbols | What it does
 --------|:----------:|------------------
 Command-w | `⌘w`     | Close the Current tab.
 Command-shift-w | `⌘⇧w`     | Close the Current window (all the tabs).
@@ -94,7 +93,7 @@ Command-shift-f | `⌘⇧f` | Fullscreen
 
 ## A Word About Mice
 
-Steve Jobs had a weird thing about single-button mice.  Trust me, it's bizarre.  Over time Apple's added 2-button mouse functionality to MacOS.  You can make a right click on your laptop by either by clicking and holding the option key down, or pressing with two fingers on the trackpad.  Or... you can just plug in a regular PC mouse and it'll work fine.  
+Steve Jobs had a [weird thing](http://www.cultofmac.com/269222/steve-jobs-hated-idea-multi-button-mouse-designer-claims/) about single-button mice.  Trust me, it's bizarre.  Over time Apple's added 2-button mouse functionality to MacOS, mostly to open rarely accessed sub-menus, and you'll be surprised how little you actually use it, if you think about it at all.  You can make a right click on your laptop trackpad by either by clicking and holding the option key down, or pressing with two fingers on the trackpad.  Or... you can just plug in a regular PC mouse and it'll work fine.  
 
 
 ## Using a Windows Keyboard
