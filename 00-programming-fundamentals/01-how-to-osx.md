@@ -23,13 +23,13 @@ By the end of this you should:
 * [Common Hotkeys that will save your life!](#common-hotkeys)
 	* [Text Editing Keyboard Combos](#text-keyboard-combos)
 	* [System Navigation Keyboard Combinations](#sys-navigation-combos)
-* [With PC-style External Keyboard](#external-keyboard)
-* [Taking Screenshots](#taking-screenshots)
+* [With PC-style External Keyboard](external-keyboard)
+* [Taking Screenshots](taking-screenshots)
 * [Creating Your Own Shortcuts](#custom-shortcuts)
 
-<a id="#learning-the-menu-symbols"></a>
 
-## Learning the Menu Symbols
+## <a name="#learning-the-menu-symbols"></a>
+ Learning the Menu Symbols
 
 
 Whenever you open a menu, it will use these symbols to show you which keyboard shortcuts you can use to run the menu option at hand. It can be quite helpful to make a set of flashcards to remember these. I thought they were really _weird_ at first, and flashcards were a quick and easy method for me to test whether I'd learned the symbols correctly. 
@@ -101,17 +101,17 @@ Command-shift-f | `⌘⇧f` | Fullscreen
 Steve Jobs had a weird thing about single-button mice.  Trust me, it's bizarre.  Over time Apple's added 2-button mouse functionality to MacOS.  You can make a right click on your laptop by either by clicking and holding the option key down, or pressing with two fingers on the trackpad.  Or... you can just plug in a regular PC mouse and it'll work fine.  
 
 
-<a id="#using-a-windows-keyboard"></a>
-### Using a Windows Keyboard & Mouse ###
+### <a name="#external-keyboard"></a>
+ Using a Windows Keyboard & Mouse
 
 
 If you do use an external windows keyboard & mouse at home you'll find a few differences.  Most notably the mac will consider the "windows" key the command key.
 
 
-<a id="#external-keyboard"></a>
 
 
-### Windows External Keyboard
+### <a name="external-keyboard"></a>
+ Windows External Keyboard
 Windows Key | Mac Key 
 --------|:----------
 Control | Control!
@@ -127,10 +127,10 @@ Numlock | Nothing, nada
 10-key-pad | Also nothing
 
 
-<a id="#taking-screenshots"></a>
 
 
-### Taking Screenshots
+
+### <a name="taking-screenshots"></a> Taking Screenshots
 
 Screenshots on a Mac are very cool. By default, they save a file to the desktop. If you add Control (⌃) to the shortcut, the screenshot will be copied to the clipboard instead.
 
