@@ -23,6 +23,7 @@ By the end of this you should:
 * [Common Hotkeys that will save your life!](#common-hotkeys-that-will-save-your-life)
 	* [Text Editing Keyboard Combos](#text-editing-keyboard-combinations)
 	* [System Navigation Keyboard Combinations](#system-navigation)
+* [A Word About Mice](#a-word-about-mice)
 * [With PC-style External Keyboard](#using-a-windows-keyboard)
 * [Taking Screenshots](taking-screenshots)
 * [Creating Your Own Shortcuts](#custom-shortcuts)
@@ -90,15 +91,13 @@ Command-comma | `⌘,` | Opens an app's preferences page.
 Command-/ | `⌘/` | Make either the current line or a selection of text a comment (Sublime or Atom only)
 Command-shift-f | `⌘⇧f` | Fullscreen
 
-<id id="#about-mice"></a>
 
-
-### A Word About Mice ###
+## A Word About Mice
 
 Steve Jobs had a weird thing about single-button mice.  Trust me, it's bizarre.  Over time Apple's added 2-button mouse functionality to MacOS.  You can make a right click on your laptop by either by clicking and holding the option key down, or pressing with two fingers on the trackpad.  Or... you can just plug in a regular PC mouse and it'll work fine.  
 
 
-### Using a Windows Keyboard
+## Using a Windows Keyboard
 
 
 If you do use an external windows keyboard & mouse at home you'll find a few differences.  Most notably the mac will consider the "windows" key the command key.
@@ -123,7 +122,7 @@ Numlock | Nothing, nada
 
 
 
-### <a name="taking-screenshots"></a> Taking Screenshots
+## Taking Screenshots
 
 Screenshots on a Mac are very cool. By default, they save a file to the desktop. If you add Control (⌃) to the shortcut, the screenshot will be copied to the clipboard instead.
 
@@ -139,7 +138,7 @@ Print Screen (application window, PC: Alt + Print Screen) | Command + Shift + 4,
 
 <a id="#custom-shortcuts"></a>
 
-### Custom Shortcuts
+## Custom Shortcuts
 
 
 There might be applications that will do some or all of this for you, but I opted to make the changes manually. Some function keys were easier to reprogram than others. You'll need to open __System Preferences__ and go into __Keyboard__ settings. In the __Shortcuts__ tab, check out your options in the list on the lift. It should say things like __Launchpad & Dock__, __Mission Control__, and __Keyboard__. Click on __App Shortcuts__ at the bottom. Now you can customize your own shortcuts!
