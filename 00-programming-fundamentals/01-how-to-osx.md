@@ -20,7 +20,7 @@ By the end of this you should:
 
 
 * [Learning the Menu Symbols](#learning-the-menu-symbols)
-* [Common Hotkeys that will save your life!](#common-hotkeys)
+* [Common Hotkeys that will save your life!](#Common-Hotkeys-that-will-save-your-life)
 	* [Text Editing Keyboard Combos](#text-keyboard-combos)
 	* [System Navigation Keyboard Combinations](#sys-navigation-combos)
 * [With PC-style External Keyboard](external-keyboard)
@@ -28,7 +28,7 @@ By the end of this you should:
 * [Creating Your Own Shortcuts](#custom-shortcuts)
 
 
-## <a name="#learning-the-menu-symbols"></a>  Learning the Menu Symbols
+## Learning the Menu Symbols
 
 
 Whenever you open a menu, it will use these symbols to show you which keyboard shortcuts you can use to run the menu option at hand. It can be quite helpful to make a set of flashcards to remember these. I thought they were really _weird_ at first, and flashcards were a quick and easy method for me to test whether I'd learned the symbols correctly. 
@@ -45,7 +45,7 @@ Caps Lock | ⇪ | And stay up! Here's a box to help. You can stand on it. :)
 
 <a id="#common-hotkeys"></a>
 
-## Common Hotkeys that will save your life! ###
+## Common Hotkeys that will save your life
 
 
 <a id="#text-keyboard-combos"></a>
