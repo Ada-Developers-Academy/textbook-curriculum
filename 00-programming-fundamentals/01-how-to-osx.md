@@ -23,7 +23,6 @@ By the end of this you should:
 	* [Text Editing Keyboard Combos](#text-editing-keyboard-combinations)
 	* [System Navigation Keyboard Combinations](#system-navigation)
 * [A Word About Mice](#a-word-about-mice)
-* [With PC-style External Keyboard](#using-a-windows-keyboard)
 * [Taking Screenshots](taking-screenshots)
 * [Creating Your Own Shortcuts](#custom-shortcuts)
 
