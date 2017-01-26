@@ -1,4 +1,4 @@
-# Object Orientation: Methods
+# Methods
 ## Learning Goals
   - Learn why we need methods!
   - Learn to write our own methods!
