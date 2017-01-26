@@ -109,6 +109,8 @@ If you do use an external windows keyboard & mouse at home you'll find a few dif
 
 
 <a id="#external-keyboard"></a>
+
+
 ### Windows External Keyboard
 Windows Key | Mac Key 
 --------|:----------
