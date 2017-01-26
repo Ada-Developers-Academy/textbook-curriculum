@@ -99,7 +99,7 @@ Command-shift-f | `⌘⇧f` | Fullscreen
 > ### A Word About Mice ###
 - - -
 
-Originally Macs didn't have a right-click option for mie
+Steve Jobs had a weird thing about single-button mice.  Trust me, it's bizarre.  Over time Apple's added 2-button mouse functionality to MacOS.  You can make a right click on your laptop by either by clicking and holding the option key down, or pressing with two fingers on the trackpad.  Or... you can just plug in a regular PC mouse and it'll work fine.  
 
 
 <a id="#using-a-windows-keyboard"></a>
