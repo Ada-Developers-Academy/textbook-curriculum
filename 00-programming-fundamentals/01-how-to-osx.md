@@ -23,7 +23,7 @@ By the end of this you should:
 * [Common Hotkeys that will save your life!](#common-hotkeys)
 	* [Text Editing Keyboard Combos](#text-keyboard-combos)
 	* [System Navigation Keyboard Combinations](#sys-navigation-combos)
-* [With PC-style External Keyboard & Mouse](#using-an-external-keyboard)
+* [With PC-style External Keyboard](#using-a-windows-keyboard)
 * [Taking Screenshots](#taking-screenshots)
 * [Creating Your Own Shortcuts](#custom-shortcuts)
 
@@ -108,6 +108,8 @@ Steve Jobs had a weird thing about single-button mice.  Trust me, it's bizarre. 
 
 If you do use an external windows keyboard & mouse at home you'll find a few differences.  Most notably the mac will consider the "windows" key the command key.
 
+
+<a id="#using-an-external-keyboard"></a>
 ### Windows External Keyboard
 Windows Key | Mac Key 
 --------|:----------
