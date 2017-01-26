@@ -30,7 +30,7 @@ By the end of this you should:
 ## Learning the Menu Symbols
 
 
-Whenever you open a menu, it will use these symbols to show you which keyboard shortcuts you can use to run the menu option at hand. It can be quite helpful to make a set of flashcards to remember these. I thought they were really _weird_ at first, and flashcards were a quick and easy method for me to test whether I'd learned the symbols correctly. 
+Whenever you open a menu, it will use these symbols to show you which keyboard shortcuts you can use to run the menu option at hand. It can be quite helpful to make a set of flashcards to remember these. I thought they were really _weird_ at first, and flashcards were a quick and easy method for me to test whether I'd learned the symbols correctly.
 
 Button | Mac Symbol | How To Remember It
 -------|:----------:|------------------
@@ -57,7 +57,7 @@ Command-s  | `⌘s` | Save code in the text editor!  **Do this a lot!**
 Command-c  | `⌘c` | Copy the text currently highlighted (ctrl-c in windows).
 Command-x  | `⌘x` | Remove the text highlighted and save it in the clipboard.
 Command-v  | `⌘v` | Paste last copied content from clipboard.  
-Command-z  | `⌘z` | Undo the last action (repeat to undo multiple things). 
+Command-z  | `⌘z` | Undo the last action (repeat to undo multiple things).
 Command-shift-z | `⌘⇧z` | Redo the last undo.
 Command-a  | `⌘a` | Select everything in the window.
 Command-l  | `⌘l`| Select the current line.
@@ -85,7 +85,7 @@ Command-shift-f | `⌘⇧f` | Find all.  Searches all files (text editors like A
 Command-n | `⌘n` | Opens a new window (or file depending on the application).
 Command-t | `⌘t` | Opens a new tab in a browser
 Command-r | `⌘r` | Reloads the page in a browser
-Command-comma | `⌘,` | Opens an app's preferences page. 
+Command-comma | `⌘,` | Opens an app's preferences page.
 Command-/ | `⌘/` | Make either the current line or a selection of text a comment (Sublime or Atom only)
 Command-shift-f | `⌘⇧f` | Fullscreen
 
@@ -95,6 +95,16 @@ Command-shift-f | `⌘⇧f` | Fullscreen
 Steve Jobs had a [weird thing](http://www.cultofmac.com/269222/steve-jobs-hated-idea-multi-button-mouse-designer-claims/) about single-button mice.  Trust me, it's bizarre.  Over time Apple's added 2-button mouse functionality to MacOS, mostly to open rarely accessed sub-menus, and you'll be surprised how little you actually use it, if you think about it at all.  You can make a right click on your laptop trackpad by either by clicking and holding the control (⌃) key down, or pressing with two fingers on the trackpad.  Or... you can just plug in a regular PC mouse and it'll work fine.  
 
 
+## Split Screen
+When you write code on a laptop, it is often important to be able to see documentation and code side-by-side. The latest version of Mac OS allows you to do this without any additional apps. Apps like [Spectacle](https://www.spectacleapp.com/) will give you even more control over this, if desired.
+
+1. Click and hold on the green maximize icon in the upper left corner of an app until it responds (by shrinking)
+
+2. Drag the window to one side of your screen
+
+3. Choose the second app from your open apps to display on the other side of the screen
+
+There are a number of other ways to accomplish this same behavior, so be sure to play around with this. **It will be necessary**, so if it's challenging now, just keep practicing!
 
 
 ## Taking Screenshots
