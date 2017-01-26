@@ -96,28 +96,6 @@ Command-shift-f | `⌘⇧f` | Fullscreen
 Steve Jobs had a [weird thing](http://www.cultofmac.com/269222/steve-jobs-hated-idea-multi-button-mouse-designer-claims/) about single-button mice.  Trust me, it's bizarre.  Over time Apple's added 2-button mouse functionality to MacOS, mostly to open rarely accessed sub-menus, and you'll be surprised how little you actually use it, if you think about it at all.  You can make a right click on your laptop trackpad by either by clicking and holding the control (⌃) key down, or pressing with two fingers on the trackpad.  Or... you can just plug in a regular PC mouse and it'll work fine.  
 
 
-## Using a Windows Keyboard
-
-
-If you do use an external windows keyboard & mouse at home you'll find a few differences.  Most notably the mac will consider the "windows" key the command key.  Below is a table listing windows keys and how the Mac interprets them.  
-
- 
-Windows Key | Mac Key 
---------|:----------
-Control | Control!
-Windows | Command
-Alt     | Alt/Option
-Escape  | Cancels out of active window / element or cancels next character
-Insert  | Opens the *help* dialog
-Delete  | Delete :p
-Page up & Page Down | Moves the window up or down but does **not** move the cursor. 
-Home/End | Jumps to the bottom of the document but does **not** move the cursor. 
-Windows + Home/End | Jumps **with** cursor to top/bottom of document
-Numlock | Nothing, nada
-10-key-pad | Also nothing
-
-
-
 
 
 ## Taking Screenshots
