@@ -93,7 +93,7 @@ Command-shift-f | `⌘⇧f` | Fullscreen
 
 ## A Word About Mice
 
-Steve Jobs had a [weird thing](http://www.cultofmac.com/269222/steve-jobs-hated-idea-multi-button-mouse-designer-claims/) about single-button mice.  Trust me, it's bizarre.  Over time Apple's added 2-button mouse functionality to MacOS, mostly to open rarely accessed sub-menus, and you'll be surprised how little you actually use it, if you think about it at all.  You can make a right click on your laptop trackpad by either by clicking and holding the option key down, or pressing with two fingers on the trackpad.  Or... you can just plug in a regular PC mouse and it'll work fine.  
+Steve Jobs had a [weird thing](http://www.cultofmac.com/269222/steve-jobs-hated-idea-multi-button-mouse-designer-claims/) about single-button mice.  Trust me, it's bizarre.  Over time Apple's added 2-button mouse functionality to MacOS, mostly to open rarely accessed sub-menus, and you'll be surprised how little you actually use it, if you think about it at all.  You can make a right click on your laptop trackpad by either by clicking and holding the control (⌃) key down, or pressing with two fingers on the trackpad.  Or... you can just plug in a regular PC mouse and it'll work fine.  
 
 
 ## Using a Windows Keyboard
