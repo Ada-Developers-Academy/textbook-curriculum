@@ -75,7 +75,7 @@ There are many options for text editors. _Sublime Text_, _TextMate_ and _Atom_ a
 
 Lastly we you should already have Ada's primary mode of communication installed... [**Slack!**](https://slack.com/downloads/osx).  While it is **possible** to get by using the Slack website.  We recommend **strongly** to use the Desktop client.  Simply follow the link above and install it, or go to the Mac Appstore and install Slack that way.  
 
-When Ada has announcements or students want to share general information we generally use Slack.  We only use e-mail for personal communication, things we need to keep a record of (like absences).  
+When Ada has announcements or students want to share general information we generally use Slack.  
 
 
 It's also critically important to use Emoji's (not really, but it's fun!).  So once you have Slack running  follow the directions [**here**](https://get.slack.help/hc/en-us/articles/206870177-Create-custom-emoji) to install a Slack Emoji of your choice.  
