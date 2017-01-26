@@ -100,10 +100,9 @@ Steve Jobs had a weird thing about single-button mice.  Trust me, it's bizarre. 
 ## Using a Windows Keyboard
 
 
-If you do use an external windows keyboard & mouse at home you'll find a few differences.  Most notably the mac will consider the "windows" key the command key.
+If you do use an external windows keyboard & mouse at home you'll find a few differences.  Most notably the mac will consider the "windows" key the command key.  Below is a table listing windows keys and how the Mac interprets them.  
 
-### <a name="external-keyboard"></a>
- Windows External Keyboard
+ 
 Windows Key | Mac Key 
 --------|:----------
 Control | Control!
