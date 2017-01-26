@@ -15,9 +15,9 @@ By the end of this you should:
 
 
 <a id="#overview"></a>
-- - -
-> ### Overview ###
-- - -
+
+## Overview
+
 
 * [Learning the Menu Symbols](#learning-the-menu-symbols)
 * [Common Hotkeys that will save your life!](#common-hotkeys)
@@ -28,9 +28,9 @@ By the end of this you should:
 * [Creating Your Own Shortcuts](#custom-shortcuts)
 
 <a id="#learning-the-menu-symbols"></a>
-- - -
-> ### Learning the Menu Symbols ###
-- - -
+
+## Learning the Menu Symbols
+
 
 Whenever you open a menu, it will use these symbols to show you which keyboard shortcuts you can use to run the menu option at hand. It can be quite helpful to make a set of flashcards to remember these. I thought they were really _weird_ at first, and flashcards were a quick and easy method for me to test whether I'd learned the symbols correctly. 
 
@@ -45,13 +45,13 @@ Caps Lock | ⇪ | And stay up! Here's a box to help. You can stand on it. :)
 <div align="right">^<a href="#overview">top</a></div>
 
 <a id="#common-hotkeys"></a>
-- - -
-> ### Common Hotkeys that will save your life! ###
-- - -
+
+## Common Hotkeys that will save your life! ###
+
 
 <a id="#text-keyboard-combos"></a>
 
-#### Text Editing Keyboard Combinations
+### Text Editing Keyboard Combinations
 
 Below are a series of keyboard shortcuts that will help you in a text-editor writing code.
 
@@ -69,7 +69,7 @@ Command-Arrow | `⌘<directional arrow>` | Move the cursor to the maximum point 
 Option-left-or-right-arrow | `⌥<left or right arrow` | Move the cursor one word in either direction
 Shift-Arrow | `⇧<cursor movement command>` | Highlight from the start and end of the cursor
 
-#### System Navigation
+### System Navigation
 
 These keyboard shortcuts work with a variety of applications to let you navigate within an application or between applications.  
 
@@ -95,21 +95,20 @@ Command-shift-f | `⌘⇧f` | Fullscreen
 
 <id id="#about-mice"></a>
 
-- - -
-> ### A Word About Mice ###
-- - -
+
+### A Word About Mice ###
 
 Steve Jobs had a weird thing about single-button mice.  Trust me, it's bizarre.  Over time Apple's added 2-button mouse functionality to MacOS.  You can make a right click on your laptop by either by clicking and holding the option key down, or pressing with two fingers on the trackpad.  Or... you can just plug in a regular PC mouse and it'll work fine.  
 
 
 <a id="#using-a-windows-keyboard"></a>
-- - -
-> ### Using a Windows Keyboard & Mouse ###
-- - -
+
+### Using a Windows Keyboard & Mouse ###
+
 
 If you do use an external windows keyboard & mouse at home you'll find a few differences.  Most notably the mac will consider the "windows" key the command key.
 
-#### Windows External Keyboard on a Mac
+### Windows External Keyboard
 Windows Key | Mac Key 
 --------|:----------
 Control | Control!
@@ -127,9 +126,9 @@ Numlock | Nothing, nada
 
 <a id="#taking-screenshots"></a>
 
-- - -
-### Taking Screenshots ###
-- - -
+
+### Taking Screenshots
+
 Screenshots on a Mac are very cool. By default, they save a file to the desktop. If you add Control (⌃) to the shortcut, the screenshot will be copied to the clipboard instead.
 
 
@@ -143,9 +142,9 @@ Print Screen (application window, PC: Alt + Print Screen) | Command + Shift + 4,
 
 
 <a id="#custom-shortcuts"></a>
-- - -
-> ### Creating Your Own Keyboard Shortcuts ###
-- - -
+
+### Creating Your Own Keyboard Shortcuts
+
 
 There might be applications that will do some or all of this for you, but I opted to make the changes manually. Some function keys were easier to reprogram than others. You'll need to open __System Preferences__ and go into __Keyboard__ settings. In the __Shortcuts__ tab, check out your options in the list on the lift. It should say things like __Launchpad & Dock__, __Mission Control__, and __Keyboard__. Click on __App Shortcuts__ at the bottom. Now you can customize your own shortcuts!
 
