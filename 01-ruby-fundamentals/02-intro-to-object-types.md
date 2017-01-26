@@ -41,9 +41,9 @@ Strings created from single or double quotes are identical in almost every way. 
 For example `\n` is a special character for a new line. Using double quotes tells Ruby to evaluate this character. With single quotes, `\n` is not intepreted as a new line.
 
 ```ruby
-puts 'abc\ndef'  # => abc\nabc
+puts 'abc\ndef'  # => abc\ndef
 puts "abc\ndef"  # => abc
-                 #    abc
+                 #    def
 ```
 
 `#{}` is a special syntax for _interpolating_ Ruby code inside of a string. The code inside of the braces (`{}`) is interpreted by Ruby. The results are then inserted into the containing string.
@@ -56,7 +56,7 @@ name = "Ada"
 
 It's best to use double quotes by default. This gives the most flexibility and it's more common that you'd need to use a `'` inside of a sentence than a `"`.
 
-If you want to use a double quote character inside of a string that is already enclosed by double quotes, use the `/` character to escape the quote character.
+If you want to use a double quote character inside of a string that is already enclosed by double quotes, use the `\` character to escape the quote character.
 
 ```ruby
 puts "\"Hello\" I said"
