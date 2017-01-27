@@ -36,7 +36,7 @@ Here is an abbreviated _Precedence List_ from __highest__ to __lowest__ _precede
 1. `&&`
 1. `||`
 
-__Note:__ _unary +_ and _unary -_ here means assigning a numeric value (_Fixnum_ or _Float_) as either positive or negative, e.g. `-5`, `-12.2`, `+30` and `+2.0`.
+__Note:__ _unary +_ and _unary -_ here means assigning a numeric value (_Integer_ or _Float_) as either positive or negative, e.g. `-5`, `-12.2`, `+30` and `+2.0`.
 
 ### Using Compound Conditions
 
