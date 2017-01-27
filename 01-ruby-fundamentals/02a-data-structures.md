@@ -12,7 +12,7 @@ The objectives of this unit are to make you comfortable with:
 We use variables to store information that we want to access and/or change later, and they can hold different "types" of data.  Right now we know about:
 * Strings
 * Symbols
-* Fixnums
+* Integers
 * Float
 
 And you've probably seen some others as well.  Each "*Data Type*" can hold a certain kind or *type* of information.  
@@ -197,7 +197,7 @@ The Grass type includes ["Tangela", "Bayleef"]
 Exercise: Let's modify the example above
 1. Switch the `string` keys to Symbols
 2. Update the values to be Arrays filled with Hashes instead of an Arrays filled with Strings. Use the name as one key-value pair and add two new characteristics.
-3. Print out the new data (update the loop) 
+3. Print out the new data (update the loop)
 
 ## Reference
 

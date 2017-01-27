@@ -227,12 +227,12 @@ These can be run on an ActiveRecord class (like `Student`) or on any collection 
 |:---------------------------------|:-----------------------------------|:-----------|:-----------------------|:------------|
 | `Student.all`                    | Get all table entries              | N/A        | Collection of Students | Yes         |
 | `Student.first`, `Student.last`  | Get entry with lowest / highest ID | N/A        | One Student            | Yes         |
-| `Student.find(4)`                | Get the entry in row 4             | Fixnum     | One Student            | Yes         |
+| `Student.find(4)`                | Get the entry in row 4             | Integer    | One Student            | Yes         |
 | `Student.where(name: 'libby')`   | Get entries that match             | Hash       | Collection of Students | Yes         |
 | `Student.find_by(name: 'libby')` | Get matching entry with lowest ID  | Hash       | One Student            | Yes         |
 | `Student.order(:name)`           | Sort entries                       | Field Name | Collection of Students | Yes         |
-| `Student.count`                  | Count entries                      | N/A        | Fixnum                 | Yes         |
-| `Student.size`                   | Count entries                      | N/A        | Fixnum                 | Memoized    |
+| `Student.count`                  | Count entries                      | N/A        | Integer                | Yes         |
+| `Student.size`                   | Count entries                      | N/A        | Integer                | Memoized    |
 | `Student.empty?`                 | Are there zero entries?            | N/A        | Boolean                | Memoized    |
 
 ### Interacting with a Retrieved Entry

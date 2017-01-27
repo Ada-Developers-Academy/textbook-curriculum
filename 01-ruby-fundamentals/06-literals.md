@@ -40,7 +40,7 @@ Hash.new # => new empty hash, not a literal
 
 :word # => new Symbol. Literal
 
-123 # => new Fixnum, also a literal
+123 # => new Integer, also a literal
 ```
 
 ### More Literals!
@@ -58,7 +58,7 @@ There are a many more literals. For a complete list see this [guide](http://en.w
 
 # string % notation
 # little dubs doesn't interpolate
-%w(tacos are awesome) 
+%w(tacos are awesome)
 
 # big dubs interpolates before assembling the array
 x = "awesome"
