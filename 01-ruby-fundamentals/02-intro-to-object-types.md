@@ -84,7 +84,7 @@ _Symbols_ are a lot like strings but they are meant to represent identifiers. _S
 
 Working with numbers in Ruby comes in two forms. The first one are called `Integer`s in Ruby (whole numbers). Numbers with a decimal point are represented by the `Float` object.
 
-`Integer` objects are whole numbers. `1`, `9999`, `-255` are all `Integer` objects.
+`Integer` objects are whole numbers. `1`, `9999`, `-255` are all `Integer` objects.  This is a bit new, in older versions of Ruby you will see them called `Fixnum`s.  Just know that when a Stack Overflow article is talking about `Fixnum` it's an `Integer`.
 
 `Float` objects are numbers with a decimal point (like `3.14`, `0.001`, and `11.11 `).
 
