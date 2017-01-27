@@ -82,7 +82,7 @@ _Symbols_ are a lot like strings but they are meant to represent identifiers. _S
 
 ## Working with numbers: `Integer` & `Float`
 
-Working with numbers in Ruby comes in two forms. The first one are called `Integer`s in Ruby (whole numbers). Numbers with a decimal point are represented by the `Float` object.
+Working with numbers in Ruby comes in two forms. The first are called `Integer`s in Ruby and they represent whole numbers (-512, 0, 23, 512, etc). Numbers with a decimal points are represented by the `Float` object.
 
 `Integer` objects are whole numbers. `1`, `9999`, `-255` are all `Integer` objects.  This is a bit new, in older versions of Ruby you will see them called `Fixnum`s.  Just know that when a Stack Overflow article is talking about `Fixnum` it's an `Integer`.
 
@@ -108,7 +108,7 @@ While many math operations perform intuitively, it's important to note the diffe
 # => 232585.84332597523 (Float)
 ```
 
-Check out the Documentation for [Integer](https://ruby-doc.org/core-2.4.0/Integer.html) and [Float](https://ruby-doc.org/stdlib-2.4.0/libdoc/rexml/rdoc/Float.html).
+Check out the Documentation for [Integer](https://ruby-doc.org/core-2.4.0/Integer.html) and [Float](https://ruby-doc.org/core-2.4.0/Float.html).
 
 ## Collections: `Array` & `Hash`
 Ruby provides two _object types_ focused on _collections_ of information. These are the `Array` and the `Hash`. Both are used to manage multiple pieces of data, but each serves a specific purpose.
