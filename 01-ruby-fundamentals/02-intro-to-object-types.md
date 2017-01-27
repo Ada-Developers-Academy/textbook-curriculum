@@ -6,6 +6,8 @@
     + `Symbol`
     + `Integer`
     + `Float`
+    + `Array`
+    + `Hash`
     + `Nil`
 - Explore some common _methods_ available to the core _types_
 
@@ -78,7 +80,7 @@ _Symbols_ are a lot like strings but they are meant to represent identifiers. _S
 "elephant".object_id # => 70359726563680
 ```
 
-## Working with numbers: `IntegerInteger` & `Float`
+## Working with numbers: `Integer` & `Float`
 
 Working with numbers in Ruby comes in two forms. The first form represents integers (whole numbers without a decimal point). These are called `Integer`s in Ruby. Numbers with a decimal point are represented by the `Float` object.
 
