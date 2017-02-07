@@ -77,8 +77,8 @@ Command-q | `⌘q`     | Quit the application (`⌘⇧w` keeps the application r
 Command-tab | `⌘⇥`   | Switch between applications.  Continue to hold the `⌘` button to display all open programs each tap on `⇥` will switch to the next app.  You can use `⌘⇧⇥` to switch to the previous app.
 Command-backtick | ⌘ backtick | Switch between windows in the same application.  
 Command-Space | `⌘␣` | Turn on spotlight.  Spotlight lets you search applications, files and do basic functions like math & conversions.
-Command-space-leftbracket | `⌘⇧[` | Move one tab to the left.
-Command-space-rightbracket | `⌘⇧[` | Move one tab to the right.
+Command-Shift-leftbracket | `⌘⇧[` | Move one tab to the left.
+Command-Shift-rightbracket | `⌘⇧[` | Move one tab to the right.
 Command-Shift-t | `⌘⇧t` | open the last closed item.
 Command-f  | `⌘f`  | Find.  Opens a panel to search for a term.
 Command-shift-f | `⌘⇧f` | Find all.  Searches all files (text editors like Atom & Sublime only).
