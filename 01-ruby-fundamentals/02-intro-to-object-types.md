@@ -180,7 +180,7 @@ ada.keys
 
 # similarly, `values` returns an array of all the values in the `Hash`
 ada.values
-# => [2, "Hi!!! ^_^"]
+# => [2, "Hi!!! ^_^", 13]
 
 # create a new key in the `Hash`
 ada[:elephant] = "hotdog"
