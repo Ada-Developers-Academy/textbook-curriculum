@@ -23,7 +23,17 @@ We can install add-ons in Atom through it's internal package manager.
     - Linter ruby
     - Linter CSSlint
     - Zurb Foundation
-    - Sublime Style Column Selection
+    - Sublime Style Column Selection  
+    
+
+#### Term:  Linter
+
+*  A Linter is a name for a program that flags suspicious code that are probably errors.  You'll see the error message at the bottom of your text editor like this:
+
+![Linter Error Msg](images/linter.png "Linter Error Message")
+
+
+
 
 ### Themes
 Themes change the way your editor looks, similar to packages
