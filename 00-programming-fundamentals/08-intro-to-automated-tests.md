@@ -5,7 +5,7 @@
 - Write code that can test code using _assertions_
 
 ## TDD
-Test-driven development is a programming technique that requires you to write solution code and automated test code simultaneously. The goal is to use _automated tests_ as a exploration of your code. __Tests are transient.__ As you work on a project, your understanding of the problems at hand will change. As they do, your tests will change.
+**Test-Driven Development** is a programming technique that requires you to write solution code and automated test code simultaneously. The goal is to use _automated tests_ as a exploration of your code. __Tests are transient.__ As you work on a project, your understanding of the problems at hand will change. As they do, your tests will change.
 
 ### How to TDD
 (1) Write a test that describes a feature of the software. Run the test, and watch it fail. Watching it fail is crucial! (2) Write code that makes all the tests pass. (3) Look for opportunities to clarify your code.
@@ -63,7 +63,7 @@ In the above example, the code in `exponate_test.rb` are _automated tests_. We c
 
 ## Now Comes Minitest
 
-Writing your own assertions is wonderful, but it would be handy to have a standard way that developers can use to write tests on their code, a way that other developers understand.  The maintainers of the Ruby language have adopted a testing library called [Minitest](http://docs.seattlerb.org/minitest/).  For the remainder of your time using Ruby, we will be using Minitest to write unit-tests for your code.
+Writing your own tests with puts is wonderful, but it would be handy to have a standard way that developers can use to write tests on their code, a way that other developers understand.  The maintainers of the Ruby language have adopted a testing library called [Minitest](http://docs.seattlerb.org/minitest/) as the default standard for testing in Ruby & later Rails.  For the remainder of your time using Ruby at Ada, we will be using Minitest to write unit-tests for your code.
 
 
 
@@ -77,6 +77,7 @@ To start with we'll create a file to test the class.  We'll call it `die_test.rb
 # die_test.rb
 
 require 'minitest/autorun'
+require 'minitest/reporters'
 require_relative 'die'
 ```
 
@@ -112,6 +113,7 @@ To start we'll need to create a TestCase class.  We create a set of unit tests b
 # die_test.rb
 
 require 'minitest/autorun'
+require 'minitest/reporters'
 require_relative 'die'
 
 class TestDie < MiniTest::Unit::TestCase
@@ -177,6 +179,16 @@ Finished in 0.001211s, 825.7638 runs/s, 825.7638 assertions/s.
 
 Now we have our first **green/passing** test.  
 
+There are a [number of assertions](https://gist.github.com/rastasheep/4248006#Minitest::Unit::TestCase) in Minitest beyond the assert method.  
+
+#### Practice Exercise
+
+Now we need to test that we can roll the die.  Write a test that checks the roll method of the Die class.  When a die is rolled it should return a number between 1 and 6 inclusive.  You can use the `assert_operator` method.  
+
+## Todo Put in answer
+
+Check with your neighbor.  You can find a solution here.
+
 #### Spec Style Testing
 
 Spec style tests look very different, but read in a more English friendly fashion.  We'll create the test with a file named `die_spec.rb`.
@@ -185,6 +197,7 @@ Spec style tests look very different, but read in a more English friendly fashio
 # die_test.rb
 
 require 'minitest/autorun'
+require 'minitest/reporters'
 require_relative 'die'
 ```
 
@@ -194,6 +207,7 @@ Up till now this all looks the same, but here it changes a bit.  Instead of crea
 # die_spec.rb
 
 require 'minitest/autorun'
+require 'minitest/reporters'
 require_relative 'die'
 
 describe "Testing Die Class" do
@@ -210,9 +224,65 @@ Notice the line `@die.class.must_equal Die`.  Similar to Assertions Minitest add
 
 There are a large number of matchers, but you can usually get by with `must_equal`, `must_include`, `must_match` and `must_raise`.  You can see a full list of Minitest matchers at the bottom of this lesson along with examples.  
 
-So which style is better?  Functionally both do the same job, but the spec-style is more readable by non-technical people.  So we will, from this point on, use Spec-style tests.  However it is important for you to know that both exist and when you get to rails, a great deal more documentation exists for assert-style tests compared to spec-style.  
+#### Exercise Writing Another Test
 
-## TODO Continue testing Lesson
+So just like writing the assertion, now write another test for the roll method.  You should create an `it` block and use the `must_be` matcher.  
+
+Check again with your partner when you are finished.  You can find a solution [here]()
+
+## TODO:  Put in answer
+
+## Which Style Should I Use?
+
+So which style is better?  Functionally both do the same job, but the spec-style is more readable by non-technical people.  So we will, from this point on, use **Spec-style tests.**  However it is important for you to know that both exist and when you get to rails, a great deal more documentation exists for assert-style tests compared to spec-style.  
+
+## What Should I Test?
+
+More important that how you test your code is what you are testing.  If you're not testing the right things bugs can creep through your tests and into production code.  Many many many developers have trouble knowing what to test.   Here are some general guidelines. 
+
+*  Look at your code for branches (if statements) and make sure that each branch of execution is tested.
+*  Test your methods with edge case values.
+	*  For example if your method takes an integer as a parameter you would test it with a positive number, a negative number and zero.
+	*  If your method took an array as a parameter you would test it with an empty array, a one element array and a large array.  
+*  Think about how someone might misuse your method, check for invalid or weird input.  If someone can break your code... they will.
+
+## Organizing Code.
+
+As our projects get larger putting all our code in the same folder gets messy, especially with test files.  So we will be setting up projects like this:
+
+![Project Structure](images/project_folder.png "project structure")
+
+We will be placing our code in the lib folder, and our test specs in the specs folder.
+
+### Wait What Is This Rakefile Thingy?
+
+[Rake](https://github.com/ruby/rake) is a utility Ruby developers use which lets you set up tasks, like testing and running your programs.  Rake reads the Rakefile and follows the Ruby code in the Rakefile to execute listed tasks.  
+
+All we are going to use Rake for now is testing, but later Rake will do all sorts of neat stuff for us.
+
+#### Setting Up
+
+1.  Move your non-testing source code into a folder called `lib`.
+1.  Move your testing specs into a folder called `specs`.
+1.  Change the require_relative line in the spec to point to the lib folder.
+1.  Create the following `Rakefile` in the project root directory
+
+```ruby
+require 'rake/testtask'
+
+Rake::TestTask.new do |t|
+  t.libs = ["lib"]
+  t.warning = true
+  t.test_files = FileList['specs/*_spec.rb']
+end
+
+task default: :test
+```
+
+You can now test your code with `$ rake`
+
+## TODO put in testing output.  
+
 
 
 ### List of Minitest Matchers
@@ -261,3 +331,4 @@ end
 
 ## Resources
 [Minitest Quick Reference](http://www.mattsears.com/articles/2011/12/10/minitest-quick-reference/)
+[Getting Started With Minitest](https://semaphoreci.com/community/tutorials/getting-started-with-minitest)
