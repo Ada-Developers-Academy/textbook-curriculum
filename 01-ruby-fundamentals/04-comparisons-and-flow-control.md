@@ -5,12 +5,12 @@
   - Leverage conditionals and blocks to make decisions in code.
 
 ## Comparisons
-Equality comparisons can be used on all object types, including `String`, `Fixnum`, `Float`, `Array`, and `Hash`:
+Equality comparisons can be used on all object types, including `String`, `Integer`, `Float`, `Array`, and `Hash`:
 
 - `==` (equal to?)
 - `!=` (not equal to?)
 
-Numeric comparisons are used primarily on `Fixnum` and `Floats`:
+Numeric comparisons are used primarily on `Integer` and `Floats`:
 
 - `>`  (greater than?)
 - `<`  (less than?)

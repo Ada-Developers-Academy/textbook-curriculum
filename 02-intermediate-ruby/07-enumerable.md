@@ -42,7 +42,7 @@ class Array
 end
 ```
 
-__Question: Could I `include AllSmiles` in class `Fixnum`? Why?__
+__Question: Could I `include AllSmiles` in class `Integer`? Why?__
 
 ## So what is `Enumerable`?
 `Enumerable` is a `module` that is _mixed in_ to both `Array` and `Hash` (and a couple other classes too, but those are the main ones). Like our _mixin_ above, it is dependent on the class providing a necessary method. For `AllSmiles`, we can only `include` it in classes that respond to the message `length`.
@@ -77,7 +77,7 @@ end
 ```
 
 ### `min`, `max`, `min_by`, & `max_by`
-These methods find the maximum and minimum values in a collection. You can use `max` and `min` if a collection's values can be directly compared (i.e., they are all `Float` and `Fixnum` values).
+These methods find the maximum and minimum values in a collection. You can use `max` and `min` if a collection's values can be directly compared (i.e., they are all `Float` and `Integer` values).
 
 ```ruby
 numbers = (1..100).to_a.sample(15)
