@@ -1,5 +1,5 @@
 # Pair Programming
-[![Pair Programming](resources/agile-video.png)](https://www.youtube.com/watch?v=ET3Q6zNK3Io "Agile in Practice: Pair Programming")
+[![Pair Programming](images/agile-video.png)](https://www.youtube.com/watch?v=ET3Q6zNK3Io "Agile in Practice: Pair Programming")
 
 ## What is Pair Programming?
 Pair programming is a method of programming in which two people work together at one keyboard. One person, "the driver", types at the keyboard. The other person, "the observer" (or "navigator") reviews each line of code as it is typed, checking for errors and thinking about the overall design.
