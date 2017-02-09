@@ -18,6 +18,8 @@
 
 You'll often hear this cycle shorthanded as __Red, Green, Refactor__. Write a test and it is __red__ (many testing tools show failing tests in red text). Writing or updating code to make the test pass makes it __green__ (passing tests are usually shown in green text). Before moving on, take a moment to look for emerging patterns, needless duplication, and other opportunities to polish and clarify. This is __refactoring__, updating not to extend functionality, but to increase the clarity and consistency of our code.
 
+![Red Green Refactor](images/tdd_flow.gif)
+
 ## The Anatomy of a Test
 An _automated test_ is a piece of code in a project that can be run independently to verify the functionality of other code within the project. It exists to verify and clarify the role and use of code in the project. Here's an example of a software test:
 
@@ -83,6 +85,10 @@ require_relative 'die'
 
 Then we can create an empty file `die.rb` which will hold our class.  
 
+```ruby
+# die.rb
+```
+
 We can run the tests by typing:  `ruby die_test.rb` and get the following:
 
 ```bash
@@ -97,6 +103,8 @@ Finished in 0.000751s, 0.0000 runs/s, 0.0000 assertions/s.
 
 0 runs, 0 assertions, 0 failures, 0 errors, 0 skips
 ```
+
+We are now setup, but we haven't actually written a test yet.
 
 
 ### A Tale of Two Styles
@@ -194,14 +202,14 @@ Check with your neighbor.  You can find a solution here.
 Spec style tests look very different, but read in a more English friendly fashion.  We'll create the test with a file named `die_spec.rb`.
 
 ```ruby
-# die_test.rb
+# die_spec.rb
 
 require 'minitest/autorun'
 require 'minitest/reporters'
 require_relative 'die'
 ```
 
-Up till now this all looks the same, but here it changes a bit.  Instead of creating a class we'll write a `describe` block which identifies a group of tests that belong together, usually because they are testing the same thing.  Inside the `describe` block are `it` blocks.  Each `it` block is a test.   
+Up till now this all looks the same, but next it changes a bit.  Instead of creating a class we'll write a `describe` block which identifies a group of tests that belong together, usually because they are testing the same thing.  Inside the `describe` block are `it` blocks.  Each `it` block is a test.   
 
 ```ruby
 # die_spec.rb
@@ -220,9 +228,9 @@ end
 
 ```
 
-Notice the line `@die.class.must_equal Die`.  Similar to Assertions Minitest adds a bunch of methods to all objects called *matchers*.  
+Notice the line `@die.class.must_equal Die`.  Look at how english-friendly it is.  The idea with **BDD** is the that with our tests we are defining specifications or behaviors our code should follow.  
 
-There are a large number of matchers, but you can usually get by with `must_equal`, `must_include`, `must_match` and `must_raise`.  You can see a full list of Minitest matchers at the bottom of this lesson along with examples.  
+Similar to Assertions Minitest adds a bunch of methods to all objects called *matchers*.  There are a large number of matchers, but you can usually get by with `must_equal`, `must_include`, `must_match` and `must_raise`.  You can see a full list of Minitest matchers at the bottom of this lesson along with examples.  
 
 #### Exercise Writing Another Test
 
@@ -234,13 +242,13 @@ Check again with your partner when you are finished.  You can find a solution [h
 
 ## Which Style Should I Use?
 
-So which style is better?  Functionally both do the same job, but the spec-style is more readable by non-technical people.  So we will, from this point on, use **Spec-style tests.**  However it is important for you to know that both exist and when you get to rails, a great deal more documentation exists for assert-style tests compared to spec-style.  
+So which style is better?  Functionally both do the same job, but the spec-style is more readable by non-technical people.  So we will, from this point on, use **Spec-style tests.**  However it is important for you to know that both exist and when you get to rails, a great deal more documentation exists for assert-style tests compared to spec-style.  You may also see assert-style tests in the weekend warrior exercises to come.  
 
 ## What Should I Test?
 
 More important that how you test your code is what you are testing.  If you're not testing the right things bugs can creep through your tests and into production code.  Many many many developers have trouble knowing what to test.   Here are some general guidelines. 
 
-*  Look at your code for branches (if statements) and make sure that each branch of execution is tested.
+*  Look at your code for branches (if statements and loops) and make sure that each branch of execution is tested.
 *  Test your methods with edge case values.
 	*  For example if your method takes an integer as a parameter you would test it with a positive number, a negative number and zero.
 	*  If your method took an array as a parameter you would test it with an empty array, a one element array and a large array.  
@@ -330,5 +338,5 @@ end
 ```
 
 ## Resources
-[Minitest Quick Reference](http://www.mattsears.com/articles/2011/12/10/minitest-quick-reference/)
-[Getting Started With Minitest](https://semaphoreci.com/community/tutorials/getting-started-with-minitest)
+-  [Minitest Quick Reference](http://www.mattsears.com/articles/2011/12/10/minitest-quick-reference/)
+-  [Getting Started With Minitest](https://semaphoreci.com/community/tutorials/getting-started-with-minitest)
