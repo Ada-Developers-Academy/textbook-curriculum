@@ -1,5 +1,5 @@
 # Arrays and Hashes in combination
-You've Dealt with variables holding a single value and you've been introduced to the concept of collections as well, but here we'll go into greater depth.  
+You've dealt with variables holding a single value and you've been introduced to the concept of collections as well, but here we'll go into greater depth.  
 
 ## Learning Goals
 The objectives of this unit are to make you comfortable with:
