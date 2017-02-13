@@ -264,7 +264,7 @@ As our projects get larger putting all our code in the same folder gets messy, e
 
 ![Project Structure](images/project_folder.png "project structure")
 
-We will be placing our code in the lib folder, and our test specs in the specs folder.
+We will be placing our code in the **lib** folder, and our test specs in the **specs** folder.
 
 ### Wait What Is This Rakefile Thingy?
 
