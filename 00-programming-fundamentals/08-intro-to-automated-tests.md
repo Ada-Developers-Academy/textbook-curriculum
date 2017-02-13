@@ -129,12 +129,12 @@ In the TDD World there are two styles of testing.  In the first more traditional
 
 #### Writing Your First Test - Assertion Style
 
-To start we'll need to create a TestCase class.  We create a set of unit tests by subclassing MiniTest::Unit::TestCase and add each set of tests in instance methods.  
+To start we'll need to create a TestCase class.  We create a set of unit tests by subclassing `MiniTest::Unit::TestCase` and add each set of tests in instance methods.  
 
 
 #### Step 1:  Create a TestDie Class
 
-First we'll create a class that extends Minitest::Unit::TestCase, basically make a class that is a series of TestCases.
+First we'll create a class that extends `Minitest::Unit::TestCase`, basically make a class that is a series of TestCases.
 
 ```ruby
 class TestDie < MiniTest::Unit::TestCase
@@ -242,6 +242,13 @@ Now we have our first **green/passing** test.
 
 There are a [number of assertions](https://gist.github.com/rastasheep/4248006#Minitest::Unit::TestCase) in Minitest beyond the assert method.  
 
+
+#### A Word on Parentheses
+
+Check out the code above.  We are calling assert without using parentheses here:  `assert @die.class == Die, "There must be a Die class."`  Ruby doesn't FORCE you to put parentheses around a method's arguments but [the community-driven style guidelines](https://github.com/bbatsov/ruby-style-guide) suggest that it's good coding style to put parentheses around method arguments **except** for methods part of an internal Domain Specific Language (DSL), or basically the syntax of some kind of framework like... Minitest.  
+
+So you shouldn't put parentheses around the arguments to `assert` or later `must` method arguments, but you **should** around your own methods.  
+
 #### Practice Exercise
 
 Now we need to test that we can roll the die.  Write a test that checks the roll method of the Die class.  When a die is rolled it should return a number between 1 and 6 inclusive.  You can use the `assert_operator` method.  
@@ -262,7 +269,7 @@ require 'minitest/reporters'
 require_relative 'die'
 ```
 
-Up till now this all looks the same, but next it changes a bit.  Instead of creating a class we'll write a `describe` block which identifies a group of tests that belong together, usually because they are testing the same thing.  Inside the `describe` block are `it` blocks.  Each `it` block is a test.   
+Up until now this all looks the same, but next it changes a bit.  Instead of creating a class we'll write a `describe` block which identifies a group of tests that belong together, usually because they are testing the same thing.  Inside the `describe` block are `it` blocks.  Each `it` block is a test.   
 
 ```ruby
 # die_spec.rb
@@ -273,9 +280,9 @@ require_relative 'die'
 
 describe "Testing Die Class" do
   it "You can create an instance of Die" do
-    @die = Die.new
+    die = Die.new
 
-    @die.class.must_equal Die
+    die.class.must_equal Die
   end
 end
 
