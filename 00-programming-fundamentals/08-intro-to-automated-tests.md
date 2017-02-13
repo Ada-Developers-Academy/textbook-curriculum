@@ -7,6 +7,10 @@
 ## TDD
 **Test-Driven Development** is a programming technique that requires you to write solution code and automated test code simultaneously. The goal is to use _automated tests_ as a exploration of your code. __Tests are transient.__ As you work on a project, your understanding of the problems at hand will change. As they do, your tests will change.
 
+### Starter Files
+
+As we work we will use the files located in this [repository.](https://github.com/AdaGold/die).  Fork & Clone the repository and follow along as you go.  
+
 ### How to TDD
 (1) Write a test that describes a feature of the software. Run the test, and watch it fail. Watching it fail is crucial! (2) Write code that makes all the tests pass. (3) Look for opportunities to clarify your code.
 
@@ -65,7 +69,7 @@ In the above example, the code in `exponate_test.rb` are _automated tests_. We c
 
 ## Now Comes Minitest
 
-Writing your own tests with puts is wonderful, but it would be handy to have a standard way that developers can use to write tests on their code, a way that other developers understand.  The maintainers of the Ruby language have adopted a testing library called [Minitest](http://docs.seattlerb.org/minitest/) as the default standard for testing in Ruby & later Rails.  For the remainder of your time using Ruby at Ada, we will be using Minitest to write unit-tests for your code.
+Writing your own tests with puts is wonderful, but it would be handy to have a standard way that developers can use to write tests on their code, a way that other developers understand.  The maintainers of the Ruby language have adopted a testing library called [Minitest](http://docs.seattlerb.org/minitest/) as the default standard for testing in Ruby & later Rails.  For the remainder of your time using Ruby at Ada, we will be using Minitest to write unit-tests for your code.  There are other testing frameworks, notably [RSpec](http://rspec.info/	), but the key concepts are similar.  
 
 
 
@@ -128,7 +132,7 @@ class TestDie < MiniTest::Unit::TestCase
   def test_creation_of_die
     @die = Die.new
     # The class of @die should be Die
-    assert @die.class, Die, "There must be a Die class."
+    assert @die.class == Die, "There must be a Die class."
   end
 end
 ```
@@ -193,11 +197,11 @@ There are a [number of assertions](https://gist.github.com/rastasheep/4248006#Mi
 
 Now we need to test that we can roll the die.  Write a test that checks the roll method of the Die class.  When a die is rolled it should return a number between 1 and 6 inclusive.  You can use the `assert_operator` method.  
 
-## Todo Put in answer
+#### Check & Verify
 
-Check with your neighbor.  You can find a solution here.
+Check with your neighbor.  You can find a solution [here.](https://github.com/AdaGold/die/blob/solution/tests/die_test.rb)
 
-#### Spec Style Testing
+### Spec Style Testing
 
 Spec style tests look very different, but read in a more English friendly fashion.  We'll create the test with a file named `die_spec.rb`.
 
@@ -232,13 +236,14 @@ Notice the line `@die.class.must_equal Die`.  Look at how english-friendly it is
 
 Similar to Assertions Minitest adds a bunch of methods to all objects called *matchers*.  There are a large number of matchers, but you can usually get by with `must_equal`, `must_include`, `must_match` and `must_raise`.  You can see a full list of Minitest matchers at the bottom of this lesson along with examples.  
 
-#### Exercise Writing Another Test
+### Exercise Writing Another Test
 
 So just like writing the assertion, now write another test for the roll method.  You should create an `it` block and use the `must_be` matcher.  
 
-Check again with your partner when you are finished.  You can find a solution [here]()
+### Check & Verify
 
-## TODO:  Put in answer
+Check again with your partner when you are finished.  You can find a solution [here](https://github.com/AdaGold/die/blob/solution/specs/die_spec.rb)
+
 
 ## Which Style Should I Use?
 
@@ -289,53 +294,44 @@ task default: :test
 
 You can now test your code with `$ rake`
 
-## TODO put in testing output.  
+```bash
+$  rake
+Run options: --seed 2866
+
+# Running:
+
+...
+
+Finished in 0.001215s, 2469.1358 runs/s, 3292.1811 assertions/s.
+
+3 runs, 4 assertions, 0 failures, 0 errors, 0 skips
+```
 
 
 
-### List of Minitest Matchers
+
+## List of Minitest Matchers
 
 |   Matcher	|   Example	|   What it does	|   	Negation |
 |---	|---	|---	|---	|
-|   `must_equal`	|   `obj1.must_equal obj2`	|   The test succeeds if the object equals the given object.  It fails otherwise.	|   	wont_equal |
-|   must_be	|   `num.must_be :> 5`	|   It lets you compare the given object to another using a given operator.  In this example num must be greater than 5.	|
-|   `must_be_close_to`	|   `num.must_be_close_to 5, 1`	|   It lets you compare the given object to another with a given tolerance.  The test succeeds if the object is within the tolerance of the first argument.	|
-|   `must_be_empty`	|   `list.must_be_empty`	|   The test passes if the given collection is empty.	|
-|   `must_be_instance_of`	|   `@die.must_be_instance_of Die`	|   The test passes if the object is an instance of the given class.	|
-|   `must_be_kind_of`	|   `list.must_be_kind_of Enumerable`	|   The test fails if the object is not a kind of the argument.	|
-|   `must_be_nil`	|   `list.must_be_nil`	|   The test fails if the given object is not nil.	|
-|   `must_be_same_as`	|   `list.must_be_same_as another_list`	|   The test fails if the object is not the same as the given argument.	|
-|   `must_be_silent`	|   `proc { obj1.do_something }.must_be_silent`	|   The test fails if the given block outputs something to the terminal (like using puts etc).  	|
-|   `must_be_within_delta`	|   	`(Math::PI, (22.0 / 7.0)).must_be_within_delta 0.01` |  In the documentation's example: `(Math::PI, (22.0 / 7.0)).must_be_within_delta 0.01`, this expectation will pass because 22.0/7 - Math::PI == 0.001264..., which is less than the allowed delta of 0.01.	|
-|   `must_include`	|   `list.must_include 31`	|   The test fails if the collection does not contain the given value.	|
-|   `must_match`	|   `name.must_match /silly/`	|   The test fails if the object doesn't match the given regular expression.	|
+|   `must_equal`	|   `obj1.must_equal obj2`	|   The test succeeds if the object equals the given object.  It fails otherwise.	|   	`wont_equal` |
+|   `must_be`	|   `num.must_be :> 5`	|   It lets you compare the given object to another using a given operator.  In this example num must be greater than 5.	|  `wont_be`  |
+|   `must_be_empty`	|   `list.must_be_empty`	|   The test passes if the given collection is empty.	|  `wont_be_empty` |
+|   `must_be_instance_of`	|   `@die.must_be_instance_of Die`	|   The test passes if the object is an instance of the given class.	|  `wont_be_instance_of`  |
+|   `must_be_kind_of`	|   `list.must_be_kind_of Enumerable`	|   The test fails if the object is not a kind of the argument.	| `wont_be_kind_of`  |
+|   `must_be_nil`	|   `list.must_be_nil`	|   The test fails if the given object is not nil.	|  `wont_be_nil`   |
+|   `must_be_same_as`	|   `list.must_be_same_as another_list`	|   The test fails if the object is not the same as the given argument.	|    `wont_be_same_as`  |
+|   `must_be_silent`	|   `proc { obj1.do_something }.must_be_silent`	|   The test fails if the given block outputs something to the terminal (like using puts etc).  	|  `wont_be_silent`   |  
+|   `must_be_within_delta`	|   	`(Math::PI, (22.0 / 7.0)).must_be_within_delta 0.01` |  In the documentation's example: `(Math::PI, (22.0 / 7.0)).must_be_within_delta 0.01`, this expectation will pass because 22.0/7 - Math::PI == 0.001264..., which is less than the allowed delta of 0.01.	|  `wont_be_within_delta`  |
+|   `must_include`	|   `list.must_include 31`	|   The test fails if the collection does not contain the given value.	|  `wont_include`  |
+|   `must_match`	|   `name.must_match /silly/`	|   The test fails if the object doesn't match the given regular expression.	|  `wont_match`  |
 |   `must_output`	|   `proc { obj.do_something }.must_output "something"	`|   The test fails if the given block does not output the given value.	|
-|   `must_respond_to`	|   `die.must_respond_to :roll`	|   The test fails if the object does not respond to the given method name.  	|
-|   `must_raise`	|   `proc { obj1.do_something }.must_raise NoMethodError`	|   The test fails if the given block does not raise the given exception.	|
-|   `must_throw` |   	`proc { obj1.do_something }.must_throw Exception` |   	Similar to `must_raise`  You can probably safely ignore this, but you can see [here](http://stackoverflow.com/questions/51021/what-is-the-difference-between-raising-exceptions-vs-throwing-exceptions-in-ruby) for an explanation on the differences between raise and throw..
+|   `must_respond_to`	|   `die.must_respond_to :roll`	|   The test fails if the object does not respond to the given method name.  	|  `wont_respond_to`  |
+|   `must_raise`	|   `proc { obj1.do_something }.must_raise NoMethodError`	|   The test fails if the given block does not raise the given exception.	|  `wont_raise`  |
+|   `must_throw` |   	`proc { obj1.do_something }.must_throw Exception` |   	Similar to `must_raise`  You can probably safely ignore this, but you can see [here](http://stackoverflow.com/questions/51021/what-is-the-difference-between-raising-exceptions-vs-throwing-exceptions-in-ruby) for an explanation on the differences between raise and throw..  | `wont_throw`  |
 
 
 
-```ruby
-# die.rb
-
-# The Die class simulates a die, which can have a number 1-6
-class Die
-  # initialize Method
-  # sets up the Die and gives the showing number a random value 1-6
-  def initialize
-      roll
-  end
-  # roll method
-  # this method assigns a random number 1-6 to roll
-  def roll
-    return @showing = Random.rand(6)
-  end
-  def showing
-    return @showing
-  end
-end
-```
 
 ## Resources
 -  [Minitest Quick Reference](http://www.mattsears.com/articles/2011/12/10/minitest-quick-reference/)
