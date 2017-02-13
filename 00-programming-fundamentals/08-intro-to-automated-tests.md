@@ -149,7 +149,7 @@ The `< MiniTest::Unit::TestCase` indicates that this class gets all the methods 
 Now we'll create a method called `test_creation_of_die`, this is a test-case.  All test-cases in assert-style Minitest must start with "test_".  
 
 
-```
+```ruby
 # die_test.rb
 
 require 'minitest/autorun'
@@ -330,6 +330,12 @@ We will be placing our code in the **lib** folder, and our test specs in the **s
 [Rake](https://github.com/ruby/rake) is a utility Ruby developers use which lets you set up tasks, like testing and running your programs.  Rake reads the Rakefile and follows the Ruby code in the Rakefile to execute listed tasks.  
 
 All we are going to use Rake for now is testing, but later Rake will do all sorts of neat stuff for us.
+
+To install rake please enter:
+
+```bash
+gem install rake
+``
 
 #### Setting Up
 
