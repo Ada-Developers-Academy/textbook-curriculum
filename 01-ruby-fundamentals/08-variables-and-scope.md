@@ -51,21 +51,42 @@ end
 The _scope_ of a variable is the collection of methods, blocks, and objects that know about that variable. It's the comprehensive list of where that variable is available. We can talk about _scope_ for both _local_ and _instance_ variables.
 
 ### Scope of _local variables_
-Local variables are only available inside the block in which they were declared and any of that block's child blocks. Rubyists often say that __local variables can't travel left__.
+Local variables are only available inside the block in which they were declared and any of that block's child blocks. Rubyists often say that __local variables can't travel left__.  
+
+What about things like method and block parameters? Turns out these too are a local variables, and they follow the same rules as a local variable defined inside their method/block.
 
 ```ruby
-def desserts(person)
-  nom = "Pie" # local variable, available to any child defined within this same method.
-
-  if person.likes(nom)
-    choco_var = "Chocolate" # not available outside the if block
-    [1,2,3,4].each do |num|
-      mostest_nom = num > 3 # only available within the each block
-      puts "I love #{choco_var}. " * num if mostest_nom
+# dessert.rb
+def find_favorite_dessert(dessert_list)
+  favorite_dessert = nil
+  best_score = 0
+  dessert_list.each do |dessert|
+    puts "On a scale of 1 to 10, how much do you like #{dessert}?"
+    score = gets.chomp.to_i
+    # Note that we can still see best_score, even though
+    # it was defined one layer out
+    if score > best_score
+      favorite_dessert = dessert
+      best_score = score
     end
   end
+
+  # Attempting to use dessert or score out here would
+  # result in an error, since they were defined
+  # inside the loop block.
+
+  return favorite_dessert
 end
+
+dessert = find_favorite_dessert(['pie', 'cake', 'ice cream'])
+
+# Out here we don't even have access to favorite_dessert
+# or best_score. The only way the method can communicate
+# with the outside world is through its return value.
+
+puts "Sounds like you're a big fan of #{dessert}!"
 ```
+
 
 ### Scope of _instance variables_
 _Instance variables_ are available anywhere within _instance methods_ of a _class_.
