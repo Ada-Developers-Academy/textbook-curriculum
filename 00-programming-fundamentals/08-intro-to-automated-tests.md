@@ -309,7 +309,7 @@ So which style is better?  Functionally both do the same job, but the spec-style
 
 ## What Should I Test?
 
-More important that how you test your code is what you are testing.  If you're not testing the right things bugs can creep through your tests and into production code.  Many many many developers have trouble knowing what to test.   Here are some general guidelines. 
+More important than how you test your code is what you are testing.  If you're not testing the right things bugs can creep through your tests and into production code.  Many many many developers have trouble knowing what to test.   Here are some general guidelines. 
 
 *  Look at your code for branches (if statements and loops) and make sure that each branch of execution is tested.
 *  Test your methods with edge case values.
