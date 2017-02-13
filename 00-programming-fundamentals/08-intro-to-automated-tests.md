@@ -3,6 +3,7 @@
 - Learn about _Test Driven Development_ (TDD)
 - Discover techniques to verify our code performs as expected using _automated tests_
 - Write code that can test code using _assertions_
+- Have a basic grasp on what _Rake_ & _Rakefiles_ are.
 
 ## TDD
 **Test-Driven Development** is a programming technique that requires you to write solution code and automated test code simultaneously. The goal is to use _automated tests_ as a exploration of your code. __Tests are transient.__ As you work on a project, your understanding of the problems at hand will change. As they do, your tests will change.
