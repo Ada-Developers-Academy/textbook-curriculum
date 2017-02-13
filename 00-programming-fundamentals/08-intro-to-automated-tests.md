@@ -166,7 +166,6 @@ Did you mean?  Dir
 Lets do so:
 
 ```ruby
-#die.rb
 # die.rb
 
 class Die
@@ -336,3 +335,4 @@ Finished in 0.001215s, 2469.1358 runs/s, 3292.1811 assertions/s.
 ## Resources
 -  [Minitest Quick Reference](http://www.mattsears.com/articles/2011/12/10/minitest-quick-reference/)
 -  [Getting Started With Minitest](https://semaphoreci.com/community/tutorials/getting-started-with-minitest)
+-  [Source of TDD Image](http://luizricardo.org/2014/05/is-tdd-dead/)
