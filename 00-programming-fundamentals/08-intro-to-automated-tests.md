@@ -134,7 +134,7 @@ To start we'll need to create a TestCase class.  We create a set of unit tests b
 
 #### Step 1:  Create a TestDie Class
 
-First we'll create a class that extends `Minitest::Unit::TestCase`, basically make a class that is a series of TestCases.
+First we'll create a class that extends `Minitest::Unit::TestCase`, basically make a class that contains a series of TestCases.
 
 ```ruby
 class TestDie < MiniTest::Unit::TestCase
@@ -269,7 +269,9 @@ require 'minitest/reporters'
 require_relative 'die'
 ```
 
-Up until now this all looks the same, but next it changes a bit.  Instead of creating a class we'll write a `describe` block which identifies a group of tests that belong together, usually because they are testing the same thing.  Inside the `describe` block are `it` blocks.  Each `it` block is a test.   
+Up until now this all looks the same, now things change.  Instead of creating a class we'll write a `describe` block which identifies a group of tests that belong together, usually because they are testing the same thing.  Inside the `describe` block are `it` blocks.  Each `it` block is a test.   
+
+Why?  Well to make things more readable we `describe` what we're testing, a class, or a feature etc.  You can even put `describe` blocks inside `describe` blocks to further organize our testing.  Then we can break each test-case into `it` blocks.  Minitest runs each `it` block in a random order and resets things between them to prevent one test result from interfering with another.   
 
 ```ruby
 # die_spec.rb
@@ -288,7 +290,7 @@ end
 
 ```
 
-Notice the line `@die.class.must_equal Die`.  Look at how english-friendly it is.  The idea with **BDD** is the that with our tests we are defining specifications or behaviors our code should follow.  
+Observe how this reads more easily from left to right than our original assert test.  The idea with **BDD** is the that with our tests we are defining specifications or behaviors our code should follow.  
 
 Similar to Assertions Minitest adds a bunch of methods to all objects called *matchers*.  There are a large number of matchers, but you can usually get by with `must_equal`, `must_include`, `must_match` and `must_raise`.  You can see a full list of Minitest matchers at the bottom of this lesson along with examples.  
 
