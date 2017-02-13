@@ -258,7 +258,7 @@ More important that how you test your code is what you are testing.  If you're n
 	*  If your method took an array as a parameter you would test it with an empty array, a one element array and a large array.  
 *  Think about how someone might misuse your method, check for invalid or weird input.  If someone can break your code... they will.
 
-## Organizing Code.
+## Organizing Code
 
 As our projects get larger putting all our code in the same folder gets messy, especially with test files.  So we will be setting up projects like this:
 
