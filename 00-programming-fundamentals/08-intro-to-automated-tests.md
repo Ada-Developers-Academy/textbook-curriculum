@@ -246,7 +246,7 @@ Check again with your partner when you are finished.  You can find a solution [h
 
 ## Which Style Should I Use?
 
-So which style is better?  Functionally both do the same job, but the spec-style is more readable by non-technical people.  So we will, from this point on, use **Spec-style tests.**  However it is important for you to know that both exist and when you get to rails, a great deal more documentation exists for assert-style tests compared to spec-style.  You may also see assert-style tests in the weekend warrior exercises to come.  
+So which style is better?  Functionally both do the same job, but the spec-style is more readable by non-technical people.  So we will, from this point on, use **Spec-style tests.**  However it is important for you to know that both exist and when you get to rails, a great deal more documentation exists for assert-style tests compared to spec-style.   
 
 ## What Should I Test?
 
