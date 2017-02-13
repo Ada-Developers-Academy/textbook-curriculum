@@ -70,8 +70,17 @@ In the above example, the code in `exponate_test.rb` are _automated tests_. We c
 
 ## Now Comes Minitest
 
-Writing your own tests with puts is wonderful, but it would be handy to have a standard way that developers can use to write tests on their code, a way that other developers understand.  The maintainers of the Ruby language have adopted a testing library called [Minitest](http://docs.seattlerb.org/minitest/) as the default standard for testing in Ruby & later Rails.  For the remainder of your time using Ruby at Ada, we will be using Minitest to write unit-tests for your code.  There are other testing frameworks, notably [RSpec](http://rspec.info/	), but the key concepts are similar.  
+Writing your own tests with puts is wonderful, but it would be handy to have a standard way that developers can use to write tests on their code, a way that other developers understand.  The maintainers of the Ruby language have adopted a testing library called [Minitest](http://docs.seattlerb.org/minitest/) as the default standard for testing in Ruby & later Rails.  For the remainder of your time using Ruby at Ada, we will be using Minitest to write unit-tests for your code.  [RSpec](http://rspec.info/) is another very common testing framework used along with Ruby and Rails. We won't be using it here at Ada but it's good to know about when you're browsing the internet for testing help.
 
+### Before We Get Started 
+
+Because colored output is so much nicer we'll add a gem called minitest-reporters.
+
+Run this command in your terminal.
+
+```bash
+$  gem install minitest-reporters
+```
 
 
 ### How To Use Minitest?
@@ -93,6 +102,7 @@ Then we can create an empty file `die.rb` which will hold our class.
 ```ruby
 # die.rb
 ```
+
 
 We can run the tests by typing:  `ruby die_test.rb` and get the following:
 
@@ -122,7 +132,46 @@ In the TDD World there are two styles of testing.  In the first more traditional
 To start we'll need to create a TestCase class.  We create a set of unit tests by subclassing MiniTest::Unit::TestCase and add each set of tests in instance methods.  
 
 
+#### Step 1:  Create a TestDie Class
+
+First we'll create a class that extends Minitest::Unit::TestCase, basically make a class that is a series of TestCases.
+
+```ruby
+class TestDie < MiniTest::Unit::TestCase
+
+end
 ```
+
+The `< MiniTest::Unit::TestCase` indicates that this class gets all the methods & instance variables of the TestCase class in Minitest.  
+
+#### Step 2:  Create a `test_creation_of_die` method.
+
+Now we'll create a method called `test_creation_of_die`, this is a test-case.  All test-cases in assert-style Minitest must start with "test_".  
+
+
+```
+# die_test.rb
+
+require 'minitest/autorun'
+require 'minitest/reporters'
+require_relative 'die'
+
+class TestDie < MiniTest::Unit::TestCase
+  def test_creation_of_die
+
+  end
+end
+```
+
+#### Step 3:  Add an assertion
+
+
+So we have a test-case, but it's not actually checking anything yet.  So we can add an _assertion_ which is a method that **asserts** that a specific condition must be true.  In this case we need to **assert** that if we create a die, it's an instance of the Die class.
+
+So we create a 
+
+
+```ruby
 # die_test.rb
 
 require 'minitest/autorun'
