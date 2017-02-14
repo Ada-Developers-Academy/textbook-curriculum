@@ -213,6 +213,8 @@ Did you mean?  Dir
 
 **This is a good thing.**  We have our first **red** test.  There's an error because we haven't created the Die class yet.
 
+####  Step 4:  Build a Die class
+
 Lets do so:
 
 ```ruby
