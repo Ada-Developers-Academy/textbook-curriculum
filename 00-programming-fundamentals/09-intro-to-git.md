@@ -18,7 +18,7 @@ As an analogy, it might help to consider the case of a group of artists working 
 
 ## Lets Git Started!
 We are going to go through the Git workflow, step by step. We will use the image below as we reference each step in the process.
-![Git Lifecycle](images/git-lifecycle.png)
+[![Git Lifecycle](images/git-lifecycle.png)](https://git-scm.com/book/en/v2/Getting-Started-Git-Basics)
 
 ### Creating a repository
 With Git, a collection of files, and all of the versions of those files, are called a _repository_ (or repo). Before Git can start _tracking_ the different versions of your files, we need to create a repository:
