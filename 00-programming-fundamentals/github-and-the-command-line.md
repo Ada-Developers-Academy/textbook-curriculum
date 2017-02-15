@@ -80,7 +80,9 @@ Once you've finished a project, you need to get your work up to GitHub somehow s
   ```
   $ git push
   ```
-1. Check GitHub, where you should now see your changes.
+  * The first time you do this, git will prompt you to enter your GitHub username and password
+  * Git should store your credentials for future pushes
+1. Check GitHub, where you should now see your changes
 
 Congratulations - you just executed a real-world git workflow! You're now ready to submit your project via the same PR process we used before.
 
