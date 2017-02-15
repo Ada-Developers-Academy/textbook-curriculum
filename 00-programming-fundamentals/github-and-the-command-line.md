@@ -21,7 +21,7 @@ This is the procedure you'll follow at the beginning of almost every project you
   ![Your Fork](./images/your-fork.png)
 1. In the middle left, just above the list of files, click the green `Clone or Download` button
   ![Clone or Download](./images/git-clone-button.png)
-1. Copy the URI that pops up (or click the `Copy to clipboard` button)
+1. In the popup box, make sure it says `Clone with HTTPS`, and the URI starts with `https://`. If it doesn't, click the blue `Use HTTPS` link to change it. Copy the address (or click the `Copy to clipboard` button).
   ![Copy the URI](./images/git-copy-uri.png)
 1. Open a terminal, and navigate to your `projects` folder
 1. _Clone_ your fork of the repository to your computer using the `git clone` command:
@@ -42,8 +42,8 @@ You can see a list of all remotes using the `git remote -v` command (the `-v` is
 
 ```
 $ git remote -v
-origin	git@github.com:droberts-ada/Solar-System.git (fetch)
-origin	git@github.com:droberts-ada/Solar-System.git (push)
+origin	https://github.com/droberts-ada/Solar-System.git (fetch)
+origin	https://github.com/droberts-ada/Solar-System.git (push)
 ```
 
 You should see two identical entries, one for `fetch` and one for `push`. The URI should have your GitHub username and the repo name in it, and should **not** contain `Ada-CX`.
