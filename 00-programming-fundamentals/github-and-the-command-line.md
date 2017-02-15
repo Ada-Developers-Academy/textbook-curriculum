@@ -16,9 +16,13 @@ At the end of this lesson you should be able to...
 This is the procedure you'll follow at the beginning of almost every project you work on.
 
 1. Fork the repository under your own GitHub account
+  ![Git Fork Step](./images/git-fork-step.png)
 1. Check the address bar and repo title, and verify you're now on your fork
+  ![Your Fork](./images/your-fork.png)
 1. In the middle left, just above the list of files, click the green `Clone or Download` button
+  ![Clone or Download](./images/git-clone-button.png)
 1. Copy the URI that pops up (or click the `Copy to clipboard` button)
+  ![Copy the URI](./images/git-copy-uri.png)
 1. Open a terminal, and navigate to your `projects` folder
 1. _Clone_ your fork of the repository to your computer using the `git clone` command:
   ```
@@ -26,6 +30,7 @@ This is the procedure you'll follow at the beginning of almost every project you
   ```
 1. The `git clone` command should have created a directory with the same name as the repo. `cd` into it.
 1. Proceed to work on your project. Remember to commit regularly!
+  ![Clone Workflow](./images/git-clone-workflow.png)
 
 You won't need to run `git init` in a cloned project - that's something you only do if you're starting from scratch.
 
