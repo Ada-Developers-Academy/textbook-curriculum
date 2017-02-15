@@ -88,3 +88,13 @@ A few notes before we conclude:
 * You can make many pushes - you don't have to wait until your project is completely finished
 * You should push to GitHub often - your laptop's hard drive is much more likely to fail than their servers. I try to commit and push at the end of each coding session, so I've got a backup just in case.
 * Once you've submitted a PR, any new pushes to your fork will automatically update the PR
+
+## What Did We Accomplish?
+
+* _Clone_ a repository from GitHub to our computer
+* _Push_ our changes back up to GitHub
+
+## Additional Resources
+
+* [GitHub's very readable getting started guide](https://help.github.com/)
+* [Git documentation](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository) (much of chapter 2 pertains here)
