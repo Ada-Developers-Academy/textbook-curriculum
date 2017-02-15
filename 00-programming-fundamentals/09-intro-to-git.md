@@ -17,6 +17,9 @@ _Version Control_ is used in software development because we have multiple peopl
 As an analogy, it might help to consider the case of a group of artists working on a gigantic mural. To ensure that the overall design and intention of the mural is achieved, the artists must coordinate amongst themselves to avoid painting over each others' work. A similar dynamic exists for multiple programmers working on a set of files for a programming project.
 
 ## Lets Git Started!
+We are going to go through the Git workflow, step by step. We will use the image below as we reference each step in the process.
+![Git Lifecycle](../images/git-lifecycle.png)
+
 ### Creating a repository
 With Git, a collection of files, and all of the versions of those files, are called a _repository_ (or repo). Before Git can start _tracking_ the different versions of your files, we need to create a repository:
 
