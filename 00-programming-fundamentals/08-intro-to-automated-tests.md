@@ -381,7 +381,7 @@ Finished in 0.001215s, 2469.1358 runs/s, 3292.1811 assertions/s.
 |   Matcher	|   Example	|   What it does	|   	Negation |
 |---	|---	|---	|---	|
 |   `must_equal`	|   `obj1.must_equal obj2`	|   The test succeeds if the object equals the given object.  It fails otherwise.	|   	`wont_equal` |
-|   `must_be`	|   `num.must_be :> 5`	|   It lets you compare the given object to another using a given operator.  In this example num must be greater than 5.	|  `wont_be`  |
+|   `must_be`	|   `num.must_be :>, 5`	|   It lets you compare the given object to another using a given operator.  In this example num must be greater than 5.	|  `wont_be`  |
 |   `must_be_empty`	|   `list.must_be_empty`	|   The test passes if the given collection is empty.	|  `wont_be_empty` |
 |   `must_be_instance_of`	|   `@die.must_be_instance_of Die`	|   The test passes if the object is an instance of the given class.	|  `wont_be_instance_of`  |
 |   `must_be_kind_of`	|   `list.must_be_kind_of Enumerable`	|   The test fails if the object is not a kind of the argument.	| `wont_be_kind_of`  |
