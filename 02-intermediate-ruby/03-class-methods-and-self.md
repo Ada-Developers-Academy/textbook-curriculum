@@ -7,6 +7,7 @@
 - Discover new functionality within classes:
   - _Class Methods_ and
   - _self_
+- Examine why we'd use one type of method over another
 
 ## Ruby Classes Thus Far
 ### Constructors (`initialize`) & Instance Variables
@@ -15,22 +16,22 @@ The `initialize` method within a class is special. When the `new` method is call
 Typically within a `initialize` method we set any given attributes and make any necessary data manipulations. We hold on to these values in _instance variables_.
 
 ```ruby
-class Product
-  def initialize(name, price)
+class Planet
+  attr_reader :name, :moons
+
+  def initialize(name, moons)
     @name  = name.capitalize
-    @price = price
-    activate!
+    @moons = moons
   end
 
-  def activate!
-    # pretend there's some logic here that may conditionally activate a product
-    @status = :for_sale
+  def get_info
+    "I am a planet whose name is #{ @name } and has #{ @moons }."
   end
 end
 ```
 
 ### Instance Methods
-Instance methods are defined with `def a_snake_case_name`. Instance methods are only available on _instances_ of a class. These are the only kind of Ruby method we've seen thus far.
+Instance methods are defined with `def a_snake_case_name`. Instance methods are only available on _instances_ of a class. **These are exactly the type of Ruby method we've seen thus far**.
 
 ```ruby
 class Order
@@ -57,29 +58,19 @@ order.to_money #=> $20.00
 The methods `attr_reader`, `attr_writer`, and `attr_accessor` create _getter_ and _setter_ methods in our Ruby classes. Ruby provides a couple of methods to help us get and set these instance variables. All three define one or methods methods to get (`attr_reader`), set (`attr_writer`), or both get and set (`attr_accessor`) an instance variable.
 
 ```ruby
-# Without attr_accessor :(
-class Coordinate
-  def x
-    @x
-  end
-
-  def x=(new_x)
-    @x = new_x
-  end
-
-  def y
-    @y
-  end
-
-  def y=(new_y)
-    @y = new_y
-  end
-end
-
-# With attr_accessor :)
+# Using attr_accessor
 class Coordinate
   attr_accessor :x, :y
+
+  def initialize(x, y)
+    @x = x
+    @y = y
+  end
 end
+
+point = Coordinate.new(10, 15)
+point.x += 5 #=> Move this coordinate along the x-axis 5 units
+puts point.y #=> Print this coordinates y-axis
 ```
 
 ## Class Methods & `self`
