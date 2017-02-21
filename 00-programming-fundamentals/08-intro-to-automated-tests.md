@@ -337,7 +337,7 @@ To install rake please enter:
 
 ```bash
 gem install rake
-``
+```
 
 #### Setting Up
 
