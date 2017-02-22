@@ -172,7 +172,7 @@ puts Penguin.looks
 puts p.class.looks
 ```
 
-I n the second `puts` statement from above, we are utilizing the `class` on our instance to then call the **class method** because `p.class` will give us `Penguin`.
+In the second `puts` statement from above, we are utilizing the `class` on our instance to then call the **class method** because `p.class` will give us `Penguin`.
 
 ### Another Example
 ```ruby
