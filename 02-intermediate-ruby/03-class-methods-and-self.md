@@ -54,7 +54,7 @@ order.to_money #=> $20.00
 ```
 
 ### Attributes
-The methods `attr_reader`, `attr_writer`, and `attr_accessor` create _getter_ and _setter_ methods in our Ruby classes. Ruby provides a couple of methods to help us get and set these instance variables. All three define one or methods methods to get (`attr_reader`), set (`attr_writer`), or both get and set (`attr_accessor`) an instance variable.
+The methods `attr_reader`, `attr_writer`, and `attr_accessor` create _getter_ and _setter_ methods in our Ruby classes. Ruby provides a couple of methods to help us get and set these instance variables. All three define one or more methods to get (`attr_reader`), set (`attr_writer`), or both get and set (`attr_accessor`) an instance variable.
 
 ```ruby
 # Without attr_accessor :(
