@@ -8,7 +8,7 @@ You might want to bookmark this page.
 
 At the end of this lesson you should be able to...
 
-* Pull the contents of a GitHub repository to your computer
+* Clone the contents of a GitHub repository to your computer
 * Push your changes back to GitHub
 
 ## Cloning a GitHub Repository
