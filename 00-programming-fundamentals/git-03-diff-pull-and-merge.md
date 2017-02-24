@@ -38,8 +38,8 @@ $ cd ~/Ada/classwork/
 $ mkdir git-sandbox
 $ cd git-sandbox/
 $ git init
-$ touch git-atom-test
-$ git add git-atom-test
+$ touch git-atom-test.txt
+$ git add git-atom-test.txt
 $ git commit
 ```
 
@@ -55,7 +55,7 @@ First, let's create a file we don't want git to know about. Assuming you're stil
 $ touch secret-secrets.txt
 ```
 
-If you run `git status`, you should see the file marked as `untracked`. This is a good start, but we want git to ignore it entirely. To do so, we'll create a file called `.gitignore`. Note the leading `.`, which marks this as a hidden file. Git looks for this file in the project root, and anything listed there will be completely ignored. Create the file at the project root
+If you run `git status`, you should see the file marked as `untracked`. This is a good start, but we want git to ignore it entirely. To do so, we'll create a file called `.gitignore`. Note the leading `.`, which marks this as a hidden file, meaning it won't show up in Finder or in the results of `ls` without the `-a` option. Git looks for this file in the project root, and anything listed there will be completely ignored. Create the file at the project root
 
 ```bash
 $ touch .gitignore
@@ -79,6 +79,31 @@ Now if you run `git status`, you shouldn't see your secrets file at all. Perfect
 
 ## Reviewing Changes
 
+Often when you're working with git, it's useful to see what's changed since your last commit, or what a previous commit looked like. To do so we'll use the `git diff` and `git show` commands.
+
+### Viewing Uncommitted Changes
+
+The `git diff` command is used to view uncommitted changes. Since a diff can be quite large, `git diff` will drop you into a pager, just like `man` or `git log`. Remember, use the arrow keys to scroll up and down, `/` to search, and `q` to quit.
+
+There are two different versions of `git diff`. The first, with no options, shows _unstaged_ changes (changes that haven't been `git add`ed). Let's see it in action
+
+```bash
+$ touch file.txt
+$ atom file.txt # Make and save some changes
+$ git diff
+```
+
+You should see all the changes you've made, organized by file. Lines you've added will have a plus in front of them and appear in green, while lines you've removed will be prefixed with a minus and appear in red. Git counts any change to a line as a removing the old line and adding the new one, even if you only changed a single character.
+
+If you `git add` the file, you'll notice that `git diff` no longer displays any changes. That's where the second version of `git diff` comes in. With the `--staged` flag, git will display all staged (`git add`ed) changes. Other than that, the output format will be the same.
+
+```bash
+$ git add file.txt
+$ git diff          # Displays no changes
+$ git diff --staged # Displays expected changes
+```
+
+
 ## Pulling Changes from GitHub
 
 ## Merge Conflicts
@@ -100,8 +125,8 @@ Here's a handy table of all the git commands we've learned so far.
 | `git log`           | See a summary of all previous commits
 | `git show`          | Show the most recent commit
 | `git show <hash>`   | Show the commit with that hash
-| `git pull`          | Pull down new commits from GitHub
-| `git push`          | Push local commits to GitHub
+| `git pull`          | Pull down all new commits from GitHub
+| `git push`          | Push all local commits to GitHub
 
 ## What Did We Accomplish?
 
