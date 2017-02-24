@@ -81,7 +81,7 @@ Now if you run `git status`, you shouldn't see your secrets file at all. Perfect
 
 Often when you're working with git, it's useful to see what's changed since your last commit, or what a previous commit looked like. To do so we'll use the `git diff` and `git show` commands.
 
-### Viewing Uncommitted Changes
+### Viewing Uncommitted Work
 
 The `git diff` command is used to view uncommitted changes. Since a diff can be quite large, `git diff` will drop you into a pager, just like `man` or `git log`. Remember, use the arrow keys to scroll up and down, `/` to search, and `q` to quit.
 
@@ -103,6 +103,26 @@ $ git diff          # Displays no changes
 $ git diff --staged # Displays expected changes
 ```
 
+### Viewing Commits
+
+The `git show` command displays an existing commit. Its output is very similar to `git diff`, except that the commit message is shown on top.
+
+With no arguments, `git show` displays the most recent commit
+
+```bash
+$ git commit -m "Added file.txt to test out git diff"
+$ git show
+```
+
+`git show` can display a commit other than the most recent one, but it takes a little work. We'll need to copy the **commit hash**, that long string of numbers and letters, that corresponds to our commit. You can find the commit hash using `git log`. Go ahead and copy it to your clipboard.
+
+![Finding a commit in the git log](images/git-log-output.png)
+
+Note that your commit hash will look different than the one in the image. To show that commit use `git show <paste-commit-hash-here>`
+
+```bash
+$ git show 157d556f2635b3c8fe838b3fa456af5145b77bae
+```
 
 ## Pulling Changes from GitHub
 
