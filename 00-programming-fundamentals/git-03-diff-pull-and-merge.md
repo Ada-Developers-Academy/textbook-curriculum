@@ -103,6 +103,8 @@ $ git diff          # Displays no changes
 $ git diff --staged # Displays expected changes
 ```
 
+Both versions of `git diff` are particularly useful when you're writing a commit message, and trying to remember what the heck you just did.
+
 ### Viewing Commits
 
 The `git show` command displays an existing commit. Its output is very similar to `git diff`, except that the commit message is shown on top.
@@ -124,9 +126,30 @@ Note that your commit hash will look different than the one in the image. To sho
 $ git show 157d556f2635b3c8fe838b3fa456af5145b77bae
 ```
 
-## Pulling Changes from GitHub
+## Collaborating with Git
 
-## Merge Conflicts
+We've talked about using `git push` to send local changes to GitHub, but when using git to collaborate with others it's likely that you'll end up in the opposite situation, where there are changes on GitHub you don't have locally. Git provides the `git pull` command to handle this.
+
+To demonstrate `git pull`, we've provided a repository to work with. Follow these instructions to get started:
+
+1. Find a partner
+1. **One** partner should fork [this repository](https://github.com/Ada-C7/git-pull-activity).
+1. Whoever forked the repo should add the other partner as a collaborator.
+1. **Both** partners should clone the forked repo.
+1. **Both** partners should open `test-file.rb` in Atom.
+
+### Pulling Changes From GitHub
+
+Look at `Task 1` in the `test-file.rb`.
+
+1. **Partner 1** should uncomment the `duck_noise` method and save the file.
+1. **Partner 1** should then `git add` the file, `git commit`, and `git push`. You should now be able to see the changes on GitHub.
+1. **Partner 2** should run `git pull`. This will retrieve all commits from GitHub that aren't yet on the local repository.
+1. You should now be able to see the `duck_noise` method uncommented in partner 2's copy of the repo.
+
+Switch roles and do the same thing for the `truck_noise` method.
+
+### Merge Conflicts
 
 ## Git Commands
 
