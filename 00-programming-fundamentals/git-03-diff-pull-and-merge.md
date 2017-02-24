@@ -40,7 +40,7 @@ $ git add git-atom-test
 $ git commit
 ```
 
-Git will wait for you to save the file and close the window, and then use whatever you wrote as the commit message. If you close the window without saving, git will assume you changed your mind and abort the commit. Pretty slick!
+Git will wait for you to save the file and close the window, and then use whatever you wrote as the commit message. If you close the window without saving, git will assume you've changed your mind and abort the commit. Pretty slick!
 
 ### The `.gitignore` File
 
@@ -49,6 +49,26 @@ Git will wait for you to save the file and close the window, and then use whatev
 ## Pulling Changes from GitHub
 
 ## Merge Conflicts
+
+## Git Commands
+
+Here's a handy table of all the git commands we've learned so far.
+
+| Command             | Description |
+|---------------------|-------------|
+| `git init`          | Initialize an empty git repository
+| `git clone <URI>`   | Initialize a git repository from the GitHub repository at the URI
+| `git remote -v`     | See where you cloned this repository from
+| `git status`        | See the current state of a git repo
+| `git diff`          | Show unstaged changes
+| `git add <file>`    | Stage (mark as ready to commit) a file
+| `git diff --staged` | Show staged changes
+| `git commit`        | Commit all staged files. Will drop into an editor unless the `-m <message>` option is provided.
+| `git log`           | See a summary of all previous commits
+| `git show`          | Show the most recent commit
+| `git show <hash>`   | Show the commit with that hash
+| `git pull`          | Pull down new commits from GitHub
+| `git push`          | Push local commits to GitHub
 
 ## What Did We Accomplish?
 
