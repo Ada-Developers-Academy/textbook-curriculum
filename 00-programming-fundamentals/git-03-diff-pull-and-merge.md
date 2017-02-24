@@ -31,10 +31,13 @@ and add the following lines at the bottom of the file
 export EDITOR="atom --wait"
 ```
 
-Now, whenever a program (such as git) wants to drop you into an editor, it will open a new window of Atom instead of using Vim. Let's test it out now. Pick some project you've already turned it, `cd` into it, create and `git add` a file, and `git commit` without the `-m` flag.
+Now, whenever a program (such as git) wants to drop you into an editor, it will open a new window of Atom instead of using Vim. Let's test it out now. Create and `cd` into an empty git repository to play with, create and `git add` a file, and `git commit` without the `-m` flag.
 
 ```bash
-$ cd ~/Ada/projects/Solar-System/
+$ cd ~/Ada/classwork/
+$ mkdir git-sandbox
+$ cd git-sandbox/
+$ git init
 $ touch git-atom-test
 $ git add git-atom-test
 $ git commit
@@ -43,6 +46,36 @@ $ git commit
 Git will wait for you to save the file and close the window, and then use whatever you wrote as the commit message. If you close the window without saving, git will assume you've changed your mind and abort the commit. Pretty slick!
 
 ### The `.gitignore` File
+
+Git is a pretty useful tool, but every once in a while there's a file you don't want it to track. Maybe it's a big file that is generated automatically (like a log file), or maybe it's full of sensitive data that you don't want on GitHub (this will be important when we get to Rails). Fortunately git has a solution to this problem.
+
+First, let's create a file we don't want git to know about. Assuming you're still in the `git-sandbox` repository from before
+
+```bash
+$ touch secret-secrets.txt
+```
+
+If you run `git status`, you should see the file marked as `untracked`. This is a good start, but we want git to ignore it entirely. To do so, we'll create a file called `.gitignore`. Note the leading `.`, which marks this as a hidden file. Git looks for this file in the project root, and anything listed there will be completely ignored. Create the file at the project root
+
+```bash
+$ touch .gitignore
+```
+
+And add the following lines to it
+
+```gitignore
+# Don't push secrets to GitHub!
+secret-secrets.txt
+```
+
+And then add the `.gitignore` file to git, like you would any other file
+
+```bash
+$ git add .gitignore
+$ git commit -m "Add .gitingore file, ignore secret-secrets.txt"
+```
+
+Now if you run `git status`, you shouldn't see your secrets file at all. Perfect!
 
 ## Reviewing Changes
 
