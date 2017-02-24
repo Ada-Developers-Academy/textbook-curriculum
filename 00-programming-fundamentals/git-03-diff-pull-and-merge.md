@@ -150,7 +150,12 @@ Here's a handy table of all the git commands we've learned so far.
 
 ## What Did We Accomplish?
 
--
+- Change our shell's default editor to Atom
+- Tell git to ignore files using the `.gitignore` file
+- View uncommitted work using `git diff`
+- View previous commits using `git show`
+- Pull down changes from GitHub using `git pull`
+- Resolve a simple merge conflict
 
 ## Additional Resources
 
