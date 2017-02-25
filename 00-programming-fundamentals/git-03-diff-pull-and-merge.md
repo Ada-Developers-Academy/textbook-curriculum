@@ -208,6 +208,8 @@ As clever as Git may be, sometimes there's not an obvious right way to merge two
   - Use `git commit` to finish the merge.
 1. **Partner 2:** Is now free to push their work to GitHub.
 
+This one was simple, but in the real world merge conflicts can get _really_ hairy. But as weird as it can be, without git collaboration would be a thousand times more difficult. We'll talk more about resolving merge conflicts in another lecture.
+
 ## Git Commands
 
 Here's a handy table of all the git commands we've learned so far.
