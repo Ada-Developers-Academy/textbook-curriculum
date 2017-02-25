@@ -199,6 +199,11 @@ As clever as Git may be, sometimes there's not an obvious right way to merge two
   Git has included both versions of the method, and labeled where they came from. `HEAD` is the local copy, and `master` is the version from GitHub.
 1. **Partner 2:** Work with your partner to resolve the conflict.
   - Using Atom, pick which of the versions you want to use, and remove all the extra stuff that GitHub added. The end result should be valid ruby code.
+    ```ruby
+    def clock_noise
+      puts "tick tock"
+    end
+    ```
   - Use `git add test-file.rb` to mark the conflict as resolved.
   - Use `git commit` to finish the merge.
 1. **Partner 2:** Is now free to push their work to GitHub.
@@ -234,4 +239,5 @@ Here's a handy table of all the git commands we've learned so far.
 
 ## Additional Resources
 
--
+- [Git Tower on reading diffs](https://www.git-tower.com/learn/git/ebook/en/command-line/advanced-topics/diffs)
+- [Git documentation on pull](https://git-scm.com/docs/git-pull)
