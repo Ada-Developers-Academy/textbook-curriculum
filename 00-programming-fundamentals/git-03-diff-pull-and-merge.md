@@ -136,11 +136,11 @@ To demonstrate `git pull`, we've provided a repository to work with. Follow thes
 1. **One** partner should fork [this repository](https://github.com/Ada-C7/git-pull-activity).
 1. Whoever forked the repo should add the other partner as a collaborator.
 1. **Both** partners should clone the forked repo.
-1. **Both** partners should open `test-file.rb` in Atom.
+1. **Both** partners should open `pull_practice.rb` in Atom.
 
 ### Pulling Changes From GitHub
 
-Look at `Task 1` in the `test-file.rb`.
+Look at `Task 1` in the `pull_practice.rb`.
 
 1. **Partner 1** should uncomment the `duck_noise` method and save the file.
 1. **Partner 1** should then `git add` the file, `git commit`, and `git push`. You should now be able to see the changes on GitHub.
@@ -188,7 +188,7 @@ As clever as Git may be, sometimes there's not an obvious right way to merge two
 1. **Partner 1:** Change the `clock_noise` method to `puts "tick"`, save, add, commit and push.
 1. **Partner 2:** **Before pulling**, change `clock_noise` to `puts "tock"`, and save, add and commit.
 1. **Partner 2:** Try to push. As before, git should warn you that your local copy is out of date.
-1. **Partner 2:** Now run `git pull`. Git should tell you that there's a merge conflict! It has also modified `test-file.rb` to tell you what the conflict is. The `clock_noise` method should now read as follows:
+1. **Partner 2:** Now run `git pull`. Git should tell you that there's a merge conflict! It has also modified `pull_practice.rb` to tell you what the conflict is. The `clock_noise` method should now read as follows:
 
   ```ruby
   def clock_noise
@@ -209,8 +209,8 @@ As clever as Git may be, sometimes there's not an obvious right way to merge two
       puts "tick tock"
     end
     ```
-    
-  - Use `git add test-file.rb` to mark the conflict as resolved.
+
+  - Use `git add pull_practice.rb` to mark the conflict as resolved.
   - Use `git commit` to finish the merge.
 1. **Partner 2:** Is now free to push their work to GitHub.
 
