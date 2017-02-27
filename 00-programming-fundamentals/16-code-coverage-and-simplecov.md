@@ -1,5 +1,15 @@
 # Code Coverage Using SimpleCov
 
+## Learning Goals
+
+By the end of this lesson you should be able to:
+
+-  Explain the concept of code coverage
+-  Run SimpleCov along with your Minitest specs
+-  Read and use a SimpleCov report
+
+## Introduction
+
 **Code coverage** is a term that is used to describe how much application code is exercised when a particular test suite is run.  A test suite with a high percentage of coverage is likely to be testing more throughly and have fewer bugs.  A code coverage tool can partner with your testing suite to give you a report illustrating the coverage of your tests.  
 
 ## Enter SimpleCov
