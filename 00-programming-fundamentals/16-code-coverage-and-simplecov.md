@@ -91,7 +91,7 @@ Ummm... no.  SimpleCov measures which statements were executed via your tests, n
 -  Help you identify code that may be unnecessary.
 -  Help you identify "blind spots" testing.
 
-So code coverage is a tool that's a useful indicator of the test quality, but having high code coverage doesn't guarantee that your testing is perfect.  It can be especially useful if you don't write tests first, as it can be easy to forget to test some functionality and code coverage reports can help you identify areas without testing.  It's also helpful as one indicator of quality in your tests, just don't assume if you have high coverage you'll have perfect code.  Some teams require a certain percentage of code coverage and it's likely you will encounter it in your career.  
+So code coverage is a tool that's a useful indicator of the test quality, but having high code coverage doesn't guarantee that your testing is perfect.  It can be especially useful if you don't write tests first, as it can be easy to forget to test some functionality and code coverage reports can help you identify areas without testing.  It's also helpful as one indicator of quality in your tests, just don't assume if you have high coverage you'll have perfect code.  Some teams require a certain percentage of code coverage and it's likely you will encounter coverage requirements in your career.  
 
 
 ### Exercise
