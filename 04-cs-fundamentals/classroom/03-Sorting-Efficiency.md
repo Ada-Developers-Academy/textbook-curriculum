@@ -39,7 +39,7 @@ Consider the task of performing a sequential search on some sort of list, i.e. a
 
 ### Nuances
 - Usually when an algorithm's growth rate is a mix of orders, the dominant order is shown, and the rest are dropped. O(N^2 + N) would be shortened to O(N^2).
-- Likewise, constants are dropped. Constants only shift our graph slightly, but do not affect the overall look of the graph by much. O(2^N) is shortened to O(N). O(1⁄2 N) is shortened to O(N).
+- Likewise, constants are dropped. Constants only shift our graph slightly, but do not affect the overall look of the graph by much. O(2N) is shortened to O(N). O(1⁄2 N) is shortened to O(N).
 
 ### Complexity Analogy
 This stackoverflow answer does a great job in illustrating Big O notation for algorithm complexity. The author has a use case related to phone books for each level of complexity:
