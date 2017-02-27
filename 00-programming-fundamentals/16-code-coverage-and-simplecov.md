@@ -86,7 +86,7 @@ Notice that it's telling us we're not testing two of the conditions.
 
 ## So If I have 100% Coverage I'm Good Right?  No Bugs?
 
-Ummm... no.  SimpleCov measures which statements were executed via your tests, not every combination of values possible.  So bugs can creep in.  However a good amount of code coverage does provide you with insights into your testing.  It can:
+Ummm... no.  SimpleCov measures which statements were executed via your tests, not every combination of values possible.  It also can't guarantee your tests are 100 error free as well.  So bugs can creep in.  However a good amount of code coverage does provide you with insights into your testing.  It can:
 
 -  Help you identify code that may be unnecessary.
 -  Help you identify "blind spots" testing.
