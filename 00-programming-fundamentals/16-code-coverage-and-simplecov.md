@@ -28,7 +28,7 @@ SimpleCov places a report inside a directory helpfully named `coverage` which ha
 
 ## Sample SimpleCov Run
 
-Thinking back to Weekend Warrior, if we have this leap_year? method.
+Thinking back to Weekend Warrior, if we have this `leap_year?` method.
 
 ```ruby
 def leap_year? year
@@ -81,7 +81,7 @@ Ummm... no.  SimpleCov measures which statements were executed via your tests, n
 -  Help you identify code that may be unnecessary.
 -  Help you identify "blind spots" testing.
 
-So code coverage is a tool that's a useful indicator of the test quality, but having high code coverage doesn't guarantee that your testing is perfect.  It can be especially useful if you don't write tests first, as it can be easy to forget to test some functionality and code coverage reports can help you identify that.  Some teams require a certain percentage of code coverage so it's a good concept to know.  
+So code coverage is a tool that's a useful indicator of the test quality, but having high code coverage doesn't guarantee that your testing is perfect.  It can be especially useful if you don't write tests first, as it can be easy to forget to test some functionality and code coverage reports can help you identify that.  It's also helpful as one indicator of quality in your tests, just don't assume if you have high coverage you'll have perfect code.  Some teams require a certain percentage of code coverage and it's likely you will encounter it in your career.  
 
 
 ### Exercise
