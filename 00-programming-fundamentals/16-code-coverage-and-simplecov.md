@@ -20,8 +20,8 @@ SimpleCov.start
 
 SimpleCov places a report inside a directory helpfully named `coverage` which has an HTML page listing the code coverage.  
 
-![SimpleCov](images/simplecov1.pngL)
-![SimpleCov](images/simplecov2.pngL)
+![SimpleCov](images/simplecov1.png)
+![SimpleCov](images/simplecov2.png)
 
 
 ## Sample SimpleCov Run
