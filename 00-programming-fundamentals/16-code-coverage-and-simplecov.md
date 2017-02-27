@@ -1,10 +1,10 @@
 # Code Coverage Using SimpleCov
 
-**Code coverage** is a term that is used to describe how much application code is exercised when a particular test suite is run.  By making sure your test suite covers a high percentage of your code suggests that your code has a lower risk of bugs.
+**Code coverage** is a term that is used to describe how much application code is exercised when a particular test suite is run.  A test suite with a high percentage of coverage is likely to be testing more throughly and have fewer bugs.  A code coverage tool can partner with your testing suite to give you a report illustrating the coverage of your tests.  
 
 ## Enter SimpleCov
 
-The [SimpleCov](https://github.com/colszowka/simplecov) gem allows you to get a report on the code coverage of your tests.  
+The [SimpleCov](https://github.com/colszowka/simplecov) gem is one such tool which allows you to get a report on the code coverage of your tests.  
 
 To add SimpleCov to your test suite first run `gem install simplecov` in the terminal.  
 
