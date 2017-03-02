@@ -52,12 +52,7 @@ Here's the problems we'll cover in class. Design and implement code for function
 + 5. Insert a given value in a Binary Search Tree. Implement both iterative and recursive solutions.
 + 6. Find a given value in a Binary Search Tree. Implement both iterative and recursive solutions. </br>
 
-<b>Note</b>: Assume each Node in the tree has integer data and links to the left Node and the right Node. Here's what would look like in C: </br>
-struct Node { </br>
-  &nbsp; int data; </br>
-  &nbsp; struct Node *left; </br>
-  &nbsp; struct Node *right; </br>
-}; </br>
+<b>Note</b>: Assume each Node in the tree has integer data and links to the left Node and the right Node. </br>
 
 ##Slide Deck
 + Slide Deck used in class</br>
