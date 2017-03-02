@@ -4,7 +4,7 @@
 - Practice expressing object relationships with Enumerable methods.
 
 ## Enumerable is _mixed in_ to Hash
-As long as a class implements the `each` method, it can _mix in_ Enumerable. In human terms, this means that if an object type consists of a collection, and each item in that collection is distinct, then it can be enumerated (counted, differentiated, separated, etc.). But how does a Hash, which is explicitely not ordered, implement `each`?
+As long as a class implements the `each` method, it can _mix in_ Enumerable. In human terms, this means that if an object type consists of a collection, and each item in that collection is distinct, then it can be enumerated (counted, differentiated, separated, etc.). But how does a Hash, which is explicitly not ordered, implement `each`?
 
 By converting the key:value pairs into an array! We can access the key and value data by _destructuring_ the array in the block. Here's an example:
 
@@ -28,10 +28,10 @@ The key is elephant and the value is hotdog.
 ```
 
 ### Hash Practice
-With your chair pair, go to your sandbox and create a file called `enum-hash.rb`. Open it in your editor and add this code:
+With your seat squad, go to your class exercises location and create a file called `enum-hash.rb`. Open it in your editor and add this code:
 
 ```ruby
-# ~/C5/sandbox/enum-hash.rb
+# enum-hash.rb
 scores = {
   jeremy: [10, 20, 34, 55, 86],
   been:   [11, 27, 95, 45, 33],
@@ -39,7 +39,7 @@ scores = {
   rosa:   [5, 3, 7, 77, 34]
 }
 
-# Who has the single highest score (and what is that score)? 
+# Who has the single highest score (and what is that score)?
 
 # Who has the highest *average* score (and what is that average)?
 # Average is the sum of scores divided by the number of scores
