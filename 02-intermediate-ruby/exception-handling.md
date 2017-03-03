@@ -88,6 +88,8 @@ breakfast.rb:4:in `make_toast': Can't make less than 1 slice of toast (asked for
 
 `ArguemntError` is a class, and the thing that we're raising is an _instance_ of `ArgumentError`. There's a whole bunch of built-in Ruby magic around the `raise` keyword, but the exceptions themselves are just objects like any other, binding together data and behavior.
 
+**Question:** What data might an exception keep track of? What behavior does it provide? How would you find out for sure?
+
 All exceptions are children of the `Exception` class, inheriting its core functionality.
 
 [![exceptions](images/exceptions.png)](http://findnerd.com/list/view/Exception-Handling-in-Rails-using-begin-rescue/21677/)
@@ -336,8 +338,23 @@ When you enter your internship you will begin to engage in something called *def
 
 However knowing how exception handling works will give you the tools you need to understand how you can trap errors and handle them as gracefully as possible.
 
+## Vocabulary
 
-## Resources
+| Term | Meaning |
+|------|---------|
+| Exception | An object describing something that went wrong with a program. If not handled, will cause the program to terminate. |
+| `raise` | Ruby keyword used to cause an exception to take effect. Often used as a verb. |
+| `begin` | Ruby keyword used to mark the beginning of a block of code that might produce an exception. |
+| `raise` | Ruby keyword used to specify code to execute if an exception happens. Attached to a `begin` block. |
+| `ensure` | Ruby keyword used to specify code that must execute, even if there's an unhandled exception. Attached to a `begin` block |
+| Throw | Synonym for raise. |
+| Catch | Synonym for rescue. |
+| Finally | Synonym for ensure. |
+
+## What Have We Accomplished?
+
+
+## Additional Resources
 - [RubyLearning on Exceptions](http://rubylearning.com/satishtalim/ruby_exceptions.html)
 - [Ruby Error Handling Beyond the Basics](https://www.sitepoint.com/ruby-error-handling-beyond-basics/)
 - [Railscast Exception Handling, old but still valid](http://railscasts.com/episodes/53-handling-exceptions?autoplay=true)
