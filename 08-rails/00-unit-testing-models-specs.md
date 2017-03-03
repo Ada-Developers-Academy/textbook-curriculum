@@ -47,57 +47,22 @@ Then we will ask Rails to modify test_helper.rb to use spec style describe and i
 
 #### Set Minitest to use the Spec Style Tests
 
-To force the generators to make Spec-style tests we can add the following code to `config/application.rb`
+Lastly edit test/test_helper.rb to tell Rails to use the Minitest-spec style tests with `atom test/test_helper.rb` and add these lines to the top.
 
 ```ruby
-# Use Minitest for generating new tests.
-config.generators do |g|
-  g.test_framework :minitest, spec: true
-end
-```
-
-Lastly edit test/test_helper.rb to tell Rails to use the Minitest-spec style tests with `atom test/test_helper.rb` and replace it with this
-
-```ruby
-ENV["RAILS_ENV"] = "test"
-require File.expand_path("../../config/environment", __FILE__)
-require "rails/test_help"  
-require "minitest/rails"  # for Spec-Style Testing
 require "minitest/reporters"  # for Colorized output
 
-#  Tell Rails-Minitest to use specs by default.
+#  For colorful output!
 Minitest::Reporters.use!(
   Minitest::Reporters::SpecReporter.new,
   ENV,
   Minitest.backtrace_filter
 )
-
-# To add Capybara feature tests add `gem "minitest-rails-capybara"`
-# to the test group in the Gemfile and uncomment the following:
-# require "minitest/rails/capybara"
-
-# Uncomment for awesome colorful output
-require "minitest/pride"
-
-class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  fixtures :all
-  ActiveRecord::Migration.check_pending!
-
-end
 ```
 
 
-Now we can run the tests with any of the following commands:
+Now with **Rails 5** we can run the tests with any of the following commands:
 
-| Command               | Result                    |
-|-----------------------|---------------------------|
-| rake                  | runs all tests            |
-| rake test             | Also runs all tests       |
-| rake test:models      | Runs tests on Models      |
-| rake test:controllers | Runs tests on controllers |
-
-In **Rails 5** you can run the tests with:
 
 | Command                                | Result                             |
 |----------------------------------------|------------------------------------|
@@ -108,6 +73,7 @@ In **Rails 5** you can run the tests with:
 | rails test test/models/user_test.rb:14 | Run test in that file on that line |
 
 
+Just note that earlier versions of Rails used rake for testing.  
 
 
 ### Finding the Tests
@@ -296,8 +262,6 @@ end
 ## References
 - [Minitest Quick Reference](http://www.mattsears.com/articles/2011/12/10/minitest-quick-reference/)
 - [Minitest Expectations](http://ruby-doc.org/stdlib-trunk/libdoc/minitest/spec/rdoc/MiniTest/Expectations.html)
-- [Adding Minitest Spec in Rails 4](http://blowmage.com/2013/07/08/minitest-spec-rails4)
-
 - [Adding Color to Minitest Output](http://chriskottom.com/blog/2014/06/dress-up-your-minitest-output/)
 - [Ruby on Rails Guide - Model Testing](http://guides.rubyonrails.org/testing.html#model-testing)
 -  [Minitest Rails Spec Documentation](http://blowmage.com/minitest-rails/)]
