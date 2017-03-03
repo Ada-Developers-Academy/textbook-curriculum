@@ -11,7 +11,7 @@
 Like every-damn-thing else in Rails, testing is baked right in and there's a really-friendly-but-kinda-weird DSL sitting on top of it. The good news is that it's all Minitest, the same testing framework we've used in past projects.
 
 ## Getting Setup
-Unfortunately minitest is set up under the hood to do assert-style testing like we originally started doing.  
+Unfortunately Minitest is set up to do assert-style testing by default.  
 
 So the default testing classes look like:
 
@@ -28,8 +28,8 @@ end
 There's nothing really wrong with this, but we can do testing in the more english-readable spec style that we have been using in previous projects so we will get started setting up the project for minitest-spec.
 
 ### Setup The Gemfile
-#### Editing the Gemfile
-In your Gemfile we will set up Rails to use the minitest-spec gem to do our testing so open the gemfile with `atom Gemfile`.  Then add the following lines to the file:
+#### Step 1:  Installing the Gems
+In your **Gemfile** we will set up Rails to use the minitest-spec gem to do our testing so open the gemfile with `atom Gemfile`.  Then add the following lines to the file:
 ```ruby
 group :test do
 	gem 'minitest-rails'
@@ -41,11 +41,11 @@ This means when Rake or Rails runs the test task, it will use the minitest-rails
 
 Then run `bundle install`
 
-#### Installing Minitest Spec
+#### Step 2:  Installing Minitest Spec
 
-Then we will ask Rails to modify test_helper.rb to use spec style describe and it blocks with `rails generate minitest:install`  It will ask you if you want to overwrite the test_\_helper.rb file.  Answer yes (Y).
+Then we will ask Rails to modify test_helper.rb to use spec style describe and it blocks with `rails generate minitest:install`  It will ask you if you want to overwrite the test_\_helper.rb file.  Answer yes **(Y)**.
 
-#### Set Minitest to use the Spec Style Tests
+#### Step 3:  Use Minitest Reporters (Optional)
 
 Lastly edit test/test_helper.rb to tell Rails to use the Minitest-spec style tests with `atom test/test_helper.rb` and add these lines to the top.
 
