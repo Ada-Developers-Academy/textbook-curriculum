@@ -3,17 +3,113 @@
 ## Learning Goals
 At the end of this you should be able to:
 
--  Explain how exception handling works.
+-  Explain how exception handling works
 -  Explain where you would want to use exception handling
--  Create rescue blocks to "catch" exceptions.
+-  Create rescue blocks to "catch" exceptions
 
-## Errors Errors Errors... How to Handle Them
+## The Story So Far
 
-With any program there are things that can go wrong, a file you are planning to read doesn't exist or is unreadable, the database is unavailable, somehow you try to divide something by zero.  Since there are always things that can go wrong it becomes desirable to have a way to recover without crashing your program or website in front of the user.
+With any program there are things that can go wrong. Maybe a file you are planning to read doesn't exist, your database server is unavailable, or you try to divide something by zero. In these cases, Ruby programs use _exceptions_ to indicate that something has gone wrong.
 
-Ruby, like many programming languages chooses to handle errors with a technique called *Exception Handling*.  When an error occurs, Ruby generates an object instance called an Exception.  Exceptions are always subclasses of the [Exception](https://ruby-doc.org/core-2.3.1/Exception.html) class.
+We've seen exceptions before. If you try and access an undefined variable, Ruby will raise a `NameError`, and we've even raise our own `ArgumentError` exceptions in the Bank Accounts project.
+
+### Producing Exceptions
+
+For a quick reminder of what this looks like, save the following code as `divide_by_zero.rb`
+
+```ruby
+# divide_by_zero.rb
+quotient = 5 / 0
+puts quotient # this code will never run
+```
+
+and run it from the command line
+
+```
+$ ruby divide_by_zero.rb
+divide_by_zero.rb:2:in `/': divided by 0 (ZeroDivisionError)
+	from divide_by_zero.rb:2:in `<main>'
+```
+
+If you need to produce an exception you can use the `raise` keyword
+
+```ruby
+def make_toast(slices)
+  if slices < 1
+    raise ArgumentError.new("Can't make less than 1 slice of toast (asked for #{slices})")
+  end
+end
+```
+
+### Stack Traces
+
+When an exception is raised, it immediately stops the current method, just like `return`. It will then bubble its way up through the program, method by method. If it makes it all the way to the top, Ruby will print out a summary of the exception and a description of what the program was doing when the exception happened, also known as a **stack trace**.
+
+A stack trace contains a ton of useful information, including a list of methods and blocks that Ruby was inside when the exception was raised. Being able to quickly read a complex stack trace is a super useful skill, so let's examine one now.
+
+```ruby
+# breakfast.rb
+def make_toast(slices)
+  if slices < 1
+    raise ArgumentError.new("Can't make less than 1 slice of toast (asked for #{slices})")
+  end
+	# ...probably do some other stuff...
+end
+
+def make_breakfast(type)
+	if type == "eggs and toast"
+		make_toast(-1)
+		make_eggs
+	end
+end
+
+def make_breakfast_banquet
+	10.times do
+		make_breakfast("eggs and toast")
+	end
+end
+
+make_breakfast_banquet
+```
+
+```
+$ ruby breakfast.rb
+breakfast.rb:4:in `make_toast': Can't make less than 1 slice of toast (asked for -1) (ArgumentError)
+	from breakfast.rb:11:in `make_breakfast'
+	from breakfast.rb:18:in `block in make_breakfast_banquet'
+	from breakfast.rb:17:in `times'
+	from breakfast.rb:17:in `make_breakfast_banquet'
+	from breakfast.rb:22:in `<main>'
+	```
+
+## What Are Exceptions?
+
+**Question:** We know that raising an `ArgumentError` requires a call to `ArgumentError.new`. What does this tell us about what `ArgumentError` is, and what sort of a thing we're raising?
+
+`ArguemntError` is a class, and the thing that we're raising is an _instance_ of `ArgumentError`. There's a whole bunch of built-in Ruby magic around the `raise` keyword, but the exceptions themselves are just objects like any other, binding together data and behavior.
+
+All exceptions are children of the `Exception` class, inheriting its core functionality.
 
 [![exceptions](images/exceptions.png)](http://findnerd.com/list/view/Exception-Handling-in-Rails-using-begin-rescue/21677/)
+
+The Ruby docs have a [full list of built in Ruby exceptions](https://ruby-doc.org/core-2.1.1/Exception.html).
+
+## Handling Exceptions
+
+### In Minitest
+
+## Creating Custom Exceptions
+
+
+Since there are always things that can go wrong it becomes desirable to have a way to recover without crashing your program in front of the user.
+
+Ruby, like many programming languages chooses to handle errors with a technique called *Exception Handling*.  When an error occurs, Ruby generates an object instance called an Exception.
+
+## What Are Exceptions?
+
+Exceptions are always subclasses of the [Exception](https://ruby-doc.org/core-2.3.1/Exception.html) class.
+
+
 
 You can mark a section to recover from an error with a rescue block.  If an Exception is not "rescued" it will end the program with an error message.  
 
@@ -50,13 +146,13 @@ end
 The output would be:
 ```bash
 $  ruby sample_exception.rb
-basic_exception_without_rescue.rb:4:in `/': divided by 0 (ZeroDivisionError)
-	from basic_exception_without_rescue.rb:4:in `<main>'
+basic_exception_without_rescue.rb:4:in '/': divided by 0 (ZeroDivisionError)
+	from basic_exception_without_rescue.rb:4:in '<main>'
 ```
 
 ### Rescuing Specific Types of Exceptions
 
-There are a number of kinds of exceptions both for [regular'ol Ruby](https://ruby-doc.org/core-2.3.1/Exception.html) & [Rails](http://stackoverflow.com/a/19348733/918993).  Some types of errors we probably don't want to try to rescue because they are irrecoverable or so unexpected that we shouldn't write code to recover from them.  We can however set up specific blocks to recover from specific types of errors that we can and want to recover from.  Generally recoverable errors inherit from `StandardError` and for this reason when you place a rescue block without specifying the exception class Ruby will only handle exceptions inheriting from StandardError.  
+There are a number of kinds of exceptions both for [regular ol Ruby](https://ruby-doc.org/core-2.3.1/Exception.html) & [Rails](http://stackoverflow.com/a/19348733/918993).  Some types of errors we probably don't want to try to rescue because they are irrecoverable or so unexpected that we shouldn't write code to recover from them.  We can however set up specific blocks to recover from specific types of errors that we can and want to recover from.  Generally recoverable errors inherit from `StandardError` and for this reason when you place a rescue block without specifying the exception class Ruby will only handle exceptions inheriting from StandardError.  
 
 The syntax will look like this:
 
@@ -118,7 +214,7 @@ The method `divide` here will generate an exception when it tries to divide 10 b
 
 If the rescue block was missing the resulting error message would be:
 
-```bash
+```
 method_exception_example.rb:3:in `/': divided by 0 (ZeroDivisionError)
 	from method_exception_example.rb:3:in `divide'
 	from method_exception_example.rb:10:in `<main>'
@@ -157,7 +253,7 @@ end
 
 You can see the results in the error message:
 
-```bash
+```
 multimethod.rb:2:in `/': divided by 0 (ZeroDivisionError)
 	from multimethod.rb:2:in `quotient_and_remainer'
 	from multimethod.rb:11:in `block in mystery'
