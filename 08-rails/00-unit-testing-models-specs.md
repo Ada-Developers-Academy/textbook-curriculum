@@ -175,7 +175,7 @@ __Question: Is the test above a _positive_ or _negative_ test? What would the ot
 [The Rails Guide on testing](http://guides.rubyonrails.org/testing.html#rake-tasks-for-running-your-tests) has a specific section for how to run tests that's definitely worth reading. The short version is that from the project root, we can run all of our tests with `rake test`. If you want to run just the model tests, run `rake test:models`. The output will probably look pretty familiar by now:
 
 ```bash
-$ rake test:models
+$ rails test/models
 
 # Running tests with run options --seed 56340:
 
