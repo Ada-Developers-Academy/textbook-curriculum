@@ -3,9 +3,10 @@
 ## Learning Goals
 At the end of this you should be able to:
 
--  Explain how exception handling works
--  Explain where you would want to use exception handling
--  Create rescue blocks to "catch" exceptions
+- Explain how exception handling works
+- Create rescue blocks to "catch" exceptions
+- Define custom exceptions
+- Evaluate when to use exceptions
 
 ## The Story So Far
 
@@ -244,7 +245,7 @@ This gives us the same functionality as `StandardError`, but with a different na
 
 ## When to Use Exceptions
 
-Exceptions aren't the only way to indicate that something has gone wrong. For example, a common pattern is to return `nil` if a searched element isn't found
+Exceptions aren't the only way to indicate that something has gone wrong. For example, a common pattern is to return `nil` if a searched element isn't found.
 
 ```ruby
 class SolarSystem
@@ -291,13 +292,20 @@ In general, an exception indicates that either there was a programming error, or
 | `raise` | Ruby keyword used to cause an exception to take effect. Often used as a verb. |
 | `begin` | Ruby keyword used to mark the beginning of a block of code that might produce an exception. |
 | `raise` | Ruby keyword used to specify code to execute if an exception happens. Attached to a `begin` block. |
-| `ensure` | Ruby keyword used to specify code that must execute, even if there's an unhandled exception. Attached to a `begin` block. |
+| `ensure` | Ruby keyword used to specify code that must execute, even if there's an unhandled exception. Attached to a `begin` block. Not covered in this lecture. |
 | Throw | Synonym for raise |
 | Catch | Synonym for rescue |
 | Finally | Synonym for ensure |
 
 ## What Have We Accomplished?
-
+- Reviewed raising exceptions
+- Analyzed a stack trace produced by an exception
+- Discussed the exception class hierarchy
+- Used `rescue` to handle exceptions
+	- `rescue <ExceptionType>` to handle a specific type of exception
+	- `rescue <ExceptionType> => exception` to store the exception in a local variable
+- Created our own custom exceptions
+- Discussed when to use exceptions
 
 ## Additional Resources
 - [RubyLearning on Exceptions](http://rubylearning.com/satishtalim/ruby_exceptions.html)
