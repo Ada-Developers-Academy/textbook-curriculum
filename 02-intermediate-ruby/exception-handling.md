@@ -184,249 +184,103 @@ end
 
 Like method or block parameters, the rescued exception is a local variable and may be called anything you please.
 
-### Ensure
+### Example: `csv_printer.rb`
 
+```ruby
+# csv_printer.rb
+require 'csv'
 
+while true
+  puts "What file would you like to print?"
+  filename = gets.chomp
+
+  begin
+    CSV.readlines(filename).each do |line|
+      puts line.join(",")
+    end
+
+  rescue SystemCallError => exception
+    puts "Could not open file: #{exception.message}"
+  end
+
+  puts "Would you like to go again?"
+  break if gets.chomp != "yes"
+end
+```
 
 ### In Minitest
 
+If we expect a method to raise an exception and it doesn't, that's a bug! This means that we must test that our methods raise the exceptions we want, as well as testing nominal behavior. As we saw on the BankAccounts project, you can look for an exception in a given block of code in Minitest like this
+
+```ruby
+it "Raises an ArguemntError when asked to withdraw a negative amount" do
+	account = Bank::Account.new(1337, 10000)
+	proc {
+		account.withdraw(-100)
+	}.must_raise ArgumentError
+end
+```
+
 ## Creating Custom Exceptions
 
+Sometimes you run into a situation where the built in Ruby exceptions don't quite describe what went wrong. For example, imagine you have a program for processing credit card transactions, and you need an exception for an invalid card number. Lucky for us, Ruby allows you to define custom exceptions!
 
-Since there are always things that can go wrong it becomes desirable to have a way to recover without crashing your program in front of the user.
-
-Ruby, like many programming languages chooses to handle errors with a technique called *Exception Handling*.  When an error occurs, Ruby generates an object instance called an Exception.
-
-## What Are Exceptions?
-
-Exceptions are always subclasses of the [Exception](https://ruby-doc.org/core-2.3.1/Exception.html) class.
-
-
-
-You can mark a section to recover from an error with a rescue block.  If an Exception is not "rescued" it will end the program with an error message.  
-
-Here is an example of an error being handled:
+As we discussed above, exceptions are just classes that inherit from `Exception` or one of its subclasses, so to making your own is as simple as defining a new class. You'll usually want to inherit from `StandardError`, so that your exception can be handled with `rescue`.
 
 ```ruby
-# sample_exception.rb
-begin
-  # Dividing by zero causes an error
-  quotient = 5 / 0
-  puts "Made it past the error"
-rescue
-  quotient = nil
-  puts "Rescued the error and set quotient to nil"
+class InvalidCardNumberError < StandardError
+end
+
+def process_transaction(card_number, amount)
+	# card_is_valid? is defined elsewhere
+	unless card_is_valid?(card_number)
+		raise InvalidCardNumberError.new("Invalid credit card number #{card_number}")
+	end
+	# ... process the transaction ...
 end
 ```
 
-The output would be:
-```bash
-$  ruby sample_exception.rb
-Rescued the error and set quotient to nil
-```
+This gives us the same functionality as `StandardError`, but with a different name. You can rescue it by name with `rescue InvalidCardNumberError`. Nine times out of ten that's all you need.
 
-Without the rescue:
+## When to Use Exceptions
+
+Exceptions aren't the only way to indicate that something has gone wrong. For example, a common pattern is to return `nil` if a searched element isn't found
 
 ```ruby
-# sample_exception.rb
-begin
-  # Dividing by zero causes an error
-  quotient = 5 / 0
-  puts "Made it past the error"
-end
-```
-The output would be:
-```bash
-$  ruby sample_exception.rb
-basic_exception_without_rescue.rb:4:in '/': divided by 0 (ZeroDivisionError)
-	from basic_exception_without_rescue.rb:4:in '<main>'
-```
-
-### Rescuing Specific Types of Exceptions
-
-There are a number of kinds of exceptions both for [regular ol Ruby](https://ruby-doc.org/core-2.3.1/Exception.html) & [Rails](http://stackoverflow.com/a/19348733/918993).  Some types of errors we probably don't want to try to rescue because they are irrecoverable or so unexpected that we shouldn't write code to recover from them.  We can however set up specific blocks to recover from specific types of errors that we can and want to recover from.  Generally recoverable errors inherit from `StandardError` and for this reason when you place a rescue block without specifying the exception class Ruby will only handle exceptions inheriting from StandardError.  
-
-The syntax will look like this:
-
-```ruby
-begin
-  # some code that will create an exception.
-
-rescue <some kind of exception>
-  # Code to recover from that exception
-
-rescue <some other kind of exception>
-  # Code to recover from another type of exception
-
-rescue
-  # other exceptions handled here
-
-ensure
-  #  This code runs no matter what.  
-
+class SolarSystem
+	def lookup_by_name(name)
+		planets.each do |planet|
+			return planet if planet.name == name
+		end
+		return nil
+	end
 end
 ```
 
-#### One Ruby Example - CSVReader
+So when are exceptions appropriate? There are a lot of [differing opinions](https://www.sitepoint.com/ruby-error-handling-beyond-basics/), but the consensus seems to be that exception handling should be for *exceptional* circumstances.
 
-In Ruby we could write code to handle problems, like in our CSV code to deal with problems, like being unable to open the CSV file.
+Here are some examples of when and when not to raise an exception. Each of the following situations is paired with an example in the context of `BankAccounts`.
 
-```ruby
-content = []
-begin
-  CSV.foreach("file.csv") do |row|
+**Raise an Exception When:**
+- A method is given invalid arguments
+	- Negative withdrawal amount
+- Some prerequisite condition isn't true
+	- Not enough money to withdraw
+- Some required resource can't be found or is invalid
+	- `accounts.csv` doesn't exist
+	- `accounts.csv` doesn't contain account information
+- There's a problem external to Ruby
+	- User pressed `Ctrl-C`
 
-    content << row
-  end
+Note that many of these are handled automatically by Ruby!
 
-  rescue SystemCallError
-    puts "I couldn't open the file."
+**Don't Raise an Exception When:**
+- A search yields no results
+	- No account with that ID
+- The user quits via a normal method
+	- Types `quit` at the prompt
 
-end
-```
-
-#### Exceptions Continue Up The Stack
-
-When an exception occurs, if it is not rescued in the immediate block or method it proceeds up and out of the method until the application crashes with an error message.
-
-```ruby
-def quotient_and_remainer dividend, divisor
-  answer = [dividend / divisor]
-  answer << quotient % divisor
-  answer
-end
-
-begin
-  puts quotient_and_remainer 10, 0
-rescue ZeroDivisionError
-  puts "Attempted to divide by zero"
-end
-```
-The method `divide` here will generate an exception when it tries to divide 10 by zero.  The exception is not "caught" in the method so ruby leaves the method and falls back to the caller of the method, which does have a rescue block to catch the `ZeroDivisionError`.  
-
-If the rescue block was missing the resulting error message would be:
-
-```
-method_exception_example.rb:3:in `/': divided by 0 (ZeroDivisionError)
-	from method_exception_example.rb:3:in `divide'
-	from method_exception_example.rb:10:in `<main>'
-```
-
-This is the result of the call stack.  The Error first occurs at line 3 in the 'divide' method (see above).  When the block is not "rescued," Ruby leaves the divide method and falls back to the caller of the method, and so on until it reaches the "main" program and exits.  Each line of the result, called a "backtrace," shows the path of execution in reverse order.  
-
-So in the following example:
-
-```ruby
-def quotient_and_remainer dividend, divisor
-  answer = [dividend / divisor]
-  answer << dividend % divisor
-  answer
-end
-
-def mystery(num)
-  answer = []
-
-  (0...9).each do |i|
-    answer << quotient_and_remainer(num, i)
-  end
-  answer
-end
-
-begin
-  puts "The Remainders are #{mystery(100)}"
-end
-```
-
-1.  Ruby Starts by calling the `mystery` method which starts a loop with values from 0 to 9 (inclusive).  
-2.  It then calls the `quotient_and__remainer` method with 100 & 0 as arguments.  
-3.  Inside the `quotient_and_remainder` method it has a `ZeroDivisionError` error.
-4.  Since the error is not rescued in `quotient_and_remainer` Ruby falls back to mystery.
-5.  Since the error is not rescued in `mystery` Ruby falls back to the main program and exits with an error.
-
-You can see the results in the error message:
-
-```
-multimethod.rb:2:in `/': divided by 0 (ZeroDivisionError)
-	from multimethod.rb:2:in `quotient_and_remainer'
-	from multimethod.rb:11:in `block in mystery'
-	from multimethod.rb:10:in `each'
-	from multimethod.rb:10:in `mystery'
-	from multimethod.rb:17:in `<main>'
-```
-
-As you can see the error messages display in order as Ruby falls back from where it encountered the error, moving, "through the stack," unwinding the method calls that lead to the error.  
-
-
-
-#### Exception Handling in Rails
-
-In Rails we have a number of methods in ActiveRecord which can generate exceptions a few of which include:
--  save!
--  create!
--  update!
-
-These methods trigger exceptions when validations fail or the database is unavailable.  So you could handle problems with creating a new task in TaskListRails using exceptions as follows.  
-
-```ruby
-  def create
-    @task = Task.new(task_params)
-
-    begin
-      @task.save!
-    rescue ActiveRecord::RecordInvalid
-      flash[:notice] = "Cannot Save the Task."
-    ensure
-      redirect_to tasks_new_path
-    end
-  end
-```
-
-However while this can be done it isn't good practice.  It's considered best practice to [**not use exceptions for expected outcomes**](https://robots.thoughtbot.com/save-bang-your-head-active-record-will-drive-you-mad).  Since we expect users to give us invalid input on a regular basis, the above example does not qualify.  This leaves us with the question:  
-
-### Why Would We Use Rescue?
-
-There are a lot of [differing opinions](https://www.sitepoint.com/ruby-error-handling-beyond-basics/) on when and why you should implement exception handling in your code.  The consensus seems to be that exception handling should be for *exceptional* circumstances.  In other words you use Exception Handling (rescue) for abnormal events, and regular if statements for normal occurrences like validation errors.
-
-##### So you would use If Statements for:
-- Invalid user input (validation errors on Active Records Etc).  
-- Users trying to access resources they do not have permission for.
-
-##### You would use Exception Handling for:
--  Database failures
--  API service Failures
-	- For example when Github is unavailable in a service it provides.  
-
-So you could rewrite the Task Controller's create method as:
-```ruby
- def create
-    @task = Task.new(task_params)
-
-    begin
-      if ! @task.save
-        msg = ""
-        @task.errors.each do |field, message|
-          msg += "#{field.to_s.capitalize}: #{message}"
-        end
-        flash[:notice] = msg
-      end
-    rescue
-      flash[:notice] = "The task was unable to be saved."
-      Rails.logger.error "The task #{@task} was unable to be saved with an error."
-    end
-
-    redirect_to tasks_new_path
-    end
-  end
-```
-
-This has a couple of advantages, if the save fails due to a validation error, then the user is notified and the program continues as normal.  If there is an exceptional circumstance, something wrong with the database or a similar error then an exception occurs and the user is notified, but you also can log the error to the Rails log.  
-
-So why do save!, create! and update! exist?  Well because not everyone agrees and Ruby developers do try to make everyone happy.  
-
-
-When you enter your internship you will begin to engage in something called *defensive programming*.  In [defensive programming](https://en.wikipedia.org/wiki/Defensive_programming) you write code to gracefully handle under unforeseen circumstances.  The idea is that you write code to try to catch all unforeseen circumstances.  When you have longer to work on production code, you will be expected to do more to handle and catch unforeseen errors.  As we are entering new material quickly, that's not something we can expect in student projects.  
-
-However knowing how exception handling works will give you the tools you need to understand how you can trap errors and handle them as gracefully as possible.
+In general, an exception indicates that either there was a programming error, or the user has done something wrong. In other words, some human intervention is required. If the program can handle a situation automatically, an exception is probably not the right choice.
 
 ## Vocabulary
 
@@ -437,7 +291,7 @@ However knowing how exception handling works will give you the tools you need to
 | `raise` | Ruby keyword used to cause an exception to take effect. Often used as a verb. |
 | `begin` | Ruby keyword used to mark the beginning of a block of code that might produce an exception. |
 | `raise` | Ruby keyword used to specify code to execute if an exception happens. Attached to a `begin` block. |
-| `ensure` | Ruby keyword used to specify code that must execute, even if there's an unhandled exception. Attached to a `begin` block |
+| `ensure` | Ruby keyword used to specify code that must execute, even if there's an unhandled exception. Attached to a `begin` block. |
 | Throw | Synonym for raise |
 | Catch | Synonym for rescue |
 | Finally | Synonym for ensure |
