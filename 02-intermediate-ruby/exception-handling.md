@@ -98,6 +98,96 @@ The Ruby docs have a [full list of built in Ruby exceptions](https://ruby-doc.or
 
 ## Handling Exceptions
 
+So far, when a program has produced and exception, it has immediately terminated. However, there's often something more productive to be done. For example, if you ask the user for a file name and then get an exception because it doesn't exist, it's much more polite to let them know with `puts` than to dump a scary stack trace to the terminal.
+
+Fortunately, Ruby gives us a way to stop an exception before it bubbles up to the user: a `begin/rescue` block. Let's see it in action:
+
+```ruby
+# sample_exception.rb
+begin
+  # Dividing by zero causes an error
+  quotient = 5 / 0
+  puts "Made it past the error"
+rescue
+  quotient = nil
+  puts "Rescued the error and set quotient to nil"
+end
+```
+
+The output would be:
+```
+$  ruby sample_exception.rb
+Rescued the error and set quotient to nil
+```
+
+Note that without the rescue clause, the exception still bubbles up to the user.
+
+```ruby
+# sample_exception.rb
+begin
+  # Dividing by zero causes an error
+  quotient = 5 / 0
+  puts "Made it past the error"
+end
+```
+
+The output would be:
+```
+$  ruby sample_exception.rb
+sample_exception.rb:4:in `/': divided by 0 (ZeroDivisionError)
+	from basic_exception_without_rescue.rb:4:in `<main>'
+```
+
+**Vocabulary note:** In many languages, `raise` and `rescue` are called `throw` and `catch`, and you will often hear people talking about "throwing" or "catching" an exception.
+
+### Rescuing Specific Exceptions
+
+Ruby provides many different types of exception, and a `rescue` block will capture any of them. However, this has some drawbacks:
+- What if you need to handle different exceptions in different ways?
+- What if you were expecting a `ZeroDivisionError`, but instead got a `NameError` from an undefined variable due to a programming error?
+
+Fortunately, Ruby allows you to specify which type of exception you want to rescue. The syntax looks like this:
+
+```ruby
+begin
+  # some code that will create an exception.
+
+rescue ArgumentError
+  # Code to recover from an ArgumentError
+
+rescue ZeroDivisionError
+  # Code to recover from a ZeroDivisionError
+
+rescue
+  # other exceptions handled here
+
+end
+```
+
+If you specify a type of exception, Ruby will rescue that exception as well as any of its subclasses. That means that `rescue Exception` will rescue all exceptions, since all exceptions are subclasses of `Exception`.
+
+Most recoverable errors inherit from `StandardError`, and without any arguments `rescue` will only rescue `StandardError` and its subclasses.
+
+It is almost always worth your time to figure out exactly what type of exception you're expecting, and rescue only that. Otherwise you're setting yourself up to ignore the valuable information Ruby is giving you about why your program failed. A bare `rescue` with no exception type specified is a classic example of sloppy programming.
+
+### Accessing a Rescued Exception
+
+Exceptions are full of useful information about what went wrong, which is often useful inside a `rescue` clause. Ruby allows us to access the thrown exception using `=>`
+
+```ruby
+begin
+	# do something risky
+rescue ArgumentError => exception
+	puts "Encountered an error: #{exception}"
+end
+```
+
+Like method or block parameters, the rescued exception is a local variable and may be called anything you please.
+
+### Ensure
+
+
+
 ### In Minitest
 
 ## Creating Custom Exceptions
@@ -343,13 +433,14 @@ However knowing how exception handling works will give you the tools you need to
 | Term | Meaning |
 |------|---------|
 | Exception | An object describing something that went wrong with a program. If not handled, will cause the program to terminate. |
+| Stack Trace | The stuff Ruby dumps to the screen when it hits an unhandled exception. Describes exactly what the program was doing when the exception occurred. |
 | `raise` | Ruby keyword used to cause an exception to take effect. Often used as a verb. |
 | `begin` | Ruby keyword used to mark the beginning of a block of code that might produce an exception. |
 | `raise` | Ruby keyword used to specify code to execute if an exception happens. Attached to a `begin` block. |
 | `ensure` | Ruby keyword used to specify code that must execute, even if there's an unhandled exception. Attached to a `begin` block |
-| Throw | Synonym for raise. |
-| Catch | Synonym for rescue. |
-| Finally | Synonym for ensure. |
+| Throw | Synonym for raise |
+| Catch | Synonym for rescue |
+| Finally | Synonym for ensure |
 
 ## What Have We Accomplished?
 
