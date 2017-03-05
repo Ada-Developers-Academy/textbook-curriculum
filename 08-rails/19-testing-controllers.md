@@ -25,12 +25,6 @@ must_redirect_to root_path
 must_redirect_to controller: 'post', action: 'index'
 ```
 
-Next, is the template assertion. This ensures that the appropriate template has been rendered. This is good for controller actions whose primary goal is to show a view.
-```ruby
-must_render_template :index
-assert_template partial: '_customer', count: 2
-```
-
 Last is a way to ensure that the controller action appropriately changes the related model. We'll see some examples for exactly how this works in a bit.
 ```ruby
 assert_difference('Post.count', -1) do
