@@ -1,32 +1,33 @@
 # Unit Testing Controllers
 ## Learning Goals
-- Identify the assertions we can utilize with controllers
+- Identify the matchers we can utilize with controllers
 - Setup controller tests with HTTP verb and action
 - Use parameters in controller tests
 - Utilize fixture data to populate parameters
 - Understand what sort of functionality ought to be covered by a controller test
 
-### Assertions
-In controller tests, you have several new assertions to use.
+### Expectations
+In controller tests, you have several new expectations to use.
 
 First, we have the set of responses. These are used to determine what type of response the controller method sent. Each of these response types correspond to the HTTP status codes.
 ```ruby
-assert_response :success
-assert_response :redirect
-assert_response :missing
-assert_response :error
+must_respond_with :success
+must_respond_with :redirect
+must_respond_with :missing
+must_respond_with :error
 ```
 
-Next, we have the redirect assertions. This indicates that a controller action should be redirecting to another location. What is one example of a redirect in a controller action we have seen before?
+Next, we have the redirect matchers. This indicates that a controller action should be redirecting to another location. What is one example of a redirect in a controller action we have seen before?
+
 ```ruby
-assert_redirected_to "/"
-assert_redirected_to root_path
-assert_redirected_to { controller: 'posts', action: 'index' }
+must_redirect_to "/"
+must_redirect_to root_path
+must_redirect_to controller: 'post', action: 'index'
 ```
 
 Next, is the template assertion. This ensures that the appropriate template has been rendered. This is good for controller actions whose primary goal is to show a view.
 ```ruby
-assert_template 'posts/index'
+must_render_template :index
 assert_template partial: '_customer', count: 2
 ```
 
@@ -53,7 +54,7 @@ Next, we need to use one (or more) of the assertions to ensure that the controll
 class StudentsControllerTest < ActionController::TestCase
   test "should get the new form" do
     get :new
-    assert_response :success
+    must_respond_with :success
     assert_template :new
   end
 end
@@ -89,7 +90,7 @@ Then, we should add the assertions that ensure the show view is loaded successfu
 class StudentsControllerTest < ActionController::TestCase
   test "load show with given student" do
     get :show, { id: 1 }
-    assert_response :success
+    must_respond_with :success
     assert_template :show
   end
 end
@@ -111,7 +112,7 @@ We can now utilize this fixture data within our test to ensure the data is valid
 class StudentsControllerTest < ActionController::TestCase
   test "load show with given student" do
     get :show, { id: students(:one).id }
-    assert_response :success
+    must_respond_with :success
     assert_template :show
   end
 end
