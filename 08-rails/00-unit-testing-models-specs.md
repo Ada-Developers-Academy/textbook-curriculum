@@ -43,7 +43,7 @@ Then run `bundle install`
 
 #### Step 2:  Installing Minitest Spec
 
-Then we will ask Rails to modify test_helper.rb to use spec style describe and it blocks with `rails generate minitest:install`  It will ask you if you want to overwrite the test_\_helper.rb file.  Answer yes **(Y)**.
+Then we will ask Rails to modify test_helper.rb to use spec style describe and it blocks with `rails generate minitest:install`  It will ask you if you want to overwrite the `test_helper.rb` file.  Answer yes **(Y)**.
 
 #### Step 3:  Use Minitest Reporters (Optional)
 
