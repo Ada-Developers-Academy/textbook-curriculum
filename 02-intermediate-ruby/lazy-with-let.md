@@ -55,11 +55,17 @@ describe Player do
 end
 ```
 
-The `let` statement creates a new method with the given name (in this case `player`) that executes the code in the curly braces and caches the result for later use.  That's why it's often called "lazy" the code inside the block doesn't execute until the let is first used, in this case when we do `player.name.must_equal "Watson"`.  So the let runs for each test case that uses it and doesn't run when it isn't needed.  Neat!
+The `let` statement creates a block with the given name (in this case `player`) and executes the code in the curly braces the first time `player` is referenced in a test and caches the result for later use.  That's why it's often called "lazy," the code inside the block doesn't execute until the let is first used, in this case when we do `player.name.must_equal "Watson"`.  
+
+In the same test case (`it` block) only the returned value from the block is used. So the let runs for each test case that uses it and doesn't run in test cases where it isn't needed.  Neat! 
+
+Just like `before` each test case sets up autonomously with a fresh `player` so that no test case will interfere with another.  
 
 ### Proof that let is lazy
 
-In this example using `before` the statement "Creating a player named Ada Lovelace" prints twice times showing that before always runs.  
+In this example using `before` the statement "Creating a player named Ada Lovelace" prints twice, once for each `it` block showing that before always runs before a test case.  
+
+#### Using `before`
 
 ```ruby
 # sample_spec.rb
@@ -70,17 +76,18 @@ describe "Player" do
     @player = Scrabble::Player.new "Ada Lovelace"
   end
 
-    describe "initialize method" do
-        it "New Players initialize with a name" do
-            @player.name.must_equal "Ada Lovelace"
-        end
-
-        it "Throws an ArgumentError if created without a name" do
-          proc {
-            Scrabble::Player.new
-          }.must_raise ArgumentError
-        end
+  describe "initialize method" do
+    it "New Players initialize with a name" do
+      @player.must_respond_to :name
+      @player.name.must_equal "Ada Lovelace"
     end
+
+    it "Throws an ArgumentError if created without a name" do
+      proc {
+        Scrabble::Player.new
+      }.must_raise ArgumentError
+    end
+  end
 end
 ```
 Output:
@@ -100,6 +107,8 @@ Finished in 0.011018s, 272.2817 runs/s, 272.2817 assertions/s.
 2 runs, 2 assertions, 0 failures, 0 errors, 0 skips
 ```
 
+#### Using `let`
+
 But if we use let instead:
 
 ```ruby
@@ -114,6 +123,7 @@ describe "Player" do
 
     describe "initialize method" do
         it "New Players initialize with a name" do
+            player.must_respond_to :name
             player.name.must_equal "Ada Lovelace"
         end
 
@@ -150,8 +160,8 @@ The below example creates 2 let statements for a player and a tilebag from Scrab
 
 ```ruby
 describe "Player & Tilebag" do
-  let (:player)  {Scrabble::Player.new('Watson')}
-  let (:tilebag) {Scrabble::TileBag.new}
+  let (:player)  { S	 }
+  let (:tilebag) { Scrabble::TileBag.new }
 
   describe "draw_tiles for Player class" do
   
@@ -172,7 +182,7 @@ end
 
 ## Summary
 
-So `let` is a useful helper method to DRY up your testing code.  With it you can define a method that is run only when used with the result cached so you can use it like a local variable in your test cases.  
+So `let` is a useful helper method to DRY up your testing code.  With it you can define a block of code that is run only when it is used in your test case and the result saved in the name you provide, in the example above `player` and `tilebag` so you can use it like a local variable in your test cases.  
 
 
 ## Resources
