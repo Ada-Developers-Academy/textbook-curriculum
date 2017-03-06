@@ -29,7 +29,7 @@ and run it from the command line
 ```
 $ ruby divide_by_zero.rb
 divide_by_zero.rb:2:in `/': divided by 0 (ZeroDivisionError)
-	from divide_by_zero.rb:2:in `<main>'
+  from divide_by_zero.rb:2:in `<main>'
 ```
 
 If you need to produce an exception you can use the `raise` keyword
@@ -54,20 +54,20 @@ def make_toast(slices)
   if slices < 1
     raise ArgumentError.new("Can't make less than 1 slice of toast (asked for #{slices})")
   end
-	# ...probably do some other stuff...
+  # ...probably do some other stuff...
 end
 
 def make_breakfast(type)
-	if type == "eggs and toast"
-		make_toast(-1)
-		make_eggs
-	end
+  if type == "eggs and toast"
+    make_toast(-1)
+    make_eggs
+  end
 end
 
 def make_breakfast_banquet
-	10.times do
-		make_breakfast("eggs and toast")
-	end
+  10.times do
+    make_breakfast("eggs and toast")
+  end
 end
 
 make_breakfast_banquet
@@ -76,12 +76,12 @@ make_breakfast_banquet
 ```
 $ ruby breakfast.rb
 breakfast.rb:4:in `make_toast': Can't make less than 1 slice of toast (asked for -1) (ArgumentError)
-	from breakfast.rb:11:in `make_breakfast'
-	from breakfast.rb:18:in `block in make_breakfast_banquet'
-	from breakfast.rb:17:in `times'
-	from breakfast.rb:17:in `make_breakfast_banquet'
-	from breakfast.rb:22:in `<main>'
-	```
+    from breakfast.rb:11:in `make_breakfast'
+    from breakfast.rb:18:in `block in make_breakfast_banquet'
+    from breakfast.rb:17:in `times'
+    from breakfast.rb:17:in `make_breakfast_banquet'
+    from breakfast.rb:22:in `<main>'
+```
 
 ## What Are Exceptions?
 
@@ -136,7 +136,7 @@ The output would be:
 ```
 $  ruby sample_exception.rb
 sample_exception.rb:4:in `/': divided by 0 (ZeroDivisionError)
-	from basic_exception_without_rescue.rb:4:in `<main>'
+  from basic_exception_without_rescue.rb:4:in `<main>'
 ```
 
 **Vocabulary note:** In many languages, `raise` and `rescue` are called `throw` and `catch`, and you will often hear people talking about "throwing" or "catching" an exception.
@@ -177,9 +177,9 @@ Exceptions are full of useful information about what went wrong, which is often 
 
 ```ruby
 begin
-	# do something risky
+  # do something risky
 rescue ArgumentError => exception
-	puts "Encountered an error: #{exception}"
+  puts "Encountered an error: #{exception}"
 end
 ```
 
@@ -215,10 +215,10 @@ If we expect a method to raise an exception and it doesn't, that's a bug! This m
 
 ```ruby
 it "Raises an ArguemntError when asked to withdraw a negative amount" do
-	account = Bank::Account.new(1337, 10000)
-	proc {
-		account.withdraw(-100)
-	}.must_raise ArgumentError
+  account = Bank::Account.new(1337, 10000)
+  proc {
+    account.withdraw(-100)
+  }.must_raise ArgumentError
 end
 ```
 
@@ -233,11 +233,11 @@ class InvalidCardNumberError < StandardError
 end
 
 def process_transaction(card_number, amount)
-	# card_is_valid? is defined elsewhere
-	unless card_is_valid?(card_number)
-		raise InvalidCardNumberError.new("Invalid credit card number #{card_number}")
-	end
-	# ... process the transaction ...
+  # card_is_valid? is defined elsewhere
+  unless card_is_valid?(card_number)
+    raise InvalidCardNumberError.new("Invalid credit card number #{card_number}")
+  end
+  # ... process the transaction ...
 end
 ```
 
@@ -249,12 +249,12 @@ Exceptions aren't the only way to indicate that something has gone wrong. For ex
 
 ```ruby
 class SolarSystem
-	def lookup_by_name(name)
-		planets.each do |planet|
-			return planet if planet.name == name
-		end
-		return nil
-	end
+  def lookup_by_name(name)
+    planets.each do |planet|
+      return planet if planet.name == name
+    end
+    return nil
+  end
 end
 ```
 
@@ -264,22 +264,22 @@ Here are some examples of when and when not to raise an exception. Each of the f
 
 **Raise an Exception When:**
 - A method is given invalid arguments
-	- Negative withdrawal amount
+- Negative withdrawal amount
 - Some prerequisite condition isn't true
-	- Not enough money to withdraw
+- Not enough money to withdraw
 - Some required resource can't be found or is invalid
-	- `accounts.csv` doesn't exist
-	- `accounts.csv` doesn't contain account information
+- `accounts.csv` doesn't exist
+- `accounts.csv` doesn't contain account information
 - There's a problem external to Ruby
-	- User pressed `Ctrl-C`
+- User pressed `Ctrl-C`
 
 Note that many of these are handled automatically by Ruby!
 
 **Don't Raise an Exception When:**
 - A search yields no results
-	- No account with that ID
+- No account with that ID
 - The user quits via a normal method
-	- Types `quit` at the prompt
+- Types `quit` at the prompt
 
 In general, an exception indicates that either there was a programming error, or the user has done something wrong. In other words, some human intervention is required. If the program can handle a situation automatically, an exception is probably not the right choice.
 
@@ -302,8 +302,8 @@ In general, an exception indicates that either there was a programming error, or
 - Analyzed a stack trace produced by an exception
 - Discussed the exception class hierarchy
 - Used `rescue` to handle exceptions
-	- `rescue <ExceptionType>` to handle a specific type of exception
-	- `rescue <ExceptionType> => exception` to store the exception in a local variable
+- `rescue <ExceptionType>` to handle a specific type of exception
+- `rescue <ExceptionType> => exception` to store the exception in a local variable
 - Created our own custom exceptions
 - Discussed when to use exceptions
 
