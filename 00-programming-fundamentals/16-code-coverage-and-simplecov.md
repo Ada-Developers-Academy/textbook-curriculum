@@ -105,6 +105,40 @@ Some teams require a certain percentage of code coverage and it's likely you wil
 Add code coverage to your Alouette Weekend-Warrior exercise.      
 
 
+## Spec Helpers
+
+You may have noticed that you have a lot of repeated require statements at the top of your spec files.
+
+```ruby
+# any_spec.rb
+require 'minitest'
+require 'minitest/autorun'
+require 'minitest/reporters'
+require 'minitest/pride'
+
+require 'simplecov'
+...
+```
+
+We can simplify this down a bit by creating a `specs/spec_helper.rb`.  So now all our requires are in the same place and simplecov is only needed in one file.  It also makes it easier to adjust how our output looks with minitest-reporters because we only have to change one file.  
+
+```ruby
+# specs/spec_helper.rb
+require 'minitest'
+require 'minitest/autorun'
+require 'minitest/reporters'
+require 'minitest/pride'
+
+require 'simplecov'
+SimpleCov.start
+
+# Require any classes 
+# ex require_relative 'lib/foo.rb'
+
+Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
+```
+
+Now our spec files can simply `require_relative 'spec_helper'`!  That should DRY up our spec files a bit!
 
 
 ## Resources
