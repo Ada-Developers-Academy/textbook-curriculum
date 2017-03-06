@@ -172,7 +172,7 @@ Also check our _expectations_. They look like Minitest _expectations_ because th
 __Question: Is the test above a _positive_ or _negative_ test? What would the other test look like?__
 
 ## Running tests
-[The Rails Guide on testing](http://guides.rubyonrails.org/testing.html#rake-tasks-for-running-your-tests) has a specific section for how to run tests that's definitely worth reading. The short version is that from the project root, we can run all of our tests with `rails test`. If you want to run just the model tests, run `rails test/models`. The output will probably look pretty familiar by now:
+[The Rails Guide on testing](http://guides.rubyonrails.org/testing.html#the-rails-test-runner) has a specific section for how to run tests that's definitely worth reading. The short version is that from the project root, we can run all of our tests with `rails test`. If you want to run just the model tests, run `rails test/models`. The output will probably look pretty familiar by now:
 
 ```bash
 $ rails test/models
