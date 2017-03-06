@@ -72,7 +72,7 @@ In this example using `before` the statement "Creating a player named Ada Lovela
 
 describe "Player" do
   before do
-  	puts "Creating a player named Ada Lovelace"
+    puts "Creating a player named Ada Lovelace"
     @player = Scrabble::Player.new "Ada Lovelace"
   end
 
