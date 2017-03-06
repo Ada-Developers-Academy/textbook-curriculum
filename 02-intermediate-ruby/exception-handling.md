@@ -226,7 +226,12 @@ end
 
 ## Creating Custom Exceptions
 
-Sometimes you run into a situation where the built in Ruby exceptions don't quite describe what went wrong. For example, imagine you have a program for processing credit card transactions, and you need an exception for an invalid card number. Lucky for us, Ruby allows you to define custom exceptions!
+Sometimes you run into a situation where the built in Ruby exceptions don't quite describe what went wrong. For example, imagine you have a program for processing credit card transactions. Here are two types of thing that could go wrong:
+
+- The credit card number is the wrong type - maybe we expected a `String` of digits, but got a `Boolean`. This implies a programming error, and should be fixed by the engineer.
+- The credit card number is [invalid](https://en.wikipedia.org/wiki/Luhn_algorithm) - too many or too few digits, doesn't match some other check. This implies the user has given us bad data, and should be asked politely to try again.
+
+The two problems need to be handled in different ways, and the easiest way to do this is with different types of exception. In the first case an `ArgumentError` seems like the correct choice, but Ruby doesn't provide an exception for an invalid card number. Lucky for us, Ruby allows you to define custom exceptions!
 
 As we discussed above, exceptions are just classes that inherit from `Exception` or one of its subclasses, so making your own is as simple as defining a new class. You'll usually want to inherit from `StandardError`, so that your exception can be handled with `rescue`.
 
