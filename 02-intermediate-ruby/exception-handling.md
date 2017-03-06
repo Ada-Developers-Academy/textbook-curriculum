@@ -1,4 +1,4 @@
-# Exception Handling In Rails
+# Exception Handling In Ruby
 
 ## Learning Goals
 At the end of this you should be able to:
@@ -87,7 +87,7 @@ breakfast.rb:4:in `make_toast': Can't make less than 1 slice of toast (asked for
 
 **Question:** We know that raising an `ArgumentError` requires a call to `ArgumentError.new`. What does this tell us about what `ArgumentError` is, and what sort of a thing we're raising?
 
-`ArguemntError` is a class, and the thing that we're raising is an _instance_ of `ArgumentError`. There's a whole bunch of built-in Ruby magic around the `raise` keyword, but the exceptions themselves are just objects like any other, binding together data and behavior.
+`ArgumentError` is a class, and the thing that we're raising is an _instance_ of `ArgumentError`. There's a whole bunch of built-in Ruby magic around the `raise` keyword, but the exceptions themselves are just objects like any other, binding together data and behavior.
 
 **Question:** What data might an exception keep track of? What behavior does it provide? How would you find out for sure?
 
@@ -95,7 +95,7 @@ All exceptions are children of the `Exception` class, inheriting its core functi
 
 [![exceptions](images/exceptions.png)](http://findnerd.com/list/view/Exception-Handling-in-Rails-using-begin-rescue/21677/)
 
-The Ruby docs have a [full list of built in Ruby exceptions](https://ruby-doc.org/core-2.1.1/Exception.html).
+The Ruby docs have a [full list of built in Ruby exceptions](https://ruby-doc.org/core-2.4.0/Exception.html).
 
 ## Handling Exceptions
 
@@ -143,7 +143,7 @@ sample_exception.rb:4:in `/': divided by 0 (ZeroDivisionError)
 
 ### Rescuing Specific Exceptions
 
-Ruby provides many different types of exception, and a `rescue` block will capture any of them. However, this has some drawbacks:
+Ruby provides many different types of exceptions, and a `rescue` block will capture any of them. However, this has some drawbacks:
 - What if you need to handle different exceptions in different ways?
 - What if you were expecting a `ZeroDivisionError`, but instead got a `NameError` from an undefined variable due to a programming error?
 
@@ -196,7 +196,7 @@ while true
   filename = gets.chomp
 
   begin
-    CSV.readlines(filename).each do |line|
+    CSV.read(filename).each do |line|
       puts line.join(",")
     end
 
@@ -214,7 +214,7 @@ end
 If we expect a method to raise an exception and it doesn't, that's a bug! This means that we must test that our methods raise the exceptions we want, as well as testing nominal behavior. As we saw on the BankAccounts project, you can look for an exception in a given block of code in Minitest like this
 
 ```ruby
-it "Raises an ArguemntError when asked to withdraw a negative amount" do
+it "Raises an ArgumentError when asked to withdraw a negative amount" do
   account = Bank::Account.new(1337, 10000)
   proc {
     account.withdraw(-100)
@@ -226,7 +226,7 @@ end
 
 Sometimes you run into a situation where the built in Ruby exceptions don't quite describe what went wrong. For example, imagine you have a program for processing credit card transactions, and you need an exception for an invalid card number. Lucky for us, Ruby allows you to define custom exceptions!
 
-As we discussed above, exceptions are just classes that inherit from `Exception` or one of its subclasses, so to making your own is as simple as defining a new class. You'll usually want to inherit from `StandardError`, so that your exception can be handled with `rescue`.
+As we discussed above, exceptions are just classes that inherit from `Exception` or one of its subclasses, so making your own is as simple as defining a new class. You'll usually want to inherit from `StandardError`, so that your exception can be handled with `rescue`.
 
 ```ruby
 class InvalidCardNumberError < StandardError
