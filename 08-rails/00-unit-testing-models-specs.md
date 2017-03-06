@@ -37,7 +37,7 @@ group :test do
 end
 ```
 
-This means when Rake or Rails runs the test task, it will use the minitest-rails gem.  
+This means when Rails runs the test task, it will use the minitest-rails gem.  
 
 Then run `bundle install`
 
@@ -227,7 +227,7 @@ So now you've got this test data, what do you do with it? Short answer: put it i
 
 The test database is meant to be transient. By default, Rails will reset the test database _between every test_. Data saved to the database in one test won't exist in other tests. The exception is fixture data, which is always available in every test. However, any changes to fixture data in a test will not be preserved into the next test.
 
-Use `rake db:test:prepare` if the test database seems to be stuck in a broken state. It will reset the test database, run any pending migrations, and re-seed the fixture data. Very handy!
+Use `rails db:test:prepare` if the test database seems to be stuck in a broken state. It will reset the test database, run any pending migrations, and re-seed the fixture data. Very handy!
 
 ## Putting it all together
 Ok, let's test a model relationship for the final example. We'll use the fixture data from the previous examples. Here's our models:
