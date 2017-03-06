@@ -9,7 +9,8 @@
 ### Expectations
 In controller tests, you have several new expectations to use.
 
-First, we have the set of responses. These are used to determine what type of response the controller method sent. Each of these response types correspond to the HTTP status codes.
+First, is a matcher used to check the response of the controller.  Each of these response types correspond to an HTTP status code.
+
 ```ruby
 must_respond_with :success
 must_respond_with :redirect
@@ -17,7 +18,8 @@ must_respond_with :missing
 must_respond_with :error
 ```
 
-Next, we have the redirect matchers. This indicates that a controller action should be redirecting to another location. What is one example of a redirect in a controller action we have seen before?
+Next, we have a redirect matcher. This indicates that a controller action should be redirecting the browser to another location. 
+
 
 ```ruby
 must_redirect_to "/"
@@ -25,32 +27,38 @@ must_redirect_to root_path
 must_redirect_to controller: 'post', action: 'index'
 ```
 
+**Question:**  What is one example of a controller action that commonly redirects the user?
+
+
 Last is a way to ensure that the controller action appropriately changes the related model.  We'll see how to use the `must_change` matcher with some examples later on.
 
 ```ruby
 proc {
-  # run the delete verb on the task_path with a param equal to 1
-  delete task_path(1)
+  # run the delete verb on the post_path with a param equal to 1
+  delete post_path(1)
 }.must_change 'Post.count', -1
 ```
 
+We still have the existing Minitest matchers, like `must_equal` and `must_be` to use as well.  
 
 
 ### Test Setup
 First, we need to execute the controller action that we would like to test. We use the verb along with the path to execute the controller method.
 
 ```ruby
-describe TaskController do
+describe PostController do
   it "should get index" do
     get post_index_path
   end
 end
 ```
 
+The test starts with executing the controller with, in this case, a get request and a given path.  We could also put `get '/posts'` instead, assuming that our index page was at that path, but using the Rails path helper methods make it more portable and easier to change.  If the paths change the testing code doesn't need to be modified.  
+
 Next, we need to use one (or more) of the expectations to ensure that the controller action executed as expected.
 
 ```ruby
-describe TaskController do
+describe PostController do
   ...
   it "should get index" do
     get post_index_path
@@ -60,7 +68,7 @@ describe TaskController do
 end
 ```
 
-**Exercise:** Now you try it! Try setting up the next test for the `new` action.
+**Exercise:** Now you try it! Try setting up the next test for the `new` action on your last project.
 
 ### Test Setup with Params
 When we create the controller actions, oftentimes they contain information that comes from the `params` hash, with data populated from the routes or forms. In order to appropriately test controllers, we must "mock" this information.
@@ -75,14 +83,13 @@ end
 In this case, we need to provide a key of `id` with a corresponding value. We specify this in a hash to correspond to `params` along with the verb and action.
 
 We start our test in the same way we have previously seen:
+
 ```ruby
 it "should get show" do
   get post_path(1)
   must_respond_with :success
 end
 ```
-
-The above example uses the path method to generate the URL.  You could replace:  `get post_path(1)` with `get "/post/#{1}"`.  Using `post_path(1)`  makes it more portable and responsive to change, but it's helpful to see what it's doing.
 
 Then, we added the expectation to ensure the show view is loaded successfully with `must_respond_with :success`.
 
@@ -99,7 +106,7 @@ one:
 We can now utilize this fixture data within our test to ensure the data is valid.
 ```ruby
 it "should get show" do
-  get post_path(task(:one).id)
+  get post_path(post(:one).id)
   must_respond_with :success
 end
 ```
@@ -112,10 +119,11 @@ We have model tests to ensure that models act the way we anticipate. Oftentimes 
 
 What is a type of controller action that would affect the number of Model objects? **Create!**
 
-Let's see how a post test would look:
+Let's see how a test of the create action would look:
+
 ```ruby
 it "should be able to create a post" do
-  post create_post_path, params: { post: {title: "Some post", body: "la la la"}  }
+  post post_index_path, params: { post: {title: "Some post", body: "la la la"}  }
 end
 ```
 
@@ -124,7 +132,7 @@ We must have appropriate parameters that would match up with parameters that wou
 The successful create action should redirect to the index view, so we should update our test to assert that:
 ```ruby
 it "should be able to create a post" do
-  post create_post_path, params: { post: {title: "Some post", body: "la la la"}  
+  post post_index_path, params: { post: {title: "Some post", body: "la la la"}  
   
   must_respond_with :redirect
   must_redirect_to post_index_path
@@ -138,7 +146,7 @@ Next, we can check that the count of model object has changed by 1 using the `mu
 ```ruby
 it "should be able to create a post" do
   expect (-> {
-    post create_post_path, params: { post: {title: "Some post", body: "la la la"}  }
+    post post_index_path, params: { post: {title: "Some post", body: "la la la"}  }
   }).must_change 'Post.count', 1
   
   must_respond_with :redirect
@@ -150,14 +158,14 @@ We can do a similar test for deleting a model.  **Exercise:** Write a test for a
 
 ### Changing a Model
 
-Often model actions will modify a model rather than add or delete an entry.  So we also need to test update actions.  
+We also want to test actions that modify a model rather than adding or deleting an entry.  So we also need to test update actions.  
 
 We start by creating a test for a put request on a post_path.
 
 
 ```ruby
   it "should update a post" do
-    put task_path(posts(:one).id), params: {post: {title: "Some title goes here", description: "la la la"} }
+    put post_path(posts(:one).id), params: {post: {title: "Some title goes here", description: "la la la"} }
 ```
 
 So this test case starts by making a put request on a post using a fixture.  
@@ -166,7 +174,7 @@ Next we can then verify that the post in the database is changed.
 
 ```ruby
 it "should update a post" do
-  put task_path(posts(:one).id), params: {post: {title: "Some title goes here", description: "la la la"} }
+  put post_path(posts(:one).id), params: {post: {title: "Some title goes here", description: "la la la"} }
     
   # find the post with that ID in the database
   post = Post(posts(:one).id)
@@ -209,7 +217,7 @@ In general, controller tests should operate at a higher level than Model tests. 
 
 
 ## Resources
--  [The Rails Guide on testing: Controllers](http://guides.rubyonrails.org/testing.html#functional-tests-for-your-controllers)  
+-  [The Rails Guide on Testing: Controllers](http://guides.rubyonrails.org/testing.html#functional-tests-for-your-controllers)  
 -  [Testing Assertions](http://api.rubyonrails.org/classes/ActiveSupport/Testing/Assertions.html)  
 -  [Minitest Cookbook](https://chriskottom.com/minitestcookbook/)
 -  [Minitest-Rails](https://github.com/blowmage/minitest-rails)
