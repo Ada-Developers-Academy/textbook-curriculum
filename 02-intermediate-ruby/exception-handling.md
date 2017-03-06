@@ -83,6 +83,8 @@ breakfast.rb:4:in `make_toast': Can't make less than 1 slice of toast (asked for
     from breakfast.rb:22:in `<main>'
 ```
 
+![stack trace](images/stack-trace-terminal-telemarked.png)
+
 ## What Are Exceptions?
 
 **Question:** We know that raising an `ArgumentError` requires a call to `ArgumentError.new`. What does this tell us about what `ArgumentError` is, and what sort of a thing we're raising?
