@@ -1,4 +1,12 @@
 # More About Merge Conflicts
+## Learning Goals
+After reading through this document and participating in the associated activity you should be able to:
+- Identify a few techniques for avoiding merge conflicts
+- Name the three versions of the code that are involved in any merge conflict
+- Understand how Git uses conflict markers to call out conflicted sections of a file and present different versions of the code
+- Resolve merge conflicts by choosing one version of the code to use or creating a synthesis of multiple versions
+- Safely exit out of any merge conflict resolution without committing to any changes
+
 ## Overview
 Merge conflicts are a natural part of any version control mechanism that allows independent modification of files (as Git does). Becoming comfortable with merge conflict situations is therefor a valuable skill for developers to build.
 
