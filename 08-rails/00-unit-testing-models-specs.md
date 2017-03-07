@@ -45,7 +45,17 @@ Then run `bundle install`
 
 Then we will ask Rails to modify test_helper.rb to use spec style describe and it blocks with `rails generate minitest:install`  It will ask you if you want to overwrite the `test_helper.rb` file.  Answer yes **(Y)**.
 
-#### Step 3:  Use Minitest Reporters (Optional)
+#### Step 3:  Make Spec-style Testing the default
+
+In `config/application.rb` add these lines to the `Application` class.
+
+```ruby
+config.generators do |g|
+  g.test_framework :minitest, spec: true
+end
+```
+
+#### Step 4:  Use Minitest Reporters (Optional)
 
 Lastly edit test/test_helper.rb to tell Rails to use the Minitest-spec style tests with `atom test/test_helper.rb` and add these lines to the top.
 
