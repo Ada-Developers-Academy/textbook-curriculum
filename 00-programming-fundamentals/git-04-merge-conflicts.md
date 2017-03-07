@@ -66,3 +66,8 @@ $ git merge --abort
 ```
 
 This command will reset any changes made by Git or by you as part of a merge conflict. Everything will be put back exactly as it was before you ran the command that started the merge (generally either `git pull` or `git merge`).
+
+## Additional Resources
+- The makers of the [Tower](https://www.git-tower.com/) GUI Git client have an e-book on Git which [covers merge conflicts](https://www.git-tower.com/learn/git/ebook/en/command-line/advanced-topics/merge-conflicts)
+- Git Immersion has two labs on merge conflicts: [creating them](http://gitimmersion.com/lab_29.html) and [resolving them](http://gitimmersion.com/lab_30.html)
+- The [Pro Git](https://git-scm.com/book/en/v2) book features both a [basic guide](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging#_basic_merge_conflicts) and an incredibly thorough [advanced guide](https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging) to merge conflict resolution
