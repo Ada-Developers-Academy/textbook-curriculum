@@ -65,20 +65,6 @@ h1::selection {
 
 **Question:** What is the difference between a pseudo-element and a pseudo-class? Why are they different things at all?
 
-## Multiple Selectors
-The same rule set can be applied to two different selectors by putting a comma in between selectors. Doing so can help keep your CSS stay DRY.
-
-Examples:
-
-```css
-h1, h2, h3  {
-  color: teal;
-  font-family: helvetica;
-}
-```
-
-*Any* combination of selectors can be used! For example:
-
 ## Selectors Based on Relationships
 Remember how we emphasized elements relationship with the sectioning elements lesson? Knowing relationships between elements gives us even more ways of selecting elements!
 
@@ -91,7 +77,7 @@ Here are common selectors based on relationships
 | `E:first-child` | Any E element that is also the first child of its parent |  
 | `B + E`         | Any E element that is also the next sibling of a B element (that is: the next child of the same parent) |
 
-Of these, the first (`A E`) is by far the most common. As an example, let's add an orange highlight to italic text that appears inside a header.
+Of these, the first (`A E`) is by far the most common. As an example, let's add an orange highlight to italic text that appears inside a `h1` tag.
 
 ```html
 <h1>The <em>Cat</em> in the <em>Hat</em></h1>
@@ -101,6 +87,28 @@ Of these, the first (`A E`) is by far the most common. As an example, let's add 
 
 ```css
 h1 em {
+  background-color: orange;
+}
+```
+
+`Cat` and `Hat` will be backed with orange, but `Dr. Seuss` will not.
+
+## Multiple Selectors
+The same rule set can be applied to two different selectors by putting a comma in between selectors. Doing so can help keep your CSS stay DRY.
+
+Examples:
+
+```css
+h1, h2, h3  {
+  color: teal;
+  font-family: helvetica;
+}
+```
+
+*Any* combination of selectors can be used! For example, to add an orange highlight to italic text inside a `h1`, all links, and anything with the `orange` class:
+
+```css
+h1 em, a, .orange {
   background-color: orange;
 }
 ```
@@ -117,8 +125,6 @@ Pseudo-classes and pseudo-elements provide a more extensive set of options to se
 
 ### Additional Resources
 - [MDN CSS Introduction Selectors](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Selectors)
-
 - [MDN Selectors](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started/Selectors) *(more in depth)*
-
 - [Smashing Magazine's Ultimate Guide to CSS Pseudo-Classes And Pseudo-Elements](https://www.smashingmagazine.com/2016/05/an-ultimate-guide-to-css-pseudo-classes-and-pseudo-elements/)
 - [Khan Academy's Interactive Quiz](https://www.khanacademy.org/computing/computer-programming/html-css/more-css-selectors/e/quiz--css-specificity-rules)
