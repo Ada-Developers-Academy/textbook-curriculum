@@ -6,6 +6,7 @@
 
 ## Basic Selectors
 So far we been targeting specific html elements with:
+
 - Tag Selectors (the name of the tag)
 - ID Selectors (a hashtag the given id name)
 - Class Selectors (a period with given class name)
@@ -14,7 +15,7 @@ So far we been targeting specific html elements with:
 ## Attribute Selectors
 Class and ID are two examples of Attribute Selectors. They have their own special selector syntax. Other attributes can be used as selectors using the syntax below.
 
- There are many other attributes we haven't covered that can be used as selectors in our CSS, but for now we'll use one we are familiar with in the example below:
+There are many other attributes we haven't covered that can be used as selectors in our CSS, but for now we'll use one we are familiar with in the example below:
 
 ```html
 <a href="http://www.github.com"> Github </a>
@@ -27,6 +28,7 @@ a[href="http://www.github.com"] { color: olive; }
 Another snazzy way of using this selector is with an asterisk before the equal sign. This selects any elements that have at least part of content in the quotes.
 
 In this example, any a tag that has "github" somewhere in it's href will be modified by this rule-set
+
 ```css
 a[href*="github"] { color: teal; }
 ```
@@ -41,16 +43,19 @@ A CSS pseudo-class is a keyword added to selectors that specifies a special stat
 
 [Here](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) is an index of pseudo-classes.
 
-A popular one is :hover. Test it out in [Codepen](http://codepen.io) to see how it works!
+A popular one is `:hover`. Test it out in [Codepen](http://codepen.io) to see how it works!
+
 ```css
 h1:hover { color: teal; }
 ```
+
 ### Pseudo-elements
-Pseudo-elements allow you to style certain parts of a document. A few common pseudo-elements are :after, :before and :first-letter. [Here](https://developer.mozilla.org/en-US/docs/Web/CSS/pseudo-elements) is an index of Pseudo-elements
+Pseudo-elements allow you to style certain parts of a document. A few common pseudo-elements are `::after`, `::before` and `::first-letter`. [MDN maintains an index of pseudo-elements](https://developer.mozilla.org/en-US/docs/Web/CSS/pseudo-elements).
 
 - Note: Pseudo-elements use two colons, pseudo-classes use only one colon.
 
 Try this out in [Codepen](http://codepen.io)
+
 ```css
 h1::selection {
   color: yellow;
@@ -58,11 +63,11 @@ h1::selection {
 }
 ```
 
-
 ## Multiple Selectors
 The same rule set can be applied to two different selectors by putting a comma in between selectors. Doing so can help keep your CSS stay DRY.
 
 Examples:
+
 ```css
 h1, h2, h3  {
   color: teal;
@@ -79,18 +84,18 @@ Here are common selectors based on relationships
 
 | Selector      | Selects        
 | ------------- |-------------|
-| A E      | Any E element that is a descendant of an A element (that is: a child, or a child of a child, etc.) |
-| A > E     | Any E element that is a child (i.e. direct descendant) of an A element     |  
-| E:first-child | Any E element that is the first child of its parent    |  
-| B + E | Any E element that is the next sibling of a B element (that is: the next child of the same parent)    |
+| A E           | Any E element that is a descendant of an A element (that is: a child, or a child of a child, etc.) |
+| A > E         | Any E element that is a child (i.e. direct descendant) of an A element |  
+| E:first-child | Any E element that is the first child of its parent |  
+| B + E         | Any E element that is the next sibling of a B element (that is: the next child of the same parent) |
 
 
 ## Practice!
 [CSS Diner](http://flukeout.github.io/)
 
 ## Vocab ✅
-  - Pseudo-Classe
-  - Pseudo-Element
+- Pseudo-Classe
+- Pseudo-Element
 
 
 ## 🔑 Key Takeaway
