@@ -26,8 +26,8 @@ It should show you some html code of the page you are on in one panel and css in
 ### The DOM
 The Document Object Model (DOM) is a cross-platform and language-independent application programming interface that treats an HTML document as a tree structure wherein each node is an object representing a part of the document.
 
-## Look at Element's Default Styles
-In the html code panel, click on an element(a node of our dom tree). The CSS panel should change to reflect the styles that are affecting that specific element.
+### Look at Element's Default Styles
+In the HTML code panel, click on an element (a node of our DOM tree). The CSS panel should change to reflect the styles that are affecting that specific element.
 
 The are various sources of CSS that are affecting that element.
 
