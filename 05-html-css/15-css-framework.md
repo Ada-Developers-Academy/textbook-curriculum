@@ -17,7 +17,7 @@ The usual components are:
 
 The most popular frameworks are Bootstrap and Foundation. Here's [an article](https://www.upwork.com/hiring/development/bootstrap-vs-foundation-which-framework-is-right-for-you/) comparing the two Frameworks. We'll be digging into Foundation to focus on it's grid features.
 
-By using Foundation's already made css code, we can more quickly setup a layout for our site by simply, yet strategically, adding classes to html elements!
+By using Foundation's already made css code, we can more quickly setup a layout for our site by simply, yet strategically, adding classes to HTML elements!
 
 NOTE: _CSS Frameworks_, like Bootstrap and Foundation are different that _Front-end JavaScript frameworks_ like React, Angular and Ember.
 

@@ -5,7 +5,7 @@
 - Identify how to properly use each kind of selector
 
 ## Basic Selectors
-So far we been targeting specific html elements with:
+So far we been targeting specific HTML elements with:
 - Tag Selectors (the name of the tag)
 - ID Selectors (a hashtag the given id name)
 - Class Selectors (a period with given class name)
@@ -94,7 +94,7 @@ Here are common selectors based on relationships
 
 
 ## 🔑 Key Takeaway
-Pseudo-classes and pseudo-elements provide a more extensive set of options to select and manipulate html elements.
+Pseudo-classes and pseudo-elements provide a more extensive set of options to select and manipulate HTML elements.
 
 ### Additional Resources
 - [MDN CSS Introduction Selectors](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Selectors)

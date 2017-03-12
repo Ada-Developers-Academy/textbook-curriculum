@@ -71,7 +71,7 @@ The relationship tree above is modeled from the following code:
 ```
 
 
-### Draw a relationship tree for the html code below:
+### Draw a relationship tree for the HTML code below:
 ```html
   <body>
     <header>
