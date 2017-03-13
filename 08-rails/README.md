@@ -20,3 +20,6 @@
 1. [Rails Debugging](./rails-debugging.md)  
 1. [Active Record Validations](./active-record-validations.md)  
 1. [View Partials](./partial-views.md)  
+
+## Part 3
+1. [Unit Testing Models](./unit-testing-models.md)
