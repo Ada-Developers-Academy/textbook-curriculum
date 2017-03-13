@@ -8,7 +8,7 @@
 1. [Routes & Controllers](./routes-controllers-and-views.md)  
 1. [ERB & Layouts](./ERB-and-Layouts.md)  
 1. [Intro to Forms](./html-forms.md)  
-1. [View Helpers]()  
+1. [View Helpers](./common-view-helpers.md)  
 1. [Active Record Migrations]()  
 1. [Active Record Models]()  
 1. [Rails Forms]()
