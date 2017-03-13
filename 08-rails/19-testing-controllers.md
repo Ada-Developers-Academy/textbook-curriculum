@@ -138,7 +138,7 @@ it "should be able to create a post" do
 end
 ```
 
-So above we executed a post request to the post path and sent a mock of the params hash to provide values simulating what the form would provide.  
+So above we executed a post request to the index path and sent a mock of the params hash to provide values simulating what the form would provide.  
 
 Next, we can check that the count of model object has changed by 1 using the `must_change` matcher. For this matcher, in the first parameter, you put the expression that you would like to evaluate before and after the block you specify. In the second parameter, you can put a numeric value indicating how you expect the expression to change.
 
