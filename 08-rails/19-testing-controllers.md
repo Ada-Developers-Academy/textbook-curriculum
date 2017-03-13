@@ -110,7 +110,7 @@ it "should get show" do
 end
 ```
 
-This lets us use fixture data in our controller tests.  **Exercise:** Make check your test for the `edit` action and write it to use fixtures.  then run `rails test` to make sure it runs properly.  
+Using `post(:one).id` lets us use data in our fixtures in our test, rather than hard-coding id numbers.  **Exercise:** Write a test for the `edit` action and write it to use fixtures.  Then run `rails test` to make sure it runs properly.  
 
 ### Test the Difference
 
