@@ -75,7 +75,7 @@ puts canasta_card.max_value   # => 50
 
 ```
 
-Because the pokemon gem is loaded after blackjack it overrides blackjack's definition of Card and thus the version of card we end up using is Pokemon's.
+Because the canasta gem is loaded after blackjack it overrides blackjack's definition of Card and thus the version of card we end up using is canasta's.
 
 We can avoid this by using namespaces.  
 
