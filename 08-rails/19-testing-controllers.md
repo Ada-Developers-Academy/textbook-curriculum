@@ -205,7 +205,7 @@ Exactly what's worth testing depends on your site, but here are some general gui
 
 That's not an exhaustive list, but it's a good starting point.
 
-In general, controller tests should operate at a higher level than Model tests. For example, while in Model testing you need 2 or more test cases for every validation.  When testing the corresponding Controller you only need to test the case where all validations pass, and the case where one or more fail, since those are the two different behaviors you Controller action can exhibit. You do, however, need to test those cases for both the `create` and `update` actions.
+In general, controller tests should operate at a higher level than Model tests. For example, while in Model testing you need 2 or more test cases for every validation.  When testing the corresponding Controller you only need to test the case where all validations pass, and the case where one or more fail, since those are the two different behaviors your Controller action can exhibit. You do, however, need to test those cases for both the `create` and `update` actions.
 
 
 ## Rails Matchers
