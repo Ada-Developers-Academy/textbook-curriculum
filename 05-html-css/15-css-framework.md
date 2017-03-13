@@ -17,7 +17,7 @@ The usual components are:
 
 The most popular frameworks are Bootstrap and Foundation. Here's [an article](https://www.upwork.com/hiring/development/bootstrap-vs-foundation-which-framework-is-right-for-you/) comparing the two Frameworks. We'll be digging into Foundation to focus on it's grid features.
 
-By using Foundation's already made css code, we can more quickly setup a layout for our site by simply, yet strategically, adding classes to html elements!
+By using Foundation's already made CSS code, we can more quickly setup a layout for our site by simply, yet strategically, adding classes to HTML elements!
 
 NOTE: _CSS Frameworks_, like Bootstrap and Foundation are different that _Front-end JavaScript frameworks_ like React, Angular and Ember.
 
@@ -104,7 +104,7 @@ It is typical to use Sass when developing with Foundation. Using Sass allows you
 
 But we're not there yet.
 
-Instead you can overwrite Foundations styles your own css files. You can also set some customizations before downloading with [this page](http://foundation.zurb.com/sites/download.html/).
+Instead you can overwrite Foundations styles your own CSS files. You can also set some customizations before downloading with [this page](http://foundation.zurb.com/sites/download.html/).
 
 **Note:** There is a rails-foundation gem that seamlessly incorporates foundation into a rails application. The gem has the assumption that you want to utilize most of foundation’s functionality and that you know Sass. It is not recommended to use this gem quite yet. It includes a lot more of foundation’s functionality that we have not covered and may be overwhelming while you’re working on a new project.  But hey, if you’re feeling adventurous, go for it!
 

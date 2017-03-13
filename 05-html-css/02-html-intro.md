@@ -5,7 +5,7 @@
 - Understand HTML syntax & vocabulary
 - Can identify what tags are most appropriate for specific content
 - Can view document in a browser
-- Can link to other html files
+- Can link to other HTML files
 
 
 
@@ -56,7 +56,7 @@ To comment within HTML, use `<!-- -->`. Example:
 ```
 ## Setup an HTML Document
 
-Before we can start to organize our content into html elements, we must setup our HTML documents so that our code can be properly interpreted by browsers.
+Before we can start to organize our content into HTML elements, we must setup our HTML documents so that our code can be properly interpreted by browsers.
 
 Create a new directory for this site. Then create a new file called 'index.html'.
 
@@ -74,7 +74,7 @@ Create a new directory for this site. Then create a new file called 'index.html'
   </body>
 </html>
 ```
-What do all these html tags mean?
+What do all these HTML tags mean?
 
 - [DocType](http://stackoverflow.com/questions/414891/what-is-doctype)
 - [HTML](http://stackoverflow.com/questions/3270615/why-we-use-html-tag-although-my-website-runs-perfect-without-html-tag)

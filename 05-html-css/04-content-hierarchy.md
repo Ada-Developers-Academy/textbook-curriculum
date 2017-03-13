@@ -45,9 +45,9 @@ Here are a couple of diagrams of how these sectioning elements might be laid out
 
 ## Element Relationships
 When elements become nested inside of each other they start to form relationships.
-- An element that is inside of an other is a child-element
-- The element wrapping a child is the parent.
-- Elements on the same level as each other are sibling elements.
+- An element that is inside of another is a child-element
+- The element wrapping a child is it's parent
+- Elements on the same level as each other are sibling elements
 
 A visual diagram of elements relationships to each other:
 ![Element Relationship Diagram](imgs/content-hierarchy-diagram.png)
@@ -71,7 +71,7 @@ The relationship tree above is modeled from the following code:
 ```
 
 
-### Draw a relationship tree for the html code below:
+### Draw a relationship tree for the HTML code below:
 ```html
   <body>
     <header>
