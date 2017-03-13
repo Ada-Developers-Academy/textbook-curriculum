@@ -21,13 +21,13 @@ To open Devtools,
 ![Elements Tab in Dev Tools](imgs/dev_tools_elements_tab.png)
 To start, click on the *Elements* tab. You should get something that looks like this:
 ![Devtools](imgs/dev_tools.png)
-It should show you some html code of the page you are on in one panel and css in the other panel. This HTML code is reflecting your site's DOM (Document Object Model).
+It should show you some HTML code of the page you are on in one panel and CSS in the other panel. This HTML code is reflecting your site's DOM (Document Object Model).
 
 ### The DOM
 The Document Object Model (DOM) is a cross-platform and language-independent application programming interface that treats an HTML document as a tree structure wherein each node is an object representing a part of the document.
 
-## Look at Element's Default Styles
-In the html code panel, click on an element(a node of our dom tree). The CSS panel should change to reflect the styles that are affecting that specific element.
+### Look at Element's Default Styles
+In the HTML code panel, click on an element (a node of our DOM tree). The CSS panel should change to reflect the styles that are affecting that specific element.
 
 The are various sources of CSS that are affecting that element.
 

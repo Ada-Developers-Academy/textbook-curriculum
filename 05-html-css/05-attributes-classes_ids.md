@@ -28,7 +28,7 @@ There are many different attributes that exist, some are specific to certain HTM
 
 
 ## Why Use Classes or ID's?
-Giving Elements an ID or class allows you to target specific elements to style, while providing a semantic, meaningful name to css rules.
+Giving Elements an ID or class allows you to target specific elements to style, while providing a semantic, meaningful name to CSS rules.
 
 ## Classes
 
@@ -39,7 +39,7 @@ Giving Elements an ID or class allows you to target specific elements to style, 
    <h1 class="page-title"> Hello World! </h1>
    ```
 
-In css, to select the class, use a **period** before the class name as the selector. Like so:
+In CSS, to select the class, use a **period** before the class name as the selector. Like so:
    ```css
     .page-title {
       color: gray;
@@ -79,7 +79,7 @@ use the same class attribute and add a space in between the two class name value
 ```html
 <h1 class="page-title highlight"> Hello World! </h1>
 ```
-Then, define your styles with css rule-sets exactly as you have already been.
+Then, define your styles with CSS rule-sets exactly as you have already been.
 ```css
 .page-title {
   font-family: helvetica;
@@ -92,7 +92,7 @@ Then, define your styles with css rule-sets exactly as you have already been.
 ```
 
 ## 🔑 Key Takeaway
-A class is a _type_ of item and the ID is the _unique name_ of an item on the page. Giving elements an ID or class allows you to target specific elements to style, while providing a semantic, meaningful name to for css rules.
+A class is a _type_ of item and the ID is the _unique name_ of an item on the page. Giving elements an ID or class allows you to target specific elements to style, while providing a semantic, meaningful name to for CSS rules.
 
 ### Additional Resources
 - [HTML Dog Basic Overview](http://www.htmldog.com/guides/css/intermediate/classid/)
