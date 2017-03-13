@@ -165,6 +165,7 @@ We start by creating a test for a put request on a post_path.
 ```ruby
   it "should update a post" do
     put post_path(posts(:one).id), params: {post: {title: "Some title goes here", description: "la la la"} }
+  end
 ```
 
 So this test case starts by making a put request on a post using a fixture.  
