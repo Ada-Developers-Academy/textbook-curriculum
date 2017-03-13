@@ -118,7 +118,7 @@ h1 em, a, .orange {
 [CSS Diner](http://flukeout.github.io/)
 
 ## Vocab ✅
-- Pseudo-Classe
+- Pseudo-Class
 - Pseudo-Element
 
 ## 🔑 Key Takeaway
