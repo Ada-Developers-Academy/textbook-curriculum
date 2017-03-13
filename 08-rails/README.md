@@ -18,5 +18,5 @@
 1. [DB Seeds](./db-seeds.md)  
 1. [Routes with Resources](./routes-and-resources.md)  
 1. [Rails Debugging](./rails-debugging.md)  
-1. [Active Record Validations]()  
+1. [Active Record Validations](./active-record-validations.md)  
 1. [View Partials]()  
