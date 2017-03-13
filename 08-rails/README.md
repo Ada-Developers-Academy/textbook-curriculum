@@ -11,7 +11,7 @@
 1. [View Helpers](./common-view-helpers.md)  
 1. [Active Record Migrations](./active-record-migrations.md)  
 1. [Active Record Models](./active-record-models.md)  
-1. [Rails Forms]()
+1. [Rails Forms](./rails-forms.md)
 
 ## Part 2
 1. [Active Record Relationships]()  
