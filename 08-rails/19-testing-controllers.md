@@ -6,6 +6,28 @@
 - Utilize fixture data to populate parameters
 - Understand what sort of functionality ought to be covered by a controller test
 
+
+## What Kind of Thing Should You Test in the Controller?
+Controller tests are all about how your website responds to the user. This includes a friendly user doing what they should, a curious user banging into things, and a malicious user trying to break your site. This makes it a little different from the testing we've seen before.
+
+Exactly what's worth testing depends on your site, but here are some general guidelines.
+- If your controller action reads a Model ID from the URL, you need at least 2 cases:
+  - The ID corresponds to a model in the DB
+  - The ID is not found in the DB
+- If your controller action reads form data and creates a model object, you need at least 2 cases:
+  - The data was valid
+  - The data was bad and validations failed
+- If your controller action reads something like a user ID from the session (we'll talk about this soon), you need 2 or more cases:
+  - Someone is logged in
+  - No one is logged in
+  - If the action touches a Model that belongs to a user, then you also need to test when the wrong user is logged in
+
+That's not an exhaustive list, but it's a good starting point.
+
+In general, controller tests should operate at a higher level than Model tests. For example, while in Model testing you need 2 or more test cases for every validation.  When testing the corresponding Controller you only need to test the case where all validations pass, and the case where one or more fail, since those are the two different behaviors your Controller action can exhibit. You do, however, need to test those cases for both the `create` and `update` actions.
+
+## So that's what I test, now how do I write them?
+
 ### Expectations
 In controller tests, you have several new expectations to use.
 
@@ -187,26 +209,6 @@ it "should update a post" do
   must_respond_with :redirect
 end
 ```
-
-### What Kind of Thing Should You Test in the Controller?
-Controller tests are all about how your website responds to the user. This includes a friendly user doing what they should, a curious user banging into things, and a malicious user trying to break your site. This makes it a little different from the testing we've seen before.
-
-Exactly what's worth testing depends on your site, but here are some general guidelines.
-- If your controller action reads a Model ID from the URL, you need at least 2 cases:
-  - The ID corresponds to a model in the DB
-  - The ID is not found in the DB
-- If your controller action reads form data and creates a model object, you need at least 2 cases:
-  - The data was valid
-  - The data was bad and validations failed
-- If your controller action reads something like a user ID from the session (we'll talk about this soon), you need 2 or more cases:
-  - Someone is logged in
-  - No one is logged in
-  - If the action touches a Model that belongs to a user, then you also need to test when the wrong user is logged in
-
-That's not an exhaustive list, but it's a good starting point.
-
-In general, controller tests should operate at a higher level than Model tests. For example, while in Model testing you need 2 or more test cases for every validation.  When testing the corresponding Controller you only need to test the case where all validations pass, and the case where one or more fail, since those are the two different behaviors your Controller action can exhibit. You do, however, need to test those cases for both the `create` and `update` actions.
-
 
 ## Rails Matchers
 
