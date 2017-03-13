@@ -144,9 +144,9 @@ Next, we can check that the count of model object has changed by 1 using the `mu
 
 ```ruby
 it "should be able to create a post" do
-  expect (-> {
+  proc   {
     post post_index_path, params: { post: {title: "Some post", body: "la la la"}  }
-  }).must_change 'Post.count', 1
+  }.must_change 'Post.count', 1
   
   must_respond_with :redirect
   must_redirect_to post_index_path
