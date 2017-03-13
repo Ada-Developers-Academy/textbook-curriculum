@@ -22,4 +22,5 @@
 1. [View Partials](./partial-views.md)  
 
 ## Part 3
-1. [Unit Testing Models](./unit-testing-models.md)
+1. [Unit Testing Models](./unit-testing-models.md)  
+1. [Unit Testing Controllers](./testing-controllers.md)
