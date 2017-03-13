@@ -16,7 +16,7 @@
 ## Part 2
 1. [Active Record Relationships](./active-record-relationships.md)  
 1. [DB Seeds](./db-seeds.md)  
-1. [Routes with Resources]()  
+1. [Routes with Resources](./routes-and-resources.md)  
 1. [Rails Debugging]()  
 1. [Active Record Validations]()  
 1. [View Partials]()  
