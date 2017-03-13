@@ -131,7 +131,7 @@ We must have appropriate parameters that would match up with parameters that wou
 The successful create action should redirect to the index view, so we should update our test to assert that:
 ```ruby
 it "should be able to create a post" do
-  post post_index_path, params: { post: {title: "Some post", body: "la la la"}  
+  post post_index_path, params: { post: {title: "Some post", body: "la la la"} } 
   
   must_respond_with :redirect
   must_redirect_to post_index_path
