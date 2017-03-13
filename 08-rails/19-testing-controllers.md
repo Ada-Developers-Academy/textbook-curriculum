@@ -178,13 +178,14 @@ it "should update a post" do
     
   # find the post with that ID in the database
   post = Post(posts(:one).id)
-  
-  # verify the post was changed properly
+
+
+     # verify the post was changed properly
   post.title.must_equal "Some title goes here"
   post.description.must_equal "la la la"
 
   must_respond_with :redirect
-  end
+end
 ```
 
 ### What Kind of Thing Should You Test in the Controller?
