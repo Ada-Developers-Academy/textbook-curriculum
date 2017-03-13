@@ -14,7 +14,7 @@
 1. [Rails Forms](./rails-forms.md)
 
 ## Part 2
-1. [Active Record Relationships]()  
+1. [Active Record Relationships](./active-record-relationships.md)  
 1. [DB Seeds]()  
 1. [Routes with Resources]()  
 1. [Rails Debugging]()  
