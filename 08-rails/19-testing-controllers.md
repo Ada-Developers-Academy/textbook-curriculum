@@ -80,9 +80,8 @@ def show
 end
 ```
 
-In this case, we need to provide a key of `id` with a corresponding value. We specify this in a hash to correspond to `params` along with the verb and action.
+In this case, we need to provide a key of `id` with a corresponding value in the path helper. 
 
-We start our test in the same way we have previously seen:
 
 ```ruby
 it "should get show" do
@@ -99,8 +98,8 @@ The problem with the test above is that it is using a hard-coded value for the `
 Let's assume that we have some fixture data set up.
 ```ruby
 one:
-  title: "This is a post on something"
-  body: "La la la la"
+  title: This is a post on something
+  body: La la la la
 ```
 
 We can now utilize this fixture data within our test to ensure the data is valid.
