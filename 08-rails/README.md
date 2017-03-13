@@ -10,7 +10,7 @@
 1. [Intro to Forms](./html-forms.md)  
 1. [View Helpers](./common-view-helpers.md)  
 1. [Active Record Migrations](./active-record-migrations.md)  
-1. [Active Record Models]()  
+1. [Active Record Models](./active-record-models.md)  
 1. [Rails Forms]()
 
 ## Part 2
