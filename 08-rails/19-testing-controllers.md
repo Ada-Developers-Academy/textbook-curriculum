@@ -189,7 +189,7 @@ end
 ```
 
 ### What Kind of Thing Should You Test in the Controller?
-Controller tests are all about how your website responds to the user. This includes a friendly user doing what they should, an idiot user banging into things, and a malicious user trying to break your site. This makes it a little different from the testing we've seen before.
+Controller tests are all about how your website responds to the user. This includes a friendly user doing what they should, a curious user banging into things, and a malicious user trying to break your site. This makes it a little different from the testing we've seen before.
 
 Exactly what's worth testing depends on your site, but here are some general guidelines.
 - If your controller action reads a Model ID from the URL, you need at least 2 cases:
