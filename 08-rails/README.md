@@ -5,7 +5,7 @@
 1. [What is Rails?](./what-is-ruby-on-rails.md)  
 1. [HTTP Verbs & CRUD](./http-verbs-crud-and-idempotency.md)  
 1. [MVC & REST](./mvc-and-restful-routing.md)  
-1. [Routes & Controllers]()  
+1. [Routes & Controllers](./routes-controllers-and-views.md)  
 1. [ERB & Layouts]()  
 1. [Intro to Forms]()  
 1. [View Helpers]()  
