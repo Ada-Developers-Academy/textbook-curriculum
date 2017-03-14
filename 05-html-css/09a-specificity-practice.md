@@ -7,7 +7,7 @@ It’s easier to calculate the specificity using the first method. Let’s find 
 | 1      | `* { }`  |    |
 | 2      | `li.cool { } ` |    |
 | 3      | `li { }`  |    |
-| 4      | `li:first-line { }`  |    |
+| 4      | `li::first-line { }`  |    |
 | 5      | `ul li { }`  |    |
 | 6      | `ul ol+li { }` |    |
 | 7      | `h1 + *[rel=up] { }` |    |
