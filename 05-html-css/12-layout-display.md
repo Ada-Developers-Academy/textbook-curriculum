@@ -30,7 +30,7 @@ some text in the middle
 last piece of text
 ```
 
-![Basic Flow](imgs/layout-display-flow-basic.png)
+![Basic Flow](imgs/layout-display/flow-basic.png)
 
 #### Inline Elements
 _Inline elements_ like `<a>` and `<span>` do not change this flow - the browser just does whatever it would do to the things contained in that element. For example:
@@ -47,7 +47,7 @@ some text in the
 of text
 ```
 
-![Flow With Inlines](imgs/layout-display-flow-with-inline.png)
+![Flow With Inlines](imgs/layout-display/flow-with-inline.png)
 
 #### Block Components
 However, the behavior changes when the browser encounters a _block element_, like `<p>` or `<div>`. Block elements always start and end with a line break. Inside the block element, flow continues as normal.
@@ -64,7 +64,7 @@ some text in the
 of text
 ```
 
-![Flow With Block Elements](imgs/layout-display-flow-with-block.png)
+![Flow With Block Elements](imgs/layout-display/flow-with-block.png)
 
 ### Sizes
 When rendering the page, the browser has to figure out how big everything is. This follows a few rules:
@@ -92,7 +92,7 @@ We can modify how an element affects the flow of the webpage using the `display`
   - respect height and width
   - allow other elements to sit to their left and right
 
-### Modifying an element's default styles
+### Modifying an Element's Display
 
 To have elements with default block displays to be inline with each other, it's `display` property and `width` need to be modified.
 
