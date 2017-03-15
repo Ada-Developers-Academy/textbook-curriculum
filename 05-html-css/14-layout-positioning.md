@@ -46,7 +46,7 @@ img {
 }
 ```
 
-![Rendering Relative Positions](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/05-html-css/imgs/relative_position.png "Rendering Relative Positions")
+![Rendering Relative Positions](imgs/layout-position/relative_position.png "Rendering Relative Positions")
 
 (This example stolen more-or-less wholesale from the [MDN guide on position](https://developer.mozilla.org/en-US/docs/Web/CSS/position#Relative_positioning))
 
@@ -108,14 +108,14 @@ p {
 }
 ```
 
-![Rendering Absolute Positions](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/05-html-css/imgs/absolute_position.png "Rendering Absolute Positions")
+![Rendering Absolute Positions](imgs/layout-position/absolute_position.png "Rendering Absolute Positions")
 
 ### Fixed Positioning
 When an element has `fixed` positioning, it is always rendered at the same place on the screen. Like an `absolute` element, no space will be made for a `fixed` element in the flow of a website. However, while an `absolute` element still moves with the rest of the page, a `fixed` element does not.
 
 Common uses of fixed elements include navigation bars that stay at the top of the page and banners or advertisements that scroll with the user.
 
-To demonstrate, we'll add a fixed navigation bar to our [https://github.com/Ada-C6/bob-ross](Bob Ross site) from the previous lecture. These instructions should work with either the version we've modified or a fresh copy.
+To demonstrate, we'll add a fixed navigation bar to our Bob Ross site from the previous lecture. These instructions should work with either the version we've modified or a fresh copy.
 
 First, the CSS for the header. Note that we set the width to 100% (of the page). Since a fixed element has no containing element, its size will default to that of its content.
 

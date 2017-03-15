@@ -44,48 +44,73 @@ p our_array.class
 
 Above were contrived examples, but Namespaces/Modules become important when we include libraries into our code.  Different library authors may use the same names in their code and we want to avoid conflicts.
 
+```ruby
+# blackjack.rb
+class Card
+  def max_value()
+    return 11   # Aces are worth 11
+  end
+end
+```
 
 ```ruby
-# Class Card
-#  def max_value()
-#    return @max_value  # returns a value of 13 inclusive.
-#  end
-require 'blackjack'
-playing_card = Card.new
-puts playing_card.max_value
+# canasta.rb
+class Card
+  def max_value()
+    return 50   # Jokers are worth 50 points!
+  end
+end
+```
 
+```ruby
+# main.rb
+require_relative 'blackjack'
+require_relative 'canasta'
 
-# Class Card
-# def max_value()
-#	return @max			# returns a value of 1000
-# end
-require 'pokemon'
-pokemon_card = Card.new
-puts pokemon_card.max_value
+blackjack_card = Card.new
+puts blackjack_card.max_value # => 50 (uh oh!)
 
+canasta_card = Card.new
+puts canasta_card.max_value   # => 50
 
 ```
-Because the pokemon gem is loaded after blackjack it overrides blackjack's definition of Card and thus the version of card we end up using is Pokemon's.
+
+Because the canasta gem is loaded after blackjack it overrides blackjack's definition of Card and thus the version of card we end up using is canasta's.
 
 We can avoid this by using namespaces.  
 
 ```ruby
-# Class Card
-#  def max_value()
-#    return @max_value  # returns a value of 13 inclusive.
-#  end
-require 'blackjack'
-playing_card = Blackjack::Card.new
-puts playing_card.max_value
+# blackjack.rb
+module Blackjack
+  class Card
+    def max_value()
+      return 11   # Aces are worth 11
+    end
+  end
+end
+```
 
+```ruby
+# canasta.rb
+module Canasta
+  class Card
+    def max_value()
+      return 50   # Jokers are worth 50 points!
+    end
+  end
+end
+```
 
-# Class Card
-# def max_value()
-#	return @max			# returns a value of 1000
-# end
-require 'pokemon'
-pokemon_card = Pokemon::Card.new
-puts pokemon_card.max_value
+```ruby
+# main.rb
+require_relative 'blackjack'
+require_relative 'canasta'
+
+blackjack_card = Blackjack::Card.new
+puts blackjack_card.max_value # => 11
+
+canasta_card = Canasta::Card.new
+puts canasta_card.max_value   # => 50
 ```
 
 Whenever you create a library, it's best-practice to namespace it with the name of your library or project.  
@@ -98,22 +123,22 @@ The :: operator is called the Constant Lookup Operator.  Like the name suggests 
 # BlackjackSample.rb
 
 module Blackjack
-    MAX_SCORE = 21
-    module Player
-        MAX_PLAYERS = 2
-        class Player
-          def initialize
-          end
-        end
+  MAX_SCORE = 21
+  module Player
+    MAX_PLAYERS = 2
+    class Player
+      def initialize
+      end
     end
-    module Card
-        MAX_VALUE = 13
-        class Card
-          def get_max_value()
-              return MAX_VALUE
-          end
-        end
+  end
+  module Card
+    MAX_VALUE = 11
+    class Card
+      def get_max_value()
+        return MAX_VALUE
+      end
     end
+  end
 end
 
 MAX_SCORE = 50
@@ -132,8 +157,6 @@ puts
 
 puts "MAX_VALUE - #{MAX_VALUE}"
 puts "Blackjack::Card::get_max_value -  #{Blackjack::Card::Card.new().get_max_value()}"
-
-
 ```
 
 

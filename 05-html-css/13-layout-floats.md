@@ -1,7 +1,7 @@
 # Layout: Floats
 
 ## Sample Code
-For this lecture, we'll be modifying [this silly but plausible website](https://github.com/Ada-C6/bob-ross). Go ahead and fork/clone it now.
+For this lecture, we'll be modifying [this silly but plausible website](https://github.com/Ada-C7/bob-ross). Go ahead and fork/clone it now.
 
 ## Learning Goals 📚
 - Use the *float* property to lay out web pages
@@ -54,9 +54,9 @@ Possible values include `left`, `right`, `both` and `none` (the default).
 ### Setup
 Alright, now for something a little more interesting. Since we've two articles, lets put one on the left and one on the right. We'll also keep the image floating we did previously.
 
-First, we need to figure out how to select the different articles. Classes, IDs, nth-of-type([odd|even]) are all valid options.
+**Question:** We'll need to apply different styles to the two different articles. How should we select them?
 
-We'll also need to add a `max-width` property to the articles. As block elements, they'll attempt to fill up the whole screen unless they're limited. Let's say 70% and 25%.
+We'll need to add a `max-width` property to the articles. As block elements, they'll attempt to fill up the whole screen unless they're limited. Let's say 70% and 25%.
 
 Finally, remove the `clear: both` description from `article`. Since `none` is the default you can just delete it, but I've left it in for clarity.
 

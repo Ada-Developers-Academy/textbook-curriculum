@@ -271,22 +271,22 @@ Here are some examples of when and when not to raise an exception. Each of the f
 
 **Raise an Exception When:**
 - A method is given invalid arguments
-- Negative withdrawal amount
+  - Negative withdrawal amount
 - Some prerequisite condition isn't true
-- Not enough money to withdraw
+  - Not enough money to withdraw
 - Some required resource can't be found or is invalid
-- `accounts.csv` doesn't exist
-- `accounts.csv` doesn't contain account information
+  - `accounts.csv` doesn't exist
+  - `accounts.csv` doesn't contain account information
 - There's a problem external to Ruby
-- User pressed `Ctrl-C`
+  - User pressed `Ctrl-C`
 
 Note that many of these are handled automatically by Ruby!
 
 **Don't Raise an Exception When:**
 - A search yields no results
-- No account with that ID
+  - No account with that ID
 - The user quits via a normal method
-- Types `quit` at the prompt
+  - Types `quit` at the prompt
 
 In general, an exception indicates that either there was a programming error, or the user has done something wrong. In other words, some human intervention is required. If the program can handle a situation automatically, an exception is probably not the right choice.
 

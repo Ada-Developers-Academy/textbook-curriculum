@@ -25,9 +25,9 @@ In CSS, each of these rectangular boxes are described using the standard box mod
 With a site you have already created, add the following
 
 ```css
-  * {
-    border: black 1px solid;
-  }
+* {
+  border: black 1px solid;
+}
 ```
 
 
@@ -36,7 +36,6 @@ With a site you have already created, add the following
 There are several properties that determine the size of that box. The core of the box is defined by the width and height of an element, which may be determined by the display property, by the contents of the element, or by specified width and height properties.
 
 Padding and then border expand the dimensions of the box outward from the element’s width and height. Lastly, any margin we have specified will follow the border.
-
 
 ### Block Elements vs Inline-Block Elements
 Each HTML element has a default display value of block or inline.
@@ -49,7 +48,6 @@ Some examples of block-level elements include:
 - `<p>`
 - `<ul>`
 - `<div>`
-
 
 #### Inline Elements
 Inline elements _do not_ start on a new line and only take up as much width as necessary.
@@ -86,10 +84,16 @@ This is a relative measurement based on the heigh of a font. One `em` unit is eq
 ### It all Adds Up!
 
 According to the box model, the total width of an element can be calculated using the following formula:
+
+```
 margin-right + border-right + padding-right + width + padding-left + border-left + margin-left
+```
 
 And this formula for the height:
+
+```
 margin-top + border-top + padding-top + height + padding-bottom + border-bottom + margin-bottom
+```
 
 This is important to consider when setting an element's width. Even if you have two elements with a width of 50%, they will not show up side by side if there is any padding, margin or border adding to the widths.
 
