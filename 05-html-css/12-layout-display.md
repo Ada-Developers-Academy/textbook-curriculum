@@ -85,7 +85,7 @@ We can modify how an element affects the flow of the webpage using the `display`
 
 - Block elements:
   - respect all of the margins and padding
-  - force a line break after the block element
+  - force a line break before and after the block element
 
 - Inline-block elements:
   - respect all margins and padding
