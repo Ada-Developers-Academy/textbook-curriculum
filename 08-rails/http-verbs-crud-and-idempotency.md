@@ -13,7 +13,7 @@ Kinda like this:
 
 ```
 # this is the request
-GET /orders HTTP/1.1
+GET /books HTTP/1.1
 User-Agent: curl/7.30.0
 Host: localhost:8080
 Content-Length: 6
