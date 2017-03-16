@@ -28,20 +28,20 @@ Forms are used to create requests to servers that can create, update, and delete
 We are going to look at how inputs from a form are passed along through the browser to our server. Let's open the web application we have been using and create a new route and view like:
 
 ```bash
-$ touch app/views/?/form.html.erb
+$ touch app/views/books/form.html.erb
 ```
 
 ```ruby
-# app/controllers/?_controller.rb
+# app/controllers/books_controller.rb
 def new
 
 end
 ```
 
-Then, let's open the view (`app/views/?/new.html.erb`) in our editor. Add the following code to the page:
+Then, let's open the view (`app/views/books/new.html.erb`) in our editor. Add the following code to the page:
 
 ```html
-<form action="/entries" method="post" accept-charset="utf-8">
+<form action="/books" method="post" accept-charset="utf-8">
   <!-- SPECIAL INPUT TO ALLOW RAILS TO USE THIS FORM -->
   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 
@@ -49,8 +49,8 @@ Then, let's open the view (`app/views/?/new.html.erb`) in our editor. Add the fo
   <label for="title">Title</label>
   <input type="text" name="title" value="" id="title">
 
-  <label for="description">Description</label>
-  <input type="text" name="description" value="" id="description">
+  <label for="description">Author</label>
+  <input type="text" name="author" value="" id="author">
 
   <input type="submit" value="Submit">
 </form>
@@ -69,7 +69,7 @@ Next we have two `input` tags with the type of 'text' (see [here](http://www.htm
 
 ```html
 <input type="text" name="title" value="" id="title">
-<input type="text" name="description" value="" id="description">
+<input type="text" name="author" value="" id="author">
 ```
 
 Each `input` tag will pass a value along to the server when we submit the form. The data passed to the web serve in our _POST request_ is collected in a Ruby hash called `params`. In this hash, the `name` attribute of the HTML `<input>` defines the key, and the user input is value. In this case `username` will be assigned to what we type into the first text field.
@@ -82,19 +82,19 @@ Give it a try. It broke, right? We haven't taught our app how to make this work!
 Let's make our form a little bit smarter. We can submit nested data by manipulating the `name` attribute.
 
 ```html
-  <input type="text" name="entry[title]" value="" id="author">
-  <input type="text" name="entry[description]" value="" id="description">
+  <input type="text" name="book[title]" value="" id="title">
+  <input type="text" name="book[author]" value="" id="author">
 ```
 
-In Rails this is the way we _model_ data objects. Imagine a `Peep` class where the initialize method is coded to assign attributes from a hash. We would then pass the inner hash to the `new` method and all of our attributes would be assigned.
+In Rails this is the way we _model_ data objects. We will expand upon this idea once we learn about Active Record, but until then, imagine a `Book` class where the initialize method is written to assign attributes from a hash. We would then pass the inner hash to the `new` method and all of our attributes would be assigned.
 
 ```ruby
-class Entry
+class Book
   def initialize(options = {})
     @title = options[:title]
-    @description = options[:description]
+    @author = options[:author]
   end
 end
 
-entry = Entry.new(params["Interesting Title"])
+book = Book.new(title: params[:title], author: params[:author])
 ```
