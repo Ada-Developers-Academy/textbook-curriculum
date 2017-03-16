@@ -20,16 +20,18 @@ An important component of the `rails` command line tool is the generator. We can
 Using the generator ensures that we are following Rails _conventions_ and really speeds project set up. Let's run a generator command:
 
 ```bash
-$ rails generate model student name:string pie:string birthday:datetime
+$ rails generate model book title:string author:string
 ```
 
 This command will do three things:
 
-- Create a Rails _model_ in the `app/models/` directory called `student.rb`
-- Create a Rails _migration_ in the `db/migrations/` directory called `<timestamp>_create_students.rb`
+- Create a Rails _model_ in the `app/models/` directory called `book.rb`
+- Create a Rails _migration_ in the `db/migrations/` directory called `<timestamp>_create_books.rb`
 - Put enough code in each of those files to get us going.
 
 Each file plays a role in describing how Rails interacts with the database and what information the database contains. Let's focus on _migrations_ in this discussion.
+
+Note: If you do `rails generate model <name>` _without_ any of the fields, you will still be able to specify the fields within the migration file that was created.
 
 ## Active Record Migrations
 Rails gives us a structured approach to maintaining the database schema: _database migrations_. These are step-by-step instructions describing how to construct the schema. If done right, they provide a blueprint of not only how to construct the database schema, but a history of how the database requirements have changed over time. A schema starts off with nothing in it, and each migration modifies it. Migrations may add or remove tables, columns, or rows.
@@ -40,16 +42,16 @@ The command we ran above generated both a _model_ and a _migration_. The convent
 Often, you will need to modify the database schema outside the confines of creating a new _model_. A really common example is altering a _column_ name or datatype of an existing table. Just like `rails` can generate _models_, it can generate _migrations_ that are not associated with a model:
 
 ```bash
-$ rails generate migration add_hobby_to_students
+$ rails generate migration add_description_to_books
 ```
 
-This will generate a file in `db/migrate/20160415165736_add_hobby_to_students.rb`. Notice how we use the name of the file to indicate its intention. That is very intentional and another convention to observe.
+This will generate a file in `db/migrate/20160415165736_add_description_to_books.rb`. Notice how we use the name of the file to indicate its intention. That is very intentional and another convention to observe.
 
 ### Working with Migrations
-If we run the command above and opened the resulting `20160415165736_add_hobby_to_students.rb` file, we will see something like this:
+If we run the command above and opened the resulting `20160415165736_add_description_to_books.rb` file, we will see something like this:
 
 ```ruby
-class AddHobbyToStudents < ActiveRecord::Migration
+class AddDescriptionToBooks < ActiveRecord::Migration
   def change
   end
 end
@@ -59,7 +61,7 @@ All _migrations_ will be a class that inherits from `ActiveRecord::Migration`. _
 
 Within the `change` method, we can use many other method calls provided by `ActiveRecord::Migration` to describe how to modify the database _schema_. Here are the most common methods you'll encounter in _migrations_:
 
-- `create_table(table_name)`: Creates a new table in the database, this is the command that the `Post` migration used.
+- `create_table(table_name)`: Creates a new table in the database, this is the command that the first migration used.
 - `add_column(table_name, column_name, data_type, options)`: Adds a column to an existing table.
 - `remove_column(table_name, column_name)`: Removes a column from an existing table.
 - `change_column(table_name, column_name, new_data_type)`: Changes an existing column from one data type to another.
@@ -68,10 +70,10 @@ Within the `change` method, we can use many other method calls provided by `Acti
 __Question: Just looking at the name of the migration, which of these methods would we utilize to complete the _migration_?__
 
 ```ruby
-class AddHobbyToStudents < ActiveRecord::Migration
+class AddDescriptionToBooks < ActiveRecord::Migration
   def change
     # Rails loves both symbols and implicit parens
-    add_column :students, :hobby, :string
+    add_column :books, :description, :string
   end
 end
 ```
@@ -94,11 +96,10 @@ By convention, _model_ class and file names are singular. The associated databas
 
 |Model / Class (singular) | Table / Schema (plural)| Filename (singular) |
 |:-----------------------:|:----------------------:|:-------------------:|
+| Book                    | books                  | book.rb             |
 | Post                    | posts                  | post.rb             |
 | LineItem                | line_items             | line_item.rb        |
 | Mouse                   | mice                   | mouse.rb            |
 | Medium                  | media                  | medium.rb           |
 | Person                  | people                 | person.rb           |
 | Deer                    | deers                  | deer.rb             |
-
-
