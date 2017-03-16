@@ -79,11 +79,11 @@ end
 ### Running (and reversing) Migrations
 Once we have created and defined a _migration_, we need to run it. The changes described in a _migration_ are not applied to the database until we explicitly invoke them. A _migration_ is either __up__ (its changes have been applied to the database) or __down__ (its changes have not been applied).
 
-Rails provides a collection of `rake` tasks to describe that state of _migrations_ and database schema:
+Rails provides a collection of `rails` commands to describe that state of _migrations_ and database schema:
 
-- Use `rake db:migrate` to apply all pending _migrations_ to the schema
-- Use `rake db:migrate:status` to see the up/down status of all _migrations_
-- Use `rake db:rollback` to __reverse__ the schema changes of the last _migration_
+- Use `rails db:migrate` to apply all pending _migrations_ to the schema
+- Use `rails db:migrate:status` to see the up/down status of all _migrations_
+- Use `rails db:rollback` to __reverse__ the schema changes of the last _migration_
 
 __Question: When would we not be able to `rollback` a migration? Why not?__
 
