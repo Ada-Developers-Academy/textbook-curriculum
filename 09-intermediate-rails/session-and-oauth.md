@@ -137,7 +137,7 @@ class CreateUsers < ActiveRecord::Migration
 end
 ```
 
-Remember to migrate the database: `$ rake db:migrate`. Next add some validations to the User model:
+Remember to migrate the database: `$ rails db:migrate`. Next add some validations to the User model:
 
 ```ruby
 # app/models/user.rb
