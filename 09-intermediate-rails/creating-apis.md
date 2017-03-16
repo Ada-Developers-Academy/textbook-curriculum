@@ -55,7 +55,7 @@ Once you've downloaded it, take a few minutes to go through this Rails app with 
 - What steps would you perform to set up a project like this from scratch?
 
 ## Listing Pets
-We are going to approach this application creation from a TDD approach. Right now, you'll see that we have a few tests already created for you. You can run the tests using the usual `rake test`.
+We are going to approach this application creation from a TDD approach. Right now, you'll see that we have a few tests already created for you. You can run the tests using the usual `rails test`.
 
 You'll notice that we have one basic get route created for pets, and one basic controller action that corresponds with that route.
 
