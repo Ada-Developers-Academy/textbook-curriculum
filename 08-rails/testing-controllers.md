@@ -102,7 +102,7 @@ def show
 end
 ```
 
-In this case, we need to provide a key of `id` with a corresponding value in the path helper. 
+In this case, we need to provide an `id` to the path helper method. 
 
 
 ```ruby
