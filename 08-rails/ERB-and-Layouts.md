@@ -20,7 +20,7 @@ In order to customize an ERB _view_ we make use of special tags, which look simi
 The Code Tag is primarily used for Ruby code that involves a block, such as an `if` statement or an `each` loop. The Value Tag is used with any Ruby code that generates a value.
 
 #### Examples of ERB tags
-```erb
+```ruby
 # We can use value tags to write Ruby code that transforms the text in an HTML document:
 <p>Hello there! <%= "I am shouting this sentence".upcase %>!</p>
 
@@ -30,22 +30,22 @@ The Code Tag is primarily used for Ruby code that involves a block, such as an `
 
 Code tags can be used to decide whether or not to include certain portions of content in the final document:
 
-```erb
+```ruby
 <nav>
-  <% if @user.logged_in? %>
-    <a href="/user/logout">Log out of your account</a>
+  <% if @book[:author].nil? %>
+    No Data
   <% else %>
-    <a href="/user/login">Log in or sign up</a>
+    <%= @book[:author] %>
   <% end %>
 </nav>
 ```
 
 Both code tags and value tags can be combined to create loops with Ruby code that generate multiple copies of content in your documents:
 
-```erb
-<ul class="product-list">
-  <% @products.each do |product| %>
-    <li><%= product.name %></li>
+```ruby
+<ul class="book-list">
+  <% @books.each do |book| %>
+    <li><%= book[:title] %></li>
   <% end %>
 </ul>
 ```
@@ -57,13 +57,14 @@ To get the most benefit from the special tags that _ERB_ provides us, we will ne
 ```ruby
 # in our controller app/controllers/books_controller.rb
 def index
-  @books = ["Once and Future King", "Fellowship of the ring",
-              "Ruby: How to Program", "Web Design with HTML, CSS, JavaScript"]
+  @books = [{ title: "Hidden Figures", author: "Margot Lee Shetterly"},
+            { title: "Practical Object-Oriented Design in Ruby", author: "Sandi Metz"},
+            { title: "Kindred", author: "Octavia E. Butler"}]
 end
 ```
-... and inside of `app/views/books` ... there is a view file named after the index action. `index.html.erb`.  This is an example of how Ruby favors convention over configuration.  The default view for an action/method is named after it and stored in a folder named after the class.  
+... and inside of `app/views/books` ... there is a view file named after the index action. `index.html.erb`.  This is an example of how Ruby favors **convention over configuration**.  The default view for an action/method is named after it and stored in a folder named after the class.  
 
-```erb
+```html
 <h1>Books#update</h1>
 <p>Find me in app/views/books/update.html.erb</p>
 ```
@@ -73,7 +74,9 @@ We can modify the view to display data from the `@books` instance variable like 
 <h1>Books</h1>
 <ul>
   <% @books.each do |book|  %>
-    <li><%= book %></li>
+    <li>
+      <%= book[:title] %> By: <%= book[:author] %>
+    </li>
   <% end %>
 </ul>
 ```
@@ -83,7 +86,7 @@ By using our Rails controller method to create variables with the data that we w
 
 ## Layouts
 
-Did you notice that the view doesn't have a full html file?  Freaky huh?  That's because Rails uses a concept of common layouts to DRY out their code.  In a website many of your pages will follow a common layout, and have the content area rendered differently by a view specific to that particular route.  
+Did you notice that the view doesn't have a full HTML file that starts with the `html` tag?  Weird huh?  That's because Rails uses a concept of common layouts to DRY out their code.  In a website many of your pages will follow a common layout, and have the content area rendered differently by a view specific to that particular route.  
 
 One of the most helpful features of ERB tags is that they allow us to "compose" multiple ERB templates together. This means we are placing the content of a single ERB template, called a view, at a specific point within a different ERB template, in this case a layout. When we have multiple HTML pages that use much of the same content on every page, we can extract the repeated content into a reusable template. This extracted template is known as a _layout_.
 
