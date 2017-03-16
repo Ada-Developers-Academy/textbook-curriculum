@@ -216,7 +216,7 @@ end
 |---	|---	|
 |   `must_respond_with`	|   `must_respond_with :success`	|
 |   `must_redirect_to`	|   `must_redirect_to root_path`	|
-|   `must_change`	|   `proc {delete post_path(posts(:one).id) }.must_change 'Post.count' -1`	|
+|   `must_change`	|   `proc {delete post_path(posts(:one).id) }.must_change 'Post.count', -1`	|
 
 
 ## Resources
