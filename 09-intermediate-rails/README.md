@@ -2,10 +2,11 @@
 
 ## Part 1 - Authentication and Intermediate Rails Topics
 1. [Controller Filters](./controller-filters.md)  
-1. [Session & oAuth](./session-and-oauth.md)  
-1. [Testing Authentication](./testing-auth.md)  
 1. [Advanced Validations](./advanced-validations.md)  
 1. [View helpers](./view-helpers.md)  
+1. [Session & oAuth](./session-and-oauth.md)  
+1. [Testing Authentication](./testing-auth.md)  
+
 
 ## Part 2 - APIs
 1. [Web API 101](./web-api-101.md)  
