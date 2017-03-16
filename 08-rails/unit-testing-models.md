@@ -11,7 +11,7 @@
 Like every-damn-thing else in Rails, testing is baked right in and there's a really-friendly-but-kinda-weird DSL sitting on top of it. The good news is that it's all Minitest, the same testing framework we've used in past projects.
 
 ## Getting Setup
-Unfortunately minitest is set up under the hood to do assert-style testing like we originally started doing.  
+Unfortunately Minitest is set up to do assert-style testing by default.  
 
 So the default testing classes look like:
 
@@ -28,8 +28,8 @@ end
 There's nothing really wrong with this, but we can do testing in the more english-readable spec style that we have been using in previous projects so we will get started setting up the project for minitest-spec.
 
 ### Setup The Gemfile
-#### Editing the Gemfile
-In your Gemfile we will set up Rails to use the minitest-spec gem to do our testing so open the gemfile with `atom Gemfile`.  Then add the following lines to the file:
+#### Step 1:  Installing the Gems
+In your **Gemfile** we will set up Rails to use the minitest-spec gem to do our testing so open the gemfile with `atom Gemfile`.  Then add the following lines to the file:
 ```ruby
 group :test do
 	gem 'minitest-rails'
@@ -37,67 +37,42 @@ group :test do
 end
 ```
 
-This means when Rake or Rails runs the test task, it will use the minitest-rails gem.  
+This means when Rails runs the test task, it will use the minitest-rails gem.  
 
 Then run `bundle install`
 
-#### Installing Minitest Spec
+#### Step 2:  Installing Minitest Spec
 
-Then we will ask Rails to modify test_helper.rb to use spec style describe and it blocks with `rails generate minitest:install`  It will ask you if you want to overwrite the test_\_helper.rb file.  Answer yes (Y).
+Then we will ask Rails to modify test_helper.rb to use spec style describe and it blocks with `rails generate minitest:install`  It will ask you if you want to overwrite the `test_helper.rb` file.  Answer yes **(Y)**.
 
-#### Set Minitest to use the Spec Style Tests
+#### Step 3:  Make Spec-style Testing the default
 
-To force the generators to make Spec-style tests we can add the following code to `config/application.rb`
+In `config/application.rb` add these lines to the `Application` class.
 
 ```ruby
-# Use Minitest for generating new tests.
 config.generators do |g|
   g.test_framework :minitest, spec: true
 end
 ```
 
-Lastly edit test/test_helper.rb to tell Rails to use the Minitest-spec style tests with `atom test/test_helper.rb` and replace it with this
+#### Step 4:  Use Minitest Reporters (Optional)
+
+Lastly edit test/test_helper.rb to tell Rails to use the Minitest-spec style tests with `atom test/test_helper.rb` and add these lines to the top.
 
 ```ruby
-ENV["RAILS_ENV"] = "test"
-require File.expand_path("../../config/environment", __FILE__)
-require "rails/test_help"  
-require "minitest/rails"  # for Spec-Style Testing
 require "minitest/reporters"  # for Colorized output
 
-#  Tell Rails-Minitest to use specs by default.
+#  For colorful output!
 Minitest::Reporters.use!(
   Minitest::Reporters::SpecReporter.new,
   ENV,
   Minitest.backtrace_filter
 )
-
-# To add Capybara feature tests add `gem "minitest-rails-capybara"`
-# to the test group in the Gemfile and uncomment the following:
-# require "minitest/rails/capybara"
-
-# Uncomment for awesome colorful output
-require "minitest/pride"
-
-class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  fixtures :all
-  ActiveRecord::Migration.check_pending!
-
-end
 ```
 
 
-Now we can run the tests with any of the following commands:
+Now with **Rails 5** we can run the tests with any of the following commands:
 
-| Command               | Result                    |
-|-----------------------|---------------------------|
-| rake                  | runs all tests            |
-| rake test             | Also runs all tests       |
-| rake test:models      | Runs tests on Models      |
-| rake test:controllers | Runs tests on controllers |
-
-In **Rails 5** you can run the tests with:
 
 | Command                                | Result                             |
 |----------------------------------------|------------------------------------|
@@ -108,6 +83,7 @@ In **Rails 5** you can run the tests with:
 | rails test test/models/user_test.rb:14 | Run test in that file on that line |
 
 
+Just note that earlier versions of Rails used rake for testing.  
 
 
 ### Finding the Tests
@@ -206,10 +182,10 @@ Also check our _expectations_. They look like Minitest _expectations_ because th
 __Question: Is the test above a _positive_ or _negative_ test? What would the other test look like?__
 
 ## Running tests
-[The Rails Guide on testing](http://guides.rubyonrails.org/testing.html#rake-tasks-for-running-your-tests) has a specific section for how to run tests that's definitely worth reading. The short version is that from the project root, we can run all of our tests with `rake test`. If you want to run just the model tests, run `rake test:models`. The output will probably look pretty familiar by now:
+[The Rails Guide on testing](http://guides.rubyonrails.org/testing.html#the-rails-test-runner) has a specific section for how to run tests that's definitely worth reading. The short version is that from the project root, we can run all of our tests with `rails test`. If you want to run just the model tests, run `rails test test/models`. The output will probably look pretty familiar by now:
 
 ```bash
-$ rake test:models
+$ rails test test/models
 
 # Running tests with run options --seed 56340:
 
@@ -261,7 +237,7 @@ So now you've got this test data, what do you do with it? Short answer: put it i
 
 The test database is meant to be transient. By default, Rails will reset the test database _between every test_. Data saved to the database in one test won't exist in other tests. The exception is fixture data, which is always available in every test. However, any changes to fixture data in a test will not be preserved into the next test.
 
-Use `rake db:test:prepare` if the test database seems to be stuck in a broken state. It will reset the test database, run any pending migrations, and re-seed the fixture data. Very handy!
+Use `rails db:test:prepare` if the test database seems to be stuck in a broken state. It will reset the test database, run any pending migrations, and re-seed the fixture data. Very handy!
 
 ## Putting it all together
 Ok, let's test a model relationship for the final example. We'll use the fixture data from the previous examples. Here's our models:
@@ -296,8 +272,6 @@ end
 ## References
 - [Minitest Quick Reference](http://www.mattsears.com/articles/2011/12/10/minitest-quick-reference/)
 - [Minitest Expectations](http://ruby-doc.org/stdlib-trunk/libdoc/minitest/spec/rdoc/MiniTest/Expectations.html)
-- [Adding Minitest Spec in Rails 4](http://blowmage.com/2013/07/08/minitest-spec-rails4)
-
 - [Adding Color to Minitest Output](http://chriskottom.com/blog/2014/06/dress-up-your-minitest-output/)
 - [Ruby on Rails Guide - Model Testing](http://guides.rubyonrails.org/testing.html#model-testing)
 -  [Minitest Rails Spec Documentation](http://blowmage.com/minitest-rails/)]

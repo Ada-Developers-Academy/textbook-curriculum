@@ -115,7 +115,7 @@ When an element has `fixed` positioning, it is always rendered at the same place
 
 Common uses of fixed elements include navigation bars that stay at the top of the page and banners or advertisements that scroll with the user.
 
-To demonstrate, we'll add a fixed navigation bar to our [https://github.com/Ada-C6/bob-ross](Bob Ross site) from the previous lecture. These instructions should work with either the version we've modified or a fresh copy.
+To demonstrate, we'll add a fixed navigation bar to our Bob Ross site from the previous lecture. These instructions should work with either the version we've modified or a fresh copy.
 
 First, the CSS for the header. Note that we set the width to 100% (of the page). Since a fixed element has no containing element, its size will default to that of its content.
 
