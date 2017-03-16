@@ -9,7 +9,7 @@
 ## HTTP Request
 HTTP is the language of the internet. Browsers send HTTP requests to our servers. Here's a simplified HTTP request:
 
-    GET /users HTTP/1.1
+    GET /books HTTP/1.1
     Host: adadevelopersacademy.org
     User-Agent: Web-sniffer/1.0.46 (+http://web-sniffer.net/)
     Referer: http://web-sniffer.net/
@@ -34,7 +34,7 @@ We define routes in our `config/routes.rb` file, which is generated when we run 
 ```ruby
 Rails.application.routes.draw do
   # method path => action
-  get "/users", to: "users#index"
+  get "/books", to: "books#index"
 end
 ```
 
@@ -43,8 +43,8 @@ Let's break down this code:
 - `Rails.application.routes.draw do`: This method's responsibility is knowing about all the _routes_ to which the application can respond.
 - The **route definition**:
   - **request method**: `get` in this example
-  - **path**: what will be matched with the URL in the HTTP request, `"/users"` in this example
-  - **controller and action**: defining the controller and action, split by the `#`. `"users#index"` in this case this would point to the `index` method in the `UsersController` class.
+  - **path**: what will be matched with the URL in the HTTP request, `"/books"` in this example
+  - **controller and action**: defining the controller and action, split by the `#`. `"books#index"` in this case this would point to the `index` method in the `BooksController` class.
 
 ![Rails Request Cycle](images/rails-request-cycle.jpg)
 
@@ -78,7 +78,7 @@ class BooksController < ApplicationController
   end
 end
 ```
-Notice that the BooksController class inherits from the ApplicationController class in the Rails library.  For the `books/index` path we can handle it with the index method in the controller.  After the logic is finished in the controller method control is passed to a layout and view for rendering the content back to the user.  
+Notice that the `BooksController` class inherits from the `ApplicationController` class in the Rails library.  For the `books/index` path we can handle it with the index method in the controller.  After the logic is finished in the controller method control is passed to a layout and view for rendering the content back to the user.  
 
 In the following notes we will look at layouts and views and look at how to render our content in the browser.  For now lets modify the `index` method to add an instance variable for use in the view.
 
@@ -88,6 +88,3 @@ In the following notes we will look at layouts and views and look at how to rend
               "Ruby: How to Program", "Web Design with HTML, CSS, JavaScript"]    
   end
 ```
-
-
-
