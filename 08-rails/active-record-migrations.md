@@ -14,27 +14,37 @@ __Question: What is the role of _models_ in the MVC pattern?__
 
 So in this lesson we will be learning how to create, change and structure the Model layer of our application.  
 
-## Generating New Rails Models & Migrations
+## Generating a New Rails Model Migration
 An important component of the `rails` command line tool is the generator. We can use the generator to automatically create idiomatic classes and files in the appropriate directories for the most common application roles.
 
-Using the generator ensures that we are following Rails _conventions_ and really speeds project set up. Let's run a generator command:
+Using the generator ensures that we are following Rails _conventions_ and really speeds project set up. Let's run a generator command to a create a new model. Note: The name we specify, "book" is _singular_ (unlike the controller command).
 
 ```bash
 $ rails generate model book title:string author:string
 ```
 
-This command will do three things:
+This command will do two things:
 
-- Create a Rails _model_ in the `app/models/` directory called `book.rb`
-- Create a Rails _migration_ in the `db/migrations/` directory called `<timestamp>_create_books.rb`
-- Put enough code in each of those files to get us going.
+- Create an empty Rails **model** in the `app/models/` directory called `book.rb`
+- Create a Rails **migration** in the `db/migrations/` directory called `<timestamp>_create_books.rb` that contains the fields specified in the command above
 
-Each file plays a role in describing how Rails interacts with the database and what information the database contains. Let's focus on _migrations_ in this discussion.
+Each file plays a role in describing how Rails interacts with the database and what information the database contains. We are  focusing on _migrations_ in this discussion. Let's open up the migration file and see what we have.
 
 Note: If you do `rails generate model <name>` _without_ any of the fields, you will still be able to specify the fields within the migration file that was created.
 
+
+### Running (and reversing) Migrations
+Once we have created and defined a _migration_, we need to run it. The changes described in a _migration_ are not applied to the database until we explicitly invoke them. A _migration_ is either __up__ (its changes have been applied to the database) or __down__ (its changes have not been applied).
+
+Rails provides a collection of `rails` commands to describe that state of _migrations_ and database schema:
+
+- Use `rails db:migrate:status` to see the up/down status of all _migrations_
+- Use `rails db:migrate` to apply all pending _migrations_ to the schema
+
+To create our new database schema, we are going to run `rails db:migrate`.
+
 ## Active Record Migrations
-Rails gives us a structured approach to maintaining the database schema: _database migrations_. These are step-by-step instructions describing how to construct the schema. If done right, they provide a blueprint of not only how to construct the database schema, but a history of how the database requirements have changed over time. A schema starts off with nothing in it, and each migration modifies it. Migrations may add or remove tables, columns, or rows.
+Rails gives us a structured approach to maintaining the database schema: _database migrations_. These are step-by-step instructions describing how to construct the schema. When done right, they provide a blueprint of not only how to construct the database schema, but a history of how the database requirements have changed over time. A schema starts off with nothing in it, and each migration modifies it. Migrations may add or remove tables, columns, or rows.
 
 The command we ran above generated both a _model_ and a _migration_. The convention here is that adding a _model_ means you need some persistence in your application. The corresponding _migration_ provides the documentation and instructions to the database on how to store the data the _model_ is describing.
 
@@ -78,16 +88,7 @@ class AddDescriptionToBooks < ActiveRecord::Migration
 end
 ```
 
-### Running (and reversing) Migrations
-Once we have created and defined a _migration_, we need to run it. The changes described in a _migration_ are not applied to the database until we explicitly invoke them. A _migration_ is either __up__ (its changes have been applied to the database) or __down__ (its changes have not been applied).
-
-Rails provides a collection of `rails` commands to describe that state of _migrations_ and database schema:
-
-- Use `rails db:migrate` to apply all pending _migrations_ to the schema
-- Use `rails db:migrate:status` to see the up/down status of all _migrations_
-- Use `rails db:rollback` to __reverse__ the schema changes of the last _migration_
-
-__Question: When would we not be able to `rollback` a migration? Why not?__
+Once we have the migration created, we must again run `rails db:migrate` for the migration to take effect.
 
 ## Naming Conventions
 Built into Rails is a class known as the _Inflector_. It has one of the hardest jobs: deciphering the English language. The _Inflector_ does its very best to assist Rails in understanding the correct singular and plural versions of any noun it receives. This is extremely important in providing Rails developers conventions and tools that follow those conventions. Notice in our _migration_ examples above how the generated class and file names all automatically received a singular or plural notation. That's the _Inflector_ at work. I don't envy the _Inflector_.
