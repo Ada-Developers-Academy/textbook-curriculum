@@ -49,7 +49,7 @@ Then, let's open the view (`app/views/books/new.html.erb`) in our editor. Add th
   <label for="title">Title</label>
   <input type="text" name="title" value="" id="title">
 
-  <label for="description">Author</label>
+  <label for="author">Author</label>
   <input type="text" name="author" value="" id="author">
 
   <input type="submit" value="Submit">
