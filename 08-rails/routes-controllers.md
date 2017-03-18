@@ -1,10 +1,10 @@
-# Routes, Controllers, & Views (oh my)
+# Routes and Controllers
 ## Learning Goals
 - Refresh on the http request cycle
 - Discuss how a request makes it way through a Rails application
 - Dissect the _routes file_ and learn how to define routes
 - Explore the role of _controllers_ in a Rails application
-- Create a basic controller using the Rails generate command.  
+- Create a basic controller using the Rails generate command
 
 ## HTTP Request
 HTTP is the language of the internet. Browsers send HTTP requests to our servers. Here's a simplified HTTP request:
