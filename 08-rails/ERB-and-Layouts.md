@@ -1,4 +1,4 @@
-# ERB & Layouts
+# Views: ERB & Layouts
 ## Learning Goals
 - Discover how to add logic to our html pages with _embedded Ruby_
 - DRY up our html pages by separating them into _views_ and _layouts_
