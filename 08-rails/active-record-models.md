@@ -16,14 +16,14 @@ Given a table in our database called _books_ that has this structure:
 We should have a corresponding file called `app/models/book.rb`. It will look like this:
 
 ```ruby
-class Book < ActiveRecord::Base
+class Book < ApplicationRecord
 
 end
 ```
 
 This is our Book _model_, and it is connected to a table in the database called _books_. We don't have to explicitly tell Rails about that connection; by following the naming conventions (thank you, Inflector!), Rails knows which database table to use with which _model_. By doing this you'll also have the ability to map the columns of each row in that table with the attributes of the instances of your model.
 
-For right now, our _models_ will likely be empty Ruby classes. The inherited class (`ActiveRecord::Base`) provides a tremendous amount of functionality. As we move forward in the curriculum, we will begin filling out our models with additional functionality.
+For right now, our _models_ will likely be empty Ruby classes. The inherited class (`ApplicationRecord`) provides a tremendous amount of functionality. As we move forward in the curriculum, we will begin filling out our models with additional functionality.
 
 ## Interacting with models in the _Rails console_
 Rails provides a REPL (similar to irb and pry) that pre-loads all the application information when started. It's one of the most useful tools I've encountered. Let's spend some time exploring it. From your application root, run `$ rails console`:
@@ -88,7 +88,7 @@ book = Book.first
 Book.find(1) # returns the Book with ID of value 1
 
 # return the first book (lowest id) authored by Roxane Gay
-roxane_books = Book.find_by(author: 'Roxane Gay')
+roxane_book = Book.find_by(author: 'Roxane Gay')
 
 # the AR DSL is structured to use chaining to create more specific queries
 # here we find all books by Roxane Gay
@@ -114,7 +114,7 @@ alphabetical_books = Book.order(:author)
 
 Active Record uses something called _parameter binding_ to take our requests and convert them into SQL, the nearly universal language of databases and (most importantly) make queries more secure (google research: [_sql injection_](https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=sql%20injection)), and to improve the reusability of queries. This idea is very important in Rails, and AR provides it.
 
-If you write code using the `where` syntax above in the rails console (like `Book.where(name: "Rosa")`), Active Record _does parameter binding automatically_. Active Record can also provides manual parameter binding:
+If you write code using the `where` syntax above in the rails console (like `Book.where(author: "Roxane Gay")`), Active Record _does parameter binding automatically_. Active Record can also provides manual parameter binding:
 
 ```ruby
 # using '?'
@@ -124,7 +124,7 @@ Book.where("author = ?", "Roxane Gay")
 Book.where("author = :author AND title = :title", author: "Roxane Gay", title: "Bad Feminist")
 ```
 
-The first line above uses the `?` symbol as a placeholder, and inserts the second argument into that position.  So it is looking for students where the author is "Roxane Gay".
+The first line above uses the `?` symbol as a placeholder, and inserts the second argument into that position.  So it is looking for books where the author is "Roxane Gay".
 
 The second line makes a more complicated query and has 2 named parameters, `:author` and `:title` and passes in a hash where the named parameter values are passed in.  
 
@@ -231,7 +231,7 @@ These can be run on an ActiveRecord class (like `Book`) or on any collection (li
 | `Book.empty?`                 | Are there zero entries?            | N/A        | Boolean                | Memoized    |
 
 ### Interacting with a Retrieved Entry
-Assume that `libby` is a local copy of an entry in the table, as returned by a call like `Book.first`. Remember that any changes made to a local copy will not be reflected in the database until `save` is called on that copy.
+Assume that `my_book` is a local copy of an entry in the table, as returned by a call like `Book.first`. Remember that any changes made to a local copy will not be reflected in the database until `save` is called on that copy.
 
 | Method                | Description                                | Arguments | Returns | Talks to DB |
 |:----------------------|:-------------------------------------------|:----------|:--------|:------------|
@@ -247,7 +247,7 @@ Assume that `libby` is a local copy of an entry in the table, as returned by a c
 |:----------------------------------------------|:-----------------------------------------------|:----------|:------------|:------------|
 | `book = Book.new`                         | Make a new entry, stored in a local variable   | Hash      | One Book | No          |
 | `book.save`                                  | Save a local copy of an entry to the DB        | N/A       | Boolean     | Yes         |
-| `Book.create(author: 'author', title: 'title')` | Make a new a entry and save to the DB          | Hash      | One Book | Yes         |
+| `Book.create(author: 'author', title: 'title')` | Make a new entry and save to the DB          | Hash      | One Book | Yes         |
 | `book.update(author: 'new author')`                    | Modify an entry and save to the DB             | Hash      | One Book | Yes         |
 | `book.destroy`                               | Remove an entry from the DB, freeze local copy | N/A       | One Book | Yes         |
 
@@ -256,11 +256,9 @@ Assume that `libby` is a local copy of an entry in the table, as returned by a c
 
 ## What We Learned
 - Active Record is an _ORM_, and provides a _DSL_ for modeling queries
-- We explored how to create an Active Record _model_ and _migration_
+- We explored how to create an Active Record _model_
 - Some CRUD queries using Active Record in the _Rails console_
 
-## Ridiculously Helpful Resources
-- http://guides.rubyonrails.org/active_record_basics.html
-- http://guides.rubyonrails.org/migrations.html  
+## Additional Resources
 - http://guides.rubyonrails.org/active_record_querying.html  
 - http://guides.rubyonrails.org/active_model_basics.html

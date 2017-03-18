@@ -28,7 +28,7 @@ Forms are used to create requests to servers that can create, update, and delete
 We are going to look at how inputs from a form are passed along through the browser to our server. Let's open the web application we have been using and create a new route and view like:
 
 ```bash
-$ touch app/views/books/form.html.erb
+$ touch app/views/books/new.html.erb
 ```
 
 ```ruby
@@ -65,14 +65,14 @@ Next we have a `label` tag
 
 Labels are the text portion of a form. The reason we use labels instead of plain text is because we can join an `input` and a `label` to when the text is clicked the cursor will focus on the input. The `for` attribute defines the `id` that the `label` will match. Also, creating a link between the `label` and `input` tags is critical in creating usable form content for folks using screen readers.
 
-Next we have two `input` tags with the type of 'text' (see [here](http://www.htmldog.com/reference/htmltags/input/) for a complete list of input types).
+Next we have two `input` tags with the type of 'text' (see [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) for all input info).
 
 ```html
 <input type="text" name="title" value="" id="title">
 <input type="text" name="author" value="" id="author">
 ```
 
-Each `input` tag will pass a value along to the server when we submit the form. The data passed to the web serve in our _POST request_ is collected in a Ruby hash called `params`. In this hash, the `name` attribute of the HTML `<input>` defines the key, and the user input is value. In this case `username` will be assigned to what we type into the first text field.
+Each `input` tag will pass a value along to the server when we submit the form. The data passed to the web server in our _POST request_ is collected in a Ruby hash called `params`. In this hash, the `name` attribute of the HTML `<input>` defines the key, and the user input is value. In this case `username` will be assigned to what we type into the first text field.
 
 And finally we have an `input` with the type of _submit_. This input creates a button to click that will send an HTTP request with the form data to the route in the `action` attribute of the `form` tag.
 
@@ -89,12 +89,15 @@ Let's make our form a little bit smarter. We can submit nested data by manipulat
 In Rails this is the way we _model_ data objects. We will expand upon this idea once we learn about Active Record, but until then, imagine a `Book` class where the initialize method is written to assign attributes from a hash. We would then pass the inner hash to the `new` method and all of our attributes would be assigned.
 
 ```ruby
+# app/models/book.rb
 class Book
   def initialize(options = {})
     @title = options[:title]
     @author = options[:author]
   end
 end
-
-book = Book.new(title: params[:title], author: params[:author])
+```
+```ruby
+# app/controllers/books_controller.rb
+book = Book.new(title: params[:book][:title], author: params[:book][:author])
 ```

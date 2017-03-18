@@ -57,7 +57,7 @@ Rails can go ahead and create a Controller and View for us with the following co
 bin/rails generate controller Books index
 ```
 
-This command has Rails generate a Controller and Views for the /books path, so when you bring up http://localhost:3000/index you will get the following HTML file.  
+This command has Rails generate a Controller and Views for the /books path, so when you bring up http://localhost:3000/books you will get the following HTML file.  
 
 ![view in browser](images/index.html.erb.png)
 
@@ -84,7 +84,8 @@ In the following notes we will look at layouts and views and look at how to rend
 
 ```ruby
   def index
-    @books = ["Once and Future King", "Fellowship of the ring",
-              "Ruby: How to Program", "Web Design with HTML, CSS, JavaScript"]    
+    @books = [{ title: "Hidden Figures", author: "Margot Lee Shetterly"},
+              { title: "Practical Object-Oriented Design in Ruby", author: "Sandi Metz"},
+              { title: "Kindred", author: "Octavia E. Butler"}]
   end
 ```

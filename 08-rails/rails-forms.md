@@ -32,13 +32,13 @@ Within the `form_tag` block, additional form helpers can be used to create input
 it expects is the HTML name attribute. The second is the default value of the input. Additional HTML options can be passed in a hash. For example:
 
 ```erb
-<%= text_field_tag :book[author], "testing", class: "some-class" %>
+<%= text_field_tag book[author], "J.K. Rowling", class: "books"" %>
 ```
 
 Results in:
 
 ```html
-<input type="text" name="book[author]" id="book_author" value="testing" class="some-class" />
+<input type="text" name="book[author]" id="book_author" value="J.K. Rowling" class="books" />
 ```
 
 #### `submit_tag`
@@ -59,7 +59,7 @@ Many, many other _view helpers_ are available to help build any type of form or 
 ## form_for
 `form_for` is similar to `form_tag`, except it is meant to be used in conjunction with an Active Record model.
 
-The only required argument is takes is any ActiveRecord object. Rails will make assumptions about how to structure the form's method and action based on RESTful conventions (POST to '/books' for creating new records and PUT/PATCH to '/books/:id' for updating existing records, etc). Check it:
+The only required argument it takes is any ActiveRecord object. Rails will make assumptions about how to structure the form's method and action based on RESTful conventions (POST to `/books` for creating new records and PUT/PATCH to `/books/:id` for updating existing records, etc). Check it:
 
 ```erb
 <%= form_for @book do |f| %>
@@ -127,7 +127,7 @@ If we submitted the `form_for` example above, the params hash would arrive in ou
   }
 ```
 
-We can then use the params as attributes for Active Record models. If, for example, we were wanting to make a new Album using the params data above, our _controller action_ would look something like:
+We can then use the params as attributes for Active Record models. If, for example, we were wanting to make a new Book using the params data above, our _controller action_ would look something like:
 
 ```ruby
 # in app/controllers/books_controller.rb

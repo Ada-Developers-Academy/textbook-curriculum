@@ -65,12 +65,12 @@ end
 ... and inside of `app/views/books` ... there is a view file named after the index action. `index.html.erb`.  This is an example of how Ruby favors **convention over configuration**.  The default view for an action/method is named after it and stored in a folder named after the class.  
 
 ```html
-<h1>Books#update</h1>
-<p>Find me in app/views/books/update.html.erb</p>
+<h1>Books#index</h1>
+<p>Find me in app/views/books/index.html.erb</p>
 ```
 
 We can modify the view to display data from the `@books` instance variable like this:
-```ruby
+```erb
 <h1>Books</h1>
 <ul>
   <% @books.each do |book|  %>
@@ -80,7 +80,22 @@ We can modify the view to display data from the `@books` instance variable like 
   <% end %>
 </ul>
 ```
-![View Rendered](images/view1.png)
+
+Resulting HTML:
+```html
+<h1>Books</h1>
+<ul>
+  <li>
+    Hidden Figures By: Margot Lee Shetterly
+  </li>
+  <li>
+    Practical Object-Oriented Design in Ruby By: Sandi Metz
+  </li>
+  <li>
+    Kindred By: Octavia E. Butler
+  </li>
+</ul>
+```
 
 By using our Rails controller method to create variables with the data that we want to display, we can customize our views in an infinite number of ways and create enormously powerful websites with very little code.  
 

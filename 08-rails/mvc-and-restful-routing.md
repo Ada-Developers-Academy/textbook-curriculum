@@ -14,12 +14,12 @@ Essentially, MVC is way to divide responsibilities to complete a task. It's espe
 ### The Model
 - Contains data for the application (often linked to a database)
 - Contains state of the application (e.g. what orders a customer has)
-- No knowledge of book interfaces, so it can be reused
+- No knowledge of user interfaces, so it can be reused
 
 ### The View
-- Generates the book interface which presents data to the book
+- Generates the book interface which presents data to the user
 - Passive, i.e. doesn’t do any processing
-- Views work is done once the data is displayed to the book.
+- Views work is done once the data is displayed to the user
 - Many views can access the same model for different reasons
 
 ### The Controller
