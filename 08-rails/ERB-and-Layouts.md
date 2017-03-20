@@ -5,7 +5,7 @@
 - Learn the special syntax for working with _erb_
 
 ## What is _ERB_
-ERB (Embedded RuBy) is kind of file known as a _preprocessor_. When Rails sees a file that has the extension of _.erb_, it will _evaluate_ it for Ruby expressions _before_ doing anything else with it (like sending it to the browser). We call it a _preprocessor_ because it is triggered before anything else happens with the file. It is very common to have files in Rails projects with names like `index.erb`. This tells us (and the webserver) that the file is intended to be _preprocessed_ with _erb_, and the result of the processing is what should be sent to the browser. This kind of file is known, generically, as a _view template_.
+ERB (Embedded RuBy) is kind of file known as a _preprocessor_. When Rails sees a file that has the extension of _.erb_, it will _evaluate_ it for Ruby expressions _before_ doing anything else with it (like sending it to the browser). We call it a _preprocessor_ because it is triggered before anything else happens with the file. It is very common to have files in Rails projects with names like `index.html.erb`. This tells us (and the webserver) that the file is intended to be _preprocessed_ with _erb_, and the result of the processing is an HTML file that should be sent to the browser. This kind of file is known, generically, as a _view template_.
 
 Preprocessing allows us to specify the file contents in any format we want (HTML, CSS, Markdown, etc.) while still _embedding_ Ruby code inside of it, allowing for customization of the content when the _view_ is _rendered_ (preprocessed and sent to the client as HTML).
 
@@ -194,7 +194,7 @@ This will render the `app/views/layouts/application.html.erb` file, and then pla
 ## Notes on JavaScript & CSS Links
 If you examine the layout above you will notice embedded ruby with `stylesheet_link_tag` and another with `javascript_include_tag`.  These methods are used to link in CSS and JavaScript content. We will see later how to include our own CSS content.  
 
-The `csrf_meta_tag` is used place, essentially a digital signature acting as verification that requests coming into Rails are in fact from properly logged in users.  You can do a view-source and look at what the csrf meta tag does.  More information is available [here](http://www.gnucitizen.org/blog/csrf-demystified/).
+The `csrf_meta_tag` is essentially a digital signature acting as verification that requests coming into Rails are in fact from properly logged in users.  You can do a view-source and look at what the csrf meta tag does.  More information is available [here](http://www.gnucitizen.org/blog/csrf-demystified/).
 
 ## Resources
 
