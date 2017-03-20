@@ -73,3 +73,12 @@ There is a caveat about `DELETE` idempotence, however. Calling `DELETE` on a res
 
 ## CRUD
 **C**reate. **R**ead. **U**pdate. **D**elete. This acronym embodies a huge majority of what we do with our web applications both simple and complex. We begin architecting our applications routes and interfaces by considering what kind of actions users will perform (CRUD) and what effects those actions will have on resources within the application (idempotency).
+
+## Summary Table
+
+| HTTP Verb | CRUD Action | Safe | Idempotent |
+|-----------|-------------|------|------------|
+| `GET`     | Read        | Yes  | Yes        |
+| `POST`    | Create      | No   | No         |
+| `PATCH` or `PUT` | Update | No | Yes        |
+| `DELETE`  | Delete      | No   | Yes        |
