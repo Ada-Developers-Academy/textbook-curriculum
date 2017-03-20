@@ -3,6 +3,10 @@
 
 Postgres (or PostgreSQL) is an open-source database which can provide scalability to your application.  By default Rails development sites use sqlite3 which can work fine, but it can be easier to use the same database application in development & production.  
 
+## When SQLite is a good choice
+
+SQLite is a "serverless" database which means there isn't a separate database program running to manage access to the data, instead the application uses the SQLite file 
+
 
 ## Installing Postgres
 
@@ -86,17 +90,17 @@ default: &default
 
 development:
   <<: *default
-  database: postgres-app2_development
+  database: <APPLICATION_NAME>_development
 # ...
 test:
   <<: *default
-  database: postgres-app2_test
+  database: <APPLICATION_NAME>_test
 
 production:
   <<: *default
-  database: postgres-app2_production
-  username: postgres-app2
-  password: <%= ENV['POSTGRES-APP2_DATABASE_PASSWORD'] %>
+  database: <APPLICATION_NAME>_production
+  username: <APPLICATION_NAME>
+  password: <%= ENV['<APPLICATION_NAME>_DATABASE_PASSWORD'] %>
 ```
 
 Then run `bundle install` and `rails db:reset` and `rails db:migrate`.  You can now use the Postgres database instead of the default SQLite3.
