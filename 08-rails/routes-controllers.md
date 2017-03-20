@@ -17,7 +17,7 @@ HTTP is the language of the internet. Browsers send HTTP requests to our servers
 The two most important parts of this request are:
 
 - `GET`, which is the _request method_. As we have seen, the most common request methods are `get`, `post`, `put`, `patch`, and `delete`.
-- `/users`, which is the _path_.
+- `/books`, which is the _path_.
 
 In a Rails app when a request comes in for a specific _path_ the Rails router	matches it with a controller and passes the request to the appropriate method in that controller.   
 
