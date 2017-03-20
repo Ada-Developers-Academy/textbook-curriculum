@@ -82,3 +82,8 @@ There is a caveat about `DELETE` idempotence, however. Calling `DELETE` on a res
 | `POST`    | Create      | No   | No         |
 | `PATCH` or `PUT` | Update | No | Yes        |
 | `DELETE`  | Delete      | No   | Yes        |
+
+## Additional Resources
+
+- [Description of the various HTTP verbs](http://www.restapitutorial.com/lessons/httpmethods.html)
+- [Difference between HTTP verbs and CRUD](http://softwareengineering.stackexchange.com/questions/120716/difference-between-rest-and-crud)
