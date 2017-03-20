@@ -29,19 +29,18 @@ Fully open source, it is constantly adapting to new trends and requirements of m
 
 ## Before We Begin
 
-First lets remove any Rails versions you already have on your computer and then install Rails version 5.
+First let's install Rails version 5.
 
 ```bash
 $ gem install rails --no-rdoc --no-ri
 $ rails -v
 ```
 
+You should see the rails version as `5.0.1` or later.
+
 __Questions:__ Why `--no-rdoc` and `--no-ri`?
 
 The docs take _a year_ to install, and we'll never look at them. There are docs that are easier to use than what's provided by rdoc & ri.
-
-You should see the rails version as `5.0.1` or later.
-
 
 ## Creating a New Rails Project
 ```bash
