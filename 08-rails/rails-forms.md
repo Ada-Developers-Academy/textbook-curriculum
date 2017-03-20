@@ -11,7 +11,7 @@ There are two ways to generate HTML forms within Rails: `form_tag` and `form_for
 `form_tag` generates an HTML `<form>` element. The first option that it takes is the submission path, (the `action` attribute in the `<form>` tag). The `method` attribute defaults to `POST`. Additional arguments can be given after the path in the form of a hash. Common options include applying a CSS class to the form, or changing the form _method_. Here's an example:
 
 ```erb
-<%= form_tag "/products", class: "delete_products", method: :delete do %>
+<%= form_tag "/books", class: "delete_products", method: :delete do %>
 
 <% end %>
 ```
@@ -32,26 +32,26 @@ Within the `form_tag` block, additional form helpers can be used to create input
 it expects is the HTML name attribute. The second is the default value of the input. Additional HTML options can be passed in a hash. For example:
 
 ```erb
-<%= text_field_tag :pet[type], "elephant", class: "pets" %>
+<%= text_field_tag book[author], "J.K. Rowling", class: "books"" %>
 ```
 
 Results in:
 
 ```html
-<input type="text" name="pet[type]" id="pet_type" value="elephant" class="pets" />
+<input type="text" name="book[author]" id="book_author" value="J.K. Rowling" class="books" />
 ```
 
 #### `submit_tag`
 As the name implies, the `submit_tag` _view helper_ generates a submit button for a form created with `form_tag`. It accepts two parameters, both optional. The first is the text that should appear in the button (defaults to "Submit"), and the second is a hash of HTML attributes:
 
 ```erb
-<%= submit_tag "Save Pet", class: "pet_button" %>
+<%= submit_tag "Save Book", class: "book-button" %>
 ```
 
 Results in:
 
 ```html
-<input type="submit" name="commit" value="Save Pet" class="pet_button" />
+<input type="submit" name="commit" value="Save Book" class="book-button" />
 ```
 
 Many, many other _view helpers_ are available to help build any type of form or input. Look at the [form helper docs](http://api.rubyonrails.org/classes/ActionView/Helpers/FormTagHelper.html) for complete documentation.
@@ -59,16 +59,16 @@ Many, many other _view helpers_ are available to help build any type of form or 
 ## form_for
 `form_for` is similar to `form_tag`, except it is meant to be used in conjunction with an Active Record model.
 
-The only required argument is takes is any ActiveRecord object. Rails will make assumptions about how to structure the form's method and action based on RESTful conventions (POST to '/products' for creating new records and PUT/PATCH to '/products/:id' for updating existing records, etc). Check it:
+The only required argument it takes is any ActiveRecord object. Rails will make assumptions about how to structure the form's method and action based on RESTful conventions (POST to `/books` for creating new records and PUT/PATCH to `/books/:id` for updating existing records, etc). Check it:
 
 ```erb
-<%= form_for @product do |f| %>
+<%= form_for @book do |f| %>
 
 <% end %>
 ```
 
 ```html
-<form  action="/products" class="new_product" id="new_product" method="post">
+<form  action="/books" class="new_book" id="new_book" method="post">
 
 </form>
 ```
@@ -77,9 +77,9 @@ The `form_for` block is given an argument (commonly `f` for "form builder"),
 this object has methods very similar to the generic form builders like `text_field_tag`, but Rails can make assumptions about the form structure because of what it knows about the object:
 
 ```erb
-<%= form_for @album do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<%= form_for @book do |f| %>
+  <%= f.label :author %>
+  <%= f.text_field :author %>
   <%= f.submit %>
 <% end %>
 ```
@@ -87,14 +87,14 @@ this object has methods very similar to the generic form builders like `text_fie
 Results in:
 
 ```html
-<form class="new_album" id="new_album" action="/albums" accept-charset="UTF-8" method="post">
+<form class="new_book" id="new_book" action="/books" accept-charset="UTF-8" method="post">
   <input name="utf8" type="hidden" value="&#x2713;" />
   <input type="hidden" name="authenticity_token" value="atr2Gl2jJpe7sN9eAz9npBk1T4FYMcPeFI5xcMDSBDVwtrcnCfl4aHWpFmlrbSm/zF0wd0VUbx6d4Id/h5rjfg==" />
 
-  <label for="album_title">Title</label>
-  <input type="text" name="album[title]" id="album_title" />
+  <label for="book_author">Author</label>
+  <input type="text" name="book[author]" id="book_author" />
 
-  <input type="submit" name="commit" value="Create Album" />
+  <input type="submit" name="commit" value="Create Book" />
 </form>
 ```
 
@@ -105,14 +105,14 @@ Lots of stuff!
 1. It automatically fills the `value` attribute of the input with the value of the corresponding attribute of the ActiveRecord object (if it exists).
 1. It will differentiate between making forms for __new__ models and forms for editing __existing__ models and update the form's `action` and `method` attributes accordingly
 
-__Note:__ All of this connectedness depends on your code going along with many Rails conventions. While all the conventions _can_ be reconfigured, overwriten, and changed, it's important we spend some time getting to know our way around first. As an example, the code above will throw an error if there's not a RESTful route conforming to Rails naming conventions defined.
+__Note:__ All of this connectedness depends on your code going along with many Rails conventions. While all the conventions _can_ be reconfigured, overwritten, and changed, it's important we spend some time getting to know our way around first. As an example, the code above will throw an error if there's not a RESTful route conforming to Rails naming conventions defined.
 
 Here's a link to the [official docs for form helpers](http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html), which contains a list of the form builder methods for `form_for`.
 
 Likely more helpful is the [Rails Guide for Form Helpers](http://guides.rubyonrails.org/form_helpers.html) which extensively covers both kinds of forms discussed in this document.
 
 ## Controllers & Form Data
-Submitting a form results in the form data being collected into the _params hash_. The structure of form data follows the same patterns as in other frameworks. This means we can leverage creative naming in the HTML (like `album[artist]`) to create well structured objects in the _params hash_.
+Submitting a form results in the form data being collected into the _params hash_. The structure of form data follows the same patterns as in other frameworks. This means we can leverage creative naming in the HTML (like `book[author]`) to create well structured objects in the _params hash_.
 
 If we submitted the `form_for` example above, the params hash would arrive in our _controller action_ looking something like:
 
@@ -120,23 +120,23 @@ If we submitted the `form_for` example above, the params hash would arrive in ou
   {
     "utf8" => "✓",
     "authenticity_token" => "X/be9deLjFilsqYcOVBMM5Fj1vf7OWAr1K9F97JVhbhFmp/Ig9HSp2urbytRAgIoRAupAeZczOtdwbP49R1i8w==",
-    "album" => {
-      "title" => "The Heavy" },
-      "commit" => "Create Album"
+    "book" => {
+      "author" => "J.K. Rowling" },
+      "title" => "Harry Potter and The Chamber of Secrets"
     }
   }
 ```
 
-We can then use the params as attributes for Active Record models. If, for example, we were wanting to make a new Album using the params data above, our _controller action_ would look something like:
+We can then use the params as attributes for Active Record models. If, for example, we were wanting to make a new Book using the params data above, our _controller action_ would look something like:
 
 ```ruby
-# in app/controllers/albums_controller.rb
+# in app/controllers/books_controller.rb
 def create
-  @album = Album.new(params[:album]) #instantiate a new album
-  if @album.save # save returns true if the database insert succeeds
-    redirect_to root_path # go to the index so we can see the album in the list
+  @book = Book.new(params[:author], params[:title]) #instantiate a new book
+  if @book.save # save returns true if the database insert succeeds
+    redirect_to root_path # go to the index so we can see the book in the list
   else # save failed :(
-    render :new # show the new album form view again
+    render :new # show the new book form view again
   end
 end
 ```

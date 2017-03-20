@@ -17,9 +17,9 @@ Essentially, MVC is way to divide responsibilities to complete a task. It's espe
 - No knowledge of user interfaces, so it can be reused
 
 ### The View
-- Generates the user interface which presents data to the user
+- Generates the book interface which presents data to the user
 - Passive, i.e. doesn’t do any processing
-- Views work is done once the data is displayed to the user.
+- Views work is done once the data is displayed to the user
 - Many views can access the same model for different reasons
 
 ### The Controller
@@ -50,21 +50,21 @@ At its simplest, REST is a process in which a web server uses the combination of
 - Allows for caching
 
 ### Pseudo-code Example of RESTful Routes
-__Assumption__: We've got a resource called `user` that can be recalled/manipulated by a unique identifier called `id`. In Rails, we'd represent getting a single instance of this resource with something like `get "/users/:id", to: "users#show"`.
+__Assumption__: We've got a resource called `book` that can be recalled/manipulated by a unique identifier called `id`. In Rails, we'd represent getting a single instance of this resource with something like `get "/books/:id", to: "books#show"`.
 
 We can extrapolate the entire RESTful suite of actions from this basic pattern. It'd look something like...
 
 | Verb | URI Pattern     | Controller#Action |
 | :------------- | :------------- | :------------- |
-| GET       | `/users`       | `users#index` |
-| GET       | `/users/:id`       | `users#show` |
-| GET       | `/users/new`       | `users#new` |
-| POST      | `/users`       | `users#create` |
-| GET       | `/users/:id/edit`       | `users#edit` |
-| PATCH     | `/users/:id`       | `users#update` |
-| DELETE    | `/users/:id`       | `users#destroy` |
+| GET       | `/books`       | `books#index` |
+| GET       | `/books/:id`       | `books#show` |
+| GET       | `/books/new`       | `books#new` |
+| POST      | `/books`       | `books#create` |
+| GET       | `/books/:id/edit`       | `books#edit` |
+| PATCH     | `/books/:id`       | `books#update` |
+| DELETE    | `/books/:id`       | `books#destroy` |
 
-The combination of __VERB__ and __URL__ tell our web server (Rails, in this example) everything it needs to know to formulate an action and response. The methods we're calling on the `users` object follows a convention common to the Ruby community.
+The combination of __VERB__ and __URL__ tell our web server (Rails, in this example) everything it needs to know to formulate an action and response. The methods we're calling on the `books` object follows a convention common to the Ruby community.
 
 ## Additional Resources
 ### MVC

@@ -6,14 +6,14 @@
 - Explore how the acronym _CRUD_ (**C**reate **R**ead **U**pdate and **D**elete) relates to both making interactive web applications and HTTP _verbs_.
 
 ## HTTP _verbs_
-The typical http request from a client is a `GET`.  When your browser goes to [http://localhost:3000/orders](http://localhost:3000/orders) it sends an http get request.
+The typical http request from a client is a `GET`.  When your browser goes to `localhost:3000/books` it sends an http get request.
 
 ### So what does an _HTTP GET Request_ look like?
 Kinda like this:
 
 ```
 # this is the request
-GET /orders HTTP/1.1
+GET /books HTTP/1.1
 User-Agent: curl/7.30.0
 Host: localhost:8080
 Content-Length: 6
@@ -41,10 +41,10 @@ The HTTP `GET` method is used to __read__ (or retrieve) a representation of a re
 
 According to the design of the HTTP specification, `GET` requests are used only to __read__ data and not change it. Therefore, when used this way, they are considered 'safe'. That is, they can be called without risk of data modification or corruption. To say it another way, calling a resource with `GET` once has the same effect as calling it 10 times. Or a 1000.
 
-`GET` is _idempotent_, __which means that making multiple identical requests ends up having the same result as a single request.__ While idempotent operations produce the same result on the server (no side effects), the response itself may not be the same (e.g. a resource's state may change between requests). For example, `get "/temperature"` gets the current temperature outside. The temperature may change between requests, but nothing about the actual process of requesting the `/temperature` route will cause the temperature to change. `GET` should never modify any resources on the server.
+`GET` is _idempotent_, __which means that making multiple identical requests ends up having the same result as a single request.__ While idempotent operations produce the same result on the server (no side effects), the response itself may not be the same (e.g. a resource's state may change between requests). For example, `get "/books"` gets the current list of books. The list of books may change between requests, but nothing about the actual process of requesting the `/books` route will _cause_ the list of books to change. `GET` should never modify any resources on the server.
 
 ### POST
-The `POST` verb is most often utilized to __create__ new resources. In particular, it's used to create _subordinate_ resources. Think of subordinate resources as representing a single instance of a _parent_ resource. You wouldn't use `POST` to define what a `Person` object is, but you would use `POST` to __create__ data attributes about a specific `Person`.
+The `POST` verb is most often utilized to __create__ new resources. In particular, it's used to create _subordinate_ resources. Think of subordinate resources as representing a single instance of a _parent_ resource. You wouldn't use `POST` to define what a `Book` object is, but you would use `POST` to __create__ data attributes about a specific `Book`.
 
 By default, on successful creation, a `POST` should return HTTP status 201, and a `Location` header with a link to the newly-created resource.
 
