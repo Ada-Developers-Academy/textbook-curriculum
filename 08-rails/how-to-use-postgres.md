@@ -31,7 +31,6 @@ $ rails db:migrate
 ...
 ```
 
-
 ## Converting Rails Apps Using Sqlite3
 
 
@@ -73,9 +72,6 @@ test:
 production:
   <<: *default
   database: db/production.sqlite3
-
-
-
 ```
 
 to:
