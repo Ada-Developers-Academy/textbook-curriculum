@@ -3,6 +3,7 @@
 ## Part 1
 1. [HTTP & The Internet](./http-and-the-internet.md)  
 1. [What is Rails?](./what-is-ruby-on-rails.md)  
+1. [Configuring Rails to use Postgres](./how-to-use-postgres.md)
 1. [HTTP Verbs & CRUD](./http-verbs-crud-and-idempotency.md)  
 1. [MVC & REST](./mvc-and-restful-routing.md)  
 1. [Routes & Controllers](./routes-controllers.md)  
