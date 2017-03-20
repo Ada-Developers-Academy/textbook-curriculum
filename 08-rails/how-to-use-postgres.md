@@ -15,12 +15,12 @@ Postgres is a more traditional client-server database which runs a separate proc
 
 The downside is that we need to setup a Postgres server and deal with some configuration of the database before we can use it.  
 
-On the upside using Postgres on both the development and production ends means reduces any chances of problems when deploying our app on the web via AWS or Heroku. 
+On the upside using Postgres on both the development and production ends means reduces any chances of problems when deploying our app on the web via AWS or Heroku. AWS and Heroku separate the database & application and database servers, so the two services run on separate machines.  SQLite does not support this configuration, it has to be on the same server as your rails application.  
 
 
 ## Installing Postgres
 
-To install Postgres you can use the Brew package manager, then set brew to start postgres to launch every time the machine reboots and lastly install the pg gem to allow Ruby to talk to the database.  
+To install Postgres you can use the Brew package manager, then set brew to start postgres to launch every time the machine reboots and set it up so that postgres is the default database.  
 
 These steps you only need perform once.
 
@@ -29,7 +29,7 @@ $ brew install postgresql
 ...
 $ brew services start postgresql
 ...
-$ gem install pg
+$ echo "-d postgresql" > ~/.railsrc
 ...
 ```
 
@@ -38,7 +38,7 @@ $ gem install pg
 After Postgres is installed and configured you can create new rails apps with postgres this way.  `rails db:migrate` is an essential step because it sets up the required tables in the database for a successful start of the rails server.  
 
 ```bash
-$ rails new my-rails-project -d postgresql
+$ rails new my-rails-project
 ...
 $ rails db:reset
 $ rails db:migrate
