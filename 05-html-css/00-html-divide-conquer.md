@@ -1,4 +1,4 @@
-#Divide & Conquer
+# Divide & Conquer
 
 - `<ol>` vs `<ul>`
 - `<head>` vs `<header>`

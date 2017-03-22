@@ -1,4 +1,4 @@
-#Divide and Conquer:
+# Divide and Conquer:
 Include a few useful values, as well as any shorthand that's applicable
 - text-align, text-transform, and text-decoration
 - padding v margin

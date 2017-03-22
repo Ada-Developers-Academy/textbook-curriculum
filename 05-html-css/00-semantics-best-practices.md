@@ -11,7 +11,7 @@
   - For specific elements
 
 
-###A Few Words on Web Accessibility
+### A Few Words on Web Accessibility
 Web accessibility is quickly garnering awareness among developers, many of whom are hadn't realized the importance, scope, or sheer number of folks who need it. What this means is that many developers don't know how to implement techniques for accessibility well or quickly. This in turn means it's easy to get set aside to do later, and then set aside for financial and time reasons.
 
 However. Approximately 20% of Americans have a disability that could affect their ability to access many websites, and an accessible site benefits everyone.
@@ -64,7 +64,7 @@ They're both HTML, but HTML5 is the latest version of it. There is a working gro
 HTML5 adds a number of semantic elements like `<nav>, <aside>, <article>, <footer>, <address>` and a number of elements to better handle multimedia content.
 
 
-####Block Level vs. Inline elements
+#### Block Level vs. Inline elements
 Block-level elements occupy the entire space of its parent element (container), thereby creating a "block."
 
 Inline elements occupy only the space bounded by the tags that define the inline element.
@@ -136,7 +136,7 @@ Don't use headings to just make the text bigger or bold. Use them to add meaning
 <h3>No super powers
 
 
-####Other Semantic Elements
+#### Other Semantic Elements
 - `<p>`: Block level paragraph element. Used for chunks of text, often following a header element.
 - `<header>`: Used as an element to hold page header information (logo, navigation, heading)
 - `<nav>`: Used as a container for navigational links
@@ -154,7 +154,7 @@ Don't use headings to just make the text bigger or bold. Use them to add meaning
 </figure>
 ```
 
-####A Few Non-Semantic Elements
+#### A Few Non-Semantic Elements
 
 
 `div`, and `span` are purely for building the structure of the site, they don't have any semantic meaning. `div` tags are for content that really doesn't have a semantic counterpart. Avoid relying on divs. `span` tags are used to highlight/emphasize or otherwise identify small, inline pieces of content.
@@ -163,7 +163,7 @@ Don't use headings to just make the text bigger or bold. Use them to add meaning
 <span>I'm a span!</span>
 ```
 
-####One Example of Semantic v. Non-Semantic Code
+#### One Example of Semantic v. Non-Semantic Code
 
 
 - `<b>`: Inline level element to make text bold.`</b>`
