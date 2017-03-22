@@ -1,7 +1,7 @@
 # Textbook Curriculum
 This is a holding pen for curriculum. More forthcoming.
 
-##How to Volunteer
+## How to Volunteer
 Want to get involved? Yay! [Volunteer with Ada Developers Academy](http://adadevelopersacademy.wiki/)
 
 ## This Curriculum is Licensed Creative Commons Attribution-ShareAlike 4.0
