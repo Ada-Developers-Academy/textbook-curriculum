@@ -1,5 +1,5 @@
 # Iteration & Blocks
-##Learning Goals
+## Learning Goals
 - Learn what _Iteration_ is and how to do it.
 - Learn what _Blocks_ are and how to recognize them.
 - Use a _Loop Table_ to clarify how values change over the course of an iteration.

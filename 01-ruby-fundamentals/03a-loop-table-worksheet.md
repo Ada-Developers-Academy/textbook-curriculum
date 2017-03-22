@@ -1,4 +1,4 @@
-#Loop Table Worksheet!
+# Loop Table Worksheet!
 
 
 1) Complete the following loop table by filling in the values for **loop count**, **value of x**, and **output**.
