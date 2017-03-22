@@ -1,8 +1,8 @@
-#Intro To Position: Floats
+# Intro To Position: Floats
 
 But first, a couple of sundries.
 
-##Colors
+## Colors
 
 CSS colors are all made by mixing different levels of red, green, and blue, though there are multiple ways to represent this.
 
@@ -32,7 +32,7 @@ CSS colors are all made by mixing different levels of red, green, and blue, thou
 
 There are a number of color pickers online for hex and rgb colors, as well as sites that will convert color values.
 
-##The Box Model
+## The Box Model
 Every element on the page is a rectangular box and many properties determine its size: size of the core box, padding, border, and margin.
 
 ![css box model](https://developer.apple.com/library/mac/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/Art/box_model_metrics_2x.png)
@@ -46,25 +46,25 @@ Important: The sizes of padding, border, and margin _add to_ the defined size of
 ```
 
 
-##Positioning With Floats
+## Positioning With Floats
 
-###What Floats Do
+### What Floats Do
 - Floating an object takes it out of the normal flow of the HTML.
 - Elements can only be floated left or right, and cannot be centered with floats.
 - Floated boxes will move to the left or right until their outer edge touches the containing block edge or the outer edge of another float.
 - The elements after the floating element will flow around it.
 - The elements before the floating element will not be affected.
 
-####Syntax
+#### Syntax
 `selector {float: value;}`
 Possible values are `left`, `right`, `none`.
 
 
-###Clearing Floats
+### Clearing Floats
 When you want other content from flowing around the floated items, apply the `clear` property to the element you want to not flow around floated items.
 
 
-####Syntax
+#### Syntax
 `selector {clear: value;}`
 Possible values are `left`, `right`, `both`, or `none`.
 
@@ -75,7 +75,7 @@ https://css-tricks.com/all-about-floats/
 https://www.smashingmagazine.com/2007/05/css-float-theory-things-you-should-know/
 
 
-###Clearfix
+### Clearfix
 
 When a container box has only floated elements in it, the container height collapses to zero. Since floated boxes are taken out of the flow and don’t affect the parent box, there is nothing to give height to the container. If you want a border or background around your floated elements, this will cause problems.
 

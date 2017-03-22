@@ -1,7 +1,7 @@
-#Confronting Implicit Bias and Microaggression
-##2.5 hour workshop
+# Confronting Implicit Bias and Microaggression
+## 2.5 hour workshop
 
-##Objectives:
+## Objectives:
 
 Using an intersectional lens, students will develop an understanding of what implicit bias is, how it may impact them individually, and how it can impact our community. They will develop an understanding of microaggressions and how our biases can help create these destructive interactions. Finally, they will explore how they can use this awareness to intervene in microaggressive interactions. 
 

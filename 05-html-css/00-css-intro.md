@@ -100,7 +100,7 @@ Many properties require some measure of size (font-size, width, etc). There are 
 
 ## Common Properties
 
-###Font Properties###
+### Font Properties
 
 - font-size: a number followed by a measurement of how tall the element's text is, usually in ems (em) or pixels (px)
 - font-family: the name of a typeface, or typefaces
@@ -110,14 +110,14 @@ Many properties require some measure of size (font-size, width, etc). There are 
 measurement of how tall the element's line of is,
 usually in ems (em) or pixels (px)
 
-###Text Properties###
+### Text Properties
 
 - text-align: left | right | center | justify
 - text-transform: capitalize | uppercase | lowercase | some others
 - text-decoration: underline | overline | line-through | some others
 - Note: A lot of properties will take a value of none
 
-###Colors###
+### Colors
 
 - To set text colors, the property is color
 - To set background colors, the property is background-color

@@ -1,4 +1,4 @@
-#Practice Ideas:
+# Practice Ideas:
 
 
 - H3 headlines are larger than H1s

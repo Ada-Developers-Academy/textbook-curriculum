@@ -1,6 +1,6 @@
 # Advocating for an Equitable Culture
 
-#Learning Goals
+# Learning Goals
 + To share strategies for dealing with difficult situations.
 
 ## Activity
