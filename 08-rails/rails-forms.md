@@ -140,3 +140,7 @@ def create
   end
 end
 ```
+
+## Resources
+-  [Rails Guide for Form Helpers](http://guides.rubyonrails.org/form_helpers.html)
+-  [Official Documentation for form helper methods](http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html)
