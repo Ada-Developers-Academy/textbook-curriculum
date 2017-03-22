@@ -51,7 +51,7 @@ Design and implement pseudo code for:
 + 3. Write a function to reverse a string (the funciton takes a string as input parameter) using a Stack.
 </br>
 
-##Slide deck
+## Slide deck
 + Slide deck used in class</br>
 <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://www.slideshare.net/secret/mYt7lab98fGApm">Stacks and Queues</a></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</br>
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />
