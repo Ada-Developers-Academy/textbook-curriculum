@@ -32,7 +32,6 @@ Add the following functions to each of the above:
 + Max() which returns the maximum integer data value in the data structure
 
 Challenge Problems:
-+ Write a function to print all integer values in a binary tree in pre-order traversal iteratively. (Hint: Use a Stack.)
 + Write a function to print all integer values in a binary tree in breadth first traversal iteratively. (Hint: Use a Queue.)
 + How would you implement a Queue using 2 Stacks?
 + How would you implement a Stack using 2 Queues?
@@ -44,11 +43,10 @@ Additional problems:
 ## In Class
 Here's the problems we'll cover in class.
 Design and implement pseudo code for:
-+ 1. Implement Top for a Stack using only Push(e) and Pop. (Note: This is an example of extending functionality without knowing the implementation details of how the Stack is implemented i.e. not knowing whether the Stack is implemented using an array or a linked list)
-+ 2. Implement Front for a Queue using only Dequeue, Enqueue(e) & Empty.  (Note: This is an example of extending functionality without knowing the implementation details of how the Queue is implemented i.e. not knowing whether the Queue is implemented using an array or a linked list)
-+ Assume the data contained is int.
-+ Feel free to use additional data structures.
++ 1. Implement Top for a Stack using only Push(e) and Pop. (Note: This is an example of extending functionality without knowing the implementation details of how the Stack is implemented i.e. not knowing whether the Stack is implemented using an array or a linked list). Assume the data contained is int.
++ 2. Implement Front for a Queue using only Dequeue, Enqueue(e) & Empty.  (Note: This is an example of extending functionality without knowing the implementation details of how the Queue is implemented i.e. not knowing whether the Queue is implemented using an array or a linked list) Assume the data contained is int. Feel free to use additional data structures.
 + 3. Write a function to reverse a string (the funciton takes a string as input parameter) using a Stack.
++ 4. Write a function to print all integer values in a binary tree in pre-order traversal iteratively. (Hint: Use a Stack.)
 </br>
 
 ## Slide deck
