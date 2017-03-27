@@ -2,11 +2,13 @@
 # Setting Rails Apps Up On Heroku
 
 ## Learning Goals
--  Understand what Heroku is and the role it serves.
-- Be able to deploy  a Rails App to Heroku.
+Students should be able to...
+
+- Explain what Heroku is and the role it serves.
+- Deploy  a Rails App to Heroku.
 
 ## Introduction
-So your rails app is awesome.  It does wizz-bang things and is the greatest thing since sliced bread.  There are a couple drawbacks... Your app is limited to just your computer, so you are the only one who can use it or test it.  So we will explore how to deploy an App to the web using a platform named **Heroku**.
+So your rails app is awesome. It's got gadgets and gizmos aplenty, maybe even whooz-its and whatz-its galore. There are a couple drawbacks... Your app is limited to just your computer, so you are the only one who can use it or test it. So we will explore how to deploy an App to the web using a platform named **Heroku**.
 
 ## What is Heroku?
 From the company
@@ -17,90 +19,54 @@ So Heroku is a cloud platform like Amazon Web Services or Azure that provides a 
 
 We use Heroku for a few reasons:
 
-1.  Because it uses the Git version control system to deploy apps, neatly dovetailing with our current workflow.  
-2.  It's very quick to get applications running on Heroku
-3.  Apps can be deployed on the web for free.
+1. Heroku uses the Git version control system to deploy apps, neatly matching our current workflow
+1. It's very quick to get applications running on Heroku
+1. Apps can be deployed on the web for free
 
-You may ask why use Heroku instead of AWS or Azure, well Heroku is much faster to deploy to and get running with minimal setup.  
+You may ask why use Heroku instead of AWS or Azure. Heroku is much faster to deploy to and get running with minimal setup, but is still powerful enough to back [serious commercial products](https://www.heroku.com/customers). This puts it right in the sweet spot for us.
 
 ## Step 1 - Make a Heroku Account
-To be able to deploy an App on Heroku you first need an account go to https://signup.heroku.com and create an account. 
+To be able to deploy an App on Heroku you first need an account go to https://signup.heroku.com and create an account.
 
 ![Heroku Signup](images/heroku.png)
 
 
 ## Step 2 - Download Heroku Command Line Tools
 
-Then go to https://devcenter.heroku.com/articles/heroku-command-line and download and install the Heroku commandline tools.
+Then go to https://devcenter.heroku.com/articles/heroku-command-line and download and install the Heroku command line tools.
 
 After installing Heroku command line tool, go to your terminal and sign in to Heroku
 
 ```bash
  $ heroku login
+ Enter your Heroku credentials.
+ Email:  YOUR-EMAIL-HERE@SOMEWHERE.NET
+ Password (Typing will be hidden):  
+ Authentication successful.
 ```
 
-## Step 3 - Go to your Application folder
+You will stay logged in until you manually log out, even if you close the terminal or reboot.
 
-Then open a new terminal window and change directory (cd) into your Rails app.
+## Step 3 - Deploy to Heroku
+
+The next step is probably the hardest: choosing a name for your application. Because the name will be part of your app's URL, it needs to be unique. If you can't decide, leave the name blank and Heroku will generate one for you (you can change it later if needed).
+
+For this example, we're using the name `adies-app`.
 
 ```bash
-ada ~/ $cd path/to/my_rails_app
-```
-
-## Step 4 - Prepare Your App For Production
-
-While you are developing you can use the Sqlite3 database, which is fine for development and testing, but on a production server you will need to use the Postgres database on Heroku.  
-
-So open up the `Gemfile` in Atom or Sublime and look for this line:
-```ruby
-gem 'sqlite'
-```
-and change the line to only use Sqlite on development.  
-```ruby
-gem 'sqlite3', group: [:development, :test]
-```
-
-Then we just need to add gems for Postgres (pg) and Rails 12factor rails_12factor which is required by Heroku.
-```ruby
-gem 'pg', group: :production
-gem 'rails_12factor', group: :production
-```
-Now that the Gemfile is finished you will need to run bundle to update the apps dependencies.
-```bash
-ada ~/path/to/my_rails_app $ bin/bundle install --without production
-```
-Lastly you need to update the Gemfile in Git.
-```bash
-ada ~/path/to/my_rails_app $ git add Gemfile
-ada ~/path/to/my_rails_app $ git commit -m "Updated Gemfile for Heroku"
-```
-
-## Step 5 - Deploying to Heroku
-
-To deploy to Heroku you will first need to login.  In terminal enter:
-```bash
-ada ~/path/to/my_rails_app $ heroku login
-Enter your Heroku credentials.
-Email:  YOUR-EMAIL-HERE@SOMEWHERE.NET
-Password (Typing will be hidden):  
-Authentication successful.
-```
-
-Then we need to create and give a name to our application on Heroku. 
-The name you choose will be in the url for you hosted application, ex: http:/adies-app.herokuapp.com
-```bash
-ada ~/path/to/my_rails_app $ heroku create adies-app
+~ $ cd path/to/my_rails_app
+~/path/to/my_rails_app $ heroku create adies-app
 Creating adies-app... done, stack is ceder
-http:/adies-app.herokuapp.com/ | git@he...
+http://adies-app.herokuapp.com/ | git@he...
 Git remote heroku added
 ```
 
-**Pay very close attention**:  The link in terminal provided is a link to your app.  In this example it's http:/adies-app.herokuapp.com  You can also see your apps listed in https://dashboard.heroku.com/apps.  
+The output contains the link for your app. In this case, it's `http://adies-app.herokuapp.com/`. You can also open the page in your browser using the `heroku open` command.
 
 Now everything is ready to deploy your app.  You can use git push to push the current state of the master branch to Heroku:
 
 ```bash
-ada ~/path/to/my_rails_app $ git push 
+~/path/to/my_rails_app $ git push heroku
 Initializing repository, done.
 ...
 ```
@@ -108,11 +74,16 @@ Initializing repository, done.
 Lastly you need to create the database tables your app needs to run.
 
 ```bash
-ada ~/path/to/my_rails_app $ heroku run rake db:migrate
+~/path/to/my_rails_app $ heroku run rails db:migrate
 running `rake db:migrate` attached to terminal... up, run.1833
 ...
 ```
 
-If you make more changes in your application remember to commit the changes to the master branch in Git and push the master branch to Heroku and run the db:migrate task again.  
+## Things to Remember
+
+- If you make changes to your application, you'll have to `git push heroku` again.
+  - If you change your database schema, you'll also have to `heroku run rails db:migrate`.
+- By default, Heroku will use whatever's on your master branch. If you want to push the contents of a different branch, use `git push heroku <branch_name>:master`.
+- Heroku requires you to use postgresql as your database. Fortunately, we've already set up rails to use that as the default for new applications.
 
 Now go check out your app!
