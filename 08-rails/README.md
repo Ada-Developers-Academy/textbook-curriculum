@@ -12,7 +12,8 @@
 1. [View Helpers](./common-view-helpers.md)  
 1. [Active Record Migrations](./active-record-migrations.md)  
 1. [Active Record Models](./active-record-models.md)  
-1. [Rails Forms](./rails-forms.md)
+1. [Rails Forms](./rails-forms.md)  
+1. [View Partials](./partial-views.md)  
 
 ## Part 2
 1. [Active Record Relationships](./active-record-relationships.md)  
@@ -20,7 +21,6 @@
 1. [Routes with Resources](./routes-and-resources.md)  
 1. [Rails Debugging](./rails-debugging.md)  
 1. [Active Record Validations](./active-record-validations.md)  
-1. [View Partials](./partial-views.md)  
 
 ## Part 3
 1. [Unit Testing Models](./unit-testing-models.md)  
