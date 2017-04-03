@@ -57,7 +57,7 @@ In _agile development_, the _stories_ that haven't been started are collected in
 
 At any point, if progress is impeded or superceded, a _story_ can be moved back to _on deck_ or even the _backlog_.
 
-We're going to practice the style of project management by using an online system called [Trello](trello.com) to document and manage _stories_.
+We're going to practice the style of project management by using an online system called [Trello](http://www.trello.com) to document and manage _stories_.
 
 ## Further Reading
 - [User Stories](http://en.wikipedia.org/wiki/User_story)
