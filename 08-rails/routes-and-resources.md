@@ -23,7 +23,7 @@ That general rule is that routes go from most to least specific for any given re
 ## REST
 Representational state transfer (REST) is an architectural style. This is a recommendation for the structure and style in which a resource (typically represented by a Model) can be represented and managed through a web server.
 
-The core of this idea can be described through routing. For example, let's look at how to represent a `Market` resource:
+The core of this idea can be described through routing. For example, let's look at how to represent a `Book` resource:
 
 | PATH         | METHOD | DESCRIPTION                                                                                    | Path Helper Name | 
 |--------------|--------|------------------------------------------------------------------------------------------------|------------------| 
