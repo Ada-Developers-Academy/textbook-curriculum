@@ -7,15 +7,15 @@
 Rails routes are matched in the order they are specified. This can present a problem when a wildcard is used.
 
 ```ruby
-get "/products/:id", to: "products#show"
-get "/products/new", to: "products#new"
+get "/books/:id", to: "books#show"
+get "/books/new", to: "books#new"
 ```
 
-When Rails receives a request to `products/new` in this example, it will match the first route. Both of the routes above match `/products/new`! Rails doesn't know what `:id` means; it's not looking for an integer. It's looking for anything--including the word `new`--that matches the route. `products/new` in this case will route to the `ProductController#show` action. For the desired routes reorder the declarations:
+When Rails receives a request to `books/new` in this example, it will match the first route. Both of the routes above match `/books/new`! Rails doesn't know what `:id` means; it's not looking for an integer. It's looking for anything--including the word `new`--that matches the route. `books/new` in this case will route to the `BooksController#show` action. For the desired routes reorder the declarations:
 
 ```ruby
-get "/products/new", to: "products#new"
-get "/products/:id", to: "products#show"
+get "/books/new", to: "books#new"
+get "/books/:id", to: "books#show"
 ```
 
 That general rule is that routes go from most to least specific for any given resource.
@@ -27,26 +27,26 @@ The core of this idea can be described through routing. For example, let's look 
 
 | PATH         | METHOD | DESCRIPTION                                                                                    | Path Helper Name | 
 |--------------|--------|------------------------------------------------------------------------------------------------|------------------| 
-| /markets     | GET    | Retrieves a collection of market objects                                                       | markets_path     | 
-| /markets     | POST   | Creates a market object on the server.                                                         | markets_path     | 
-| /markets/:id | GET    | Retrieves an individual market object through an identifying attribute, given in the url path. | market_path(:id) | 
-| /markets/:id | PATCH  | Updates an individual market object through an identifying attribute, given in the url path.   | market_path(:id) | 
-| /markets/:id | PUT    | Updates an individual market object through an identifying attribute, given in the url path.   | market_path(:id) | 
-| /markets/:id | DELETE | Removes an individual market object through an identifying attribute, given in the url path.   | market_path(:id) | 
+| /books     | GET    | Retrieves a collection of book objects.                                                       | books_path     | 
+| /books     | POST   | Creates a book object on the server.                                                         | books_path     | 
+| /books/:id | GET    | Retrieves an individual book object through an identifying attribute, given in the url path. | book_path(:id) | 
+| /books/:id | PATCH  | Updates an individual book object through an identifying attribute, given in the url path.   | book_path(:id) | 
+| /books/:id | PUT    | Updates an individual book object through an identifying attribute, given in the url path.   | book_path(:id) | 
+| /books/:id | DELETE | Removes an individual book object through an identifying attribute, given in the url path.   | book_path(:id) | 
 
-You can see that many actions can be performed on a market object using only two paths.
+You can see that many actions can be performed on a book object using only two paths.
 The paths represent the scope of the objects to operate on and the HTTP method indicates what type of action should be performed.
 
 ## Named Routes for REST
 Since the standard RESTful resource only requires two paths, all five actions can be represented by just the two named routes.
 
-The conventional route names for this RESTful resource would be `markets_path` and `market_path`. We use the plural version when referring to a _collection_ of Market objects (`index` action), and the singular version when referring to an _instance_ or _specific_ Market (`show`, `edit`, etc).
+The conventional route names for this RESTful resource would be `books_path` and `book_path`. We use the plural version when referring to a _collection_ of Book objects (`index` action), and the singular version when referring to an _instance_ or _specific_ Book (`show`, `edit`, etc).
 
 Here's an example:
 
 ```erb
-<% @markets.each do |market| %>
-  <%= link_to "Market Details", market_path(market) %>
+<% @books.each do |book| %>
+  <%= link_to "Book Details", book_path(book) %>
 <% end %>
 ```
 
@@ -55,7 +55,7 @@ Rails has several _route helpers_ available. The most commons is the `resources`
 
 ```ruby
 Rails.application.routes.draw do
-  resources :albums
+  resources :books
 end
 ```
 
@@ -63,14 +63,14 @@ This is equivalent to:
 
 ```ruby
 Rails.application.routes.draw do
-  get    "/albums"          , to: "albums#index",   as: :albums
-  post   "/albums"          , to: "albums#create"
-  get    "/albums/:id"      , to: "albums#show",    as: :album
-  patch  "/albums/:id"      , to: "albums#update"
-  put    "/albums/:id"      , to: "albums#update"
-  delete "/albums/:id"      , to: "albums#destroy"
-  get    "/albums/new"      , to: "albums#new",     as: :new_album
-  get    "/albums/:id/edit" , to: "albums#edit",    as: :edit_album
+  get    "/books"          , to: "books#index",   as: :book
+  post   "/books"          , to: "books#create"
+  get    "/books/:id"      , to: "books#show",    as: :book
+  patch  "/books/:id"      , to: "books#update"
+  put    "/books/:id"      , to: "books#update"
+  delete "/books/:id"      , to: "books#destroy"
+  get    "/books/new"      , to: "books#new",     as: :new_book
+  get    "/books/:id/edit" , to: "books#edit",    as: :edit_book
 end
 ```
 
@@ -82,10 +82,10 @@ To account for this, the `resources` route helper accepts options to limit the r
 ```ruby
 Rails.application.routes.draw do
   # only generate the specified routes
-  resources :albums, only: [:index, :show]
+  resources :books, only: [:index, :show]
 
   # generates every RESTful route _except_ for POST (create) and DELETE (destroy)
-  resources :artists, except: [:create, :destroy]
+  resources :authors, except: [:create, :destroy]
 end
 ```
 ## Resources
