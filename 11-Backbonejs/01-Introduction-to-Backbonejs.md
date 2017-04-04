@@ -14,8 +14,8 @@ Pure JavaScript & jQuery can quickly become unstructured and messy.  It's very e
 Backbone provides structure to your application by breaking things into our now familiar MVC framework, separating concerns and allowing your app to communicate with the server with a RESTful set of API calls.  
 
 So in short Backbone:
--  Enforces structure to make your code more maintainable and readable.
--  Enforces good practices in how your JavaScript interacts with external resources.
+-  Enforces structure to make your code more maintainable and readable
+-  Enforces good practices in how your JavaScript interacts with external resources
 
 ### Aside: Libraries and Frameworks
 The benefits of Backbone should look somewhat familiar - they're some of the same reasons we learned Rails rather than writing a custom web server in pure Ruby. However, there's a major philosophical difference between Backbone and Rails, down to the very core of their designs: Backbone is a library, while Rails is a framework.
@@ -40,7 +40,7 @@ There are a lot of opinions about which is better, and oftentimes even opinions 
 
 ## Single Page Applications
 
-Backbone is typically used to create *Single Page Applications*.  In a Single Page Application the page is loaded in a single page load.  From that point on any data needed is loaded dynamically using Ajax without needing to reload the page.  
+Backbone is typically used to create *Single Page Applications*.  In a Single Page Application the entire page is only loaded once.  From that point on any data needed is loaded dynamically using Ajax without needing to reload the entire page.  
 
 A good example of a Single Page Application is Gmail.  In Gmail new e-mails are loaded dynamically and when you send e-mail the page sends the information to the server without reloading the page.  This is an example of an asynchronous application.
 
@@ -50,23 +50,23 @@ Backbone implements the familiar MVC architecture that we learned in Rails in a 
 
 ### Backbone has 5 Components
 1. **Models**: Similar to Rails models, these include the application data and business logic. Models can:
-	- Organize data and business logic.
-	- Load and save data from and to the server.
-	- Emit events when data changes.
+	- Organize data and business logic
+	- Load and save data from and to the server
+	- Emit events when data changes
 1. **Collections**: These are ordered sets of models
 1. **Views**: These render models and collections, and listen for DOM/Model events. Backbone views are really closer to Rails controllers, which has been confusing everyone for years.
-1. **Events**: Events are a module that can be mixed in to any object, giving the object the ability to bind and trigger custom named events.
+1. **Events**: Events are a module, taken from underscore, which can be mixed in to any object, giving the object the ability to bind and trigger custom named events.
 1. **Routers**: Routers let you add paths to the URL so that you can maintain history and allow users to jump to a specific state in your single-page-application.
 
 ![Backbone JS Architecture from http://www.slideshare.net/ronreiter/writing-html5-web-apps-using-backbonejs-and-gae](images/backbonejs-architecture.jpg)
 
 ## Live Code: Task List
-As we learn about Backbone, we'll be using a running example: a task list, similar to the one we built at the beginning of Rails. The difference is, this task list will be a Single Page Application. You can find the initial setup [on GitHub](https://github.com/Ada-C6/backbone-live-code). The initial setup lives on the branch `master`, and the final result that we're working toward lives on `live-code-sequence`.
+As we learn about Backbone, we'll be using a running example: a task list, similar to the one we built at the beginning of Rails. The difference is, this task list will be a Single Page Application. You can find the initial setup [on GitHub](https://github.com/Ada-C7/backbone-live-code). The initial setup lives on the branch `master`, and the final result that we're working toward lives on `live-code-sequence`.
 
 The live code setup is a little more complex than what we've done in the past with JavaScript. Instead of directing your browser straight to a file, we'll run a simple webserver, kind of like what we did with Rails. To get started, run the following in the command line:
 
 ```bash
-$ git clone https://github.com/Ada-C6/backbone-live-code.git
+$ git clone https://github.com/Ada-C7/backbone-live-code.git
 $ cd backbone-live-code
 $ npm install
 $ npm start
