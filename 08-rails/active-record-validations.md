@@ -11,7 +11,7 @@ Rails gives us a nice way to validate data before we try to put it into the data
 To prevent harmful side effects. A common example is a system trying to send an email to something that isn't an email address. Validating user input--and providing users an opportunity to correct invalid input--increases the reliability and quality of our applications and data.
 
 ## Using Active Record Validations
-Using an example from out Book application, if our application depends on each book having a title, we will want to _validate_ that a title is provided.
+Using an example from our Book application, if our application depends on each book having a title, we will want to _validate_ that a title is provided.
 
 In an Active Record model we can use the `validates` method to describe what valid data looks like. The `validates` method takes two arguments. First is the field name to
 validate (`:title`). The second is a hash describing how we want to validate it (`presence: true`)
