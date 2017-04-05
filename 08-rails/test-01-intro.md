@@ -9,7 +9,7 @@ By the end of this lesson, students should be able to...
 
 ## Testing in Rails
 
-As we've learned previously, the only way to know your code works is to test it. So far this has meant manual testing: whenever you make a change, you run through all the pages in your app and make sure nothing broke. However, as our Rails apps continue to grow this will quickly become untenable. We need some way to automate testing.
+As we've learned previously, the only way to know your code works is to test it. So far in Rails this has meant manual testing: whenever you make a change, you run through all the pages in your app and make sure nothing broke. However, as our Rails apps continue to grow this will quickly become untenable. We need some way to automate testing.
 
 Fortunately Ruby on Rails was built from the ground up with testing in mind. By default, it uses the Minitest framework for testing, which means we should feel right at home.
 
@@ -19,7 +19,7 @@ In the project root is a `test/` directory that houses all of our tests. Inside 
 
 ![Test folder](images/test_folder.png "Rails Test Folder")
 
-All those kinds of files serve different roles in the Rails infrastructure, so each has its own testing needs.
+Each of these files serves a different role in the Rails infrastructure, so each has its own testing needs.
 
 When we use `rails generate` commands to create files, we usually get some empty test files too. For example, `rails generate model Book` will generate both `app/models/book.rb` and `test/models/book_test.rb`.
 
@@ -59,10 +59,10 @@ Because controller actions tend to do a lot of work and rely on many other compo
 
 Questions you'll want to ask with your controller tests include:
 
-- Can I send a GET request for the books index?
+- Can I successfully send a GET request for the books index?
 - What happens when I try to show a book that doesn't exist?
 - When I POST a new book, is that book actually added to the database?
-- What happens when I POST a book with invalid attributes?
+- What happens when I POST a book with invalid parameters?
 
 Rails has a set of custom assertions to aid you in asking these questions. We'll learn all about those when we study controller testing later this week.
 
