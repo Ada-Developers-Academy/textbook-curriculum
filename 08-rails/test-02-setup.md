@@ -82,4 +82,16 @@ What is a _template_? For now, just think of it as a way to add some more comple
 
 That's it, you should now be good to go. From now on, every time you type `rails new` Rails will set your project up for spec-style testing. You shouldn't need to repeat these instructions until the next time you buy a computer.
 
-To verify things worked as expected,
+### Trust But Verify
+
+To verify things worked as expected, create a new rails project. You should see a few things:
+
+- At the end of the output from `rails new`, you should see something like
+    ```
+    generate  minitest:install
+    Running via Spring preloader in process 51275
+    force  test/test_helper.rb
+    insert  test/test_helper.rb
+    ```
+- Our two testing gems, `minitest-rails` and `minitest-reporters`, should be included in the `Gemfile`
+- Code matching what's above should have been inserted into `config/application.rb` and `test/test_helper.rb`
