@@ -120,3 +120,8 @@ To verify things worked as expected, create a new rails project. You should see 
     ```
 - Our two testing gems, `minitest-rails` and `minitest-reporters`, should be included in the `Gemfile`
 - Code matching what's above should have been inserted into `config/application.rb` and `test/test_helper.rb`
+
+## Additional Resources
+
+- [Sitepoint on Rails application templates](https://www.sitepoint.com/rails-application-templates-real-world/)
+- [Rails guide on generators and templates](http://guides.rubyonrails.org/generators.html)
