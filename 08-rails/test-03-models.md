@@ -7,32 +7,6 @@
 - Get some basic strategies for where to start with testing
 - Acknowledge that _fixtures_ are equal parts cool and weird.
 
-## A DSL in every pot
-Like every-damn-thing else in Rails, testing is baked right in and there's a really-friendly-but-kinda-weird DSL sitting on top of it. The good news is that it's all Minitest, the same testing framework we've used in past projects.
-
-### Finding the Tests
-So when we use `rails generate` commands to create files, we usually get some empty test files too. Right in the project root is a `test/` directory that houses all of our tests. Inside `test/`, tests are further organized into directories based on what kind of file they're testing. There's a directory for models, controllers, views, mailers, and helpers.
-
-![Test folder](images/test_folder.png "Rails Test Folder")
-
-All those kinds of files serve different roles in the Rails infrastructure, so each has its own testing needs. We'll start with models because they're the most like the things we've tested before.
-
-### Running the Tests
-
-Now with **Rails 5** we can run the tests with any of the following commands:
-
-
-| Command                                | Result                             |
-|----------------------------------------|------------------------------------|
-| rails test                             | Runs all Tests                     |
-| rails test test/models                 | Runs tests in tests/models         |
-| rails test test/jobs                   | Runs tests in tests/jobs           |
-| rails test test/jobs test/models       | Runs tests in both                 |
-| rails test test/models/user_test.rb:14 | Run test in that file on that line |
-
-
-Note that earlier versions of Rails used rake for testing.
-
 ## Testing Active Record Models
 Figuring out what to test can be really confusing. You'll develop a sense of what needs tested as you gain experience and exposure, but we can at least set you up with guidelines:
 
