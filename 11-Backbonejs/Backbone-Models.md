@@ -12,10 +12,9 @@ By the end of this lesson you should be able to:
 - Explain why `get()` and `set()` should be used on a Backbone Model
 
 ## What is a Backbone Model
-So far, all our views have been built around raw data. This works fine when the data is simple and static, but will start to become very messy as the things we do with our data get more complex.
+Backbone Models are much like Rails Models.  They keep track of your data and help in saving and loading information to and from your back end.
 
-This is where Backbone models come in. Models in Backbone fill the same role they do in Rails: keeping track of your data. Things you can do with a model in Backbone include:
-
+Things you can do with a model in Backbone include:
 - Setting default values for new data
 - Validating changes to the data
 - Reading data from and writing it to an API
@@ -23,7 +22,7 @@ This is where Backbone models come in. Models in Backbone fill the same role the
 - Keeping track of a collection of data
 - Triggering events when the data changes
 
-Organizing all this functionality ourselves would be a giant pain in the butt, so let's add a model to our task list!
+Organizing all this functionality ourselves would be a giant pain in the butt, so let's create a model for our Todo items!
 
 ## Adding Models
 In this first section, we will create a model to represent a single task. We will add this model to our application without adding any new functionality. Later we'll take advantage of the model to add some new features that would be much more difficult without it.
@@ -35,20 +34,182 @@ The first thing we need to do is create the model itself. Just like with views, 
 // src/app/models/task.js
 import Backbone from 'backbone';
 
+var Task = Backbone.Model.extend({ });
+
+export default Task;
+```
+
+So now in our `src/app.js` file we can add.
+
+```javascript
+// src/app.js
+import $ from 'jquery';
+import _ from 'underscore';
+
+import Task from 'app/models/task';
+
+var my_task = new Task({
+  title: "Create a model",
+  completed: true
+});
+
+console.log(my_task.get("title") +  " is completed: " + my_task.get("completed"));
+```
+
+What did this get us?  We now have a new type of object, which extends Backbone.Model and can store information, in this case `title` and `completed`.  Then just to test it we created one instance of `Task` and logged it to the console.  
+
+That's... great, but lets get something output to the webpage.
+
+### Creating An Underscore Template
+
+Lets use our fabulous underscore library to create a template to render, or draw our task item.  
+
+```html
+<!-- build/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  <script id="taskItemTemplate" type="text/template">
+    <h1><strong>Title:</strong> <%= title %></h1>
+    <h3><strong>Completed:</strong> <%= completed %></h3>
+  </script>
+
+  <script src="/app.bundle.js" charset="utf-8"></script>
+</body>
+</html>
+
+```
+
+Note inside the `body` element is an underscore template.  Next we'll use the template to add content.  
+
+To use the jQuery template first we select the template text using jQuery.  Next we use the `_.template` method to get a template object by passing it the text of the template block.  The `<%= %>` handles tell underscore to insert a value in from the parameters passed to the object when it's called.  Lastly we append the compiled template to the contents of the body using the fields in `my_task`.  
+
+```javascript
+// src/app.js
+import $ from 'jquery';
+import _ from 'underscore';
+
+import Task from 'app/models/task';
+
+var my_task = new Task({
+  title: "Create a model",
+  completed: true
+});
+  // Select the template using jQuery
+var template_text = $('#taskItemTemplate').html()
+  // Get an underscore template object
+var template = _.template(template_text);
+  // 
+$('body').append(template(my_task.toJSON()));
+```
+
+
+### Get & Set Methods
+
+We created our task with two fields, `title` and `completed`.  We can access these fields with the `get` method.
+
+For example:
+
+```javascript
+// src/app.js
+import $ from 'jquery';
+import _ from 'underscore';
+
+import Task from 'app/models/task';
+
+var my_task = new Task({
+  title: "Create a model",
+  completed: true
+});
+  // prints "Title:  Create a model"
+console.log("Title: " + my_task.get("title") );
+  // prints "Complete:  true"
+console.log("Complete: " + my_task.get("completed") );
+```
+
+The `set` method allows you to change the attributes of a Model by either passing it a key and value or by passing `set` a JSON object.
+
+```javascript
+import $ from 'jquery';
+import _ from 'underscore';
+
+import Task from 'app/models/task';
+
+var my_task = new Task({
+  title: "Create a model",
+  completed: true
+});
+my_task.set("title", "Test the `set` method.");
+  // prints "Title:  Test the `set` method."
+console.log("Title: " + my_task.get("title") );
+
+my_task.set({title: "Run a hash of object"
+  // prints "Title:  Create a model"
+console.log("Title: " + my_task.get("title") );
+  // prints "Complete:  true"
+console.log("Complete: " + my_task.get("completed") );
+```
+
+### Revisiting The Task Model
+
+We can edit the Task model by adding a hash of attributes to initialize.  For example below we can set default values for attributes:
+
+```javascript
+// src/app/models/task.js
+import Backbone from 'backbone';
+
 var Task = Backbone.Model.extend({
   defaults: {
-    title: "Unknown Task",
-    description: "placeholder description"
-  },
-  initialize: function() {
-    console.log("Created new task with title " + this.title);
+    title: '',
+    completed: false
   }
 });
 
 export default Task;
 ```
 
-I may have lied when I said we weren't going to add any new functionality. We've provided two properties in our call to `extends()`, both of which get us something new.
+Then any tasks created like `var my_other_task = new Task({title: "Study JavaScript" });` will automatically have a field named `completed` set to false.  
+
+### Validation
+
+Backbone models have a validate attribute which is a function called to check the attribute values for a model prior to setting them with `set` or saving them back to an API.  
+
+```javascript
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 The first property is an object called `defaults`, which sets default values for our model's attribute. When a new model is created, any attributes that aren't provided will be filled in from here. The `defaults` object is not required, nor are you required to provide a default for every attribute.
 
