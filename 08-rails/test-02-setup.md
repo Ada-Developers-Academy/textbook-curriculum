@@ -1,6 +1,6 @@
 # Rails Testing Setup
 
-
+This resource is purely logistical, getting you set up to use spec-style testing in all your new Rails projects.
 
 ## Procedure
 Unfortunately Minitest is set up to do assert-style testing by default.  
@@ -62,17 +62,24 @@ Minitest::Reporters.use!(
 )
 ```
 
+## Making Spec-style Testing the Default
 
-Now with **Rails 5** we can run the tests with any of the following commands:
+As of right now, you'll have to follow all the above steps for every new rails project you make. Sounds like an easy way to forget something. Fortunately, Rails allows you to make all this stuff happen by default, every time you say `rails new`.
 
+Remember the `~/.railsrc` file? Previously we added a line to make postgres the default database for all new Rails projects.
 
-| Command                                | Result                             |
-|----------------------------------------|------------------------------------|
-| rails test                             | Runs all Tests                     |
-| rails test test/models                 | Runs tests in tests/models         |
-| rails test test/jobs                   | Runs tests in tests/jobs           |
-| rails test test/jobs test/models       | Runs tests in both                 |
-| rails test test/models/user_test.rb:14 | Run test in that file on that line |
+We're going to do something similar now. The big difference is that making Rails use spec-style testing is a lot more complex than just changing the default database. We'll use a combination of the `.railsrc` file and a new piece of rails called a _template_.
 
+What is a _template_? For now, just think of it as a way to add some more complex defaults to Rails. Rails templates are a rabbit hole we could spend a whole bunch of time exploring, but instead we're just going to supply one for you.
 
-Just note that earlier versions of Rails used rake for testing.
+### Instructions
+
+1. Download [this template file](https://gist.github.com/droberts-ada/26a3bff1510b0b45fa5dd764a833483c), and save it as `~/.rails-template.rb`
+1. Run the following command in your terminal
+    ```bash
+    echo "-m ~/.rails-template.rb" >> ~/.railsrc
+    ```
+
+That's it, you should now be good to go. From now on, every time you type `rails new` Rails will set your project up for spec-style testing. You shouldn't need to repeat these instructions until the next time you buy a computer.
+
+To verify things worked as expected,

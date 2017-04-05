@@ -15,7 +15,23 @@ So when we use `rails generate` commands to create files, we usually get some em
 
 ![Test folder](images/test_folder.png "Rails Test Folder")
 
-All those kinds of files serve different roles in the Rails infrastructure, so each has its own testing needs. We're gonna start with models because they're the most like the things we've tested before.
+All those kinds of files serve different roles in the Rails infrastructure, so each has its own testing needs. We'll start with models because they're the most like the things we've tested before.
+
+### Running the Tests
+
+Now with **Rails 5** we can run the tests with any of the following commands:
+
+
+| Command                                | Result                             |
+|----------------------------------------|------------------------------------|
+| rails test                             | Runs all Tests                     |
+| rails test test/models                 | Runs tests in tests/models         |
+| rails test test/jobs                   | Runs tests in tests/jobs           |
+| rails test test/jobs test/models       | Runs tests in both                 |
+| rails test test/models/user_test.rb:14 | Run test in that file on that line |
+
+
+Note that earlier versions of Rails used rake for testing.
 
 ## Testing Active Record Models
 Figuring out what to test can be really confusing. You'll develop a sense of what needs tested as you gain experience and exposure, but we can at least set you up with guidelines:
