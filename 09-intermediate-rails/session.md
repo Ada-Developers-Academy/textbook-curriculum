@@ -42,13 +42,15 @@ Now let's test it out to see if this will be displayed somewhere on our book lis
 
 As with all variables that we set in our controller actions, the way we get this data to display to our users is to put it in a view! Since we can use `flash` in many different contexts, we will add this to our `application.html.erb` view so that any controller action will be able to use this in the future (though you can add this to any view you'd like).
 
-```html
+```erb
 # app/views/layouts/application.html.erb
 ...
 <body>
-  <% flash.each do |name, message| %>
-    <div class="<%= name %>"><%= message %></div>
-  <% end %>
+  <section class="flash">
+    <% flash.each do |name, message| %>
+      <div class="<%= name %>"><%= message %></div>
+    <% end %>
+  </section>
 
   <%= yield %>
 </body>
@@ -58,7 +60,7 @@ This view code will also dynamically add a `class` to the message `div` so that 
 
 Now let's see what we end up with!
 
-## `flash.now`
+### `flash.now`
 
 The above example works because right after we set the `flash` value in the controller, we are doing a `redirect_to`. If we want to use a `flash` but with a `render` instead of a `redirect_to` then we need to use `flash.now` instead. The different usage is solely based on what comes next. `flash.now` will only stick around going to a `render` and `flash` will stick around going to a `redirect`.
 
@@ -112,6 +114,16 @@ We will utilize `flash` and `flash.now` to provide additional feedback to our us
 
 We will utilize `session` to keep track of logged in user information.
 
+### Table of Rails Hash-like Objects
+
+| Name        | Data Comes From                    | Available |
+|:------------|:-----------------------------------|:----------|
+| `flash`     | This or the last controller action | The rest of this request cycle and the next complete request cycle |
+| `flash.now` | This controller action. Adds to the `flash` from the last cycle, but will not be carried over to the next one. | The rest of this request cycle (in `flash`) |
+| `session`   | Some controller action             | Until the user closes the broswer |
+| `params`    | The request (URL or body)          | The corresponding request cycle   |
+
 
 ## Additional Resources
-[Sessions, Cookies and Authentication ](http://www.theodinproject.com/courses/ruby-on-rails/lessons/sessions-cookies-and-authentication)(not including 'Rolling Your Own Auth')  
+- [Sessions, Cookies and Authentication ](http://www.theodinproject.com/courses/ruby-on-rails/lessons/sessions-cookies-and-authentication)(not including 'Rolling Your Own Auth')
+- [Rails Guide on Session](http://guides.rubyonrails.org/action_controller_overview.html#session)
