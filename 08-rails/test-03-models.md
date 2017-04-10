@@ -108,7 +108,7 @@ describe Book do
     it 'is invalid without a name' do
       book = Book.new
       result = book.valid?
-      result.must_be false
+      result.must_equal false
 
       book.errors.messages.must_include :title
     end
