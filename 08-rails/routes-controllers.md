@@ -51,7 +51,7 @@ Let's break down this code:
 A `routes.rb` file which lists all the CRUD operations would look like this:
 
 ```ruby
-# config/routes.rbbooks
+# config/routes.rb
 Rails.application.routes.draw do
 
   root "books#index"
@@ -65,8 +65,7 @@ Rails.application.routes.draw do
   get "/books", to: "books#index"
   get "/books/:id", to: "books#show", as: "book"
 
-
-  delete "/books/:id", to: "books#destroy", as: "delete_bookbooks"
+  delete "/books/:id", to: "books#destroy", as: "delete_books"
 end
 ```
 
