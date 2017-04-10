@@ -26,6 +26,7 @@ For example, a Book's price should never be negative, so test instances where it
 Let's say our model looks like this:
 
 ```ruby
+# app/models/book.rb
 class Book < ActiveRecord::Base
   belongs_to :author
   validates :title, presence: true, uniqueness: true
@@ -43,6 +44,7 @@ Then there's the `belongs_to` relationship. We should test that too, if only to 
 If you generated this model after switching to spec-style testing, it should look something like this:
 
 ```ruby
+# test/models/book_test.rb
 require "test_helper"
 
 describe Book do
@@ -61,6 +63,7 @@ If you have something about `class`es and `ActiveSupport::TestCase` instead, jus
 Let's look at validations first, particularly the `presence` validation. We can follow the pattern shown in the generated file to write our first test.
 
 ```ruby
+# test/models/book_test.rb
 require 'test_helper'
 
 describe Book do
@@ -74,7 +77,7 @@ describe Book do
 end
 ```
 
-To see it in action, run `rails test` from the project root.
+To see it in action, run `rails test test/models` from the project root.
 
 **Question:** Is the test above a _positive_ or _negative_ test? What would the other test look like?
 
@@ -97,6 +100,7 @@ An ActiveRecord model might have many different validations, and if any one of t
 **Question:** Once validations have been run on a model, how can you find out what caused them to fail? How can we use this to make our test more precise?
 
 ```ruby
+# test/models/book_test.rb
 require 'test_helper'
 
 describe Book do
@@ -118,6 +122,56 @@ Take a few minutes and write a test for the `uniqueness` validation on the `Book
 - What positive, negative and edge cases might be interesting?
 - How will this test be similar to the `presence` validation?
 - How will this test differ from the `presence` validation?
+
+### Testing Relations
+
+We've thoroughly covered our model validations, and can now be reasonably certain there's no way invalid models can make their way into our database. There's a second bit of functionality on the `Book` model that we still haven't covered though: it's relation to `Author`.
+
+How should we think about these tests? First, think of what we can say about a `Book` and it's relation to `Author`.
+
+- `Book` has a `author_id` column
+- `Book` has a method named `author`, which will find the `Author` corresponding to `author_id`
+- Setting either `author_id` or `author` will change the other accordingly
+
+The tests, then, might look like the following:
+
+```ruby
+# test/models/book_test.rb
+require 'test_helper'
+
+describe Book do
+  describe 'relations' do
+    it 'can set the author through "author"' do
+      # Create two models
+      author = Author.create!(name: "test author")
+      book = Book.new(title: "test book")
+
+      # Make the models relate to one another
+      book.author = author
+
+      # author_id should have changed accordingly
+      book.author_id.must_equal author.id
+    end
+
+    it 'can set the author through "author_id"' do
+      # Create two models
+      author = Author.create!(name: "test author")
+      book = Book.new(title: "test book")
+
+      # Make the models relate to one another
+      book.author_id = author.id
+
+      # author should have changed accordingly
+      book.author.must_equal author
+    end
+  end
+end
+```
+
+Note that we use `create!` to build our Author, but `new` to build our book. We're not testing Author here, so it makes sense to throw an exception (and invalidate the test) if it can't be created.
+
+In this test, we're just checking the basic functionality of the `author_id` and `author` fields. There's not a whole lot of complex behavior, we just want to make sure we've spelled everything right.
+
 
 ## Running tests
 [The Rails Guide on testing](http://guides.rubyonrails.org/testing.html#the-rails-test-runner) has a specific section for how to run tests that's definitely worth reading. The short version is that from the project root, we can run all of our tests with `rails test`. If you want to run just the model tests, run `rails test test/models`. The output will probably look pretty familiar by now:
