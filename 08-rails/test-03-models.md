@@ -173,11 +173,14 @@ Note that we use `create!` to build our Author, but `new` to build our book. We'
 In this test, we're just checking the basic functionality of the `author_id` and `author` fields. There's not a whole lot of complex behavior, we just want to make sure we've spelled everything right.
 
 ## What We Accomplished
+- Thought about which parts of an ActiveRecord model are testable
+- Remembered how to use minitest-spec
+- Wrote tests for model validations
+- Wrote tests for model relations
 
 ## Additional Resources
+- [Ruby on Rails Guide - Model Testing](http://guides.rubyonrails.org/testing.html#model-testing)
 - [Minitest Quick Reference](http://www.mattsears.com/articles/2011/12/10/minitest-quick-reference/)
 - [Minitest Expectations](http://ruby-doc.org/stdlib-trunk/libdoc/minitest/spec/rdoc/MiniTest/Expectations.html)
-- [Adding Color to Minitest Output](http://chriskottom.com/blog/2014/06/dress-up-your-minitest-output/)
-- [Ruby on Rails Guide - Model Testing](http://guides.rubyonrails.org/testing.html#model-testing)
--  [Minitest Rails Spec Documentation](http://blowmage.com/minitest-rails/)]
+- [Minitest Rails Spec Documentation](http://blowmage.com/minitest-rails/)]
 - [Minitest Model Testing for Beginners](http://buildingrails.com/a/rails_unit_testing_with_minitest_for_beginners)
