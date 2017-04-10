@@ -95,7 +95,7 @@ We can use anything for a path name.  We could for example use:  `get "/books/:i
 
 It's also important to note that the Router selects the first route that matches the request.  So if you swapped `get "/books/new", to: "books#new", as: "new_book"` with `get "/books/:id", to: "books#show", as: "book"` then when a GET request came in for `/books/new` the router would match it to the `books#show` action because the `:id` placeholder can match any value, not just an ID number.  
 
-Because of this it's important to list your routes from most specific to least specific 
+Because of this it's important to list your routes from most specific to least specific.
 
 ![Rails Request Cycle](images/rails-request-cycle.jpg)
 
