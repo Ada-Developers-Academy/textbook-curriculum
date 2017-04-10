@@ -1,6 +1,5 @@
 # Unit Testing Models
 ## Learning Goals
-- Get your rails app setup to do testing with minitest-spec
 - Write some unit tests using the Rails testing DSL
 - Be comforted knowing it's Minitest under the hood, and we know how to Minitest
 - Talk about how to test Active Record models
@@ -8,45 +7,46 @@
 - Acknowledge that _fixtures_ are equal parts cool and weird.
 
 ## Testing Active Record Models
-Figuring out what to test can be really confusing. You'll develop a sense of what needs tested as you gain experience and exposure, but we can at least set you up with guidelines:
 
-- Write at least one test for each _validation_ on a model
+### What Should You Test?
+
+Figuring out what to test is a bit of an art. You'll develop a sense of what needs tested as you gain experience and exposure, but we can at least set you up with guidelines:
+
 - Write at least one test for each _custom method_ on a model
 - Write at least one test for each _model relationship_ on a model
-- Write at least one test for each _scope_ on a model (we'll talk about scopes next week)
+- Write at least two tests for each _validation_ on a model
+- Write at least two tests for each _scope_ on a model (we'll talk about scopes next week)
 
-We say _at least one_ test because it often makes sense to test different combinations of information. For example, with _validations_ we like to write a test that verifies what kind of data is valid and a separate test that provides an example of invalid data. We write both a _positive_ and _negative_ test case.  Look to test edge-cases and boundaries between when a model becomes valid and invalid.  For example you should test normal looking data for validity, but also test instances with the minimal number of fields.  For example an Album must have a title and must be linked to an artist, but all other fields are optional.  So test an instance with only an artist and title as well as normal amounts of data.  An Album price should never be negative, so test instances where it's positive, negative and zero.  
+Why at least two tests for a validation? Because validations have two possible behaviors: success and failure! To truly exercise the validation, you need both _positive_ and _negative_ test cases, as well as cases that walk the line between the two.
 
-### Constructing Test Cases
+For example, a Book's price should never be negative, so test instances where it's positive, negative and zero.  
+
+### The Model
+
 Let's say our model looks like this:
 
 ```ruby
-class Album < ActiveRecord::Base
-  belongs_to :artist
+class Book < ActiveRecord::Base
+  belongs_to :author
   validates :title, presence: true, uniqueness: true
 end
 ```
 
-Just in this small bit of code, we see three or four things to test. First are the validations. Writing a _positive_ and _negative_ test case for each validation is four or so tests. Then there's the `belongs_to` relationship. We should test that too. It gets a positive test--an associated `Artist` is defined--and a negative test--it should still be able to save/retrieve/etc. even if an `Artist` isn't associated. If we go over to `test/models`, we should find an `album_test.rb` file.
+Just in this small bit of code, we see three or four things to test. First are the validations. Writing a _positive_ and _negative_ test case for each validation is four or so tests.
 
-It was created for us when we generated the model. If the models were created prior to setting up Minitest Spec, it'll look like this:
+Then there's the `belongs_to` relationship. We should test that too, if only to make sure we've spelled everything right! We need to make sure that if an `author_id` is set on a book, we can access `book.author`.
 
-```ruby
-require 'test_helper'
+#### Generated Test Code
 
-class AlbumTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-end
-```
-Otherwise it new models will generate with spec style tests like this:
+**Question:** When we generated our `Book` model, Rails generated some tests as well. Where do they live?
+
+If you generated this model after switching to spec-style testing, it should look something like this:
 
 ```ruby
 require "test_helper"
 
-describe Album do
-  let(:album) { Album.new }
+describe Book do
+  let(:book) { Book.new }
 
   it "must be valid" do
     value(album).must_be :valid?
@@ -54,46 +54,70 @@ describe Album do
 end
 ```
 
-`ActiveSupport::TestCase` is the DSL Rails put on top of Minitest. We can follow the pattern shown in the comment to write our first test. The `it` method takes two parameters. The first is the test name/description, and the second is a block where we'll define our _expectations_.
+If you have something about `class`es and `ActiveSupport::TestCase` instead, just replace it with the above code.
+
+### Testing The `presence` Validation
+
+Let's look at validations first, particularly the `presence` validation. We can follow the pattern shown in the generated file to write our first test.
 
 ```ruby
 require 'test_helper'
 
-describe Album do
-  let (:empty_album) {Album.new}
-
-  it "An album title can't be blank" do
-    empty_album.wont_be :valid?
-    empty_album.errors.keys.must_include :title, "Title is not in the errors hash"
+describe Book do
+  describe 'validations' do
+    it 'is invalid without a name' do
+      book = Book.new
+      result = book.valid?
+      result.must_be false
+    end
   end
 end
 ```
 
-Otherwise Rails will generate spec style tests like below.  We can replace the assert-style tests by deleting the original file and regenerating the model, or by replacing the text with describe & it blocks.
+To see it in action, run `rails test` from the project root.
 
-```ruby
-require "test_helper"
+**Question:** Is the test above a _positive_ or _negative_ test? What would the other test look like?
 
-describe Album do
-  let(:album) { Album.new }
-
-  it "must be valid" do
-    value(album).must_be :valid?
-  end
-end
-```
-
-There's a couple things to note in the above example. First and foremost is that we are invoking our model directly with `Album.new`. This test file has scope to the full application due to how things are structured in the `test_helper` and parent class.
+There's a couple things to note in the above example. First and foremost is that we are invoking our model directly with `Book.new`, and then calling `.valid?` on the created instance.
 
 Also check our _expectations_. They look like Minitest _expectations_ because they are. [There's a bunch of available _expectations_](http://ruby-doc.org/stdlib-trunk/libdoc/minitest/spec/rdoc/MiniTest/Expectations.html), but I get most of my testing done with just a small set:
 
-- must\_be(expression, fail_message)
-- wont\_be(expression, fail_message)
-- must\_equal(expr1, expr2, fail_message)
-- must\_include(collection, object, fail_message)
-- wont\_be\_nil(expression, fail_message)
+- `must_be(expression, fail_message)`
+- `wont_be(expression, fail_message)`
+- `must_equal(expr1, expr2, fail_message)`
+- `must_include(collection, object, fail_message)`
+- `wont_be_nil(expression, fail_message)`
 
-__Question: Is the test above a _positive_ or _negative_ test? What would the other test look like?__
+The last thing to note is the use of a nested `describe` block. While not strictly necessary, this is a very useful organizational tool, especially when test files start to get very large.
+
+#### Checking Which Validation Failed
+
+An ActiveRecord model might have many different validations, and if any one of them fails then the whole model is considered invalid. Some completely different validation could be making this test pass, even if our validation isn't doing what we think.
+
+**Question:** Once validations have been run on a model, how can you find out what caused them to fail? How can we use this to make our test more precise?
+
+```ruby
+require 'test_helper'
+
+describe Book do
+  describe 'validations' do
+    it 'is invalid without a name' do
+      book = Book.new
+      result = book.valid?
+      result.must_be false
+
+      book.errors.messages.must_include :title
+    end
+  end
+end
+```
+
+### Exercise: Testing the `uniqueness` Validation
+
+Take a few minutes and write a test for the `uniqueness` validation on the `Book` model. Questions to consider:
+- What positive, negative and edge cases might be interesting?
+- How will this test be similar to the `presence` validation?
+- How will this test differ from the `presence` validation?
 
 ## Running tests
 [The Rails Guide on testing](http://guides.rubyonrails.org/testing.html#the-rails-test-runner) has a specific section for how to run tests that's definitely worth reading. The short version is that from the project root, we can run all of our tests with `rails test`. If you want to run just the model tests, run `rails test test/models`. The output will probably look pretty familiar by now:
