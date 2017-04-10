@@ -45,6 +45,57 @@ Let's break down this code:
   - **request method**: `get` in this example
   - **path**: what will be matched with the URL in the HTTP request, `"/books"` in this example
   - **controller and action**: defining the controller and action, split by the `#`. `"books#index"` in this case this would point to the `index` method in the `BooksController` class.
+  
+### Naming Routes 
+
+A `routes.rb` file which lists all the CRUD operations would look like this:
+
+```ruby
+# config/routes.rbbooks
+Rails.application.routes.draw do
+
+  root "books#index"
+
+  get "/books/new", to: "books#new", as: "new_book"
+  post "/books", to: "books#create"
+
+  get '/books/:id/edit', to: 'books#edit', as: "edit_book"
+  patch '/books/:id', to: 'books#update'
+
+  get "/books", to: "books#index"
+  get "/books/:id", to: "books#show", as: "book"
+
+
+  delete "/books/:id", to: "books#destroy", as: "delete_bookbooks"
+end
+```
+
+You may be saying, "Wait what's that 'as: \<STUFF>' part?"  This allows us to name a path.  It's very helpful to give each path for a resource, like books, a name.  The name can then be used later in your code to link actions together without having to give a hardcoded path like `'/books/new'` each time.  That way if we change a path, we only have to edit the `routes.rb` file instead of each instance in our code where we use the route.  You can think of it like a constant variable referencing each path.  So `edit_book` is the name of the `/books/:id/edit` path.  
+
+You will see how these named paths are used when we delve into views.
+
+You can always view the routes in your application by typing `rails routes` in the terminal.  Given the `routes.rb` file above, typing `rails routes` will result in the following:
+
+```bash
+$ rails routes
+        Prefix Verb   URI Pattern               Controller#Action
+          root GET    /                         books#index
+      new_book GET    /books/new(.:format)      books#new
+         books POST   /books(.:format)          books#create
+     edit_book GET    /books/:id/edit(.:format) books#edit
+               PATCH    /books/:id(.:format)    books#update
+               GET    /books(.:format)          books#index
+          book GET    /books/:id(.:format)      books#show
+   delete_book DELETE /books/:id(.:format)      books#destroy
+```
+
+Notice that the name of each route is listed in the `Prefix` column.  Using the `rails routes` command allows you to quickly verify your routes and check the `routes.rb` file for errors.  
+
+### Order Matters
+
+It's also important to note that the Router selects the first route that matches the request.  So if you swapped `get "/books/new", to: "books#new", as: "new_book"` with `get "/books/:id", to: "books#show", as: "book"` then when a GET request came in for `/books/new` the router would match it to the `books#show` action because the `:id` placeholder can match any value, not just an ID number.  
+
+Because of this it's important to list your routes from most specific to least specific 
 
 ![Rails Request Cycle](images/rails-request-cycle.jpg)
 
