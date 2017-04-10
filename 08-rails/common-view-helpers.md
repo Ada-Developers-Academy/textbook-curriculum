@@ -45,6 +45,49 @@ The above `image_tag` will give you this HTML:
 ```html
 <img src="/assets/cat.jpg" alt="The cutest cat in the whole world.">
 ```
+
+## Using Named Routes
+
+Above we used hard-coded paths like "/profile" in our helpers.  We can also use methods like `link_to` with named routes from our `config/routes.rb` file.  
+
+For example:
+
+```erb
+<%= link_to "All Books", books_path %>
+```
+
+Can function as a link to the `books#index` action.  Rails automatically provides a helper for each named path.  The name of each helper is the name of the path with `_path` on the end.
+
+So for a `routes.rb` file like:
+
+```ruby
+# config/routes.rbbooks
+Rails.application.routes.draw do
+
+  root "books#index"
+
+  get "/books/new", to: "books#new", as: "new_book"
+  post "/books", to: "books#create"
+
+  get '/books/:id/edit', to: 'books#edit', as: "edit_book"
+  patch '/books/:id', to: 'books#update'
+
+  get "/books", to: "books#index"
+  get "/books/:id", to: "books#show", as: "book"
+
+  delete "/books/:id", to: "books#destroy", as: "delete_book"
+end
+```
+
+Will result in the following paths:  
+-  `books_path`
+-  `new_book_path`
+-  `edit_book_path`
+-  `book_path`
+-  `delete_book_path`
+
+
+
 ## Helpful Links
 - [An overview of helpers](http://guides.rubyonrails.org/action_view_overview.html#overview-of-helpers-provided-by-action-view)
 - [Complete documentation on view helpers](http://api.rubyonrails.org/classes/ActionView/Helpers.html)
