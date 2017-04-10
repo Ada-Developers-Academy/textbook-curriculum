@@ -1,10 +1,10 @@
 # Unit Testing Models
+
 ## Learning Goals
 - Write some unit tests using the Rails testing DSL
 - Be comforted knowing it's Minitest under the hood, and we know how to Minitest
 - Talk about how to test Active Record models
 - Get some basic strategies for where to start with testing
-- Acknowledge that _fixtures_ are equal parts cool and weird.
 
 ## Testing Active Record Models
 
@@ -171,6 +171,8 @@ end
 Note that we use `create!` to build our Author, but `new` to build our book. We're not testing Author here, so it makes sense to throw an exception (and invalidate the test) if it can't be created.
 
 In this test, we're just checking the basic functionality of the `author_id` and `author` fields. There's not a whole lot of complex behavior, we just want to make sure we've spelled everything right.
+
+In the next section, we'll examine a slightly more elegant way to test the same thing.
 
 ## What We Accomplished
 - Thought about which parts of an ActiveRecord model are testable
