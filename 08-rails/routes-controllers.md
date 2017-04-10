@@ -72,7 +72,7 @@ end
 
 You may be saying, "Wait what's that 'as: \<STUFF>' part?"  This allows us to name a path.  It's very helpful to give each path for a resource, like books, a name.  The name can then be used later in your code to link actions together without having to give a hardcoded path like `'/books/new'` each time.  That way if we change a path, we only have to edit the `routes.rb` file instead of each instance in our code where we use the route.  You can think of it like a constant variable referencing each path.  So `edit_book` is the name of the `/books/:id/edit` path.  
 
-You will see how these named paths are used when we delve into views.
+You will see how these named paths are used when we delve into view helpers.
 
 You can always view the routes in your application by typing `rails routes` in the terminal.  Given the `routes.rb` file above, typing `rails routes` will result in the following:
 
