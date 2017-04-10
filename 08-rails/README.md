@@ -26,4 +26,5 @@
 1. [Testing Introduction](./test-01-intro.md)
 1. [Rails Testing Setup](./test-02-setup.md)
 1. [Unit Testing Models](./test-03-models.md)  
-1. [Unit Testing Controllers](./test-04-controllers.md)
+1. [The Test Database](./test-04-the-test-database.md)
+1. [Unit Testing Controllers](./test-05-controllers.md)
