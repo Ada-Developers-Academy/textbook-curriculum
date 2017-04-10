@@ -51,7 +51,7 @@ describe Book do
   let(:book) { Book.new }
 
   it "must be valid" do
-    value(album).must_be :valid?
+    value(book).must_be :valid?
   end
 end
 ```
@@ -71,7 +71,7 @@ describe Book do
     it 'is invalid without a name' do
       book = Book.new
       result = book.valid?
-      result.must_be false
+      result.must_equal false
     end
   end
 end
