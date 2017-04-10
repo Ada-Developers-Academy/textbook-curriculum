@@ -86,6 +86,15 @@ Will result in the following paths:
 -  `book_path`
 -  `delete_book_path`
 
+### Paths with Parameters
+
+If a path includes a parameter you can use it with the helper.  
+
+```erb
+<%= link_to "Book #4", book_path(4) %>
+```
+
+The sample above would provide a link for a book with ID number 4.
 
 
 ## Helpful Links
