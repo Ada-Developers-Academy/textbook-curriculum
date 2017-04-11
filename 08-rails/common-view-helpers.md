@@ -96,6 +96,10 @@ If a path includes a parameter you can use it with the helper.
 
 The sample above would provide a link for a book with ID number 4.
 
+```html
+<a href="/book/4">Book #4</a>
+```
+
 
 ## Helpful Links
 - [An overview of helpers](http://guides.rubyonrails.org/action_view_overview.html#overview-of-helpers-provided-by-action-view)
