@@ -125,3 +125,4 @@ To verify things worked as expected, create a new rails project. You should see 
 
 - [Sitepoint on Rails application templates](https://www.sitepoint.com/rails-application-templates-real-world/)
 - [Rails guide on generators and templates](http://guides.rubyonrails.org/generators.html)
+- [Adding Color to Minitest Output](http://chriskottom.com/blog/2014/06/dress-up-your-minitest-output/)
