@@ -87,9 +87,29 @@ $ rails routes
 
 Notice that the name of each route is listed in the `Prefix` column.  Using the `rails routes` command allows you to quickly verify your routes and check the `routes.rb` file for errors.  
 
+
 ### Custom Path Names
 
 We can use anything for a path name.  We could for example use:  `get "/books/:id", to: "books#show", as: "banana"`, if we wanted to have a path named `banana`.  That would not be a good name for a path, but it would function.  Rails convention suggests we name such a path `book`, but nothing stops us from using another name.  
+
+So for example for:
+
+-  route:  `get "/books/:id", to: "books#show", as: "banana"`
+	-  Prefix: `banana` 
+	-  Path Helper: `banana_path`.  
+
+Below is a table with example routes, prefixes and paths.  
+
+|   Route	|   Prefix	|   Path Helper	|	Example  |
+|---	|---	|---	|---	|
+|   `get "/books/new", to: "books#new", as: "new_book"`	|   `new_book`	|   `new_book_path`	|	`<%= link_to "New book", new_book_path %>`
+|   `get "/books/:id/edit", to: "books#edit", as: "edit_book"`	|   `edit_book`	|   `edit_book_path`	|  `<%= button_to "Edit #{book.title}", edit_book_path(book.id) %>`	|
+|   `post "/books", to: "books#create"`	|   `books`	|   `books_path`	| `<%= form_for @book, action: books_path, method: :post %>`	|
+|   `get "/books", to: "books#index"`	|   `books`	|   `books_path`	| `<%= link_to "All Books", books_path %>`  |
+|	`get "/books/:id", to: "books#show", as: "book"` | 	`book`  |	`book_path`  |	`<%= link_to "View #{book.title}", book_path(book.id) %>`	|
+|	`patch "/books/:id", to: "books#update"` | 	`book`  |	`book_path`  |	`<%= form_for @book, action: book_path(@book.id), method: :patch %>`  |
+|	`delete "/books/:id", to: "books#destroy"` | 	`book`  |	`book_path`  |	`<%= link_to "Delete", book_path(book.id) %>`  |
+
 
 ### Order Matters
 
