@@ -11,7 +11,7 @@ Required: Go through what you've already learned:
 
 Optional: Find the reading material that helps you learn further from the links below:
 + Khan Academy on [Algorithms](https://www.khanacademy.org/computing/computer-science/algorithms)
-+ Khan Academy on [Divide and Conquer algorithms] (https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/divide-and-conquer-algorithms)
++ Khan Academy on [Divide and Conquer algorithms](https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/divide-and-conquer-algorithms)
 + Khan Academy on [Graphs](https://www.khanacademy.org/computing/computer-science/algorithms/graph-representation/a/describing-graphs)
 + Kal academy's material on [Graphs](https://drive.google.com/drive/folders/0BxHords9odw3ZVM2cTVUdUdoSkU)
 + Khan Academy on [Quick sort](https://www.khanacademy.org/computing/computer-science/algorithms/quick-sort/a/overview-of-quicksort)
