@@ -1,15 +1,27 @@
 # Introduction to Algorithms
-## Goal
-+ Introduction to Algorithms
-+ Introduction to Divide and Conquer algorithms
-+ Introduction to Greedy algorithms
+## Goals
+## In Class
+Divide and Conquer algorithms:
++ Merge sort
++ Binary Search Tree
+Greedy algorithms:
++ Greedy sort - updated to be selection sort
++ Merging sorted lists
++ Knapsack problem
++ Dijkstra's algorithm for shortest path
+
+## Offline
+Divide and Conquer algorithms:
++ Quick sort
++ Selection problem
++ Finding the median
 
 ## Offline Reading Material
 Required: Go through what you've already learned:
 + Revise classroom session on [Merge Sort](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/05-Mergesort.md)
 + Revise previous session on [Binary Search Trees](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/internship/Binary%20Search%20Trees.md)
 
-Optional: Find the reading material that helps you learn further from the links below:
+## Optional: Find the reading material that helps you learn further from the links below:
 + Khan Academy on [Algorithms](https://www.khanacademy.org/computing/computer-science/algorithms)
 + Khan Academy on [Divide and Conquer algorithms](https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/divide-and-conquer-algorithms)
 + Khan Academy on [Graphs](https://www.khanacademy.org/computing/computer-science/algorithms/graph-representation/a/describing-graphs)
@@ -20,6 +32,7 @@ Optional: Find the reading material that helps you learn further from the links 
 + Read about [Binary Heap Data Structure](http://quiz.geeksforgeeks.org/binary-heap/) on GeeksForGeeks
 + Book: [Fundamentals of Computer Algorithms by Ellis Horowitz, Sartaj Sahani](https://www.amazon.com/Fundamentals-Computer-Algorithms-software-engineering/dp/0914894226)
 + Book: [Fundamentals of Algorithmics by Gilles Brassard, Paul Bratley](https://www.amazon.com/Fundamentals-Algorithmics-Gilles-Brassard/dp/0133350681)
+
 
 ## Slide Deck
 + Slide Deck used in class</br>
