@@ -1,8 +1,8 @@
 #  Installing Foundation By Default
 
 ## Learning Goals
-- Practice modifying our `.rails-template.rb` file to add an additional gem and content.
 - Learn how to install and use the Foundation Framework via the gem.
+- Practice modifying our `.rails-template.rb` file to add an additional gem and content.
 
 ## Installing the Foundation Gem
 
