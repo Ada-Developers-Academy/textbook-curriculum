@@ -1,4 +1,4 @@
-# Session && OAuth
+# User Authentication and Authorization using OAuth
 ## Learning Goals
 - Discover what's really happening when we "Sign in with Facebook" (or any other 3rd party provider)
 - Understand the basic workflow of OAuth, and how it protects users
@@ -6,9 +6,12 @@
 - What is an environment variable?
 - How do we deal with needing to know data _across_ multiple HTTP requests?
 
-## Authentication with OmniAuth
-[OmniAuth](https://github.com/omniauth/omniauth) is a Ruby gem that standardizes the authentication process. It uses the [OAuth](https://oauth.net/) protocol for authenticating and authorizing users. **OAuth** is an open standard for authorization, commonly used as a way for users to log in websites using 3rd-party credentials (like Google, Facebook, Twitter, etc) without exposing their password.
+## Our Approach
+We are going to use a few new tools to accomplish our goal of user authentication and authorization. We are going to work with GitHub as our **provider** which means our users will log in via their GitHub credentials. We will use  [OmniAuth](https://github.com/omniauth/omniauth) which is a Ruby gem that standardizes the authentication process. It uses the [OAuth](https://oauth.net/) protocol for authenticating and authorizing users. **OAuth** is an open standard for authorization, commonly used as a way for users to log in websites using 3rd-party credentials (like Google, Facebook, Twitter, etc) without exposing their password.
 
+![OAuth Overview](./images/oauth-overview.png)
+
+## OmniAuth
 The **OmniAuth** gem provides pretty much everything you need to use OAuth to authenticate users. It starts by adding new routes to your application:
 
 - `/auth/:provider`
