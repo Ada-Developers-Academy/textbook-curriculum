@@ -199,7 +199,7 @@ it "should update a post" do
   put post_path(posts(:one).id), params: {post: {title: "Some title goes here", description: "la la la"} }
     
   # find the post with that ID in the database
-  post = Post(posts(:one).id)
+  post = Post.find(posts(:one).id)
 
 
      # verify the post was changed properly
