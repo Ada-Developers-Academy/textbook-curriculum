@@ -14,10 +14,6 @@ gem 'foundation-rails'
 
 And run `bundle install` from the terminal in your rails project.  
 
-```bash
-$  bundle install
-```
-
 
 Then in your terminal in the rails project folder run the command:
 
