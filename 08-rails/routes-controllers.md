@@ -55,7 +55,7 @@ A `routes.rb` file which lists all the CRUD operations would look like this:
 Rails.application.routes.draw do
 
   get "/books/new", to: "books#new", as: "new_book"
-  post "/books", to: "books#create"
+  post "/books", to: "books#create", as: "books"
 
   get '/books/:id/edit', to: 'books#edit', as: "edit_book"
   
