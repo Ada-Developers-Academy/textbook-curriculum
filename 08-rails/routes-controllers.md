@@ -121,7 +121,7 @@ Below is a table with example routes, prefixes and paths.
 |	`delete "/books/:id", to: "books#destroy"` | 	`book`  |	`book_path`  |	`<%= link_to "Delete", book_path(book.id) %>`  |
 
 
-Notice that the `delete` & `destroy` actions both use the `book_path`.  The path helpers are identical because the routes all include `/books/:id`.  
+Notice that the `update`, `show` & `destroy` actions both use the `book_path`.  The path helpers are identical because the routes all include `/books/:id`.  
 
 ### Order Matters
 
