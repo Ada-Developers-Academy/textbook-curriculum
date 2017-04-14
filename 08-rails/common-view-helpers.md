@@ -56,7 +56,9 @@ For example:
 <%= link_to "All Books", books_path %>
 ```
 
-Can function as a link to the `books#index` action.  Rails automatically provides a helper for each path.  The name of each helper is the name of the path with `_path` on the end.
+Can function as a link to the `books#index` action.  Rails automatically provides a helper for each path.  The name of each helper is the name of the path with `_path` on the end.  
+
+This is helpful because if we want to change the path we then only have to edit `config/routes.rb` once and the helper methods will then use the new path.
 
 So for a `routes.rb` file like:
 
