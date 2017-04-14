@@ -58,16 +58,18 @@ Rails.application.routes.draw do
   post "/books", to: "books#create"
 
   get '/books/:id/edit', to: 'books#edit', as: "edit_book"
+  
+  get "/books/:id", to: "books#show", as: "book"
+
   patch '/books/:id', to: 'books#update'
 
   get "/books", to: "books#index"
-  get "/books/:id", to: "books#show", as: "book"
 
-  delete "/books/:id", to: "books#destroy", as: "delete_books"
+  delete "/books/:id", to: "books#destroy"
 end
 ```
 
-You may be saying, "Wait what's that `as: <STUFF>` part?"  This allows us to name a path.  It's very helpful to give each path for a resource, like books, a name.  The name can then be used later in your code to link actions together without having to give a hardcoded path like `'/books/new'` each time.  That way if we change a path, we only have to edit the `routes.rb` file instead of each line in our code where we use the route.  You can think of it like a constant variable referencing each path.  So `edit_book` is the name of the `/books/:id/edit` path.  
+You may be saying, "Wait what's that `as: <STUFF>` part?"  This allows us to name a path.  It's very helpful to give each path for a resource, like books, a name.  The name can then be used later in your code to link actions together without having to give a hardcoded path like `'/books/new'` each time.  That way if we change a path, we only have to edit the `routes.rb` file instead of each line in our code where we use the route.  So `edit_book` is the name of the `/books/:id/edit` path.  
 
 You will see how these named paths are used when we delve into view helpers.
 
@@ -97,6 +99,14 @@ So for example for:
 -  route:  `get "/books/:id", to: "books#show", as: "banana"`
 	-  Prefix: `banana` 
 	-  Path Helper: `banana_path`.  
+	
+Additionally any route beyond the standard set of CRUD routes should be named descriptively.  
+
+For example a path to mark a book as read could be:
+
+```ruby
+patch '/user/:user_id/books/:id', to: 'books#mark_read', as: 'mark_read'
+```
 
 Below is a table with example routes, prefixes and paths.  
 
@@ -104,12 +114,14 @@ Below is a table with example routes, prefixes and paths.
 |---	|---	|---	|---	|
 |   `get "/books/new", to: "books#new", as: "new_book"`	|   `new_book`	|   `new_book_path`	|	`<%= link_to "New book", new_book_path %>`
 |   `get "/books/:id/edit", to: "books#edit", as: "edit_book"`	|   `edit_book`	|   `edit_book_path`	|  `<%= button_to "Edit #{book.title}", edit_book_path(book.id) %>`	|
-|   `post "/books", to: "books#create"`	|   `books`	|   `books_path`	| `<%= form_for @book, action: books_path, method: :post %>`	|
+|   `post "/books", to: "books#create"`, as: 'books'	|   `books`	|   `books_path`	| `<%= form_for @book, action: books_path, method: :post %>`	|
 |   `get "/books", to: "books#index"`	|   `books`	|   `books_path`	| `<%= link_to "All Books", books_path %>`  |
 |	`get "/books/:id", to: "books#show", as: "book"` | 	`book`  |	`book_path`  |	`<%= link_to "View #{book.title}", book_path(book.id) %>`	|
 |	`patch "/books/:id", to: "books#update"` | 	`book`  |	`book_path`  |	`<%= form_for @book, action: book_path(@book.id), method: :patch %>`  |
 |	`delete "/books/:id", to: "books#destroy"` | 	`book`  |	`book_path`  |	`<%= link_to "Delete", book_path(book.id) %>`  |
 
+
+Notice that the `delete` & `destroy` actions both use the `book_path`.  The path helpers are identical because the routes all include `/books/:id`.  
 
 ### Order Matters
 
