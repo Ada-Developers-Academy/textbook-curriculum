@@ -137,25 +137,6 @@ Remember to migrate the database: `$ rails db:migrate`.
 
 **Question**: What do we want our controller method to do upon successful or unsuccessful login?
 
-<!-- Next add some validations to the User model:
-
-```ruby
-# app/models/user.rb
-class User < ActiveRecord::Base
-  validates :email, :uid, :provider, presence: true
-
-  # def self.build_from_github(auth_hash)
-  #   user       = User.new
-  #   user.uid   = auth_hash[:uid]
-  #   user.provider = 'github'
-  #   user.name  = auth_hash['info']['name']
-  #   user.email = auth_hash['info']['email']
-  #
-  #   return user
-  # end
-end
-```-->
-
 ### Handling the Auth Callback
 Now everything is in place to initialize a User using the hash that is returned from the provider request:
 
@@ -169,29 +150,41 @@ class SessionsController < ApplicationController
     if auth_hash['uid']
       @user = User.find_by(uid: auth_hash[:uid], provider: 'github')
       if @user.nil?
+        # User doesn't match anything in the DB
+        # Attempt to create a new user
+      else
+        flash[:success] = "Logged in successfully"
+        redirect_to root_path
       end
     else
-      flash[:error] = ""
+      flash[:error] = "Could not log in"
       redirect_to root_path
     end
-    redirect_to login_failure_path unless auth_hash['uid']
-
-    @user = User.find_by(uid: auth_hash[:uid], provider: 'github')
-    if @user.nil?
-      # User doesn't match anything in the DB.
-      # Attempt to create a new user.
-      @user = User.build_from_github(auth_hash)
-      render :creation_failure unless @user.save
-    end
-
-    redirect_to sessions_path
   end
 end
 ```
 
+**Exercise**: Let's implement a new model method in our `User` model which will accept the `auth_hash` as a parameter and construct a new `User` and save it to the database using the info from the `auth_hash`.
+
 Now that we've successfully authenticated a user and built a database entry for them, what happens next? The login ought to be _persistent_ - that is, the user should be logged in as long as they are on the site, even if they move from page to page. Moreover, we don't want to embed the user ID in the URI, since then you could impersonate a user just by changing the address.
 
-#### The `session` Object
+<!--
+```ruby
+# app/models/user.rb
+class User < ActiveRecord::Base
+
+  def self.build_from_github(auth_hash)
+   user       = User.new
+   user.uid   = auth_hash[:uid]
+   user.provider = 'github'
+   user.name  = auth_hash['info']['name']
+   user.email = auth_hash['info']['email']
+     return user
+  end
+end
+```-->
+
+#### The `session`
 
 The most common use of `session` is to store the id of an authenticated user. From within a controller, we can get and set `session` keys using the familiar hash access syntax:
 
@@ -200,20 +193,24 @@ The most common use of `session` is to store the id of an authenticated user. Fr
 class SessionsController < ApplicationController
   def create
     auth_hash = request.env['omniauth.auth']
-    redirect to login_failure_path unless auth_hash['uid']
 
-    @user = User.find_by(uid: auth_hash[:uid], provider: 'github')
-    if @user.nil?
-      # User doesn't match anything in the DB.
-      # Attempt to create a new user.
-      @user = User.build_from_github(auth_hash)
-      render :creation_failure unless @user.save
+    if auth_hash['uid']
+      user = User.find_by(uid: auth_hash[:uid], provider: 'github')
+      if user.nil?
+        # User doesn't match anything in the DB
+        # Attempt to create a new user
+        user = User.build_from_github(auth_hash)
+      else
+        flash[:success] = "Logged in successfully"
+        redirect_to root_path
+      end
+
+      # If we get here, we have the user instance
+      session[:user_id] = user.id
+    else
+      flash[:error] = "Could not log in"
+      redirect_to root_path
     end
-
-    # Save the user ID in the session
-    session[:user_id] = @user.id
-
-    redirect_to sessions_path
   end
 
   def index
