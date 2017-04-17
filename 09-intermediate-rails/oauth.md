@@ -19,7 +19,7 @@ The **OmniAuth** gem provides pretty much everything you need to use OAuth to au
 
 In both of these examples `:provider` is a named parameter that will equal the name of the service we are using (`github`, in this example). These two routes are how to start and end the authentication interaction with the provider. Sending the user to `/auth/github`, will start the authentication process. When authentication is complete, GitHub will redirect the user to `/auth/github/callback`. It goes something like this:
 
-![OmniAuth Dance](./images/omniauth-dance.png)
+![OmniAuth Dance](./images/omniauth.png)
 
 ### Installing OmniAuth
 Enough with talking, lets implement this into a quick application. Head over to your sandbox Rails app and open your Gemfile. Add the following lines to it:
@@ -53,7 +53,7 @@ To use a `.env` file with Rails, you **must** do all of these steps to gain acce
 1. Install the gem using `bundle`
 1. Add the `.env` file to our `.gitignore`  
 
-    This will help prevent us from accidentally publishing it on GitHub. Open up `.gitignore` in the project root, and add these lines:
+    This will help prevent us from accidentally publishing it on GitHub.
 
 1. Create the `.env` file in the root directory with `$ touch .env`.
 
@@ -75,7 +75,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 end
 ```
 
-This tells Rails to use OmniAuth for authentication. Specifically, it tells Rails that it will be communicating with GitHub, and where it can find the application credentials that GitHub expects: in the `ENV` variable we populated earlier.
+This tells Rails to use OmniAuth for authentication. Specifically, it tells Rails that it will be communicating with GitHub, and where it can find the application credentials that GitHub expects: in the `ENV` variable we populated earlier. **Note** that any code added or updated in the initializers will require a rails server restart since this code is loaded when the server is started.
 
 ## Let's Test it Out
 
@@ -135,7 +135,7 @@ Remember to migrate the database: `$ rails db:migrate`.
 
 **Question**: What should we do if data is missing from our provider? What data is the most important for the database table we just created?
 
-**Question**: What do we want our controller method to do upon successfully or unsuccessful login?
+**Question**: What do we want our controller method to do upon successful or unsuccessful login?
 
 <!-- Next add some validations to the User model:
 
