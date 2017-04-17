@@ -64,12 +64,12 @@ gem_group :development do
   gem 'pry-rails'
 end
 
-### New gems that weren't in our default 
+### New gems that weren't in our default
 # For colored text in Rails console
 gem 'awesome_print'
 # For the Foundation CSS Framework
 gem 'foundation-rails'
-### New gems that weren't in our default 
+### New gems that weren't in our default
 
 
 # Add some extra minitest support
@@ -112,6 +112,26 @@ You can include motion-ui by adding the following to the bottom of the file, jus
 ## But I just want it to work!
 
 In that case you can replace the `.rails-template.rb` file with [this gist](https://gist.github.com/CheezItMan/381344fc4655ff22c28fe24ecaf01917).
+
+
+## Customize your site's styles
+While Foundation's default styling is already quite lovely, we probably don't want all of our sites to look the same. Fortunately our new Foundation gem makes it easy to customize your designs by being able to change fonts, sizing, colors, etc.
+
+- Open the file `app/assets/stylesheets/_settings.scss`
+
+
+The CSS in this file is using [Sass](http://sass-lang.com/). Sass is an extension of CSS, or a preprocessor,  that provides more advanced CSS functionality. The additional functionality includes using variables, nested rulesets, mixins, inheritance, math operations, if statements, while loops and so many other snazzy things! Read the [documentation](http://sass-lang.com/documentation/file.SASS_REFERENCE.html) or search for tutorials online to learn more.
+
+The functionality we will need to be aware of, for working in this file, are the variables. Anything starting with `$` is a variable that can be used throughout your CSS code. This makes is easier to set a font or color in one place and call it many times in your CSS. And if you ever decide to change it, you only need to change the value of the variable!
+
+
+**Note:** This is the _only_ Foundation file you should be making changes in.
+
+## Explore Foundation
+Now you are all set to utilize all that Foundation has to offer! Here are a few pages to get you started:
+- [Forms](http://foundation.zurb.com/sites/docs/forms.html)
+- [Navigation](http://foundation.zurb.com/sites/docs/navigation.html)
+- [Callout](http://foundation.zurb.com/sites/docs/callout.html) for your flash messages
 
 ## Resources
 - [Foundation Gem](https://github.com/zurb/foundation-rails)
