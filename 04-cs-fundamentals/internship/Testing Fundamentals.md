@@ -18,6 +18,7 @@
 + Wikipedia on [Security testing](https://en.wikipedia.org/wiki/Security_testing)
 + Software Testing Fundamentals on [Test planning](http://softwaretestingfundamentals.com/test-plan)
 + Wikipedia on [Code Coverage](https://en.wikipedia.org/wiki/Code_coverage)
++ Lee-Dohm on [Code Coverage](http://www.lee-dohm.com/2015/01/13/what-is-code-coverage-good-for/)
 
 ## Slide Deck
 + Slide Deck used in class</br>
