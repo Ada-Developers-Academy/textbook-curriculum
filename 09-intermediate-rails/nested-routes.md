@@ -83,6 +83,19 @@ create_table :books_genres do |t|
 end
 ```
 
+Then we establish the relationship on the affected model objects.
+```ruby
+# models/book.rb
+...
+has_and_belongs_to_many :genres
+```
+
+```ruby
+# models/genre.rb
+...
+has_and_belongs_to_many :books
+```
+
 ## Putting it together
 
 Now that we have established the relationship we are expecting and the route that will associate the two resources together, let's see how to get started on our controller implementation.
