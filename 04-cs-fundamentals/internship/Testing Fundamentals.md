@@ -7,7 +7,7 @@
 ## Optional: Find the reading material that helps you learn further from the links below:
 + TechTarget.com on [Unit Testing](http://searchsoftwarequality.techtarget.com/definition/unit-testing)
 + TechTarget.com on [Integration Testing](http://searchsoftwarequality.techtarget.com/definition/integration-testing)
-+ TutorialsPoint on [Software Testing Dictionary](http://www.tutorialspoint.com/software_testing_dictionary/)
++ TutorialsPoint on [End-to-end Testing](https://www.tutorialspoint.com/software_testing_dictionary/end_to_end_testing.htm)
 + Wikipedia on [Blackbox Testing](https://en.wikipedia.org/wiki/Black-box_testing)
 + Wikipedia on [Memory Leak](https://en.wikipedia.org/wiki/Memory_leak)
 + Wikipedia on [Access violation or Segmentation fault](https://en.wikipedia.org/wiki/Segmentation_fault)
