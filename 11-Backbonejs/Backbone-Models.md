@@ -151,7 +151,7 @@ my_task.set("title", "Test the `set` method.");
   // prints "Title:  Test the `set` method."
 console.log("Title: " + my_task.get("title") );
 
-my_task.set({title: "Run a hash of object"
+my_task.set({title: "Run a hash of object"});
   // prints "Title:  Create a model"
 console.log("Title: " + my_task.get("title") );
   // prints "Complete:  true"
