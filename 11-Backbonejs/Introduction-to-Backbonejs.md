@@ -95,6 +95,11 @@ Inside `build` are `index.html` and `styles`. `index.html` is the page that will
 
 The `src` folder is where we'll put our JavaScript. There are a few empty folders in here which we will use eventually, but to start everything will go in `app.js`.
 
+To hold our models, collections & views we will create the following folders:
+-  app/models
+-  app/collections
+-  app/views  
+
 Our Project structure will look like this, including hidden files:
 
 ![Backbone Project Directory structure](images/backbone-project.png)
