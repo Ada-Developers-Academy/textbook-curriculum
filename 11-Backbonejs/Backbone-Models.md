@@ -38,6 +38,8 @@ var Task = Backbone.Model.extend({ });
 export default Task;
 ```
 
+In the code segment above we created a new type of model, `Task` which extends or inherits from `Backbone.Model` and we exported the type for any file which imports `src/app/models/task.js`.  
+
 So now in our `src/app.js` file we can add.
 
 ```javascript
@@ -55,7 +57,11 @@ var my_task = new Task({
 console.log(my_task.get("title") +  " is completed: " + my_task.get("completed"));
 ```
 
-What did this get us?  We now have a new type of object, which extends Backbone.Model and can store information, in this case `title` and `completed`.  Then just to test it we created one instance of `Task` and logged it to the console.  
+What did this get us?  We now have a new `Task` type of object which can store information, in this case `title` and `completed`.  Then just to test it we created one instance of `Task` and logged it to the console.  
+
+We can check to see if it works by launching the site with `$  npm start` and viewing http://localhost:8081
+
+![console log for the code above](images/backbone-model1.png)
 
 That's... great, but lets get something output to the webpage.
 
