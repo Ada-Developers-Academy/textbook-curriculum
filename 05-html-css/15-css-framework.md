@@ -133,8 +133,9 @@ If you're working on a rails app, add the CSS file foundation.css to app/assets/
 In application.css (The pre-existing rails file), Link to foundation.css by adding this line to the top:
 
 ```css
-  @import url('foundation.css');
+  @import url('foundation');
 ```
+**note:** The import url should not include '.css' at the end of foundation. Doing so will cause foundation to not load in Heroku. 
 
 That's it!
 To focus on only working with making our sites responsive using the grid, we are going to not worry about the other files for now.

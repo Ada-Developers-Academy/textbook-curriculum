@@ -1,5 +1,5 @@
 
-# Setting Rails Apps Up On Heroku
+# Deploying a Rails App to Heroku
 
 ## Learning Goals
 Students should be able to...
