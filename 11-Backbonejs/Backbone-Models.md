@@ -9,7 +9,6 @@ By the end of this lesson you should be able to:
 - Instantiate your Backbone Model and assign attributes
 - Use some basic Backbone Model methods
 - Listen to Backbone Model events
-- Explain why `get()` and `set()` should be used on a Backbone Model
 
 ## What is a Backbone Model
 Backbone Models are much like Rails Models.  They keep track of your data and help in saving and loading information to and from your back end.
