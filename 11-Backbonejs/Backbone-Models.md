@@ -104,7 +104,7 @@ var my_task = new Task({
   completed: true
 });
   // Select the template using jQuery
-var template_text = $('#taskItemTemplate').html()
+var template_text = $('#taskItemTemplate').html();
   // Get an underscore template object
 var template = _.template(template_text);
   // 
