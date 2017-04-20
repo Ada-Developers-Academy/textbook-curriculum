@@ -114,7 +114,7 @@ def index
 end
 ```
 
-Since we are retrieving the books based off of the genre, the query now gets a bit more complex. Since we don't have a `genre_id` directly on the book table, we have to do a bit more work to ensure Active Record loads the Genre relationships before we can retrieve the books associated with that genre.
+Since we are retrieving the books based off of the genre, the query now gets a bit more complex. Since we don't have a `genre_id` directly on the book table, we have to look up the genre first and use that to find associated books.
 
 ```ruby
 # books_controller.rb
@@ -123,13 +123,16 @@ def index
   if params[:genre_id]
     # we are in the nested route
     # retrieve books based on the genre
-    @books = Book.includes(:genres).where(genres: { id: 1})
+    genre = Genre.find_by(id: params[:genre_id])
+    @books = genre.books
   else
     # we are in our 'regular' route
     @books = Book.all
   end
 end
 ```
+
+**Question:** What should our controller do if the user supplied a `genre_id` that doesn't match a genre?
 
 ## Additional Resources
 - [Ruby on Rails: Nested Routes](http://guides.rubyonrails.org/routing.html#nested-resources)
