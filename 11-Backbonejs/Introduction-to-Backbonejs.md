@@ -99,6 +99,8 @@ Our Project structure will look like this, including hidden files:
 
 ![Backbone Project Directory structure](images/backbone-project.png)
 
+Note the folders for our models, collections & views.
+
 
 ## Resources
 - [Underscore Documentation](http://underscorejs.org/)
