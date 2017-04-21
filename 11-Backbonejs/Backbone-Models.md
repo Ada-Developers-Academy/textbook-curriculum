@@ -176,7 +176,6 @@ $('body').append(template(my_task.toJSON()));
 You should have the task displayed on the browser now.  With your SeatSquad member, add a few more tasks to the display.  You can see one example [here:](https://gist.github.com/CheezItMan/33b342b9d47e345482ff2682b62938d0)
 
 
-
 ### Revisiting The Task Model
 
 We can edit the Task model by adding a hash of attributes to initialize.  For example below we can set default values for attributes:
@@ -195,7 +194,7 @@ var Task = Backbone.Model.extend({
 export default Task;
 ```
 
-Then any tasks created like `var my_other_task = new Task({title: "Study JavaScript" });` will automatically have a field named `completed` set to false.  This is also how you can add custom methods (including business logic) to your model. For example we've done a lot of printing the title & completion status of our Task to the console, a log_status method might be handy. 
+Then any tasks created like `var my_other_task = new Task({title: "Study JavaScript" });` will automatically have a field named `completed` set to false.  This is also how you can add custom methods (including business logic) to your model. For example we've done a lot of printing the title & completion status of our Task to the console, a logStatus method might be handy. 
 
 ```javascript
 // src/app/models/task.js
@@ -206,7 +205,7 @@ var Task = Backbone.Model.extend({
     title: '',
     completed: false
   },
-  log_status: function() {
+  logStatus: function() {
     console.log("Title: " + this.get("title"));
     console.log("Completed: " + this.get("completed"));
   }
@@ -215,10 +214,11 @@ var Task = Backbone.Model.extend({
 export default Task;
 ```
 
-Then in our `app.js` we can simply print out the status of our task with:  `my_task.log_status();`
+Then in our `app.js` we can simply print out the status of our task with:  `my_task.logStatus();`
 
 #### Check-in Point
 
+Add a `toggleComplete` method which marks a complete task to incomplete or an incomplete task to complete.  
 
 ## What Have We Accomplished
 - Create a basic Backbone model to represent a task
