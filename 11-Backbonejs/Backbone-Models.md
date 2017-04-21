@@ -171,9 +171,32 @@ var template = _.template(template_text);
 $('body').append(template(my_task.toJSON()));
 ```
 
+### $(document).ready
+
+We want to make sure that our code does not execute until the page is fully loaded.  We can ensure that by placing our code into an event handler called when the browser has the document ready (fully loaded).  So we 
+
+```javascript
+// src/app.js
+import $ from 'jquery';
+import _ from 'underscore';
+
+$(document).ready(function() {
+  var my_task = new Task({
+    title: "Create a model",
+    completed: true
+  });
+    // Select the template using jQuery
+  var template_text = $('#taskItemTemplate').html();
+    // Get an underscore template object
+  var template = _.template(template_text);
+    // 
+  $('body').append(template(my_task.toJSON()));
+}
+```
+
 #### Check-In Point 
 
-You should have the task displayed on the browser now.  With your SeatSquad member, add a few more tasks to the display.  You can see one example [here:](https://gist.github.com/CheezItMan/33b342b9d47e345482ff2682b62938d0)
+You should have the task displayed on the browser now.  With your SeatSquad member, first check and verify that you both have it working.  Then add a few more tasks to the display.  You can see one example [here:](https://gist.github.com/CheezItMan/33b342b9d47e345482ff2682b62938d0)
 
 
 ### Revisiting The Task Model
