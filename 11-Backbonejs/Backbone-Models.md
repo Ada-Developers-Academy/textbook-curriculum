@@ -218,7 +218,7 @@ Then in our `app.js` we can simply print out the status of our task with:  `my_t
 
 #### Check-in Point
 
-Add a `toggleComplete` method which marks a complete task to incomplete or an incomplete task to complete.  
+Add a `toggleComplete` method which marks a complete task to incomplete or an incomplete task to complete.  We'll try to use it later.
 
 ## What Have We Accomplished
 - Create a basic Backbone model to represent a task
