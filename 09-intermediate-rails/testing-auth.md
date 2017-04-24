@@ -1,8 +1,11 @@
 # Testing Authentication
 
 ## Learning Goals:
-- Set up your Rails app for testing
-- Determine what you should test
+- Better understand integration tests
+- Know how to simulate a multi-request browser session in your tests
+- Understand some useful tests for login and logout functionality
+- Know how to setup OmniAuth for testing
+- Understand what test mocking is
 
 #### Testing Authentication
 Unit tests should always mock objects not actively being tested. More so, tests shouldn't be dependent on external objects or network connections in order to run.
