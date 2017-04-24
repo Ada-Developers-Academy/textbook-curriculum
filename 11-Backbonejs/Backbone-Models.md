@@ -135,6 +135,10 @@ Lets use our fabulous underscore library to create a template to render, or draw
   <meta charset="utf-8">
 </head>
 <body>
+  <!-- Where the main content of our page will go -->
+  <main>
+  </main>
+  
   <script id="taskItemTemplate" type="text/template">
     <section class="todo">
       <h1><strong>Title:</strong> <%= title %></h1>
@@ -168,7 +172,7 @@ var template_text = $('#taskItemTemplate').html();
   // Get an underscore template object
 var template = _.template(template_text);
   // 
-$('body').append(template(my_task.toJSON()));
+$('main').append(template(my_task.toJSON()));
 ```
 
 ### $(document).ready
