@@ -64,9 +64,10 @@ var taskData = [ {
   completed: false
 }];
 
+var taskList = new TaskList(taskData);
+
 $(document).ready(function() {
-  $('main').innerHTML = "";
-  var taskList = new TaskList(taskData);
+  $('main').empty();
   // Select the template using jQuery
   var template_text = $('#taskItemTemplate').html();
   // Get an underscore template object
@@ -93,34 +94,162 @@ Another thing to notice is that we used the Collection's `.each` method to itera
    });
 ```
 
+#### Check-in 
 
+With your Seatsquad check and verify that you can both display the todo list using the Collection
 
+## Events
 
+Underscore provides an Event module that we can take advantage of.  With it we can configure functions to be called when a specific action occurs.  To start with we can set up a Event Handler to create new Tasks.  
 
+Add the following HTML below the `<main>` element.  
 
-
-
-
-
-
-#### Adding a Model to a Collection
-
-We can add a model to a Collection with the `.add` method.
-
-```Javascript
-taskList.add({title: "Brush Teeth", completed: false});
+```html
+  <section class="new-task">
+    <form>
+      <div>
+        <label for="title">Title:</label>
+        <input name="title" id="title">
+      </div>
+      <div>
+        <label for="completed">Completed:</label>
+        <input type="checkbox" id="completed" name="completed">
+      </div>
+      <div>
+        <button type="button" id="new-task">
+          New Task
+        </button>
+      </div>
+    </form>
+  </section>
 ```
 
+Then we can add the following, jQuery code to respond to the button's click event.
+
+```JavaScript
+  $('#new-task').on("click", function() {
+    if ( $('#title').val() !== "" ) {
+      var task = new Task({title: $('#title').val(), completed: $('#completed').val() === "on"  });
+
+      taskList.add(task);
+            
+      // Clear the form
+      $('#title').val("");
+      $('#completed').prop('checked', false);
+      
+      console.log(taskList);
+    }
+  });
+```
+
+This will add a new `Task` to `taskList`, and then clear the form, but it doesn't change what's drawn on the screen (just the output to the console)...  We can however by looking at the console output see that the Collection has indeed been changed:
+
+![console output](images/console-add-output.png)
+
+We can add an event handler to the Collection now to redraw the list every time the collection is updated.  
+
+```JavaScript
+  taskList.on("update", function() {
+    $('main').empty();
+    taskList.each(function(task) {
+      $('main').append(template(task.toJSON()));
+    });
+  });
+``` 
+Backbone Collections provide a number of built-in events we can add handlers for, these include `update`, `change`, `add`, `remove` and [more](http://backbonejs.org/#Events-catalog).
+
+If you notice this function looks a lot like the original loop that drew, aka *rendered*, our `taskList` on the screen originally.
+
+We can dry up our code slightly by manually *triggering* the event after we add the original list of items.
+
+```JavaScript
+// src/app.js
+...
+var taskList = new TaskList(taskData);
+
+$(document).ready(function() {
+  $('#new-task').on("click", function() {
+    if ( $('#title').val() !== "" ) {
+      var task = new Task({title: $('#title').val(), completed: $('#completed').val() === "on"  });
+
+      taskList.add(task);
+      $('#title').val("");
+      $('#completed').val("off");
+      console.log(taskList);
+    }
+  });
+
+  // Select the template using jQuery
+  var template_text = $('#taskItemTemplate').html();
+  // Get an underscore template object
+  var template = _.template(template_text);
+
+  taskList.on("update", function() {
+    $('main').empty();
+    taskList.each(function(task) {
+      $('main').append(template(task.toJSON()));
+    });
+  });
+  taskList.trigger("update");
+});
+```
+
+### Check-in
+
+Check and verify with your SeatSquad member that you can now add task items to your list.  
 
 
+## Deleting Models From a Collection
+
+Lets add a way to delete things from our list of tasks.  First we will need to add a button to delete the task.
+
+```html
+  <script id="taskItemTemplate" type="text/template">
+    <section class="task-item">
+      <h1><strong>Title:</strong> <%= title %></h1>
+      <h3><strong>Completed:</strong> <%= completed %></h3>
+      <button class="delete">Delete</button>
+    </section>
+  </script>
+```
+
+So we have a button for the user to press, however when the user presses a one of the buttons we need some way to distinguish which task to delete.  
+
+Luckily Backbone Collections assign a unique ID, called a `cid` for each instance of the model.  
+
+```JavaScript
+  taskList.on("update", function() {
+    $('main').empty();
+    taskList.each(function(task) {
+      $('main').append(template(task.toJSON()));
+      $('main section.task-item:last').find('button').click ({taskCid: task.cid}, function(params) {
+          taskList.remove(params.data.taskCid);
+      });
+    });
+  });
+  taskList.trigger("update");
+```
+
+### Toggling Tasks Complete/Incomplete
+
+Now with your SeatSquad, add an event handler to toggle a Task between complete and incomplete.  You will, unfortunately need to trigger the `update` event manually.  
+
+#### Verify 
+
+You can find a solution [here](https://gist.github.com/anonymous/209589fa3db6f3725801361f6eaa5555)
+
+## Looking Back
+
+If this seems... messy, it is.  That's why we will next go into Views, to provide a bit of structure to our code.  Views will provide a bit of structure to coordinate between our models and the HTML templates.  
 
 
 ## What Have We Accomplished?
 
 - Replace the array of Models in our `TaskListView` with a proper Backbone Collection
 - Listen to events on the Collection to know when to update our display
-- Add the ability to delete a task from our task list
+
 
 ## Additional Resources
 - [Backbone docs on Collections](http://backbonejs.org/#Collection)
 - [cdnjs on Collections](https://cdnjs.com/libraries/backbone.js/tutorials/what-is-a-collection)
+- [Backbone Built-in Events Catalog](http://backbonejs.org/#Events-catalog)

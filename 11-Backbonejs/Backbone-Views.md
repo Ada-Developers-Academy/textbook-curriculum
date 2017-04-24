@@ -121,12 +121,12 @@ import TaskView from 'app/views/task_view';
 
 
 var TaskListView = Backbone.View.extend({
-  el: $('body'),
   render: function() {
     var collection = this.model;
+    this.$el.find('main').empty();
+
     collection.each(function(task) {
       var taskView = new TaskView({model: task});
-
       this.$el.find('main').append(taskView.render().$el);
     }, this);
 
@@ -163,7 +163,7 @@ var taskData = [ {
 }];
 
 var taskList = new TaskList(taskData);
-var taskListView = new TaskListView({model: taskList});
+var taskListView = new TaskListView({model: taskList, el: $('body')});
 
 
 $(document).ready(function() {
@@ -173,58 +173,60 @@ $(document).ready(function() {
 
 ## Adding Event Handlers
 
+Now we need to add an event handler for adding a new Task.
 
+We can add the `events` object linking the `new-task` button to an event handler function.  
+
+```JavaScript
+  events: {
+    'click #new-task': 'newTask'
+  },
+  newTask: function() {
+
+    if (this.$el.find('#title').val() !== "") {
+      var task = new Task({title: this.$el.find('#title').val(), completed: this.$el.find('#completed').prop("checked")});
+      this.model.add(task);
+
+      this.$el.find('#title').val("");
+      this.$el.find('#completed').prop("checked", false);
+    }
+  }
+```
+
+In this we recreate the prior code into the `newTask` function.  We also can add another function `initialize`.  Backbone calls `initialize` when a new View is instantiated.  We can use the `listenTo` method to call `render` when the `model` is updated, i.e. when an entry is added to the Collection.
+
+```JavaScript
+  initialize: function() {
+    this.listenTo(this.model, "update", this.render);
+  },
+```
+
+## Deleting a Task
+
+Deleting a model is a bit more complicated, the delete buttons are in the `TaskView`, but the `Tasks` need to be removed from Collection in the `TaskListView`.  Luckily Backbone has a nifty method, `destroy`, that allows a Model to tell a Collection to remove it.
+
+```JavaScript
+  events: {
+    'click .toggle': 'toggle',
+    'click .delete': 'deleteHandler'
+  },
+  deleteHandler: function() {
+    this.model.destroy();
+  }
+```
+
+Then you can listen for the, `remove` event in `TaskListView`.  
+
+```JavaScript
+  initialize: function() {
+    this.listenTo(this.model, "update", this.render);
+    this.listenTo(this.model, "remove", this.render);
+  }
+```
 
 ## Optimizations
 
 What could we do to improve on this?  There are a few things we could change.  Noice we recreate all the `TaskView`s every time the `TaskListView` is rendered.  We could store them in an array to avoid recreating them.  
-
-### Adding a View
-Views are created calling `Backbone.View.extend()`. `extend()` is a Backbone thing, and it returns a constructor function we'll use to instantiate our views. If we were in Ruby we'd say we're making a class that inherits from `Backbone.View`. We'll see `extend()` many times in the coming weeks. The only argument to `extend()` is a JavaScript object containing all the extra things we want our view to have.
-
-Backbone can recognize many things in the argument to `extend`, but the two most important for a view are two functions: `initialize()` and `render()`. Let's see what that looks like.
-
-```javascript
-var TaskView = Backbone.View.extend({
-  initialize: function(options) {
-  },
-
-  render: function() {
-    // Enable chained calls
-    // This is important enough that we'll leave it in, but
-    // we wont talk about it until later.
-    return this;
-  }
-});
-```
-
-#### Initialize
-Let's start with `initialize()`. This function will be run once when the view is first created. Its job is to get everything ready to go. It takes one argument, `options`, which contains all the stuff the view was created with.
-
-Views are created with the familiar `new` keyword. It will look something like this:
-
-```javascript
-var card = new TaskView();
-```
-
-Right now our view isn't doing anything, so let's give it some data to keep track of. We'll create each view around one of the tasks in our list.
-
-```javascript
-var TaskView = Backbone.View.extend({
-  initialize: function(options) {
-    this.task = options.task;
-  },
-
-  render: function() {
-    // Enable chained calls
-    return this;
-  }
-});
-
-$(document).ready(function() {
-  var card = new TaskView({task: taskData[0]});
-});
-```
 
 ## What Did We Accomplish?
 - Create a basic Backbone view to display a task. It had one function:

@@ -140,7 +140,7 @@ Lets use our fabulous underscore library to create a template to render, or draw
   </main>
   
   <script id="taskItemTemplate" type="text/template">
-    <section class="todo">
+    <section class="task-item">
       <h1><strong>Title:</strong> <%= title %></h1>
       <h3><strong>Completed:</strong> <%= completed %></h3>
     </section>
