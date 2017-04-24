@@ -6,47 +6,100 @@ By the end of this lesson you should be able to:
 
 - Explain what Backbone views are and why they're useful
 - Create a view around some data
-- Render HTML using a view
-- Use underscore.js templates to simplify and DRY up rendering
+- Render HTML using a view & an Underscore Template
 
 ## What is a View?
 Backbone views are kind of middle-people in the Backbone world, filling a similar role to controllers in Rails. A view's job is to coordinate between the data and the DOM. When a DOM event happens, it's the controller's job to handle it and update the data as needed, and when the data changes it's the view's job to modify the DOM to match.
 
-### Initial Setup
-Take a look at `src/app.js` in the project directory. You should see some sample data that looks like this:
+We will first create two views, one for a single task item and a second for the collection of Tasks.  Then we will add event handling for the views.
 
-```javascript
-var taskData = [
-  {
-    title: 'Mow the lawn',
-    description: 'Must be finished before BBQ on Sat afternoon'
-  },
-  // ...
-];
-```
+## Creating A TaskView
 
-Just like before we knew about Backbone, in order to display our data we'll need somewhere in our page to put it. In `build/index.html`, replace the `<div>` with the following HTML:
+To start we create a file in `app/views/task_view.js`
 
-```html
-<main class="row" id="application">
-  <section class="small-12 columns">
-    <h1>Task List</h1>
-  </section>
+```JavaScript
+// src/app/views/task_view.js
 
-  <ul class="task-list small-12 large-6 columns end">
-  </ul>
-</main>
-```
-
-We'll render our tasks as `<li>`s in the `<ul>`.
-
-Finally, we need to include Backbone in our project. To do so, add the following line at the top of `app.js`:
-
-```javascript
 import Backbone from 'backbone';
+import _ from 'underscore';
+import $ from 'jquery';
+
+var TaskView = Backbone.View.extend({
+  render: function() {
+    // Select the template using jQuery
+    var template_text = $('#taskItemTemplate').html();
+    // Get an underscore template object
+    var template = _.template(template_text);
+
+    this.$el.html(template(this.model.toJSON()));
+    return this;
+  }
+});
+
+export default TaskView;
 ```
 
-For the moment, all our JavaScript will go in `src/app.js`. Later on we'll do some organizing, but not yet.
+Just like Models and Collections a view extends `Backbone.View`.  This model has 3 important properties, `el`, `model`, and `render`.
+-  `el` is an HTML DOM element that by default is an empty `div`.  We use `el` to insert our view into the page when it is rendered.  
+	- There is also a corresponding property `$el` which is a jQuery selection of `el`, and you can use jQuery functions on it.
+- `model` is the Backbone model which provides the data for the view.  The view's `model` can be a Backbone Model or Collection.  
+- `render` is a function called to draw (or redraw) the view.  By convention the render function always returns `this` so that it can be chained with other methods.
+
+## Adding our view to `app.js`
+
+We can then modify our application code to use our view by creating a new `TaskView` in our event handler.
+
+```JavaScript
+taskList.on("update", function() {
+    $('main').empty();
+    taskList.each(function(task) {
+      var taskView = new TaskView({
+        model: task
+      });
+      $('main').append(taskView.render().el);
+    });
+  });
+```
+
+In the code above we first cleared out the `main` element in the `html` and then for each Task model, created a new TaskView.  Then we rendered the View and appended the resulting element (`el`) to `main`.
+
+The view now renders, but the buttons no longer work.  Next we will introduce event handling in Views and get the Toggle button working.  
+
+## Event Handling
+
+We can add another element to our view to list the event handlers, `events`.  The `events` object matches events to functions.  In the example below the `events` object links the `click` event on any sub-element with the class of `toggle` to an event handler function called `toggle`.  
+
+
+```Javascript
+// src/app/views/task_view.js
+
+import Backbone from 'backbone';
+import _ from 'underscore';
+import $ from 'jquery';
+
+var TaskView = Backbone.View.extend({
+  render: function() {
+    // Select the template using jQuery
+    var template_text = $('#taskItemTemplate').html();
+    // Get an underscore template object
+    var template = _.template(template_text);
+
+    this.$el.html(template(this.model.toJSON()));
+    return this;
+  },
+  toggle: function() {
+    this.model.toggleComplete();
+    this.render();
+  },
+  events: {
+    'click .toggle': 'toggle'
+  }
+});
+
+export default TaskView;
+```
+
+
 
 ### Adding a View
 Views are created calling `Backbone.View.extend()`. `extend()` is a Backbone thing, and it returns a constructor function we'll use to instantiate our views. If we were in Ruby we'd say we're making a class that inherits from `Backbone.View`. We'll see `extend()` many times in the coming weeks. The only argument to `extend()` is a JavaScript object containing all the extra things we want our view to have.
