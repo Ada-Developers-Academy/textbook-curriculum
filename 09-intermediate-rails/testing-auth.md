@@ -31,8 +31,8 @@ Specifically, we need to write our integration tests _in the role of the **brows
 ### Plan of Action
 Here is how we are going to approach this problem:
 1. Set up our test suite to know we want to mock OmniAuth so we don't try to connect directly to GitHub
-1. Simulate the `auth_hash` for use in testing the login process in the `SessionsController`
-1. Simulate a logged-in user for use in testing other controllers which are dependent on a user being logged in
+1. Simulate a session which will set up the `auth_hash` for use in testing the login process in the `SessionsController`
+1. Simulate sessions for logged-in users and guest users to test other controller actions
 
 #### Test Setup
 Tests shouldn't be dependent on external objects or network connections in order to run. We know that when we implemented OAuth using the OmniAuth gem that we have introduced a dependency on Github.
@@ -81,7 +81,7 @@ describe SessionsController do
 end
 ```
 
-There is a lot of new syntax here, but the idea is that we are creating a new session specifically for this user. The `login` method will return this session to the caller (which will be our test) and then we can use this session to create our assertions like we've done in other controller tests.
+There is a lot of new syntax here, but the idea is that we are creating a new session specifically for this user. The `login` method will return this session to the caller (which will be our test) and then we can use this session variable to create our assertions like we've done in other controller tests.
 
 Then you can test your session controller like this:
 
@@ -91,12 +91,13 @@ Then you can test your session controller like this:
   it "can create/login a user" do
     user_session = login       # calling the method we just created
     user_session.must_redirect_to root_path
+    user_session.flash[:success].must_equal "Logged in successfully!"
   end
 ```
 
-The main difference you'll notice with this assertion is that we are now using the dot notation to call the `must_redirect_to`. This is because the login action is now tied to a specific user's session.
+The main difference you'll notice with this assertion is that we are now using the dot notation to call the `must_redirect_to` and retrieve the `flash`. This is because the login action is now tied to a specific user's session and the general request that we tied onto before is no longer available.
 
-We can extend this further to assert that upon initial login that this action will create a new user in the database.
+We can extend this further to assert that upon initial login, this action will create a new user in the database.
 ```ruby
 # sessions_controller_test.rb
 ...
@@ -104,6 +105,7 @@ We can extend this further to assert that upon initial login that this action wi
     proc {
       user_session = login       # calling the method we just created
       user_session.must_redirect_to root_path
+      user_session.flash[:success].must_equal "Logged in successfully!"
     }.must_change 'User.count', 1
   end
 ```
@@ -114,39 +116,87 @@ Another test we may want to add is an assertion that it will not create a new us
 ...
   it "doesn't create a new user on repeat login" do
     proc {
-      first_session = login
+      first_session = login   # throwaway variable
       second_session = login
       second_session.must_redirect_to root_path
-    }.wont_change 'User.count'
+    }.must_cange 'User.count', 1  # will increase by only one from the first login
   end
 ```
+
+**Question**: How might we extend our `login` method to allow us to specify our own data in the auth hash instead of just the default?
 
 #### Controller Tests
 
-Now that we've verified that our sessions controller works as expected, we want to take a look at our existing controllers that are expecting a logged-in user. We will reuse some of the code we wrote to test the sessions controller to ensure these controller actions are set up correctly.
+Now that we've verified that our sessions controller works as expected, we want to take a look at our existing controller tests. Right now, all of the tests we wrote prior to implementing the sessions controller are broken because we are not allowing those actions to happen until the user has logged in.
 
-For these controllers, we can add a `before` block within our
-
-You can test your other controllers which require a user to be logged in like this:
-
+Now we want to have two different sections (`describe` blocks) of tests: one for the logged-in user functionality and one for the guest user functionality.
 
 ```ruby
-  test "If a user is not logged in they cannot see their task." do
-    session[:user_id] = nil  # ensure no one is logged in
+# books_controller_test.rb
+...
+describe "Logged in user actions" do
+  # most of our existing tests go here since they
+  # assume a logged-in user
+end
 
-    get :show, id: tasks(:sample_task).id
-    # if they are not logged in they cannot see the resource and are redirected to login.  
-    assert_redirected session_path
-    assert_equal "You must be logged in first", flash[:notice]
+describe "Guest user actions" do
+  # we allow only the book index page for our guest users
+  # so we'll want to verify the redirect to root and message for these
+end
+```
+
+##### Logged In Users
+Let's start with the logged in user actions section. We want to simulate the session in the same way we did for our session tests using the `login` method, and use our existing assertions to ensure that the behavior is the same.
+
+```ruby
+# books_controller_test.rb
+...
+  describe "Logged in user actions" do
+      def login
+        open_session do |sess|
+          sess.get auth_github_callback_path, env: {
+            'omniauth.auth' => OmniAuth.config.mock_auth[:github]
+          }
+        end
+      end
+
+      before do
+        @session = login
+      end
+    ...
   end
 ```
 
-In this manner you can write tests to ensure:
--  That a visitor cannot see a protected resource without logging in first.
--  That the user can log in properly
--  That multiple copies of the same user do not enter the database.
--  That the correct message is sent to the visitor when they visit a page for which they do not have access.  
--  That the logout link works properly.
+Now, within our existing tests, we'll want to use the `@session` variable to reference our session. This will ensure that we're testing the full integration now with the logged-in user.
+
+Here is one example of the updated test:
+```ruby
+# books_controller_test.rb
+...
+      it "should show one book" do
+        @session.get book_path(books(:venetia).id)
+        @session.must_respond_with :success
+      end
+```
+
+##### Guest Users
+Using controller testing syntax we've learned before, we can write tests to ensure we can see the books index page. A potentially more interesting test will verify that when attempting to view a page that the user is not authorized to view, our application will redirect and show a message to the user.
+
+Here is one example of that type of test:
+```ruby
+# books_controller_test.rb
+...
+  describe "Guest user actions" do
+      it "should not allow you to see books details if not logged in" do
+        get book_path(books(:POODR).id)
+        # if they are not logged in they cannot see the resource and are redirected to login.
+        must_redirect_to root_path
+        flash[:warning].must_equal "You must be logged in to view this page"
+      end
+    ...
+  end
+```
 
 ## Additional Resources
 - [OmniAuth Integration Testing](https://github.com/omniauth/omniauth/wiki/Integration-Testing)
+- [Integration Testing Docs](http://api.rubyonrails.org/classes/ActionDispatch/IntegrationTest.html)
