@@ -159,6 +159,9 @@ describe UsersController do
 
       must_redirect_to root_path
 
+      # Since we can read the session, check that the user ID was set as expected
+      session[:user_id].must_equal user.id
+
       # Should *not* have created a new user
       User.count.must_equal start_count
     end
@@ -171,6 +174,8 @@ describe UsersController do
   end
 end
 ```
+
+Note that we do check `session[:user_id]` here. Rails controller tests do let us see what the `session` looks like after each request, and there's essentially no other way to verify the user is logged in. This may feel a little dirty, but for such a specialized case as this it's OK.
 
 **Question:** What do the other two tests for this controller action look like?
 
@@ -188,6 +193,9 @@ it "creates a new user" do
 
   # Should have created a new user
   User.count.must_equal start_count + 1
+  
+  # The new user's ID should be set in the session
+  session[:user_id].must_equal User.last.id
 end
 ```
 
@@ -213,9 +221,11 @@ Refactoring our returning user test above to use this method, it would look like
 # test/controllers/users_controller_test.rb
 it "logs in an existing user" do
   start_count = User.count
+  user = users(:grace)
 
-  login(users(:grace))
+  login(user)
   must_redirect_to root_path
+  session[:user_id].must_equal  user.id
 
   # Should *not* have created a new user
   User.count.must_equal start_count
@@ -292,6 +302,8 @@ describe BooksController do
 end
 ```
 
+**Question:** If we made a rule that users can only edit and delete books that they added to the site, how would this affect our testing?
+
 #### Guest Users
 
 For our guest users, we need to verify that access is restricted to everything but `index`.
@@ -323,6 +335,20 @@ end
 ```
 
 ## What Did We Accomplish?
+
+- Discussed the difference between _unit testing_ and _integration testing_
+- Identified GitHub as a _dependency_ for our tests
+  - Decided this is a problem we should do something about
+- Discussed _mocking_ as a strategy for short-circuiting external dependencies
+- Turned on OmniAuth mocking using the `setup` method in `test/test_helper.rb`
+- Did some ground-work on our models
+  - Defined fixtures
+  - Added a method to turn a model back into a (mocked) auth hash
+- Wrote tests for our login controller using fixture data
+- Moved the login functionality to it's own test helper method, again in `test/test_helper.rb`
+- Split our `BooksController` tests based on whether the user is logged in or not
+  - Tests for a logged-in user look very similar to what we had previously, we just had to add a `before` block
+  - Tests for a guest user are all about what you can't do
 
 ## Additional Resources
 - [OmniAuth Integration Testing](https://github.com/omniauth/omniauth/wiki/Integration-Testing)
