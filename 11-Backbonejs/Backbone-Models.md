@@ -154,7 +154,7 @@ Lets use our fabulous underscore library to create a template to render, or draw
 
 Note inside the `body` element is an underscore template.  Next we'll use the template to add content.  
 
-To use the jQuery template first we select the template text using jQuery.  Next we use the `_.template` method to get a template object by passing it the text of the template block.  The `<%= %>` handles tell underscore to insert a value in from the parameters passed to the object when it's called.  Lastly we append the compiled template to the contents of the body using the fields in `my_task`.  
+To use the jQuery template first we select the template text using jQuery.  Next we use the `_.template` method to get a template object by passing it the text of the template block.  The `<%= %>` handles tell underscore to insert a value in from the parameters passed to the object when it's called.  Lastly we append the compiled template to the contents of the `main` element using the fields in `my_task`.  
 
 ```javascript
 // src/app.js
