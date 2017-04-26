@@ -1,7 +1,7 @@
 # Linked Lists
 
 ## Assignment
-+ [AdaGold/list-implementations-cont](https://github.com/AdaGold/list-implementations-cont)
++ Parts 2 and 3 of [AdaGold/list-implementations](https://github.com/AdaGold/list-implementations)
 
 ## Notes
 A Linked List is a dynamic data structure that allows you to create a storage space that is capable of growing or shrinking in size. Additionally, information stored in a Linked List is stored **non-contiguously** and **space is only used as it is needed**. This contrasts a native array, where information is stored contiguously in memory and the size is fixed when instantiated.
