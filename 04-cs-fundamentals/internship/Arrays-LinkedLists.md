@@ -63,6 +63,8 @@ Design and implement pseudo code for functions to do the following:
 + [Introduction to pointers](https://www.slideshare.net/secret/qCrOIS4xRIAE4k) licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
 + [Memory leak](https://en.wikipedia.org/wiki/Memory_leak)
 + [Access Violation](https://en.wikipedia.org/wiki/Segmentation_fault)
++ [What every programmer should know about Memory](https://lwn.net/Articles/250967/)
++ [What every Computer Science major should know](http://matt.might.net/articles/what-cs-majors-should-know/)
 
 ## Slide Deck
 + Slide Deck used in class</br>

@@ -30,7 +30,7 @@ This will add the following files to your project
 
 It will also overwrite the default layout `app/views/layouts/application.html.erb`
 
-**This means that any changes you have previously made to your `app/views/layouts/application.html.erb` file will be overwritten.  
+**This means that any changes you have previously made to your `app/views/layouts/application.html.erb` file will be overwritten.**
 
 ### Motion-UI
 
