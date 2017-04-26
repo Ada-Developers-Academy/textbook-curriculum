@@ -28,16 +28,35 @@ Because our integration tests are going to run code from all areas of our Rails 
 
 Specifically, we need to write our integration tests _in the role of the **browser**_. That is, our integration tests simulate a browser accessing our site by making HTTP requests to the server. Just like the browser, our test code is limited to making those requests and asserting various things about the response received back.
 
-### Plan of Action
+In particular, this means we cannot modify the `session` directly from our tests. Instead we do what the browser would do: send another request.
+
+## Integration Tests and OAuth
+
+In the context of OAuth, this means every test we write will need to send not one but two requests to the server:
+
+1. A request that logs in the user
+1. The request we're interested in testing
+
+This approach would have worked great for MediaRanker, but now that we've added OAuth it's got some problems:
+
+- Logging in with GitHub OAuth is complicated
+- We'd real GitHub usernames and passwords for our tests
+- This introduces GitHub as a **dependency** to our tests. If talking to GitHub is slow then our tests will be slow, and if GitHub is down then our tests will fail even though our code is correct.
+
+To resolve these issues, we'll use a strategy known as **mocking**. The basic idea is when we're running our test, instead of going all the way to GitHub for user data we'll short-circuit the process and use some made up data instead.
+
+### Mocking GitHub OAuth
+
 Here is how we are going to approach this problem:
-1. Set up our test suite to know we want to mock OmniAuth so we don't try to connect directly to GitHub
+
+1. Set up our test suite to mock OmniAuth so we don't try to connect directly to GitHub
 1. Simulate a session which will set up the `auth_hash` for use in testing the login process in the `SessionsController`
 1. Simulate sessions for logged-in users and guest users to test other controller actions
 
 #### Test Setup
 Tests shouldn't be dependent on external objects or network connections in order to run. We know that when we implemented OAuth using the OmniAuth gem that we have introduced a dependency on Github.
 
-To be able to mock the interaction with Github, add this function to the `ActiveSupport::TestCase` class in `test/test_helper.rb`:
+To be able to mock the interaction with Github, add these two functions to the `ActiveSupport::TestCase` class in `test/test_helper.rb`:
 
 ```ruby
 # test/test_helper.rb
@@ -56,8 +75,15 @@ class ActiveSupport::TestCase
     # The mock_auth configuration allows you to set per-provider (or default) authentication
     # hashes to return during testing.
     OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
-      provider: 'github', uid: '123545', info: { email: "a@b.com", name: "Ada" }
+      provider: 'github', uid: '123545', info: { email: "a@b.com", nickname: "Ada" }
       })
+  end
+
+  def login
+    # Requires the auth callback to be a named route
+    get auth_callback_path("github"), env: {
+      'omniauth.auth' => OmniAuth.config.mock_auth[:github]
+    }
   end
 end
 ```
