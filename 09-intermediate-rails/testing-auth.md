@@ -106,29 +106,33 @@ Next, we need to use this information to log in. We'll start by testing the auth
 
 ##### Building the Auth Hash
 
-In order to log in a user, we'll need to provide data to our controller in the exact same format as GitHub does. To make this process easy, we'll create an instance method for the User model, `User#mock_auth_hash`. This method will be almost the opposite of the `from_github` method we defined when we set up OAuth in the first place.
+In order to log in a user, we'll need to provide data to our controller in the exact same format as GitHub does. To make this process easy, we'll create a helper method that turns an instance of the `User` model into a mocked auth hash. This method will be almost the opposite of the `User#from_github` method we defined when we set up OAuth in the first place.
+
+To make the method available to all our tests, we'll put it in `test/test_helper.rb`. Open up `test/test_helper.rb` again and add the following at the bottom of `class ActiveSupport::TestCase`, after the `setup` method we added earlier:
 
 ```ruby
-# app/models/user.rb
-class User < ApplicationRecord
+# test/test_helper.rb
+class ActiveSupport::TestCase
   # ...
-  # Whatever was here before (relations, validations, etc.)
+  # Whatever was here before, including the setup function
   # ...
 
   # Test helper method to generate a mock auth hash
   # for fixture data
-  def mock_auth_hash
+  def mock_auth_hash(user)
     return {
-      provider: self.oauth_provider,
-      uid: self.oauth_uid,
+      provider: user.oauth_provider,
+      uid: user.oauth_uid,
       info: {
-        email: self.email,
-        nickname: self.username
+        email: user.email,
+        nickname: user.username
       }
     }
   end
 end
 ```
+
+**Question:** Why didn't we add this as an instance method on the User model?
 
 ##### Test: Returning User
 
@@ -150,7 +154,7 @@ describe UsersController do
 
       # Tell OmniAuth to use this user's info when it sees
       # an auth callback from github
-      OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(user.mock_auth_hash)
+      OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(mock_auth_hash(user))
 
       # Send a login request for that user
       # Note that we're using the named path for the callback, as defined
@@ -186,14 +190,14 @@ it "creates a new user" do
   start_count = User.count
   user = User.new(oauth_provider: "github", oauth_uid: 99999, username: "test_user", email: "test@user.com")
 
-  OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(user.mock_auth_hash)
+  OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(mock_auth_hash(user))
   get auth_callback_path(:github)
 
   must_redirect_to root_path
 
   # Should have created a new user
   User.count.must_equal start_count + 1
-  
+
   # The new user's ID should be set in the session
   session[:user_id].must_equal User.last.id
 end
@@ -203,12 +207,12 @@ end
 
 #### Login Helper
 
-We're going to be using this login functionality a lot, so let's add it as a helper method, available to all our tests. Open up `test/test_helper.rb` again and add the following at the bottom of `class ActiveSupport::TestCase`, after the `setup` method we added earlier:
+We're going to be using this login functionality a lot, so let's add it as a helper method, available to all our tests. Open up `test/test_helper.rb` again and add the following at the bottom of `class ActiveSupport::TestCase`:
 
 ```ruby
 # test/test_helper.rb
 def login(user)
-  OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(user.mock_auth_hash)
+  OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(mock_auth_hash(user))
   get auth_callback_path(:github)
 end
 ```
