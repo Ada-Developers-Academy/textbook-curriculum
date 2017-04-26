@@ -18,7 +18,7 @@ So in short Backbone:
 -  Enforces good practices in how your JavaScript interacts with external resources
 
 ### Aside: Libraries and Frameworks
-The benefits of Backbone should look somewhat familiar - they're some of the same reasons we learned Rails rather than writing a custom web server in pure Ruby. However, there's a major philosophical difference between Backbone and Rails, down to the very core of their designs: Backbone is a library, while Rails is a framework.
+The benefits of Backbone should look somewhat familiar - they're some of the same reasons we learned Rails rather than writing a custom web server in pure Ruby. However, there's a major philosophical difference between Backbone and Rails, down to the very core of their designs: Backbone is a **library**, while Rails is a **framework**.
 
 #### Libraries
 A library, like jQuery or the Ruby CSV gem, is a toolbox, from which you select the function or class that you need. The library accomplishes specific tasks, but ultimately your code is what's in charge. Examples of JavaScript libraries include:
