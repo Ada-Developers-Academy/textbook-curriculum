@@ -257,6 +257,8 @@ Then in our `app.js` we can simply print out the status of our task with:  `my_t
 
 Add a `toggleComplete` method which marks a complete task to incomplete or an incomplete task to complete.  We'll try to use it later.
 
+If you're stuck you can see a working solution [here:](https://gist.github.com/CheezItMan/5fea6abc8ceeda31e14a691ca0938159)
+
 ## What Have We Accomplished
 - Create a basic Backbone model to represent a task
 - Created a template to display this task in the browser
