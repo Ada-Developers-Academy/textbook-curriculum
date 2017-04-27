@@ -259,6 +259,46 @@ Add a `toggleComplete` method which marks a complete task to incomplete or an in
 
 If you're stuck you can see a working solution [here:](https://gist.github.com/CheezItMan/5fea6abc8ceeda31e14a691ca0938159)
 
+### A List of Models
+
+Now that we have a model & a template we can output a list of tasks to the browser.  
+
+```JavaScript
+// src/app.js
+import $ from 'jquery';
+import _ from 'underscore';
+import Task from 'app/models/task.js';
+
+var taskData = [
+  {
+    title: 'Mow the lawn',
+    description: 'Must be finished before BBQ on Sat afternoon'
+  }, {
+    title: 'Go to the Bank',
+    description: 'Need to make a transfer'
+  }, {
+    title: 'Tune the Piano',
+    description: 'High C is missing or something???'
+  }
+];
+var tasks = [];
+
+$(document).ready(function() {
+  _.each(taskData, function(taskObj) {
+    var task = new Task(taskObj);
+    tasks.push(task);
+    var template_text = $('#taskItemTemplate').html();
+      // Get an underscore template object
+    var template = _.template(template_text);
+      //
+    $('main').append(template(task.toJSON()));
+  });
+  $('#test-area').append($('<p>Hello World!</p>'));
+});
+```
+
+Now using an Array, we can display any number of Tasks using the Underscore template on the screen.  
+
 ## What Have We Accomplished
 - Create a basic Backbone model to represent a task
 - Created a template to display this task in the browser
