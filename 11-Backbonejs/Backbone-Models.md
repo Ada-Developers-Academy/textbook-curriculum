@@ -47,6 +47,7 @@ So now in our `src/app.js` file we can add.
 import $ from 'jquery';
 import _ from 'underscore';
 
+// code You are adding
 import Task from 'app/models/task';
 
 var my_task = new Task({
@@ -55,6 +56,8 @@ var my_task = new Task({
 });
 
 console.log(my_task.get("title") +  " is completed: " + my_task.get("completed"));
+// end of added code
+// ...
 ```
 
 What did this get us?  We now have a new `Task` type of object which can store information, in this case `title` and `completed`.  Then just to test it we created one instance of `Task` and logged it to the console.  
@@ -138,7 +141,8 @@ Lets use our fabulous underscore library to create a template to render, or draw
   <!-- Where the main content of our page will go -->
   <main>
   </main>
-  
+  <div id="test-area">
+  </div>
   <script id="taskItemTemplate" type="text/template">
     <section class="task-item">
       <h1><strong>Title:</strong> <%= title %></h1>
@@ -167,22 +171,27 @@ var my_task = new Task({
   title: "Create a model",
   completed: true
 });
+
+// Added Code
   // Select the template using jQuery
 var template_text = $('#taskItemTemplate').html();
   // Get an underscore template object
 var template = _.template(template_text);
   // 
 $('main').append(template(my_task.toJSON()));
+// End of new code
+// ...
 ```
 
 ### $(document).ready
 
-We want to make sure that our code does not execute until the page is fully loaded.  We can ensure that by placing our code into an event handler called when the browser has the document ready (fully loaded).  So we 
+We want to make sure that our code does not execute until the page is fully loaded.  We can ensure that by placing our code into an event handler called when the browser has the document ready (fully loaded).  So inside the event handler we create a task model and an underscore template then compile the template with the model and append the result to the `main` element.
 
 ```javascript
 // src/app.js
 import $ from 'jquery';
 import _ from 'underscore';
+import Task from 'app/models/task.js';
 
 $(document).ready(function() {
   var my_task = new Task({
@@ -194,8 +203,9 @@ $(document).ready(function() {
     // Get an underscore template object
   var template = _.template(template_text);
     // 
-  $('body').append(template(my_task.toJSON()));
-}
+  $('main').append(template(my_task.toJSON()));
+});
+// ...
 ```
 
 #### Check-In Point 
