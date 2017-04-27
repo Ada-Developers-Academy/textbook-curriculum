@@ -10,7 +10,7 @@ At the end of this you should be able to:
 
 ## Introduction
 
-In Backbone a Collection is a type of Model that has other Model instances inside it.  You can think of it as similar to an Array: an ordered collection of Models.  
+In Backbone a Collection is a type of Model that can contain Model instances inside it.  You can think of it as similar to an Array: an ordered collection of Models.  
 
 Using a Collection instead of an Array will bring us similar benefits to using a Model instead of a raw JavaScript Object. Collections can abstract away complex bits of logic (like only selecting Models that match a condition), they're also really good at talking to APIs, and they emit events when they change.
 
