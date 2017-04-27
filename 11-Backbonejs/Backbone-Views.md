@@ -20,20 +20,17 @@ We will first create two views, one for a single task item and a second for the 
 A TaskView will handle drawing an individual task item and responding to events that concern just that task.  To start we create a file in `app/views/task_view.js`
 
 ```JavaScript
-// src/app/views/task_view.js
-
 import Backbone from 'backbone';
 import _ from 'underscore';
 import $ from 'jquery';
+import Task from 'app/models/task.js';
 
 var TaskView = Backbone.View.extend({
+  initialize: function(params) {
+    this.template = params.template;
+  },
   render: function() {
-    // Select the template using jQuery
-    var template_text = $('#taskItemTemplate').html();
-    // Get an underscore template object
-    var template = _.template(template_text);
-
-    this.$el.html(template(this.model.toJSON()));
+    this.$el.html(this.template(this.model.toJSON()));
     return this;
   }
 });
@@ -43,7 +40,7 @@ export default TaskView;
 
 Just like Models and Collections a view extends `Backbone.View`.  This model has 3 important properties, `el`, `model`, and `render`.
 -  `el` is an HTML DOM element that, by default, is an empty `div`.  We use `el` to insert our view into the page when it is rendered.  
-	- There is also a corresponding property `$el` which is a jQuery selection of `el`, and you can use jQuery functions on it.  With `$el` you can run jQuery selections for HTML elements inside, and only inside that view.
+	- There is also a corresponding property `$el` which is a jQuery selection of `el`, and you can use jQuery functions on it.  With `$el` you can run jQuery selections for HTML elements inside, and only inside that view.  For example, `$el('button.delete')` is a button with the class `delete` inside the view.
 - `model` is the Backbone model which provides the data for the view.  The view's `model` can be a Backbone Model or Collection.  
 - `render` is a function called to draw (or redraw) the view.  By convention the render function always returns `this` so that it can be chained with other methods.
 
@@ -53,14 +50,15 @@ We can then modify our application code to use our view by creating a new `TaskV
 
 ```JavaScript
 taskList.on("update", function() {
-    $('main').empty();
-    taskList.each(function(task) {
-      var taskView = new TaskView({
-        model: task
+      $('main').empty();
+      taskList.each(function(task) {
+        var taskView = new TaskView({
+          model: task,
+          template: _.template( $('#taskItemTemplate').html())
+        });
+        $('main').append(taskView.render().el);
       });
-      $('main').append(taskView.render().el);
     });
-  });
 ```
 
 In the code above we first cleared out the `main` element in the `html` and then for each Task model, created a new TaskView.  Then we rendered the View and appended the resulting element (`el`) to `main`.  Notice that we could execute `task view.render().el` because the `render()` function returns `this`.  
