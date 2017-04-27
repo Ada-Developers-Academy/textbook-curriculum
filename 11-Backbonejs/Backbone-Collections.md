@@ -80,7 +80,7 @@ $(document).ready(function() {
 
 ```
 
-Notice that just like you can create a Model from a raw JavaScript object, you can create a Collection from an array of raw JavaScript objects.  This works as long as the `model` property of the Collection is set.
+Notice that just like you can create a Model from a raw JavaScript object, you can create a Collection from an array of raw JavaScript objects.  This works as long as the `model` property of the Collection is set (because it has to know what kind of models to create).
 
 ### Iterating Through A Collection
 
@@ -170,6 +170,7 @@ Add the following HTML below the `<main>` element.
 Then we can add the following, jQuery code to respond to the button's click event.
 
 ```JavaScript
+// src/app.js
   $('#new-task').on("click", function() {
     if ( $('#title').val() !== "" ) {
       var task = new Task({title: $('#title').val(), completed: $('#completed').val() === "on"  });
@@ -274,6 +275,10 @@ Luckily Backbone Collections assign a unique ID, called a `cid` for each instanc
   });
   taskList.trigger("update");
 ```
+
+#### Check-In
+
+Verify with your SeatSquad member that you both have it working.  You can see a working solution [here:](https://gist.github.com/CheezItMan/b77634f6d017227cf440481e232c74e1) 
 
 ### Toggling Tasks Complete/Incomplete
 
