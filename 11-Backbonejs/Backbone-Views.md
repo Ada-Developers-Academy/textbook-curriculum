@@ -69,6 +69,8 @@ The view now renders, but the buttons no longer work.  Next we will introduce ev
 
 You & your SeatSquad member should now have the basic TaskList displaying and the buttons should no longer function.  Check & verify that you both have it working.  
 
+You can see a working version [here:](https://gist.github.com/CheezItMan/745cbd2d5a7ec07c327be63c496ccf27)
+
 ## Event Handling 
 
 We can add another element to our view to list the event handlers, `events`.  The `events` object matches events to functions.  In the example below the `events` object links the `click` event on any sub-element with the class of `toggle` to an event handler function called `toggle`.  Then in the `toggle` function we change the model's `complete` attribute and then re-render the view.
