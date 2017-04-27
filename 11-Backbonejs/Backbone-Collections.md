@@ -14,7 +14,7 @@ In Backbone a Collection is a type of Model that can contain Model instances ins
 
 Using a Collection instead of an Array will bring us similar benefits to using a Model instead of a raw JavaScript Object. Collections can abstract away complex bits of logic (like only selecting Models that match a condition), they're also really good at talking to APIs, and they emit events when they change.
 
-In this lecture we will begin to scratch the surface of the Power of collections.  We will stop using arrays of Model objects and use Collections instead.  Then in the next lecture we will look at the Event model Backbone inherits from Underscore and how it applies to Collections & Models. 
+In this lecture we will begin to scratch the surface of the Power of collections.  We will stop using arrays of Model objects and use a Collection instead.  Then in the next lecture we will look at the Event model Backbone inherits from Underscore and how it applies to Collections & Models. 
 
 
 ## Adding a Collection
