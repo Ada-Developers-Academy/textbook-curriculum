@@ -257,7 +257,7 @@ Then in our `app.js` we can simply print out the status of our task with:  `my_t
 
 Add a `toggleComplete` method which marks a complete task to incomplete or an incomplete task to complete.  We'll try to use it later.
 
-If you're stuck you can see a working solution [here:](https://gist.github.com/CheezItMan/5fea6abc8ceeda31e14a691ca0938159)
+If you're stuck you can see a working solution [here:](https://gist.github.com/CheezItMan/38fac3dfd1f26cdd19a32b50b2a5c359)
 
 ### A List of Models
 
