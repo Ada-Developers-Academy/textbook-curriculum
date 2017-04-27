@@ -11,11 +11,13 @@ By the end of this lesson you should be able to:
 ## What is a View?
 Backbone views are kind of middle-people in the Backbone world, filling a similar role to controllers in Rails. A view's job is to coordinate between the data and the DOM. When a DOM event happens, it's the controller's job to handle it and update the data as needed, and when the data changes it's the view's job to modify the DOM to match.
 
-We will first create two views, one for a single task item and a second for the collection of Tasks.  Then we will add event handling for the views.
+You may have noticed we have a jumble (technical term) of functions handling events, and drawing the tasklist to the browser etc.  This could quickly become a mess!  It's time for some structure!
+
+We will first create two views, one for a single task item and a second for the collection of Tasks.  Each view will handle drawing and event handling for it's specific domain, and the view for the collection will utilize the smaller TaskView.  
 
 ## Creating A TaskView
 
-To start we create a file in `app/views/task_view.js`
+A TaskView will handle drawing an individual task item and responding to events that concern just that task.  To start we create a file in `app/views/task_view.js`
 
 ```JavaScript
 // src/app/views/task_view.js
@@ -40,8 +42,8 @@ export default TaskView;
 ```
 
 Just like Models and Collections a view extends `Backbone.View`.  This model has 3 important properties, `el`, `model`, and `render`.
--  `el` is an HTML DOM element that by default is an empty `div`.  We use `el` to insert our view into the page when it is rendered.  
-	- There is also a corresponding property `$el` which is a jQuery selection of `el`, and you can use jQuery functions on it.
+-  `el` is an HTML DOM element that, by default, is an empty `div`.  We use `el` to insert our view into the page when it is rendered.  
+	- There is also a corresponding property `$el` which is a jQuery selection of `el`, and you can use jQuery functions on it.  With `$el` you can run jQuery selections for HTML elements inside, and only inside that view.
 - `model` is the Backbone model which provides the data for the view.  The view's `model` can be a Backbone Model or Collection.  
 - `render` is a function called to draw (or redraw) the view.  By convention the render function always returns `this` so that it can be chained with other methods.
 
@@ -61,7 +63,7 @@ taskList.on("update", function() {
   });
 ```
 
-In the code above we first cleared out the `main` element in the `html` and then for each Task model, created a new TaskView.  Then we rendered the View and appended the resulting element (`el`) to `main`.
+In the code above we first cleared out the `main` element in the `html` and then for each Task model, created a new TaskView.  Then we rendered the View and appended the resulting element (`el`) to `main`.  Notice that we could execute `task view.render().el` because the `render()` function returns `this`.  
 
 The view now renders, but the buttons no longer work.  Next we will introduce event handling in Views and get the Toggle button working.  
 
@@ -73,13 +75,13 @@ You & your SeatSquad member should now have the basic TaskList displaying and th
 
 We can add another element to our view to list the event handlers, `events`.  The `events` object matches events to functions.  In the example below the `events` object links the `click` event on any sub-element with the class of `toggle` to an event handler function called `toggle`.  Then in the `toggle` function we change the model's `complete` attribute and then re-render the view.
 
-
 ```Javascript
 // src/app/views/task_view.js
 
 import Backbone from 'backbone';
 import _ from 'underscore';
 import $ from 'jquery';
+import Task from 'app/models/task.js';
 
 var TaskView = Backbone.View.extend({
   render: function() {
