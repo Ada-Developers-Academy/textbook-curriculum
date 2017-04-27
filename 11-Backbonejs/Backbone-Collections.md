@@ -82,8 +82,6 @@ $(document).ready(function() {
 
 Notice that just like you can create a Model from a raw JavaScript object, you can create a Collection from an array of raw JavaScript objects.  This works as long as the `model` property of the Collection is set.
 
-Remember that a Collection is just a special type of Model. This means we can pass the Collection in under the `model` property, and Backbone will mostly know what to do. Using a Backbone Collection should reduce the code we need to write.
-
 ### Iterating Through A Collection
 
 Another thing to notice is that we used the Collection's `.each` method to iterate through a collection with the Collection's `.each` method and replicate the output we obtained with an Array of Tasks.  
@@ -97,6 +95,51 @@ Another thing to notice is that we used the Collection's `.each` method to itera
 #### Check-in 
 
 With your Seatsquad check and verify that you can both display the todo list using the Collection
+
+### Filtering & Sorting a Collection
+
+Backbone Collections have a variety of useful methods for working with a group of models.  Two very useful ones include `comparator` and `where`.  
+
+#### Comparator
+
+Provides a way to compare models and used to add new models in sorted order.  You can either pass in a string with the name of an attribute to sort by, a function that takes a single model and returns a number to use for determining it's order, or a function with two arguments (models and returns a comparison of the two, -1 if the first model should come before the second, 0 if they are of the same rank and 1 if the first model should come after.
+
+Three Examples are below:
+
+##### Comparing by an attribute
+```JavaScript
+// sort the taskList lexicographically by title
+taskList.comparator = "title";  
+```
+##### Comparing by a custom method with 1 parameter.
+```JavaScript
+// sort the taskList by the length of the title
+taskList.comparator = function(task) {
+  return task.get("title").length;  }
+```
+##### Comparing with a custom with taking two models as a parameter.
+```JavaScript
+// Sort by comparing two tasks
+// completed tasks go first, then sorted by title.
+taskList.comparator = function(task1, task2) {
+  var task1Complete = task1.get("complete");
+  var task2Complete = task2.get("complete");
+  if (task2Complete && !task2Complete)
+    return -1;
+  else if (! task1Complete && task2Complete)
+    return 1;
+  else 
+  	return task1.get("title").localeCompare(task2.get("title"));
+}
+```
+#### Where
+
+Like in Rails Models `where` returns an array of all the models that match the passed attributes.  It's an easy way to filter models.
+
+```JavaScript
+// returns the list of completed tasks
+var completedTasks = taskList.where(completed: true);
+```
 
 ## Events
 
@@ -158,7 +201,7 @@ We can add an event handler to the Collection now to redraw the list every time 
 ``` 
 Backbone Collections provide a number of built-in events we can add handlers for, these include `update`, `change`, `add`, `remove` and [more](http://backbonejs.org/#Events-catalog).
 
-If you notice this function looks a lot like the original loop that drew, aka *rendered*, our `taskList` on the screen originally.
+If you notice this function looks a lot like the original loop that drew, aka *rendered*, our `taskList` on the screen originally, you are right!.
 
 We can dry up our code slightly by manually *triggering* the event after we add the original list of items.
 
@@ -197,6 +240,8 @@ $(document).ready(function() {
 ### Check-in
 
 Check and verify with your SeatSquad member that you can now add task items to your list.  
+
+You can see a working version [here:](https://gist.github.com/CheezItMan/f6ca39005274ec23d79060384dbf944b)
 
 
 ## Deleting Models From a Collection
