@@ -28,7 +28,7 @@ Open up Postman, and send a `POST` request to `https://slack.com/api/chat.postMe
 
 | Key       | Value                                    |
 |:----------|:-----------------------------------------|
-| `channel` | `test-api-brackets` or `test-api-parens` |
+| `channel` | `test-api-queues` or `test-api-stacks` |
 | `text`    | `Some test text`                         |
 
 The idea is for this to post a message in the `test-api-xxx` channel, but it didn't work! Insetad, no message was posted, and you should have gotten back a response from Slack:
@@ -54,7 +54,7 @@ To use the token, add it to the params in your Postman request:
 | Key       | Value                                    |
 |:----------|:-----------------------------------------|
 | `token`   | `xoxp-XXXXXXXX-YYYYYYYY-ZZZZZZZZ`        |
-| `channel` | `test-api-brackets` or `test-api-parens` |
+| `channel` | `test-api-queues` or `test-api-stacks` |
 | `text`    | `Some test text`                         |
 
 Poof! Message sent! Check it out on Slack! Also take a look at the response the Slack API sent back.
