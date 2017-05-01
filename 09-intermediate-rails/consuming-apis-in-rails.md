@@ -117,7 +117,7 @@ end
 
 And that should do it. To verify it worked, spin up the rails console, and run `SlackWrapper.new`. It should return a new instance of SlackWrapper, instead of throwing an error.
 
-You'll have to restart the rails server in order for it to load the new library.
+You'll have to restart the rails server in order for it to load the new library.  **Note:  Each time you make a change to code in the /lib folder, you will need to restart the rails server.**
 
 #### Building the API Wrapper
 Our wrapper will have two methods. `listchannels` will return a list of all the channel names for our Slack team. `sendmsg(channel, message)` will send the given message to the given channel.
@@ -245,7 +245,13 @@ end
 
 ## Refactoring
 
-Right now our controller is reading and writing directly to our API Wrapper.  We can separate out our controller/view from the specific implementation by creating a Channel class which can represent a Slack Channel.  Then we use normal object methods to access Channel fields.  
+There are a number of features we could add including:
+-  Posting as a specific user
+-  Changing the icon of the poster
+-  Posting files or other content
+-  Instead of using the test token we could use [oauth](https://api.slack.com/docs/oauth) to authenticate.
+
+We could also create a slack message class, similar to our `Channel` to further separate the implementation details from our controller.  
 
 ## Additional Resources
 - [Slack API documentation](https://api.slack.com/)
