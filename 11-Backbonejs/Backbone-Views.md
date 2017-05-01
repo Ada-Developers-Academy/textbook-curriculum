@@ -39,6 +39,7 @@ export default TaskView;
 ```
 
 Just like Models and Collections a view extends `Backbone.View`.  This model has 3 important properties, `el`, `model`, and `render`.
+-  `initialize` is a function, like in a Ruby class, called immediately when a new Backbone object is created, View, Model or Collection.    Here we choose use it to save the View's Underscore Template.  
 -  `el` is an HTML DOM element that, by default, is an empty `div`.  We use `el` to insert our view into the page when it is rendered.  
 	- There is also a corresponding property `$el` which is a jQuery selection of `el`, and you can use jQuery functions on it.  With `$el` you can run jQuery selections for HTML elements inside, and only inside that view.  For example, `$el('button.delete')` is a button with the class `delete` inside the view.
 - `model` is the Backbone model which provides the data for the view.  The view's `model` can be a Backbone Model or Collection.  
@@ -71,9 +72,9 @@ You & your SeatSquad member should now have the basic TaskList displaying and th
 
 You can see a working version [here:](https://gist.github.com/CheezItMan/745cbd2d5a7ec07c327be63c496ccf27)
 
-## Event Handling 
+## Handling jQuery Events Within a View
 
-We can add another element to our view to list the event handlers, `events`.  The `events` object matches events to functions.  In the example below the `events` object links the `click` event on any sub-element with the class of `toggle` to an event handler function called `toggle`.  Then in the `toggle` function we change the model's `complete` attribute and then re-render the view.
+To respond to jQuery or other events in a Backbone View we need to add another property, `events`.  The `events` object matches events to functions.  In the example below the `events` object links the `click` event on any sub-element with the class of `toggle` to an event handler function called `toggle`.  Then in the `toggle` function we change the model's `complete` attribute and then re-render the view.
 
 ```Javascript
 // src/app/views/task_view.js
@@ -105,30 +106,36 @@ var TaskView = Backbone.View.extend({
 export default TaskView;
 ```
 
+**Question** What happens if you take out `this.render();` in function `toggle`?  Why is it needed?
+
 ### Check-In
 
 Check & verify that your toggle button is working.  
 
+You can see a working version [here:](https://gist.github.com/CheezItMan/f251985ec9c9c94a3975f4256ae6b170)
+
 ## Viewing a Collection of Tasks
 
-We can create another view to manage a collection of Tasks, and this view will store the Collection in the model property and render a view for each task and appending the resulting html to `$el`.  
+We can create another view to manage a collection of Tasks. This view will store the Collection in the model property and the render function will create a `TaskView` object for each `Task` in the collection, render them and append the resulting html to `$el`.  
 
 ```JavaScript
 // src/app/views/task_list_view.js
-
 import Backbone from 'backbone';
 import _ from 'underscore';
 import $ from 'jquery';
-import TaskView from 'app/views/task_view';
+import TaskView from 'app/views/task_view.js';
 
 
 var TaskListView = Backbone.View.extend({
+  initialize: function(params) {
+    this.taskTemplate = params.taskTemplate;
+  },
   render: function() {
     var collection = this.model;
     this.$el.find('main').empty();
 
     collection.each(function(task) {
-      var taskView = new TaskView({model: task});
+      var taskView = new TaskView({model: task, template: this.taskTemplate});
       this.$el.find('main').append(taskView.render().$el);
     }, this);
 
@@ -195,13 +202,20 @@ We can add the `events` object linking the `new-task` button to an event handler
   }
 ```
 
-In this we recreate the prior code into the `newTask` function.  We also can add another function `initialize`.  Backbone calls `initialize` when a new View is instantiated.  We can use the `listenTo` method to call `render` when the `model` is updated, i.e. when an entry is added to the Collection.
+In this we recreate the prior code into the `newTask` function.  We also can add another line to the function `initialize`.  We can use the `listenTo` method to call `render` when the `model` is updated, i.e. when an entry is added to the Collection.
 
 ```JavaScript
+  // task_list_view.js
   initialize: function() {
     this.listenTo(this.model, "update", this.render);
   },
 ```
+
+### Check-In
+
+Check with your SeatSquad member and verify that you can both add tasks.  
+
+You can see a working version [here:](https://gist.github.com/CheezItMan/88993b84529f12c9e3fdabe90f4e042e)  
 
 ## Deleting a Task
 
@@ -229,6 +243,10 @@ Then you can listen for the, `remove` event in `TaskListView`.
 ## Optimizations
 
 What could we do to improve on this?  There are a few things we could change.  Noice we recreate all the `TaskView`s every time the `TaskListView` is rendered.  We could store them in an array to avoid recreating them.  
+
+## Style Guide
+
+Also notice that we only used `$el` to select items inside a view.  Views should never use jQuery directly `$()`, but rather use `$el` to ensure that we only select items within the view.  Some developers make an exception for selecting templates.  
 
 ## What Did We Accomplish?
 - Create a basic Backbone view to display a task. It had one function:
