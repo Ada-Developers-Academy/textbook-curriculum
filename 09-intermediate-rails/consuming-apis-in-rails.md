@@ -176,7 +176,7 @@ Verify it works through the rails console: `SlackWrapper.sendmsg("@<username>", 
 
 The last step is to call our new API wrapper, so that we can build a nice website around it. Since you're all already experts in Rails, we've gone ahead and built most of the views for you - the only thing left is to tie it into the controller.
 
-This will all take place in `app/controllers/homepages_controller.rb`
+This will all take place in `app/controllers/chats_controller.rb`
 
 First, for `index`, make the full list of channels available to the view via the `@data` instance variable.
 
