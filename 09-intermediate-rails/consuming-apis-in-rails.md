@@ -8,7 +8,7 @@
 
 ## Initial Setup
 
-To start clone or fork and clone the [initial project setup](https://github.com/Ada-C6/slack_api_example).
+To start clone or fork and clone the [initial project setup](https://github.com/Ada-C7/slack_api_example).
 
 
 What's here?
@@ -45,7 +45,7 @@ Slack won't let just anyone post to a team's board. Before it will send your mes
 
 The token we're about to create is a secret! Keep it safe, just like you would a password or your GitHub OAuth credentials. Don't ever check it in to GitHub, or post it in a public place. We'll be using the same `dot-env` technique to keep it safe as we did for GitHub OAuth.
 
-To generate a token, navigate to https://api.slack.com/docs/oauth-test-tokens, find the entry for the `adacohort6` channel, and click `Create token`.
+To generate a token, navigate to https://api.slack.com/docs/oauth-test-tokens, find the entry for the `Ada C7` channel, and click `Create token`.
 
 ![Slack API Token](images/slack-api-token.png)  
 
