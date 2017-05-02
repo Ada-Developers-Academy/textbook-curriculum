@@ -115,7 +115,7 @@ module SlackMkii
 end
 ```
 
-And that should do it. To verify it worked, spin up the rails console, and run `SlackWrapper.new`. It should return a new instance of SlackWrapper, instead of throwing an error.
+And that should do it. To verify it worked, spin up the rails console, and run `SlackAPIWrapper.new`. It should return a new instance of SlackAPIWrapper, instead of throwing an error.
 
 You'll have to restart the rails server in order for it to load the new library.
 
