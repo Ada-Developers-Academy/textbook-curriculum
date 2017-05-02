@@ -64,23 +64,23 @@ Each interaction is recorded as a **cassette**. We can load cassettes in our tes
   We wrap the code where an API call would be made in the `VCR.use_cassette` block. This will ensure that the code inside the block will use the cassette if it has not already been generated.
 
   ```ruby
-  test "Can send valid message to real channel" do
+  it "Can send valid message to real channel" do
     VCR.use_cassette("channels") do
       message = "test message"
       response = SlackApiWrapper.sendmsg("test-api-brackets", message)
-      assert response["ok"]
-      assert_equal response["message"]["text"], message
+      response["ok"].must_equal true
+      response["message"]["text"].must_equal message
     end
   end
   ```
 
   Test a negative case:
   ```ruby
-  test "Can't send message to fake channel" do
+  it "Can't send message to fake channel" do
     VCR.use_cassette("channels") do
       response = SlackApiWrapper.sendmsg("this-channel-does-not-exist", "test message")
-      assert_not response["ok"]
-      assert_not_nil response["error"]
+      response["ok"].must_equal false
+      response["error"].wont_be_nil
     end
   end
   ```
