@@ -19,7 +19,7 @@ $ mkdir lib
 
 Then we can create a test file (a ruby file ending in `_test.rb` inside the folder.  For example if we are going to test our `Channel` class we can create a file named `channel_test.rb`.
 
-![file structure](test-lib-file-structure.png)
+![file structure](images/test-lib-file-structure.png)
 
 
 ### Test Structure
