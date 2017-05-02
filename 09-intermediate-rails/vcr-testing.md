@@ -67,7 +67,7 @@ Each interaction is recorded as a **cassette**. We can load cassettes in our tes
   it "Can send valid message to real channel" do
     VCR.use_cassette("channels") do
       message = "test message"
-      response = SlackApiWrapper.sendmsg("test-api-brackets", message)
+      response = SlackApiWrapper.sendmsg("<CHANNELID>", message)
       response["ok"].must_equal true
       response["message"]["text"].must_equal message
     end
