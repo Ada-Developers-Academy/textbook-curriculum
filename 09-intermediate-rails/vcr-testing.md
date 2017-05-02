@@ -90,3 +90,5 @@ Once you run a test that uses VCR, you'll notice that there will be a file in th
 If you expect the response data to change, you must delete the cassette file.
 
 Once the cassette file is created, how do we know that our tests are not still calling the API directly? One (very manual) way of doing this is by turning off your Wifi. If you ensure you have the VCR cassette files, then turn off your Wifi and run your tests again, your tests should still pass! Huzzah!
+
+**Note** You will also need to place the `VCR.use_cassette` block around your controller tests as well.  Otherwise your controller tests, which use the API will fail.
