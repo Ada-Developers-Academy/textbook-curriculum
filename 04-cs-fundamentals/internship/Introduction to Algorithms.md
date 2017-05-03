@@ -18,6 +18,7 @@ Divide and Conquer algorithms:
 
 ## Offline Reading Material
 Required: Go through what you've already learned:
++ Revise JumpStart notes on [Algorithms](https://github.com/Ada-Developers-Academy/jump-start/blob/master/lessons/02-problem-solving/notes/algorithms.md)
 + Revise classroom session on [Merge Sort](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/05-Mergesort.md)
 + Revise previous session on [Binary Search Trees](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/internship/Binary%20Search%20Trees.md)
 

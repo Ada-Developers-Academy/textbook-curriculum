@@ -8,7 +8,7 @@
 
 ## Initial Setup
 
-To start clone or fork and clone the [initial project setup](https://github.com/Ada-C6/slack_api_example).
+To start clone or fork and clone the [initial project setup](https://github.com/Ada-C7/slack_api_example).
 
 
 What's here?
@@ -28,7 +28,7 @@ Open up Postman, and send a `POST` request to `https://slack.com/api/chat.postMe
 
 | Key       | Value                                    |
 |:----------|:-----------------------------------------|
-| `channel` | `test-api-brackets` or `test-api-parens` |
+| `channel` | `test-api-queues` or `test-api-stacks` |
 | `text`    | `Some test text`                         |
 
 The idea is for this to post a message in the `test-api-xxx` channel, but it didn't work! Insetad, no message was posted, and you should have gotten back a response from Slack:
@@ -45,7 +45,7 @@ Slack won't let just anyone post to a team's board. Before it will send your mes
 
 The token we're about to create is a secret! Keep it safe, just like you would a password or your GitHub OAuth credentials. Don't ever check it in to GitHub, or post it in a public place. We'll be using the same `dot-env` technique to keep it safe as we did for GitHub OAuth.
 
-To generate a token, navigate to https://api.slack.com/docs/oauth-test-tokens, find the entry for the `adacohort6` channel, and click `Create token`.
+To generate a token, navigate to https://api.slack.com/docs/oauth-test-tokens, find the entry for the `Ada C7` channel, and click `Create token`.
 
 ![Slack API Token](images/slack-api-token.png)  
 
@@ -54,7 +54,7 @@ To use the token, add it to the params in your Postman request:
 | Key       | Value                                    |
 |:----------|:-----------------------------------------|
 | `token`   | `xoxp-XXXXXXXX-YYYYYYYY-ZZZZZZZZ`        |
-| `channel` | `test-api-brackets` or `test-api-parens` |
+| `channel` | `test-api-queues` or `test-api-stacks` |
 | `text`    | `Some test text`                         |
 
 Poof! Message sent! Check it out on Slack! Also take a look at the response the Slack API sent back.
@@ -117,7 +117,7 @@ end
 
 And that should do it. To verify it worked, spin up the rails console, and run `SlackWrapper.new`. It should return a new instance of SlackWrapper, instead of throwing an error.
 
-You'll have to restart the rails server in order for it to load the new library.
+You'll have to restart the rails server in order for it to load the new library.  **Note:  Each time you make a change to code in the /lib folder, you will need to restart the rails server.**
 
 #### Building the API Wrapper
 Our wrapper will have two methods. `listchannels` will return a list of all the channel names for our Slack team. `sendmsg(channel, message)` will send the given message to the given channel.
@@ -176,7 +176,7 @@ Verify it works through the rails console: `SlackWrapper.sendmsg("@<username>", 
 
 The last step is to call our new API wrapper, so that we can build a nice website around it. Since you're all already experts in Rails, we've gone ahead and built most of the views for you - the only thing left is to tie it into the controller.
 
-This will all take place in `app/controllers/homepages_controller.rb`
+This will all take place in `app/controllers/chats_controller.rb`
 
 First, for `index`, make the full list of channels available to the view via the `@data` instance variable.
 
@@ -245,7 +245,13 @@ end
 
 ## Refactoring
 
-Right now our controller is reading and writing directly to our API Wrapper.  We can separate out our controller/view from the specific implementation by creating a Channel class which can represent a Slack Channel.  Then we use normal object methods to access Channel fields.  
+There are a number of features we could add including:
+-  Posting as a specific user
+-  Changing the icon of the poster
+-  Posting files or other content
+-  Instead of using the test token we could use [oauth](https://api.slack.com/docs/oauth) to authenticate.
+
+We could also create a slack message class, similar to our `Channel` to further separate the implementation details from our controller.  
 
 ## Additional Resources
 - [Slack API documentation](https://api.slack.com/)

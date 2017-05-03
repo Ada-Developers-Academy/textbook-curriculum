@@ -5,6 +5,7 @@
 + Functional testing practice
 
 ## Optional: Find the reading material that helps you learn further from the links below:
++ [What Is a Good Test Case? (Cem Kaner, J.D., Ph.D.)](http://www.kaner.com/pdfs/GoodTest.pdf)
 + TechTarget.com on [Unit Testing](http://searchsoftwarequality.techtarget.com/definition/unit-testing)
 + TechTarget.com on [Integration Testing](http://searchsoftwarequality.techtarget.com/definition/integration-testing)
 + TutorialsPoint on [End-to-end Testing](https://www.tutorialspoint.com/software_testing_dictionary/end_to_end_testing.htm)

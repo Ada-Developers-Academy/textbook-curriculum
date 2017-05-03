@@ -14,6 +14,7 @@
 1. [API Tools](./api-tools.md)  
 1. [API Tools with Authentication](./api-tools-Authentication.md)
 1. [Consuming an API in Rails](./consuming-apis-in-rails.md)
+1. [Testing The lib folder](./testing-lib-classes.md)
 1. [VCR Testing](./vcr-testing.md)  
 1. [Creating an API](./creating-apis.md)
 1. [Factory Girls](./factory-girl.md)  
