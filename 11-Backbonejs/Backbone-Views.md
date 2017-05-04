@@ -5,13 +5,15 @@
 By the end of this lesson you should be able to:
 
 - Explain what Backbone views are and why they're useful
-- Create a view around some data
+- Create a view around a Backbone Model
 - Render HTML using a view & an Underscore Template
+- Create a view for a Backbone Collection
+- Render a collection
 
 ## What is a View?
-Backbone views are kind of middle-people in the Backbone world, filling a similar role to controllers in Rails. A view's job is to coordinate between the data and the DOM. When a DOM event happens, it's the controller's job to handle it and update the data as needed, and when the data changes it's the view's job to modify the DOM to match.
+Backbone views are kind of middle-managers in the Backbone world, filling a similar role to controllers in Rails. A view's job is to coordinate between the data and the DOM. When a DOM event happens, it's the view's job to handle it and update the data as needed, and when the data changes it's the view's job to modify the DOM to match.
 
-You may have noticed we have a jumble (technical term) of functions handling events, and drawing the tasklist to the browser etc.  This could quickly become a mess!  It's time for some structure!
+You may have noticed in the, previous lectures, we have a jumble (technical term) of functions handling events, and drawing the tasklist to the browser etc.  This could quickly become a mess.  It's time for some structure!
 
 We will first create two views, one for a single task item and a second for the collection of Tasks.  Each view will handle drawing and event handling for it's specific domain, and the view for the collection will utilize the smaller TaskView.  
 
@@ -38,11 +40,11 @@ var TaskView = Backbone.View.extend({
 export default TaskView;
 ```
 
-Just like Models and Collections a view extends `Backbone.View`.  This model has 3 important properties, `el`, `model`, and `render`.
+Just like Models and Collections a view extends `Backbone.View`.  This model has 4 important properties, `initialize`, `render` `el`, & `model`.
 -  `initialize` is a function, like in a Ruby class, called immediately when a new Backbone object is created, View, Model or Collection.    Here we choose use it to save the View's Underscore Template.  
 -  `el` is an HTML DOM element that, by default, is an empty `div`.  We use `el` to insert our view into the page when it is rendered.  
-	- There is also a corresponding property `$el` which is a jQuery selection of `el`, and you can use jQuery functions on it.  With `$el` you can run jQuery selections for HTML elements inside, and only inside that view.  For example, `$el('button.delete')` is a button with the class `delete` inside the view.
-- `model` is the Backbone model which provides the data for the view.  The view's `model` can be a Backbone Model or Collection.  
+	- There is also a corresponding property `$el` which is a jQuery selection of `el`, and you can use jQuery functions on it.  With `$el` you can run jQuery selections for HTML elements inside, and only inside the view.  For example, `$el('button.delete')` is a button with the class `delete` inside the view.
+- `model` is the Backbone model which provides the data for the view.  The view's `model` can be a Backbone Model or Collection.  Each View should, in general, have **one** `model`.
 - `render` is a function called to draw (or redraw) the view.  By convention the render function always returns `this` so that it can be chained with other methods.
 
 ## Adding our view to `app.js`
@@ -50,6 +52,7 @@ Just like Models and Collections a view extends `Backbone.View`.  This model has
 We can then modify our application code to use our view by creating a new `TaskView` in our event handler.
 
 ```JavaScript
+// Replacing the taskList.on("update") event handler
 taskList.on("update", function() {
       $('main').empty();
       taskList.each(function(task) {
@@ -74,7 +77,7 @@ You can see a working version [here:](https://gist.github.com/CheezItMan/745cbd2
 
 ## Handling jQuery Events Within a View
 
-To respond to jQuery or other events in a Backbone View we need to add another property, `events`.  The `events` object matches events to functions.  In the example below the `events` object links the `click` event on any sub-element with the class of `toggle` to an event handler function called `toggle`.  Then in the `toggle` function we change the model's `complete` attribute and then re-render the view.
+To respond to jQuery or other events in a Backbone View we need to add another property, `events`.  The `events` object matches jQuery events to functions.  In the example below the `events` object links the `click` event on any sub-element with the class of `toggle` to an event handler function called `toggle`.  Then in the `toggle` function we change the model's `complete` attribute and then re-render the view.
 
 ```Javascript
 // src/app/views/task_view.js
