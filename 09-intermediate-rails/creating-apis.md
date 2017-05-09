@@ -157,7 +157,7 @@ The `create` action will look very similar to how it would in a web app. Rails p
 def create
   pet = Pet.new(pet_params)
   pet.save!
-  render status: :ok, json: {}
+  render status: :ok, json: { id: pet.id }
 end
 
 private
