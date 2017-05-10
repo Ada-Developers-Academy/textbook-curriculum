@@ -27,7 +27,7 @@ Organizing all this functionality ourselves would be a giant pain in the butt, s
 In this first section, we will create a model to represent a single task. We will add this model to our application without adding any new functionality. Later we'll take advantage of the model to add some new features that would be much more difficult without it.
 
 ### Defining the Task Model
-The first thing we need to do is create the model itself. Just like with views, we'll call `extend()`, this time on `Backbone.Model`. Our model will get its own file: `src/app/models/task.js`.
+The first thing we need to do is create the model itself. We start by calling `extend()`, on `Backbone.Model`. Our model will get its own file: `src/app/models/task.js`.
 
 ```javascript
 // src/app/models/task.js
