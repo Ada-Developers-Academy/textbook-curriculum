@@ -61,7 +61,7 @@ Backbone implements the familiar MVC architecture that we learned in Rails in a 
 ![Backbone JS Architecture from http://www.slideshare.net/ronreiter/writing-html5-web-apps-using-backbonejs-and-gae](images/backbonejs-architecture.jpg)
 
 ## Live Code: Task List
-As we learn about Backbone, we'll be using a running example: a task list, similar to the one we built at the beginning of Rails. The difference is, this task list will be a Single Page Application. You can find the initial setup [on GitHub](https://github.com/Ada-C7/backbone-live-code). The initial setup lives on the branch `master`, and the final result that we're working toward lives on `live-code-sequence`.
+As we learn about Backbone, we'll be using a running example: a task list, similar to the one we built at the beginning of Rails. The difference is, this task list will be a Single Page Application. You can find the initial setup linked in the calendar. The initial setup lives on the branch `master`, and the final result that we're working toward lives on `live-code-sequence`.
 
 The live code setup is a little more complex than what we've done in the past with JavaScript. Instead of directing your browser straight to a file, we'll run a simple webserver, kind of like what we did with Rails. To get started, run the following in the command line:
 
