@@ -122,12 +122,19 @@ taskList.comparator = function(task) {
 // Sort by comparing two tasks
 // completed tasks go first, then sorted by title.
 taskList.comparator = function(task1, task2) {
+
+    // Get the value of the `complete` attribute for the 1st task.
   var task1Complete = task1.get("complete");
+    // Get the value of the `complete` attribute for the 2nd task.
   var task2Complete = task2.get("complete");
-  if (task2Complete && !task2Complete)
+  
+     // If the 1st task is complete and the 2nd one is not.
+  if (task1Complete && !task2Complete)
     return -1;
+    // Otherwise if the first task is not complete and the 2nd one is.
   else if (! task1Complete && task2Complete)
     return 1;
+    // otherwise compare them by the title using JavaScript String's compare function
   else 
   	return task1.get("title").localeCompare(task2.get("title"));
 }
