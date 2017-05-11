@@ -111,13 +111,13 @@ Three Examples are below:
 // sort the taskList lexicographically by title
 taskList.comparator = "title";  
 ```
-##### Comparing by a custom method with 1 parameter.
+##### Comparing by a custom function with 1 parameter.
 ```JavaScript
 // sort the taskList by the length of the title
 taskList.comparator = function(task) {
   return task.get("title").length;  }
 ```
-##### Comparing with a custom with taking two models as a parameter.
+##### Comparing with a custom function taking two models as a parameter.
 ```JavaScript
 // Sort by comparing two tasks
 // completed tasks go first, then sorted by title.
