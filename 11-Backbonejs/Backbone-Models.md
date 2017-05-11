@@ -158,20 +158,12 @@ Lets use our fabulous underscore library to create a template to render, or draw
 ```
 
 Note inside the `body` element is an underscore template.  Next we'll use the template to add content.  
-
-To use the jQuery template first we select the template text using jQuery.  Next we use the `_.template` method to get a template object by passing it the text of the template block.  The `<%= %>` handles tell underscore to insert a value in from the parameters passed to the object when it's called.  Lastly we append the compiled template to the contents of the `main` element using the fields in `my_task`.  
+ 
 
 ```javascript
 // src/app.js
-import $ from 'jquery';
-import _ from 'underscore';
 
-import Task from 'app/models/task';
-
-var my_task = new Task({
-  title: "Create a model",
-  completed: true
-});
+...
 
 // Added Code
   // Select the template using jQuery
@@ -183,6 +175,21 @@ $('main').append(template(my_task.toJSON()));
 // End of new code
 // ...
 ```
+
+What's happening?  We first use jQuery to find our template with `$('#taskItemTemplate')`.  Then we use the `.html()` function to get the HTML code inside that selection.  
+
+In this example:  `$('#taskItemTemplate').html();` returns:
+
+```html
+<section class="task-item">
+  <h1><strong>Title:</strong> <%= title %></h1>
+  <h3><strong>Completed:</strong> <%= completed %></h3>
+</section>
+```
+
+Then we call the underscore `template` function which compiles the given html into a template function with `_.template(template_text);`
+
+Lastly we appended to `main` the resulting template with data provided by JSON from our model with `$('main').append(template(my_task.toJSON()));`
 
 ### $(document).ready
 
