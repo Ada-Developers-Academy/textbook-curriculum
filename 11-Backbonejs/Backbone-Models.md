@@ -23,6 +23,19 @@ Things you can do with a model in Backbone include:
 
 Organizing all this functionality ourselves would be a giant pain in the butt, so let's create a model for our Todo items!
 
+## First Steps Setting up `app.js`
+
+In our `src/app.js` file we will first set it up with lines we'll need from now on.
+
+```javascript
+// src/app.js
+import $ from 'jquery';
+import _ from 'underscore';
+```
+
+What does this do for us?  import lets us bring in code from libraries we are using and defined in our `package.json` file, and other JavaScript files we create.  However our `app.js` file will regularly use underscore and jQuery throughout.  These three lines should remain at the top of `src/app.js`.
+
+
 ## Adding Models
 In this first section, we will create a model to represent a single task. We will add this model to our application without adding any new functionality. Later we'll take advantage of the model to add some new features that would be much more difficult without it.
 
