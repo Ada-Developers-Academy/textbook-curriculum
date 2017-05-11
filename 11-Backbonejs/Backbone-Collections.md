@@ -141,7 +141,7 @@ taskList.comparator = function(task1, task2) {
 ```
 #### Where
 
-Like in Rails Models `where` returns an array of all the models that match the passed attributes.  It's an easy way to filter models.
+Like in Rails Models `where` returns an array of all the models that match the passed attributes.  It's a compact way to filter models.
 
 ```JavaScript
 // returns the list of completed tasks
