@@ -96,16 +96,10 @@ For example:
 
 ```javascript
 // src/app.js
-import $ from 'jquery';
-import _ from 'underscore';
 
-import Task from 'app/models/task';
-
-var my_task = new Task({
-  title: "Create a model",
-  completed: true
-});
-  // prints "Title:  Create a model"
+...
+ 
+   // prints "Title:  Create a model"
 console.log("Title: " + my_task.get("title") );
   // prints "Complete:  true"
 console.log("Complete: " + my_task.get("completed") );
@@ -114,15 +108,9 @@ console.log("Complete: " + my_task.get("completed") );
 The `set` method allows you to change the attributes of a Model by either passing it a key and value or by passing `set` a JSON object.
 
 ```javascript
-import $ from 'jquery';
-import _ from 'underscore';
+// src/app.js
 
-import Task from 'app/models/task';
-
-var my_task = new Task({
-  title: "Create a model",
-  completed: true
-});
+...
 
   // key & value example
 my_task.set("title", "Test the `set` method.");
