@@ -4,126 +4,104 @@
 - See different ways to create and extend objects
 - See how there is not a direct path from Ruby to JavaScript objects
 
+## JavaScript Objects
+We spoke briefly about objects in our introductory conversation, but there's way more to JavaScript objects than that. Let's take a deeper look.
 
-## Objects Practice
-We spoke briefly about objects in our introductory conversation, so let's take a deeper look.
-
-Check out this code. It shows how we would use Ruby to create a new class and create an object instance.
-```ruby
-class FuzzyPet
-  NAP_HOURS = 7
-
-  def self.dog
-    puts "borf!"
-  end
-
-  def self.cat
-    puts "mrow!"
-  end
-end
-
-FuzzyPet.NAP_HOURS  # 7
-FuzzyPet.dog        # 'borf!'
-```
-
-Now, let's try the same thing with JavaScript! hmmmm, how do we do this?
+### Recap: Hash-like Objects
+So far, every object we've built has been defined explicitly in our code. This is very similar to how hashes work in Ruby. Objects can contain any sort of variable, including arrays, functions and even other objects. Remember that inside an object, you can use `this` to refer to that object, similar to Ruby's `self`. Here's an example, just to review:
 
 ```javascript
-var FuzzyPet = {
-  nap_hours: 7,
-  dog: function() { console.log("borf!"); },
-  cat: function() { console.log("mrow!"); }
+var myDog = {
+  name: 'fido',
+  breed: 'labrador',
+  age: 4,
+  speak: function() {
+    console.log('woof');
+  },
+  owner: {
+    name: 'Ada',
+    address: '1215 4th Ave #1050'
+  },
+  toString: function() {
+    return this.name + ", a " + this.breed " owned by " + this.owner.name;
+  }
 };
-
-FuzzyPet.nap_hours; // 7
-FuzzyPet.dog();     // "borf!"
 ```
 
-Next, go ahead and try to enhance this `FuzzyPet` to add a new method for another animal. Let's not recreate the whole `FuzzyPet` object, but rather add to the existing one we created above.
+This is great for one-off objects, but what if we need to keep track of many similar objects? We'd have to explicitly define each one, which could quickly turn into a lot of repeated code.
 
-```javascript
-FuzzyPet.bird = function() { console.log("chirp!"); };
-```
+### Instantiating Objects
 
-## Inheritance
-Check out this code. It shows how Ruby does inheritance, and how it handles instantiating object instances:
+#### Ruby-style: Classical Objects
+In Ruby, we solve the problem of many similar objects using classes. We define a class, give it some methods and variables, and then create and manipulate instances of the class.
 
 ```ruby
-class FuzzyPet
-  NAP_HOURS = 7
-  attr_reader :nap_hours
-
-  def initialize
-    @nap_hours = NAP_HOURS
+# dog.rb
+class Dog
+  attr_reader :name, :breed
+  def initialize(name, breed)
+    @name = name
+    @breed = breed
   end
 
-  def dog
-    puts "borf!"
-  end
-
-  def cat
-    puts "mrow!"
+  def speak()
+    puts "woof"
   end
 end
 
-class MyPet < FuzzyPet
-  def bird
-    puts "cherp!"
-  end
-end
-
-my_pet = MyPet.new
-my_pet.nap_hours # 7
-my_pet.dog  # borf!
-my_pet.bird # cherp!
+myDog = Dog.new('fido', 'labrador')
+myDog.speak
 ```
 
-Nice, right? In Ruby, we know that seeing `class MyPet < FuzzyPet`, means that `MyPet` is defined with having all of the methods, accessors, properties, and constants that exist on `FuzzyPet`. We would say that _MyPet inherits FuzzyPet_.
+This pattern of defining a class and then instantiating it is very common in object oriented languages, and languages that use it are sometimes said to have _classical_ objects. JavaScript uses a slightly different technique called _prototypical_ objects.
 
-JavaScript doesn't have an inheritance operator or keyword like Ruby's `<`. Instead, it has a `new` keyword such that `new MyPet()` produces an object that inherits from `MyPet.prototype`. Every `function` in JavaScript has a `prototype`. By default, it's an empty object (`{}`), but we can extend it or assign to be another object. Once a `prototype` isn't an empty object, the `function` can act as a _class_ and be used to instantiate other instances.
+#### JavaScript Style: Prototypical Objects
+When building a prototypical object in JavaScript, there are three important steps:
+- Define the _constructor_, a function that sets up any details specific to this instance (usually instance variables)
+- Define the constructor's `prototype`, an object that establishes pieces common to all instances (usually instance methods)
+- Call the constructor using JavaScript's `new` keyword to create new instances of the object
 
-So where's `FuzzyPet` in that setup? How would we create `MyPet` such that it inherits from `FuzzyPet` in JavaScript?
-
-## Inheritance Using Object Prototypes
-Let's copypasta this code block into our Node REPL:
+The big idea of prototypical objects is that, rather than defining a special language construct like a class, you create an original object to be the _prototype_ for new objects. Any new object is created as a clone of the original.
 
 ```javascript
-var FuzzyPet = {
-  napHours: 7,
-  dog: function() { console.log('borf!'); },
-  cat: function() { console.log('mrow!'); }
+// dog.js
+
+// First we define the constructor
+var Dog = function(name, breed) {
+  this.name = name;
+  this.breed = breed;
 };
 
-function MyPet() {
-  this.bird = function() { console.log('cherp!'); };
-}
+// Second we add the prototype
+Dog.prototype = {
+  speak: function () {
+    console.log("woof")
+  }
+};
 
-
-MyPet.prototype = FuzzyPet;
-var myPets = new MyPet();
-
-console.log(typeof(my_pets)); // Interesting!
+// Third we instantiate the object with the new keyword
+var myDog = new Dog("fido", "labrador");
+myDog.speak();
 ```
 
-### What did we just do?
-`FuzzyPet` is a generic JavaScript object. `MyPet` is a function (which is also an object) that sets a property on itself (`this.bird`). We then assign `MyPet`'s prototype to be `FuzzyPet`. By assigning the prototype, we are telling JavaScript that new _instances_ of the `MyPet` object should inherit the properties and functions defined on `FuzzyPet`.
+Now we can create as many dogs as we want!
 
-Ok. So now what? Well, let's take a look at what we can do with `my_pets`:
+Note the `new` keyword. The syntax is a little different from Ruby, and it's easy to get tripped up.
+
+Note also that `Dog.prototype` is just a JavaScript object. It happens to be the object that JavaScript looks for when a constructor is invoked with `new`, but other than that it behaves just as we've seen before. So you could do things like:
 
 ```javascript
-myPets.bird(); // myPets -> MyPet
-myPets.dog(); // myPets -> MyPet -> myPets.prototype -> dog()
-myPets.cat(); // myPets -> MyPet -> myPets.prototype -> cat()
-myPets.napHours; // myPets -> myPets.prototype -> napHours
+// Call a function from the prototype directly
+Dog.prototype.speak();
+
+// Add a function to the prototype
+Dog.prototype.isHungry = function() {
+  return true; // always hungry
+};
 ```
 
-### So how did we instantiate `MyPet`?
-The `new` keyword is responsible for creating the instance. Notice that we invoked the function too! The whole line is `new MyPet()`. Invoking the function triggers the function body of `MyPet`, essentially using the function body as the constructor/initializer for the object.
-
-So `myPets` has a `bird()` function that it got as part of the invocation of `MyPet()`. The function body of `MyPet()` is the constructor for new instances.
-
-### What can we do with this?
-We can build complex functions that look and act like objects we'd use in Ruby. For an example, I built the following `Calculator()` function to be able to do multiple operations on demand. In this example, I used `prototype` to add new functions to `Calculator()` function. Using this, I can _instantiate_ as many calculators as I need. Consuming this function looks like this:
+### Example: Calculator
+Here is another example: a `Calculator` object that keeps track of a result as you do mathematical operations. Note the use of `prototype` to add new functions to `Calculator`. Using this, I can _instantiate_ as many calculators as I need. Consuming this function looks like this:
 
 ```javascript
 function Calculator(x) {
@@ -144,13 +122,11 @@ calc.division(2); // 6
 calc.subtract(14); // -8
 ```
 
-## A note about using `Object.create()`
-Introduced in ES5, `Object.create()` is a function that creates new objects. It takes one or two parameters. The first is an object that will be the new object's prototype. The second parameter is an optional object. If the second parameter is provided, it's properties and functions will be applied to the newly created object. You can read more about using `Object.create()` [over at MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create).
+### Inheritance
+Inheritance in JavaScript is complicated! It also doesn't come up all that often, and because the syntax is so weird many common JavaScript libraries provide their own custom version of it. As such we won't cover it in detail in this course. If you're interested in learning more about how it works in raw JavaScript, check out [the MDN guide](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance).
 
-There are a couple of gotchas and (to me, at least) unintuitive behaviors with using `Object.create()`, so be sure to read the docs carefully when you try using it.
-
-## A note about the `class` keyword in ES6.
-When reading about JavaScript, you'll come across folks excited about ES6 adding some new keywords like `class`, `extends`, `constructor`, and `super`. These keywords will allow us to build objects and inheritances that feel more familiar to us. However, JavaScript will remain a prototypal language; these keywords are just syntactic sugar sprinkled on top of what we are doing here with `prototype`.
+## A Note About the `class` Keyword in ES6.
+When reading about JavaScript, you'll come across folks excited about [ES6 adding some new keywords](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) like `class`, `extends`, `constructor`, and `super`. These keywords will allow us to build objects and inheritances that feel more familiar to us. However, JavaScript will remain a prototypal language; these keywords are just syntactic sugar sprinkled on top of what we are doing here with `prototype`.
 
 ## READING IS FUNDAMENTAL!
 - [Prototypal Inheritance in JavaScript](http://javascript.crockford.com/prototypal.html)
