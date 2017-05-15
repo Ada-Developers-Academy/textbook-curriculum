@@ -137,6 +137,8 @@ var e = "elephant";
 console.log("#{e} hotdog"); // "#{e} hotdog" js doesn't do interpolation
 ```
 
+JavaScript does not have symbols, and uses strings wherever Ruby would use symbols.
+
 #### Arrays
 [Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) are similar to Ruby arrays. They are declared and accessed with square brackets ([]).
 
