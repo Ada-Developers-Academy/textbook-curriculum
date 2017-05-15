@@ -7,8 +7,6 @@ By the end of this lesson you should be able to:
 - Explain what a Backbone Model is
 - Create your own Backbone Model
 - Instantiate your Backbone Model and assign attributes
-- Use some basic Backbone Model methods
-- Listen to Backbone Model events
 
 ## What is a Backbone Model
 Backbone Models are much like Rails Models.  They keep track of your data and help in saving and loading information to and from your back end.
@@ -23,17 +21,40 @@ Things you can do with a model in Backbone include:
 
 Organizing all this functionality ourselves would be a giant pain in the butt, so let's create a model for our Todo items!
 
+## What are we going to Do here
+
+In this lesson we're going to start by creating models to hold the data for our Task List and then write a function to render, or draw, them on the screen using jQuery & Underscore.  We'll also add a jQuery event handler to let us create new Tasks.
+
+You can see the finished version here:
+
+# TODO ADD LINK TO LIVE APPLICATION
+
 ## First Steps Setting up `app.js`
 
 In our `src/app.js` file we will first set it up with lines we'll need from now on.
 
 ```javascript
-// src/app.js
+// /src/app.js
+// Load Foundation Files
+import _settings  from './css/_settings.scss';
+import foundation  from './css/foundation.css';
+import css from './css/styles.css';
+
+// Import jQuery & Underscore
 import $ from 'jquery';
 import _ from 'underscore';
+
+// ready to go
+$(document).ready(function() {
+
+  $('section.main-content').append('<p>Hello World!</p>');
+
+});
 ```
 
-What does this do for us?  import lets us bring in code from libraries we are using and defined in our `package.json` file, and other JavaScript files we create.  However our `app.js` file will regularly use underscore and jQuery throughout.  These three lines should remain at the top of `src/app.js`.
+What does this do for us?  We first import some CSS files into our application so Webpack can load the styles dynamically.  
+
+The  `import` statement lets us bring in code from libraries we are using and defined in our `package.json` file, and other JavaScript files we create.  Since our `app.js` file will regularly use underscore and jQuery throughout, we import them immediately.  These top lines should remain at the top of `src/app.js`.
 
 
 ## Adding Models
@@ -43,7 +64,7 @@ In this first section, we will create a model to represent a single task. We wil
 The first thing we need to do is create the model itself. We start by calling `extend()`, on `Backbone.Model`. Our model will get its own file: `src/app/models/task.js`.
 
 ```javascript
-// src/app/models/task.js
+// src/models/task.js
 import Backbone from 'backbone';
 
 var Task = Backbone.Model.extend({ });
@@ -57,25 +78,29 @@ So now in our `src/app.js` file we can add.
 
 ```javascript
 // src/app.js
-import $ from 'jquery';
-import _ from 'underscore';
+//... imports etc
+import Task from './models/task';
 
-// code You are adding
-import Task from 'app/models/task';
+// ready to go
+$(document).ready(function() {
 
-var my_task = new Task({
-  title: "Create a model",
-  completed: true
+  var my_task = new Task({
+    title: "Create a model",
+    completed: true
+  });
+
+  console.log(my_task.get("title") +  " is completed: " + my_task.get("completed"));
+
 });
 
-console.log(my_task.get("title") +  " is completed: " + my_task.get("completed"));
-// end of added code
 // ...
 ```
 
+Notice we took out appending `hello world` to the DOM.
+
 What did this get us?  We now have a new `Task` type of object which can store information, in this case `title` and `completed`.  Then just to test it we created one instance of `Task` and logged it to the console.  
 
-We can check to see if it works by launching the site with `$  npm start` and viewing http://localhost:8081
+We can check to see if it works by launching the site with `$  npm dev` and viewing [http://localhost:8080](http://localhost:8080)
 
 ![console log for the code above](images/backbone-model1.png)
 
@@ -92,7 +117,7 @@ Great question o'hypothetical student!
 
 We created our task with two fields, `title` and `completed`.  We can access these fields with the `get` method.  You may have noticed how `.get` was used above in our initial logging of things to the console.
 
-For example:
+For example in `app.js` we used `get` already:
 
 ```javascript
 // src/app.js
@@ -108,7 +133,7 @@ console.log("Complete: " + my_task.get("completed") );
 The `set` method allows you to change the attributes of a Model by either passing it a key and value or by passing `set` a JSON object.
 
 ```javascript
-// src/app.js
+// sample code illustrating `set`
 
 ...
 
@@ -129,35 +154,35 @@ That's... great, but lets get something output to the webpage.
 
 ### Creating An Underscore Template
 
-Lets use our fabulous underscore library to create a template to render, or draw our task item.  
+Lets use our fabulous underscore library to create a template to render, or draw our task item.  We have the following template in our HTML file to use.  Notice the `<%= %>` handles just like ERB.  We can use our underscore templates much like views in Rails to describe how we want to render our tasks.  
 
 ```html
-<!-- build/index.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-</head>
-<body>
-  <!-- Where the main content of our page will go -->
-  <main>
-  </main>
-  <div id="test-area">
-  </div>
+<!-- index.html -->
+...
   <script id="taskItemTemplate" type="text/template">
-    <section class="task-item">
-      <h1><strong>Title:</strong> <%= title %></h1>
-      <h3><strong>Completed:</strong> <%= completed %></h3>
-    </section>
+    <li class="task-item column column-block">
+      <h2 <%= completed ? 'class="completed"' : 'class="incomplete"' %> >
+        <strong> <%= title %></strong>
+      </h2>
+      <div class="row">
+        <div class="small-6 columns">
+          <button class="button success">
+            Toggle <%= completed ? "Incomplete" : "Complete" %>
+          </button>
+        </div>
+        <div class="small-6 columns">
+          <button class="button alert">
+            Delete
+          </button>
+        </div>
+      </div>
+    </li>
   </script>
-
-  <script src="/app.bundle.js" charset="utf-8"></script>
-</body>
-</html>
-
 ```
 
-Note inside the `body` element is an underscore template.  Next we'll use the template to add content.  
+Note that we can use the ternary operator `?` to change the output depending on values passed into the template.  In this case we are changing the class of the title's `<h2>` element and changing the text displayed on a button based on the `completed` property. 
+
+Next we'll use the template to add content to the DOM.  
  
 
 ```javascript
@@ -165,147 +190,47 @@ Note inside the `body` element is an underscore template.  Next we'll use the te
 
 ...
 
-// Added Code
-  // Select the template using jQuery
-var template_text = $('#taskItemTemplate').html();
-  // Get an underscore template object
-var template = _.template(template_text);
-  // 
-$('main').append(template(my_task.toJSON()));
-// End of new code
-// ...
+$(document).ready(function() {
+
+  var my_task = new Task({
+    title: "Create a model",
+    completed: true
+  });
+
+  // Replacing the console log statements.
+  
+    // Select the template using jQuery
+  var template_text = $('#taskItemTemplate').html();
+  
+    // Get an underscore template object
+  var template = _.template(template_text);
+  
+    // Use the underscore template function to compile the
+    // template and data into raw html.
+  var compiledHTML = template(my_task.toJSON());
+  
+    // append the html onto the list using jQuery.
+  $('.todo-items').append(compiledHTML);
+  
+  // End of new code
+});
 ```
 
 What's happening?  We first use jQuery to find our template with `$('#taskItemTemplate')`.  Then we use the `.html()` function to get the HTML code inside that selection.  
-
-In this example:  `$('#taskItemTemplate').html();` returns:
-
-```html
-<section class="task-item">
-  <h1><strong>Title:</strong> <%= title %></h1>
-  <h3><strong>Completed:</strong> <%= completed %></h3>
-</section>
-```
 
 Then we call the underscore `template` function which compiles the given html into a template function with `_.template(template_text);`
 
 Lastly we appended to `main` the resulting template with data provided by JSON from our model with `$('main').append(template(my_task.toJSON()));`
 
-### $(document).ready
-
-We want to make sure that our code does not execute until the page is fully loaded.  We can ensure that by placing our code into an event handler called when the browser has the document ready (fully loaded).  So inside the event handler we create a task model and an underscore template then compile the template with the model and append the result to the `main` element.
-
-```javascript
-// src/app.js
-import $ from 'jquery';
-import _ from 'underscore';
-import Task from 'app/models/task.js';
-
-$(document).ready(function() {
-  var my_task = new Task({
-    title: "Create a model",
-    completed: true
-  });
-    // Select the template using jQuery
-  var template_text = $('#taskItemTemplate').html();
-    // Get an underscore template object
-  var template = _.template(template_text);
-    // 
-  $('main').append(template(my_task.toJSON()));
-});
-// ...
-```
+**Questions:** 
+  -  What does `console.log(template_text);` print to the console?  
+  -  What about `console.log(compiledHTML);` 
 
 #### Check-In Point 
 
 You should have the task displayed on the browser now.  With your SeatSquad member, first check and verify that you both have it working.  Then add a few more tasks to the display.  You can see one example [here:](https://gist.github.com/CheezItMan/33b342b9d47e345482ff2682b62938d0)
 
 
-### Revisiting The Task Model
-
-We can edit the Task model by adding a hash of attributes to initialize.  For example below we can set default values for attributes:
-
-```javascript
-// src/app/models/task.js
-import Backbone from 'backbone';
-
-var Task = Backbone.Model.extend({
-  defaults: {
-    title: '',
-    completed: false
-  }
-});
-
-export default Task;
-```
-
-Then any tasks created like `var my_other_task = new Task({title: "Study JavaScript" });` will automatically have a field named `completed` set to false.  This is also how you can add custom methods (including business logic) to your model. For example we've done a lot of printing the title & completion status of our Task to the console, a logStatus method might be handy. 
-
-```javascript
-// src/app/models/task.js
-import Backbone from 'backbone';
-
-var Task = Backbone.Model.extend({
-  defaults: {
-    title: '',
-    completed: false
-  },
-  logStatus: function() {
-    console.log("Title: " + this.get("title"));
-    console.log("Completed: " + this.get("completed"));
-  }
-});
-
-export default Task;
-```
-
-Then in our `app.js` we can simply print out the status of our task with:  `my_task.logStatus();`
-
-#### Check-in Point
-
-Add a `toggleComplete` method which marks a complete task to incomplete or an incomplete task to complete.  We'll try to use it later.
-
-If you're stuck you can see a working solution [here:](https://gist.github.com/CheezItMan/38fac3dfd1f26cdd19a32b50b2a5c359)
-
-### A List of Models
-
-Now that we have a model & a template we can output a list of tasks to the browser.  
-
-```JavaScript
-// src/app.js
-import $ from 'jquery';
-import _ from 'underscore';
-import Task from 'app/models/task.js';
-
-var taskData = [
-  {
-    title: 'Mow the lawn',
-    description: 'Must be finished before BBQ on Sat afternoon'
-  }, {
-    title: 'Go to the Bank',
-    description: 'Need to make a transfer'
-  }, {
-    title: 'Tune the Piano',
-    description: 'High C is missing or something???'
-  }
-];
-var tasks = [];
-
-$(document).ready(function() {
-  _.each(taskData, function(taskObj) {
-    var task = new Task(taskObj);
-    tasks.push(task);
-    var template_text = $('#taskItemTemplate').html();
-      // Get an underscore template object
-    var template = _.template(template_text);
-      //
-    $('main').append(template(task.toJSON()));
-  });
-  $('#test-area').append($('<p>Hello World!</p>'));
-});
-```
-
-Now using an Array, we can display any number of Tasks using the Underscore template on the screen.  
 
 ## What Have We Accomplished
 - Create a basic Backbone model to represent a task
