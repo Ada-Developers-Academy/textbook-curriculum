@@ -244,3 +244,29 @@ Like in Ruby, `while` loops are commonly used when you don't know quite how many
 #### [The `forEach` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
 
 JavaScript has a `forEach` loop that allows you to iterate over the elements of an array, similar to Ruby's `each` loop. However, there are some substantial differences - `forEach` takes a function as an argument. Since we haven't learned about those yet we'll hold off on showing the syntax until later.
+
+## What Did We Accomplish?
+
+- Install Node, so we can run JavaScript from the command line
+- Define variables
+- Discuss the different variable types
+  - `null`
+  - `undefined`
+  - Boolean
+  - Number
+  - String
+  - Array
+  - Object
+- Demonstrate conditionals
+- Briefly show the three types of loop
+  - `for` loop
+  - `while` loop
+  - `forEach` loop
+
+## Additional Resources
+
+As with HTML and CSS, there are two main educational resources about JavaScript: W3Schools and the Mozilla Developer Network (MDN). While W3Schools has a flashier website and better SEO, their information is sometimes incomplete or out-of-date. MDN is considered to be a much more in-depth and reliable source.
+
+- [MDN intro to JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction)
+- [MDN re-introduction to JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) - worth going over once you're comfortable with the basics
+- [JavaScript: The Good Parts](http://shop.oreilly.com/product/9780596517748.do) - wonderful (and delightfully slim) dead trees book on the language
