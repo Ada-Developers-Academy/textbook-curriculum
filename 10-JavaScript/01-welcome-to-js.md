@@ -193,40 +193,64 @@ var adult = (age > 18) ? "yes" : "no";
 ```
 
 ### Iterators
+There are three main types of loop in JavaScript: `for` loops, `forEach` loops and `while` loops.
+
 #### `for` Loop
-The most common iterator in Javascript is the `for` loop. It can be executed three different ways, depending on what kind of loop you need
-
-##### [The basic `for` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for)
-- has three parts:
-  - `var i = 0` - **starter**  
-    This executes at loop start.
-  - `i < 5` - **loop condition**  
-    The condition to check if loop is finished. It is checked after every execution of loop body.
-  - `i++` - **increment**  
-    An action to perform after every iteration, but before the loop condition is checked.
--
-  ```javascript
-  for (var i = 0; i < 5; i++) {
-    // Will execute 5 times
-  }
-  ```
-
-
-##### [The `forEach` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
-
-
-
-#### `while` Loop
-JavaScript also uses the `while` loop in a similar way to the way we use it in Ruby.
+[The basic `for` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for) looks something like this:
 
 ```javascript
-var text = "";
+for (initialization; condition; increment) {
+  // do work!
+}
+```
+
+Looks similar to a conditional! This syntax comes from the programming language C. There's not a direct equivalent in Ruby, but it's common in many other languages. Aside from the keyword `for` and all the parentheses, there are three main components, separated by _semicolons_:
+- **Initialization:** Runs before the loop, often used to set up a counter variable
+- **Condition:** Runs before each iteration (including the first), determines whether the loop should keep going
+- **Increment:** Runs after each iteration, sets up the following iteration
+
+Here's a realistic example:
+
+```javascript
+for (var i = 0; i < 5; i += 1) {
+  console.log("Iteration " + i);
+}
+```
+
+To point out the three components:
+- **Initialization:** `var i = 0`
+- **Condition:** `i < 5`
+- **Increment:** `i += 1`
+
+**Question:** What would the above loop print out?
+
+**Question:** What Ruby code could you use to achieve the same thing?
+
+#### `while` Loop
+JavaScript also uses the `while` loop in a similar way to the way we use it in Ruby. The following code does the same thing as the `for` loop above, more verbosely.
+
+```javascript
 var i = 0;
 while (i < 10) {
-    text += "The number is " + i;
+    console.log("Iteration " + i);
     i++;
 }
-console.log(text);
+```
+
+Like in Ruby, `while` loops are commonly used when you don't know quite how many iterations you need. This commonly comes up when interacting with humans or other things outside your program.
+
+#### [The `forEach` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+
+`forEach` loops are similar to Ruby's `each` loops. They're commonly used to iterate over the elements in an array. The syntax is a little funky, especially since we haven't talked about functions yet, but we'll show it anyway.
+
+```javascript
+var data = [4, 7, 9, 12, 3, 18, 6];
+var sum = 0;
+data.forEach(function (num) {
+  sum += num;
+}, this);
+var average = sum / data.length;
+console.log("Average is " + average);
 ```
 
 # JavaScript Exercises
