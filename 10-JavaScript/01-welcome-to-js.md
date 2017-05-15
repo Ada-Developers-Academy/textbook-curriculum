@@ -243,41 +243,4 @@ Like in Ruby, `while` loops are commonly used when you don't know quite how many
 
 #### [The `forEach` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
 
-`forEach` loops are similar to Ruby's `each` loops. They're commonly used to iterate over the elements in an array. The syntax is a little funky, especially since we haven't talked about functions yet, but we'll show it anyway.
-
-```javascript
-var data = [4, 7, 9, 12, 3, 18, 6];
-var sum = 0;
-data.forEach(function (num) {
-  sum += num;
-}, this);
-var average = sum / data.length;
-console.log("Average is " + average);
-```
-
-# JavaScript Exercises
-## Exercise #1: Create a ToDo object, with the following properties:
-- a task (string) - a description of the thing to do
-- assignee (string) - the name of a person to do it
-- done (boolean) - is the task done or not?
-- getDone (function) - get the value of done, use "this" in the body of the function.
-- setDone (function) - set the value of done, use "this" in the body of the function.
-
-### Exercise #2: Find the biggest number in the array
-- Utilize the stub code below to complete the problem:
-- `getBiggest` should accept an array as a parameter and return a the largest number in the array
-
-```javascript
-var arrayOfNums = [2, 7, 7, 3, 9, 0, 1, 6, 8, 3, 8, 4, 7, 9];
-
-function getBiggest(array) {
-  // your code goes here!!
-}
-
-//
-// pass an array to getBiggest;
-// get a return value that is the biggest number in the array
-//
-var biggest = getBiggest(arrayOfNums);
-console.log("The biggest is: ", biggest);
-```
+JavaScript has a `forEach` loop that allows you to iterate over the elements of an array, similar to Ruby's `each` loop. However, there are some substantial differences - `forEach` takes a function as an argument. Since we haven't learned about those yet we'll hold off on showing the syntax until later.
