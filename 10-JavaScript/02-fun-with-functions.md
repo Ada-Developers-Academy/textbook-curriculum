@@ -151,7 +151,7 @@ If you're interested in more details, [this StackOverflow answer](http://stackov
 ```javascript
 var arrayOfNums = [2, 7, 7, 3, 9, 0, 1, 6, 8, 3, 8, 4, 7, 9];
 
-function getBiggest(array) {
+var getBiggest = function(array) {
   // your code goes here!!
 }
 
