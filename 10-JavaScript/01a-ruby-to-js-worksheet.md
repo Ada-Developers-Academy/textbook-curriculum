@@ -3,6 +3,8 @@ Read the code in each section, then write the equivalent JavaScript code for the
 
 Each problem stands alone. Variables from previous problems do not exist.
 
+Some of the later problems use Ruby `each` loops. For now, solve them using `for` loops - it's good practice! Once we've talked about functions, you can come back and do it with a `forEach`.
+
 ## Problem Set
 1. &nbsp;
     ```ruby
