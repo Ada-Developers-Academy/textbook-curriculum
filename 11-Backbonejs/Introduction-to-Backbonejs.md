@@ -14,8 +14,8 @@ Pure JavaScript & jQuery can quickly become unstructured and messy.  It's very e
 Backbone provides structure to your application by breaking things into our now familiar MVC framework, separating concerns and allowing your app to communicate with the server with a RESTful set of API calls.  
 
 So in short Backbone:
--  Enforces structure to make your code more maintainable and readable
--  Enforces good practices in how your JavaScript interacts with external resources
+-  Provides structure to make your code more maintainable and readable
+-  Encourages good practices in how your JavaScript interacts with external resources
 
 ### Aside: Libraries and Frameworks
 The benefits of Backbone should look somewhat familiar - they're some of the same reasons we learned Rails rather than writing a custom web server in pure Ruby. However, there's a major philosophical difference between Backbone and Rails, down to the very core of their designs: Backbone is a **library**, while Rails is a **framework**.
@@ -111,4 +111,5 @@ Note the folders for our models, collections & views.
 - [Top JavaScript Frameworks, Libraries and Tools and When to Use Them](https://www.sitepoint.com/top-javascript-frameworks-libraries-tools-use/)
 - [StackOverflow on the difference between a Framework and a Library](http://stackoverflow.com/questions/3057526/framework-vs-toolkit-vs-library)
 - [Jamie's Backbone.js Overview slides](https://docs.google.com/presentation/d/12wG-8q4AH9UU-Z1DjANf7m--CiVTKqj9OO0rX7oMlDc/edit?usp=sharing)
+- [A Video on getting started with Webpack](https://www.youtube.com/watch?v=eWmkBNBTbMM)
 
