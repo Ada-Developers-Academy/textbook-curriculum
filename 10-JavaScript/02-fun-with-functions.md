@@ -45,10 +45,10 @@ Like any other variable, you can include a function as member of an object. Othe
 
 ```javascript
 var animal = {
-  name: "dog",
+  species: "dog",
   sound: "woof",
   describe: function() {
-    console.log("A " + this.name + " goes " + this.sound);
+    console.log("A " + this.species + " goes " + this.sound);
   }
 }
 
