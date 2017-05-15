@@ -230,6 +230,78 @@ Lastly we appended to `main` the resulting template with data provided by JSON f
 
 You should have the task displayed on the browser now.  With your SeatSquad member, first check and verify that you both have it working.  Then add a few more tasks to the display.  You can see one example [here:](https://gist.github.com/CheezItMan/33b342b9d47e345482ff2682b62938d0)
 
+## Refactoring
+
+Currently we've done all the code around drawing the Task within `$(document).ready`'s event handler.  Lets break that down into a separate function that we can call `render`.  This way we can create multiple Tasks and use `render` to add each of them to the DOM.  
+
+```javascript
+var render = function(task) {
+  // Select the template using jQuery
+  var template_text = $('#taskItemTemplate').html();
+
+  //console.log(template_text);
+  // Get an underscore template object
+  var template = _.template(template_text);
+
+  // Use the underscore template function to compile the
+  // template and data into raw html.
+  var compiledHTML = template(task.toJSON());
+
+  // append the html to the unordered list.
+  $('.todo-items').append(compiledHTML);
+};
+
+// ready to go
+$(document).ready(function() {
+
+  var my_task = new Task({
+    title: "Create a model",
+    completed: true
+  });
+  render(my_task);
+
+});
+```
+
+Now we can create as many tasks as we need and add them to our list.  Later on we'll move `render` into a better structure, but for now we have a handy method to add tasks to our list.
+
+##  Creating New Tasks
+
+If you'll notice the HTML has a handy form available to create new tasks, but it doesn't do anything!  Lets change that and create an event handler for the `Add a Task` button.  
+
+```javascript
+$('#add-task').click( function() {
+
+    // Get the values from the fields
+    var title = $('#title').val('');
+    var description = $('#description').val('');
+    var completed = $('#completed-checkbox').is(":checked");
+    $('#completed-checkbox').prop('checked', false);
+
+    // Create a new Task
+    var task = new Task({
+      title: title,
+      description: description,
+      completed: completed
+    });
+
+    // Add it to the DOM
+    render(task);
+  });
+```
+
+So when we click the `Add a Task` button we get the values from the form fields, and clear them.  Then we create a new task.  Lastly we add it to the DOM with `render`.  
+
+## What we Can't do
+
+At this point we can't remove a task from the DOM, and we cannot interact with one once we've added it to our list.  There's nothing keeping track of our growing **collection** of Task objects...  
+
+So we need:
+-  A way to store/track our Tasks
+-  A way to delete a task when the user clicks the delete button.
+
+
+This leads us to the next step in our journey... Collections!
 
 
 ## What Have We Accomplished
