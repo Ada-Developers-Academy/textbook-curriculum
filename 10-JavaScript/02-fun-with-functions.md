@@ -1,130 +1,176 @@
 # Fun with Functions!
+
 ## Learning Goals
-- Learn how Javascript functions are different than Ruby methods
+- Write and invoke some JavaScript functions
+- Learn how JavaScript functions are different than Ruby methods
 - Distinguish between a function _expression_ and a function _declaration_
 - Begin exploring what _higher order_ functions are
 
-## Functional expressions vs. Function declarations
-Javascript's appeal and power and flexibility are in the myriad ways we can interact with functions.
+## Using Functions in JavaScript
+The syntax for functions is a lot different in JavaScript than in Ruby.
 
-* Functions are __objects__
-* `var foo = function(bar){};` vs. `function foo(bar){}`
-* In _many_ cases, the differences here are nominal, but it's important to understand the first example is an __expression__ while the second is a __declaration__.
-* [This StackOverflow answer is one of the best I've seen in describing the difference and when it matters](http://stackoverflow.com/questions/3887408/javascript-function-declaration-and-evaluation-order).
-* In general you should always prefer the expression syntax when defining functions. The expression syntax can be used anywhere that the declaration syntax can be used, as well as additional places. Plus, the expression syntax has semantics that match the semantics of regular variables which is important because functions are variables!
+### Defining Functions
+All functions in JavaScript are variables. Just like any other variable, you declare functions with the `var` keyword and a name, but you set the value to be a function instead of a number or a string.
 
-### Functions, methods, constructor calls
+How do you set the value to be a function? With the `function` keyword of course!
+
 ```javascript
-var foo = function() { console.log('nah'); }
-var obj = {
-  foo: function() {
-    console.log('foo!');
+var bark = function() {
+  console.log("Woof!");
+}
+```
+
+#### Calling a Function
+Unlike in Ruby, JavaScript requires you to type in parentheses if you want to invoke a function. You can access functions like you would any other variable:
+
+```javascript
+bark(); // "Woof!"
+```
+
+#### Parameters
+Parameters are very similar to how they work in Ruby:
+
+```javascript
+var sayItTwice = function(text) {
+  console.log(text);
+  console.log(text);
+}
+
+sayItTwice("JS is OK!"); // "JS is OK!"
+                         // "JS is OK!"
+```
+
+#### Attaching Functions to Objects
+Like any other variable, you can include a function as member of an object. Other members can be accessed through the `this` keyword, similar to Ruby's `self`.
+
+```javascript
+var animal = {
+  species: "dog",
+  sound: "woof",
+  describe: function() {
+    console.log("A " + this.species + " goes " + this.sound);
   }
 }
 
-var MyObject = function(){};
-//prototypes is how JS does inheritance. We will take more about them later
-MyObject.prototype.foo = function(){ console.log('meh'); };
-
-var o = new MyObject(); //makes a new instance of MyObject
+animal.describe(); // "A dog goes woof"
 ```
 
-### Calling functions directly
-```javascript
-foo(); // 'nah'
-obj.foo(); //'foo!'
-o.foo(); //'meh'
-```
+Be aware that JavaScript's `this` keyword has some strange behavior. Many times it won't refer to quite what you'd expect. This can be one of the most frustrating things about JavaScript, especially for a beginner, and we'll have more to say about it later. For now, just know that it's a thing that might come up.
 
-### Passing functions as variables
-* Computer scientists call this _higher order functions_ and/or _first-class functions_.
+### Passing Functions as Arguments
+One of the big differences between Ruby and JavaScript is that in JavaScript, functions are objects. That means you can pass functions as arguments to other functions. A function passed as an argument is often referred to as a _callback function_, or sometimes just a _callback_.
 
 ```javascript
-var talker = function( sum ){
-  console.log( "Yo the sum is: " + sum );
-};
-
-var doMath = function( num1, num2, im_a_function ){
-  var sum = num1 + num2;
-  im_a_function( sum ); //Hey! let's execute the function we were given!
-};
-
-doMath(1000, 2, talker); //Hey! talker is a function!
-doMath(1000, 2, function(x) { Math.pow(x, 2); }) //Hey! this is an anonymous function!
-```
-
-#### Somewhat Practical Example: Array.prototype.sort
-
-```javascript
-var backwards = function(x, y){
-  if( x > y ){
-    return -1;
-  }
-  if( x < y ){
-    return 1;
-  }
-};
-
-[4, 2, 5, 1, 9, 5].sort(); //=> [1, 2, 4, 5, 5, 9]
-[4, 2, 5, 1, 9, 5].sort( backwards ); //=> [9, 5, 5, 4, 2, 1];
-```
-
-### Functions
-Functions in JavaScript are __awesome__. Rather than using the `def` keyword like we're used to, JavaScript uses the `function` keyword to declare a function. They are more "pure" than Ruby methods and can be put in variables, and passed around like any other type. We will spend a lot of time talking about functions as they are the cornerstone of understanding JavaScript.
-
-```javascript
-function choicier(choice1, choice2) {
-  if (choice1 == choice2) {
-    return "These are the same!";
-  } else {
-    return "These are not the same!"
+// Invoke the callback function on every number from 0 through 9,
+// and print the results to the command line
+var doMath = function(callback) {
+  for (var i = 0; i < 10; i += 1) {
+    var result = callback(i);
+    console.log(i + ": " + result);
   }
 }
 
-// You **must** use parens to execute a function
-choicier; // this returns the function
-choicier(4, 4) // "These are the same!" - execute the function and returns the result
-```
-
-```javascript
-var adder = function (a, b) {
-  return a + b;   // You need to explicitly call return in JavaScript
+var double = function(number) {
+  return number + number;
 }
 
-// You need to use parens to call your function!
-adder;        // this returns the function that you just declared
-adder(1, 2);  // 3 - this executes the function and returns the result
+// Pass the function by name
+doMath(double);
+// Prints out:
+// 1: 2
+// 2: 4
+// 3: 6
+// ...
 ```
 
-#### A note about `this`
-The keyword `this` is probably the most misunderstood concept in JavaScript. At its core, `this`, when invoked inside a function, refers to the invocation _context_ of the containing function (wat). Essentially, `this` is kinda like `self` in Ruby (this object, right here), but it is much, much more common in JavaScript for functions to be executed in contexts beyond where they were declared.
+A programming language that allows you to pass functions around like this is said to support _higher order_ or _first-class_ functions. C, JavaScript and Python are examples of languages that support first-class functions; Ruby and Java are examples of languages that do not.
 
-As we explore how functions work, we will also discover the ins and outs of `this`. For now, we can think of `this` to mean _this object, right here_.
+#### Anonymous Functions
+You can also define an _anonymous_ callback function inside the argument list. This has a similar result to using a block in Ruby.
 
 ```javascript
-  var repeater = function(word) {
-    console.log(this);
-    return word + word;
-  };
-
-  var repeater_object = {
-    dog: " bark bark ",
-    repeater: function(word) {
-      console.log(this);
-      return word + word;
-    },
-    repeat_dog: function(word) {
-      // `this` refers to the current object in context
-      // most of the time, this will be repeater_object
-      return word + this.dog + word + this.dog;
-    }
-  };
-
-  repeater("cat"); //omg so much stuff
-  repeater_object.repeater("cat"); //lots less stuff; why?
-  repeater_object.repeat_dog("cat"); //cat bark bark cat bark bark
+// define a function inside the argument list
+doMath(function(x) {
+  return x * x;
+});
+// Prints out:
+// 1: 1
+// 2: 4
+// 3: 9
+// ...
 ```
+
+Note the weird `});` on the last line. As with most syntactic sugar, anonymous functions can quickly become difficult to read, so use them judiciously.
+
+#### Practical Example: `forEach` Loops
+JavaScript's `forEach` is an example of a function that takes another function as an argument. Note how it behaves similarly to a block in Ruby.
+
+```javascript
+var data = [4, 7, 9, 12, 3, 18, 6];
+var sum = 0;
+
+// Another anonymous function
+data.forEach(function (num) {
+  sum += num;
+});
+
+var average = sum / data.length;
+console.log("Average is " + average);
+```
+
+### Functional Expressions vs. Function Declarations
+Something that may come up in your exploration of JavaScript is the difference between a functional expression and a function declaration. A functional expression is what we've seen so far:
+
+```javascript
+// functional expression - this is the right way
+var foo = function(bar) {};
+```
+
+A functional declaration looks like this. Note the lack of `var` and a semicolon, and the difference word order.
+
+```javascript
+// functional declaration - this is the wrong way
+function foo(bar) {}
+```
+
+In many cases the differences are nominal, but every once in a while they'll bite you. The vast majority of the time, a functional expression is what you want. In other words, **always define your functions with the `var` keyword**. The declaration style (no `var`) should be avoided unless you have a good reason to use it.
+
+If you're interested in more details, [this StackOverflow answer](http://stackoverflow.com/questions/3887408/javascript-function-declaration-and-evaluation-order) is one of the best I've seen in describing the difference and when it matters. We don't expect you to be able to recite the nitty gritty details, but we do expect you to be able to identify the two types of function and tell us which is correct.
+
+## JavaScript Function Exercises
+### Exercise #1: Create a ToDo object, with the following properties:
+- `description` (string) - a description of the thing to do
+- `assignee` (string) - the name of a person to do it
+- `done` (boolean) - is the task done or not?
+- `printStatus` (function) - print the description, assignee and status to the command line
+
+### Exercise #2: Find the biggest number in the array
+- Utilize the stub code below to complete the problem:
+- `getBiggest` should accept an array as a parameter and return a the largest number in the array
+
+```javascript
+var arrayOfNums = [2, 7, 7, 3, 9, 0, 1, 6, 8, 3, 8, 4, 7, 9];
+
+function getBiggest(array) {
+  // your code goes here!!
+}
+
+//
+// pass an array to getBiggest;
+// get a return value that is the biggest number in the array
+//
+var biggest = getBiggest(arrayOfNums);
+console.log("The biggest is: ", biggest);
+```
+
+## Vocab List
+
+- The `this` keyword
+- Callback function
+- Anonymous function
+- "Higher order" or "first-class" functions
+- Functional expression
+- Function declaration
 
 ## Additional Resources
-* [Slides Used in Class](https://docs.google.com/presentation/d/1QboS170RoaKq2dVwLgXmUZHhzz8I5Cs1H08w0euvmY8/edit?usp=sharing)
 * [MDN on Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
