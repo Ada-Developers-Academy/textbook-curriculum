@@ -126,7 +126,7 @@ two == four / two; // true
 ```
 
 #### `Strings` are declared with `""` or `''`.
-They're the same. Pick one and stick with it! __Note:__ One thing you cannot do in JavaScript is Ruby-style interpolation.
+They're the same. Pick one and stick with it! __Note:__ There is a new way to declare a string literal with backticks `` (`) ``, which is the only way to perform string interpolation, but not every web browser supports this yet.
 
 ```javascript
 var str = "This is a string";
