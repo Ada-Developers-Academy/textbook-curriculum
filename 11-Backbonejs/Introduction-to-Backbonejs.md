@@ -61,7 +61,9 @@ Backbone implements the familiar MVC architecture that we learned in Rails in a 
 ![Backbone JS Architecture from http://www.slideshare.net/ronreiter/writing-html5-web-apps-using-backbonejs-and-gae](images/backbonejs-architecture.jpg)
 
 ## Live Code: Task List
-As we learn about Backbone, we'll be using a running example: a task list, similar to the one we built at the beginning of Rails. The difference is, this task list will be a Single Page Application. You can find the initial setup linked in the calendar. The initial setup lives on the branch `master`, and the final result that we're working toward lives on `live-code-sequence`.
+As we learn about Backbone, we'll be using a running example: a task list, similar to the one we built at the beginning of Rails. The difference is, this task list will be a Single Page Application. You can find the initial setup linked in the calendar. The initial setup lives on the branch `master`, and the final result that we're working toward lives on the branch `live-code-sequence`.
+
+You can see the finished version here: [https://tasklist-js.herokuapp.com/](https://tasklist-js.herokuapp.com/) 
 
 The live code setup is a little more complex than what we've done in the past with JavaScript. Instead of directing your browser straight to a file, we'll run a simple webserver, kind of like what we did with Rails. To get started, run the following in the command line:
 
@@ -89,9 +91,9 @@ Neither babel nor webpack have anything to do whatsoever with Backbone!
 You can use Backbone without them, and use them without Backbone - in fact, right now Backbone is installed, but we're not using it at all. So why are we jumping through all these hoops? Because we've been learning JavaScript for 2 whole weeks, and it's time to switch to a big kids development environment!
 
 ### Directory Structure
-Let's take a look at the directory structure. There are two folders we're interested in: `build` and `src`. Both these names are completely arbitrary - you can see them specified in `webpack.config.js`.
+Let's take a look at the directory structure. We are interested in the root folder and the  `dist` and `src` folders. Both these folder names are completely arbitrary - you can see them specified in `webpack.config.js`.
 
-Inside `build` are `index.html` and `styles`. `index.html` is the page that will be served to the browser, and `styles` is full of CSS.
+Inside `dist` are `bundle.js` and `bundle.js.map`.  These are compiled JavaScript files with all the JavaScript code we are using. In the root folder `index.html` is the page that will be served to the browser.  The `src` folder contains all our application's JavaScript, & CSS.
 
 The `src` folder is where we'll put our JavaScript. There are a few empty folders in here which we will use eventually, but to start everything will go in `app.js`.
 
