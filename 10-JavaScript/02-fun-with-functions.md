@@ -17,7 +17,7 @@ How do you set the value to be a function? With the `function` keyword of course
 ```javascript
 var bark = function() {
   console.log("Woof!");
-}
+};
 ```
 
 #### Calling a Function
@@ -34,7 +34,7 @@ Parameters are very similar to how they work in Ruby:
 var sayItTwice = function(text) {
   console.log(text);
   console.log(text);
-}
+};
 
 sayItTwice("JS is OK!"); // "JS is OK!"
                          // "JS is OK!"
@@ -50,7 +50,7 @@ var animal = {
   describe: function() {
     console.log("A " + this.species + " goes " + this.sound);
   }
-}
+};
 
 animal.describe(); // "A dog goes woof"
 ```
@@ -68,11 +68,11 @@ var doMath = function(callback) {
     var result = callback(i);
     console.log(i + ": " + result);
   }
-}
+};
 
 var double = function(number) {
   return number + number;
-}
+};
 
 // Pass the function by name
 doMath(double);
@@ -153,7 +153,7 @@ var arrayOfNums = [2, 7, 7, 3, 9, 0, 1, 6, 8, 3, 8, 4, 7, 9];
 
 function getBiggest(array) {
   // your code goes here!!
-}
+};
 
 //
 // pass an array to getBiggest;
