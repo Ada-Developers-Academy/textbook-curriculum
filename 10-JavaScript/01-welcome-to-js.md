@@ -13,7 +13,7 @@ Although it was developed under the name Mocha, the language was officially call
 The change of name from LiveScript to JavaScript roughly coincided with Netscape adding support for Java technology in its Netscape Navigator Web browser. The final choice of name caused confusion, giving the impression that the language was a spin-off of the Java programming language, and the choice has been characterized as a marketing ploy by Netscape to give JavaScript the cachet of what was then the hot new Web programming language.
 
 ## Node is changing the game
-[Node.js](https://nodejs.org/en/) is an open-source, cross-platform runtime environment for developing server-side Web applications. Although Node.js is not a JavaScript framework,[3] many of its basic modules are written in JavaScript, and developers can write new modules in JavaScript. The runtime environment interprets JavaScript using Google's V8 JavaScript engine (same as what's in Chrome).
+[Node.js](https://nodejs.org/en/) is an open-source, cross-platform runtime environment for developing server-side Web applications. Although Node.js is not a JavaScript framework, many of its basic modules are written in JavaScript, and developers can write new modules in JavaScript. The runtime environment interprets JavaScript using Google's V8 JavaScript engine (same as what's in Chrome).
 
 To get started, let's install node using `$ brew install node`. It should go something like this:
 
@@ -125,7 +125,7 @@ two == four / two; // true
 "asdf" - 5; // NaN
 ```
 
-#### `Strings` are declared with "" or ''.
+#### `Strings` are declared with `""` or `''`.
 They're the same. Pick one and stick with it! __Note:__ One thing you cannot do in JavaScript is Ruby-style interpolation.
 
 ```javascript
@@ -183,7 +183,7 @@ if (name == "puppies") {
   name = "!" + name;
 }
 
-console.log("name");
+console.log(name);
 ```
 
 JavaScript also has the ternary operator, which we all adore, amirite?
