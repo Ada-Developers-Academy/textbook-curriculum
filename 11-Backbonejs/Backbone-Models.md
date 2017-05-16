@@ -270,7 +270,7 @@ If you'll notice the HTML has a handy form available to create new tasks, but it
 
 ```javascript
 
-var readNewTaskForm() {
+var readNewTaskForm = function() {
   // Get the values from the fields
   var title = $('#title').val();
   $('#title').val('');
@@ -278,13 +278,13 @@ var readNewTaskForm() {
   $('#description').val('');
   var completed = $('#completed-checkbox').is(":checked");
   $('#completed-checkbox').prop('checked', false);
-	
+
   return {
     title: title,
     description: description,
-    completed: completed	
-  }  
-}
+    completed: completed
+  };
+};
 
 $('#add-task').click( function() {
 
