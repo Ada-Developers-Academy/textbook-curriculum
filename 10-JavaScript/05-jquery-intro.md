@@ -97,7 +97,7 @@ The fist step is to add an extra `<script>` tag to our HTML document. Make sure 
   <body>
     <h1>Test page for JavaScript in the Browser</h1>
 
-    <div id="jsLectureTarget"></div>
+    <div id="js-lecture-target"></div>
 
     <script src="jquery or something?" type="text/javascript"></script>
     <script src="index.js" type="text/javascript"></script>
@@ -123,8 +123,8 @@ Usually the owner of a library will give instructions for how to include it via 
 
 ```html
 <script
-  src="https://code.jquery.com/jquery-3.1.1.js"
-  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
 ```
 
