@@ -25,9 +25,8 @@ Organizing all this functionality ourselves would be a giant pain in the butt, s
 
 In this lesson we're going to start by creating models to hold the data for our Task List and then write a function to render, or draw, them on the screen using jQuery & Underscore.  We'll also add a jQuery event handler to let us create new Tasks.
 
-You can see the finished version here:
+You can see the finished version [here:](https://tasklist-js-models.herokuapp.com/)
 
-# TODO ADD LINK TO LIVE APPLICATION
 
 ## First Steps Setting up `app.js`
 
@@ -100,7 +99,7 @@ Notice we took out appending `hello world` to the DOM.
 
 What did this get us?  We now have a new `Task` type of object which can store information, in this case `title` and `completed`.  Then just to test it we created one instance of `Task` and logged it to the console.  
 
-We can check to see if it works by launching the site with `$  npm dev` and viewing [http://localhost:8080](http://localhost:8080)
+We can check to see if it works by launching the site with `$  npm run dev` and viewing [http://localhost:8080](http://localhost:8080)
 
 ![console log for the code above](images/backbone-model1.png)
 
