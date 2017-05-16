@@ -66,7 +66,7 @@ Add some basic HTML to `index.html`:
   <body>
     <h1>Test page for JavaScript in the Browser</h1>
 
-    <div id="jsLectureTarget"></div>
+    <div id="js-lecture-target"></div>
   </body>
 </html>
 ```
@@ -83,20 +83,12 @@ To run your JavaScript file from your webpage, add a `<script>` tag at the end o
 
 ```html
 <!-- index.html -->
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>JavaScript Test Page</title>
-  </head>
-  <body>
-    <h1>Test page for JavaScript in the Browser</h1>
+...
+<body>
+  ...
 
-    <div id="jsLectureTarget"></div>
-
-    <script src="index.js" type="text/javascript"></script>
-  </body>
-</html>
+  <script src="index.js" type="text/javascript"></script>
+</body>
 ```
 
 Just like CSS links, you can include multiple `<script>`s in your page, and they'll be loaded in order.
@@ -142,11 +134,11 @@ The DOM is accessed through an object called `document`. Let's update our `index
 // index.js
 console.log("This is a test");
 
-var target = document.getElementById('jsLectureTarget');
-target.innerHTML = '<p>I give you... content!</p>';
+var target = document.getElementById('js-lecture-target');  // Find the HTML element where the ID is js-lecture-target
+target.innerHTML = '<p>I give you... content!</p>'; // Put this HTML inside the div we retrieved above
 ```
 
-And that's it. That is the only instance of direct DOM manipulation we'll ever do in this class. Now that you know that it _can_ be done, we'll skip right to a neat library called `jQuery` that smooths out many of the issues outlined above. But that is a subject for another lecture.
+Now we have modified the DOM using JavaScript Code. That is the only instance of direct DOM manipulation we'll ever do in this class. Now that you know that it _can_ be done, we'll skip right to a neat library called `jQuery` that smooths out many of the issues outlined above. But that is a subject for another lecture.
 
 ## What did we Accomplish?
 * Run some JavaScript in the browser
