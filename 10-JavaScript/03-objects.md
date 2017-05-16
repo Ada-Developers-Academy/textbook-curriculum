@@ -130,4 +130,5 @@ When reading about JavaScript, you'll come across folks excited about [ES6 addin
 
 ## READING IS FUNDAMENTAL!
 - [Prototypal Inheritance in JavaScript](http://javascript.crockford.com/prototypal.html)
+- [JavaScript methods within The Constructor vs Prototype](https://www.thecodeship.com/web-development/methods-within-constructor-vs-prototype-in-javascript/)
 - [MDN Docs on JS Prototypes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
