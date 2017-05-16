@@ -272,10 +272,9 @@ If you'll notice the HTML has a handy form available to create new tasks, but it
 $('#add-task').click( function() {
 
     // Get the values from the fields
-    var title = $('#title').val('');
-    var description = $('#description').val('');
+    var title = $('#title').val();
+    var description = $('#description').val();
     var completed = $('#completed-checkbox').is(":checked");
-    $('#completed-checkbox').prop('checked', false);
 
     // Create a new Task
     var task = new Task({
