@@ -290,7 +290,7 @@ $('#add-task').click( function() {
 
 So when we click the `Add a Task` button we get the values from the form fields, and clear them.  Then we create a new task.  Lastly we add it to the DOM with `render`.  
 
-## What we Can't do
+## What We Can't Do
 
 At this point we can't remove a task from the DOM, and we cannot interact with one once we've added it to our list.  There's nothing keeping track of our growing **collection** of Task objects...  
 
