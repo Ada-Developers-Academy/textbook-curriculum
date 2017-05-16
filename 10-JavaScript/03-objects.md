@@ -104,16 +104,16 @@ Dog.prototype.isHungry = function() {
 Here is another example: a `Calculator` object that keeps track of a result as you do mathematical operations. Note the use of `prototype` to add new functions to `Calculator`. Using this, I can _instantiate_ as many calculators as I need. Consuming this function looks like this:
 
 ```javascript
-function Calculator(x) {
+var Calculator = function(x) {
   this._x = x; //let's talk a moment about _x
-}
+};
 
 Calculator.prototype = {
   addition: function(n) { return this._x += n; },
   subtract: function(n) { return this._x -= n; },
   division: function(n) { return this._x /= n; },
   multiply: function(n) { return this._x *= n; }
-}
+};
 
 var calc = new Calculator(0);
 calc.addition(4); // 4
