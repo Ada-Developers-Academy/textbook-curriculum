@@ -65,7 +65,7 @@ Template definitions live in your HTML. They're wrapped in a `<script>` tag that
 </script>
 ```
 
-The `<script>` tag has two attributes. First is `id` - this is what we'll use to find the template later. Second is `type`, which is set to `text/template`. Turns out `text/template` is just a made up type. the browser doesn't know what to do with it, so it just ignores it. This suits us perfectly, since we don't want the template to render until we're ready.
+The `<script>` tag has two attributes. First is `id` - this is what we'll use to find the template later. Second is `type`, which is set to `text/template`. Turns out `text/template` is just a made up type. The browser doesn't know what to do with it, so it just ignores it. This suits us perfectly, since we don't want the template to render until we're ready.
 
 Right now our template is empty, so our next step is to add some contents. Underscore's syntax is inspired by ERB, so this ought to look familiar.
 
