@@ -266,22 +266,30 @@ Now we can create as many tasks as we need and add them to our list.  Later on w
 
 ##  Creating New Tasks
 
-If you'll notice the HTML has a handy form available to create new tasks, but it doesn't do anything!  Lets change that and create an event handler for the `Add a Task` button.  
+If you'll notice the HTML has a handy form available to create new tasks, but it doesn't do anything!  Lets change that and create an event handler for the `Add a Task` button.  For now we will create two functions to read from the input form, create a new task and add it to the DOM.
 
 ```javascript
+
+var readNewTaskForm() {
+  // Get the values from the fields
+  var title = $('#title').val();
+  $('#title').val('');
+  var description = $('#description').val();
+  $('#description').val('');
+  var completed = $('#completed-checkbox').is(":checked");
+  $('#completed-checkbox').prop('checked', false);
+	
+  return {
+    title: title,
+    description: description,
+    completed: completed	
+  }  
+}
+
 $('#add-task').click( function() {
 
-    // Get the values from the fields
-    var title = $('#title').val();
-    var description = $('#description').val();
-    var completed = $('#completed-checkbox').is(":checked");
-
     // Create a new Task
-    var task = new Task({
-      title: title,
-      description: description,
-      completed: completed
-    });
+    var task = new Task( readNewTaskForm() );
 
     // Add it to the DOM
     render(task);
