@@ -96,7 +96,7 @@ And we can replace the `.each` loop in `$(document).ready` with `renderList(task
 
 #### Check-in 
 
-With your Seatsquad check and verify that you can both display the todo list using the Collection
+With your Seatsquad check and verify that you can both display the todo list using the Collection and can add Tasks to the list.  You 
 
 You can see a working solution [here](https://gist.github.com/CheezItMan/bbb9465a88d16412243dd1abadee8a21).
 
@@ -118,8 +118,6 @@ $('#add-task').click( function() {
 
     // Add the Task to the list
     taskList.add(task);
-    // Clear the Unordered list
-    $('.todo-items').empty();
 
     // re-render the list
     renderList(taskList);
@@ -142,53 +140,53 @@ We can create an event handler to respond when the collection is updated.
 $(document).ready(function() {
   // ... code
   
-  taskList.on("update", renderList(taskList) );
-}
+  taskList.on("update", function() {
+    renderList(taskList);
+  });}
 ```
 
-This event handler will cause the list to be re-rendered whenever the TaskList is updated.  One way we can update the collection is to delete a task!
+This event handler will cause the list to be re-rendered whenever the TaskList is updated.  We can now remove `renderList(taskList);` from our event handler.  
+
+Another way we can update the collection is to delete a task!
 
 
 ## Deleting Models From a Collection
 
 The template has a button we can use to delete a model.  However we need some way to identify which model a button corresponds to.  
 
-Luckily Backbone Collections assign a unique ID, called a `cid` for each instance of the model.  So as we render each task in our `render` method we can add an event handler with a parameter to identify the model to delete.  
+Luckily Backbone Collections assign a unique ID, called a `cid` for each instance of the model.  So as we render each task in our `render` method we can add an event handler with a parameter to identify the model to delete.
+
+We can add an event handler to the `render` method.  
 
 ```JavaScript
-  taskList.on("update", function() {
-    $('main').empty();
-    taskList.each(function(task) {
-      $('main').append(template(task.toJSON()));
-      $('main section.task-item:last').find('button').click ({taskCid: task.cid}, function(params) {
-          taskList.remove(params.data.taskCid);
-      });
-    });
-  });
-  taskList.trigger("update");
+// src/app.js
+// ...
+// append the html to the unordered list.
+  $('.todo-items').append(compiledHTML);
+  
+//  new code
+$('li.task-item:last').find('button.success').click({taskCid: task.cid}, function(params) {
+  taskList.remove(params.data.taskCid);
+});
 ```
+
+To review the code above:
+
+1.  Appends the template to the DOM.
+1.  Adds an event handler to listen for the last button to be clicked, and passes the `cid` of the task to the event handler.
+1.  When the event handler is triggered it removes the task from the collection.
+1.  This removal triggers an `update` event and causes the list to re-render.
+
 
 #### Check-In
 
 Verify with your SeatSquad member that you both have it working.  You can see a working solution [here:](https://gist.github.com/CheezItMan/b77634f6d017227cf440481e232c74e1) 
 
-### Toggling Tasks Complete/Incomplete
-
-Now with your SeatSquad, add an event handler to toggle a Task between complete and incomplete.  You will, unfortunately need to trigger the `update` event manually.  
-
-#### Verify 
-
-You can find a solution [here](https://gist.github.com/anonymous/209589fa3db6f3725801361f6eaa5555)
-
-## Looking Back
-
-If this seems... messy, it is.  That's why we will next go into Views, to provide a bit of structure to our code.  Views will provide a bit of structure to coordinate between our models and the HTML templates.  
-
 
 ## What Have We Accomplished?
 
-- Replace the array of Models in our `TaskListView` with a proper Backbone Collection
-- Listen to events on the Collection to know when to update our display
+- We now have a Collection which can track our Tasks and trigger events when the collection changes.
+- We are listening to events on the Collection to know when to update our display
 
 
 ## Additional Resources
