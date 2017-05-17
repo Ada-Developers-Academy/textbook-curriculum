@@ -12,13 +12,13 @@ At the end of this you should be able to:
 
 In Backbone a Collection is a type of Model that can contain Model instances inside it.  You can think of it as similar to an Array: an ordered collection of Models.  
 
-Using a Collection instead of an Array will bring us similar benefits to using a Model instead of a raw JavaScript Object. Collections can abstract away complex bits of logic (like only selecting Models that match a condition), they're also really good at talking to APIs, and they emit events when they change.
+Using a Collection instead of an Array brings us similar benefits to using a Model instead of a raw JavaScript Object. Collections can abstract away complex bits of logic (like only selecting Models that match a condition), they're also really good at talking to APIs, and they emit events when they change.
 
-In this lecture we will begin to scratch the surface of the power of collections.  We will use a Collection to track and contain our tasks.  Then in the next lecture we will look at the Event model Backbone inherits from Underscore and how it applies to Collections & Models. Our `TaskList` model will contain individual `Task` models.  
+In this lecture we will begin to scratch the surface of the power of collections.  We will use a Collection to track and contain our tasks.  Then we will look at the Event model Backbone inherits from Underscore and how it applies to Collections & Models. Our `TaskList` model will contain individual `Task` models.  
 
 ![Backbone Collections](Collection.png) 
 
-## Adding a Collection
+## Creating a Collection
 ### Defining the Collection
 The first thing we need to do is create the collection itself.  Our collection will get its own file: `app/collections/task_list.js`. As with models and views, we will call `extend()` on `Backbone.Collection`.
 
@@ -49,6 +49,8 @@ Second, in `$(document).ready()`, we can create a TaskList to track our list of 
 ```javascript
 // src/app.js
 // imports etc...
+var taskList;
+// ...
 
 $(document).ready(function() {
   var taskData = [{
@@ -60,7 +62,7 @@ $(document).ready(function() {
     completed: false
   }];
   
-  var taskList = new TaskList(taskData);
+  taskList = new TaskList(taskData);
 
   taskList.each(function(task) {
     render(task);
@@ -145,7 +147,7 @@ $(document).ready(function() {
   });}
 ```
 
-This event handler will cause the list to be re-rendered whenever the TaskList is updated.  We can now remove `renderList(taskList);` from our event handler.  
+This event handler will cause the list to be re-rendered whenever the TaskList is updated.  We can now remove `renderList(taskList);` from our on click event handler because this event handler will be called when the collection is updated.  
 
 Another way we can update the collection is to delete a task!
 
@@ -170,7 +172,7 @@ $('li.task-item:last').find('button.success').click({taskCid: task.cid}, functio
 });
 ```
 
-To review the code above:
+To review, the code above:
 
 1.  Appends the template to the DOM.
 1.  Adds an event handler to listen for the last button to be clicked, and passes the `cid` of the task to the event handler.
