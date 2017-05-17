@@ -47,19 +47,19 @@ end
 1.
 Invoke the zombies function.
 ```javascript
-function zombies() {
+var zombies = function() {
   return "We like to eat people";
-}
+};
 ```
 
 2.
 Call the `square()` method on the `my_calculator` object.
 ```javascript
-function Calculator() {
+var Calculator = function() {
   this.square = function (x) {
     return x * x;
   }
-}
+};
 var my_calculator = new Calculator();
 ```
 
@@ -74,7 +74,7 @@ console.log(function () {
 4.
 What does the following code print to the console?
 ```javascript
-function blabbermouth() { };
+var blabbermouth = function() { };
 console.log(blabbermouth.name);
 ```
 

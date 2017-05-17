@@ -13,7 +13,7 @@ Although it was developed under the name Mocha, the language was officially call
 The change of name from LiveScript to JavaScript roughly coincided with Netscape adding support for Java technology in its Netscape Navigator Web browser. The final choice of name caused confusion, giving the impression that the language was a spin-off of the Java programming language, and the choice has been characterized as a marketing ploy by Netscape to give JavaScript the cachet of what was then the hot new Web programming language.
 
 ## Node is changing the game
-[Node.js](https://nodejs.org/en/) is an open-source, cross-platform runtime environment for developing server-side Web applications. Although Node.js is not a JavaScript framework,[3] many of its basic modules are written in JavaScript, and developers can write new modules in JavaScript. The runtime environment interprets JavaScript using Google's V8 JavaScript engine (same as what's in Chrome).
+[Node.js](https://nodejs.org/en/) is an open-source, cross-platform runtime environment for developing server-side Web applications. Although Node.js is not a JavaScript framework, many of its basic modules are written in JavaScript, and developers can write new modules in JavaScript. The runtime environment interprets JavaScript using Google's V8 JavaScript engine (same as what's in Chrome).
 
 To get started, let's install node using `$ brew install node`. It should go something like this:
 
@@ -125,8 +125,8 @@ two == four / two; // true
 "asdf" - 5; // NaN
 ```
 
-#### `Strings` are declared with "" or ''.
-They're the same. Pick one and stick with it! __Note:__ One thing you cannot do in JavaScript is Ruby-style interpolation.
+#### `Strings` are declared with `""` or `''`.
+They're the same. Pick one and stick with it! __Note:__ There is a new way to declare a string literal with backticks `` (`) ``, which is the only way to perform string interpolation, but not every web browser supports this yet.
 
 ```javascript
 var str = "This is a string";
@@ -136,6 +136,8 @@ str.substr(2,5); // "is is" - call the substr function
 var e = "elephant";
 console.log("#{e} hotdog"); // "#{e} hotdog" js doesn't do interpolation
 ```
+
+JavaScript does not have symbols, and uses strings wherever Ruby would use symbols.
 
 #### Arrays
 [Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) are similar to Ruby arrays. They are declared and accessed with square brackets ([]).
@@ -183,7 +185,7 @@ if (name == "puppies") {
   name = "!" + name;
 }
 
-console.log("name");
+console.log(name);
 ```
 
 JavaScript also has the ternary operator, which we all adore, amirite?
@@ -193,65 +195,78 @@ var adult = (age > 18) ? "yes" : "no";
 ```
 
 ### Iterators
+There are three main types of loop in JavaScript: `for` loops, `forEach` loops and `while` loops.
+
 #### `for` Loop
-The most common iterator in Javascript is the `for` loop. It can be executed three different ways, depending on what kind of loop you need
+[The basic `for` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for) looks something like this:
 
-##### [The basic `for` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for)
-- has three parts:
-  - `var i = 0` - **starter**  
-    This executes at loop start.
-  - `i < 5` - **loop condition**  
-    The condition to check if loop is finished. It is checked after every execution of loop body.
-  - `i++` - **increment**  
-    An action to perform after every iteration, but before the loop condition is checked.
--
-  ```javascript
-  for (var i = 0; i < 5; i++) {
-    // Will execute 5 times
-  }
-  ```
+```javascript
+for (initialization; condition; increment) {
+  // do work!
+}
+```
 
+Looks similar to a conditional! This syntax comes from the programming language C. There's not a direct equivalent in Ruby, but it's common in many other languages. Aside from the keyword `for` and all the parentheses, there are three main components, separated by _semicolons_:
+- **Initialization:** Runs before the loop, often used to set up a counter variable
+- **Condition:** Runs before each iteration (including the first), determines whether the loop should keep going
+- **Increment:** Runs after each iteration, sets up the following iteration
 
-##### [The `forEach` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+Here's a realistic example:
 
+```javascript
+for (var i = 0; i < 5; i += 1) {
+  console.log("Iteration " + i);
+}
+```
 
+To point out the three components:
+- **Initialization:** `var i = 0`
+- **Condition:** `i < 5`
+- **Increment:** `i += 1`
+
+**Question:** What would the above loop print out?
+
+**Question:** What Ruby code could you use to achieve the same thing?
 
 #### `while` Loop
-JavaScript also uses the `while` loop in a similar way to the way we use it in Ruby.
+JavaScript also uses the `while` loop in a similar way to the way we use it in Ruby. The following code does the same thing as the `for` loop above, more verbosely.
 
 ```javascript
-var text = "";
 var i = 0;
 while (i < 10) {
-    text += "The number is " + i;
+    console.log("Iteration " + i);
     i++;
 }
-console.log(text);
 ```
 
-# JavaScript Exercises
-## Exercise #1: Create a ToDo object, with the following properties:
-- a task (string) - a description of the thing to do
-- assignee (string) - the name of a person to do it
-- done (boolean) - is the task done or not?
-- getDone (function) - get the value of done, use "this" in the body of the function.
-- setDone (function) - set the value of done, use "this" in the body of the function.
+Like in Ruby, `while` loops are commonly used when you don't know quite how many iterations you need. This commonly comes up when interacting with humans or other things outside your program.
 
-### Exercise #2: Find the biggest number in the array
-- Utilize the stub code below to complete the problem:
-- `getBiggest` should accept an array as a parameter and return a the largest number in the array
+#### [The `forEach` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
 
-```javascript
-var arrayOfNums = [2, 7, 7, 3, 9, 0, 1, 6, 8, 3, 8, 4, 7, 9];
+JavaScript has a `forEach` loop that allows you to iterate over the elements of an array, similar to Ruby's `each` loop. However, there are some substantial differences - `forEach` takes a function as an argument. Since we haven't learned about those yet we'll hold off on showing the syntax until later.
 
-function getBiggest(array) {
-  // your code goes here!!
-}
+## What Did We Accomplish?
 
-//
-// pass an array to getBiggest;
-// get a return value that is the biggest number in the array
-//
-var biggest = getBiggest(arrayOfNums);
-console.log("The biggest is: ", biggest);
-```
+- Install Node, so we can run JavaScript from the command line
+- Define variables
+- Discuss the different variable types
+  - `null`
+  - `undefined`
+  - Boolean
+  - Number
+  - String
+  - Array
+  - Object
+- Demonstrate conditionals
+- Briefly show the three types of loop
+  - `for` loop
+  - `while` loop
+  - `forEach` loop
+
+## Additional Resources
+
+As with HTML and CSS, there are two main educational resources about JavaScript: W3Schools and the Mozilla Developer Network (MDN). While W3Schools has a flashier website and better SEO, their information is sometimes incomplete or out-of-date. MDN is considered to be a much more in-depth and reliable source.
+
+- [MDN intro to JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction)
+- [MDN re-introduction to JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) - worth going over once you're comfortable with the basics
+- [JavaScript: The Good Parts](http://shop.oreilly.com/product/9780596517748.do) - wonderful (and delightfully slim) dead trees book on the language

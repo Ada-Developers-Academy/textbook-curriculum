@@ -61,7 +61,7 @@ This is how to do it using vanilla JavaScript:
     if (response.status === 200) {
       var pets = JSON.parse(response.responseText);
       var petsHTML = '';
-      for (var i=0; i<employees.length; i+= 1){
+      for (var i = 0; i < pets.length; i += 1){
         petsHTML += '<h3>' + pets[i].name + '</h3>'
       }
       document.getElementByID('pets').innerHTML = petsHTML;
