@@ -14,17 +14,18 @@ In Backbone a Collection is a type of Model that can contain Model instances ins
 
 Using a Collection instead of an Array will bring us similar benefits to using a Model instead of a raw JavaScript Object. Collections can abstract away complex bits of logic (like only selecting Models that match a condition), they're also really good at talking to APIs, and they emit events when they change.
 
-In this lecture we will begin to scratch the surface of the power of collections.  We will stop using arrays of Model objects and use a Collection instead.  Then in the next lecture we will look at the Event model Backbone inherits from Underscore and how it applies to Collections & Models. 
+In this lecture we will begin to scratch the surface of the power of collections.  We will use a Collection to track and contain our tasks.  Then in the next lecture we will look at the Event model Backbone inherits from Underscore and how it applies to Collections & Models. Our `TaskList` model will contain individual `Task` models.  
 
+![Backbone Collections](Collection.png) 
 
 ## Adding a Collection
 ### Defining the Collection
 The first thing we need to do is create the collection itself.  Our collection will get its own file: `app/collections/task_list.js`. As with models and views, we will call `extend()` on `Backbone.Collection`.
 
 ```javascript
-// app/collections/task_list.js
+// ./collections/task_list.js
 import Backbone from 'backbone';
-import Task from 'app/models/task';
+import Task from '../models/task';
 
 var TaskList = Backbone.Collection.extend({
   model: Task
@@ -34,215 +35,95 @@ export default TaskList;
 ```
 
 ### Assembling the Collection
-In `app.js`, we'll create a new instance of our Collection from our raw task data, and pass it to our View. First, import our new `TaskList` constructor:
+In `app.js`, we'll create a new instance of our Collection from our raw task data, and then loop through to render it. 
+
+First, import our new `TaskList` constructor:
 
 ```javascript
 // app.js
-import TaskList from 'app/collections/task_list';
+import TaskList from './collections/task_list';
 ```
 
-Second, in `$(document).ready()`, instead of using an array of JavaScript objects, we'll use them to create a `TaskList` and use that instead.
+Second, in `$(document).ready()`, we can create a TaskList to track our list of tasks.  A Collection can take generic JavaScript objects and use them to instantiate Models, in this case Task objects.
 
 ```javascript
 // src/app.js
-import $ from 'jquery';
-import _ from 'underscore';
-
-import Task from 'app/models/task';
-import TaskList from 'app/collections/task_list';
-
-var taskData = [ {
-  title: "Study JavaScript",
-  completed: true
-},
-{
-  title: "Learn Backbone Collections",
-  completed: false
-},
-{
-  title: "Take out the trash",
-  completed: false
-}];
-
-var taskList = new TaskList(taskData);
+// imports etc...
 
 $(document).ready(function() {
-  $('main').empty();
-  // Select the template using jQuery
-  var template_text = $('#taskItemTemplate').html();
-  // Get an underscore template object
-  var template = _.template(template_text);
+  var taskData = [{
+    title: "Create a model",
+    completed: true
+  },
+  {
+    title: "Create a collection",
+    completed: false
+  }];
+  
+  var taskList = new TaskList(taskData);
 
   taskList.each(function(task) {
-    $('main').append(template(task.toJSON()));
-   });
-});
-
+    render(task);
+  });
 ```
-
-Notice that just like you can create a Model from a raw JavaScript object, you can create a Collection from an array of raw JavaScript objects.  This works as long as the `model` property of the Collection is set (because it has to know what kind of models to create).
 
 ### Iterating Through A Collection
 
 Another thing to notice is that we used the Collection's `.each` method to iterate through a collection with the Collection's `.each` method and replicate the output we obtained with an Array of Tasks.  
 
 ```JavaScript
-  taskList.each(function(task) {
-    $('main').append(template(task.toJSON()));
-   });
+taskList.each(function(task) {
+  render(task);
+});
 ```
+
+Just like we created a `render` method to draw an individual task we can create and use another method to render the collection.  By moving it into a function, we will later be able to move it into a separate component.  
+
+```javascript
+var renderList = function(taskList) {
+  // Clear the unordered list
+  $('.todo-items').empty();
+  
+  // Iterate through the list rendering each Task
+  taskList.each(function(task) {
+    render(task);
+    });
+  });
+};
+```
+
+And we can replace the `.each` loop in `$(document).ready` with `renderList(taskList)`.
 
 #### Check-in 
 
 With your Seatsquad check and verify that you can both display the todo list using the Collection
 
-### Filtering & Sorting a Collection
-
-Backbone Collections have a variety of useful methods for working with a group of models.  Two very useful ones include `comparator` and `where`.  
-
-#### Comparator
-
-Provides a way to compare models and used to add new models in sorted order.  You can either pass in a string with the name of an attribute to sort by, a function that takes a single model and returns a number to use for determining it's order, or a function with two arguments (models and returns a comparison of the two, -1 if the first model should come before the second, 0 if they are of the same rank and 1 if the first model should come after.
-
-Three Examples are below:
-
-##### Comparing by an attribute
-```JavaScript
-// sort the taskList lexicographically by title
-taskList.comparator = "title";  
-```
-##### Comparing by a custom function with 1 parameter.
-```JavaScript
-// sort the taskList by the length of the title
-taskList.comparator = function(task) {
-  return task.get("title").length;  }
-```
-##### Comparing with a custom function taking two models as a parameter.
-```JavaScript
-// Sort by comparing two tasks
-// completed tasks go first, then sorted by title.
-taskList.comparator = function(task1, task2) {
-
-    // Get the value of the `complete` attribute for the 1st task.
-  var task1Complete = task1.get("complete");
-    // Get the value of the `complete` attribute for the 2nd task.
-  var task2Complete = task2.get("complete");
-  
-     // If the 1st task is complete and the 2nd one is not.
-  if (task1Complete && !task2Complete)
-    return -1;
-    // Otherwise if the first task is not complete and the 2nd one is.
-  else if (! task1Complete && task2Complete)
-    return 1;
-    // otherwise compare them by the title using JavaScript String's compare function
-  else 
-  	return task1.get("title").localeCompare(task2.get("title"));
-}
-```
-#### Where
-
-Like in Rails Models `where` returns an array of all the models that match the passed attributes.  It's a compact way to filter models.
-
-```JavaScript
-// returns the list of completed tasks
-var completedTasks = taskList.where(completed: true);
-```
+You can see a working solution [here](https://gist.github.com/CheezItMan/bbb9465a88d16412243dd1abadee8a21).
 
 ## Events
 
-Underscore provides an Event module that we can take advantage of.  With it we can configure functions to be called when a specific action occurs.  To start with we can set up a Event Handler to create new Tasks.  
+There are a lot of things that can happen in our JavaScript code.  We can write JavaScript functions to respond when these things occur. The things that happen are called **events** in JavaScript & the functions called when they occur are called **event handlers**. 
 
-Add the following HTML below the `<main>` element.  
+### Dom Events
 
-```html
-  <section class="new-task">
-    <form>
-      <div>
-        <label for="title">Title:</label>
-        <input name="title" id="title">
-      </div>
-      <div>
-        <label for="completed">Completed:</label>
-        <input type="checkbox" id="completed" name="completed">
-      </div>
-      <div>
-        <button type="button" id="new-task">
-          New Task
-        </button>
-      </div>
-    </form>
-  </section>
-```
+Some of these events are called DOM events, they are built-in events within JavaScript that occur when something happens to the document.  Thus user clicks a button, a key is pressed, etc.
 
-Then we can add the following, jQuery code to respond to the button's click event.
+We created an event handler for DOM click events, but now we need to modify it to add the newly created task to the collection and redraw the collection.
 
-```JavaScript
-// src/app.js
-  $('#new-task').on("click", function() {
-    if ( $('#title').val() !== "" ) {
-      var task = new Task({title: $('#title').val(), completed: $('#completed').val() === "on"  });
+```javascript
+$('#add-task').click( function() {
 
-      taskList.add(task);
-            
-      // Clear the form
-      $('#title').val("");
-      $('#completed').prop('checked', false);
-      
-      console.log(taskList);
-    }
+    // Create a new Task
+    var task = new Task( readNewTaskForm() );
+
+    // Add the Task to the list
+    taskList.add(task);
+    // Clear the Unordered list
+    $('.todo-items').empty();
+
+    // re-render the list
+    renderList(taskList);
   });
-```
-
-This will add a new `Task` to `taskList`, and then clear the form, but it doesn't change what's drawn on the screen (just the output to the console)...  We can however by looking at the console output see that the Collection has indeed been changed:
-
-![console output](images/console-add-output.png)
-
-We can add an event handler to the Collection now to redraw the list every time the collection is updated.  
-
-```JavaScript
-  taskList.on("update", function() {
-    $('main').empty();
-    taskList.each(function(task) {
-      $('main').append(template(task.toJSON()));
-    });
-  });
-``` 
-Backbone Collections provide a number of built-in events we can add handlers for, these include `update`, `change`, `add`, `remove` and [more](http://backbonejs.org/#Events-catalog).
-
-If you notice this function looks a lot like the original loop that drew, aka *rendered*, our `taskList` on the screen originally, you are right!.
-
-We can dry up our code slightly by manually *triggering* the event after we add the original list of items.
-
-```JavaScript
-// src/app.js
-...
-var taskList = new TaskList(taskData);
-
-$(document).ready(function() {
-  $('#new-task').on("click", function() {
-    if ( $('#title').val() !== "" ) {
-      var task = new Task({title: $('#title').val(), completed: $('#completed').val() === "on"  });
-
-      taskList.add(task);
-      $('#title').val("");
-      $('#completed').val("off");
-      console.log(taskList);
-    }
-  });
-
-  // Select the template using jQuery
-  var template_text = $('#taskItemTemplate').html();
-  // Get an underscore template object
-  var template = _.template(template_text);
-
-  taskList.on("update", function() {
-    $('main').empty();
-    taskList.each(function(task) {
-      $('main').append(template(task.toJSON()));
-    });
-  });
-  taskList.trigger("update");
-});
 ```
 
 ### Check-in
@@ -251,24 +132,28 @@ Check and verify with your SeatSquad member that you can now add task items to y
 
 You can see a working version [here:](https://gist.github.com/CheezItMan/f6ca39005274ec23d79060384dbf944b)
 
+### Backbone Events
+
+Underscore provides Backbone an Event module that we can take advantage of.  Backbone events allow us to respond when something happens to a Model or Collection.  We can use them to update or re-render a collection in response.  Backbone events include `update`, `change`, `add`, `remove` and [more](http://backbonejs.org/#Events-catalog).
+
+We can create an event handler to respond when the collection is updated.  
+
+```javascript
+$(document).ready(function() {
+  // ... code
+  
+  taskList.on("update", renderList(taskList) );
+}
+```
+
+This event handler will cause the list to be re-rendered whenever the TaskList is updated.  One way we can update the collection is to delete a task!
+
 
 ## Deleting Models From a Collection
 
-Lets add a way to delete things from our list of tasks.  First we will need to add a button to delete the task.
+The template has a button we can use to delete a model.  However we need some way to identify which model a button corresponds to.  
 
-```html
-  <script id="taskItemTemplate" type="text/template">
-    <section class="task-item">
-      <h1><strong>Title:</strong> <%= title %></h1>
-      <h3><strong>Completed:</strong> <%= completed %></h3>
-      <button class="delete">Delete</button>
-    </section>
-  </script>
-```
-
-So we have a button for the user to press, however when the user presses a one of the buttons we need some way to distinguish which task to delete.  
-
-Luckily Backbone Collections assign a unique ID, called a `cid` for each instance of the model.  
+Luckily Backbone Collections assign a unique ID, called a `cid` for each instance of the model.  So as we render each task in our `render` method we can add an event handler with a parameter to identify the model to delete.  
 
 ```JavaScript
   taskList.on("update", function() {
