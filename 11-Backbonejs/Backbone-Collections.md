@@ -106,15 +106,6 @@ You can see a working solution [here](https://gist.github.com/CheezItMan/bbb9465
 
 There are a lot of things that can happen in our JavaScript code.  We can write JavaScript functions to respond when these things occur. The things that happen are called **events** in JavaScript & the functions called when they occur are called **event handlers**. 
 
-We are going to set up the following process:
-
-![TaskList Eventing](images/backbone-with-event-listeners.png)
-
-1.  We will append the template to the DOM.
-1.  We add an event listener to the **delete** button.
-1.  When the listener is triggered it will call `remove` on our Collection.
-1.  The `remove` method will trigger an "update" event which will trigger another listener.
-1.  That event listener will update the DOM.
 
 ### Dom Events
 
@@ -163,6 +154,17 @@ Another way we can update the collection is to delete a task!
 
 
 ## Deleting Models From a Collection
+
+We are going to set up the following process to allow us to delete tasks.  
+
+![TaskList Eventing](images/backbone-with-event-listeners.png)
+
+1.  We will append the template to the DOM.
+1.  We add an event listener to the **delete** button.
+1.  When the listener is triggered it will call `remove` on our Collection.
+1.  The `remove` method will trigger an "update" event which will trigger another listener we already wrote.
+1.  That event listener will update the DOM.
+
 
 The template has a button we can use to delete a model.  However we need some way to identify which model a button corresponds to.  
 

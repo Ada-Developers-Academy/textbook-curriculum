@@ -134,7 +134,8 @@ var TaskListView = Backbone.View.extend({
       // Create a new TaskView with the model & template
       var taskView = new TaskView({
         model: task,
-        template: that.template
+        template: that.template,
+        tagName: 'li'
       });
       // Then render the TaskView
       // And append the resulting HTML to the DOM.
@@ -146,17 +147,19 @@ var TaskListView = Backbone.View.extend({
 
 export default TaskListView;
 ```
-Just like the `TaskView` in `initialize` we store the template in an attribute of the view. 
-
-### About `this.$`
-
-In the `render` method we clear the list using `this.$`.  The method `this.$` performs a jQuery selection for HTML inside `el`.  Using `this.$` we can ensure that our view does not interact with any code outside of it.  You should never use jQuery directly within a view.  Instead you should use `this.$` just as you would jQuery to avoid impacting the DOM outside your view.  
+Just like the `TaskView` in `initialize` we store the template in an attribute of the view.  The view's render method looks like the render method we wrote earlier with a few differences particularly with regard to `this` and `that`.
 
 ### A Note about `this` and `that`.  
 
 If you'll notice we save our current context `this` into a variable named `that` in the render method.  We do this because the `.each` method's callback method is called within the context of the collection.  
 
 We finish the `render` method by appending each TaskView to the list inside the DOM and when the loop is finished we `return this;` by convention.  It's a fairly common pattern developers use in JavaScript to deal with confusing `this` issues. 
+
+
+### About `this.$`
+
+In the `render` method we clear the list using `this.$`.  The method `this.$` performs a jQuery selection for HTML inside `el`.  Using `this.$` we can ensure that our view does not interact with any code outside of it.  You should never use jQuery directly within a view.  Instead you should use `this.$` just as you would jQuery to avoid impacting the DOM outside your view.  
+
 
 ### Updating `app.js`
 
