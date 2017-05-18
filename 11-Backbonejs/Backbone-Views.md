@@ -234,6 +234,8 @@ Just like we added event handlers in the `TaskView` to handle button clicks we c
 
 Again this looks very much like what we originally wrote in `app.js`  We did change the code to use `this.$` instead of direct jQuery and called `readNewTaskForm()` as an instance method with `this.`.  
 
+Remember you will need to delete the original event handlers in `app.js`.
+
 ## Last bit, adjusting styles
 
 You may have noticed that the styling is a bit broken.  That's because the `li` tag we set in the `TaskView`  doesn't have any classes added to it for styling.  
@@ -252,7 +254,11 @@ You may have noticed that the styling is a bit broken.  That's because the `li` 
   },
 ```
 
-We can also make one adjustment by removing the `li` tag from the HTML template.
+We also need to make one adjustment by removing the `li` tag from the HTML template.
+
+## Summary
+
+So now we have a solution which displays our list of tasks, lets us toggle them complete or incomplete, delete and create tasks.  The view acts as a coordinator handling events and coordinating the response with the template & the model.  
 
 
 ## Optimizations
