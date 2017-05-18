@@ -70,7 +70,8 @@ var renderList = function(taskList) {
     // Create a new TaskView with the model & template
     var taskView = new TaskView({
       model: task,
-      template: _.template($('#taskItemTemplate').html())
+      template: _.template($('#taskItemTemplate').html()),
+      el: 'li
     });
     
     // Then render the TaskView
@@ -147,7 +148,7 @@ export default TaskListView;
 ```
 Just like the `TaskView` in `initialize` we store the template in an attribute of the view. 
 
-### `this.$`
+### About `this.$`
 
 In the `render` method we clear the list using `this.$`.  The method `this.$` performs a jQuery selection for HTML inside `el`.  Using `this.$` we can ensure that our view does not interact with any code outside of it.  You should never use jQuery directly within a view.  Instead you should use `this.$` just as you would jQuery to avoid impacting the DOM outside your view.  
 
@@ -155,7 +156,7 @@ In the `render` method we clear the list using `this.$`.  The method `this.$` pe
 
 If you'll notice we save our current context `this` into a variable named `that` in the render method.  We do this because the `.each` method's callback method is called within the context of the collection.  
 
-We finish the `render` method by appending each TaskView to the list inside the DOM and when the loop is finished we `return this;` by convention.
+We finish the `render` method by appending each TaskView to the list inside the DOM and when the loop is finished we `return this;` by convention.  It's a fairly common pattern developers use in JavaScript to deal with confusing `this` issues. 
 
 ### Updating `app.js`
 
@@ -228,13 +229,27 @@ Just like we added event handlers in the `TaskView` to handle button clicks we c
   }
 ```
 
-Again this looks very much like what we originally wrote in `app.js`  We did change the code to use `this.$` instead of direct jQuery and called `readNewTaskForm()` with `this.`.  
+Again this looks very much like what we originally wrote in `app.js`  We did change the code to use `this.$` instead of direct jQuery and called `readNewTaskForm()` as an instance method with `this.`.  
 
 ## Last bit, adjusting styles
 
-You may have noticed that the styling is a bit broken.  That's because the default `el` in Backbone is a `div` tag, and 
+You may have noticed that the styling is a bit broken.  That's because the `li` tag we set in the `TaskView`  doesn't have any classes added to it for styling.  
 
-#  TODO - HERE
+
+```javascript
+// src/views/task_view.js
+
+  initialize: function(params) {
+    this.template = params.template;
+    
+	 // Add classes for styling
+    this.$el.addClass("task-item");
+    this.$el.addClass("column");
+    this.$el.addClass("column-block");
+  },
+```
+
+We can also make one adjustment by removing the `li` tag from the HTML template.
 
 
 ## Optimizations

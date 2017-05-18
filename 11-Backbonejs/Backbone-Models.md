@@ -153,6 +153,10 @@ That's... great, but lets get something output to the webpage.
 
 ### Creating An Underscore Template
 
+We will use an underscore template to take the data from the Model & render it like this.
+
+![Backbone Models & Underscore Templates](images/model-and-template.png)
+
 Lets use our fabulous underscore library to create a template to render, or draw our task item.  We have the following template in our HTML file to use.  Notice the `<%= %>` handles just like ERB.  We can use our underscore templates much like views in Rails to describe how we want to render our tasks.  
 
 ```html
