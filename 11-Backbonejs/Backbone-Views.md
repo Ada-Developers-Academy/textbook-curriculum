@@ -46,204 +46,196 @@ Just like Models and Collections a view extends `Backbone.View`.  This model has
 -  `initialize` is a function, like in a Ruby class, called immediately when a new Backbone object is created, View, Model or Collection.    Here we choose use it to save the View's Underscore Template.  
 -  `el` is an HTML DOM element that, by default, is an empty `div`.  We use `el` to insert our view into the page when it is rendered.  
 	- There is also a corresponding property `$el` which is a jQuery selection of `el`, and you can use jQuery functions on it.  With `$el` you can run jQuery selections for HTML elements inside, and only inside the view.  For example, `$el('button.delete')` is a button with the class `delete` inside the view.
+	- In other words `myView.$el` and `$(myView.el)` are equivalent.  
 - `model` is the Backbone model which provides the data for the view.  The view's `model` can be a Backbone Model or Collection.  Each View should, in general, have **one** `model`.
 - `render` is a function called to draw (or redraw) the view.  By convention the render function always returns `this` so that it can be chained with other methods.
 
 ## Adding our view to `app.js`
 
-We can then modify our application code to use our view by creating a new `TaskView` in our event handler.
+We can update our renderList method to use the new view to draw each element.  Instead of calling the render method we created in `app.js` we create a new TaskView with the given model & template.
 
-```JavaScript
-// Replacing the taskList.on("update") event handler
-taskList.on("update", function() {
-      $('main').empty();
-      taskList.each(function(task) {
-        var taskView = new TaskView({
-          model: task,
-          template: _.template( $('#taskItemTemplate').html())
-        });
-        $('main').append(taskView.render().el);
-      });
+Then we render the template and append the resulting `$el` to the DOM.  
+
+```javascript
+// app.js
+// imports etc...
+
+var renderList = function(taskList) {
+  // Clear the unordered list
+  $('.todo-items').empty();
+  
+  // Iterate through the list rendering each Task
+  taskList.each(function(task) {
+  
+    // Create a new TaskView with the model & template
+    var taskView = new TaskView({
+      model: task,
+      template: _.template($('#taskItemTemplate').html())
     });
+    
+    // Then render the TaskView
+    // And append the resulting HTML to the DOM.
+    $('.todo-items').append(taskView.render().$el);
+  });
+};
 ```
 
-In the code above we first cleared out the `main` element in the `html` and then for each Task model, created a new TaskView.  Then we rendered the View and appended the resulting element (`el`) to `main`.  Notice that we could execute `task view.render().el` because the `render()` function returns `this`.  
+Notice that in the code above we used `taskView.render().$el`.  We can do this because the view's `render()` method returns a reference to the view with `return this;`.  It is convention in Backbone to always have the `render()` method return `this` exactly so that we can do this kind of chaining.
 
-The view now renders, but the buttons no longer work.  Next we will introduce event handling in Views and get the Toggle button working.  
+## DOM Events & Views
 
-### Check-In
+Switching to using views has rendered the delete button inoperative.  Backbone however provides a way to configure a View to respond to DOM events, like clicking on our delete button.  To do so we create an events object with the event description as the key and an event handling method.  Below we can add an events hash with our click event and an event handling method.  
 
-You & your SeatSquad member should now have the basic TaskList displaying and the buttons should no longer function.  Check & verify that you both have it working.  
-
-You can see a working version [here:](https://gist.github.com/CheezItMan/745cbd2d5a7ec07c327be63c496ccf27)
-
-## Handling jQuery Events Within a View
-
-To respond to jQuery or other events in a Backbone View we need to add another property, `events`.  The `events` object matches jQuery events to functions.  In the example below the `events` object links the `click` event on any sub-element with the class of `toggle` to an event handler function called `toggle`.  Then in the `toggle` function we change the model's `complete` attribute and then re-render the view.
-
-```Javascript
-// src/app/views/task_view.js
-
-import Backbone from 'backbone';
-import _ from 'underscore';
-import $ from 'jquery';
-import Task from 'app/models/task.js';
-
-var TaskView = Backbone.View.extend({
-  render: function() {
-    // Select the template using jQuery
-    var template_text = $('#taskItemTemplate').html();
-    // Get an underscore template object
-    var template = _.template(template_text);
-
-    this.$el.html(template(this.model.toJSON()));
-    return this;
-  },
+```javascript
+//...
+}, // render
   events: {
-    'click .toggle': 'toggle'
+    'click button.alert': "deleteTask"
   },
-  toggle: function() {
-    this.model.toggleComplete();
-    this.render();
+  deleteTask: function(e) {
+    console.log("Delete Task");
+    this.model.destroy();
   }
-});
-
-export default TaskView;
+}};
 ```
 
-**Question** What happens if you take out `this.render();` in function `toggle`?  Why is it needed?
 
-### Check-In
+Destroying the model triggers the "update" event in the collection and re-renders the collection.
 
-Check & verify that your toggle button is working.  
+## Exercise
 
-You can see a working version [here:](https://gist.github.com/CheezItMan/f251985ec9c9c94a3975f4256ae6b170)
+Now try to add another event yourself toggling the task between complete or incomplete using the model method you made earlier.  You will also need to finish the event handler by calling `render()` to draw the updated Task.
 
-## Viewing a Collection of Tasks
+You can see a working version [here](https://gist.github.com/CheezItMan/ebd6a77aab299aa247ea3e9b1164dd1a).
 
-We can create another view to manage a collection of Tasks. This view will store the Collection in the model property and the render function will create a `TaskView` object for each `Task` in the collection, render them and append the resulting html to `$el`.  
 
-```JavaScript
-// src/app/views/task_list_view.js
+## Creating a View for TaskList
+
+Now we can create a view to manage the entire TaskList.  It starts like the TaskView with a file named `/src/views/task_list_view.js`.  We can move our renderList code into the view's render method and make a few adjustments.
+
+```javascript
 import Backbone from 'backbone';
 import _ from 'underscore';
 import $ from 'jquery';
-import TaskView from 'app/views/task_view.js';
+import TaskView from '../views/task_view.js';
 
 
 var TaskListView = Backbone.View.extend({
   initialize: function(params) {
-    this.taskTemplate = params.taskTemplate;
+    this.template = params.template;
   },
   render: function() {
-    var collection = this.model;
-    this.$el.find('main').empty();
-
-    collection.each(function(task) {
-      var taskView = new TaskView({model: task, template: this.taskTemplate});
-      this.$el.find('main').append(taskView.render().$el);
-    }, this);
-
+    // Clear the unordered list
+    this.$('.todo-items').empty();
+    // Iterate through the list rendering each Task
+    var that = this;
+    this.model.each(function(task) {
+      // Create a new TaskView with the model & template
+      var taskView = new TaskView({
+        model: task,
+        template: that.template
+      });
+      // Then render the TaskView
+      // And append the resulting HTML to the DOM.
+      that.$('.todo-items').append(taskView.render().$el);
+    });
     return this;
   }
 });
 
 export default TaskListView;
 ```
+Just like the `TaskView` in `initialize` we store the template in an attribute of the view. 
 
-Then we can use the view in `app.js` to render the collection.
+### `this.$`
+
+In the `render` method we clear the list using `this.$`.  The method `this.$` performs a jQuery selection for HTML inside `el`.  Using `this.$` we can ensure that our view does not interact with any code outside of it.  You should never use jQuery directly within a view.  Instead you should use `this.$` just as you would jQuery to avoid impacting the DOM outside your view.  
+
+### A Note about `this` and `that`.  
+
+If you'll notice we save our current context `this` into a variable named `that` in the render method.  We do this because the `.each` method's callback method is called within the context of the collection.  
+
+We finish the `render` method by appending each TaskView to the list inside the DOM and when the loop is finished we `return this;` by convention.
+
+### Updating `app.js`
+
+We will adjust our `$(document).ready` handler to use the `TaskView`.
+
 
 ```JavaScript
-// src/app.js
-import $ from 'jquery';
-import _ from 'underscore';
+// app.js
+// imports etc...
 
-import Task from 'app/models/task';
-import TaskList from 'app/collections/task_list';
-import TaskView from 'app/views/task_view';
-import TaskListView from 'app/views/task_list_view';
+import TaskListView from './views/task_list_view';
 
-var taskData = [ {
-  title: "Study JavaScript",
-  completed: true
-},
-{
-  title: "Learn Backbone Collections",
-  completed: false
-},
-{
-  title: "Take out the trash",
-  completed: false
-}];
-
-var taskList = new TaskList(taskData);
-var taskListView = new TaskListView({model: taskList, el: $('body')});
-
+// ...
 
 $(document).ready(function() {
+  var taskData = [{
+    title: "Create a model",
+    completed: true
+  },
+  {
+    title: "Create a collection",
+    completed: false
+  }];
+  taskList = new TaskList(taskData);
+  taskList.on("update", function() {
+    renderList(taskList);
+  });
+
+  var taskListView = new TaskListView({
+    model: taskList,
+    template: _.template($('#taskItemTemplate').html()),
+    el: 'main'
+  });
   taskListView.render();
 });
 ```
 
-## Adding Event Handlers
+We create the TaskListView and set it's model to be our taskList collection and set the template attribute.  In this case we start off our View attached to an element in the DOM, in this case our `main` tag.
 
-Now we need to add an event handler for adding a new Task.
+Lastly we call render on the taskListView.
 
-We can add the `events` object linking the `new-task` button to an event handler function.  
+### Handling Creating New Tasks
 
-```JavaScript
-  events: {
-    'click #new-task': 'newTask'
+Just like we added event handlers in the `TaskView` to handle button clicks we can add an event handler to create a new task and a method to read from the new task form, and add them to the collection.
+
+
+```javascript
+// views/task_list_view.js
+}, // end of render
+
+  readNewTaskForm: function() {
+    // Get the values from the fields
+    var title = this.$('#title').val();
+    this.$('#title').val('');
+    var description = this.$('#description').val();
+    this.$('#description').val('');
+    var completed = this.$('#completed-checkbox').is(":checked");
+    this.$('#completed-checkbox').prop('checked', false);
+
+    return {
+      title: title,
+      description: description,
+      completed: completed
+    };
   },
-  newTask: function() {
-
-    if (this.$el.find('#title').val() !== "") {
-      var task = new Task({title: this.$el.find('#title').val(), completed: this.$el.find('#completed').prop("checked")});
-      this.model.add(task);
-
-      this.$el.find('#title').val("");
-      this.$el.find('#completed').prop("checked", false);
-    }
+  addTask: function(e) {
+    var taskData = this.readNewTaskForm();
+    var task = new Task(taskData);
+    this.model.add(task);
   }
 ```
 
-In this we recreate the prior code into the `newTask` function.  We also can add another line to the function `initialize`.  We can use the `listenTo` method to call `render` when the `model` is updated, i.e. when an entry is added to the Collection.
+Again this looks very much like what we originally wrote in `app.js`  We did change the code to use `this.$` instead of direct jQuery and called `readNewTaskForm()` with `this.`.  
 
-```JavaScript
-  // task_list_view.js
-  initialize: function() {
-    this.listenTo(this.model, "update", this.render);
-  },
-```
+## Last bit, adjusting styles
 
-### Check-In
+You may have noticed that the styling is a bit broken.  That's because the default `el` in Backbone is a `div` tag, and 
 
-Check with your SeatSquad member and verify that you can both add tasks.  
+#  TODO - HERE
 
-You can see a working version [here:](https://gist.github.com/CheezItMan/88993b84529f12c9e3fdabe90f4e042e)  
-
-## Deleting a Task
-
-Deleting a model is a bit more complicated, the delete buttons are in the `TaskView`, but the `Tasks` need to be removed from Collection in the `TaskListView`.  Luckily Backbone has a nifty method, `destroy`, that allows a Model to tell a Collection to remove it.
-
-```JavaScript
-  events: {
-    'click .toggle': 'toggle',
-    'click .delete': 'deleteHandler'
-  },
-  deleteHandler: function() {
-    this.model.destroy();
-  }
-```
-
-Then you can listen for the, `remove` event in `TaskListView`.  
-
-```JavaScript
-  initialize: function() {
-    this.listenTo(this.model, "update", this.render);
-    this.listenTo(this.model, "remove", this.render);
-  }
-```
 
 ## Optimizations
 
@@ -257,8 +249,9 @@ Also notice that we only used `$el` to select items inside a view.  Views should
 - Create a basic Backbone view to display a task. It had one function:
   - `initialize()` is run once to set everything up
   - `render()` generates HTML, and may be run many times
-- Use the underscore templating engine to separate concerns and clean up our rendering code
-- Create a more complex Backbone view to manage our whole application
+- Use the underscore templating engine to separate concerns and clean up our rendering code.
+- Added event handler methods to respond to click events.
+- Create a more complex Backbone view to manage our whole collection
 
 ## Additional Resources
 - [Backbone View Documentation](http://backbonejs.org/#View)
