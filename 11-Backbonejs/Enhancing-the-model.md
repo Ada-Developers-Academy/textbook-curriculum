@@ -1,7 +1,14 @@
 
 # Enhancing the Model
 
-### Revisiting The Task Model
+There are a lot of other things we can add to our Backbone models.  We can set up our models with default values, Just like a Rails model, Backbone models are the ideal places to place business logic related to the model's information.  Adding a method to a Backbone model is similar to adding a method to a generic JavaScript object.
+
+## Learning Goals
+-  Setup default values for model attributes
+-  Write Custom methods in a collection
+-  Add an event listener which will call a custom method. 
+
+## Default Values
 
 We can edit the Task model by adding a hash of attributes to initialize.  For example below we can set default values for attributes:
 
@@ -51,39 +58,6 @@ If you're stuck you can see a working solution [here:](https://gist.github.com/C
 
 Now that we have a model & a template we can output a list of tasks to the browser.  
 
-```JavaScript
-// src/app.js
-import $ from 'jquery';
-import _ from 'underscore';
-import Task from 'app/models/task.js';
-
-var taskData = [
-  {
-    title: 'Mow the lawn',
-    description: 'Must be finished before BBQ on Sat afternoon'
-  }, {
-    title: 'Go to the Bank',
-    description: 'Need to make a transfer'
-  }, {
-    title: 'Tune the Piano',
-    description: 'High C is missing or something???'
-  }
-];
-var tasks = [];
-
-$(document).ready(function() {
-  _.each(taskData, function(taskObj) {
-    var task = new Task(taskObj);
-    tasks.push(task);
-    var template_text = $('#taskItemTemplate').html();
-      // Get an underscore template object
-    var template = _.template(template_text);
-      //
-    $('main').append(template(task.toJSON()));
-  });
-  $('#test-area').append($('<p>Hello World!</p>'));
-});
-```
 
 Now using an Array, we can display any number of Tasks using the Underscore template on the screen.  
 
