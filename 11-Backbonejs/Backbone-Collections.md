@@ -91,7 +91,6 @@ var renderList = function(taskList) {
   taskList.each(function(task) {
     render(task);
     });
-  });
 };
 ```
 
