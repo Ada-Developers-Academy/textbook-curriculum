@@ -67,6 +67,7 @@ $(document).ready(function() {
   taskList.each(function(task) {
     render(task);
   });
+});
 ```
 
 ### Iterating Through A Collection
