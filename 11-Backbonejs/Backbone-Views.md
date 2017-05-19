@@ -57,8 +57,6 @@ Just like Models and Collections a view extends `Backbone.View`.  This model has
 |   `render`	|   A function called to draw (or redraw) the view.  By convention the render function always returns `this` so that it can be chained with other methods.  |
 
 
-Notice that the `render` method performs the same operation that our `app.js` file did in `render` just using `$el` instead of direct jQuery.
-
 ## Adding our view to `app.js`
 
 We can update our renderList method to use the new view to draw each element.  Instead of calling the render method we created in `app.js` we create a new TaskView with the given model & template.
@@ -92,6 +90,8 @@ var renderList = function(taskList) {
 ```
 
 Notice that in the code above we used `taskView.render().$el`.  We can do this because the view's `render()` method returns a reference to the view with the line `return this;`.  It is convention in Backbone to always have the `render()` method return `this` exactly so that we can do this kind of chaining.  We also set the tagName that we are using for `el` to be `li` or a list item.
+
+We are performing many of the same operations we performed in our `app.js` file's `render` function as we create the `TaskView` and render it.
 
 ## DOM Events & Views
 
