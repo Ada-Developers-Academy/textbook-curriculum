@@ -122,7 +122,7 @@ You can see a working version [here](https://gist.github.com/CheezItMan/ebd6a77a
 
 ## Creating a View for TaskList
 
-Now we can create a view to manage the entire TaskList.  It starts like the TaskView with a file named `/src/views/task_list_view.js`.  We can move our renderList code into the view's render method and make a few adjustments.
+Now we can create a view to manage the entire TaskList.  This includes the form to add a new task to the list.  If you examine the image above the TaskListView's area of concern is indicated in green.  It starts like the TaskView with a file named `/src/views/task_list_view.js`.  We can move our renderList code into the view's render method and make a few adjustments.
 
 ```javascript
 import Backbone from 'backbone';
