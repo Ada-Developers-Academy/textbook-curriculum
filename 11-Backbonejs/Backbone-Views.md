@@ -21,13 +21,16 @@ We will first create two views, one for a single task item and a second for the 
 
 ## Creating A TaskView
 
-A TaskView will handle drawing an individual task item and responding to events that concern just that task.  To start we create a file in `app/views/task_view.js`
+![Application Overview](images/Ada-TaskList-JS.png)
+
+A TaskView will handle drawing an individual task item and responding to events that concern just that task.  To start we create a file in `app/views/task_view.js`  Our Taskviews are enclosed in red in the image above.  
+
 
 ```JavaScript
 import Backbone from 'backbone';
 import _ from 'underscore';
 import $ from 'jquery';
-import Task from 'app/models/task.js';
+import Task from '../models/task.js';
 
 var TaskView = Backbone.View.extend({
   initialize: function(params) {
@@ -54,6 +57,9 @@ Just like Models and Collections a view extends `Backbone.View`.  This model has
 |   `model`	|   The Backbone model which provides the data for the view.  The view's `model` can be a Backbone Model or Collection.  Each View should, in general, have **one** `model`.    	|
 |   `render`	|   A function called to draw (or redraw) the view.  By convention the render function always returns `this` so that it can be chained with other methods.  |
 
+
+Notice that the `render` method performs the same operation that our `app.js` file did in `render` just using `$el` instead of direct jQuery.
+
 ## Adding our view to `app.js`
 
 We can update our renderList method to use the new view to draw each element.  Instead of calling the render method we created in `app.js` we create a new TaskView with the given model & template.
@@ -63,6 +69,7 @@ Then we render the template and append the resulting `$el` to the DOM.
 ```javascript
 // app.js
 // imports etc...
+import TaskView from './views/task_view.js';
 
 var renderList = function(taskList) {
   // Clear the unordered list
@@ -75,7 +82,7 @@ var renderList = function(taskList) {
     var taskView = new TaskView({
       model: task,
       template: _.template($('#taskItemTemplate').html()),
-      el: 'li'
+      tagname: 'li'
     });
     
     // Then render the TaskView
@@ -85,7 +92,7 @@ var renderList = function(taskList) {
 };
 ```
 
-Notice that in the code above we used `taskView.render().$el`.  We can do this because the view's `render()` method returns a reference to the view with the line `return this;`.  It is convention in Backbone to always have the `render()` method return `this` exactly so that we can do this kind of chaining.
+Notice that in the code above we used `taskView.render().$el`.  We can do this because the view's `render()` method returns a reference to the view with the line `return this;`.  It is convention in Backbone to always have the `render()` method return `this` exactly so that we can do this kind of chaining.  We also set the tagName that we are using for `el` to be `li` or a list item.
 
 ## DOM Events & Views
 
@@ -187,9 +194,6 @@ $(document).ready(function() {
     completed: false
   }];
   taskList = new TaskList(taskData);
-  taskList.on("update", function() {
-    renderList(taskList);
-  });
 
   var taskListView = new TaskListView({
     model: taskList,
@@ -204,6 +208,8 @@ We create the TaskListView and set it's model to be our taskList collection and 
 
 Lastly we call render on the taskListView.
 
+**Wait The Delete Button Just got broken!!**  Don't worry we'll handle that shortly.  
+
 ### Handling Creating New Tasks
 
 Just like we added event handlers in the `TaskView` to handle button clicks we can add an event handler to create a new task and a method to read from the new task form, and add them to the collection.
@@ -213,6 +219,9 @@ Just like we added event handlers in the `TaskView` to handle button clicks we c
 // views/task_list_view.js
 }, // end of render
 
+events: {
+    'click #add-task': "addTask"
+  },
   readNewTaskForm: function() {
     // Get the values from the fields
     var title = this.$('#title').val();
@@ -237,11 +246,31 @@ Just like we added event handlers in the `TaskView` to handle button clicks we c
 
 Again this looks very much like what we originally wrote in `app.js`  We did change the code to use `this.$` instead of direct jQuery and called `readNewTaskForm()` as an instance method with `this.`.  
 
-Remember you will need to delete the original event handlers in `app.js`.
+**Note you will need to delete the original event handlers in `app.js`.**
+
+**Gah!** The Add button ALSO doesn't work anymore!
+
+Good point, the delete and add buttons are actually working, and tasks are getting added and removed from the collection, but the problem is we're not re-rending the list.
+
+## Adding a Backbone Event Listener
+
+If we add an event listener to the collection we can call render when the collection is updated.  
+
+Similar to `on` we can use a method called `listenTo` to add an event listener for our collection.  We will do so in the `initialize` method.
+
+```javascript
+  initialize: function(params) {
+    this.template = params.template;
+
+    this.listenTo(this.model, "update", this.render);
+  },
+```
 
 ## Last bit, adjusting styles
 
 You may have noticed that the styling is a bit broken.  That's because the `li` tag we set in the `TaskView`  doesn't have any classes added to it for styling.  
+
+**NOTE** this is for `task_view.js` not `task_list_view.js`.  
 
 
 ```javascript
@@ -249,6 +278,8 @@ You may have noticed that the styling is a bit broken.  That's because the `li` 
 
   initialize: function(params) {
     this.template = params.template;
+    
+    this.listenTo(this.model, "update", this.render);
     
 	 // Add classes for styling
     this.$el.addClass("task-item");
@@ -268,7 +299,7 @@ So now we have a solution which displays our list of tasks, lets us toggle them 
 
 What could we do to improve on this?  There are a few things we could change.  Noice we recreate all the `TaskView`s every time the `TaskListView` is rendered.  We could store them in an array to avoid recreating them.  
 
-## Style Guide
+## Last Note on Coding Style
 
 Also notice that we only used `$el` to select items inside a view.  Views should never use jQuery directly `$()`, but rather use `$el` to ensure that we only select items within the view.  Some developers make an exception for selecting templates.  
 
