@@ -34,7 +34,8 @@ var TaskView = Backbone.View.extend({
     this.template = params.template;
   },
   render: function() {
-    this.$el.html(this.template(this.model.toJSON()));
+    var compiledTemplate = this.template(this.model.toJSON());
+    this.$el.html(compiledTemplate);
     return this;
   }
 });
@@ -71,7 +72,7 @@ var renderList = function(taskList) {
     var taskView = new TaskView({
       model: task,
       template: _.template($('#taskItemTemplate').html()),
-      el: 'li
+      el: 'li'
     });
     
     // Then render the TaskView
@@ -81,7 +82,7 @@ var renderList = function(taskList) {
 };
 ```
 
-Notice that in the code above we used `taskView.render().$el`.  We can do this because the view's `render()` method returns a reference to the view with `return this;`.  It is convention in Backbone to always have the `render()` method return `this` exactly so that we can do this kind of chaining.
+Notice that in the code above we used `taskView.render().$el`.  We can do this because the view's `render()` method returns a reference to the view with the line `return this;`.  It is convention in Backbone to always have the `render()` method return `this` exactly so that we can do this kind of chaining.
 
 ## DOM Events & Views
 
@@ -94,7 +95,6 @@ Switching to using views has rendered the delete button inoperative.  Backbone h
     'click button.alert': "deleteTask"
   },
   deleteTask: function(e) {
-    console.log("Delete Task");
     this.model.destroy();
   }
 }};

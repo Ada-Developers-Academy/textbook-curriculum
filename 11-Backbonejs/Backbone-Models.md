@@ -302,6 +302,8 @@ $('#add-task').click( function() {
 
 So when we click the `Add a Task` button we get the values from the form fields, and clear them.  Then we create a new task.  Lastly we add it to the DOM with `render`.  
 
+Notice all the DOM manipulation & event handling here has nothing to do with Backbone... for now.  We're doing all that in our `app.js` file.  However we are putting the event handlers and DOM manipulation in separate functions from `$(document).ready` to make them easier to move later.  
+
 ## What We Can't Do
 
 At this point we can't remove a task from the DOM, and we cannot interact with one once we've added it to our list.  There's nothing keeping track of our growing **collection** of Task objects...  
