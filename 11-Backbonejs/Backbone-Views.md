@@ -23,7 +23,7 @@ We will first create two views, one for a single task item and a second for the 
 
 ![Application Overview](images/Ada-TaskList-JS.png)
 
-A TaskView will handle drawing an individual task item and responding to events that concern just that task.  To start we create a file in `app/views/task_view.js`  Our Taskviews are enclosed in red in the image above.  
+A TaskView will handle drawing an individual task item and responding to events that concern just that task.  To start we create a file in `app/views/task_view.js`  Each TaskView will only be concerned with rendering a specific task and dealing with events on that task.  We've indicated it in red in the image above.  
 
 
 ```JavaScript
