@@ -16,7 +16,7 @@ Using a Collection instead of an Array brings us similar benefits to using a Mod
 
 In this lecture we will begin to scratch the surface of the power of collections.  We will use a Collection to track and contain our tasks.  Then we will look at the Event model Backbone inherits from Underscore and how it applies to Collections & Models. Our `TaskList` model will contain individual `Task` models.  
 
-![Backbone Collections](Collection.png) 
+![Backbone Collections](images/Collection.png) 
 
 ## 
 
