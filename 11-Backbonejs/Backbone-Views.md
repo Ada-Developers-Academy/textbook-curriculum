@@ -19,6 +19,8 @@ We will first create two views, one for a single task item and a second for the 
 
 ![Backbone Views](images/backbone-views.png)
 
+You can see a deployed version of this app [here:](http://cheezitman.github.io/tasklist-js)
+
 ## Creating A TaskView
 
 ![Application Overview](images/Ada-TaskList-JS.png)
@@ -121,7 +123,9 @@ You can see a working version [here](https://gist.github.com/CheezItMan/ebd6a77a
 
 ## Creating a View for TaskList
 
-Now we can create a view to manage the entire TaskList.  This includes the form to add a new task to the list.  If you examine the image above the TaskListView's area of concern is indicated in green.  It starts like the TaskView with a file named `/src/views/task_list_view.js`.  We can move our renderList code into the view's render method and make a few adjustments.
+Now we can create a view to manage the entire TaskList.  This includes everything we have on the site to manage the tasks including the form to add a new task to the list.  If you examine the image above the TaskListView's area of concern is indicated in green.  
+
+This view starts like `TaskView` with a file named `/src/views/task_list_view.js`.  We can move our renderList code into the view's render method and make a few adjustments.
 
 ```javascript
 import Backbone from 'backbone';
@@ -294,9 +298,9 @@ We also need to make one adjustment by removing the `li` tag from the HTML templ
 So now we have a solution which displays our list of tasks, lets us toggle them complete or incomplete, delete and create tasks.  The view acts as a coordinator handling events and coordinating the response with the template & the model.  
 
 
-## Optimizations
+## Optimizations & Extensions
 
-What could we do to improve on this?  There are a few things we could change.  Noice we recreate all the `TaskView`s every time the `TaskListView` is rendered.  We could store them in an array to avoid recreating them.  
+What could we do to improve on this?  There are a few things we could change.  Noice we recreate all the `TaskView`s every time the `TaskListView` is rendered.  We could store them in an array to avoid recreating them.  We could also create some way to expand a task, viewing it's description when clicked on.  
 
 ## Last Note on Coding Style
 
