@@ -145,7 +145,8 @@ $(document).ready(function() {
   
   taskList.on("update", function() {
     renderList(taskList);
-  });}
+  });
+}
 ```
 
 This event handler will cause the list to be re-rendered whenever the TaskList is updated.  We can now remove `renderList(taskList);` from our on click event handler because this event handler will be called when the collection is updated.  
@@ -175,11 +176,15 @@ We can add an event handler to the `render` method.
 ```JavaScript
 // src/app.js
 // ...
+
+var render = function() {
+// ...
+
 // append the html to the unordered list.
   $('.todo-items').append(compiledHTML);
   
 //  new code
-$('li.task-item:last').find('button.success').click({taskCid: task.cid}, function(params) {
+$('li.task-item:last').find('button.alert').click({taskCid: task.cid}, function(params) {
   taskList.remove(params.data.taskCid);
 });
 ```
