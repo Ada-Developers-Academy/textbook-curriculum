@@ -77,6 +77,10 @@ Take a look at the code in the example and examine what `params` in initialize l
 
 ![params in the Dev Tools console](images/params.png)
 
+The parameter to initialize is a JavaScript object containing the argument given when the Model is constructed with `new`.  
+
+Later on we will use this method in our views.
+
 #### Exercise
 
 Add a `toggleComplete` method which marks a complete task to incomplete or an incomplete task to complete.  We'll try to use it later.
