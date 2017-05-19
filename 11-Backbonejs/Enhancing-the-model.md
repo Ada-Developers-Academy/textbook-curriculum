@@ -65,11 +65,17 @@ var Task = Backbone.Model.extend({
     title: '',
     completed: false
   },
-  initialize: function() {
+  initialize: function(params) {
     console.log("Task initialized: " + this.get("title"));
+    // just to see what params looks like
+    console.log(params);
   }
 });
 ```
+
+Take a look at the code in the example and examine what `params` in initialize looks like.
+
+![params in the Dev Tools console](images/params.png)
 
 #### Exercise
 
