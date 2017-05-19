@@ -1,7 +1,7 @@
 
 # Enhancing the Model
 
-There are a lot of other things we can add to our Backbone models.  We can set up our models with default values, Just like a Rails model, Backbone models are the ideal places to place business logic related to the model's information.  Adding a method to a Backbone model is similar to adding a method to a generic JavaScript object.
+There are a lot of other things we can add to our Backbone models.  They can be constructed running a special `initialize` method.  They can be set up with default attribute values.  They can also, like our Rails models, be set up with methods to hold business logic.
 
 ## Learning Goals
 -  Setup default values for model attributes
