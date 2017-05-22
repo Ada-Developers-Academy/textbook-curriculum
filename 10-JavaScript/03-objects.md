@@ -44,13 +44,19 @@ class Dog
     @breed = breed
   end
 
-  def speak()
-    puts "woof"
+  def info      # Each dog instance is unique
+    "Meet #{@name} who is a #{@breed}"
+  end
+
+  def self.speak  # Let's assume all dogs bark the same way
+    "woof!"
   end
 end
 
+# Test is out
+puts Dog.speak    # Class method
 myDog = Dog.new('fido', 'labrador')
-myDog.speak
+puts myDog.info   # Instance method
 ```
 
 This pattern of defining a class and then instantiating it is very common in object oriented languages, and languages that use it are sometimes said to have _classical_ objects. JavaScript uses a slightly different technique called _prototypical_ objects.
