@@ -1,5 +1,8 @@
 # Linked Lists
 
+## Presentation
++ [Linked Lists](https://docs.google.com/presentation/d/1eVMRKeMq9tWor3ozxoc6Dy1Z4Ck8RtpRsX41WM32UUA/)
+
 ## Assignment
 + Parts 2 and 3 of [AdaGold/list-implementations](https://github.com/AdaGold/list-implementations)
 
