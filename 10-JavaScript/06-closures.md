@@ -103,3 +103,4 @@ Any of the various ways that functions can be passed around as __values__, and i
 
 ### Additional Resources
 [Closures](http://javascriptissexy.com/understand-javascript-closures-with-ease/)
+[MDN on Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
