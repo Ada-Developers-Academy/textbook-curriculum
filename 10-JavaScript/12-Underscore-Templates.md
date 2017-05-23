@@ -61,7 +61,7 @@ Our goal is to have an easy way to generate the HTML for one of these tasks, som
 Template definitions live in your HTML. They're wrapped in a `<script>` tag that looks something like this:
 
 ```html
-<script id="my-template" type="text/template">
+<script id="todo-item-template" type="text/template">
 </script>
 ```
 
