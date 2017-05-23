@@ -5,7 +5,7 @@ There are a lot of other things we can add to our Backbone models.  They can be 
 
 ## Learning Goals
 -  Setup default values for model attributes
--  Write Custom methods in a collection
+-  Write Custom methods in a model
 
 ## Default Values
 
