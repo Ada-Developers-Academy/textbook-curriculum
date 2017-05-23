@@ -50,7 +50,7 @@ var Task = Backbone.Model.extend({
 export default Task;
 ```
 
-Then in our `app.js` we can simply print out the status of our task with:  `my_task.logStatus();`
+Then in our `app.js` we can simply print out the status of our task with:  `myTask.logStatus();`
 
 ### Initialize
 
