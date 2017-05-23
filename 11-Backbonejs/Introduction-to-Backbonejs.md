@@ -105,6 +105,85 @@ Our Project structure will look like this, including hidden files:
 
 Note the folders for our models, collections & views.
 
+### HTML Document
+
+Throughout the LiveCode we will also be using the same HTML document in our exercise.  You will notice an underscore template at the bottom and an unordered list (`<ul>`) where we will be placing our tasks.  
+
+```html
+<!doctype html>
+<html>
+<head>
+  <title>Ada TaskList-JS App</title>
+  <link rel="stylesheet" type="text/css" href="dist/styles.css">
+</head>
+<body>
+  <header class="row">
+    <aside class="icon medium-4 small-12 columns">
+      <a href="https://tasklist-js.herokuapp.com">
+        <img src="images/logo.png" alt="Logo" />
+      </a>
+    </aside>
+    <section class="title medium-8 small-12 columns">
+      <h1>Ada TaskList</h1>
+    </section>
+  </header>
+  <main class="row">
+
+    <aside class="small-11 large-3 medium-3 columns create-tasklist">
+      <h2>Create a New Task</h2>
+        <section class="row" id="title-section">
+          <label class="columns medium-12">Title
+            <input type="text" name="title" id="title" placeholder="Enter the title here" />
+          </label>
+        </section>
+        <section class="row" id="description-section">
+          <label class="columns medium-12">Description
+            <textarea id="description" placeholder="None"></textarea>
+          </label>
+        </section>
+        <section class="row" id="buttons-section">
+          <div class="medium-8 columns">
+            <input id="completed-checkbox" type="checkbox">
+            <label for="completed-checkbox">Completed?</label>
+          </div>
+
+          <button id="add-task" class="medium-3 columns button success">Add a Task</button>
+        </section>
+    </aside>
+    <section class="main-content small-12 large-9 medium-9 columns">
+      <h2>Todo Items</h2>
+      <ul class="todo-items row small-up-2 medium-up-3 large-up-4">
+
+      </ul>
+    </section>
+  </main>
+  <footer>
+  </footer>
+  <script id="taskItemTemplate" type="text/template">
+    <li class="task-item column column-block">
+      <h2 <%= completed ? 'class="completed"' : 'class="incomplete"' %> >
+        <strong> <%= title %></strong>
+      </h2>
+      <div class="row">
+        <div class="small-6 columns">
+          <button class="button success">
+            Toggle <%= completed ? "Incomplete" : "Complete" %>
+          </button>
+        </div>
+        <div class="small-6 columns">
+          <button class="button alert">
+            Delete
+          </button>
+        </div>
+      </div>
+    </li>
+  </script>
+  <script src="dist/bundle.js"></script>
+
+</body>
+</html>
+```
+
 
 ## Resources
 - [Underscore Documentation](http://underscorejs.org/)
