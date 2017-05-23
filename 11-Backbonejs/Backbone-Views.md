@@ -50,7 +50,7 @@ export default TaskView;
 
 Just like Models and Collections a view extends `Backbone.View`.  This model has 4 important properties, `initialize`, `render` `el`, & `model`.
 
-|   	|   	|
+|   Property	|   Description	|
 |---	|---	|
 |   `initialize`	|   A function, like in a Ruby class, called immediately when a new Backbone object is created, View, Model or Collection. 	|
 |   `el`	|   An HTML DOM element that, by default, is an empty `div`.  We use `el` to insert our view into the page when it is rendered.  	|
