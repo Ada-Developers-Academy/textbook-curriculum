@@ -83,12 +83,12 @@ import Task from './models/task';
 // ready to go
 $(document).ready(function() {
 
-  var my_task = new Task({
+  var myTask = new Task({
     title: "Create a model",
     completed: true
   });
 
-  console.log(my_task.get("title") +  " is completed: " + my_task.get("completed"));
+  console.log(myTask.get("title") +  " is completed: " + myTask.get("completed"));
 
 });
 
@@ -124,9 +124,9 @@ For example in `app.js` we used `get` already:
 ...
  
    // prints "Title:  Create a model"
-console.log("Title: " + my_task.get("title") );
+console.log("Title: " + myTask.get("title") );
   // prints "Complete:  true"
-console.log("Complete: " + my_task.get("completed") );
+console.log("Complete: " + myTask.get("completed") );
 ```
 
 The `set` method allows you to change the attributes of a Model by either passing it a key and value or by passing `set` a JSON object.
@@ -137,16 +137,16 @@ The `set` method allows you to change the attributes of a Model by either passin
 ...
 
   // key & value example
-my_task.set("title", "Test the `set` method.");
+myTask.set("title", "Test the `set` method.");
   // prints "Title:  Test the `set` method."
-console.log("Title: " + my_task.get("title") );
+console.log("Title: " + myTask.get("title") );
 
   // using an object
-my_task.set({title: "Run a hash of object"});
+myTask.set({title: "Run a hash of object"});
   // prints "Title:  Create a model"
-console.log("Title: " + my_task.get("title") );
+console.log("Title: " + myTask.get("title") );
   // prints "Complete:  true"
-console.log("Complete: " + my_task.get("completed") );
+console.log("Complete: " + myTask.get("completed") );
 ```
 
 That's... great, but lets get something output to the webpage.
@@ -195,7 +195,7 @@ Next we'll use the template to add content to the DOM.
 
 $(document).ready(function() {
 
-  var my_task = new Task({
+  var myTask = new Task({
     title: "Create a model",
     completed: true
   });
@@ -210,7 +210,7 @@ $(document).ready(function() {
   
     // Use the underscore template function to compile the
     // template and data into raw html.
-  var compiledHTML = template(my_task.toJSON());
+  var compiledHTML = template(myTask.toJSON());
   
     // append the html onto the list using jQuery.
   $('.todo-items').append(compiledHTML);
@@ -223,7 +223,7 @@ What's happening?  We first use jQuery to find our template with `$('#taskItemTe
 
 Then we call the underscore `template` function which compiles the given html into a template function with `_.template(template_text);`
 
-Lastly we appended to `main` the resulting template with data provided by JSON from our model with `$('main').append(template(my_task.toJSON()));`
+Lastly we appended to `main` the resulting template with data provided by JSON from our model with `$('main').append(template(myTask.toJSON()));`
 
 **Questions:** 
   -  What does `console.log(template_text);` print to the console?  
@@ -257,11 +257,11 @@ var render = function(task) {
 // ready to go
 $(document).ready(function() {
 
-  var my_task = new Task({
+  var myTask = new Task({
     title: "Create a model",
     completed: true
   });
-  render(my_task);
+  render(myTask);
 
 });
 ```
