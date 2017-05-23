@@ -157,20 +157,20 @@ We will use an underscore template to take the data from the Model & render it l
 
 ![Backbone Models & Underscore Templates](images/model-and-template.png)
 
-Lets use our fabulous underscore library to create a template to render, or draw our task item.  We have the following template in our HTML file to use.  Notice the `<%= %>` handles just like ERB.  We can use our underscore templates much like views in Rails to describe how we want to render our tasks.  
+Lets use our fabulous underscore library to create a template to render, or draw our task item.  We have the following template in our HTML file to use.  Notice the `<%- %>` handles just like ERB.  We can use our underscore templates much like views in Rails to describe how we want to render our tasks.  
 
 ```html
 <!-- index.html -->
 ...
   <script id="taskItemTemplate" type="text/template">
     <li class="task-item column column-block">
-      <h2 <%= completed ? 'class="completed"' : 'class="incomplete"' %> >
-        <strong> <%= title %></strong>
+      <h2 <%- completed ? 'class="completed"' : 'class="incomplete"' %> >
+        <strong> <%- title %></strong>
       </h2>
       <div class="row">
         <div class="small-6 columns">
           <button class="button success">
-            Toggle <%= completed ? "Incomplete" : "Complete" %>
+            Toggle <%- completed ? "Incomplete" : "Complete" %>
           </button>
         </div>
         <div class="small-6 columns">
