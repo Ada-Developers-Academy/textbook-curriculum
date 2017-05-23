@@ -233,17 +233,17 @@ events: {
   },
   readNewTaskForm: function() {
     // Get the values from the fields
-    var title = this.$('#title').val();
+    var formTitle = this.$('#title').val();
     this.$('#title').val('');
-    var description = this.$('#description').val();
+    var formDescription = this.$('#description').val();
     this.$('#description').val('');
-    var completed = this.$('#completed-checkbox').is(":checked");
+    var formCompleted = this.$('#completed-checkbox').is(":checked");
     this.$('#completed-checkbox').prop('checked', false);
 
     return {
-      title: title,
-      description: description,
-      completed: completed
+      title: formTitle,
+      description: formDescription,
+      completed: formCompleted
     };
   },
   addTask: function(e) {
