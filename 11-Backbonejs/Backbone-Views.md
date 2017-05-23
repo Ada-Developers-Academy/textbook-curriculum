@@ -99,6 +99,8 @@ We are performing many of the same operations we performed in our `app.js` file'
 
 Switching to using views has rendered the delete button inoperative.  Backbone however provides a way to configure a View to respond to DOM events, like clicking on our delete button.  To do so we create an events object with the event description as the key and an event handling method.  Below we can add an events hash with our click event and an event handling method.  
 
+![DOM Events like the click for the delete button](images/backbone-views-delete.png)
+
 ```javascript
 //...
 }, // render
@@ -216,6 +218,8 @@ Lastly we call render on the taskListView.
 ### Handling Creating New Tasks
 
 Just like we added event handlers in the `TaskView` to handle button clicks we can add an event handler to create a new task and a method to read from the new task form, and add them to the collection.
+
+![Creating New Tasks](images/addButton.png)
 
 
 ```javascript
