@@ -100,7 +100,7 @@ And we can replace the `.each` loop in `$(document).ready` with `renderList(task
 
 #### Check-in 
 
-With your Seatsquad check and verify that you can both display the todo list using the Collection and can add Tasks to the list.  You 
+With your Seatsquad check and verify that you can both display the todo list using the Collection and can add Tasks to the list. 
 
 You can see a working solution [here](https://gist.github.com/CheezItMan/bbb9465a88d16412243dd1abadee8a21).
 
