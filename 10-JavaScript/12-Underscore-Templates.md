@@ -157,6 +157,9 @@ Note that Underscore doesn't assume we have access to jQuery. That means the ret
 ### Putting It All Together
 [Here is a CodePen](http://codepen.io/droberts-ada/pen/wodpWe?editors=1011) that does all the things we just talked about!
 
+### Adding
+Note that we've added the Underscore library to our CodePen via the CodePen library add-ins. To add the Underscore library to your JavaScript file you'll need to add a `<script>` tag to your HTML file which will link to the [Underscore CDN](https://cdnjs.com/libraries/underscore.js/).
+
 ## What We've Accomplished
 - Define, compile and use an underscore template
 
