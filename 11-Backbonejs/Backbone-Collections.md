@@ -104,10 +104,6 @@ With your Seatsquad check and verify that you can both display the todo list usi
 
 You can see a working solution [here](https://gist.github.com/CheezItMan/bbb9465a88d16412243dd1abadee8a21).
 
-## Events
-
-There are a lot of things that can happen in our JavaScript code.  We can write JavaScript functions to respond when these things occur. The things that happen are called **events** in JavaScript & the functions called when they occur are called **event handlers**. 
-
 
 ### Dom Events
 
