@@ -276,17 +276,17 @@ If you'll notice the HTML has a handy form available to create new tasks, but it
 
 var readNewTaskForm = function() {
   // Get the values from the fields
-  var title = $('#title').val();
+  var formTitle = $('#title').val();
   $('#title').val('');
-  var description = $('#description').val();
+  var formDescription = $('#description').val();
   $('#description').val('');
-  var completed = $('#completed-checkbox').is(":checked");
+  var formCompleted = $('#completed-checkbox').is(":checked");
   $('#completed-checkbox').prop('checked', false);
 
   return {
-    title: title,
-    description: description,
-    completed: completed
+    title: formTitle,
+    description: formDescription,
+    completed: formCompleted
   };
 };
 
