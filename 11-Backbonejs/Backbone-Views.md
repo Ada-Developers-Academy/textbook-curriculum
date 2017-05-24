@@ -265,6 +265,8 @@ Good point, the delete and add buttons are actually working, and tasks are getti
 
 If we add an event listener to the collection we can call render when the collection is updated.  
 
+![Backbone Delete Events](images/BackboneCustomEvent.png)
+
 Similar to `on` we can use a method called `listenTo` to add an event listener for our collection.  We will do so in the `initialize` method.
 
 ```javascript
