@@ -304,10 +304,6 @@ We also need to make one adjustment by removing the `li` tag from the HTML templ
 So now we have a solution which displays our list of tasks, lets us toggle them complete or incomplete, delete and create tasks.  The view acts as a coordinator handling events and coordinating the response with the template & the model.  
 
 
-## Optimizations & Extensions
-
-What could we do to improve on this?  There are a few things we could change.  Noice we recreate all the `TaskView`s every time the `TaskListView` is rendered.  We could store them in an array to avoid recreating them.  We could also create some way to expand a task, viewing it's description when clicked on.  
-
 ## Last Note on Coding Style
 
 Also notice that we only used `$el` to select items inside a view.  Views should never use jQuery directly `$()`, but rather use `$el` to ensure that we only select items within the view.  Some developers make an exception for selecting templates.  
