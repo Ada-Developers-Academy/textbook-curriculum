@@ -83,7 +83,7 @@ Later on we will use this method in our views.
 
 #### Exercise
 
-Add a `toggleComplete` method which marks a complete task to incomplete or an incomplete task to complete.  We'll try to use it later.
+Add a `toggleComplete` method to the `Task` model which will toggle the `completed` attribute.  We'll try to use it later.
 
 If you're stuck you can see a working solution [here:](https://gist.github.com/CheezItMan/38fac3dfd1f26cdd19a32b50b2a5c359)
 
