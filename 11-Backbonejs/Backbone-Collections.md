@@ -135,6 +135,8 @@ You can see a working version [here:](https://gist.github.com/CheezItMan/f6ca390
 
 Underscore provides Backbone an Event module that we can take advantage of.  Backbone events allow us to respond when something happens to a Model or Collection.  We can use them to update or re-render a collection in response.  Backbone events include `update`, `change`, `add`, `remove` and [more](http://backbonejs.org/#Events-catalog).
 
+Let's use the example of adding a new task to understand how our DOM events are different from our Backbone Collection events. When the "add task" button is clicked, we trigger a DOM event. In this click event handler, we read the form data, create an instance of our Backbone Model and then add this model to our Collection. When the Model object is added to our Collection, Backbone is **aware** of the new Model object and will **automatically** trigger the Collection "update" event. If we are listening for the Collection update event, we can use this listener to update the DOM to render our updated Collection.
+
 We can create an event handler to respond when the collection is updated.  
 
 ```javascript

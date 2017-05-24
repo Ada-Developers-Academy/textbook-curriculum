@@ -97,7 +97,9 @@ We are performing many of the same operations we performed in our `app.js` file'
 
 ## DOM Events & Views
 
-Switching to using views has rendered the delete button inoperative.  Backbone however provides a way to configure a View to respond to DOM events using a JavaScript object called `events`.  The `events` object is structured like a Ruby hash with DOM events as the keys and event handler functions as the values.  When a DOM event occurs, like when the user clicks on a button, Backbone looks at `events` and tries to match the event with a key in the event handler hash.  To do so we create an events object with the event description as the key and an event handling method.  Below we can add an events hash with our click event and an event handling method.  
+Switching to using views has rendered the delete button inoperative.  Backbone however provides a way to configure a View to respond to DOM events using a JavaScript object called `events`.  
+
+The `events` object is structured like a Ruby hash with DOM events as the keys and event handler functions as the values.  When a DOM event occurs, like when the user clicks on a button, Backbone looks at `events` and tries to match the event with a key in the event handler hash.  Below we create an events hash with our click event and an event handling method.  
 
 So when the user clicks a delete button inside the view, Backbone will check the events hash and match the event with an event handler function.  Then that function will call the model's `destroy()` function.  The model will then remove itself from all collections.  Once the model is removed from the collection the Collection will trigger an, "update" event which will cause our `app.js` file's `renderList` function.  
 
