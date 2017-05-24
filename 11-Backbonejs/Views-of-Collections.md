@@ -1,5 +1,4 @@
-# Creating a View for TaskList
-
+# Views of Collections
 
 We have created a view for an individual task.  However views can also be built to manage a collection.  Therefore our next step is to create a TaskListView.  This view will manage everything we have on the site to including the form to add a new task to the list.  If you examine the image below the TaskListView's area of concern is indicated in yellow.  
 

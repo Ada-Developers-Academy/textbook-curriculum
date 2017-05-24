@@ -304,7 +304,7 @@ We also need to make one adjustment by removing the `li` tag from the HTML templ
 
 ## Summary
 
-So now we have a solution which displays our list of tasks, lets us toggle them complete or incomplete, delete and create tasks.  The view acts as a coordinator handling events and coordinating the response with the template & the model.  
+So now we have a solution which displays a task, lets us toggle it complete or incomplete.  This view acts as a coordinator handling events and coordinating the response with the template & the model.  
 
 
 ## Last Note on Coding Style
@@ -312,12 +312,11 @@ So now we have a solution which displays our list of tasks, lets us toggle them 
 Also notice that we only used `$el` to select items inside a view.  Views should never use jQuery directly `$()`, but rather use `$el` to ensure that we only select items within the view.  Some developers make an exception for selecting templates.  
 
 ## What Did We Accomplish?
-- Create a basic Backbone view to display a task. It had one function:
+- Create a basic Backbone view to display a task. It had the following functions:
   - `initialize()` is run once to set everything up
   - `render()` generates HTML, and may be run many times
 - Use the underscore templating engine to separate concerns and clean up our rendering code.
-- Added event handler methods to respond to click events.
-- Create a more complex Backbone view to manage our whole collection
+- Added a DOM event handler methods to respond to click events.
 
 ## Additional Resources
 - [Backbone View Documentation](http://backbonejs.org/#View)
