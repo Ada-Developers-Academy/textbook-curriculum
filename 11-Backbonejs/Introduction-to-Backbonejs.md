@@ -101,7 +101,7 @@ The `src` folder is where we'll put our JavaScript. There are a few empty folder
 
 Our Project structure will look like this, including hidden files:
 
-![Backbone Project Directory structure](images/backbone-project.png)
+![Backbone Project Directory structure](images/backbone-baseline.png)
 
 Note the folders for our models, collections & views.
 
