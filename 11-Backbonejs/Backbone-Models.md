@@ -99,7 +99,7 @@ Notice we took out appending `hello world` to the DOM.
 
 What did this get us?  We now have a new `Task` type of object which can store information, in this case `title` and `completed`.  Then just to test it we created one instance of `Task` and logged it to the console.  
 
-We can check to see if it works by launching the site with `$  npm run dev` and viewing [http://localhost:8080](http://localhost:8080)
+We can check to see if it works by launching the site with `$  npm start` and viewing [http://localhost:8081](http://localhost:8081)
 
 ![console log for the code above](images/backbone-model1.png)
 
