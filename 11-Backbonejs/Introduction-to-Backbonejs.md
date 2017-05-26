@@ -73,10 +73,10 @@ The live code setup is a little more complex than what we've done in the past wi
 $ git clone https://github.com/Ada-C7/backbone-live-code.git
 $ cd backbone-live-code
 $ npm install
-$ npm run dev
+$ npm start
 ```
 
-`npm run dev` runs the webserver - that's what all those scrolling statements are. If you navigate to http://localhost:8080, you should see the words `Hello World!` in the familiar Foundation font on a white background.
+`npm start` runs the webserver - that's what all those scrolling statements are. If you navigate to http://localhost:8081, you should see the words `Hello World!` in the familiar Foundation font on a white background.
 
 ### Modules
 The webserver is called **webpack**, and it is what's known as a "bundler". Much like the Rails server, its job is to keep track of all the JavaScript files we write and libraries we use, and pull them all together into one application. It can even do clever tricks like detecting when the code has changed and automatically refreshing your browser window.
