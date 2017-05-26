@@ -63,7 +63,7 @@ Backbone implements the familiar MVC architecture that we learned in Rails in a 
 ## Live Code: Task List
 As we learn about Backbone, we'll be using a running example: a task list, similar to the one we built at the beginning of Rails. The difference is, this task list will be a Single Page Application. You can find the initial setup linked in the calendar. The initial setup lives on the branch `master`, and the final result that we're working toward lives on the branch `live-code-sequence`.  
 
-It's important to note we'll be refining the project step-by-step implementing functionality and then going back and separating components into backbone Models, Collections & Views so we can neatly separate code by the roles they perform.
+As we build this application we will implement it using one Backbone component and do the rest using jQuery and regular JS.  We will continue gradually adding Backbone components, replacing the jQuery and JS code until we have a full Backbone app.
 
 You can see the finished version here: [https://tasklist-js.herokuapp.com/](https://tasklist-js.herokuapp.com/) 
 
