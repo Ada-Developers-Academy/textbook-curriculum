@@ -203,10 +203,10 @@ $(document).ready(function() {
   // Replacing the console log statements.
   
     // Select the template using jQuery
-  var template_text = $('#taskItemTemplate').html();
+  var templateText = $('#taskItemTemplate').html();
   
     // Get an underscore template object
-  var template = _.template(template_text);
+  var template = _.template(templateText);
   
     // Use the underscore template function to compile the
     // template and data into raw html.
