@@ -125,6 +125,34 @@ Now try to add another event yourself toggling the task between complete or inco
 
 You can see a working version [here](https://gist.github.com/CheezItMan/ebd6a77aab299aa247ea3e9b1164dd1a).
 
+## Backbone Events
+
+Our view's `toggleComplete` function works, but not quite the Backbone way.  In Backbone events follow this pattern.
+
+1.  A user performs an action
+1.  A DOM event listener in the View responds to the action calling methods to change data in the Model.
+1.  The Model emits a "change" event which the view is listening to.
+1.  The view responds to the "change" event by redrawing the event.  
+
+![Backbone Events](images/backbone-views.png)
+
+Right now we have the Backbone View responding to DOM events and issuing commands to the Model.  It's manually updating the DOM.  However it's not listening for changes in the model.  
+
+We can set up the View to listen for changes in the model by adjusting the `initialize` method.  
+
+```javaScript
+var TaskView = Backbone.View.extend({
+  initialize: function(params) {
+    this.template = params.template;
+    
+    // Listen to changes in the model and call render when they occur.
+    this.listenTo(this.model, "change", this.render);
+  },
+```
+
+The [`listenTo`](http://backbonejs.org/#Events-listenTo) method causes the Backbone object to listen for custom events emitted by a different Backbone object.  In this case our View is listening for change events from the model.  We can now take out `this.render();` from the `toggleComplete` function.  
+
+You can see a working version [here.](https://gist.github.com/CheezItMan/5d5ad38e664e587b040cb9e3368b88e8)
 
 ## Summary
 
@@ -141,6 +169,8 @@ Also notice that we only used `$el` to select items inside a view.  Views should
   - `render()` generates HTML, and may be run many times
 - Use the underscore templating engine to separate concerns and clean up our rendering code.
 - Added a DOM event handler methods to respond to click events.
+
+
 
 ## Additional Resources
 - [Backbone View Documentation](http://backbonejs.org/#View)
