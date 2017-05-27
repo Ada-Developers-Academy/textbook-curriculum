@@ -152,6 +152,8 @@ var TaskView = Backbone.View.extend({
 
 The [`listenTo`](http://backbonejs.org/#Events-listenTo) method causes the Backbone object to listen for custom events emitted by a different Backbone object.  In this case our View is listening for change events from the model.  We can now take out `this.render();` from the `toggleComplete` function.  
 
+Backbone Models emit custom events like, "change," to allow other components to respond when data in the model changes.  
+
 You can see a working version [here.](https://gist.github.com/CheezItMan/5d5ad38e664e587b040cb9e3368b88e8)
 
 ## Summary
