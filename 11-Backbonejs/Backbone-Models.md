@@ -81,12 +81,14 @@ So now in our `src/app.js` file we can add.
 import Task from './models/task';
 
 // ready to go
+
+var myTask = new Task({
+  title: "Create a model",
+  completed: true
+});
+
 $(document).ready(function() {
 
-  var myTask = new Task({
-    title: "Create a model",
-    completed: true
-  });
 
   console.log(myTask.get("title") +  " is completed: " + myTask.get("completed"));
 
@@ -192,13 +194,12 @@ Next we'll use the template to add content to the DOM.
 // src/app.js
 
 ...
-
+var myTask = new Task({
+  title: "Create a model",
+  completed: true
+});
+  
 $(document).ready(function() {
-
-  var myTask = new Task({
-    title: "Create a model",
-    completed: true
-  });
 
   // Replacing the console log statements.
   
@@ -254,13 +255,14 @@ var render = function(task) {
   $('.todo-items').append(compiledHTML);
 };
 
+var myTask = new Task({
+  title: "Create a model",
+  completed: true
+});
+
 // ready to go
 $(document).ready(function() {
 
-  var myTask = new Task({
-    title: "Create a model",
-    completed: true
-  });
   render(myTask);
 
 });

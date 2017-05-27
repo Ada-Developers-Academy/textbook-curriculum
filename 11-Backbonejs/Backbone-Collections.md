@@ -51,20 +51,21 @@ Second, in `$(document).ready()`, we can create a TaskList to track our list of 
 ```javascript
 // src/app.js
 // imports etc...
-var taskList;
+
+var taskData = [{
+  title: "Create a model",
+  completed: true
+},
+{
+  title: "Create a collection",
+  completed: false
+}];
+  
+var  taskList = new TaskList(taskData);
+
 // ...
 
 $(document).ready(function() {
-  var taskData = [{
-    title: "Create a model",
-    completed: true
-  },
-  {
-    title: "Create a collection",
-    completed: false
-  }];
-  
-  taskList = new TaskList(taskData);
 
   taskList.each(function(task) {
     render(task);
