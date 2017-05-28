@@ -199,7 +199,6 @@ var render = function(task) {
   $('.todo-items').append(compiledHTML);
 
   compiledHTML.click({task: task}, function(params) {
-    console.log("Remove");
     taskList.remove(params.data.task);
   });
 };
@@ -208,7 +207,9 @@ var render = function(task) {
 To review, the code above:
 
 1.  Appends the template to the DOM.
-1.  Adds an event handler to listen for the last button to be clicked, and passes the `cid` of the task to the event handler.
+1.  Adds an event handler to listen for the last button to be clicked, and passes the task to the event handler.
+	-  The jQuery `click` function lets you pass an argument to the event handler.  In this case we pass a JavaScript object to the handler with one attribute (the task in question).  
+	-  Then that object appears as an attribute tot he parameter of the event handler (params.data.  
 1.  When the event handler is triggered it removes the task from the collection.
 1.  This removal triggers an `update` event and causes the list to re-render.
 
