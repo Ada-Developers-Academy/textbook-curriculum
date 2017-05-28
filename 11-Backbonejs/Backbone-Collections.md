@@ -176,7 +176,7 @@ We are going to set up the following process to allow us to delete tasks.
 
 The template has a button we can use to delete a model.  However we need some way to identify which model a button corresponds to.  
 
-Luckily Backbone Collections assign a unique ID, called a `cid` for each instance of the model.  So as we render each task in our `render` method we can add an event handler with a parameter to identify the model to delete.
+So we can pass the task to delete into the event handler.
 
 We can add an event handler to the `render` method.  
 
@@ -191,8 +191,8 @@ var render = function() {
   $('.todo-items').append(compiledHTML);
   
 //  new code
-$('li.task-item:last').find('button.alert').click({taskCid: task.cid}, function(params) {
-  taskList.remove(params.data.taskCid);
+$('li.task-item:last').find('button.alert').click({task: task}, function(params) {
+  taskList.remove(params.data.task);
 });
 ```
 
