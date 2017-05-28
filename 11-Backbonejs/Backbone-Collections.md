@@ -108,7 +108,7 @@ You can see a working solution [here](https://gist.github.com/CheezItMan/bbb9465
 
 ### Dom Events
 
-Some of these events are called DOM events, they are built-in events within JavaScript that occur when something happens to the document.  Thus user clicks a button, a key is pressed, etc.
+We've seen with jQuery and in our previous examples DOM events, DOM events are built-in events within JavaScript that occur when something happens to the document.  When a user clicks a button, a key is pressed, etc.
 
 We created an event handler for DOM click events, but now we need to modify it to add the newly created task to the collection and redraw the collection.
 
