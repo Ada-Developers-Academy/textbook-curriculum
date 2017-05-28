@@ -93,7 +93,7 @@ var renderList = function(taskList) {
   // Iterate through the list rendering each Task
   taskList.each(function(task) {
     render(task);
-    });
+  });
 };
 ```
 
