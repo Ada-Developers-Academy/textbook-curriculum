@@ -48,6 +48,8 @@ var TaskView = Backbone.View.extend({
 export default TaskView;
 ```
 
+### Important Parts of a View
+
 Just like Models and Collections a view extends `Backbone.View`.  This view has 4 important properties, `initialize`, `render` `el`, & `model`.
 
 |   Property	|   Description	|
