@@ -184,16 +184,25 @@ We can add an event handler to the `render` method.
 // src/app.js
 // ...
 
-var render = function() {
-// ...
+var render = function(task) {
+  // Select the template using jQuery
+  var template_text = $('#taskItemTemplate').html();
 
-// append the html to the unordered list.
+  // Get a compiled underscore template object
+  var template = _.template(template_text);
+
+  // Use the underscore template function to use the 
+  //  data from the model to generate raw html.
+  var compiledHTML = $(template(task.toJSON()));
+
+  // append the html to the unordered list.
   $('.todo-items').append(compiledHTML);
-  
-//  new code
-$('li.task-item:last').find('button.alert').click({task: task}, function(params) {
-  taskList.remove(params.data.task);
-});
+
+  compiledHTML.click({task: task}, function(params) {
+    console.log("Remove");
+    taskList.remove(params.data.task);
+  });
+};
 ```
 
 To review, the code above:
