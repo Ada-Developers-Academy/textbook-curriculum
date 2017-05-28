@@ -117,9 +117,12 @@ The `events` object is structured like a Ruby hash with DOM events as the keys a
 }};
 ```
 
-So when the user clicks a delete button inside the view, Backbone will check the events hash and match the event with an event handler function.  Then that function will call the model's `destroy()` function.  The model will then remove itself from all collections.  Once the model is removed from the collection the Collection will trigger an, "update" event which will cause our `app.js` file's `renderList` function.  
-
-Destroying the model triggers the "update" event in the collection and re-renders the collection.
+So when the user clicks a delete button inside the view:
+-  Backbone will check the events hash and match the event with an event handler function.  
+-  Then that function will call the model's `destroy()` function.  
+-  The model will then remove itself from all collections.  
+-  Once the model is removed from the collection the Collection will trigger an, "update" event 
+-  Our event handler cause our `app.js` file's `renderList` function to execute.  
 
 ## Exercise
 
