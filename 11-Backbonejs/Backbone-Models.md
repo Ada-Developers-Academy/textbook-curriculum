@@ -213,11 +213,11 @@ $(document).ready(function() {
   var templateText = $('#taskItemTemplate').html();
   
     // Get an underscore template object
-  var template = _.template(templateText);
+  var templateObject = _.template(templateText);
   
     // Use the underscore template function to compile the
     // template and data into raw html.
-  var compiledHTML = template(myTask.toJSON());
+  var compiledHTML = templateObject(myTask.toJSON());
   
     // append the html onto the list using jQuery.
   $('.todo-items').append(compiledHTML);
@@ -251,11 +251,11 @@ var render = function(task) {
 
   //console.log(template_text);
   // Get an underscore template object
-  var template = _.template(template_text);
+  var templateObject = _.template(template_text);
 
   // Use the underscore template function to compile the
   // template and data into raw html.
-  var compiledHTML = template(task.toJSON());
+  var compiledHTML = templateObject(task.toJSON());
 
   // append the html to the unordered list.
   $('.todo-items').append(compiledHTML);
