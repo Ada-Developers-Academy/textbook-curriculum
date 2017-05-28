@@ -116,7 +116,7 @@ Great question o'hypothetical student!
 
 ### Get & Set Methods
 
-We created our task with two fields, `title` and `completed`.  We can access these fields with the `get` method.  You may have noticed how `.get` was used above in our initial logging of things to the console.
+We created our task with two fields, `title` and `completed`.  We can access these fields with the `get` method.  You may have noticed how `.get` was used above in our initial logging of things to the console.  
 
 For example in `app.js` we used `get` already:
 
@@ -150,6 +150,12 @@ console.log("Title: " + myTask.get("title") );
   // prints "Complete:  true"
 console.log("Complete: " + myTask.get("completed") );
 ```
+
+If you look at the browser console to examine the Task you can see that the Task object has a JavaScript object called `attributes` which are the model's attributes, `completed` and `title`.  You **could** access the attributes directly, so why use `get` and `set`?
+
+![Model in the console](images/model-console-attributes.png)
+
+Backbone uses these accessor methods to trigger events and process validations.  So always use `get` and `set` to access a model's attributes.  
 
 That's... great, but lets get something output to the webpage.
 
