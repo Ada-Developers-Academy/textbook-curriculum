@@ -14,11 +14,11 @@ Pure JavaScript & jQuery can quickly become unstructured and messy.  It's very e
 Backbone provides structure to your application by breaking things into our now familiar MVC framework, separating concerns and allowing your app to communicate with the server with a RESTful set of API calls.  
 
 So in short Backbone:
--  Enforces structure to make your code more maintainable and readable.
--  Enforces good practices in how your JavaScript interacts with external resources.
+-  Provides structure to make your code more maintainable and readable
+-  Encourages good practices in how your JavaScript interacts with external resources
 
 ### Aside: Libraries and Frameworks
-The benefits of Backbone should look somewhat familiar - they're some of the same reasons we learned Rails rather than writing a custom web server in pure Ruby. However, there's a major philosophical difference between Backbone and Rails, down to the very core of their designs: Backbone is a library, while Rails is a framework.
+The benefits of Backbone should look somewhat familiar - they're some of the same reasons we learned Rails rather than writing a custom web server in pure Ruby. However, there's a major philosophical difference between Backbone and Rails, down to the very core of their designs: Backbone is a **library**, while Rails is a **framework**.
 
 #### Libraries
 A library, like jQuery or the Ruby CSV gem, is a toolbox, from which you select the function or class that you need. The library accomplishes specific tasks, but ultimately your code is what's in charge. Examples of JavaScript libraries include:
@@ -40,39 +40,43 @@ There are a lot of opinions about which is better, and oftentimes even opinions 
 
 ## Single Page Applications
 
-Backbone is typically used to create *Single Page Applications*.  In a Single Page Application the page is loaded in a single page load.  From that point on any data needed is loaded dynamically using Ajax without needing to reload the page.  
+Backbone is typically used to create *Single Page Applications*.  In a Single Page Application the entire page is only loaded once.  From that point on any data needed is loaded dynamically using Ajax without needing to reload the entire page.  
 
 A good example of a Single Page Application is Gmail.  In Gmail new e-mails are loaded dynamically and when you send e-mail the page sends the information to the server without reloading the page.  This is an example of an asynchronous application.
 
 ## Backbone MV\*
 
-Backbone implements the familiar MVC architecture that we learned in Rails in a slightly different way. In Backbone the views & controllers are combined, thus Backbone is called an MV\* architecture.
+Backbone implements the familiar MVC architecture that we learned in Rails in a slightly different way. In Backbone the views perform much the same roles as a Rails controller and Underscore templates work like Rails Views, thus Backbone is called an MV\* architecture.
 
 ### Backbone has 5 Components
 1. **Models**: Similar to Rails models, these include the application data and business logic. Models can:
-	- Organize data and business logic.
-	- Load and save data from and to the server.
-	- Emit events when data changes.
+	- Organize data and business logic
+	- Load and save data from and to the server
+	- Emit events when data changes
 1. **Collections**: These are ordered sets of models
 1. **Views**: These render models and collections, and listen for DOM/Model events. Backbone views are really closer to Rails controllers, which has been confusing everyone for years.
-1. **Events**: Events are a module that can be mixed in to any object, giving the object the ability to bind and trigger custom named events.
+1. **Events**: Events are a module, taken from underscore, which can be mixed in to any object, giving the object the ability to bind and trigger custom named events.
 1. **Routers**: Routers let you add paths to the URL so that you can maintain history and allow users to jump to a specific state in your single-page-application.
 
 ![Backbone JS Architecture from http://www.slideshare.net/ronreiter/writing-html5-web-apps-using-backbonejs-and-gae](images/backbonejs-architecture.jpg)
 
 ## Live Code: Task List
-As we learn about Backbone, we'll be using a running example: a task list, similar to the one we built at the beginning of Rails. The difference is, this task list will be a Single Page Application. You can find the initial setup [on GitHub](https://github.com/Ada-C6/backbone-live-code). The initial setup lives on the branch `master`, and the final result that we're working toward lives on `live-code-sequence`.
+As we learn about Backbone, we'll be using a running example: a task list, similar to the one we built at the beginning of Rails. The difference is, this task list will be a Single Page Application. You can find the initial setup linked in the calendar. The initial setup lives on the branch `master`, and the final result that we're working toward lives on the branch `live-code-sequence`.  
+
+As we build this application we will implement it using one Backbone component and do the rest using jQuery and regular JS.  We will continue gradually adding Backbone components, replacing the jQuery and JS code until we have a full Backbone app.
+
+You can see the finished version here: [https://tasklist-js.herokuapp.com/](https://tasklist-js.herokuapp.com/) 
 
 The live code setup is a little more complex than what we've done in the past with JavaScript. Instead of directing your browser straight to a file, we'll run a simple webserver, kind of like what we did with Rails. To get started, run the following in the command line:
 
 ```bash
-$ git clone https://github.com/Ada-C6/backbone-live-code.git
+$ git clone https://github.com/Ada-C7/backbone-live-code.git
 $ cd backbone-live-code
 $ npm install
 $ npm start
 ```
 
-`npm start` runs the webserver - that's what all those green boxes are. If you navigate to http://localhost:8081, you should see the words `Hello World!` in the familiar Foundation font on a white background.
+`npm start` runs the webserver - that's what all those scrolling statements are. If you navigate to http://localhost:8081, you should see the words `Hello World!` in the familiar Foundation font on a white background.
 
 ### Modules
 The webserver is called **webpack**, and it is what's known as a "bundler". Much like the Rails server, its job is to keep track of all the JavaScript files we write and libraries we use, and pull them all together into one application. It can even do clever tricks like detecting when the code has changed and automatically refreshing your browser window.
@@ -89,11 +93,97 @@ Neither babel nor webpack have anything to do whatsoever with Backbone!
 You can use Backbone without them, and use them without Backbone - in fact, right now Backbone is installed, but we're not using it at all. So why are we jumping through all these hoops? Because we've been learning JavaScript for 2 whole weeks, and it's time to switch to a big kids development environment!
 
 ### Directory Structure
-Let's take a look at the directory structure. There are two folders we're interested in: `build` and `src`. Both these names are completely arbitrary - you can see them specified in `webpack.config.js`.
+Let's take a look at the directory structure. We are interested in the root folder and the  `dist` and `src` folders. Both these folder names are completely arbitrary - you can see them specified in `webpack.config.js`.
 
-Inside `build` are `index.html` and `styles`. `index.html` is the page that will be served to the browser, and `styles` is full of CSS.
+Inside `dist` are `bundle.js` and `bundle.js.map`.  These are compiled JavaScript files with all the JavaScript code we are using. In the root folder `index.html` is the page that will be served to the browser.  The `src` folder contains all our application's JavaScript, & CSS.
 
 The `src` folder is where we'll put our JavaScript. There are a few empty folders in here which we will use eventually, but to start everything will go in `app.js`.
+
+Our Project structure will look like this, including hidden files:
+
+![Backbone Project Directory structure](images/backbone-baseline.png)
+
+Note the folders for our models, collections & views.
+
+### HTML Document
+
+Throughout the LiveCode we will also be using the same HTML document in our exercise.  You will notice an underscore template at the bottom and an unordered list (`<ul>`) where we will be placing our tasks.  
+
+```html
+<!doctype html>
+<html>
+<head>
+  <title>Ada TaskList-JS App</title>
+  <link rel="stylesheet" type="text/css" href="dist/styles.css">
+</head>
+<body>
+  <header class="row">
+    <aside class="icon medium-4 small-12 columns">
+      <a href="https://tasklist-js.herokuapp.com">
+        <img src="images/logo.png" alt="Logo" />
+      </a>
+    </aside>
+    <section class="title medium-8 small-12 columns">
+      <h1>Ada TaskList</h1>
+    </section>
+  </header>
+  <main class="row">
+
+    <aside class="small-11 large-3 medium-3 columns create-tasklist">
+      <h2>Create a New Task</h2>
+        <section class="row" id="title-section">
+          <label class="columns medium-12">Title
+            <input type="text" name="title" id="title" placeholder="Enter the title here" />
+          </label>
+        </section>
+        <section class="row" id="description-section">
+          <label class="columns medium-12">Description
+            <textarea id="description" placeholder="None"></textarea>
+          </label>
+        </section>
+        <section class="row" id="buttons-section">
+          <div class="medium-8 columns">
+            <input id="completed-checkbox" type="checkbox">
+            <label for="completed-checkbox">Completed?</label>
+          </div>
+
+          <button id="add-task" class="medium-3 columns button success">Add a Task</button>
+        </section>
+    </aside>
+    <section class="main-content small-12 large-9 medium-9 columns">
+      <h2>Todo Items</h2>
+      <ul class="todo-items row small-up-2 medium-up-3 large-up-4">
+
+      </ul>
+    </section>
+  </main>
+  <footer>
+  </footer>
+  <script id="taskItemTemplate" type="text/template">
+    <li class="task-item column column-block">
+      <h2 <%= completed ? 'class="completed"' : 'class="incomplete"' %> >
+        <strong> <%= title %></strong>
+      </h2>
+      <div class="row">
+        <div class="small-6 columns">
+          <button class="button success">
+            Toggle <%= completed ? "Incomplete" : "Complete" %>
+          </button>
+        </div>
+        <div class="small-6 columns">
+          <button class="button alert">
+            Delete
+          </button>
+        </div>
+      </div>
+    </li>
+  </script>
+  <script src="dist/bundle.js"></script>
+
+</body>
+</html>
+```
+
 
 ## Resources
 - [Underscore Documentation](http://underscorejs.org/)
@@ -102,4 +192,5 @@ The `src` folder is where we'll put our JavaScript. There are a few empty folder
 - [Top JavaScript Frameworks, Libraries and Tools and When to Use Them](https://www.sitepoint.com/top-javascript-frameworks-libraries-tools-use/)
 - [StackOverflow on the difference between a Framework and a Library](http://stackoverflow.com/questions/3057526/framework-vs-toolkit-vs-library)
 - [Jamie's Backbone.js Overview slides](https://docs.google.com/presentation/d/12wG-8q4AH9UU-Z1DjANf7m--CiVTKqj9OO0rX7oMlDc/edit?usp=sharing)
+- [A Video on getting started with Webpack](https://www.youtube.com/watch?v=eWmkBNBTbMM)
 
