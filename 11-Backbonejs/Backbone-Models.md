@@ -67,7 +67,7 @@ var Task = Backbone.Model.extend({ });
 export default Task;
 ```
 
-In the code segment above we created a new type of model, `Task` which extends or inherits from `Backbone.Model` and we exported the type for any file which imports `src/app/models/task.js`.  
+In the code segment above we created a new type of model, `Task` which extends or inherits from `Backbone.Model` and we exported the type for any file which imports `src/models/task.js`.  
 
 So now in our `src/app.js` file we can add.
 
