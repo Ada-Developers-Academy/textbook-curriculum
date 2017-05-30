@@ -224,6 +224,12 @@ Verify with your SeatSquad member that you both have it working.  You can see a 
 - We now have a Collection which can track our Tasks and trigger events when the collection changes.
 - We are listening to events on the Collection to know when to update our display
 
+## Take-aways
+-  A Backbone Collection is an ordered collection of Model objects, like an array
+-  Models can be added and removed from a collection.
+-  You can iterate through a model with the `.each` function.
+-  Backbone objects have their own event model and can emit events like "change" which you can set listeners for.
+
 
 ## Additional Resources
 - [Backbone docs on Collections](http://backbonejs.org/#Collection)
