@@ -189,16 +189,16 @@ var render = function(task) {
   var template_text = $('#taskItemTemplate').html();
 
   // Get a compiled underscore template object
-  var template = _.template(template_text);
+  var templateObject = _.template(template_text);
 
   // Use the underscore template function to use the 
   //  data from the model to generate raw html.
-  var compiledHTML = $(template(task.toJSON()));
+  var compiledHTML = $(templateObject(task.toJSON()));
 
   // append the html to the unordered list.
   $('.todo-items').append(compiledHTML);
 
-  compiledHTML.click({task: task}, function(params) {
+  compiledHTML.find("button.alert").click({task: task}, function(params) {
     taskList.remove(params.data.task);
   });
 };
