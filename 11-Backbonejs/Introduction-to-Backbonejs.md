@@ -65,7 +65,7 @@ As we learn about Backbone, we'll be using a running example: a task list, simil
 
 As we build this application we will implement it using one Backbone component and do the rest using jQuery and regular JS.  We will continue gradually adding Backbone components, replacing the jQuery and JS code until we have a full Backbone app.
 
-You can see the finished version here: [https://tasklist-js.herokuapp.com/](https://tasklist-js.herokuapp.com/) 
+You can see the finished version here: [https://cheezitman.github.io/tasklist-js/](https://cheezitman.github.io/tasklist-js//) 
 
 The live code setup is a little more complex than what we've done in the past with JavaScript. Instead of directing your browser straight to a file, we'll run a simple webserver, kind of like what we did with Rails. To get started, run the following in the command line:
 
