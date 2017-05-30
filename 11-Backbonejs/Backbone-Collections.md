@@ -43,7 +43,7 @@ First, import our new `TaskList` constructor:
 
 ```javascript
 // app.js
-import TaskList from './collections/task_list';
+import TaskList from './app/collections/task_list';
 ```
 
 Second, in `$(document).ready()`, we can create a TaskList to track our list of tasks.  A Collection can take generic JavaScript objects and use them to instantiate Models, in this case Task objects.
