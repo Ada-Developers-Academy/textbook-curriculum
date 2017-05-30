@@ -47,7 +47,7 @@ $(document).ready(function() {
 });
 ```
 
-What does this do for us?  We first import some CSS files into our application so Webpack can load the styles dynamically.  
+What does this do for us?  We first import some library files into our application so we can access it through Webpack.  
 
 The  `import` statement lets us bring in code from libraries we are using and defined in our `package.json` file, and other JavaScript files we create.  Since our `app.js` file will regularly use underscore and jQuery throughout, we import them immediately.  These top lines should remain at the top of `src/app.js`.
 
