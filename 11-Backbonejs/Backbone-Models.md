@@ -25,7 +25,7 @@ Organizing all this functionality ourselves would be a giant pain in the butt, s
 
 In this lesson we're going to start by creating models to hold the data for our Task List and then write a function to render, or draw, them on the screen using jQuery & Underscore.  We'll also add a jQuery event handler to let us create new Tasks.
 
-You can see the finished version [here:](https://tasklist-js-models.herokuapp.com/)
+You can see the finished version [here:](https://cheezitman.github.io/tasklist-js-models/)
 
 
 ## First Steps Setting up `app.js`
