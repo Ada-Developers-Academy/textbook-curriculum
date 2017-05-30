@@ -34,10 +34,6 @@ In our `src/app.js` file we will first set it up with lines we'll need from now 
 
 ```javascript
 // /src/app.js
-// Load Foundation Files
-import _settings  from './css/_settings.scss';
-import foundation  from './css/foundation.css';
-import css from './css/styles.css';
 
 // Import jQuery & Underscore
 import $ from 'jquery';
