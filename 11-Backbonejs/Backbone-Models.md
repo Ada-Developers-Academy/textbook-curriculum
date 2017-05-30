@@ -293,8 +293,13 @@ var readNewTaskForm = function() {
     completed: formCompleted
   };
 };
+// ...
+// ready to go
+$(document).ready(function() {
 
-$('#add-task').click( function() {
+  render(myTask);
+
+  $('#add-task').click( function() {
 
     // Create a new Task
     var task = new Task( readNewTaskForm() );
@@ -302,6 +307,7 @@ $('#add-task').click( function() {
     // Add it to the DOM
     render(task);
   });
+});
 ```
 
 So when we click the `Add a Task` button we get the values from the form fields, and clear them.  Then we create a new task.  Lastly we add it to the DOM with `render`.  
