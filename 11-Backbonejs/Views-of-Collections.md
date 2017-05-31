@@ -133,11 +133,11 @@ Again this looks very much like what we originally wrote in `app.js`  We did cha
 
 **Note you will need to delete the original event handlers in `app.js`.**
 
-**Gah!** The Delete button ALSO doesn't work anymore!
-
-Good point, the delete and add buttons are actually working, and tasks are getting added and removed from the collection, but the problem is we're not re-rending the list.
-
 ## Adding a Backbone Event Listener
+
+**Question:** We've broken our delete handler (again). Why isn't it working?
+
+With a little bit of digging, we can find that the delete and add buttons are doing what they're supposed to: tasks are getting added and removed from the collection. The problem is we're not re-rending the updated list.
 
 If we add an event listener to the collection we can call render when the collection is updated.  
 
