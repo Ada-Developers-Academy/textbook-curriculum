@@ -83,7 +83,7 @@ var renderList = function(taskList) {
     var taskView = new TaskView({
       model: task,
       template: _.template($('#taskItemTemplate').html()),
-      tagname: 'li'
+      tagName: 'li'
     });
     
     // Then render the TaskView
@@ -93,7 +93,8 @@ var renderList = function(taskList) {
 };
 ```
 
-Notice that in the code above we used `taskView.render().$el`.  We can do this because the view's `render()` method returns a reference to the view with the line `return this;`.  It is convention in Backbone to always have the `render()` method return `this` exactly so that we can do this kind of chaining.  We also set the tagName that we are using for `el` to be `li` or a list item.
+Notice that in the code above we used `taskView.render().$el`.  We can do this because the view's `render()` method returns a reference to the view with the line `return this;`.  It is convention in Backbone to always have the `render()` method return `this` exactly so that we can do this kind of chaining.  We also set the 
+that we are using for `el` to be `li` or a list item.
 
 We are performing many of the same operations we performed in our `app.js` file's `render` function as we create the `TaskView` and render it.
 
