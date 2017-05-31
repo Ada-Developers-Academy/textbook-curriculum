@@ -73,14 +73,17 @@ We will adjust our `$(document).ready` handler to use the `TaskView`.
 import TaskListView from './views/task_list_view';
 
 // ...
-var taskListView = new TaskListView({
-  model: taskList,
-  template: _.template($('#taskItemTemplate').html()),
-  el: 'main'
-});
+
 
 $(document).ready(function() {
-   taskListView.render();
+  // Why does this belong in $(document).ready ?
+  var taskListView = new TaskListView({
+    model: taskList,
+    template: _.template($('#taskItemTemplate').html()),
+    el: 'main'
+  });
+  
+  taskListView.render();
 });
 ```
 
