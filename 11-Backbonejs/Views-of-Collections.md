@@ -88,7 +88,7 @@ We create the TaskListView and set it's model to be our taskList collection and 
 
 Lastly we call render on the taskListView.
 
-**Wait The Delete Button Just got broken!!**  Don't worry we'll handle that shortly.  
+**Wait The Add & Delete Buttons Just got broken!!**  Don't worry we'll handle that shortly.  
 
 ### Handling Creating New Tasks
 
@@ -130,7 +130,7 @@ Again this looks very much like what we originally wrote in `app.js`  We did cha
 
 **Note you will need to delete the original event handlers in `app.js`.**
 
-**Gah!** The Add button ALSO doesn't work anymore!
+**Gah!** The Delete button ALSO doesn't work anymore!
 
 Good point, the delete and add buttons are actually working, and tasks are getting added and removed from the collection, but the problem is we're not re-rending the list.
 
