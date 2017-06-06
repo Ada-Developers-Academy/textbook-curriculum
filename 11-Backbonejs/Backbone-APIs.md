@@ -24,10 +24,39 @@ Note that these instructions will work just as well for a deployed API - just ch
 ![Backbone JS Architecture from http://www.slideshare.net/ronreiter/writing-html5-web-apps-using-backbonejs-and-gae](images/backbonejs-architecture.jpg)
 
 ### Reading Data From an API
-#### Removing Static Data
-If we're going to read our data from an API, that means we don't need to keep any static data in our JavaScript files. Go into `src/app.js` and delete `taskData`.
 
-Since we're not getting data locally, we need to tell Backbone to read it from the remote server. To do so, add a call to `taskList.fetch()` once you've initialized the Collection.
+#### Configuring Backbone for Our API
+Backbone doesn't just magically know where our API is or how it works - we have to tell it. Open up `src/app/collections/task_list.js`.
+
+First we need to tell Backbone the URL of our API. Note that this `url` property is specifically for the data retrieval.
+
+```javascript
+var TaskList = Backbone.Collection.extend({
+  model: Task,
+  url: 'http://ada-tasklist-api.herokuapp.com/tasks'
+});
+```
+
+Second we need to tell Backbone how to interpret the data it gets back. We can do so by implementing the `parse()` function, which Backbone calls on the data it gets back from the API. `parse()` should return an array of JavaScript objects representing tasks, in the same data format our static data was in.
+
+**Question:** What does the data we get back from the API look like? How can we turn it into what we want?
+
+```javascript
+var TaskList = Backbone.Collection.extend({
+  model: Task,
+  url: 'http://ada-tasklist-api.herokuapp.com/tasks',
+  parse: function(data) {
+    return data.tasks;
+  }
+});
+```
+
+Note that you only need a `parse()` function if the data sent by your API doesn't match what Backbone expects (an array of objects). If that is the format, you can omit `parse()`.
+
+#### Removing Static Data
+Now that we are configured to read our data from an API, that means we don't need to keep any static data in our JavaScript files. Go into `src/app.js` and delete `taskData`.
+
+Since we're not getting data locally, we need to tell Backbone to read it from the remote server which we have configured. To do so, add a call to `taskList.fetch()` once you've initialized the Collection.
 
 When you're done, `app.js` should look like this:
 
@@ -50,35 +79,8 @@ $(document).ready(function() {
 });
 ```
 
-Let's emphasize that call to `fetch()`. It's easy to forget, and without it you'll be left wondering why your data isn't loading.
+Backbone knows that when `fetch()` is called, it should look for the appropriate configuration in the collection to load the data. Since the use of an API for data retrieval is so common, this can feel a bit like "magic".
 
-#### Configuring Backbone for Our API
-Backbone doesn't just magically know where our API is or how it works - we have to tell it. Open up `src/app/collections/task_list.js`.
-
-First we need to tell Backbone the URL of our API:
-
-```javascript
-var TaskList = Backbone.Collection.extend({
-  model: Task,
-  url: 'http://ada-tasklist-api.herokuapp.com/tasks'
-});
-```
-
-Second we need to tell Backbone how to interpret the data it gets back. We can do so by implementing the `parse()` function, which Backbone calls on the data it gets back from the API. `parse()` should return an array of JavaScript objects representing tasks, the same data format our static data was in before.
-
-**Question:** What does the data we get back from the API look like? How can we turn it into what we want?
-
-```javascript
-var TaskList = Backbone.Collection.extend({
-  model: Task,
-  url: 'http://ada-tasklist-api.herokuapp.com/tasks',
-  parse: function(data) {
-    return data.tasks;
-  }
-});
-```
-
-Note that you only need a `parse()` function if the data sent by your API doesn't match what Backbone expects (an array of objects). If that is the format, you can omit `parse()`.
 
 ### Writing Data To an API
 Our original goal was to make our data persistent: if we make changes, the next time we load the page we should see them. We're not quite there yet - if you make some changes to your tasks and then reload the page the changes will be gone. The reason is we haven't told Backbone to write those changes to the API.
