@@ -114,6 +114,7 @@ The `events` object is structured like a Ruby hash with DOM events as the keys a
   },
   deleteTask: function(e) {
     this.model.destroy();
+    this.remove();
   }
 }};
 ```
@@ -124,6 +125,8 @@ So when the user clicks a delete button inside the view:
 -  The model will then remove itself from all collections.  
 -  Once the model is removed from the collection the Collection will trigger an, "update" event 
 -  Our event handler cause our `app.js` file's `renderList` function to execute.  
+
+The line `this.remove();` removes the View from the DOM and also calls `stopListening()` which causes any listeners to stop listening to the view. That prevents listeners from hanging around waiting for events that will now never happen.  
 
 ## Exercise
 
