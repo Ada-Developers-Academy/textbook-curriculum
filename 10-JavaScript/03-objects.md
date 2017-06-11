@@ -30,7 +30,7 @@ var myDog = {
 
 This is great for one-off objects, but what if we need to keep track of many similar objects? We'd have to explicitly define each one, which could quickly turn into a lot of repeated code.
 
-### Instantiating Objects
+### Object-Oriented Design
 
 #### Ruby-style: Classical Objects
 In Ruby, we solve the problem of many similar objects using classes. We define a class, give it some methods and variables, and then create and manipulate instances of the class.
@@ -44,44 +44,90 @@ class Dog
     @breed = breed
   end
 
-  def speak()
-    puts "woof"
+  def info      # Each dog instance is unique
+    "Meet #{@name} who is a #{@breed}"
+  end
+
+  def self.speak  # Let's assume all dogs bark the same way
+    "woof!"
   end
 end
 
+# Test is out
+puts Dog.speak    # Class method
 myDog = Dog.new('fido', 'labrador')
-myDog.speak
+puts myDog.info   # Instance method
 ```
 
 This pattern of defining a class and then instantiating it is very common in object oriented languages, and languages that use it are sometimes said to have _classical_ objects. JavaScript uses a slightly different technique called _prototypical_ objects.
 
-#### JavaScript Style: Prototypical Objects
-When building a prototypical object in JavaScript, there are three important steps:
-- Define the _constructor_, a function that sets up any details specific to this instance (usually instance variables)
-- Define the constructor's `prototype`, an object that establishes pieces common to all instances (usually instance methods)
+#### JavaScript Style
+In the example above, we have two different types of behavior. We have *instance-specific* behavior, like the `info` method. We also have *class-specific* behavior, like the `speak` method. One is dependent upon having an *instance* of the object, and the other is the same for *all instances* of this particular objects.
+
+#### Class Behavior
+When we don't particularly care about an instance of an object, we can model our JavaScript object
+
+First, we must define the object where we want this behavior to exist:
+```javascript
+// dog.js
+var Dog = function() {
+
+};
+```
+
+Then, we can add new behavior to that object to simulate the way we created _class methods_ in Ruby:
+```javascript
+//dog.js
+...
+
+Dog.speak = function() {
+  return "woof";
+};
+```
+
+Now, to call this new function we've created, we simply need to use the `Dog` object:
+```javascript
+//dog.js
+...
+
+console.log(Dog.speak());
+```
+
+#### Instance Behavior
+When building objects which require instances in JavaScript, there are three important steps:
+- Define the _constructor_, with details specific to this instance (usually instance variables)
+- Extend the object's `prototype`, to establish pieces common to all instances (usually instance methods)
 - Call the constructor using JavaScript's `new` keyword to create new instances of the object
 
-The big idea of prototypical objects is that, rather than defining a special language construct like a class, you create an original object to be the _prototype_ for new objects. Any new object is created as a clone of the original.
+The big idea of these types of objects is that, rather than defining a special language construct like a *class*, you create an original object to be the _prototype_ for new objects. Any new object is created as a clone of the original.
 
 ```javascript
 // dog.js
 
-// First we define the constructor
+// Update our constructor to have instance-specific variables
 var Dog = function(name, breed) {
   this.name = name;
   this.breed = breed;
 };
 
-// Second we add the prototype
+// Leave our existing class-like function
+Dog.speak = function() {
+  return "woof";
+};
+
+// Set up our instance-specific functionality
 Dog.prototype = {
-  speak: function () {
-    console.log("woof")
+  info: function () {
+    return "Meet " + this.name + " who is a " + this.breed;
   }
 };
 
-// Third we instantiate the object with the new keyword
+// We can still use our class-like function
+console.log(Dog.speak());
+
+// We can also use instance-specific functions
 var myDog = new Dog("fido", "labrador");
-myDog.speak();
+console.log(myDog.info());
 ```
 
 Now we can create as many dogs as we want!
@@ -91,12 +137,9 @@ Note the `new` keyword. The syntax is a little different from Ruby, and it's eas
 Note also that `Dog.prototype` is just a JavaScript object. It happens to be the object that JavaScript looks for when a constructor is invoked with `new`, but other than that it behaves just as we've seen before. So you could do things like:
 
 ```javascript
-// Call a function from the prototype directly
-Dog.prototype.speak();
-
-// Add a function to the prototype
+// Add another function to the prototype
 Dog.prototype.isHungry = function() {
-  return true; // always hungry
+  // some hungry logic here
 };
 ```
 
