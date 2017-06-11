@@ -126,7 +126,7 @@ So when the user clicks a delete button inside the view:
 -  Once the model is removed from the collection the Collection will trigger an, "update" event 
 -  Our event handler cause our `app.js` file's `renderList` function to execute.  
 
-The line `this.remove();` removes the View from the DOM and also calls `stopListening()` which causes any listeners to stop listening to the view. That prevents listeners from hanging around waiting for events that will now never happen.  
+The line `this.remove();` removes the View from the DOM and also calls `stopListening()` which causes the view to stop listening to other objects, such as the model.
 
 ## Exercise
 
