@@ -4,7 +4,10 @@
 By the end of this lesson, students should be able to...
 
 - Describe what makes testing JavaScript web apps complex
--
+- Discuss strategies for mitigating this complexity
+- Run Jasmine tests from the command line
+- Enumerate the parts of a Jasmine test file
+- Write tests in Jasmine for models and business logic
 
 ## Testing in JavaScript
 
