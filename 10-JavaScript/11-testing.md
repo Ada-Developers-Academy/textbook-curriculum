@@ -141,4 +141,20 @@ Follow the same TDD workflow to test and implement `WordList.highestScoringWord(
 
 ## What Have We Accomplished?
 
+- Discuss the theory of testing JavaScript web applications
+  - *External dependencies* such as the DOM, user events and APIs make it difficult
+- Evaluate strategies for dealing with these challenges
+  - *Mock* the DOM
+  - Separate business logic from display logic and test it in isolation
+- Examine Jasmine's BDD DSL
+  - `describe` blocks for suites
+  - `it` blocks for individual tests
+  - `expect` statements (with matchers) to verify particular conditions
+- Practice writing tests with Jasmine
+
 ## Additional Resources
+
+- [Jasmine documentation](https://jasmine.github.io/2.0/introduction.html) (full of good examples)
+- [Selenium](http://www.seleniumhq.org/)
+- [Testing Backbone models with Jasmine](https://tinnedfruit.com/articles/testing-backbone-apps-with-jasmine-sinon-2.html)
+- [Backbone model validations](http://beletsky.net/2012/11/baby-steps-to-backbonejs-model.html) (the next post on this blog is about testing them!)
