@@ -3,9 +3,8 @@
 ## Learning Goals
 By the end of this lesson, students should be able to...
 
-- Understand that there are different types of testing for JavaScript
-- Explore JavaScript testing using Jasmine
-- Explore different ways for configuring Jasmine tests
+- Describe what makes testing JavaScript web apps complex
+-
 
 ## Testing in JavaScript
 
@@ -33,68 +32,76 @@ Since our remaining time together is short, we'll use the second technique. It w
 
 As an aside, Selenium is a *really* cool technology, we just don't have the time to do it justice. Maybe it would make a good piece of a capstone project...?
 
-### Testing in JavaScript: Overview
-We have seen JavaScript used in two primary contexts thus far: _front-end_ and _back-end_. When we started using JavaScript, we were strictly running our code using `node` and not utilizing any of the browser interactivity functionality that we added later. This is an important distinction to think about, as we also test JavaScript based on these different contexts.
-
-Testing front-end JavaScript is a more nuanced process than what we are used to. There are tools like [selenium](http://www.seleniumhq.org/) which allow you to automate the testing of web applications using a "headless" browser to simulate actions and events that a user might perform with your application. We will not be doing this type of JavaScript testing, but you are certainly welcome to look into it.
-
-We will be focusing on back-end testing of JavaScript, since it is close to what we are used to and gives us the most "bang for our buck". We will be using a tool called Jasmine. [Jasmine](jasmine.github.io) is a "behavior-driven development framework for testing JavaScript code".
-
 ### Setup
-We will utilize the basic application structure that we have used for our Backbone applications which has given us a file structure as well as some of the necessary dependencies.
+We will utilize the same basic application structure that we have used for our Backbone applications. In fact, the project we'll be working with is a complete Backbone SPA. To let us focus on the process of writing tests with Jasmine rather than implementing some bit of complex logic, we'll be using a Backbonified version of our good old Scrabble game.
 
-1. Clone this repo: https://github.com/AdaGold/scrabble-jasmine-baseline
+1. Clone this repo: `https://github.com/AdaGold/scrabble-jasmine-baseline`
 1. `npm install`
-1. `npm test`
-1. Copy in your original Scrabble code - watch out for those pieces that are in the baseline code that say "Do not remove"
+1. `npm start`
 
-We will start with the JavaScript file `scrabble.js` which will contain our code as well as a starter spec file `scrabble.spec.js` where we will write our tests.
+Spend some time playing with the site. What models, collections and views do you think there might be? What functionality is still missing?
 
-Just be aware that you'll need to change the:  `module.exports = Scrabble;` in your scrabble.js file to:  `export default Game;`  This is because we're using webpack framework we set up for Backbone and it differs in importing from how we were doing it in node console apps.
+Now look through the code, and confirm or rebuke your suspicions. Pay close attention to the `spec` directory, which is where the tests live - we'll dive into it a little later. To run the tests, type `npm test` at the console.
 
-Testing using Jasmine for JavaScript is fairly similar to what we saw with testing Ruby and Rails. As always, there are some specific differences.
+Similar to Rails, the `spec` directory has the same structure as the `src` directory. Each file `src/dir/name.js` may have a corresponding `spec/dir/name.spec.js`.
+
+Because we're running tests via `npm`, our tests have access to all our WebPack infrastructure, and `import` and `export` statements will work about as you'd expect.
 
 ### Anatomy of a Test
-Since Jasmine is a BDD testing language, each test should have these components to describe the test behavior.
 
-##### `describe`
+There are already some tests written for the `Word` model, so let's begin there. Open up `spec/models/word.spec.js`.
+
+Because Jasmine is a behavior-driven testing language, testing using Jasmine for JavaScript is fairly similar to what we saw using Minitest for Ruby and Rails. As always, there are some specific differences.
+
+Each test should have these components to describe the test behavior.
+
+#### `describe` Blocks
 Describe blocks should create test groupings based on _objects_ and _functions_.
 
-We should use one `describe` block for our overall `Scrabble` object, and another nested one for the `score` method that we defined inside `Scrabble`.
+We should use one `describe` block for our overall `Word` model, and another nested one for each method or set of behavior we want to test. `Word` has one for the constructor, another for validations and a third for the `score()` method.
 
 Each `describe` function has two parameters. The first is the description of the `describe` block and the second is the function which contains the actions/logic. Note that we add a `;` at the end of each `describe` block.
 
 ```javascript
-describe('Scrabble', function() {
-  describe('score', function() {
+describe('Word', function() {
+  describe('constructor', function() {
 
   });
 });
 ```
 
-`it`: It blocks should define one distinct test. The description that goes along with the `it` block should describe the specific scenario that you are testing.
+#### `it` Blocks
+
+`it` blocks should define one distinct test. The description that goes along with the `it` block should describe the specific scenario that you are testing.
 
 ```javascript
-describe('Scrabble', function() {
-  describe('score', function() {
-    it('should score a given word', function() {
+describe('Word', function() {
+  describe('constructor', function() {
+    it ('Converts text to lowercase', function() {
 
     });
   });
 });
 ```
 
-`expect`: Expectations should be the "meat and potatoes" of your tests, inside of your `it` blocks. Each test has at least one `expect` statement to ensure the behavior is as expected.
+#### `expect` Statements
+
+Expectations should be the "meat and potatoes" of your tests, inside of your `it` blocks. Each test has at least one `expect` statement to ensure the behavior is as expected.
+
+The syntax of `describe` and `it` is pretty similar to Minitest (at least as similar as Ruby and JS can be), but `expect` is somewhat different. Note that there are actually two functions being called, the `expect` and the matcher (`toEqual` in this case), each taking one argument.
 
 ```javascript
-describe('Scrabble', function() {
-  describe('score', function() {
-    it('should score a given word', function() {
-        expect(testScrabble.score('word')).toEqual(8);
+describe('Word', function() {
+  describe('constructor', function() {
+    it ('Converts text to lowercase', function() {
+      var word = new Word({ text: 'TeSt' });
+      expect(word.get('text')).toEqual('test');
     });
   });
 });
 ```
+
+And that's all a test is. Go ahead and add another one to the spec file, but this time make sure it will fail (e.g. `expect(false).toEqual(true);`). Then re-run the tests, just to see what a failure looks like. Fix the test and run it again. Not too different from Minitest, right?
 
 ### Matchers
 Just like in testing with Ruby and Rails, Jasmine has a number of **matchers** that allow us to construct our tests. Below are the most common:
