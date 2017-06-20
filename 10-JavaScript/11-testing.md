@@ -9,7 +9,7 @@ By the end of this lesson, students should be able to...
 
 ## Testing in JavaScript
 
-Testing is an essential part of the process of writing good software. [Study](http://ieeexplore.ieee.org/abstract/document/1201238/) [after](http://www.sciencedirect.com/science/article/pii/S0950584903002040) [study](https://link.springer.com/article/10.1007/s10664-008-9062-z) have shown that folowing a strong test-driven development workflow reduces bug counts, increases code maintainability and actually helps teams deliver projects on time (and spend less time fixing them later).
+Automated testing is an essential part of the process of writing good software. [Study](http://ieeexplore.ieee.org/abstract/document/1201238/) [after](http://www.sciencedirect.com/science/article/pii/S0950584903002040) [study](https://link.springer.com/article/10.1007/s10664-008-9062-z) have shown that folowing a strong test-driven development workflow reduces bug counts, increases code maintainability and helps teams deliver projects on time (and spend less time fixing them later).
 
 While JavaScript is no exception to this rule, there are a few factors that make testing front-end web applications a little more difficult than what we've seen so far:
 
@@ -18,6 +18,20 @@ While JavaScript is no exception to this rule, there are a few factors that make
 - Many JavaScript apps are built around manipulating the DOM and responding to user events, which are difficult to simulate and verify.
 
 In short, most interesting JavaScript code is full of *external dependencies*. Much of the effort involved in testing a JavaScript app goes into mocking, eliminating or working around these dependencies.
+
+### Testing Strategy
+
+We'll be using a test suite called [Jasmine](https://jasmine.github.io/index.html) (maintained by Pivotal Labs, part of the Ada network). Jasmine is availabe as an npm package, and it is included in our standard Ada webpack setup.
+
+Jasmine tests are run from the command line using `npm test` (more on this later). While this is fast and convenient, it also means that our tests are being run without support from the browser, and anything that relies on the browser (like manipulating the DOM or waiting for user events) will break.
+
+To get around this, there are basically two strategies to follow:
+- Use a technology like [Selenium](http://www.seleniumhq.org/) to *mock* the DOM
+- Build your application so that as much of the business logic as possible can run without the DOM
+
+Since our remaining time together is short, we'll use the second technique. It will be very reminiscent of model testing in Rails, and in fact we will focus our JavaScript testing on models. The testing techniques we learn here will also transfer directly to any command-line JavaScript programs you write, including something like a Node-Express server.
+
+As an aside, Selenium is a *really* cool technology, we just don't have the time to do it justice. Maybe it would make a good piece of a capstone project...?
 
 ### Testing in JavaScript: Overview
 We have seen JavaScript used in two primary contexts thus far: _front-end_ and _back-end_. When we started using JavaScript, we were strictly running our code using `node` and not utilizing any of the browser interactivity functionality that we added later. This is an important distinction to think about, as we also test JavaScript based on these different contexts.
