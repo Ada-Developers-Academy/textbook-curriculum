@@ -122,3 +122,23 @@ Just like in testing with Ruby and Rails, Jasmine has a number of **matchers** t
 
 The Jasmine docs also have some great examples of how to use the different matchers.
 [https://jasmine.github.io/edge/introduction#section-Included_Matchers](https://jasmine.github.io/edge/introduction#section-Included_Matchers)
+
+## Exercise
+
+### Wave 1: `word.spec.js`
+
+Read through the rest of the implemented tests in `word.spec.js`. Many of them cover model validations, which we haven't explicitly covered but which are similar enough to Rails to pick up. Is there anything in the tests that surprised you?
+
+Now use a test-driven development workflow to implement the `Word.score()` method. Remember: the TDD cycle: pseudocode-red-green-refactor!
+
+Feel free to borrow production (non-test) code from either of the previous times we've implemented scrabble - the learning objective is to practice Jasmine testing syntax, not to build the Scrabble logic for the third time.
+
+Once we've spent some time here, we'll come back as a class and compare results.
+
+### Wave 2: `word_list.spec.js`
+
+Follow the same TDD workflow to test and implement `WordList.highestScoringWord()` and `.totalScore()`. Note that `.totalScore()` does not contain test stubs, so you'll have to come up with your own tests.
+
+## What Have We Accomplished?
+
+## Additional Resources
