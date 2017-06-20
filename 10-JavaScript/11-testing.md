@@ -1,9 +1,23 @@
-# JavaScript Testing: Jasmine
+# JavaScript Testing with Jasmine
 
 ## Learning Goals
+By the end of this lesson, students should be able to...
+
 - Understand that there are different types of testing for JavaScript
 - Explore JavaScript testing using Jasmine
 - Explore different ways for configuring Jasmine tests
+
+## Testing in JavaScript
+
+Testing is an essential part of the process of writing good software. [Study](http://ieeexplore.ieee.org/abstract/document/1201238/) [after](http://www.sciencedirect.com/science/article/pii/S0950584903002040) [study](https://link.springer.com/article/10.1007/s10664-008-9062-z) have shown that folowing a strong test-driven development workflow reduces bug counts, increases code maintainability and actually helps teams deliver projects on time (and spend less time fixing them later).
+
+While JavaScript is no exception to this rule, there are a few factors that make testing front-end web applications a little more difficult than what we've seen so far:
+
+- Front-end JavaScript code is designed to run in the browser and often takes advantage of built-in browser mechanisms. This makes tests difficult to run automatically from the terminal.
+- JavaScript applications often talk to an external API.
+- Many JavaScript apps are built around manipulating the DOM and responding to user events, which are difficult to simulate and verify.
+
+In short, most interesting JavaScript code is full of *external dependencies*. Much of the effort involved in testing a JavaScript app goes into mocking, eliminating or working around these dependencies.
 
 ### Testing in JavaScript: Overview
 We have seen JavaScript used in two primary contexts thus far: _front-end_ and _back-end_. When we started using JavaScript, we were strictly running our code using `node` and not utilizing any of the browser interactivity functionality that we added later. This is an important distinction to think about, as we also test JavaScript based on these different contexts.
