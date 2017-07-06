@@ -64,7 +64,7 @@ As an aside: one way to fix our method is to simply return the new array, and wh
 
 When we create an array in Ruby (or a string or a hash or any other complex data type), we're actually creating two things.
 
-The first is the _value_ of the array, which involves asking the operating system for a bit of memory and then putting our data in it. You can think of this as the actual object. Each piece of memory we get from the OS has an _address_, which is how we get back to it later.
+The first is the _value_ of the array, which involves asking the operating system for a bit of memory and then putting our data in it. You can think of this as the actual object. Each piece of memory we get from the OS has an _address_ representing its physical location in hardware, which is how we get back to it later.
 
 The second is a _reference_ to the array, which ties together the address of that memory with a name for our program to use. References are sometimes called _pointers_ (especially in C), and we say that a variable _points to_ or _references_ an object.
 
