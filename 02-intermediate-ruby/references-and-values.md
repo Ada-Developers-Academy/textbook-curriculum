@@ -1,9 +1,11 @@
 # References and Values
 
 ## Learning Goals
+At the end of this lesson, students should be able to...
 
-- Define _reference_ and _value_
--  
+- Discuss how objects are stored in Ruby
+- Differentiate between _references_ and _values_
+- Compare _modifying an object_ with _reassigning a variable_
 
 ## Motivation
 
@@ -66,7 +68,7 @@ The first is the _value_ of the array, which involves asking the operating syste
 
 The second is a _reference_ to the array, which ties together the address of that memory with a name for our program to use. References are sometimes called _pointers_ (especially in C), and we say that a variable _points_ to or _references_ an object.
 
-[Some sort of image]
+![references and variables](images/references_and_values/references_and_values.png)
 
 Every variable in Ruby consists of these two parts, a reference and a value. Normally when you type the variable's name, Ruby automatically just goes and gets the object. If you want to find out the address, you can use the `object_id` method:
 
@@ -92,7 +94,7 @@ repeat = veggies
 puts "repeat.object_id: #{repeat.object_id}" # same as veggie.object_id
 ```
 
-[Picture of two variables pointing at same object]
+![referencing a variable twice](images/references_and_values/two_pointers.png)
 
 If we make changes to the object through one variable, you can see the changes via the other. The variables are just names, but the underlying object is the same.
 
@@ -103,7 +105,7 @@ puts "#{veggies}"     # ["turnip", "onion", "potato"]
 puts "#{veggies}"     # ["turnip", "onion", "potato"]
 ```
 
-[Same picture as before with extra slot in array]
+![modifying the underlying object](images/references_and_values/modify_object.png)
 
 When we use the `=` operator, we are not changing the underlying object but instead _changing what our variable points to_. This does **not** affect any other variables.
 
@@ -116,23 +118,22 @@ puts "value of veggies:"
 puts "#{veggies}"   # ["turnip", "onion", "potato"]
 ```
 
-[Picture with repeat pointing to a new array]
+![creating a new array](images/references_and_values/new_array.png)
 
 So to summarize, if two variables point to the same underlying object:
 - Modifications to the _object_ (the value) will be visible from both variables
 - Reassigning one _variable_ (the reference) with `=` does not affect the other variable
 
-Note that `+=` and the other shorthand operators all involve reassignment. If I say `veggies += ['rutabaga']`, Ruby creates a new array, copies all the values from `veggies`, adds in `rutabaga`, and reassigns `veggies` to point to this new array. This is true of strings and numbers as well.
+Note that `+=` and the other shorthand operators all involve reassignment. If we say `veggies += ['rutabaga']`, Ruby creates a new array, copies all the values from `veggies`, adds in `rutabaga`, and reassigns `veggies` to point to this new array. This is true of strings and numbers as well.
 
 In general, calling a method on an object like `.concat()` or `.push()` will change the underlying object, while any operation that contains an `=` will result in reassignment.
-
-**TODO DPR:** Exercise or activity or question or something
 
 ### Passing Parameters
 
 **Question:** When we pass a parameter to a method, what do you get?
 - Is it the same underlying object?
 - Is it the same variable?
+- How can we find out?
 
 Let's write some code that will help us investigate this.
 
@@ -192,8 +193,6 @@ We can make a few interesting observations about this output:
 
 This is exactly the same behavior we saw before, when we had two variables referencing the same object. From this we can conclude: **when you pass a variable as parameter, Ruby creates a new variable that references same object**.
 
-[Same picture as before, except that our variables are in different columns]
-
 ## Fixing the `short_strings` Method
 
 **Question:** Given what we've learned, how can we modify our `short_strings` method to do what we want?
@@ -213,7 +212,7 @@ short_strings_2(pets)
 puts "#{pets}"
 ```
 
-This produces the expected output. Note that we can't just say `word = word[0..2]`, for the same reason as above: that reassigns the block parameter `word` to a new string containing just the first 3 letters, but neither modifies nor reassigns the string in the array.
+This produces the expected output. Note that we can't just say `word = word[0..2]`, for the same reason as above: that reassigns the block parameter `word` to a new string containing just the first 3 letters, but neither modifies nor reassigns the string in the array. Instead we reassign `input[i]`, which does what we want: change the value stored in the array.
 
 We could also use the `map!` enumerable method, since that modifies the original. `map` (without a `!`) would not work, because it creates a new array.
 
@@ -247,6 +246,21 @@ puts "outside modify_string, text is '#{text}'"
 
 Primitive types like numbers, booleans and `nil` follow basically the same rules. The catch is there's no way to change the underlying value of a primitive without reassignment. In programming lingo, we say that these types are _immutable_. This means that whenever you change the value, Ruby makes a copy and changes that instead.
 
-## What Have We Accomplished?
+## Takeaway
+
+- A variable in Ruby consists of two things:
+  - The variable itself, tying a name to an address in memory
+  - The object at that memory address
+  - We say a variable _references_ or _points to_ an object
+- Multiple variables can reference the same object
+  - Changes to the underlying object will be reflected through both variables
+    - Methods like `.push()` or `.concat()`
+  - Changing what one variable points to does not affect any other variables
+    - `=`, `+=`, etc.
+- Passing an argument to a method creates a new variable referencing the same object
+- Primitives (numbers, booleans and `nil`) are _immutable_, meaning the underlying object can't be modified
 
 ## Additional Resources
+
+- [Passing objects in Ruby](https://launchschool.com/blog/object-passing-in-ruby) - Great article! Goes into more depth on immutables.
+- [Memory allocation in Ruby](https://blog.engineyard.com/2010/mri-memory-allocation-a-primer-for-developers) - Deep dive into some os-level stuff.
