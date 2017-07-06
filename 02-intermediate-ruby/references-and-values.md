@@ -66,11 +66,11 @@ When we create an array in Ruby (or a string or a hash or any other complex data
 
 The first is the _value_ of the array, which involves asking the operating system for a bit of memory and then putting our data in it. You can think of this as the actual object. Each piece of memory we get from the OS has an _address_, which is how we get back to it later.
 
-The second is a _reference_ to the array, which ties together the address of that memory with a name for our program to use. References are sometimes called _pointers_ (especially in C), and we say that a variable _points_ to or _references_ an object.
+The second is a _reference_ to the array, which ties together the address of that memory with a name for our program to use. References are sometimes called _pointers_ (especially in C), and we say that a variable _points to_ or _references_ an object.
 
 ![references and variables](images/references_and_values/references_and_values.png)
 
-Every variable in Ruby consists of these two parts, a reference and a value. Normally when you type the variable's name, Ruby automatically just goes and gets the object. If you want to find out the address, you can use the `object_id` method:
+Every variable in Ruby consists of these two parts, a reference and a value. Normally when you type the variable's name, Ruby automatically goes and gets the object. If you want to find out the address, you can use the `object_id` method:
 
 ```ruby
 # You can see an object's memory address using object_id
@@ -166,7 +166,7 @@ puts "pets.object_id is #{pets.object_id}"
 puts "with value #{pets}"
 ```
 
-Before running this code, take a couple minutes to read through it. What is it doing? What do you expect the output to be.
+Before running this code, take a couple minutes to read through it. What is it doing? What do you expect the output to be?
 
 Running the code yields (your `object_id`s may be different):
 
@@ -264,3 +264,4 @@ Primitive types like numbers, booleans and `nil` follow basically the same rules
 
 - [Passing objects in Ruby](https://launchschool.com/blog/object-passing-in-ruby) - Great article! Goes into more depth on immutables.
 - [Memory allocation in Ruby](https://blog.engineyard.com/2010/mri-memory-allocation-a-primer-for-developers) - Deep dive into some os-level stuff.
+- [Pointers: Understanding Memory Addresses](http://computer.howstuffworks.com/c23.htm) - Lower-level view of what's going on. Oriented toward C programming, but very approachable.
