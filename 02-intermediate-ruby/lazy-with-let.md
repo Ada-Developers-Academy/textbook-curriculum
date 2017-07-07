@@ -1,7 +1,7 @@
 # Being Lazy With Let
 ## Learning Goals
-You should be able to: 
-- DRY up your code with let & before.
+You should be able to:
+- DRY up your test code with let & before.
 - Explain how `let` is "lazy" in Minitest.
 
 In your Minitest code you will often find yourself creating instances over and over again in each test case like this:
@@ -9,7 +9,7 @@ In your Minitest code you will often find yourself creating instances over and o
 ```ruby
 it "must have a name" do
   player = Scrabble::Player.new("Ada Lovelace")
-  
+
   # expectations go here
 end
 ```
@@ -18,7 +18,7 @@ In most test cases we're creating a new identical instance of `Player` to work w
 
 ## Solution 1:  Before Blocks
 
-One solution is to use Minitest's `before` block. 
+One solution is to use Minitest's `before` block.
 
 ```ruby
 describe Player do
@@ -57,7 +57,7 @@ end
 
 The `let` statement creates a block with the given name (in this case `player`) and executes the code in the curly braces the first time `player` is referenced in a test and caches the result for later use.  That's why it's often called "lazy," the code inside the block doesn't execute until the let is first used, in this case when we do `player.name.must_equal "Watson"`.  
 
-In the same test case (`it` block) only the returned value from the block is used. So the let runs for each test case that uses it and doesn't run in test cases where it isn't needed.  Neat! 
+In the same test case (`it` block) only the returned value from the block is used. So the let runs for each test case that uses it and doesn't run in test cases where it isn't needed.  Neat!
 
 Just like `before` each test case sets up autonomously with a fresh `player` so that no test case will interfere with another.  
 
@@ -97,7 +97,7 @@ $  ruby specs/sample_spec.rb
 Run options: --seed 62527
 
 # Running:
-	
+
 Creating a player named Ada Lovelace
 .Creating a player named Ada Lovelace
 .
@@ -164,7 +164,7 @@ describe "Player & Tilebag" do
   let (:tilebag) { Scrabble::TileBag.new }
 
   describe "draw_tiles for Player class" do
-  
+
     it "fills tiles array with letters" do
      player.draw_tiles(tilebag)
      player.players_tiles.must_be_instance_of Array
