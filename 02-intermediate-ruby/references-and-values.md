@@ -86,7 +86,7 @@ puts "veggies.object_id: #{veggies.object_id}"
 
 The `=` operator changes what a variable points at.
 
-If we assign one variable to equal another variable, they will both reference the same underlying object.
+If we assign one variable to another variable, they will both reference the same underlying object.
 
 ```ruby
 # Two variables can point to the same object
