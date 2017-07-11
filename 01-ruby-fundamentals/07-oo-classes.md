@@ -234,9 +234,9 @@ Much more concise! This pattern of passing in a bunch of values for instance var
 
 Another advantage of setting instance variables in the constructor is that we know those variables will always have a value. By making it impossible to have a `Chair` without an associated `style` and `color`, we can save ourselves all sorts of frustration later on.
 
-### Use Generators to Avoid Repetition!
+### Use Macros to Avoid Repetition
 
-The code above allows us to read/get and write/set the color and style properties in the `Chair` _class_. This is done so frequently that Ruby added some syntactic sugar to help us out. Enter two _code generators_, `attr_reader` and `attr_writer`:
+The code above allows us to read/get and write/set the color and style properties in the `Chair` _class_. This is done so frequently that Ruby added some syntactic sugar to help us out. Enter two _macros_, `attr_reader` and `attr_writer`:
 
 ```ruby
 class Chair
@@ -250,7 +250,7 @@ class Chair
 end
 ```
 
-These two lines tell Ruby to automatically add reader and writer methods for those variables to your class. Adding `attr_reader :style` to our class is _exactly_ the same as creating the `def style` method in the previous example. Similarly, `attr_writer :style` replaces the `def style=(new_style)` method.
+A _macro_ is a small piece of code that generates a big piece of code. These two lines tell Ruby to automatically add reader and writer methods for those variables to your class. Adding `attr_reader :style` to our class is _exactly_ the same as creating the `def style` method in the previous example. Similarly, `attr_writer :style` replaces the `def style=(new_style)` method.
 
 If you don't need to be able to control the read/get and write/set functionality independently, `attr_accessor` provides the functionality of `attr_reader` and `attr_writer`!
 
@@ -265,7 +265,7 @@ class Chair
 end
 ```
 
-Code generators like `attr_accessor` are very useful, because they allow us to add a lot of repeated functionality without typing out a bunch of boilerplate code. This makes our code more readable and reduces the possibility of making a mistake. We'll see them again when we start talking about Rails.
+Macros like `attr_accessor` are very useful, because they allow us to add a lot of repeated functionality without typing out a bunch of boilerplate code. This makes our code more readable and reduces the possibility of making a mistake. We'll see them again when we start talking about Rails.
 
 ## Classes Vocabulary
 
@@ -279,7 +279,7 @@ Instance Method   | A method attached to a particular instance of a class. Often
 Constructor       | A special instance method that is called automatically when a new instance of a class is created. Takes care of any initial setup. Any arguments passed to `new` will be passed to the constructor. | `def initialize(style, color)`
 Reader Method     | Instance method that returns the value of an instance variable. Also known as a _getter_ or _accessor_. | `def color`<br>&nbsp;&nbsp;&nbsp;&nbsp;`return @color`<br>`end`
 Writer Method     | Instance method that sets the value of an instance variable. Also known as a _setter_ or _mutator_. | `def color=(new_color)`<br>&nbsp;&nbsp;&nbsp;&nbsp;`@color=new_color`<br>`end`
-Generator         | A piece of a class that automatically adds code, like reader or writer methods. | `attr_accessor :color`
+Macro             | A small piece of code that generates a big piece of code. In Ruby, they're used to automatically add functionality to a class, like reader or writer methods. | `attr_accessor :color`
 
 ## Additional Resources
 
