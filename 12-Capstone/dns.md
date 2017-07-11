@@ -36,7 +36,7 @@ To give your application a snazzy, custom domain name. Much like [http://www.cap
 
 ## What Is DNS?
 
-The Domanin Name System is a hierarchical system of computers and databases, that maps IP addresses to domain names.
+The Domanin Name System (DNS) is a hierarchical system of computers and databases, that maps IP addresses to domain names.
 
 It enables Internet users to connect human-language locations on the Internet with numeric addresses used by IP
 
