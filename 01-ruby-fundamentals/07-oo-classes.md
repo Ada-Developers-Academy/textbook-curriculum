@@ -275,10 +275,10 @@ Object            | A programming concept that ties together _state_ (variables)
 Class             | Definition of what an object looks like, using Ruby's `class` keyword. The first letter is always capitalized. | `class Chair`
 Instance          | One particular object. Built using a class's `new` method. | `kari_chair = Chair.new`
 Instance Variable | A variable attached to a particular instance of a class. Also known as _attributes_. Always begins with an `@`. Not visible outside that class. | `@color`
-Instance Method   | A method attached to a particular instance of a class. Often relies on or modifies instance variables. Can be invoked from outside that class using `.` notation. | `def adjust_seat(direction, amount)`
+Instance Method   | A method attached to a particular instance of a class. Often relies on or modifies instance variables. Can be invoked from outside that class using `.` notation. | `def adjust_seat(dir, amount)`
 Constructor       | A special instance method that is called automatically when a new instance of a class is created. Takes care of any initial setup. Any arguments passed to `new` will be passed to the constructor. | `def initialize(style, color)`
-Reader Method     | Instance method that returns the value of an instance variable. Also known as a _getter_ or _accessor_. | `def color`<br>`  return @color`<br>`end`
-Writer Method     | Instance method that sets the value of an instance variable. Also known as a _setter_ or _mutator_. | `def color=(new_color)`<br>`  @color=new_color`<br>`end`
+Reader Method     | Instance method that returns the value of an instance variable. Also known as a _getter_ or _accessor_. | `def color`<br>&nbsp;&nbsp;&nbsp;&nbsp;`return @color`<br>`end`
+Writer Method     | Instance method that sets the value of an instance variable. Also known as a _setter_ or _mutator_. | `def color=(new_color)`<br>&nbsp;&nbsp;&nbsp;&nbsp;`@color=new_color`<br>`end`
 Generator         | A piece of a class that automatically adds code, like reader or writer methods. | `attr_accessor :color`
 
 ## Additional Resources
