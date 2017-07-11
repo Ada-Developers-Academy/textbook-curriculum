@@ -234,9 +234,9 @@ Much more concise! This pattern of passing in a bunch of values for instance var
 
 Another advantage of setting instance variables in the constructor is that we know those variables will always have a value. By making it impossible to have a `Chair` without an associated `style` and `color`, we can save ourselves all sorts of frustration later on.
 
-### Use `attr` Methods to Avoid Repetition!
+### Use Generators to Avoid Repetition!
 
-The code above allows us to read/get and write/set the color and style properties in the `Chair` _class_. This is done so frequently that Ruby added some syntactic sugar to help us out. Enter `attr_reader` and `attr_writer`:
+The code above allows us to read/get and write/set the color and style properties in the `Chair` _class_. This is done so frequently that Ruby added some syntactic sugar to help us out. Enter two _code generators_, `attr_reader` and `attr_writer`:
 
 ```ruby
 class Chair
@@ -250,7 +250,7 @@ class Chair
 end
 ```
 
-These two attributes, `attr_reader` and `attr_writer` allow you to control the reading a writing of these particular properties. Adding `attr_reader :style` to our _class_ is exactly the same as creating the `def style` method in the previous example. Similarly, `attr_writer :style` replaces the `def style=(new_style)` method.
+These two lines tell Ruby to automatically add reader and writer methods for those variables to your class. Adding `attr_reader :style` to our class is _exactly_ the same as creating the `def style` method in the previous example. Similarly, `attr_writer :style` replaces the `def style=(new_style)` method.
 
 If you don't need to be able to control the read/get and write/set functionality independently, `attr_accessor` provides the functionality of `attr_reader` and `attr_writer`!
 
@@ -264,3 +264,23 @@ class Chair
   end
 end
 ```
+
+Code generators like `attr_accessor` are very useful, because they allow us to add a lot of repeated functionality without typing out a bunch of boilerplate code. This makes our code more readable and reduces the possibility of making a mistake. We'll see them again when we start talking about Rails.
+
+## Classes Vocabulary
+
+Term              | Definition | Example&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+---               | ---        | ---
+Object            | A programming concept that ties together _state_ (variables) and _behavior_ (methods). |
+Class             | Definition of what an object looks like, using Ruby's `class` keyword. The first letter is always capitalized. | `class Chair`
+Instance          | One particular object. Built using a class's `new` method. | `kari_chair = Chair.new`
+Instance Variable | A variable attached to a particular instance of a class. Also known as _attributes_. Always begins with an `@`. Not visible outside that class. | `@color`
+Instance Method   | A method attached to a particular instance of a class. Often relies on or modifies instance variables. Can be invoked from outside that class using `.` notation. | `def adjust_seat(direction, amount)`
+Constructor       | A special instance method that is called automatically when a new instance of a class is created. Takes care of any initial setup. Any arguments passed to `new` will be passed to the constructor. | `def initialize(style, color)`
+Reader Method     | Instance method that returns the value of an instance variable. Also known as a _getter_ or _accessor_. | `def color`<br>`  return @color`<br>`end`
+Writer Method     | Instance method that sets the value of an instance variable. Also known as a _setter_ or _mutator_. | `def color=(new_color)`<br>`  @color=new_color`<br>`end`
+Generator         | A piece of a class that automatically adds code, like reader or writer methods. | `attr_accessor :color`
+
+## Additional Resources
+
+- [Creating your own attr_accessor in Ruby](https://mikeyhogarth.wordpress.com/2011/12/01/creating-your-own-attr_accessor-in-ruby/)
