@@ -59,9 +59,11 @@ With all the classes we've worked with so far (`String`, `Array` and `Hash`) we'
 Our running example today will be a class to represent a chair. The simplest possible class in Ruby doesn't have any state or behavior, just the name `Chair` (note the capital `C`). Even so, we can instantiate it with `Chair.new`.
 
 ```ruby
+# Define the class
 class Chair
 end
 
+# Create an instance of the class
 kari_chair = Chair.new
 # ...what now?
 ```
