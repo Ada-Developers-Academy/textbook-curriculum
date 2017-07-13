@@ -30,9 +30,9 @@ def exponate(base, power = 2) # <= power will be 2 unless we pass in something e
   base ** power
 end
 
-exponate(2) #=> 4
-exponate(2, 3) #=> 8
-exponate(4) #=> 16
+exponate(2) # => 4
+exponate(2, 3) # => 8
+exponate(4) # => 1
 ```
 
 __Question: Is this a good use case for an optional argument?__
@@ -51,9 +51,11 @@ end
 exponate(2) #=> ArgumentError
 exponate(-2, 3) #=> -8
 exponate(-2, 3, true) #=> 8, why?
+
 ```
 
 __Question: Is this a good use case for an optional argument?__
 
 *  [Optional Arguments](source/OptionalArguments.rb)
 *  [Slides:  Default Method Arguments](https://docs.google.com/presentation/d/1ifhG3r30N5w8UBc4HKPzvntTlxifnf3T0L-QfEjL6GU/edit#slide=id.p)
+* [Ruby 2 Keyword Arguments](https://robots.thoughtbot.com/ruby-2-keyword-arguments)
