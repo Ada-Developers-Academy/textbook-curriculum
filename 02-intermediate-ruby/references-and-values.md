@@ -12,7 +12,7 @@ At the end of this lesson, students should be able to...
 We're going to start today with some Ruby code that does something a little unexpected. It's a method that takes an array of strings as an argument, and truncates (chops off the end of) all the strings with more than three characters. Or at least that's the idea.
 
 ```ruby
-def short_strings_1(input)
+def short_strings(input)
   result = []
   input.each do |word|
     # Slice characters 0 to 2
@@ -22,7 +22,7 @@ def short_strings_1(input)
 end
 
 pets = ['dog', 'parrot', 'cat', 'llama']
-short_strings_1(pets)
+short_strings(pets)
 puts "#{pets}"
 
 ```
@@ -30,35 +30,35 @@ puts "#{pets}"
 Running this code results in `["dog", "parrot", "cat", "llama"]`. The array in unchanged! Let's do some debugging:
 
 ```ruby
-def short_strings_1(input)
+def short_strings(input)
   result = []
   input.each do |word|
     # Slice characters 0 to 2
     result << word[0..2]
   end
   input = result
-  puts "Inside short_strings_1, input is"
+  puts "Inside short_strings, input is"
   puts "#{input}"
 end
 
 pets = ['dog', 'parrot', 'cat', 'llama']
-short_strings_1(pets)
-puts "After calling short_strings_1"
+short_strings(pets)
+puts "After calling short_strings"
 puts "#{pets}"
 ```
 
 The results:
 
 ```
-Inside short_strings_1, input is
+Inside short_strings, input is
 ["dog", "par", "cat", "lla"]
-After calling short_strings_1
+After calling short_strings
 ["dog", "parrot", "cat", "llama"]
 ```
 
 Seems like our method is indeed creating a list of shortened words, but our outer variable isn't being updated. The reason why has to do with references and values, and how data is stored in a computer.
 
-As an aside: one way to fix our method is to simply return the new array, and when calling it say `pets = short_strings_1(pets)`. However, sometimes this isn't an option - for example, what if our method was supposed to return the number of words that had to be truncated?
+As an aside: one way to fix our method is to simply return the new array, and when calling it say `pets = short_strings(pets)`. However, sometimes this isn't an option - for example, what if our method was supposed to return the number of words that had to be truncated?
 
 ## References and Values
 
@@ -200,7 +200,7 @@ This is exactly the same behavior we saw before, when we had two variables refer
 The answer is to modify the underlying object, rather than reassigning the parameter. Here's what the resulting code might look like:
 
 ```ruby
-def short_strings_2(input)
+def short_strings(input)
   input.each_with_index do |word, i|
     # Slice characters 0 to 2
     input[i] = word[0..2]
@@ -208,7 +208,7 @@ def short_strings_2(input)
 end
 
 pets = ['dog', 'parrot', 'cat', 'llama']
-short_strings_2(pets)
+short_strings(pets)
 puts "#{pets}"
 ```
 
