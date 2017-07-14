@@ -56,9 +56,9 @@ After calling short_strings
 ["dog", "parrot", "cat", "llama"]
 ```
 
-Seems like our method is indeed creating a list of shortened words, but our outer variable isn't being updated. The reason why has to do with references and values, and how data is stored in a computer.
+`short_strings` is indeed creating a list of shortened words and storing it under the name `input`, but our outer variable `pets` isn't being updated. The reason why has to do with references and values, and how data is stored in a computer.
 
-As an aside: one way to fix our method is to simply return the new array, and when calling it say `pets = short_strings(pets)`. However, sometimes this isn't an option - for example, what if our method was supposed to return the number of words that had to be truncated?
+As an aside: one way to fix our method is to return the new array, and when calling it say `pets = short_strings(pets)`. However, sometimes this isn't an option - for example, what if our method was supposed to return the number of words that had to be truncated?
 
 ## References and Values
 
@@ -67,6 +67,14 @@ When we create an array in Ruby (or a string or a hash or any other complex data
 The first is the _value_ of the array, which involves asking the operating system for a bit of memory and then putting our data in it. You can think of this as the actual object. Each piece of memory we get from the OS has an _address_ representing its physical location in hardware, which is how we get back to it later.
 
 The second is a _reference_ to the array, which ties together the address of that memory with a name for our program to use. References are sometimes called _pointers_ (especially in C), and we say that a variable _points to_ or _references_ an object.
+
+Recalling our example above, saying
+
+```ruby
+pets = ['dog', 'parrot', 'cat', 'llama']
+```
+
+and imagining that the `pets` array has been stored at address `1234`, we would get the following memory layout:
 
 ![references and variables](images/references_and_values/references_and_values.png)
 
@@ -96,7 +104,7 @@ puts "repeat.object_id: #{repeat.object_id}" # same as veggie.object_id
 
 ![referencing a variable twice](images/references_and_values/two_pointers.png)
 
-If we make changes to the object through one variable, you can see the changes via the other. The variables are just names, but the underlying object is the same.
+If we make changes to the object through one variable, we can see the changes via the other. The variables have different names, but the underlying object is the same.
 
 ```ruby
 veggies[1] = "onion"
@@ -124,9 +132,13 @@ So to summarize, if two variables point to the same underlying object:
 - Modifications to the _object_ (the value) will be visible from both variables
 - Reassigning one _variable_ (the reference) with `=` does not affect the other variable
 
-Note that `+=` and the other shorthand operators all involve reassignment. If we say `veggies += ['rutabaga']`, Ruby creates a new array, copies all the values from `veggies`, adds in `rutabaga`, and reassigns `veggies` to point to this new array. This is true of strings and numbers as well.
+#### Identifying Reassignment
 
-In general, calling a method on an object like `.concat()` or `.push()` will change the underlying object, while any operation that contains an `=` will result in reassignment.
+One subtle point is that `+=` and the other shorthand operators all involve reassignment. If we say `veggies += ['rutabaga']`, Ruby creates a new array, copies all the values from `veggies`, adds in `rutabaga`, and reassigns `veggies` to point to this new array. This is true of strings and numbers as well.
+
+On the other hand, `<<` does _not_ involve reassignment. `<<` is shorthand for the `.push()` method, which changes the underlying object, not the variable itself (most methods work this way). Saying `veggies << 'rutabaga'` will modify the original array pointed to by `veggies`, and other variables pointing at that array will be able to see the changes as well.
+
+So how do you tell whether an operation involves reassignment? A good rule of thumb is that anything involving the `=` sign will reassign the variable, and any other operation (like `<<`, `.push()` or `.concat()`) will not.
 
 ### Passing Parameters
 
