@@ -89,3 +89,18 @@ Require a pre-written class definition | Can be created on the fly
 Classes take a little more up-front work. You need to know roughly what your data looks like in advance, and build the class to match. The advantage gained by this effort is that you get methods, including a constructor to quickly make many instances.
 
 Hashes are much more dynamic and flexible. They're simpler and lighter-weight than full classes, making them great when you just want to quickly store some data without a bunch of up-front work. They're also great if you don't know in advance what data you'll be storing, like if you're reading data from disk or from the network.
+
+Choosing how your data will be stored is one of the first steps in writing a complex program. Here are some guidelines:
+
+If your data... | Then you should use a...
+---             | ---
+Comes from an external source, like a file or the internet | Hash
+Involves giving names to pieces of data, without any specific behavior | Hash
+Has complex behaviors you need to model | Class
+Involves many pieces of data following a repeated pattern | Class
+
+<!-- DPR: don't really want to emphasize how confusing things are
+This relationship is complicated by a few facts:
+- `Hash` _is_ a class, so hashes are objects
+- Hashes can contain objects as values
+- Objects can contain hashes as instance variables -->
