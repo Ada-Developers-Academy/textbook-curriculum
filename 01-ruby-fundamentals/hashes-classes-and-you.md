@@ -1,7 +1,7 @@
 # Hashes, Classes, and You
 ## Learning Goals
 - Revisit `Hash`es
-- Compare and contrast `Hash`es with objects
+- Compare and contrast `Hash`es and objects
 
 ## Hashes: A Quick Refresher
 
@@ -43,17 +43,25 @@ people = [
 
 **Question:** Why is this second technique better?
 
-A Hash _key_ can have any object as its _value_, even another Hash.
+A Hash _key_ can have any object as its _value_, even an Array, an instance of a Class or another Hash.
 
 ```ruby
+require 'date'
+
 person = {
   last_name: "Bancroft",
   first_name: "Kari",
-  address: { # The entire hash is the value
+
+  # The value for key 'birthday' is an instance of the Date class
+  birthday: Date.new(2017,07,29),
+
+  # The value for key 'address' is another hash
+  address: {
     street: "123 fake st",
     city: "Seattle",
     state: "WA"
   },
+
   roommates: [ # Here the value is an array
     {
       name:    "Kylo",
