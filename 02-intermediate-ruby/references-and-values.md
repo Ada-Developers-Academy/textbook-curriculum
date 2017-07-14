@@ -256,7 +256,7 @@ modify_string(text)
 puts "outside modify_string, text is '#{text}'"
 ```
 
-Primitive types like numbers, booleans and `nil` follow basically the same rules. The catch is there's no way to change the underlying value of a primitive without reassignment. In programming lingo, we say that these types are _immutable_. This means that whenever you change the value, Ruby makes a copy and changes that instead.
+Small, built-in types like numbers, booleans and `nil` follow basically the same rules. The catch is there's no way to change the underlying value of these types without reassignment. In programming lingo, we say that these types are _immutable_. This means that whenever you change the value, Ruby makes a copy and changes that instead.
 
 ## Takeaway
 
@@ -270,7 +270,7 @@ Primitive types like numbers, booleans and `nil` follow basically the same rules
   - Changing what one variable points to does not affect any other variables
     - `=`, `+=`, etc.
 - Passing an argument to a method creates a new variable referencing the same object
-- Primitives (numbers, booleans and `nil`) are _immutable_, meaning the underlying object can't be modified
+- Small built-in types like numbers, booleans and `nil` are _immutable_, meaning the underlying object can't be modified
 
 ## Additional Resources
 
