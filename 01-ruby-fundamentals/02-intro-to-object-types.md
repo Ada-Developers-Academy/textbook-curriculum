@@ -237,7 +237,7 @@ For example:
 | Type    | Description | Example |
 |:--------|:------------|:--------|
 | String  | Text, usually for human consumption | `"Hello world!"`, `'ERROR: file not found'` |
-| Symbol  | Text used to identify some part of a Ruby program, particularly hashes | `:title`, `:element_id` |
+| Symbol  | A Ruby-optimized bit of text often used for keys in Hashes | `:title`, `:element_id` |
 | Boolean | True or false   | `true`, `false` |
 | Integer | Whole number    | 1, 2, -7, 0 |
 | Float   | Rational number | 0.2, 10.067 |

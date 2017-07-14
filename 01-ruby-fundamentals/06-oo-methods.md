@@ -111,8 +111,8 @@ number = sum(5, 17, 106)
 puts number
 ```
 
-Term             | Definition | Example&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
----              | ---        | -------------------
+Term             | Description | Example&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+---              | ---         | -------------------
 Method           | A section of code with a name. Organizes code so it's easier to read, and lets us do the same thing many times. | `def` through `end`
 Method Signature | The name and parameters of a method. Answers the question "how do I invoke this?" | `sum(a, b, c)`
 Parameter        | A variable used to store input to a method. Specified in the method signature. | `a`, `b`, `c`
