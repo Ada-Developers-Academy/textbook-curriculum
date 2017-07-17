@@ -236,14 +236,17 @@ Much more concise! This pattern of passing in a bunch of values for instance var
 
 Another advantage of setting instance variables in the constructor is that we know those variables will always have a value. By making it impossible to have a `Chair` without an associated `style` and `color`, we can save ourselves all sorts of frustration later on.
 
-### Use Macros to Avoid Repetition
+### Use Helper Methods to Avoid Repetition
 
-The code above allows us to read/get and write/set the color and style properties in the `Chair` _class_. This is done so frequently that Ruby added some syntactic sugar to help us out. Enter two _macros_, `attr_reader` and `attr_writer`:
+The code above allows us to read/get and write/set the color and style properties in the `Chair` class. This is done so frequently that Ruby added some syntactic sugar to help us out. Enter two _helper methods_, `attr_reader` and `attr_writer`:
 
 ```ruby
 class Chair
+  # Generate reader methods for style and color
   attr_reader :style, :color
-  attr_writer :style, :color
+
+  # Only generate a writer method for color
+  attr_writer :color
 
   def initialize(style, color)
     @style = style
@@ -252,13 +255,21 @@ class Chair
 end
 ```
 
-A _macro_ is a small piece of code that generates a big piece of code. These two lines tell Ruby to automatically add reader and writer methods for those variables to your class. Adding `attr_reader :style` to our class is _exactly_ the same as creating the `def style` method in the previous example. Similarly, `attr_writer :style` replaces the `def style=(new_style)` method.
+A _helper method_ (sometimes called a _macro_ or _generator_) is a small piece of code that generates a big piece of code. These two lines tell Ruby to automatically add reader and writer methods for those variables to your class. Adding `attr_reader :color` to our class is _exactly_ the same as creating the `def color` method in the previous example. Similarly, `attr_writer :color` replaces the `def color=(new_color)` method.
+
+The instance variables to be exposed are specified using a comma-seperated list of symbols. To demonstrate the syntax, in the above example we have created both reader and writer methods for `@color`, but only a reader method for `@style`.
+
+These pieces of code are called helper **methods** for a reason. Under the hood they're actually built-in Ruby methods that are run when the class is defined. `attr_reader` or `attr_writer` is the name of the method, and the instance variables to expose (like `:style`) are the arguments. Weird!
 
 If you don't need to be able to control the read/get and write/set functionality independently, `attr_accessor` provides the functionality of `attr_reader` and `attr_writer`!
 
 ```ruby
 class Chair
-  attr_accessor :style, :color
+  # Color had both an attr_reader and an attr_writer, so we replace it with attr_accessor
+  attr_accessor :color
+
+  # Style had only an attr_reader, so we leave it as-is
+  attr_reader :style
 
   def initialize(style, color)
     @style = style
@@ -267,7 +278,9 @@ class Chair
 end
 ```
 
-Macros like `attr_accessor` are very useful, because they allow us to add a lot of repeated functionality without typing out a bunch of boilerplate code. This makes our code more readable and reduces the possibility of making a mistake. We'll see them again when we start talking about Rails.
+Helper methods like `attr_accessor` are very useful, because they allow us to add common functionality without typing out a bunch of boilerplate code. This makes our programs more readable and reduces the possibility of making a mistake. For these reasons, **we recommend that you always use the `attr_reader` / `attr_writer` / `attr_accessor` helper methods**, and never write getter and setter methods manually.
+
+We'll see many more helper methods as we start talking about Rails in a few weeks.
 
 ## Classes Vocabulary
 
@@ -281,7 +294,7 @@ Instance Method   | A method attached to a particular instance of a class. Often
 Constructor       | A special instance method that is called automatically when a new instance of a class is created. Takes care of any initial setup. Any arguments passed to `new` will be passed to the constructor. | `def initialize(style, color)`
 Reader Method     | Instance method that returns the value of an instance variable. Also known as a _getter_ or _accessor_. | `def color`<br>&nbsp;&nbsp;&nbsp;&nbsp;`return @color`<br>`end`
 Writer Method     | Instance method that sets the value of an instance variable. Also known as a _setter_ or _mutator_. | `def color=(new_color)`<br>&nbsp;&nbsp;&nbsp;&nbsp;`@color=new_color`<br>`end`
-Macro             | A small piece of code that generates a big piece of code. In Ruby, they're used to automatically add functionality to a class, like reader or writer methods. | `attr_accessor :color`
+Helper Method     | A small piece of code that generates a big piece of code. In Ruby, they're used to automatically add functionality to a class, like reader or writer methods. | `attr_accessor :color`
 
 ## Additional Resources
 
