@@ -55,7 +55,9 @@ In Ruby, state will be represented using _attributes_, also known as _instance v
 
 It can be intimidating to look at `String`, `Hash` or `Array` when learning about objects for the first time. These are fundamental programming concepts that get used in almost every program, how can we ever hope to build or reason about something as complex as that?
 
-Although any abstract idea can be represented as an object, it's sometimes easy to think of a physical object to get the idea. Let's imagine a program designed to keep track of a library catalogue, which might have a class called `Book`. A book has _state_, like `title`, `author`, and `copies_checked_out`. Some of this changes frequently and some of it will never change, but it's still all state. A book in our catalogue also has _behavior_, like `check_in`, `check_out`, or `place_hold`.
+Although any abstract idea can be represented as an object, it's sometimes easy to think of a physical object to get the idea. Let's imagine a program designed to keep track of a library catalogue, which might have a class called `Book`.
+
+**Question:** what _state_ and _behavior_ might a `Book` class need?
 
 Note that all this state and behavior is for a particular instance of a `Book`. Think about the abstract concept of a book, what is its title or author? That doesn't make any sense. Only when we create an instance do these properties come into focus.
 
@@ -66,10 +68,10 @@ Different kinds of objects have different state and behaviors, and the same real
 ## Classes in Ruby
 
 As with methods, there are two steps to working with classes in Ruby:
-1. Define the class using the `class` keyword
+1. **Define** the class using the `class` keyword
     - Happens once
     - Similar to defining a method with `def`
-1. Create an instance of the class using `.new`
+1. **Instantiate** (create an instance of) the class using `.new`
     - May happen many times
     - Similar to invoking a method
 
