@@ -5,30 +5,49 @@
 
 ## Objects Overview
 
-An `object` is the representation of an idea within a program. Let's look at the common objects we've used already.
+An `object` is the representation of an idea within a program. Let's look at a common type of object we've used already: `Time`.
 
 ```ruby
-String.new
-# => ""
-
-Hash.new
-# => {}
-
-Array.new
-# => []
+kari_birthday = Time.new(2017, 'jul', 29)
 ```
 
-A class can be identified by it's __capitalized first letter__. In the above snippet `String`, `Hash` and `Array` are all classes. When you call `.new` on a class, you get an _instance_ of that class. In any program, there may be zero, one or many instances of any given class.
+A class can be identified by it's __capitalized first letter__. In the above snippet `Time` is a class. When you call `.new` on a class, you get an _instance_ of that class. In any program, there may be zero, one or many instances of any given class.
 
-While we normally use _string literals_ like `""` or `"elephant"` to create a new string, we can also call the `.new` method on the `String` class to create a new string object. `""`, `[]`, and `{}` are syntactic sugar; using _literals_ to _initialize_ a new _instance_ of an _object type_. Most classes do **NOT** have this kind of convenience.
+Now let's examine another class we're familiar with: `String`
+
+```ruby
+my_animal = "elephant"
+your_animal = "giraffe"
+empty_string = ""
+```
+
+Turns out every string we've ever used is an instance of the class `String`. Because strings are so common, Ruby lets us use _string literals_ like `""` or `"elephant"` to create a new one. If feeling verbose, you could also call the `.new` method on the `String` class to create a new string object:
+
+```ruby
+my_animal = String.new("elephant")
+```
+
+The same is true for arrays and hashes. `[]` is short for `Array.new`, and `{}` for `Hash.new`. `""`, `[]`, and `{}` are syntactic sugar; using _literals_ to _initialize_ a new _instance_ of an _object type_. Most classes do **NOT** have this kind of convenience.
+
+In general, using the syntactic sugar is the right way to go. `"elephant"` is much easier to read than `String.new("elephant")`, and there's rarely a reason to use longer version.
 
 ### State and Behavior
 
-Objects are used to tie together _state_ and _behavior_. State is any data or attributes the object needs to keep track of, and behavior is methods that rely on or modify the state.
+Objects are used to tie together _state_ and _behavior_.
+- **State:** data or attributes the object will keep track of
+    - _the letters "a", "b" and "c" in a string `"abc"`_
+- **Behavior:** methods that rely upon or modify the state
+    - _the String `upcase` method_
 
-Let's look at `String` again. A `String` definitely keeps track of some data: the letters in the string! This is the _state_.
+```ruby
+# state
+my_animal = "elephant"
+your_animal = "giraffe"
 
-`String`s also have many methods that you can call, like `upcase` or `split`. This is the _behavior_. A key observation is that the same method called on different strings will produce different results - `"elephant".upcase` is not the same as `"hotdog".upcase`. Even though the procedure to be followed is the same, the method behaves differently depending on the object's state.
+# behavior - same method but results vary based on state
+my_animal.upcase # "ELEPHANT
+your_animal.upcase # GIRAFFE
+```
 
 In Ruby, state will be represented using _attributes_, also known as _instance variables_, and behavior will be defined using _methods_.
 
