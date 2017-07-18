@@ -1,7 +1,11 @@
 # Object Orientation: Classes, and Instances
 ## Learning Goals
-  - Discover Ruby's _class_ architecture!
-  - Use our first _instance variables_
+By the end of this lesson, students should be able to...
+- Describe the role that _classes_ fill in Ruby
+- Define, instantiate and use a Ruby _class_
+- Store object state using _instance variables_
+- Define object behavior using _instance methods_
+- DRY up repeated code using _helper methods_
 
 ## Objects Overview
 
