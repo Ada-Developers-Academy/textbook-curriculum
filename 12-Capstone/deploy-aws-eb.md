@@ -86,7 +86,7 @@ The main difference between the two is that Heroku hides many of the underlying 
 
 ## Live Demonstration
 ### Get the application code
-Clone the repository from https://github.com/Hamled/aws-eb-rails (there is no need to fork this).
+Clone the repository from https://github.com/adagold/aws-eb-rails (there is no need to fork this).
 
 ### Setup the EB application
 1. Log into the [AWS Management Console](https://console.aws.amazon.com/).
