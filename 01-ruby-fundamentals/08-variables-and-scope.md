@@ -5,8 +5,8 @@
 
 | Type             | Begins With        | Scope                                    |
 |:----------------:|:------------------:|------------------------------------------|
-|Local variable    | **a-z** *or* **_** | Available only within the immediate scope.
-|Instance variable | **@**              | Available to a specific instance of a class
+|Local variable    | **a-z** *or* **_** | Available only within the method or block where it was defined.
+|Instance variable | **@**              | Available within a specific instance of a class
 
 ### Local Variables
 We've created lots of _local variables_ already. They look like this:
@@ -53,7 +53,7 @@ The _scope_ of a variable is the collection of methods, blocks, and objects that
 ### Scope of _local variables_
 Local variables are only available inside the block in which they were declared and any of that block's child blocks. Rubyists often say that __local variables can't travel left__.  
 
-What about things like method and block parameters? Turns out these too are a local variables, and they follow the same rules as a local variable defined inside their method/block.
+What about things like method and block parameters? Turns out these too are local variables, and they follow the same rules as a local variable defined inside their method/block.
 
 ```ruby
 # dessert.rb
