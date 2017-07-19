@@ -2,11 +2,11 @@
 
 ## Introduction
 1. [Welcome to JS](01-welcome-to-js.md)
-  1. [Worksheet: Ruby to JS](01a-ruby-to-js-worksheet.md)
+  - [Worksheet: Ruby to JS](01a-ruby-to-js-worksheet.md)
 1. [Fun with Functions](02-fun-with-functions.md)
-  1. [Worksheet: Functions](02a-functions-worksheet.md)
+  - [Worksheet: Functions](02a-functions-worksheet.md)
 1. [Objects](03-objects.md)
-  1. [Worksheet: Objects](03a-objects-worksheet.md)
+  - [Worksheet: Objects](03a-objects-worksheet.md)
 
 ## In the Browser: jQuery
 1. [JS in the browser](04-js-in-the-browser.md)
