@@ -4,6 +4,7 @@
 - Gain some familiarity with Ruby's core _Object Types_
     + `String`
     + `Symbol`
+    + `Boolean`
     + `Integer`
     + `Float`
     + `Array`
@@ -79,6 +80,12 @@ _Symbols_ are a lot like strings but they are meant to represent identifiers. _S
 "elephant".object_id # => 70259726644020
 "elephant".object_id # => 70359726563680
 ```
+
+## `Boolean`
+
+Booleans are one of the simplest types in Ruby. There are only two possible values for a boolean: `true` and `false`. We'll work with them a lot when we start learning about conditionals in a few lessons; for now it's good just to know they exist.
+
+The word "Boolean" comes from the name of George Boole, an English mathematician from the mid-1800s who spent a lot of time thinking and writing about true and false.
 
 ## Working with numbers: `Integer` & `Float`
 
@@ -203,7 +210,7 @@ We use it to show that a variable has not been assigned a value yet (the variabl
 name = "ada lovelace"
 name = name.upcase
 # => "ADA LOVELACE"
-name = nil
+other_name = nil
 other_name.upcase
 # => NoMethodError: undefined method `upcase' for nil:NilClass
 # => from (irb):15
@@ -211,7 +218,7 @@ other_name.upcase
 
 ```
 
-Nil is also used for methods that don't or can't return a value.
+Nil is often returned from methods that don't or can't return a value.
 
 For example:
 
@@ -224,3 +231,16 @@ For example:
 "ada".index('z')
 # => nil
 ```
+
+## Summary
+
+| Type    | Description | Example |
+|:--------|:------------|:--------|
+| String  | Text, usually for human consumption | `"Hello world!"`, `'ERROR: file not found'` |
+| Symbol  | A Ruby-optimized bit of text often used for keys in Hashes | `:title`, `:element_id` |
+| Boolean | True or false   | `true`, `false` |
+| Integer | Whole number    | 1, 2, -7, 0 |
+| Float   | Rational number | 0.2, 10.067 |
+| Array   | Ordered collection of elements, accessed by ID | `[1, 2, 3]`, `['dog', :cat, 234]` |
+| Hash    | Unordered collection of key-value pairs, accessed by key | `{ name: 'ada', birthday: 'December 10, 1815'}` |
+| `nil`   | Special value used to represent nothing | `nil` |
