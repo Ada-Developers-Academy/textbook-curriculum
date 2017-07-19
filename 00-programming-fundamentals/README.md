@@ -22,9 +22,9 @@
 
 ### Git
 1. [Submitting Projects](07-submitting-projects-v1.md)
-1. [Managing Git branches](13-managing-git-branches.md)
 1. [Submit a Project using Branches](15-git-submit-a-project.md)
 1. [Intro to Git](git-01-intro-to-git.md)
 1. [Clone & Push](git-02-clone-and-push.md)
 1. [Diff Pull & Merge](git-03-diff-pull-and-merge.md)
+1. [Managing Git branches](13-managing-git-branches.md)
 1. [Merge Conflicts](git-04-merge-conflicts.md)
