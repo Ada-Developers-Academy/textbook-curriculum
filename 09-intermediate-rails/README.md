@@ -4,7 +4,8 @@
 1. [Controller Filters](./controller-filters.md)  
 1. [Advanced Validations](./advanced-validations.md)  
 1. [View helpers](./view-helpers.md)  
-1. [Session & oAuth](./session-and-oauth.md)  
+1. [Session](./session.md)
+1. [OAuth](./oauth.md)
 1. [Testing Authentication](./testing-auth.md)  
 
 
