@@ -8,7 +8,7 @@
 class Problem
   # Add any attributes for instance variables here
 
-  def initialize(question, answser)
+  def initialize(question, answer)
     # a mathematical question having an int answer
     # @question =
 
