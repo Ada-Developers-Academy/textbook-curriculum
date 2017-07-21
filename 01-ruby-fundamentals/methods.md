@@ -189,11 +189,11 @@ puts "Thank you for using the love note app"
 
 On the last line we _invoke_ the method we _defined_ above, passing in two _arguments_ to match the _parameters_ in the _method signature_.
 
-[The final version of the file should look like this.]() Now we can run the whole thing from the terminal (not `irb`) using `ruby love_note.rb`.
+[The final version of the file should look like this.](https://gist.github.com/droberts-ada/4dd96ed4122081bf0aa673352230f458) Now we can run the whole thing from the terminal (not `irb`) using `ruby love_note.rb`.
 
 #### Diagram
 
-This diagram shows how the code in different methods is interleaved when the program is run. Some of the code has bee omitted to save space, but otherwise it's the same program. Notice how different it looks than the code you wrote in Atom.
+This diagram shows how the code in different methods is interleaved when the program is run. Some of the code has been omitted to save space, but otherwise it's the same program. Notice how different it looks than the code you wrote in Atom.
 
 ![Method Invocation Diagram](images/method_diagram.png)
 
