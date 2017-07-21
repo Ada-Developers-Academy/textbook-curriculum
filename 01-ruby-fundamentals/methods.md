@@ -195,7 +195,7 @@ On the last line we _invoke_ the method we _defined_ above, passing in two _argu
 
 This diagram shows how the code in different methods is interleaved when the program is run. Some of the code has bee omitted to save space, but otherwise it's the same program. Notice how different it looks than the code you wrote in Atom.
 
-![Method Invocation Diagram](images/method_diagram.svg)
+![Method Invocation Diagram](images/method_diagram.png)
 
 ## Method Vocabulary
 
