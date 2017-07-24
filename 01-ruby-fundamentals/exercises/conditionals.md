@@ -10,7 +10,7 @@ These exercises will be good practice for you if you want more practice with:
 
 1. Write a password guessing program to keep track of how many times the user has entered the password wrong. If it is more than 3 times, print "You have been denied access." and terminate the program. If the password is correct, print "You have successfully logged in." and terminate the program.
 
-1. For some reason, your boss has given you an _odd_ arbitrary math problem to solve. First, you want to get a number from the user. Next, do some math! If the number is odd, change its value so that it is now 3 times it's original value plus 1, otherwise change its value so that it is now half of it's original value (rounded _down_).
+1. For some reason, your boss has given you an _odd_ arbitrary math problem to solve. First, you want to get a number from the user. Next, do some math! If the number is odd, change its value so that it is now 3 times it's original value plus 1, otherwise change its value so that it is now half of its original value (rounded _down_).
 
 1. As a customer of a craft store, write some code to determine the cost of yarn based on the length someone desires. The user should provide the distance that they desire (in cm), and your code should return the cost of the yarn based on the distance. Use the following chart to determine the price:
 
