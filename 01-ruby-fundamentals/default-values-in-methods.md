@@ -30,9 +30,9 @@ def exponate(base, power = 2) # <= power will be 2 unless we pass in something e
   base ** power
 end
 
-exponate(2) # => 4
-exponate(2, 3) # => 8
-exponate(4) # => 1
+exponate(2) #=> 4
+exponate(2, 3) #=> 8
+exponate(4) #=> 16
 ```
 
 __Question: Is this a good use case for an optional argument?__
