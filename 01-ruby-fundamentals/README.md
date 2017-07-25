@@ -15,5 +15,5 @@
     - [Worksheet: Objects Worksheet](oo-worksheet.md)
 1. [Variables & Scope](variables-and-scope.md)
 1. [Hashes & Classes](hashes-classes-and-you.md)
-1. [Default Values in Methods](default-values-in-methods.md)
+1. [Keyword Arguments](keyword-arguments.md)
 1. [Intro to Ruby Gems](intro-to-ruby-gems.md)
