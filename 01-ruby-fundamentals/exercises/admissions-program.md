@@ -4,9 +4,9 @@
 
 This exercise will be good for you if you want more practice with:
 - creating logical boolean statements
-- practicing Ruby conditional syntax
+- Ruby conditional syntax
 - constructing code from a word problem
-- practice debugging complex scenarios
+- debugging complex scenarios
 
 Wild Waves Theme Park needs a program for its admission booths. When visitors to the park come up to the booth to
 purchase their tickets, a worker uses this program to figure out how much to charge them. You will write
