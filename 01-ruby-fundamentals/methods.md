@@ -97,6 +97,8 @@ puts result
 
 **Methods can often be referred to as _messages_. When we send a message, we expect a reply.**
 
+
+
 ## Method Vocabulary
 
 This vocab list will reference the following code:
