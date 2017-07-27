@@ -2,6 +2,7 @@
 
 1. [Welcome to Ruby](welcome-to-ruby.md)
 1. [Intro to Object Types](intro-to-object-types.md)
+    - [Worksheet: Object Types](exercises/object-data-types.md)
 1. [Data Structures](data-structures.md)
     - [Activity: Divide & Conquer Methods](activity-methods-dc.md)
 1. [Iteration & Blocks](iteration-and-blocks.md)
