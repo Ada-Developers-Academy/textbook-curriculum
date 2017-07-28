@@ -1,12 +1,13 @@
-# Default Values for Method Arguments
+# Keyword Arguments and Default Values for Parameters
 ## Learning Goals
 - Differentiate between _positional_ and _keyword_ arguments
 - Use _optional arguments_ to simplify method signatures
+- Add _default values_ to method parameters
 
 ## Keyword Arguments
 
 ### Introduction: Coffee Price
-Imagine we are writing a point-of-sale system for a local coffee shop. Our program needs to be able to calculate the price for various caffeinated beverages. Because this is one specific behavior, we have decided to encapsulate it in a method.
+Imagine we are building a point-of-sale system for a local coffee shop. Our program needs to be able to calculate the price for various caffeinated beverages. Because this is one specific behavior, we have decided to encapsulate it in a method.
 
 After looking over the menu a bit, we've come up with the following code:
 
@@ -130,7 +131,9 @@ There are a few problems with this:
 
 All of these put the onus on the caller to do things right, which is just asking for trouble. **A well-written method is easy to use right and hard to use wrong** - by that standard, this is not good code.
 
+### Keyword Arguments
 
+One way to address these problems is with a technique called _keyword arguments_. 
 
 
 
