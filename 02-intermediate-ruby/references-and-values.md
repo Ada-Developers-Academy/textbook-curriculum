@@ -66,7 +66,7 @@ When we create an array in Ruby (or a string or a hash or any other complex data
 
 The first is the _value_ of the array, which involves asking the operating system for a bit of memory and then putting our data in it. You can think of this as the actual object. Each piece of memory we get from the OS has an _address_ representing its physical location in hardware, which is how we get back to it later.
 
-The second is a _reference_ to the array, which ties together the address of that memory with a name for our program to use. References are sometimes called _pointers_ (especially in C), and we say that a variable _points to_ or _references_ an object.
+The second is a _reference_ to the array, which ties together the address of that memory with a name for our program to use. The address part of a reference is sometimes called a _pointer_ (especially in low-level languages like C and C++), and we say that a variable _points to_ or _references_ an object.
 
 Recalling our example above, saying
 
@@ -78,10 +78,9 @@ and imagining that the `pets` array has been stored at address `1234`, we would 
 
 ![references and variables](images/references_and_values/references_and_values.png)
 
-Every variable in Ruby consists of these two parts, a reference and a value. Normally when you type the variable's name, Ruby automatically goes and gets the object. If you want to find out the address, you can use the `object_id` method:
+Every variable in Ruby consists of these two parts, a reference and a value. Normally when you type the variable's name, Ruby automatically goes and gets the object. If you want to find out what object your variable references, you can use the `object_id` method:
 
 ```ruby
-# You can see an object's memory address using object_id
 pets = ["dog", "parrot", "cat", "llama"]
 puts "pets.object_id: #{pets.object_id}"
 
@@ -136,7 +135,7 @@ So to summarize, if two variables point to the same underlying object:
 
 One subtle point is that `+=` and the other shorthand operators all involve reassignment. If we say `veggies += ['rutabaga']`, Ruby creates a new array, copies all the values from `veggies`, adds in `rutabaga`, and reassigns `veggies` to point to this new array. This is true of strings and numbers as well.
 
-On the other hand, `<<` does _not_ involve reassignment. `<<` is shorthand for the `.push()` method, which changes the underlying object, not the variable itself (most methods work this way). Saying `veggies << 'rutabaga'` will modify the original array pointed to by `veggies`, and other variables pointing at that array will be able to see the changes as well.
+On the other hand, `<<` does _not_ involve reassignment. `<<` is shorthand for the `.push()` method, which changes the underlying object, not the variable itself (most methods work this way). Saying `veggies << 'rutabaga'` will modify the original array referenced by `veggies`, and other variables referencing that array will be able to see the changes as well.
 
 So how do you tell whether an operation involves reassignment? A good rule of thumb is that anything involving the `=` sign will reassign the variable, and any other operation (like `<<`, `.push()` or `.concat()`) will not.
 
