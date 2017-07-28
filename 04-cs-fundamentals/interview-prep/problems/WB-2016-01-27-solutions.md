@@ -5,9 +5,7 @@ Given an array of non-negative numbers, write a function to determine if any two
 
 ## Videos
 Video PW is octothorp
-+ Charles: 
 + Jeremy: https://vimeo.com/153441061
-+ Crystal: https://vimeo.com/153441144
 
 ## Sample solutions
 Solutions written by Crystal -- probably not error free ;)
