@@ -1,6 +1,6 @@
 # Pyramid Method
 
-This exercise will be good practice for you if you want more practice with:
+This exercise will be good for you if you want more practice with:
 - creating a method
 - passing values as parameters
 - constructing dynamic ASCII responses
