@@ -1,5 +1,5 @@
 # Pyramid
-Write a function that accepts a single parameter, an Integer that creates an octothorpe (`#`) pyramid. The parameter determines the width (in octothorpes) of the bottom tier of the pyramid.
+Write a method that accepts a single parameter, an Integer that creates an octothorpe (`#`) pyramid. The parameter determines the width (in octothorpes) of the **bottom tier** of the pyramid.
 
 #### Example input 1
 ```ruby
