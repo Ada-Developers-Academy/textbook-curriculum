@@ -277,10 +277,10 @@ The complete list of Ruby's predefined global variables is [here](https://ruby-d
 
 ```ruby
 class Library
-  RENTAL_PERIOD = "14"
+  RENTAL_PERIOD = 14
 
   def checkout_book
-    puts "Your book is due in " + RENTAL_PERIOD + " days."
+    puts "Your book is due in #{RENTAL_PERIOD} days."
   end
 
 end
