@@ -44,7 +44,7 @@ library.open_library
 library.close_library
 ```
 
-Run this code by going to Terminal and running the example Ruby script: `ruby source/local_variable_example.rb` or by copying and pasting the code snippet into [RubyFiddle](http://rubyfiddle.com/).
+Run this code by going to Terminal and running the example Ruby script: `ruby source/local_variable_example.rb`.
 
 This code outputs the following:
 ```
