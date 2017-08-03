@@ -22,5 +22,5 @@ end
 
 library = Library.new("Woodland Library")
 book = Book.new("The Philosopher's Code")
-puts library.name()
-puts book.name()
+puts library.name
+puts book.name

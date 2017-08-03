@@ -81,8 +81,8 @@ end
 library1 = Library.new("Woodland Library")
 library2 = Library.new("Northview Library")
 
-puts library1.library_name()
-puts library2.library_name()
+puts library1.library_name
+puts library2.library_name
 ```
 
 This code outputs the following:
@@ -123,8 +123,8 @@ end
 
 library1 = Library.new("Woodland Library")
 library2 = Library.new("Northview Library")
-library1.tagline()
-library2.tagline()
+library1.tagline
+library2.tagline
 ```
 
 This code outputs the following:
@@ -156,14 +156,14 @@ end
 
 library1 = Library.new
 library2 = Library.new
-library1.status()
-library2.status()
-library1.open_library()
-library1.status()
-library2.status()
-library2.close_library()
-library1.status()
-library2.status()
+library1.status
+library2.status
+library1.open_library
+library1.status
+library2.status
+library2.close_library
+library1.status
+library2.status
 ```
 
 This code outputs the following:
@@ -201,8 +201,8 @@ end
 
 publicLibrary = PublicLibrary.new("Public Library")
 privateLibrary = PrivateLibrary.new("Private Library")
-publicLibrary.title()
-privateLibrary.title()
+publicLibrary.title
+privateLibrary.title
 ```
 
 This produces the following:
@@ -245,8 +245,8 @@ end
 
 library = Library.new("Woodland Library")
 book = Book.new("The Philosopher's Code")
-puts library.name()
-puts book.name()
+puts library.name
+puts book.name
 ```
 
 This code outputs the following:
@@ -286,7 +286,7 @@ class Library
 end
 
 library = Library.new
-library.checkout_book()
+library.checkout_book
 ```
 
 This code outputs the following:

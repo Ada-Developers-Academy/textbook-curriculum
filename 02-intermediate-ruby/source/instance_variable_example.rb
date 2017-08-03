@@ -12,5 +12,5 @@ end
 library1 = Library.new("Woodland Library")
 library2 = Library.new("Northview Library")
 
-puts library1.library_name()
-puts library2.library_name()
+puts library1.library_name
+puts library2.library_name

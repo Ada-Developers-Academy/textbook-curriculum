@@ -14,4 +14,4 @@ class Library
 end
 
 library = Library.new
-library.checkout_book()
+library.checkout_book

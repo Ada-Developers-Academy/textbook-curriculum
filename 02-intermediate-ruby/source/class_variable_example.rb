@@ -17,5 +17,5 @@ end
 
 library1 = Library.new("Woodland Library")
 library2 = Library.new("Northview Library")
-library1.tagline()
-library2.tagline()
+library1.tagline
+library2.tagline
