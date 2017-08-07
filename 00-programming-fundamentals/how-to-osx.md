@@ -87,7 +87,7 @@ Command-t | `⌘t` | Opens a new tab in a browser
 Command-r | `⌘r` | Reloads the page in a browser
 Command-comma | `⌘,` | Opens an app's preferences page.
 Command-/ | `⌘/` | Make either the current line or a selection of text a comment (Sublime or Atom only)
-Command-shift-f | `⌘⇧f` | Fullscreen
+Control-Command-f | `^⌘f` | Fullscreen
 
 
 ## A Word About Mice
