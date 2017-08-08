@@ -58,14 +58,13 @@ Spend some time reading through the above code, then answer the following questi
 ### Adding More Options
 
 Now that we've got the basics, it's time to add some of the options on our coffee menu.
-- Milk: can be regular (no change), soy ($0.50 extra) or almond ($1.00 extra), scaled by size
 - Extra shots of espresso: $0.50 each
 - Served cold: $1.00 extra
 
 Let's update our code to match:
 
 ```ruby
-def coffee_price(type, size, milk, extra_shots, cold)
+def coffee_price(type, size, extra_shots, cold)
   # Find the base price for this drink
   if type == :drip
     price = 1.5
@@ -76,17 +75,6 @@ def coffee_price(type, size, milk, extra_shots, cold)
   else
     puts "Invalid coffee type: #{type}"
     return
-  end
-
-  # Modify price for milk type
-  if milk == :regular
-    # no change
-  elsif milk == :soy
-    price += 0.5
-  elsif milk == :almond
-    price += 1.00
-  else
-    puts "Invalid milk: #{milk}"
   end
 
   # Modify for size
@@ -117,17 +105,17 @@ The code is starting to get pretty complicated, but that makes sense because our
 Our _method signature_ is also starting to get complex. Here are two examples of calling the new `coffee_price`:
 
 ```ruby
-# Price a venti soy latte with 3 extra shots
-coffee_price(:latte, :venti, :soy, 3, false)
+# Price a venti hot latte with 3 extra shots
+coffee_price(:latte, :venti, 3, false)
 
 # Price a tall iced drip
-coffee_price(:drip, :tall, :regular, 0, true)
+coffee_price(:drip, :tall, 0, true)
 ```
 
 There are a few problems with this:
 - The caller has to remember the order of the arguments
 - When reading the call, there's no way to tell which argument is which
-- The caller must provide values for all arguments, even for the "standard" way of doing things
+- The caller must provide values for all arguments, even for the "standard" way of doing things (i.e. no extra shots)
 
 All of these put the onus on the caller to do things right, which is just asking for trouble. **A well-written method is easy to use right and hard to use wrong** - by that standard, this is not good code.
 
@@ -137,63 +125,51 @@ One way to address these problems is with a technique called _keyword arguments_
 
 ```ruby
 # Define the method
-def coffee_price(type, size, milk: :regular, extra_shots: 0, cold: false)
-  # ... calculate price ...
+def coffee_price(type, size, extra_shots: 0, cold: false)
+  # ... calculate price, same code as before ...
   price
 end
 
-# Price a venti soy latte with 3 extra shots
-coffee_price(:latte, :venti, extra_shots: 3, milk: :soy, cold: false)
+# Price for a venti latte with 3 extra shots
+coffee_price(:latte, :venti, extra_shots: 3, cold: false)
 
-# Price a tall iced drip
+# Price for a tall iced drip
 coffee_price(:drip, :tall, cold: true)
+
+# Price for a grande cappuccino
+coffee_price(:cappuccino, :grande)
 ```
 
 There are a few things to note here:
-- In the method signature, each keyword argument comes with a _defualt value_.
-- When you invoke a method, keyword arguments are optional! If you omit one, the value from the method signature will be used instead.
-- When the method is invoked, any keyword arguments you do provide are passed by name (a.k.a. _keyword_). They can be passed in any order.
-- Keyword arguments can co-exist with regular arguments (also called _positional arguments_).
+- In the method signature, each keyword argument comes with a _defualt value_
+  - The syntax is similar to keys and values in a hash
+- When you invoke a method, keyword arguments are optional
+  - If you omit one, the value from the method signature will be used instead
+- When a method is invoked, any keyword arguments are passed by name (a.k.a. _keyword_)
+- Keyword arguments can be passed in any order.
+- Keyword arguments can co-exist with regular arguments (also called _positional arguments_)
+  - Positional arguments must come first, both in the definition and when the method is called
+  - All positional arguments must be supplied for every call
 
+### When to use Keyword Arguments
 
+Keyword arguments aren't always the right choice.
 
+Sometimes an argument doesn't have a clear default value. For `type`, should the default be `:drip`, `:latte` or `:cappuccino`?
 
+Sometimes a method doesn't make sense without one of the arguments. How can you price coffee if you don't know the size?
 
+In these cases, positional arguments are usually the right choice. Keyword arguments are useful when a method has an alternate way of behaving, or a long list of optional arguments.
 
-## Create an _optional argument_ by adding a _default value_
-We can define an _optional argument_ by assigning a _default value_ to one or more of the arguments in the _method signature_:
+The difference between the two is similar to the difference between options (flags) and arguments to a command-line program. Options change _how_ the program behaves, arguments change _what_ it acts on.
 
-```ruby
-def exponate(base, power = 2) # <= power will be 2 unless we pass in something else
-  base ** power
-end
+## Summary
 
-exponate(2) #=> 4
-exponate(2, 3) #=> 8
-exponate(4) #=> 16
-```
+- **Positional arguments** are the type of method arguments we've seen so far
+- **Keyword arguments** are given by name, and have a default value
+- Keyword arguments can make calling a method easier
+- Keyword arguments aren't the right solution to every problem
+  - If an argument is required or there's no clear default, positional arguments are often better
 
-__Question: Is this a good use case for an optional argument?__
-
-Let's look at another example:
-
-```ruby
-def exponate(base, power, abs = false)
-  if abs
-    (base ** power).abs
-  else
-    base ** power
-  end
-end
-
-exponate(2) #=> ArgumentError
-exponate(-2, 3) #=> -8
-exponate(-2, 3, true) #=> 8, why?
-
-```
-
-__Question: Is this a good use case for an optional argument?__
-
-*  [Optional Arguments](source/OptionalArguments.rb)
-*  [Slides:  Default Method Arguments](https://docs.google.com/presentation/d/1ifhG3r30N5w8UBc4HKPzvntTlxifnf3T0L-QfEjL6GU/edit#slide=id.p)
+## Additional Resources
 * [Ruby 2 Keyword Arguments](https://robots.thoughtbot.com/ruby-2-keyword-arguments)
