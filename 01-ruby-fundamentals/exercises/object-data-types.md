@@ -9,180 +9,180 @@ Without putting the code into Ruby or IRB predict the output and data-type of th
 
 1.  Value __________   Data Type: _________  
 
-  ```ruby
-  num = 27
-  num = num + 5
-  num
-  ```
+    ```ruby
+    num = 27
+    num = num + 5
+    num
+    ```
 
 1.  Value __________   Data Type: _________  
 
 
-  ```ruby
-  num = 2
-  num = num + num + 2
-  num
-  ```
+    ```ruby
+    num = 2
+    num = num + num + 2
+    num
+    ```
 1.  Value __________   Data Type: _________  
 
 
-  ```ruby
-  num = "4"
-  num = num + num
-  num
-  ```
+    ```ruby
+    num = "4"
+    num = num + num
+    num
+    ```
 
 1.  Value __________   Data Type: _________  
 
-  ```ruby
-  pipe_teacher = "Jamie"
-  caret_teacher = "Chris"
-  c8_teachers = stack_teacher + " " + queue_teacher
-  c8_teachers
-  ```
+    ```ruby
+    pipe_teacher = "Jamie"
+    caret_teacher = "Chris"
+    c8_teachers = stack_teacher + " " + queue_teacher
+    c8_teachers
+    ```
 
 1.  Value __________   Data Type: _________  
 
-  ```ruby
-  num = 2
-  num = num * num
-  num = num * num
-  num
-  ```
+    ```ruby
+    num = 2
+    num = num * num
+    num = num * num
+    num
+    ```
 
 1.  Value __________   Data Type: _________  
 
-  ```ruby
-  num = 27
-  answer = num % 3
-  answer
-  ```
+    ```ruby
+    num = 27
+    answer = num % 3
+    answer
+    ```
 
 1.  Value __________   Data Type: _________  
 
-  ```ruby
-  num = 100
-  num = num / 2
-  num = num / 2
-  num = num / 2
-  num
-  ```
+    ```ruby
+    num = 100
+    num = num / 2
+    num = num / 2
+    num = num / 2
+    num
+    ```
 
 1.  Value __________   Data Type: _________  
 
-  ```ruby
-  num = 100.0
-  num = num / 2
-  num = num / 2
-  num = num / 2
-  num
-  ```
+    ```ruby
+    num = 100.0
+    num = num / 2
+    num = num / 2
+    num = num / 2
+    num
+    ```
 
 1.  Value __________   Data Type: _________  
 
-  ```ruby
-  num = 5.0
-  num = num * 2 + 3
-  num = num / 2
-  ```
+    ```ruby
+    num = 5.0
+    num = num * 2 + 3
+    num = num / 2
+    ```
 
 1.  Value __________   Data Type: _________  
 
-  ```ruby
-  answer = :dan
-  answer
-  ```
+    ```ruby
+    answer = :dan
+    answer
+    ```
 
 1.  Value __________   Data Type: _________  
 
-  ```ruby
-  list = ["Pikachu", "Bulbasaur", "Squirtle", "Charizard"]
-  list
-  ```
+    ```ruby
+    list = ["Pikachu", "Bulbasaur", "Squirtle", "Charizard"]
+    list
+    ```
 
 1.  Value __________   Data Type: _________  
 
-  ```ruby
-  list = ["Pikachu", "Bulbasaur", "Squirtle", "Charizard"]
-  list[3]
-  ```
+    ```ruby
+    list = ["Pikachu", "Bulbasaur", "Squirtle", "Charizard"]
+    list[3]
+    ```
 
 1.  Value __________   Data Type: _________  
 
-  ```ruby
-  list = ["Pikachu", "Bulbasaur", "Squirtle", "Charizard"]
-  list[1]
-  ```
+    ```ruby
+    list = ["Pikachu", "Bulbasaur", "Squirtle", "Charizard"]
+    list[1]
+    ```
 
 1.  Value __________   Data Type: _________  
 
-  ```ruby
-  list = ["Pikachu", "Bulbasaur", "Squirtle", "Charizard"]
-  list.length
-  ```
+    ```ruby
+    list = ["Pikachu", "Bulbasaur", "Squirtle", "Charizard"]
+    list.length
+    ```
 
 1.  Value __________   Data Type: _________  
 
-  ```ruby
-  list = ["Pikachu", "Bulbasaur", "Squirtle", "Charizard"]
-  list.first
-  ```
+    ```ruby
+    list = ["Pikachu", "Bulbasaur", "Squirtle", "Charizard"]
+    list.first
+    ```
 
 1.  Value __________   Data Type: _________  
 
-  ```ruby
-  list = ["Pikachu", "Bulbasaur", "Squirtle", "Charizard"]
-  list[4]
-  ```
+    ```ruby
+    list = ["Pikachu", "Bulbasaur", "Squirtle", "Charizard"]
+    list[4]
+    ```
 
 1.  Value __________   Data Type: _________  
 
-  ```ruby
-  list = ["Pikachu", "Bulbasaur", "Squirtle", "Charizard"]
-  list[-1]
-  ```
+    ```ruby
+    list = ["Pikachu", "Bulbasaur", "Squirtle", "Charizard"]
+    list[-1]
+    ```
 
 1.  Value __________   Data Type: _________  
 
-  ```ruby
-  pikachu = {
+    ```ruby
+    pikachu = {
 	  name: "Pikachu",
 	  type: :electric,
 	  species: "Mouse Pokemon",
 	  height: 0.41,
 	  weight: 6.0,
 	  id: 25
-  }
-  pikachu
-  ```
+    }
+    pikachu
+    ```
 
 1.  Value __________   Data Type: _________  
 
-  ```ruby
-  pikachu = {
+    ```ruby
+    pikachu = {
 	  name: "Pikachu",
 	  type: :electric,
 	  species: "Mouse Pokemon",
 	  height: 0.41,
 	  weight: 6.0,
 	  id: 25
-  }
-  pikachu[:name]
-  ```
+    }
+    pikachu[:name]
+    ```
 
 1.  Value __________   Data Type: _________  
 
-  ```ruby
-  pikachu = {
-    name: "Pikachu",
-    type: :electric,
-    species: "Mouse Pokemon",
-    height: 0.41,
-    weight: 6.0,
-    id: 25
-  }
-  pikachu[:id]
-  ```
+    ```ruby
+    pikachu = {
+      name: "Pikachu",
+      type: :electric,
+      species: "Mouse Pokemon",
+      height: 0.41,
+      weight: 6.0,
+      id: 25
+    }
+    pikachu[:id]
+    ```
 
 
 ### Comprehension Questions
