@@ -117,11 +117,11 @@ The code is starting to get pretty complicated, but that makes sense because our
 Our _method signature_ is also starting to get complex. Here are two examples of calling the new `coffee_price`:
 
 ```ruby
-# Price a venti iced soy latte with 3 extra shots
-coffee_price(:latte, :venti, :soy, 3, true)
+# Price a venti soy latte with 3 extra shots
+coffee_price(:latte, :venti, :soy, 3, false)
 
-# Price a tall drip
-coffee_price(:drip, :tall, :regular, 0, false)
+# Price a tall iced drip
+coffee_price(:drip, :tall, :regular, 0, true)
 ```
 
 There are a few problems with this:
@@ -133,8 +133,27 @@ All of these put the onus on the caller to do things right, which is just asking
 
 ### Keyword Arguments
 
-One way to address these problems is with a technique called _keyword arguments_. 
+One way to address these problems is with a technique called _keyword arguments_. Here's what they look like:
 
+```ruby
+# Define the method
+def coffee_price(type, size, milk: :regular, extra_shots: 0, cold: false)
+  # ... calculate price ...
+  price
+end
+
+# Price a venti soy latte with 3 extra shots
+coffee_price(:latte, :venti, extra_shots: 3, milk: :soy, cold: false)
+
+# Price a tall iced drip
+coffee_price(:drip, :tall, cold: true)
+```
+
+There are a few things to note here:
+- In the method signature, each keyword argument comes with a _defualt value_.
+- When you invoke a method, keyword arguments are optional! If you omit one, the value from the method signature will be used instead.
+- When the method is invoked, any keyword arguments you do provide are passed by name (a.k.a. _keyword_). They can be passed in any order.
+- Keyword arguments can co-exist with regular arguments (also called _positional arguments_).
 
 
 
