@@ -22,7 +22,7 @@ We can install add-ons in Atom through it's internal package manager.
     - Linter jshint
     - Linter ruby
     - Linter CSSlint
-    - Zurb Foundation
+    - Atom Zurb Foundation
     - Sublime Style Column Selection  
     
 
@@ -77,7 +77,7 @@ Themeing Sublime can get kinda painful, but the _colorsublime_ package really ma
 ## Awesome Keyboard Shortcuts
 These work for both Sublime Text and Atom.
 
-- `⌘⇧p`: Open the _Command Pallete_ to execute commands in the editor
+- `⌘⇧p`: Open the _Command Palette_ to execute commands in the editor
 - `⌘t`: Search files, open in a new tab
 - `⌘w`: Close the current tab
 - `⌘⇧w`: Close the current window (all tabs)
