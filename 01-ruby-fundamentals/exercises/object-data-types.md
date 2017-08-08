@@ -35,10 +35,10 @@ Without putting the code into Ruby or IRB predict the output and data-type of th
 1.  Value __________   Data Type: _________  
 
   ```ruby
-  queue_teacher = "Jamie"
-  stack_teacher = "Kari"
-  c7_teachers = stack_teacher + " " + queue_teacher
-  c7_teachers
+  pipe_teacher = "Jamie"
+  caret_teacher = "Chris"
+  c8_teachers = stack_teacher + " " + queue_teacher
+  c8_teachers
   ```
 
 1.  Value __________   Data Type: _________  
