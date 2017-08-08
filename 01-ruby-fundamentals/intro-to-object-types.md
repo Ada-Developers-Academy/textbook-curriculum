@@ -180,7 +180,7 @@ ada.length
 ada[:lucky_number]
 # => 13
 
-# `keys` returns an array of all defined keys in the array
+# `keys` returns an array of all defined keys in the hash
 # NOTE: THE ORDER IS NOT GUARANTEED
 ada.keys
 # => [:pets, :greeting, :lucky_number]
@@ -241,6 +241,6 @@ For example:
 | Boolean | True or false   | `true`, `false` |
 | Integer | Whole number    | 1, 2, -7, 0 |
 | Float   | Rational number | 0.2, 10.067 |
-| Array   | Ordered collection of elements, accessed by ID | `[1, 2, 3]`, `['dog', :cat, 234]` |
+| Array   | Ordered collection of elements, accessed by index | `[1, 2, 3]`, `['dog', :cat, 234]` |
 | Hash    | Unordered collection of key-value pairs, accessed by key | `{ name: 'ada', birthday: 'December 10, 1815'}` |
 | `nil`   | Special value used to represent nothing | `nil` |
