@@ -37,7 +37,7 @@ Without putting the code into Ruby or IRB predict the output and data-type of th
     ```ruby
     pipe_teacher = "Jamie"
     caret_teacher = "Chris"
-    c8_teachers = stack_teacher + " " + queue_teacher
+    c8_teachers = pipe_teacher + " " + caret_teacher
     c8_teachers
     ```
 
