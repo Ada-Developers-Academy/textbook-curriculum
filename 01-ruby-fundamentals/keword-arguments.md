@@ -148,7 +148,7 @@ coffee_price(:cappuccino, :grande)
 ```
 
 There are a few things to note here:
-- In the method signature, each keyword argument comes with a _defualt value_
+- In the method signature, each keyword argument comes with a _default value_
   - The syntax is similar to keys and values in a hash
 - When you invoke a method, keyword arguments are optional
   - If you omit one, the value from the method signature will be used instead
