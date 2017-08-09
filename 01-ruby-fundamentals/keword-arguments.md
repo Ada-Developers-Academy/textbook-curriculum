@@ -9,7 +9,17 @@
 ### Introduction: Coffee Price
 Imagine we are building a point-of-sale system for a local coffee shop. Our program needs to be able to calculate the price for various caffeinated beverages. Because this is one specific behavior, we have decided to encapsulate it in a method.
 
-After looking over the menu a bit, we've come up with the following code:
+After looking over the menu a bit, we've come up with the following rules:
+- There are 3 different types of coffee, each with a different base price
+  - Drip, $1.50
+  - Latte, $3.70
+  - Cappuccino, $3.20
+- Bigger sizes of coffee apply a multiplier to the base price
+  - Tall, base price
+  - Grande, base price X 1.3
+  - Venti, base price X 1.6
+
+These rules translate into the following code.
 
 ```ruby
 def coffee_price(type, size)
