@@ -14,11 +14,12 @@ After looking over the menu a bit, we've come up with the following code:
 ```ruby
 def coffee_price(type, size)
   # Find the base price for this drink
-  if type == :drip
+  case type
+  when :drip
     price = 1.5
-  elsif type == :latte
+  when :latte
     price = 3.7
-  elsif type == :cappuccino
+  when :cappuccino
     price = 3.2
   else
     puts "Invalid coffee type: #{type}"
@@ -26,17 +27,19 @@ def coffee_price(type, size)
   end
 
   # Modify for size
-  if size == :tall
-    # no change
-  elsif size == :grande
+  case size
+  when :tall
+    # No change
+  when :grande
     price *= 1.3
-  elsif size == :venti
+  when :venti
     price *= 1.6
   else
     puts "Invalid size: #{size}"
+    return
   end
 
-  price
+  return price
 end
 ```
 
@@ -66,11 +69,12 @@ Let's update our code to match:
 ```ruby
 def coffee_price(type, size, extra_shots, cold)
   # Find the base price for this drink
-  if type == :drip
+  case type
+  when :drip
     price = 1.5
-  elsif type == :latte
+  when :latte
     price = 3.7
-  elsif type == :cappuccino
+  when :cappuccino
     price = 3.2
   else
     puts "Invalid coffee type: #{type}"
@@ -78,14 +82,16 @@ def coffee_price(type, size, extra_shots, cold)
   end
 
   # Modify for size
-  if size == :tall
-    # no change
-  elsif size == :grande
+  case size
+  when :tall
+    # No change
+  when :grande
     price *= 1.3
-  elsif size == :venti
+  when :venti
     price *= 1.6
   else
     puts "Invalid size: #{size}"
+    return
   end
 
   # Charge for extra shots
@@ -96,7 +102,7 @@ def coffee_price(type, size, extra_shots, cold)
     price += 1
   end
 
-  price
+  return price
 end
 ```
 
@@ -127,7 +133,7 @@ One way to address these problems is with a technique called _keyword arguments_
 # Define the method
 def coffee_price(type, size, extra_shots: 0, cold: false)
   # ... calculate price, same code as before ...
-  price
+  return price
 end
 
 # Price for a venti latte with 3 extra shots
