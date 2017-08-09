@@ -157,6 +157,8 @@ coffee_price(:drip, :tall, cold: true)
 coffee_price(:cappuccino, :grande)
 ```
 
+The only things we've changed are the parameters in the method signature, the body of the method remains the same. The end result should resemble [this gist](https://gist.github.com/droberts-ada/07714ad0e2a3bc5a60c50d6a78e02f15).
+
 There are a few things to note here:
 - In the method signature, each keyword argument comes with a _default value_
   - The syntax is similar to keys and values in a hash
