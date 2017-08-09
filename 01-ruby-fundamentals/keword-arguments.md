@@ -52,11 +52,12 @@ puts "Your total is #{price} dollars"
 
 Spend some time reading through the above code, then answer the following questions:
 - What's the _method signature_ of the `coffee_price` method?
-- What does `coffee_price` _return_?
+- What can `coffee_price` _return_?
 - Why is it useful to put this functionality in a method?
 - How does the method work? Does anything surprise you about it?
 - How would you make sure this method does the right thing?
 - What happens if your argument doesn't match what the method expects, like `coffee_price(:decaf, :grande)`?
+- Why do we use _symbols_ as the values for `type` and `size` instead of _strings_?
 
 ### Adding More Options
 
