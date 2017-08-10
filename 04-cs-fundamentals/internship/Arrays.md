@@ -1,4 +1,4 @@
-# Arrays, Linked Lists
+# Arrays, Time & Space complexities
 ## Goal
 + Time and space complexitites
 + Array data structure and related algorithms
@@ -32,12 +32,11 @@ Design an algorithm, deduce the space and time complexity and then, author funct
 Implement methods in using_restricted_array.rb in [Ada-C7/Restricted-Array](https://github.com/Ada-C7/Restricted-Array)
 
 ## Additional Resources:
++ [Sorting algorithms](http://www.geeksforgeeks.org/sorting-algorithms/)
 + Kal academy's material on [Linear Data Structures](https://drive.google.com/open?id=0BxHords9odw3cDhCdGMxcWFVRms)
 + Read through and watch videos on [Linked List vs Array](http://www.geeksforgeeks.org/linked-list-vs-array/)
-+ [Sorting algorithms](http://www.geeksforgeeks.org/sorting-algorithms/)
 
 ## Optional offline problem sets
-+ Stanford CS Education Library material on [Linked List Problems](http://cslibrary.stanford.edu/105/)
 + In "Cracking the Coding Interview" book, "Chapter 1: Arrays and Strings"
 + In "Cracking the Coding Interview" book, "Chapter 11: Sorting and Searching"
 
