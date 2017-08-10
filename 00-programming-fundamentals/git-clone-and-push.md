@@ -25,9 +25,9 @@ This is the procedure you'll follow at the beginning of almost every project you
   ![Copy the URI](./images/git-copy-uri.png)
 1. Open a terminal, and navigate to your `projects` folder
 1. _Clone_ your fork of the repository to your computer using the `git clone` command:
-  ```
-  $ git clone <paste the URI here>
-  ```
+    ```
+    $ git clone <paste the URI here>
+    ```
 1. The `git clone` command should have created a directory with the same name as the repo. `cd` into it.
 1. Proceed to work on your project. Remember to commit regularly!
   ![Clone Workflow](./images/git-clone-workflow.png)
@@ -54,34 +54,34 @@ Once you've finished a project, you need to get your work up to GitHub somehow s
 
 1. Open up Atom and do some work on the project. Let's say we've worked on a file called `project.rb`.
 1. Add the file
-  ```
-  $ git add project.rb
-  ```
+    ```
+    $ git add project.rb
+    ```
 1. Commit your changes
-  ```
-  $ git commit -m "Fixed that tricky bug"
-  ```
+    ```
+    $ git commit -m "Fixed that tricky bug"
+    ```
 1. Check your work
-  ```
-  $ git log   # should show your recent commit
-  ```
+    ```
+    $ git log   # should show your recent commit
+    ```
 1. Check the output of `git status`
-  ```
-  $ git status
-  On branch master
-  Your branch is ahead of 'origin/master' by 1 commit.
-    (use "git push" to publish your local commits)
-  nothing to commit, working tree clean
-  ```
-  This tells us two things:
-  * All our local changes have been committed
-  * We have one commit locally that doesn't exist on the `origin` remote (a.k.a. your fork on GitHub).
+    ```
+    $ git status
+    On branch master
+    Your branch is ahead of 'origin/master' by 1 commit.
+      (use "git push" to publish your local commits)
+    nothing to commit, working tree clean
+    ```
+    This tells us two things:
+    * All our local changes have been committed
+    * We have one commit locally that doesn't exist on the `origin` remote (a.k.a. your fork on GitHub).
 1. _Push_ your changes back to GitHub
-  ```
-  $ git push
-  ```
-  * The first time you do this, git will prompt you to enter your GitHub username and password
-  * Git should store your credentials for future pushes
+    ```
+    $ git push
+    ```
+    * The first time you do this, git will prompt you to enter your GitHub username and password
+    * Git should store your credentials for future pushes
 1. Check GitHub, where you should now see your changes
 
 Congratulations - you just executed a real-world git workflow! You're now ready to submit your project via the same PR process we used before.
