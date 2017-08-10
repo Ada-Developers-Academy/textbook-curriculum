@@ -28,6 +28,9 @@ Design an algorithm, deduce the space and time complexity and then, author funct
 9. Given an unsorted integer array and its length, sort the array in ascending order.
 10. Given an unsorted integer array and its length, sort the array in descending order.
 
+## Assignment
+Implement methods in using_restricted_array.rb in [Ada-C7/Restricted-Array](https://github.com/Ada-C7/Restricted-Array)
+
 ## Additional Resources:
 + Kal academy's material on [Linear Data Structures](https://drive.google.com/open?id=0BxHords9odw3cDhCdGMxcWFVRms)
 + Read through and watch videos on [Linked List vs Array](http://www.geeksforgeeks.org/linked-list-vs-array/)
