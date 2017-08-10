@@ -19,3 +19,6 @@
 1. [Hashes & Classes](hashes-classes-and-you.md)
 1. [Keyword Arguments](keyword-arguments.md)
 1. [Intro to Ruby Gems](intro-to-ruby-gems.md)
+
+## Optional Exercises for More Practice
+[Practice on Conditionals](./exercises/conditionals.md)
