@@ -112,7 +112,7 @@ print_note(user_name, friend_name)
 puts "Thank you for using the friendship note app"
 ```
 
-On the last line we _invoke_ the method we _defined_ above, passing in two _arguments_ to match the _parameters_ in the _method signature_.
+When we run the code `print_note(user_name, friend_name)`, we _invoke_ the method we _defined_ above, passing in two _arguments_ to match the _parameters_ in the _method signature_.
 
 [The final version of the file should look like this.](https://gist.github.com/droberts-ada/4dd96ed4122081bf0aa673352230f458) Now we can run the whole thing from the terminal (not `irb`) using `ruby friendship_note.rb`.
 
