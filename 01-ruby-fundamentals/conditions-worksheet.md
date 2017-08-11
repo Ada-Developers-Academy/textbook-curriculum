@@ -1,5 +1,5 @@
 # Condition Evaluation Worksheet
-With your chair pair, determine the final `boolean` output of these compound conditions. Refer to the _Truth Table_ and _Precedence List_ [here](05-compound-and-complex-conditionals.md).
+With your chair pair, determine the final `boolean` output of these compound conditions. Refer to the _Truth Table_ and _Precedence List_ [here](compound-and-complex-conditionals.md).
 
 ```ruby
 # let's do these first three together
