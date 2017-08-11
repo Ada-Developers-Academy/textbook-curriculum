@@ -44,7 +44,6 @@ Sorry! That is not a valid input.
 
 Enter your pyramid size: 4
 Your pyramid:
-  #
  ##
 ####
 ```
