@@ -210,7 +210,7 @@ def adjust_seat(direction, amount)
 
     # Don't go lower than zero
     if @seat_height < 0
-      seat_height = 0
+      @seat_height = 0
     end
 
   else
