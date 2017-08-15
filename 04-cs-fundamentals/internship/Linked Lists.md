@@ -1,13 +1,33 @@
 # Arrays, Linked Lists
 ## Goal
-+ Linked Lists
++ Singly linked list, doubly linked lists
++ Design a singly linked list with object oriented principles
++ Singly linked list data structure & related algorithms (with time and space complexities)
++ Doubly linked list data structure & related algorithms (with time and space complexitites)
++ Algorithms:
+  + Visit or print value at each node
+  + Search for a node with a particular value
+  + Find the node with min/max value
+  + Sort the nodes in the linked list in ascending or descending order of values
+  + Delete a node in the linked list
+  + Add a node in the linked list
+  + Remove the first 'k' nodes in the linked list
+  + Find the nth node from the end of a linked list
+  + Find the middle node in the linked list
+  + Check for cycle in a singly linked list
 
-## Offline Reading Material
-Required: Go through what you've already learned:
-+ Revise classroom session on [Array vs LinkedList](https://drive.google.com/open?id=1-FASrGQ1o93yk2r6iqsra1marq-D8vXerHDYdPW0PO8)
-+ Revise classroom session on [Sorting Efficiency](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/03-Sorting-Efficiency.md)
+## Required
+Go through what you've already learned in the CS Fundamentals classroom curriculum:
++ [Linked List](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/LinkedList.md)
 
-Optional: Find the reading material that helps you learn further from the links below:
+## Exercises
+Design an algorithm, deduce the space and time complexity and then, author functions to do the following:
+For each of the problems below: Assume you are given a singly linked list where each node in the linked list has integer data and a link to the next node.
+  + Exercises coming soon
+
+Do the same exercises for a doubly linked list where each node contains an integer data and two links: one to the previous node and one to the next node in the doubly linked list.
+
+## Additional Resources
 + Kal academy's material on [Linear Data Structures](https://drive.google.com/open?id=0BxHords9odw3cDhCdGMxcWFVRms)
 + Kal academy's material on [Linked List](https://drive.google.com/open?id=0BxHords9odw3am9SWEtGSkdrRTA)
 + Stanford CS Education Library material on [Linked List basics](http://cslibrary.stanford.edu/103/)
@@ -17,29 +37,6 @@ Optional: Find the reading material that helps you learn further from the links 
 + Stanford CS Education Library material on [Linked List Problems](http://cslibrary.stanford.edu/105/)
 + In "Cracking the Coding Interview" book, "Chapter 2: Linked Lists"
 + CareerCup [Linked List Interview Questions](https://www.careercup.com/page?pid=linked-lists-interview-questions)
-
-## In Class
-Here's the problems we'll cover in class.
-Design and implement pseudo code for functions to do the following:
-+ 1. Check if a singly linked list has a cycle. Return true if it has a cycle, false if it doesn't.
-+ 2. Find the middle node in a singly linked list. Return a pointer or reference to it.
-+ 3. Find the nth node from the end of a singly linked list, assuming index starting at 0. Return a pointer or reference to it.
-+ 4. Insert a node into a singly linked list sorted in ascending order of data
-+ 5. Remove the first 5 nodes from a singly linked list
-+ 6. Empty a singly linked list
-+ 7. Insert a node into a sorted singly linked list with value 999.
-+ 8. Delete nodes in a singly linked list with specified data value e.g. int value of 5
-+ 9. Print the largest integer data value in a singly linked list
-+ 10. Print all integer data values in a singly linked list
-+ 11. Reverse a singly linked list. (Test: if reference to the first node is recorded before the function call, it should be pointing at the last node in the singly linked list after the function call is complete.)
-+ 12. Append a node to the beginning of a singly linked list
-+ 13. Check if the singly linked list contains a given integer value.
-</br>
-<b>Note</b>: For all singly linked list questions, assume each node in the linked list to have integer data and link to the next node
-+ 14. Implement a function to add a Node to the beginning of a doubly linked list.
-+ 15. Implement a function to remove a Node from the beginning of a doubly linked list. 
-+ 16. Implement a function to add a Node at the second position in a doubly linked list.
-+ 17. Implement a function to remove the second Node from a doubly linked list.
 
 ## Slide Deck
 + Slide Deck used in class</br>
