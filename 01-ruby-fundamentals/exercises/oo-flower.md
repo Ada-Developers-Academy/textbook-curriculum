@@ -5,13 +5,15 @@
 You are assigned the task of creating a program that tracks flowers for a floral botique. The florists want a program that will keep track of their extensive assortment of flowers and automatically order any that have low stock. Below is a sample of the information that needs to be tracked by this program.
 
 ### Example flower data
+
 | NAME     |     SIZE   |  COLOR | QUANTITY AVAILABLE |  BUNDLES | MAX STOCK | TOTAL SOLD |
-| :-------: | :-------: | :----: | :----: | :----: | :----: | :----: | :----: |
+| :-------: | :-------: | :----: | :----: | :----: | :----: | :----: | 
 | Rose       | medium |   red    |  144  | 24 | 350 | 15042 |
 | Lily       | medium |  white   |  91   | 20 | 120 | 9241  |
 | Tulip      | medium |  yellow  |  179  | 30 | 250 | 8350  |
 | Tulip      | medium |  purple  |  52   | 30 | 100 | 2558  |
 | Daisy      | medium |  White   |  15   | 50 | 300 | 14839 |
+
 
 #### The program should also:
 
@@ -29,4 +31,4 @@ You are assigned the task of creating a program that tracks flowers for a floral
 
 - Create a new file
 - Using object oriented design, write a class that meets the expectations of the florists
-- Make sure to have tests for all functionality of
+- Make sure to have tests for all essential functionality 
