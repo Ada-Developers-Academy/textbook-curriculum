@@ -21,4 +21,7 @@
 1. [Intro to Ruby Gems](intro-to-ruby-gems.md)
 
 ## Optional Exercises for More Practice
-[Practice on Conditionals](./exercises/conditionals.md)
+- [Practice on Conditionals](./exercises/conditionals.md)
+- [Object Orientation: Library Book](./exercises/oo-library.md)
+- [Object Orientation: Flower](./exercises/oo-flower.md)
+
