@@ -47,7 +47,7 @@ Above were contrived examples, but Namespaces/Modules become important when we i
 ```ruby
 # blackjack.rb
 class Card
-  def max_value()
+  def max_value
     return 11   # Aces are worth 11
   end
 end
@@ -56,7 +56,7 @@ end
 ```ruby
 # canasta.rb
 class Card
-  def max_value()
+  def max_value
     return 50   # Jokers are worth 50 points!
   end
 end
@@ -83,7 +83,7 @@ We can avoid this by using namespaces.
 # blackjack.rb
 module Blackjack
   class Card
-    def max_value()
+    def max_value
       return 11   # Aces are worth 11
     end
   end
@@ -94,7 +94,7 @@ end
 # canasta.rb
 module Canasta
   class Card
-    def max_value()
+    def max_value
       return 50   # Jokers are worth 50 points!
     end
   end
@@ -134,7 +134,7 @@ module Blackjack
   module Card
     MAX_VALUE = 11
     class Card
-      def get_max_value()
+      def get_max_value
         return MAX_VALUE
       end
     end
