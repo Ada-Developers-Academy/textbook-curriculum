@@ -31,7 +31,7 @@ a = ["","",""]
 a[0] = "apple"
 a[1] = "banana"
 a[2] = "pear"
-puts a.length # would return 2
+puts a.length # would return 3
 
 # and then
 a[2] = ""

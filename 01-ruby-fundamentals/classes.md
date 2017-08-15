@@ -11,9 +11,8 @@ By the end of this lesson, students should be able to...
 
 An `object` is the representation of an idea within a program. Let's look at a common type of object we've used already: `Time`.
 
-```ruby
-kari_birthday = Time.new(2017, 'jul', 29)
-```
+![variable-assignment](images/variable-assignment.png)
+
 
 A class can be identified by it's __capitalized first letter__. In the above snippet `Time` is a class. When you call `.new` on a class, you get an _instance_ of that class. In any program, there may be zero, one or many instances of any given class.
 
@@ -211,7 +210,7 @@ def adjust_seat(direction, amount)
 
     # Don't go lower than zero
     if @seat_height < 0
-      seat_height = 0
+      @seat_height = 0
     end
 
   else

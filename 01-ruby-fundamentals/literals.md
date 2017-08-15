@@ -47,10 +47,9 @@ Hash.new # => new empty hash, not a literal
 There are a many more literals. For a complete list see this [guide](http://en.wikibooks.org/wiki/Ruby_Programming/Syntax/Literals). Here's a few that we will end up using pretty often:
 
 ```ruby
-# bignum and floats
-123_456_789
-123_456.789
-2.2e-5
+# floats
+123456.789
+2.2
 
 # string backslash notation
 "tacos\nare\nawesome"
