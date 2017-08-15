@@ -22,6 +22,10 @@ Generally the github page for a gem is the best place to go to get started. Let'
 ```ruby
 require 'money'
 
+# We're not going to use internationalization features for this example.
+# To learn more about internationalization in this gem, visit https://github.com/RubyMoney/money
+Money.use_i18n = false
+
 # 10.00 USD
 money = Money.new(1000, "USD")
 money.cents     #=> 1000
