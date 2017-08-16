@@ -12,6 +12,7 @@ The below code might be part of a library database, tracking which books have be
 This code is in an image so that we can highlight specific parts of it. [If you want a text version, use this gist](https://gist.github.com/droberts-ada/e1924d86244328102e98c835cc3e2aea).
 
 ![Library Code](../images/object_vocab_worksheet.png)
+<!-- Instructors: source for this image is at https://docs.google.com/presentation/d/1Ro-4od5VZLV7NR_T8uvg5wZZlxl6WtilH6sWXTcl8cI/edit#slide=id.p -->
 
 ## Object Vocab
 
