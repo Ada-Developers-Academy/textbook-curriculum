@@ -73,8 +73,8 @@ puts rose.quantity_available
 ### Logic of behind `rose.restock`
 
 |     |   THE MATH   |  WHAT IS HAPPENING | RESULT |
-| :------- | :------ | :------ |
-| 1. | 350 - 98 = __252__| Subtract amount of flowers available (98) from the max stock (350).  | __The max amount of flowers that can be ordered__. |
-| 2. | 252 / 24 = __10__ | Divide max amount of flowers that can be ordered (252) by amount of flowers in a bundle (24). |  __How many bundles to order__ |
-| 3. | 10 x 24 = __240__ | Multiple the amount of bundles (10) by the number of flowers in a bundle (24).  |   __ The amount of flowers ordered__. |
+| :------- | :------ | :------ | :------ |
+| 1. | 350 - 98 = __252__| Subtract amount of flowers available (98) from the max stock (350).  | __Max amount of flowers that can be ordered__. |
+| 2. | 252 / 24 = __10__ | Divide max amount of flowers that can be ordered (252) by amount of flowers in a bundle (24). |  __Amount of bundles ordered.__ |
+| 3. | 10 x 24 = __240__ | Multiple the amount of bundles (10) by the number of flowers in a bundle (24).  |   __Amount of flowers ordered__. |
 | 4. | 98 + 240 = __338__ | Add the amount of flowers available (98) to amount of flowers ordered (240).  |  __Amount of flowers now available at the boutique__ |
