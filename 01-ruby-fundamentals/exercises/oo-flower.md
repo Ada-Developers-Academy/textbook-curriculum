@@ -7,7 +7,7 @@ You are assigned the task of creating a program that tracks flowers for a floral
 ### Example flower data
 
 | NAME     |     SIZE   |  COLOR | QUANTITY AVAILABLE |  BUNDLES | MAX STOCK | TOTAL SOLD |
-| :-------: | :-------: | :----: | :----: | :----: | :----: | :----: | 
+| :-------: | :-------: | :----: | :----: | :----: | :----: | :----: |
 | Rose       | medium |   red    |  144  | 24 | 350 | 15042 |
 | Lily       | medium |  white   |  91   | 20 | 120 | 9241  |
 | Tulip      | medium |  yellow  |  179  | 30 | 250 | 8350  |
@@ -22,7 +22,7 @@ You are assigned the task of creating a program that tracks flowers for a floral
   - Update quantity available
   - Selling should update the total sold
 - *Restock a flower*
-  - Flowers can only be ordered in the quantities of their bundles. Reorder as much as possible before the quantity hits the max stock.
+  - Flowers can only be ordered in the quantities of their bundles. Reorder as much as possible _before_ the quantity hits the max stock.
   - EX: If there are only 15 daisy's in stock, we want to restock to 300 as closely as possible, without going over. So, we need to order no more than 285 _(300 - 15)_, but can only order in bundles of 50. How many times does 50 go into 285 _(285 / 50)_? 5! So our program needs to order 5 bundles of daisy's, which is 250 _(5 x 50)_. That will update the quantity available to 265.
 
 
@@ -31,4 +31,50 @@ You are assigned the task of creating a program that tracks flowers for a floral
 
 - Create a new file
 - Using object oriented design, write a class that meets the expectations of the florists
-- Make sure to have tests for all essential functionality 
+- Make sure to have tests for all essential functionality (example tests below)
+
+
+### Example Tests
+Your code does not have to match these tests exactly. This is only an example of what some of your tests might look like.
+
+```ruby
+Rose = Flower.new({
+  name: "rose",
+  size: "medium",
+  color: "red",
+  quantity_available: 144,
+  bundles: 24,
+  max_stock: 350,
+  total_sold: 15042  
+  })
+
+
+puts rose.name
+
+#Sell some roses (46 total)
+rose.sell(12)
+rose.sell(1)
+rose.sell(24)
+
+#Check stock and total sold
+puts rose.quantity_available
+  #=> 98
+puts rose.total_sold
+  #=> 15088
+
+
+
+#restock roses (logic below)
+rose.restock
+puts rose.quantity_available
+  #=> 338
+```
+
+### Logic of behind `rose.restock`
+
+|  Step   |   The Math   |  What is happening |
+| :------- | :------ | :------ |
+| 1. | 350 - 98 = __252__| Subtract amount of flowers available from max_stock. Determines the __max amount of flowers that can be ordered__. |
+| 2. | 252 / 24 = __10__ | Divide max amount of flowers that can be ordered by amount of flowers available in a bundle. Determines how many __bundles to order__ |
+| 3. | 10 x 24 = __240__ | Multiple the amount of bundles by the number of flowers in a bundle. Determine the __amount of flowers ordered__. |
+| 4. | 98 + 240 = __338__ | Add the amount of flowers available to amount of flowers ordered. Determines __updated amount of flowers available__ |
