@@ -70,7 +70,7 @@ puts rose.quantity_available
   #=> 338
 ```
 
-### Logic of behind `rose.restock`
+### Logic behind `rose.restock`
 
 |     |   THE MATH   |  WHAT IS HAPPENING | RESULT |
 | :------- | :------ | :------ | :------ |
