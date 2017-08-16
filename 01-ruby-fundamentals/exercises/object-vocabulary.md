@@ -18,7 +18,7 @@ This code is in an image so that we can highlight specific parts of it. [If you 
 
 Many components of the code have been labeled! Your task is to take the vocab from the table below, and identify the part or parts of the code where that term applies. Each term may apply to multiple parts of the code, and each part of the code may contain multiple terms.
 
-Letter | Term                               | Lines &#9;&#9;&#9;&nbsp;
+Letter | Term                               | Lines &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ---    | ---                                | ---
 A      | Initializing an instance variable  |
 B      | Reading an instance variable       |
