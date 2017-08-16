@@ -76,7 +76,7 @@ In pods, research the usage of one of the following gems and create a small exam
 
 - [Money](http://rubymoney.github.io/money/)
 - [Awesome Print](https://github.com/awesome-print/awesome_print)
-- [lolcat](https://github.com/busyloop/lolcat)
+- [lolcat](https://github.com/busyloop/lolcat) & [table_flipper](https://github.com/iridakos/table_flipper)
 - [pry](https://github.com/pry/pry)
 - [Chronic](https://github.com/mojombo/chronic)
 - [Geocoder](http://www.rubygeocoder.com/)
