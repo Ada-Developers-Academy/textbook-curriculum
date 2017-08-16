@@ -7,7 +7,7 @@
     - [Activity: Divide & Conquer Methods](./exercises/activity-methods-dc.md)
 1. [Comparison and Flow Control](comparisons-and-flow-control.md)
 1. [Iteration & Blocks](iteration-and-blocks.md)
-    - [Worksheet: Loop Table](./loop-table-worksheet.md)
+    - [Worksheet: Loop Table](./exercises/loop-table-worksheet.md)
 1. [Compound Conditionals](compound-and-complex-conditionals.md)
     - [Worksheet: Conditions](./exercises/conditions-worksheet.md)
 1. [Literals](literals.md)
