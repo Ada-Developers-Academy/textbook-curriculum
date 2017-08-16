@@ -27,9 +27,9 @@ If we want to make a program that tracks all the books in a library, we can make
 1. Have your Book set the appropriate attributes on initialize
 1. Create the appropriate reader & writer methods for your class' attributes
 1. Have you tested yet? By now you should have made tests that:
-  - Can create new instances of your book class
-  - Pass in the appropriate attributes when creating the instance
-  - Can call the appropriate attributes on an instance
+    - Can create new instances of your book class
+    - Pass in the appropriate attributes when creating the instance
+    - Can call the appropriate attributes on an instance
 1. Create a custom method for each action a book should be able to do. Make sure to test each method.
 
 
