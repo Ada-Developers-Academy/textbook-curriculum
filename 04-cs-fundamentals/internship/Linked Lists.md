@@ -1,20 +1,8 @@
-# Arrays, Linked Lists
+# Linked Lists
 ## Goal
 + Singly linked list, doubly linked lists
 + Design a singly linked list with object oriented principles
-+ Singly linked list data structure & related algorithms (with time and space complexities)
-+ Doubly linked list data structure & related algorithms (with time and space complexitites)
-+ Algorithms:
-  + Visit or print value at each node
-  + Search for a node with a particular value
-  + Find the node with min/max value
-  + Sort the nodes in the linked list in ascending or descending order of values
-  + Delete a node in the linked list
-  + Add a node in the linked list
-  + Remove the first 'k' nodes in the linked list
-  + Find the nth node from the end of a linked list
-  + Find the middle node in the linked list
-  + Check for cycle in a singly linked list
++ Algorithms on singly linked lists. See exercises below.
 
 ## Required
 Go through what you've already learned in the CS Fundamentals classroom curriculum:
