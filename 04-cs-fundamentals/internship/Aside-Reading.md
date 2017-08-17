@@ -12,6 +12,7 @@
 ## Memory
 + [Memory leak](https://en.wikipedia.org/wiki/Memory_leak)
 + [Access Violation](https://en.wikipedia.org/wiki/Segmentation_fault)
++ [Endian](https://www.cs.umd.edu/class/sum2003/cmsc311/Notes/Data/endian.html)
 
 ## Other
 + [What every programmer should know about Memory](https://lwn.net/Articles/250967/)
