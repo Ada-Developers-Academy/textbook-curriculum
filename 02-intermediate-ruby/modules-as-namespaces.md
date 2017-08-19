@@ -63,7 +63,7 @@ Modules can contain constants, methods, classes and even other modules. The synt
 
 ## Namespacing
 
-*Namespacing* is a way of bundling related objects together. In ruby we use Modules to group related Classes and methods together. We do this to avoid naming collisions.  
+*Namespacing* is a way of bundling related objects together. In ruby we use Modules to group related Classes and methods together. We do this to avoid naming collisions.
 
 For example, imagine we're building an inventory management system for an arts and crafts store. We might want a class called `String`, but that name is already taken by one of Ruby's built-in classes.  When you do `String.new`, how is Ruby to know which `String` class to instantiate? The solution is to put our class in a module.
 
@@ -86,11 +86,11 @@ puts our_string.class
 puts ruby_string.class
 ```
 
-The two `String` classes can work alongside each other.  This is because we _namespaced_ our `String` class under the `Inventory` Module.  
+The two `String` classes can work alongside each other.  This is because we _namespaced_ our `String` class under the `Inventory` Module.
 
-The `::` operator looks up objects and classes within a module, in this case we use it to look up the `Inventory` Module's `String` class.  
+The `::` operator looks up objects and classes within a module, in this case we use it to look up the `Inventory` Module's `String` class.
 
-Leaving off the module makes us extend the `String` class globally which could lead to side-effects if not every part of our program does not expect the new behavior.  
+Leaving off the module makes us extend the `String` class globally which could lead to side-effects if not every part of our program does not expect the new behavior.
 
 ```ruby
 class String
@@ -142,7 +142,7 @@ puts canasta_card.max_value   # => 50
 
 Because the canasta gem is loaded after blackjack it overrides blackjack's definition of Card and thus the version of card we end up using is canasta's.
 
-We can avoid this by using namespaces.  
+We can avoid this by using namespaces.
 
 ```ruby
 # blackjack.rb
@@ -178,7 +178,7 @@ canasta_card = Canasta::Card.new
 puts canasta_card.max_value   # => 50
 ```
 
-Whenever you create a library, it's best-practice to namespace it with the name of your library or project.  
+Whenever you create a library, it's best-practice to namespace it with the name of your library or project.
 
 ### Constant Lookup
 
@@ -230,9 +230,9 @@ There are a few things going on the example above:
 
 *	Constant MAX_SCORE is scoped within Blackjack and works expected.
 *	Same for constant MAX_PLAYERS which is nested inside the Player module.
-*	The Card class is scoped within the Card Module and has a method returning the MAX_VALUE within the same module (same scope).  
+*	The Card class is scoped within the Card Module and has a method returning the MAX_VALUE within the same module (same scope).
 
-So we can nest constant lookup as deeply as we need to, similar to how we can nest hashes inside hashes as deeply as we need to.  
+So we can nest constant lookup as deeply as we need to, similar to how we can nest hashes inside hashes as deeply as we need to.
 
 Using modules and namespacing is the standard way of organizing libraries with Ruby. It's a good practice to keep this in mind while writing one.
 
