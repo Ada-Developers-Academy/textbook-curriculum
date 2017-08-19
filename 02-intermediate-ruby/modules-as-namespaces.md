@@ -61,49 +61,53 @@ Modules can contain constants, methods, classes and even other modules. The synt
     - `ModuleName.method_name`
     - `Math.sqrt(25)`
 
-### Namespacing
+## Namespacing
 
-*Namespacing* is a way of bundling related objects together.  In ruby we use Modules to group related Classes and methods together.  We do this to avoid naming collisions.  
+*Namespacing* is a way of bundling related objects together. In ruby we use Modules to group related Classes and methods together. We do this to avoid naming collisions.  
 
-For example we might create a class called "Shape" in a graphics program, but that name might be used elsewhere in another library.  When you do Shape.new, how is Ruby to know which Shape class to instantiate?  It's a similar idea to putting files into directories.  Files in the same directory cannot have the same name, but files in different directories may.  
+For example, imagine we're building an inventory management system for an arts and crafts store. We might want a class called `String`, but that name is already taken by one of Ruby's built-in classes.  When you do `String.new`, how is Ruby to know which `String` class to instantiate? The solution is to put our class in a module.
 
-In this example below we can create an Array class and put it into a module.  Notice that it does not affect Ruby's default Array class at all
+It's a similar idea to putting files into directories.  Files in the same directory cannot have the same name, but files in different directories may.
 
 ```ruby
-module Perimeter
-  class Array
-    def initialize
-      @size = 400
+module Inventory
+  class String
+    def initialize(color, quantity)
+      @color = color
+      @quantity = quantity
     end
   end
 end
 
-our_array = Perimeter::Array.new
-ruby_array = Array.new
+our_string = Inventory::String.new("green", 100)
+ruby_string = String.new("ruby string")
 
-p our_array.class
-p ruby_array.class
+puts our_string.class
+puts ruby_string.class
 ```
 
-The two "Array" classes can work alongside each other.  This is because we namespaced our Array class under the Perimeter Module.  
+The two `String` classes can work alongside each other.  This is because we _namespaced_ our `String` class under the `Inventory` Module.  
 
-The :: operator looks up objects and classes within a module, in this case we use it to look up the Perimeter Module's Array class.  
+The `::` operator looks up objects and classes within a module, in this case we use it to look up the `Inventory` Module's `String` class.  
 
-Leaving off the module makes us extend the Array class globally which could lead to side-effects if not every part of our program does not expect the new behavior.  
+Leaving off the module makes us extend the `String` class globally which could lead to side-effects if not every part of our program does not expect the new behavior.  
 
 ```ruby
-class Array
-  def initialize
-    @size = 400
+class String
+  def initialize(color, quantity)
+    @color = color
+    @quantity = quantity
   end
 end
 
-our_array = Array.new
-
-p our_array.class
+our_string = String.new("Ruby string")
+# ArgumentError: wrong number of arguments (given 1, expected 2)
+# from (pry):2:in `initialize'
 ```
 
-Above were contrived examples, but Namespaces/Modules become important when we include libraries into our code.  Different library authors may use the same names in their code and we want to avoid conflicts.
+## Example: Card Games
+
+Namespaces/Modules become especially important when we include libraries into our code.  Different library authors may use the same names in their code and we want to avoid conflicts.
 
 ```ruby
 # blackjack.rb
