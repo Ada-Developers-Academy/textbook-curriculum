@@ -1,5 +1,66 @@
 # Modules as Namespaces
 
+## Learning Goals
+By the end of this lesson, students should be able to
+
+- Read and write code using Ruby _modules_
+- Use modules to group classes and methods into _namespaces_
+
+## Modules
+
+Modules are a way to group together related ideas. They're like classes that can't be instantiated, making them a good choice if you need to tie together some methods that don't have any associated state.
+
+We've seen a module before: `Math`. It doesn't makes sense to have an instance of `Math`, it's just a collection of related methods and constants.
+
+```ruby
+# No instances required!
+Math::PI
+# => 3.141592653589793
+Math.sqrt(25)
+# => 5.0
+Math.cos(Math::PI / 4)
+# => 0.7071067811865476
+```
+
+### Syntax
+
+#### Defining a Module
+
+Defining a module is very similar to defining a class, except they use Ruby's `module` keyword.
+
+```ruby
+module ModuleName
+  # Define a constant
+  CONSTANT_NAME = 4
+
+  # Define a method
+  def method_name
+    # ...
+  end
+
+  # Define a class
+  class ClassName
+    def initialize(a, b)
+      # ...
+    end
+
+    def instance_method
+      # ...
+    end
+  end
+end
+```
+
+#### Using a Module
+
+Modules can contain constants, methods, classes and even other modules. The syntax for accessing something is a module is very similar to accessing something in a class.
+- Constants, classes and other modules are accessed with `::`
+    - `ModuleName::ClassName`
+    - `Math::PI`
+- Methods are accessed with `.`
+    - `ModuleName.method_name`
+    - `Math.sqrt(25)`
+
 ### Namespacing
 
 *Namespacing* is a way of bundling related objects together.  In ruby we use Modules to group related Classes and methods together.  We do this to avoid naming collisions.  
