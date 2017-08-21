@@ -136,7 +136,7 @@ When writing about a class method, we use a dot instead of a pound sign: `ClassN
 
 Now that we see the syntax for how we'd use a **class method** versus an **instance method** let's see why we'd want to use one over the other.
 
-Let's think back to the `Song` class we created earlier. We'll start with something small: tracking the total number of plays across all songs. For this we'll need to add a _class variable_, `@@total_plays`, as well as a method to read its value, `Song.total_plays`.
+Let's think back to the `Song` class we created earlier. We'll start with tracking the total number of plays across all songs. For this we'll need to add a _class variable_, `@@total_plays`, as well as a method to read its value, `Song.total_plays`.
 
 ```ruby
 class Song
