@@ -58,7 +58,7 @@ After calling short_strings
 
 `short_strings` is indeed creating a list of shortened words and storing it under the name `input`, but our outer variable `pets` isn't being updated. The reason why has to do with references and values, and how data is stored in a computer.
 
-As an aside: one way to fix our method is to return the new array, and when calling it say `pets = short_strings(pets)`. However, sometimes this isn't an option - for example, what if our method was supposed to return the number of words that had to be truncated?
+As an aside: one way to fix our method is to return the new array, and when calling it say `pets = short_strings(pets)`. However, sometimes this isn't an option, or isn't what you want.
 
 ## References and Values
 
@@ -67,6 +67,15 @@ When we create an array in Ruby (or a string or a hash or any other complex data
 The first is the _value_ of the array, which involves asking the operating system for a bit of memory and then putting our data in it. You can think of this as the actual object. Each piece of memory we get from the OS has an _address_ representing its physical location in hardware, which is how we get back to it later.
 
 The second is a _reference_ to the array, which ties together the address of that memory with a name for our program to use. The address part of a reference is sometimes called a _pointer_ (especially in low-level languages like C and C++), and we say that a variable _points to_ or _references_ an object.
+
+This split between references and values comes up often, both in computing and in the wider world. Here are some examples:
+
+Reference               | Value
+---                     | ---
+Street address          | Your house
+URL                     | Web page or file
+File path on hard drive | The contents of that file
+A named variable        | The contents of that variable
 
 Recalling our example above, saying
 
@@ -78,7 +87,7 @@ and imagining that the `pets` array has been stored at address `1234`, we would 
 
 ![references and variables](images/references_and_values/references_and_values.png)
 
-Every variable in Ruby consists of these two parts, a reference and a value. Normally when you type the variable's name, Ruby automatically goes and gets the object. If you want to find out what object your variable references, you can use the `object_id` method:
+Every variable in Ruby consists of these two parts, a reference and a value. Normally when you type the variable's name, Ruby automatically goes and gets the object. You'll almost never need to use the address yourself. If you do want to find out what object your variable references, you can use the `object_id` method:
 
 ```ruby
 pets = ["dog", "parrot", "cat", "llama"]
@@ -106,10 +115,16 @@ puts "repeat.object_id: #{repeat.object_id}" # same as veggie.object_id
 If we make changes to the object through one variable, we can see the changes via the other. The variables have different names, but the underlying object is the same.
 
 ```ruby
+puts "#{veggies}"     # ["turnip", "beet"]
+puts "#{repeat}"      # ["turnip", "beet"]
+
 veggies[1] = "onion"
+puts "#{veggies}"     # ["turnip", "onion"]
+puts "#{repeat}"      # ["turnip", "onion"]
+
 repeat.push("potato")
 puts "#{veggies}"     # ["turnip", "onion", "potato"]
-puts "#{veggies}"     # ["turnip", "onion", "potato"]
+puts "#{repeat}"      # ["turnip", "onion", "potato"]
 ```
 
 ![modifying the underlying object](images/references_and_values/modify_object.png)
@@ -167,6 +182,7 @@ end
 pets = ["dog", "parrot", "cat", "llama"]
 puts "Before reassign_parameter"
 puts "pets.object_id is #{pets.object_id}"
+puts "with value #{pets}"
 puts
 
 reassign_parameter(pets)
@@ -184,6 +200,7 @@ Running the code yields (your `object_id`s may be different):
 ```
 Before reassign_parameter
 pets.object_id is 70144030241620
+with value ["dog", "parrot", "cat", "llama"]
 
   Inside reassign_parameter
   at start, param.object_id is 70144030241620
