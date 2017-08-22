@@ -10,7 +10,7 @@ By the end of this lesson, students should be able to
 
 Modules are a way to group together related ideas. They're like classes that can't be instantiated, making them a good choice if you need to tie together some methods that don't have any associated state.
 
-We've seen a module before: `Math`. It doesn't makes sense to have an instance of `Math`, it's just a collection of related methods and constants.
+We've seen a module before: `Math`. The designers of Ruby decided to make `Math` a module rather than a class because it is a collection of related methods and constants, without any state to keep track of.
 
 ```ruby
 # No instances required!
@@ -26,7 +26,7 @@ Math.cos(Math::PI / 4)
 
 #### Defining a Module
 
-Defining a module is very similar to defining a class, except they use Ruby's `module` keyword.
+Defining a module is very similar to defining a class, except they use Ruby's `module` keyword. Modules can contain constants, methods, classes and even other modules. All of these are optional - you could have a Module with only constants, for example.
 
 ```ruby
 module ModuleName
@@ -53,7 +53,7 @@ end
 
 #### Using a Module
 
-Modules can contain constants, methods, classes and even other modules. The syntax for accessing something is a module is very similar to accessing something in a class.
+The syntax for accessing something is a module is very similar to accessing something in a class.
 - Constants, classes and other modules are accessed with `::`
     - `ModuleName::ClassName`
     - `Math::PI`
