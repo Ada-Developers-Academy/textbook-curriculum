@@ -259,7 +259,7 @@ My favorite book is named My favorite library is named The Fellowship of the Str
 This output isn't what we intended at all! This example shows some simple mistakes we can make using global variables that have serious unintended consequences. In this example, we access the same global variable many times and change that value between classes. This usage is dangerous and confusing, and shows why it's best to avoid using global variables.
 
 #### Refactor
-Try refactoring the code found in `source/global_variable_example.rb` to use instant variables instead.
+Try refactoring the code found in `source/global_variable_example.rb` to use instance variables instead.
 
 #### Predefined Global Variables
 Ruby creates and maintains a lot of global variables for managing its internal configuration. It's good to know these exist, but you won't interact with them often.
