@@ -10,9 +10,10 @@
 + Cornell Lecture slides on [Pointers and arrays](http://www.cs.cornell.edu/courses/cs2022/2011sp/lectures/lect04.pdf)
 
 ## Memory
-+ [Memory leak](https://en.wikipedia.org/wiki/Memory_leak)
-+ [Access Violation](https://en.wikipedia.org/wiki/Segmentation_fault)
-+ [Endian](https://www.cs.umd.edu/class/sum2003/cmsc311/Notes/Data/endian.html)
++ [Memory leak - wikipedia](https://en.wikipedia.org/wiki/Memory_leak)
++ [Access Violation - wikipedia](https://en.wikipedia.org/wiki/Segmentation_fault)
++ [A simple model of memory - CS Dept at University of Maryland](https://www.cs.umd.edu/class/sum2003/cmsc311/Notes/CompOrg/simpMem.html)
++ [Endian - CS Dept at University of Maryland](https://www.cs.umd.edu/class/sum2003/cmsc311/Notes/Data/endian.html)
 
 ## Other
 + [What every programmer should know about Memory](https://lwn.net/Articles/250967/)
