@@ -175,20 +175,26 @@ end
 puts Song.total_plays
 # => 0
 
-s1 = Song.new("Respect", "Aretha Franklin", "songs/respect.mp3")
-s2 = Song.new("What a Little Moonlight Can Do", "Billie Holiday", "songs/moonlight.mp3")
+respect = Song.new("Respect", "Aretha Franklin", "songs/respect.mp3")
+moonlight = Song.new("What a Little Moonlight Can Do", "Billie Holiday", "songs/moonlight.mp3")
 
 3.times do
-  s1.play
+  respect.play
 end
 
 5.times do
-  s2.play
+  moonlight.play
 end
 
-puts "song 1: #{s1.play_count} plays, song 2: #{s2.play_count} plays, total: #{Song.total_plays} plays"
-# => song 1: 3 plays, song 2: 5 plays, total: 8 plays
+puts "#{respect.name}: #{respect.play_count} plays"
+puts "#{moonlight.name}: #{moonlight.play_count} plays"
+puts "total: #{Song.total_plays} plays"
+# Respect: 3 plays
+# What a Little Moonlight Can Do: 5 plays
+# total: 8 plays
 ```
+
+All that `total_plays` does is return the value of `@@total_plays`. If `@@total_plays` were an instance method, we would use the `attr_reader` helper method to accomplish the same thing. Unfortunately there's no equivalent to `attr_reader` for class variables, so we have to do the work ourselves.
 
 #### Questions
 - Consider the class variable `@@total_plays`
