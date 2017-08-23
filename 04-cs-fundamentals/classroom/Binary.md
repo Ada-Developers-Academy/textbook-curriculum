@@ -20,11 +20,16 @@ Here's some good follow up reading after we meet in class:
 ## Exercises
 Here's the exercises we'll cover in class
 1. Devise an algorithm to accept 8 binary digits from a user. Convert this eight-digit binary number to decimal number using the approach we learned in class.
-
+2. Calculate the decimal equivalent for these binary numbers: 453, 49, 234, 432
+3. Calculate the binary equivalent for these decimal numbers: 1101, 0101, 1001, 1010, 1111, 11000011
 
 ## Assignments
 Assignments are expected to be worked on after the class discussion and due before the next class.
-1. Create an array of size 8. Fill the array randomly with 0’s and 1’s. Print out the array so that it appears as a binary number. Calculate the decimal value for this binary number using the algorithm you devised in class. Print out the decimal value.
+Fork, clone and complete the assignments on [Ada-C8/BinaryAndDecimal](https://github.com/Ada-C8/BinaryAndDecimal).
+1. Write a method named `binary_to_decimal` that creates an array of size 8. Fill the array randomly with 0’s and 1’s. Print out the array so that it appears as a binary number. Calculate the decimal value for this binary number using the algorithm you devised in class. Print out the decimal value.
+2. Devise an algorithm and write a method named `array_equals` that accepts two integer arrays as parameters. The method return `true` if the arrays contain the same elements in the same order, and returns `false` otherwise. 
+Note: Do not use Array class methods for comparing the whole array at once. You may use array indexing to retrieve one element at a time, compare individual elements with each other and you may retrieve the length of an array.
+
 
 ## Additional Resources:
 Videos and additional reading material for furthering your learning for curiosity on topics related to what we covered in class:
