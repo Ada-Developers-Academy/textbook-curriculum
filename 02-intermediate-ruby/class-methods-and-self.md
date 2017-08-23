@@ -186,8 +186,8 @@ end
   moonlight.play
 end
 
-puts "#{respect.name}: #{respect.play_count} plays"
-puts "#{moonlight.name}: #{moonlight.play_count} plays"
+puts "#{respect.title}: #{respect.play_count} plays"
+puts "#{moonlight.title}: #{moonlight.play_count} plays"
 puts "total: #{Song.total_plays} plays"
 # Respect: 3 plays
 # What a Little Moonlight Can Do: 5 plays
