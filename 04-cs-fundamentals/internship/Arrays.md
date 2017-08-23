@@ -1,5 +1,5 @@
 # Arrays, Time & Space complexities
-## Goal
+## Learning Goals
 + Time and space complexitites
 + Array data structure and related algorithms
   + Visit or print each value, one by one
