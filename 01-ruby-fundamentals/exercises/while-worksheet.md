@@ -34,8 +34,22 @@ For this exercise, you will be evaluating some Ruby code and coming up with scen
   ```ruby
   time = 0
   timer = true
-  
+
   while timer
     time += 1
+  end
+  ```
+
+1. For the code below, write out what the value of `continue` and `i` will be for each iteration of the loop.
+  ```ruby
+  i = 0
+  continue = true
+
+  while continue && (i < 10)
+    if i == 3
+      continue = false
+    end
+
+    i += 1
   end
   ```
