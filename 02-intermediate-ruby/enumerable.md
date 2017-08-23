@@ -3,6 +3,9 @@
 - Learn about the _module_ `Enumerable`
 - Discover some really, really useful methods provided by `Enumerable`
 
+## Purpose
+Ruby provides a really neat module called `Enumerable`. It contains a set of extremely useful methods that you can use on collections like Arrays and Hashes. To gain a bit of understanding of what `Enumerable` is doing for us, we are going to dive into how Ruby allows you to use **modules** to make **mixins**.
+
 ## Using _modules_ to make _mixins_
 A _mixin_ is a collection of methods in a _module_ that is _composed_ into a Ruby class via either `include` (for instance methods) or `extend` (for class methods). Ruby classes can by _dynamically extended_, meaning that, at any point after it is declared, a class can be re-opened and modified.
 
@@ -58,9 +61,9 @@ numbers.min
 If the values are not directly comparable, the `min_by` and `max_by` do similar work but take a block in which you can derive the values to compare:
 
 ```ruby
-# getting the account with the least and the most money
-least = Bank::Account.all.min_by { |account| account.balance }
-most  = Bank::Account.all.max_by { |account| account.balance }
+# getting the grocery order with min and max totals
+least = GroceryStore::Order.all.min_by { |order| order.total }
+most = GroceryStore::Order.all.max_by { |order| order.total }
 ```
 
 ### `select` & `reject`
