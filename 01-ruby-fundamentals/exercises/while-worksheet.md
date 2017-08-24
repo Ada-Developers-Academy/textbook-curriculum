@@ -2,10 +2,9 @@
 For this exercise, you will be evaluating some Ruby code and coming up with scenarios for how the code will execute.
 
 1. For the code below, describe what the loop will do with the following `word` variable assignment. Be sure to include how many times the loop will execute.
-
-  a. `word = "ham"`  
-  b. `word = "hamster"`  
-  c. `word = "bananas"`  
+  - `word = "ham"`  
+  - `word = "hamster"`  
+  - `word = "bananas"`  
 
   ```ruby
   while word.length > 7
@@ -15,10 +14,9 @@ For this exercise, you will be evaluating some Ruby code and coming up with scen
   ```
 
 1. For the code below, how many times will the block of the loop execute with the following `word` variable assignments? What is the final value for the `i` variable for each?
-
-  a. `word = "ham"`  
-  b. `word = "hamster"`  
-  c. `word = "harmonious"`  
+  - `word = "ham"`  
+  - `word = "hamster"`  
+  - `word = "harmonious"`  
 
   ```ruby
   i = 0
