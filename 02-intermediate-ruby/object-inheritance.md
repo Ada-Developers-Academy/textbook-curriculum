@@ -2,7 +2,7 @@
 ## Learning Goals
 - Describe objects in terms of _is-a_ relationships
 - Use _inheritance_ to indicate a hierarchy of ownership or lineage between classes
-- Explore overriding method definitions in _sublcasses_
+- Explore overriding method definitions in _subclasses_
 - Use `super` to invoke the behavior of a _base class_ in a _subclass 
 
 ## Object Inheritance: _is-a_
