@@ -9,9 +9,9 @@ The user of a deck of cards should be able to shuffle the cards as well as deal 
 
 ## Design
 Questions:
-- How does a Deck relate to a Game?
+- How does a deck relate to a Game?
 - How does a card relate to a deck?
-- What properites would a Game have?
+- What properties would a Game have?
 - What properties does a card have?
 
 ## Complete
