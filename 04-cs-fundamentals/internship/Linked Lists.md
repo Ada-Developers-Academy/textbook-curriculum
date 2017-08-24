@@ -1,20 +1,8 @@
-# Arrays, Linked Lists
+# Linked Lists
 ## Goal
 + Singly linked list, doubly linked lists
 + Design a singly linked list with object oriented principles
-+ Singly linked list data structure & related algorithms (with time and space complexities)
-+ Doubly linked list data structure & related algorithms (with time and space complexitites)
-+ Algorithms:
-  + Visit or print value at each node
-  + Search for a node with a particular value
-  + Find the node with min/max value
-  + Sort the nodes in the linked list in ascending or descending order of values
-  + Delete a node in the linked list
-  + Add a node in the linked list
-  + Remove the first 'k' nodes in the linked list
-  + Find the nth node from the end of a linked list
-  + Find the middle node in the linked list
-  + Check for cycle in a singly linked list
++ Algorithms on singly linked lists. See exercises below.
 
 ## Required
 Go through what you've already learned in the CS Fundamentals classroom curriculum:
@@ -23,9 +11,27 @@ Go through what you've already learned in the CS Fundamentals classroom curricul
 ## Exercises
 Design an algorithm, deduce the space and time complexity and then, author functions to do the following:
 For each of the problems below: Assume you are given a singly linked list where each node in the linked list has integer data and a link to the next node.
-  + Exercises coming soon
+  1. Add a new node with the specific input data value in the linked list. Insert the new node at the beginning of the linked list
+  2. Check if the linked list contains a node with specified input value. Returns true if found, false otherwise.
+  3. Return the max value in the linked list. Returns the data value and not the node.
+  4. Return the min value in the linked list. Returns the data value and not the node.
+  5. Return the count of nodes in the singly linked list.
+  6. Return the value of the nth node from the beginning. *n* is the input to the method. 
+     Assume indexing starts at 0 while counting to n.
+  7. Insert a new node with specific input data value, assuming the linked list is sorted in ascending order.
+  8. Print the value of each node in the singly linked list separated by a space.
+  9. Delete the first node found with the specified input data value.
+  10. Reverse the singly linked list. The nodes should be moved and not just the values in the nodes.
+  11. Returns the value at the middle node in the singly linked list. 
+      If the node count is even, pick one of the two middle values to return.
+  12. Find the nth node from the end of the linked list and return its value. Assume indexing starts at 0 while counting to n.
+  13. Check if the linked list has a cycle. A cycle exists if any node in the linked list links to a node already visited. Returns true if a cycle is found, false otherwise.
 
+### Optional
 Do the same exercises for a doubly linked list where each node contains an integer data and two links: one to the previous node and one to the next node in the doubly linked list.
+
+## Assignment
+Implement methods in a singly linked list, linked_list.rb in [Ada-C7/Linked-List](https://github.com/Ada-C7/Linked-List)
 
 ## Additional Resources
 + Kal academy's material on [Linear Data Structures](https://drive.google.com/open?id=0BxHords9odw3cDhCdGMxcWFVRms)
@@ -40,5 +46,5 @@ Do the same exercises for a doubly linked list where each node contains an integ
 
 ## Slide Deck
 + Slide Deck used in class</br>
-<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://www.slideshare.net/secret/K2Ui5jdn6QjW47">Arrays and Linked Lists</a></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</br>
+<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://www.slideshare.net/secret/httNWPRNr0FwEP">Linked Lists</a></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</br>
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /> Please use the <strong>Download</strong> button and play the slide deck locally. Without this, the animations which are necessary in understanding the solutions will not render properly.

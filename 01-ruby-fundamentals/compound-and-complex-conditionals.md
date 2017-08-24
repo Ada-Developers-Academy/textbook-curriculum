@@ -38,6 +38,12 @@ Here is an abbreviated _Precedence List_ from __highest__ to __lowest__ _precede
 
 __Note:__ _unary +_ and _unary -_ here means assigning a numeric value (_Integer_ or _Float_) as either positive or negative, e.g. `-5`, `-12.2`, `+30` and `+2.0`.
 
+When evaluating a complex compound conditional expression, it is nice to visualize the resulting expression. One way to do this is by using a [parse tree](https://en.wikibooks.org/wiki/Introduction_to_Programming_Languages/Precedence_and_Associativity). A parse tree will show the way the result of higher precedence operators are passed to later operations, until you have a result.
+
+Here is an example parse tree for the expression `4 + 1 % 2 > 2 * 3 && true`
+
+![compound parse tree example](images/condition-parse-tree.png)
+
 ### Using Compound Conditions
 
 ```ruby
