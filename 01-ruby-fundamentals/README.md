@@ -10,6 +10,7 @@
     - [Worksheet: Loop Table](./exercises/loop-table-worksheet.md)
 1. [Compound Conditionals](compound-and-complex-conditionals.md)
     - [Worksheet: Conditions](./exercises/conditions-worksheet.md)
+    - [Worksheet: While Loops](./exercises/while-worksheet.md)
 1. [Literals](literals.md)
 1. [Methods](methods.md)
     - [Worksheet: Friendship Note](./exercises/methods-worksheet.md)
@@ -24,4 +25,3 @@
 - [Practice on Conditionals](./exercises/conditionals.md)
 - [Object Orientation: Library Book](./exercises/oo-library.md)
 - [Object Orientation: Flower](./exercises/oo-flower.md)
-
