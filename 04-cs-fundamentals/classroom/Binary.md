@@ -27,7 +27,9 @@ Here's the exercises we'll cover in class
 Assignments are expected to be worked on after the class discussion and due before the next class.
 Fork, clone and complete the assignments on [Ada-C8/BinaryAndDecimal](https://github.com/Ada-C8/BinaryAndDecimal).
 1. Write a method named `binary_to_decimal` that creates an array of size 8. Fill the array randomly with 0’s and 1’s. Print out the array so that it appears as a binary number. Calculate the decimal value for this binary number using the algorithm you devised in class. Print out the decimal value.
-2. Devise an algorithm and write a method named `array_equals` that accepts two integer arrays as parameters. The method return `true` if the arrays contain the same elements in the same order, and returns `false` otherwise. 
+2. This question has two parts:
+   - <strong>Devise an algorithm</strong> Imagine you've been given two sets of integers. e.g. the first set is [30, 20, 10, 4] and the second set is [20, 10, 4]. Devise an algorithm that comapres the two sets and returns true if the two sets have the same integers and in the same order, and returns false otherwise.
+   - <strong>Author a method</strong> named `array_equals` that accepts two integer arrays as parameters (representative of the two sets). The method return `true` if the arrays contain the same elements in the same order, and returns `false` otherwise. 
 Note: Do not use Array class methods for comparing the whole array at once. You may use array indexing to retrieve one element at a time, compare individual elements with each other and you may retrieve the length of an array.
 
 
@@ -38,12 +40,10 @@ Videos and additional reading material for furthering your learning for curiosit
    + [Original paper on when we started counting with 0: Why numbering should start at zero? - by E. W. Dijkstra](https://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html)
    + [Does *bit rate* matter? - a blog on online-convert](http://blog.online-convert.com/does-bit-rate-matter-test-yourself-audio-examples/)
    + [Video: Understanding the differences between 8bit, 16bit, 32bit, and 64bit -- Arrow Tech Trivia](https://www.youtube.com/watch?v=_SkpnG571z8)
+   + Learn about how a CPU processes instructions, espcially when it comes to [branch prediction](https://danluu.com/branch-prediction/)
    + [Book: Hacker's Delight by Henry S. Warren](https://www.amazon.com/Hackers-Delight-2nd-Henry-Warren/dp/0321842685)
 
 ## Slide Deck
-Coming soon
-<!--- coming soon
 + Slide Deck used in class</br>
 <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://www.slideshare.net/secret/y7EEiCTql0Gdw">A bried introduction to Binary and Memory</a></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</br>
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /> Please use the <strong>Download</strong> button and play the slide show locally (PowerPoint works best). Without this, the animations which are necessary in understanding the solutions will not render properly.
----/>
