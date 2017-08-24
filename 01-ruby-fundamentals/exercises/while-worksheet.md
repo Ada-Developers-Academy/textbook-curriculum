@@ -11,7 +11,7 @@ For this exercise, you will be evaluating some Ruby code and coming up with scen
   puts "Note: this word must be less than or equal to 7 characters."
 
   word = gets.chomp
-  while word > 7
+  while word.length > 7
     puts "Please enter a word less than or equal to 7 characters."
     word = gets.chomp
   end
