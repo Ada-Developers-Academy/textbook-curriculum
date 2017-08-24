@@ -38,6 +38,7 @@ Videos and additional reading material for furthering your learning for curiosit
    + [Original paper on when we started counting with 0: Why numbering should start at zero? - by E. W. Dijkstra](https://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html)
    + [Does *bit rate* matter? - a blog on online-convert](http://blog.online-convert.com/does-bit-rate-matter-test-yourself-audio-examples/)
    + [Video: Understanding the differences between 8bit, 16bit, 32bit, and 64bit -- Arrow Tech Trivia](https://www.youtube.com/watch?v=_SkpnG571z8)
+   + [Book: Hacker's Delight by Henry S. Warren](https://www.amazon.com/Hackers-Delight-2nd-Henry-Warren/dp/0321842685)
 
 ## Slide Deck
 Coming soon
