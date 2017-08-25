@@ -78,7 +78,7 @@ Use these methods to filter collections by a conditional evaluation. `select` wi
 ```
 
 ## There's so much more to discover
-`Enumerable` is one of the most exciting things about Ruby. It is immensely useful. With it, we can write expressive, highly semantic code that is also concise. Spend some time with the [Enumerable docs](http://ruby-doc.org/core-2.4.1/Enumerable.html). Good knowledge in here will serve you in every application you build, and not just with Ruby. The methods contained in `Enumerable` describe ideas and patterns you'll find in every programming discipline.
+`Enumerable` is one of the most exciting things about Ruby. It is immensely useful. With it, we can write expressive, highly semantic code that is also concise. Spend some time with the [Enumerable docs](http://ruby-doc.org/core/Enumerable.html). Good knowledge in here will serve you in every application you build, and not just with Ruby. The methods contained in `Enumerable` describe ideas and patterns you'll find in every programming discipline.
 
 ## Activity: Divide & Conquer Enumerable
 In a group of 4, you shall research each of these `Enumerable` methods. Prepare a short (<5 minute) demonstration to present to the group.
