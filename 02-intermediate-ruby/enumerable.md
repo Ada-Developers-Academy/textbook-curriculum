@@ -89,9 +89,13 @@ In a group of 4, you shall research each of these `Enumerable` methods. Prepare 
 - `zip`
 - `drop_while` & `take_while`
 
+<<<<<<< HEAD
 ## Activity: Refactor Loops
 Let's take what we just learned about `Enumerable` and apply that to the [Loop Problem Practice](https://github.com/AdaGold/standalone-exercises/blob/master/loop-problem-practice.md) that we did previously. Work with your seat squad to refactor each problem to use one of these `Enumerable` methods we just learned about.
 
 ## Additional Resources
 - For more information on Mixins, read up on it in [this chapter](mixins.md)
+=======
+## Additional Resources
+>>>>>>> Pass at changing Enumerable example from String Smiley to Messageable
 - For another interesting Mixin, look up [Comparable](https://ruby-doc.org/core-2.4.0/Comparable.html)
