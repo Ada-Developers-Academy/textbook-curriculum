@@ -103,6 +103,8 @@ See if you can write a regular expression for these patterns:
 1. A 5 digit number
 1. An IP address like 127.0.0.1, or 206.190.36.45
 
+[Sample Solutions](https://gist.github.com/CheezItMan/54e39aa4a355aa5a24bb281d5d360121)
+
 ## List of Regex Special Characters
 
 | Character | Name  |  Description |
@@ -128,4 +130,4 @@ See if you can write a regular expression for these patterns:
 -  [Regex in Wikipedia](https://en.wikipedia.org/wiki/Regular_expression)
 -  [Regular Expressions in rubylearning.com](http://rubylearning.com/satishtalim/ruby_regular_expressions.html)
 -  [Regexpal](http://regexpal.com.s3-website-us-east-1.amazonaws.com/?_ga=2.249565263.813004562.1495485737-848749570.1493938714) - A useful tool for composing Regular Expressions
-- [Regexper](https://regexper.com/) - a fantastic tool to generate a visual diagram of a regular expression. 
+- [Regexper](https://regexper.com/) - a fantastic tool to generate a visual diagram of a regular expression.
