@@ -116,7 +116,7 @@ Similarly, `/\$(\d)+\.(\d){2}` would match us currency, like you were asked to d
 
 ### Practice
 
-See if you can write a regular expression for these patterns:
+Write a regular expression for these patterns:
 
 1. A 5 digit number
 1. An IP address like 127.0.0.1, or 206.190.36.45
