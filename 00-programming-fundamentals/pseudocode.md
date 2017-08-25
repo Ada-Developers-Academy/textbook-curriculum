@@ -22,7 +22,7 @@ It allows you to think through the logic of a solving a problem before implement
 Below is a description of a program we want to create. Before we start coding, we are going to write the pseudocode. Then we will use that pseudocode to write our ruby code.
 
 
-**Objective** Write a Deaf Grandma program. Whatever you say to grandma (whatever you type in), she should respond with  HUH?!  SPEAK UP, SONNY!, unless you shout it (type in all capitals). If you shout, she can hear you (or at least she thinks so) and yells back, NO, NOT SINCE 1938! The conversation will continue until you say "BYE".
+**Objective** Write a Dear Grandma program. Whatever you say to grandma (whatever you type in), she should respond with  HUH?!  SPEAK UP, SONNY!, unless you shout it (type in all capitals). If you shout, she can hear you (or at least she thinks so) and yells back, NO, NOT SINCE 1938! The conversation will continue until you say "BYE".
 
 
 - **Step One:** Identify Expected Inputs and Outputs
