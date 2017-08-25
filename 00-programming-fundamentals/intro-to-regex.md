@@ -123,6 +123,15 @@ Write a regular expression for these patterns:
 
 [Sample Solutions](https://gist.github.com/CheezItMan/54e39aa4a355aa5a24bb281d5d360121)
 
+
+## Conclusion
+
+Regex is a powerful topic that works in almost all languages.  The same syntax, sometimes with minimal changes can work in JavaScript, Ruby, Python and more.  Because Regex is almost universal there are a **lot** of tools available to compose them and a variety of pre-made Regular Expressions.  
+
+### Regex Tools
+
+There a number of tools you can
+
 ## List of Regex Special Characters
 
 | Character | Name  |  Description |
