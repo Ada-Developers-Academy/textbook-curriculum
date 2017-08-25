@@ -8,7 +8,7 @@
 ## Using _modules_ to make _mixins_
 A _mixin_ is a collection of methods in a _module_ that is _composed_ into a Ruby class via either `include` (for instance methods) or `extend` (for class methods). Ruby classes can by _dynamically extended_, meaning that, at any point after it is declared, a class can be re-opened and modified.
 
-Here's an example of extended a class directly. Let's copy this into a file and give it a try.
+Here's an example of extending a class directly. Let's copy this into a file and give it a try.
 
 ```ruby
 # mixins.rb
@@ -19,35 +19,50 @@ class String # <= wat?!? We can do this? We sure can!
 end
 ```
 
+Now call `$ "Hello Smiley World!".smiley_spaces`!
+
 Neat, right? Ruby treats all classes--whether provided by Ruby or us--as equal. They can be mixed, extended, modified, and reconstructed to our hearts' content. Dang, I really love Ruby.
 
 ### Our First Mixin
-Let's take this idea and crank it up to eleven. We can create a module and then `include` it in any class we like. The methods in that module then act like they were defined there, becoming available to all instances of the class. In this way, we have created code that can be reused by many classes. Here's a ridiculous example; let's put it in our sandbox and give it a spin in `irb`:
+Let's take this idea and crank it up to eleven. We can create a module and then `include` it in any class we like. The methods in that module then act like they were defined there, becoming available to all instances of the class. In this way, we have created code that can be reused by many classes. Here's an example; let's put it in our sandbox and give it a spin in `irb`:
 
 ```ruby
-# mixins.rb
-# below the code we wrote earlier, add:
-module AllSmiles
-  def to_smile
-    ":)" * length
+module Messageable
+  def receive_message
+    puts "incoming message..."
+    @inbox_count += 1
+  end
+
+  def open_message
+    puts "opening a message..."
+    @inbox_count -= 1
   end
 end
 
-class String
-  include AllSmiles
+class SMSInbox
+  include Messageable
+
+  def initialize
+    @inbox_count = 0
+  end
 end
 
-class Array
-  include AllSmiles
+class EmailInbox
+  include Messageable
+
+  def initialize
+    @inbox_count = 0
+  end
 end
 ```
 
-__Question: Could we `include AllSmiles` in class `Integer`? Why?__
+Here, we use mixin functionality by using `include` on a module (Messageable) within a class. When we `include` a module, all of the module's instance methods become available to that class.
+With this design decision, we are choosing to design classes so that they have an _acts-like_ relationship. An SMSInbox _acts-like_ it is messageable, as does an EmailInbox. Using an _acts-like_ relationship doesn't lock us down into a hierarchical relationship that inheritance/is-a relationship might.
 
 ## So what is `Enumerable`?
-`Enumerable` is a `module` that is _mixed in_ to both `Array` and `Hash` (and a couple other classes too, but those are the main ones). Like our _mixin_ above, it is dependent on the class providing a necessary method. For `AllSmiles`, we can only `include` it in classes that respond to the message `length`.
+`Enumerable` is a `module` that is _mixed in_ to both `Array` and `Hash` (and a couple other classes too, but those are the main ones). Like our _mixin_ above, it is dependent on the class providing a necessary method or member. For `Messageable`, we can only `include` it in classes that respond to the message `@inbox_count`.
 
-For `Enumerable`, that method is `each`. Every method provided by the _mix in_ leverages `each` to do really interesting and useful things with collections. If an object can be `each`ed, it can use `Enumerable`. Here's a run down of __some__ of the fun stuff in `Enumerable`:
+For `Enumerable`, that method is `each`. Every method provided by the _mix in_ leverages `each` to do really interesting and useful things with collections. If an object can be `each`ed, it can use `Enumerable`. Here's a run down of __some__ of the fun stuff that `Enumerable` provides:
 
 ### `map` & `collect`
 These do the same thing. The iterate the collection and return an array of the __results of the block evaluation__.
@@ -126,3 +141,6 @@ In a group of 4, you shall research each of these `Enumerable` methods. Prepare 
 - `group_by`
 - `zip`
 - `drop_while` & `take_while`
+
+## Additional Resources
+- For another interesting Mixin, look up [Comparable](https://ruby-doc.org/core-2.4.0/Comparable.html)
