@@ -13,7 +13,7 @@ You will likely only use a limited number of expressions during your time at Ada
 
 ## Regular Expression Basics
 
-Like String and Integer, a regular expression is a data type in Ruby, defining a pattern of characters.  
+Like `String` and `Integer`, a regular expression is a data type in Ruby, defining a pattern of characters.  
 
 You can form a Regex variable like this:
 
@@ -31,6 +31,7 @@ if pattern.match("ada lovelace")
   puts "The String has ada in it!"
 else
   puts "It doesn't match"
+end
 ```
 The above snippet will print out "The String has ada in it!"  Regular Expressions can also be compared using the `=~` operator.  For example:  `if pattern =~ 'ada'`.  However this patter will match, "I love ada." and "ada is the best peanuts character", and "ada".  However these patterns require the String have these exact characters.  What if you wanted to match either "Ada" or "ada."  To handle this we can use Character sets.
 
