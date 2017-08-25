@@ -115,6 +115,7 @@ A range of repetitions can also be repeated by using two parameters in the curly
 We can also construct groups of characters which can be combined with special characters using the parentheses.  For example `/(ada *)+/` would match one or more "ada" strings separated by 0 or more spaces.  So "ada ada", "ada", and "ada ada   ada" would all match.
 
 So `/a(ab)*a/` would match the strings:  "aaba", "aa", "aababa" because it requires an a followed by zero or more "ab" blocks and ending with an "a".
+![regex with capture groups](images/regex4.png)
 
 Similarly, `/\$(\d)+\.(\d){2}` would match us currency, like you were asked to deduce above requiring a dollar sign followed by one or more digits, followed by a period and ending with 2 digits.  
 
