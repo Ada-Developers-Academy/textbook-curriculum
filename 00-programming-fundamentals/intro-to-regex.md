@@ -48,7 +48,7 @@ A **character set**, also called a **character class** is a way to tell the rege
 You can also adjust the character set to accept a range of characters.  For example:  `/[A-Z]/`  will accept a single character in the range A to Z (must be capitalized), while `/[0-9]/` will accept a single digit.  If you wanted to accept any alphabetic characters you could use `/[A-Za-z]/`.
 
 
-**Question:** How could you match any alphanumeric digit?  [Click here to see a solution.](https://gist.github.com/CheezItMan/2d445458f7c25eee37f5fd5b212077f4)
+**Question:** How could you match any alphanumeric digit like "a", "W", or "0". [Click here to see a solution.](https://gist.github.com/CheezItMan/2d445458f7c25eee37f5fd5b212077f4)
 
 
 ## The Wildcard and Special Characters
