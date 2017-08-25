@@ -128,3 +128,4 @@ See if you can write a regular expression for these patterns:
 -  [Regex in Wikipedia](https://en.wikipedia.org/wiki/Regular_expression)
 -  [Regular Expressions in rubylearning.com](http://rubylearning.com/satishtalim/ruby_regular_expressions.html)
 -  [Regexpal](http://regexpal.com.s3-website-us-east-1.amazonaws.com/?_ga=2.249565263.813004562.1495485737-848749570.1493938714) - A useful tool for composing Regular Expressions
+- [Regexper](https://regexper.com/) - a fantastic tool to generate a visual diagram of a regular expression. 
