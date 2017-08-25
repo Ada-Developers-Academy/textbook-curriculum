@@ -126,11 +126,16 @@ Write a regular expression for these patterns:
 
 ## Conclusion
 
-Regex is a powerful topic that works in almost all languages.  The same syntax, sometimes with minimal changes can work in JavaScript, Ruby, Python and more.  Because Regex is almost universal there are a **lot** of tools available to compose them and a variety of pre-made Regular Expressions.  
+Regex is a powerful topic that works in almost all languages.  The same syntax, sometimes with minimal changes can work in JavaScript, Ruby, Python and more.  Because Regex is almost universal there are a **lot** of tools available to compose them and a variety of pre-made Regular Expressions.  Some tools are listed below.  You can also find lots of sample Regular Expressions, but it's important to know how to read them, so you can verify a sample regular expression performs as advertised and so you can tweak existing regular expressions to meet your needs.  
 
 ### Regex Tools
 
-There a number of tools you can
+There a number of tools you can use to compose regular expressions.
+
+-  [Regexpal](http://regexpal.com.s3-website-us-east-1.amazonaws.com/?_ga=2.249565263.813004562.1495485737-848749570.1493938714) - A useful tool for composing Regular Expressions
+- [Rubular](http://rubular.com/) - similar to Regexpal, a site you can use to compose a regular expression with a handy reference table on the page.
+- [Regexper](https://regexper.com/) - a fantastic tool to generate a visual diagram of a regular expression.
+
 
 ## List of Regex Special Characters
 
@@ -156,5 +161,3 @@ There a number of tools you can
 ## Resources
 -  [Regex in Wikipedia](https://en.wikipedia.org/wiki/Regular_expression)
 -  [Regular Expressions in rubylearning.com](http://rubylearning.com/satishtalim/ruby_regular_expressions.html)
--  [Regexpal](http://regexpal.com.s3-website-us-east-1.amazonaws.com/?_ga=2.249565263.813004562.1495485737-848749570.1493938714) - A useful tool for composing Regular Expressions
-- [Regexper](https://regexper.com/) - a fantastic tool to generate a visual diagram of a regular expression.
