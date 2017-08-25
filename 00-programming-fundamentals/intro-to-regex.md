@@ -7,7 +7,7 @@ Be able to answer the following questions:
 
 ## Introduction  
 
-Regular expressions are a great tool for working with text. Using regular expressions (AKA Regex) you can identify and process patterns of text. Many people find regular expressions difficult to understand and use, but they can make a variety of tasks much easier, like validating that a phone number or zip code is in the right format.
+Regular expressions are a great tool for working with text. Using regular expressions (AKA Regex) you can **identify and process patterns** of text. Many people find regular expressions difficult to understand and use, but they can make a variety of tasks much easier, like validating that a phone number or zip code is in the right format.
 
 You will likely only use a limited number of expressions during your time at Ada, but understanding Regex can simplify your code, and Regex is useful across multiple languages.
 
@@ -113,7 +113,7 @@ See if you can write a regular expression for these patterns:
 |   ^	|   Caret	|   The caret is the start of line anchor or the negate symbol.  Example: "^a" matches "a" at the start of a line.  Example: "[^0-9]" matches any non digit.	|
 |   $	|   Dollar	|   $ the dollar is the end of line anchor.	|
 |   {}	|   Curly Braces	|   { } the open and close curly bracket are used as range quantifiers.	|
-|   []	|   Square Brackets	|    Open and close square bracket define a character class to match a single character.	|
+|   []	|   Square Brackets	|    Open and close square bracket define a character class to match a single token inside the brackets.	|
 |   ()	|   Parentheses 	|   The open and close parenthesis are used for grouping characters	|
 |   .	|   Dot	|   the dot matches any character except the newline.	|
 |   *	|   Star	|   The star is the match-zero-or-more quantifier.	|
