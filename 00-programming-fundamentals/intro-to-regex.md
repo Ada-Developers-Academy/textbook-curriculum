@@ -33,7 +33,13 @@ else
   puts "It doesn't match"
 end
 ```
-The above snippet will print out "The String has ada in it!"  Regular Expressions can also be compared using the `=~` operator.  For example:  `if pattern =~ 'ada'`.  However this patter will match, "I love ada." and "ada is the best peanuts character", and "ada".  However these patterns require the String have these exact characters.  What if you wanted to match either "Ada" or "ada."  To handle this we can use Character sets.
+The above snippet will print out "The String has ada in it!"  
+
+Regular Expressions can also be compared using the `=~` operator.  The `=~` operator returns the index of the first match in the string  For example:  `pattern =~ 'ada'` will return 0, while `pattern =~ "learn at ada academy."` will return 9.
+
+Both `match` and `=~` will return a truthy result if any substring matches the pattern.  That's an important issue to remember.  If you want to match a pattern exactly, the regular expression needs to be more specific using special characters to indicate the start and end of the string.  
+
+On the other hand what if you wanted to match either "Ada" or "ada."  To handle both lower and upper case "Ada," we need to provide our pattern options to match against.  To provide a list of possible characters we can use Character sets.
 
 ## Character Sets
 
