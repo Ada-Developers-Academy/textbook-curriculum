@@ -5,10 +5,13 @@
 - Learn about the _module_ `Enumerable`
 - Discover some really, really useful methods provided by `Enumerable`
 
+## Purpose
+Ruby provides a really neat module called `Enumerable`. It contains a set of extremely useful methods that you can use on collections like Arrays and Hashes. To gain a bit of understanding of what `Enumerable` is doing for us, we are going to dive into how Ruby allows you to use **modules** to make **mixins**.
+
 ## Using _modules_ to make _mixins_
 A _mixin_ is a collection of methods in a _module_ that is _composed_ into a Ruby class via either `include` (for instance methods) or `extend` (for class methods). Ruby classes can by _dynamically extended_, meaning that, at any point after it is declared, a class can be re-opened and modified.
 
-Here's an example of extended a class directly. Let's copy this into a file and give it a try.
+Here's an example of extending a class directly. Let's copy this into a file and give it a try.
 
 ```ruby
 # mixins.rb
@@ -19,7 +22,7 @@ class String # <= wat?!? We can do this? We sure can!
 end
 ```
 
-Neat, right? Ruby treats all classes--whether provided by Ruby or us--as equal. They can be mixed, extended, modified, and reconstructed to our hearts' content. Dang, I really love Ruby.
+Neat, right? Ruby treats all classes--whether provided by Ruby or us--as equal. They can be mixed, extended, modified, and reconstructed to our hearts' content. Dang, don't you love Ruby??
 
 ### Our First Mixin
 Let's take this idea and crank it up to eleven. We can create a module and then `include` it in any class we like. The methods in that module then act like they were defined there, becoming available to all instances of the class. In this way, we have created code that can be reused by many classes. Here's a ridiculous example; let's put it in our sandbox and give it a spin in `irb`:
@@ -96,9 +99,9 @@ numbers.min
 If the values are not directly comparable, the `min_by` and `max_by` do similar work but take a block in which you can derive the values to compare:
 
 ```ruby
-# getting the account with the least and the most money
-least = Bank::Account.all.min_by { |account| account.balance }
-most  = Bank::Account.all.max_by { |account| account.balance }
+# getting the grocery order with min and max totals
+least = GroceryStore::Order.all.min_by { |order| order.total }
+most = GroceryStore::Order.all.max_by { |order| order.total }
 ```
 
 ### `select` & `reject`
@@ -113,10 +116,10 @@ Use these methods to filter collections by a conditional evaluation. `select` wi
 ```
 
 ## There's so much more to discover
-`Enumerable` is one of the most exciting things about Ruby. It is immensely useful. With it, we can write expressive, highly semantic code that is also concise. Spend some time with the [Enumerable docs](http://ruby-doc.org/core-2.4.0/Enumerable.html). Good knowledge in here will serve you in every application you build, and not just with Ruby. The methods contained in `Enumerable` describe ideas and patterns you'll find in every programming discipline.
+`Enumerable` is one of the most exciting things about Ruby. It is immensely useful. With it, we can write expressive, highly semantic code that is also concise. Spend some time with the [Enumerable docs](http://ruby-doc.org/core/Enumerable.html). Good knowledge in here will serve you in every application you build, and not just with Ruby. The methods contained in `Enumerable` describe ideas and patterns you'll find in every programming discipline.
 
 ## Activity: Refactor Loops
-Let's take what we just learned about `Enumerable` and apply that to the [Loop Problem Practice](https://github.com/AdaGold/standalone-exercises/blob/master/loop-problem-practice.md) that we did previously. Work with your seat squad to refactor each problem to use one of these `Enumerable` methods we just learned about.
+Let's take what we just learned about `Enumerable` and apply that to the [Loop Problem Practice](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/02-intermediate-ruby/exercises/loop-practice.md) that we did previously. Work with your seat squad to refactor each problem to use one of these `Enumerable` methods we just learned about.
 
 ## Activity: Divide & Conquer Enumerable
 In a group of 4, you shall research each of these `Enumerable` methods. Prepare a short (<5 minute) demonstration to present to the group.

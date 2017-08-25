@@ -1,4 +1,4 @@
-# More Enumberable: Hashes
+# More Enumerable: Hashes
 ## Learning Goals
 - Discover how Enumerable functions when enumerating a Hash object
 - Practice expressing object relationships with Enumerable methods.
@@ -6,7 +6,7 @@
 ## Enumerable is _mixed in_ to Hash
 As long as a class implements the `each` method, it can _mix in_ Enumerable. In human terms, this means that if an object type consists of a collection, and each item in that collection is distinct, then it can be enumerated (counted, differentiated, separated, etc.). But how does a Hash, which is explicitly not ordered, implement `each`?
 
-By converting the key:value pairs into an array! We can access the key and value data by _destructuring_ the array in the block. Here's an example:
+By converting the key:value pairs into an array! We can access the key and value data by _de-structuring_ the array in the block. Here's an example:
 
 ```ruby
 h = {
@@ -28,7 +28,7 @@ The key is elephant and the value is hotdog.
 ```
 
 ### Hash Practice
-With your seat squad, go to your class exercises location and create a file called `enum-hash.rb`. Open it in your editor and add this code:
+With your seat squad, create a file called `enum-hash.rb`. Open it in your editor and add this code:
 
 ```ruby
 # enum-hash.rb
@@ -38,13 +38,12 @@ scores = {
   raquel: [15, 54, 23, 22, 57],
   rosa:   [5, 3, 7, 77, 34]
 }
-
-# Who has the single highest score (and what is that score)?
-
-# Who has the highest *average* score (and what is that average)?
-# Average is the sum of scores divided by the number of scores
-
-# Who has the biggest difference between their highest and lowest score (and what is that difference)?
 ```
 
-Use Enumerable methods to answer the three questions posed in the comments. After we've had some time to explore, we'll review solutions as a class.
+Use Enumerable methods to answer the questions below. After we've had some time to explore, we'll review solutions as a class.
+
+**Questions**
+1. Who has the single highest score (and what is that score)?
+1. Who has the highest *average* score (and what is that average)?
+  - Average is the sum of scores divided by the number of scores
+1. Who has the biggest difference between their highest and lowest score (and what is that difference)?

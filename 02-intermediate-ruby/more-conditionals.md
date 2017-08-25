@@ -9,7 +9,7 @@ In our discussion precedence, we talked about the _unary_ operators (`+` and `-`
 
 So if a _unary_ operator operates (hehe) on a single value, and a _binary_ operator operates on a pair of values, what would a _ternary_ operator do? It'd operate on three values!
 
-The _ternary operator_ in Ruby doesn't do arithmatic. Instead, it performs logical operations, very similar to what we've done with `if else` blocks already. _Ternary operations_ have three parts: 1) a comparison, 2) a positive results, and 3) a negative result. The syntax is `comparison ? positive result : negative result`. If the comparison is `true`, then the positive result code is executed. If the comparison is `false`, then the negative result code is executed. Here's an example:
+The _ternary operator_ in Ruby doesn't do arithmetic. Instead, it performs logical operations, very similar to what we've done with `if else` blocks already. _Ternary operations_ have three parts: 1) a comparison, 2) a positive results, and 3) a negative result. The syntax is `comparison ? positive result : negative result`. If the comparison is `true`, then the positive result code is executed. If the comparison is `false`, then the negative result code is executed. Here's an example:
 
 ```ruby
 # how we've done it so far
@@ -91,7 +91,7 @@ x -= 10 # => 50, same as x = x - 10
 x *= 2  # => 100, same as x = x * 2
 x /= 20 # => 5, same as x = x / 5
 
-puts x #=> 5 
+puts x #=> 5
 ```
 
 ### Logical Compound Operators
@@ -136,3 +136,15 @@ existing_value = "elephant"
 existing_value &&= nil
 existing_value.inspect #=> "nil"
 ```
+
+Both of these logical compound operators are not used terribly often in our Ruby code. The `||=` can be very powerful within Rails so we will definitely see it again later.
+
+## What Have We Accomplished?
+- Using the ternary operator to clean up more simplistic condition statements
+- Using a single-line conditional when we don't need an `else` or `elsif`
+- Identifying what a compound operator is and what they accomplish
+
+
+## Additional Resources
+- [Ternary Examples](https://alvinalexander.com/blog/post/ruby/examples-ruby-ternary-operator-true-false-syntax)
+- [Variable Assignment: Compound](https://en.wikibooks.org/wiki/Ruby_Programming/Syntax/Operators#Assignment  )
