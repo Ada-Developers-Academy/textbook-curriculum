@@ -74,6 +74,7 @@ Examples:
 
 There are lots of characters that have special meanings in a Regex (such as the + or * characters).  Just like Strings you can use the backslash character to select the exact character in the text.  It can also be used as a shortcut for common classes of characters.
 
+
 Some examples include:
 
 | Escape Character |  |  
@@ -83,7 +84,7 @@ Some examples include:
 | \S  |  Any non-whitespace character |
 | \d  |  Any digit |
 | \D  |  Any non-digit |
-| \\., \\+, \\*  | The literal character following the backslash  |
+| \\., \\+, \\*  | The literal character following the backslash, for example \\ searches the String for a backslash, while \. looks for a period.  |
 
 Practical Example:
 
