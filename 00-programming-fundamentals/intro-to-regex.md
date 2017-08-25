@@ -85,6 +85,12 @@ Some examples include:
 | \D  |  Any non-digit |
 | \\., \\+, \\*  | The literal character following the backslash  |
 
+Practical Example:
+
+-  If we wanted a Regex to validate a US phone number in the format (ddd) ddd-dddd.
+  -  `/\(\d\d\d\) \d\d\d\-\d\d\d\d/`
+  - This regular expression takes 3 digits inside parentheses followed by a space, then three digits a dash and then 4 digits.  We will see how to simplify this a bit later.
+
 **Practice:** Try to write a regex for any amount of US currency, for example it should match `$3.25`, `$102.73`, and `$0.25`.  You can see an answer [here](https://gist.github.com/CheezItMan/09f422c21e5c30ac69cc6d64bb16c3a0).
 
 ## Repetitions
