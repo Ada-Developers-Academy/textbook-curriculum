@@ -53,7 +53,7 @@ You can also adjust the character set to accept a range of characters.  For exam
 
 ## The Wildcard and Special Characters
 
-Sometimes you will want to accept any character.  For that purpose you can use the wildcard character the period (.).  For example the regex `/ada./` will match ada followed by any single character.  Another common need is for characters that can repeat.  For this there are several helpful symbols to use.  These special characters indicate how often a pattern can appear in matching strings.  The plus (+) symbol indicates one or more instances, while the asterix (*) indicates zero or more instances and the question mark (?) indicates a token is optional in that it might appear once or not at all.
+Sometimes you will want to accept any character.  For that purpose you can use the wildcard character the period (.).  For example the regex `/ada./` will match ada followed by any single character.  Another common need is for characters that can repeat.  For this there are several helpful symbols to use.  These special characters indicate how often a pattern can appear in matching strings.  The plus (+) symbol indicates one or more instances, while the asterix (*) indicates zero or more instances and the question mark (?) indicates a the item before it, called the token, is optional in that it might appear once or not at all.
 
 | Special Character | Meaning |
 | --- | --- |
