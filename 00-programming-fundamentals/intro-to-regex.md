@@ -48,7 +48,9 @@ A **character set**, also called a **character class** is a way to tell the rege
 You can also adjust the character set to accept a range of characters.  For example:  `/[A-Z]/`  will accept a single character in the range A to Z (must be capitalized), while `/[0-9]/` will accept a single digit.  If you wanted to accept any alphabetic characters you could use `/[A-Za-z]/`.
 
 
-**Question:** How could you match any alphanumeric digit like "a", "W", or "0". [Click here to see a solution.](https://gist.github.com/CheezItMan/2d445458f7c25eee37f5fd5b212077f4)
+### Practice
+
+How could you match any alphanumeric digit like "a", "W", or "0"? [Click here to see a solution.](https://gist.github.com/CheezItMan/2d445458f7c25eee37f5fd5b212077f4)
 
 
 ## The Wildcard and Special Characters
@@ -92,7 +94,9 @@ Practical Example:
   -  `/\(\d\d\d\) \d\d\d\-\d\d\d\d/`
   - This regular expression takes 3 digits inside parentheses followed by a space, then three digits a dash and then 4 digits.  We will see how to simplify this a bit later.
 
-**Practice:** Try to write a regex for any amount of US currency, for example it should match `$3.25`, `$102.73`, and `$0.25`.  You can see an answer [here](https://gist.github.com/CheezItMan/09f422c21e5c30ac69cc6d64bb16c3a0).
+### Practice
+
+Try to write a regex for any amount of US currency, for example it should match `$3.25`, `$102.73`, and `$0.25`.  You can see an answer [here](https://gist.github.com/CheezItMan/09f422c21e5c30ac69cc6d64bb16c3a0).
 
 ## Repetitions
 
@@ -102,7 +106,7 @@ A range of repetitions can also be repeated by using two parameters in the curly
 
 ## Capture Groups
 
-We can also construct groups of characters which can be combined with special characters using the parentheses.  For example `/(ada *)+/` would match one or more "ada" lines separated by 0 or more spaces.  So "ada ada", "ada", and "ada ada   ada" would all match.
+We can also construct groups of characters which can be combined with special characters using the parentheses.  For example `/(ada *)+/` would match one or more "ada" strings separated by 0 or more spaces.  So "ada ada", "ada", and "ada ada   ada" would all match.
 
 So `/a(ab)*a/` would match the strings:  "aaba", "aa", "aababa" because it requires an a followed by zero or more "ab" blocks and ending with an "a".
 
