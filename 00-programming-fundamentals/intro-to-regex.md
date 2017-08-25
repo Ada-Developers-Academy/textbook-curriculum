@@ -47,6 +47,7 @@ A **character set**, also called a **character class** is a way to tell the rege
 
 You can also adjust the character set to accept a range of characters.  For example:  `/[A-Z]/`  will accept a single character in the range A to Z (must be capitalized), while `/[0-9]/` will accept a single digit.  If you wanted to accept any alphabetic characters you could use `/[A-Za-z]/`.
 
+![/[A-Aa-z]/](images/regex1.png)
 
 ### Practice
 
@@ -72,6 +73,9 @@ Examples:
 -  `/[A-Z]*/` - Matches zero or more capital letters.
 -  `/[a-z_][A-Za-z0-9]*/`  - Matches a lower case letter or underscore followed by zero or more alphanumeric characters.  
 
+![regex diagram](images/regex2.png)
+
+
 ## Escape characters
 
 There are lots of characters that have special meanings in a Regex (such as the + or * characters).  Just like Strings you can use the backslash character to select the exact character in the text.  It can also be used as a shortcut for common classes of characters.
@@ -92,6 +96,8 @@ Practical Example:
 
 -  If we wanted a Regex to validate a US phone number in the format (ddd) ddd-dddd.
   -  `/\(\d\d\d\) \d\d\d\-\d\d\d\d/`
+
+![phone number](images/regex3.png)
   - This regular expression takes 3 digits inside parentheses followed by a space, then three digits a dash and then 4 digits.  We will see how to simplify this a bit later.
 
 ### Practice
