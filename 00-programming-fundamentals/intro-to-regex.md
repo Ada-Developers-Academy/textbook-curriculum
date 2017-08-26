@@ -79,6 +79,17 @@ Examples:
 
 ![regex diagram](images/regex2.png)
 
+## The NOT `^` Character
+
+Sometimes you want to exclude a certain group of characters, or sometimes it's easier to exclude a type of character rather than list all the valid possibilities.  In that case you need the `^` character and the square brackets.  
+
+For example:  `/[^abc]/` excludes all characters except a, b and c.
+
+Another example would be `/[^0-9]/` which would exclude any digit or `/Ada is number [^2-9^a-z^A-Z^0]` which would exclude any letter or digit, except `1`.
+
+### Practice
+
+How can you write a regex which would accept, `dog`, `sog`, and `hog`, but exclude `bog`?  Click [here](https://gist.github.com/CheezItMan/f06518f248df19b44febd1871a95fd92) to see one answer.
 
 ## Escape characters
 
