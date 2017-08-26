@@ -100,12 +100,12 @@ Some examples include:
 
 | Escape Character |  |  
 | --- | --- |
-| \n  |  newline character |
-| \s  |  Any whitespace character (space, tab, newline) |
-| \S  |  Any non-whitespace character |
-| \d  |  Any digit |
-| \D  |  Any non-digit |
-| \\., \\+, \\*  | The literal character following the backslash, for example \\ searches the String for a backslash, while \. looks for a period.  |
+| `\n`  |  newline character |
+| `\s`  |  Any whitespace character (space, tab, newline) |
+| `\S`  |  Any non-whitespace character |
+| `\d`  |  Any digit |
+| `\D`  |  Any non-digit |
+| `\\.`, `\\+`, `\\*`  | The literal character following the backslash, for example `\\` searches the String for a backslash, while `\.` looks for a period.  |
 
 Practical Example:
 
