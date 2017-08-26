@@ -125,6 +125,8 @@ The * and + characters allow a token to be repeated, but often, such as for a zi
 
 A range of repetitions can also be repeated by using two parameters in the curly braces.  For example `/[abc]{3, 5}/` would allow the characters to repeat between 3 and 5 times.
 
+An example using repetitions in our phone number example would include:  `/\(\d{3}\) \d{3}\-\d{4}/`
+
 ## Capture Groups
 
 We can also construct groups of characters which can be combined with special characters using the parentheses.  For example `/(ada *)+/` would match one or more "ada" strings separated by 0 or more spaces.  So "ada ada", "ada", and "ada ada   ada" would all match.
@@ -166,6 +168,8 @@ There a number of tools you can use to compose regular expressions.
 |   \	|   Backslash	|   The backslash gives special meaning to the character following it. For example, the combination "\n" stands for the newline, one of the control characters. 	|
 |   ^	|   Caret	|   The caret is the start of line anchor or the negate symbol.  Example: "^a" matches "a" at the start of a line.  Example: "[^0-9]" matches any non digit.	|
 |   $	|   Dollar	|   $ the dollar is the end of line anchor.	|
+|   \A	|   Beginning of String	|   \A indicates the beginning of the String, not the beginning of a line.	|
+|   \Z	|   End of String	|   \Z matches the end of the String, not line.	|
 |   {}	|   Curly Braces	|   { } the open and close curly bracket are used as range quantifiers.	|
 |   []	|   Square Brackets	|    Open and close square bracket define a character class to match a single token inside the brackets.	|
 |   ()	|   Parentheses 	|   The open and close parenthesis are used for grouping characters	|
