@@ -141,7 +141,7 @@ Similarly, `/\$(\d)+\.(\d){2}` would match us currency, like you were asked to d
 Write a regular expression for these patterns:
 
 1. A 5 digit number
-1. An IP address like 127.0.0.1, or 206.190.36.45
+1. An IP address like 127.0.0.1, or 206.190.36.45, Only worry about the numbers being a max of 3 digits.
 
 [Sample Solutions](https://gist.github.com/CheezItMan/54e39aa4a355aa5a24bb281d5d360121)
 
