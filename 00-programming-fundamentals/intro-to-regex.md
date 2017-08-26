@@ -23,7 +23,7 @@ pattern = /ada/
 
 `/ada/` is a RegEx literal representing a pattern matching any String with the letters "ada" inside it.  The two forward slashes indicate a regular expression, or a pattern of text.   Anything put between the slashes forms the pattern of text we can match strings against.  
 
-You can think of it like a String, but instead of specifying a specific list of characters by enclosing  them with quotes (""), instead it defines a **pattern** of characters by enclosing them with forward slashes.
+You can think of it like a String, but instead of specifying a specific list of characters by enclosing  them with quotes (""), instead it defines a **pattern** of characters by enclosing  them with forward slashes.
 
 You can test a String against the regular expression with the Regex's `match` method.  The `match` method compares the string to the pattern, character-by-character and will return a `MatchData` object upon a match and `nil` if the String does not match the pattern.  It's important to note that `match` will return a `MatchData` object if any substring matches the pattern, not necessarily the entire String.
 
@@ -65,9 +65,9 @@ Sometimes you will want to accept any character.  For that purpose you can use t
 | Special Character | Meaning |
 | --- | --- |
 |  .  |  Matches any character |
-|  *  |  Matches if the preceeding token occurs zero or more times.  For example `/[0-9]*/` matches zero or more digits so "",  "123", and "5" would match. |  
-|  +  |  Matches if the preceeding token occurs one or more times.  For example `/[0-9]+/` matches one or more digits so both "1" and "345" would match.  |
-|  ?  |  Marks the preceeding token optional.  So `/example[0-9]?/` matches "example" followed by one or no digits, thus "example", "example1" and "example13" all match.  |
+|  *  |  Matches if the preceeding token occurs zero or more times.  For example `/[0-9]*/` matches zero or more digits so `""`,  `"123"`, and `"5"` would match. |  
+|  +  |  Matches if the preceeding token occurs one or more times.  For example `/[0-9]+/` matches one or more digits so both `"1"` and `"345"` would match.  |
+|  ?  |  Marks the preceeding token optional.  So `/example[0-9]?/` matches `"example"` followed by one or no digits, thus `"example"`, `"example1"` and `"example13"` all match.  |
 
 
 Examples:  
