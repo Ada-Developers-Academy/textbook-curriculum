@@ -45,5 +45,5 @@ Use Enumerable methods to answer the questions below. After we've had some time 
 **Questions**
 1. Who has the single highest score (and what is that score)?
 1. Who has the highest *average* score (and what is that average)?
-  - Average is the sum of scores divided by the number of scores
+    - Average is the sum of scores divided by the number of scores
 1. Who has the biggest difference between their highest and lowest score (and what is that difference)?
