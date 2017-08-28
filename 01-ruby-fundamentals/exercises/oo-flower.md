@@ -38,7 +38,7 @@ You are assigned the task of creating a program that tracks flowers for a floral
 Your code does not have to match these tests exactly. This is only an example of what some of your tests might look like.
 
 ```ruby
-Rose = Flower.new({
+rose = Flower.new({
   name: "rose",
   size: "medium",
   color: "red",
