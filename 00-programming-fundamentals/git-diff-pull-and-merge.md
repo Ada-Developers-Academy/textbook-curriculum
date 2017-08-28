@@ -124,7 +124,7 @@ We've talked about using `git push` to send local changes to GitHub, but when us
 To demonstrate `git pull`, we've provided a repository to work with. Follow these instructions to get started:
 
 1. Find a partner
-1. **One** partner should fork [this repository](https://github.com/Ada-C7/git-pull-activity).
+1. **One** partner should fork [this repository](https://github.com/Ada-C8/git-pull-activity).
 1. Whoever forked the repo should add the other partner as a collaborator.
 1. **Both** partners should clone the forked repo.
 1. **Both** partners should open `pull_practice.rb` in Atom.
