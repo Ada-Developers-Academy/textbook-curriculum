@@ -17,27 +17,27 @@
 ### Algorithm Efficiency
 An _efficient algorithm_ is one that runs as fast as possible and requires as little computer memory as possible. You often have to settle for a trade-off between these two goals, compromising memory to make things faster, or speed to use less memory.
 
-There are three ways of expressing performance: Best-case, worst-case and average case.
+We consider performance of an algorithm in three different scenarios: Best-case, worst-case and average case.
 
-Consider the task of performing a sequential search on some sort of list, i.e. an array. Best-case would be that your target value was found in the first element. Worst-case would be that the value was not there at all (so all elements would have to be compared and tested, including the last). Average-case would be mid-way between the two.
+Consider the task of performing a sequential search on some sort of list, i.e. an array. Best-case would be that your target value was found in the first element. Worst-case would be that the value was not there at all (so all elements would have to be compared and tested, including the last). Average-case would be mid-way between the two, and still dependent on the length of the list.
 
 *In Computer Science, we care about worst case and average case, and represent these using asymptotic notation which we call Big-O.*
 
 ### Order Breakdown
-- *O(1)* is the no-growth curve. An O(1) algorithm's performance is conceptually independent of the size of the data set on which it operates. Array element access using index is O(1).
-- *O(log N)* means that the data set size does affect the efficiency of the algorithm, but only in a logarithmic fashion. The key thing to note is that log (base 2) N grows slowly. Doubling N has a relatively small effect. Logarithmic curves flatten out nicely.
-- *O(N)* says that the algorithm's performance is directly proportional to the size of the data set being processed. Scanning an array takes O(N) time.
-- *O(N^2)* says that the algorithm's performance is proportional to the square of the data set size. This happens when the algorithm processes each element of a set, and that processing requires another pass through the set. We'll see this when we look at some sorting algorithms in the future.
+- *O(1)* is the no-growth curve. An *O(1)* algorithm's performance is conceptually independent of the size of the data set on which it operates. Such an algorithm is said to have *constant* time complexity. Array element access using index is O(1).
+- *O(log n)* means that the data set size affects the efficiency of the algorithm in a *logarithmic* fashion. The key thing to note is that *log (base 2) n* grows slowly. Doubling *n* has a relatively small effect. Logarithmic curves flatten out nicely.
+- *O(n)* says that the algorithm's performance is directly proportional to the size of the data set being processed. Such an algorithm is said to have *linear* time complexity. Scanning an array takes *O(n)* time.
+- *O(n^2)* says that the algorithm's performance is proportional to the square of the data set size. This happens when the algorithm processes each element of a set, and for each element processing, another pass through all the remaining elements in the set is required. Such an algorithm is said to have *quadratic* time complexity. We'll see this when we look at some sorting algorithms in future lessons.
 
 ### Nuances
-- Usually when an algorithm's growth rate is a mix of orders, the dominant order is shown, and the rest are dropped. O(N^2 + N) would be shortened to O(N^2).
-- Likewise, constants are dropped. Constants only shift our graph slightly, but do not affect the overall look of the graph by much. O(2N) is shortened to O(N). O(1⁄2 N) is shortened to O(N).
+- Usually when an algorithm's growth rate is a mix of orders, the dominant order is shown, and the rest are dropped. *O(n^2) + O(n)* or *O(n^2 + n)* would be shortened to *O(n^2)*.
+- Likewise, constants are dropped. Constants only shift our graph slightly, but do not affect the overall look of the graph by much. *O(2n)* is shortened to *O(n)*. *O(1⁄2 n)* is shortened to *O(n)*.
 
 ### Complexity Analogy
-Consider the a physical phone book as an example to illustrate Big O notation for algorithm complexity. Let's take a look at some of the use cases related to phone book:
+Consider a physical phone book as an example to illustrate Big O notation for algorithm complexity. Let's take a look at some of the use cases related to phone book:
 - *O(1)* – Find a random person’s phone number by flipping open any page in the phone book.
 - *O(log n)* – Given a person’s name, find the corresponding phone number (This is a binary search for a person’s phone number).
-- *O(n)* – Find all people whose phone numbers contain the digit “5″.
+- *O(n)* – Find all people whose phone numbers contain the digit "5".
 - *O(n log n)* – Sort a phone book’s pages by looking at the first name on each page. We'll look at such a sort algorithm in a future lesson.
 
 ## Essential Reading
