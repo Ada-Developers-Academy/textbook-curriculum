@@ -43,7 +43,6 @@ Consider the a physical phone book as an example to illustrate Big O notation fo
 ## Essential Reading
 Here's some good follow up reading after we meet in class:
   + [Big O notation and complexity in Ruby](https://devblast.com/b/big-o-notation-complexity-ruby) by DevBlast
-  + 
 
 ## Exercises
 Here's the exercises we'll cover in class.
@@ -60,7 +59,7 @@ Given an array data structure holding integer values, device an algorithm for th
 Assignments are expected to be worked on after the class discussion and due before the next class.
 1. Fork, clone and complete the methods in using_restricted_array.rb on [Ada-C8/Restricted-Arrays-Part1](https://github.com/Ada-C8/Restricted-Arrays-Part1). See the readme file for details. Submit your PR after testing your code.
 2. Work through [this quiz](http://www.codequizzes.com/computer-science/beginner/big-o-algorithms) on Big O. Try out the code snippets and read the answers.
-3. Watch this [Video: On Asymptotic Notation by Khan Academy](https://www.khanacademy.org/computing/computer-science/algorithms#asymptotic-notation) and solve this quiz(https://www.khanacademy.org/computing/computer-science/algorithms/asymptotic-notation/e/quiz--comparing-function-growth)
+3. Watch this [Video: On Asymptotic Notation](https://www.khanacademy.org/computing/computer-science/algorithms#asymptotic-notation) by Khan Academy and solve this [quiz](https://www.khanacademy.org/computing/computer-science/algorithms/asymptotic-notation/e/quiz--comparing-function-growth)
 
 ## Additional Resources:
 Videos and additional reading material for furthering your learning for curiosity on topics related to what we covered in class:
@@ -68,7 +67,5 @@ Videos and additional reading material for furthering your learning for curiosit
 
 ## Slide Deck
 + Slide Deck used in class</br>
-<!--
 <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://www.slideshare.net/secret/tu4YwrsP1v9Pu5">Array data structure and Introduction to Efficiency of Algorithms</a></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</br>
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /> Please use the <strong>Download</strong> button and play the slide show locally (PowerPoint works best). Without this, the animations which are necessary in understanding the solutions will not render properly.
--->
