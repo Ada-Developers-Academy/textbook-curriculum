@@ -21,3 +21,4 @@
 
 ### Other
 1. [Semantics: Best Practices](semantics-best-practices.md)
+1. [Alt Text](alt-text.md)
