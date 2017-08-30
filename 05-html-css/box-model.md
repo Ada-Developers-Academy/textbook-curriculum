@@ -12,7 +12,7 @@
 
 ## What is the Box Model
 
-** Every element on a page is a rectangular box. **
+**Every element on a page is a rectangular box.**
 
 In a document, each element is represented as a rectangular box. Understanding the structure of an elements box is essential in setting it's size and the position.
 
