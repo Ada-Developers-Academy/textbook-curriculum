@@ -18,3 +18,6 @@
 1. [Display](layout-display.md)
 1. [Floats](layout-floats.md)
 1. [Positioning](layout-positioning.md)
+
+### Other
+1. [Semantics: Best Practices](semantics-best-practices.md)

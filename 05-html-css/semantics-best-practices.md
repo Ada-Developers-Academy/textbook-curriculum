@@ -16,7 +16,7 @@ Web accessibility is quickly garnering awareness among developers, many of whom 
 
 However. Approximately 20% of Americans have a disability that could affect their ability to access many websites, and an accessible site benefits everyone.
 
-Accessiblity encompasses, but is not limited to:
+Accessibility encompasses, but is not limited to:
 - Low sight, blind, and color blind people
 - Deaf and hard of hearing people
 - Users with impaired motor skills
