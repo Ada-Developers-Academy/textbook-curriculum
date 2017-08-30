@@ -114,3 +114,4 @@ This is a strange quirk of HTML/CSS - the whitespace between the two articles ta
 
 ### Additional Resources
 - [All About Floats](https://css-tricks.com/all-about-floats/)
+- [Float Theory: Things you should know](https://www.smashingmagazine.com/2007/05/css-float-theory-things-you-should-know/)
