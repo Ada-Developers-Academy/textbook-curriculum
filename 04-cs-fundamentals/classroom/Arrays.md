@@ -63,7 +63,8 @@ Assignments are expected to be worked on after the class discussion and due befo
 
 ## Additional Resources:
 Videos and additional reading material for furthering your learning for curiosity on topics related to what we covered in class:
-   + [Binary Search by Khan Academy](https://www.khanacademy.org/computing/computer-science/algorithms#binary-search)
+   + [Big O notation, time and space complexity](https://www.interviewcake.com/article/python/big-o-notation-time-and-space-complexity?) by interview cake
+   + [Binary Search](https://www.khanacademy.org/computing/computer-science/algorithms#binary-search) by Khan Academy
 
 ## Slide Deck
 + Slide Deck used in class</br>
