@@ -27,18 +27,18 @@ After you add it, click on the extension's icon (it looks like a gear). A box wi
 Every part of a website's content is 'wrapped' by its own HTML element. Elements consist of an opening tag where the tag name is defined between the '<' and '>' symbols. The opening tag needs to be paired with a closing tag so the browser knows when to stop the formatting for that element. The closing tag will be the same as the opening but with a forward slash. Example:
 
 ```html
-<tag> Content </tag>
+<tag>Content</tag>
 ```
 Here is a real-life example of a heading for my social media site for cats. It is wrapped with an h1 header element:
 ```html
-<h1> Meowspace </h1>
+<h1>Meowspace</h1>
 ```
 ### Nested Elements
 Sometimes tags will be nested inside of other tags. To maintain readable code, the parent tags (the outer most ones) should each be on a new line with the nested element indented. Example:
 
 ```html
 <nav>
-  <h1> Meowspace <h1>
+  <h1>Meowspace</h1>
 </nav>
 ```
 Start to be mindful of the relationship between nested elements. It will become important as we progress in the week. In the example above, I wanted my site's heading to belong, or be part of, my nav (navigation) element.
@@ -52,7 +52,7 @@ Some elements are self closing. These elements do not 'wrap' around any content.
 To comment within HTML, use `<!-- -->`. Example:  
 ```html
 <!-- Your comment here -->
-<h1> Meowspace </h1>
+<h1>Meowspace</h1>
 ```
 ## Setup an HTML Document
 
@@ -67,11 +67,11 @@ Create a new directory for this site. Then create a new file called 'index.html'
 <html>
   <head>
     <meta charset="UTF-8">
-    <title> This site should have a title! </title>
-  </head>
+    <title>This site should have a title!</title>
+ </head>
   <body>
     <!-- Your code goes here! -->
-  </body>
+ </body>
 </html>
 ```
 What do all these HTML tags mean?
@@ -87,24 +87,24 @@ What do all these HTML tags mean?
 ## Common HTML Tags
 ```html
 <!-- headers (h1..h6)-->
-<h1> </h1>
-<h2> </h2>
-<h3> </h3>
+<h1></h1>
+<h2></h2>
+<h3></h3>
 
 <!-- Paragraph -->
-<p> </p>
+<p></p>
 
 <!-- A Link  (and my favorite bit of advice.)-->
-<a href="http://google.com"> Google It. </a>
+<a href="http://google.com">Google It.</a>
 
 <!-- Image -->
 <img src="http://www.fillmurray.com/1000/500">
 
 <!-- An Unordered List with List Items -->
 <ul>
-  <li> </li>
-  <li> </li>
-  <li> </li>
+  <li></li>
+  <li></li>
+  <li></li>
 </ul>
 ```
 
