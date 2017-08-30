@@ -1,6 +1,6 @@
 # Trees
-## Goals
-Get familiar with Binary Seach Trees and the following algorithms related to it
+## Learning Goals
+Get familiar with Binary Search Trees and the following algorithms related to it
 + Search
 + Insert value
 + Delete value
