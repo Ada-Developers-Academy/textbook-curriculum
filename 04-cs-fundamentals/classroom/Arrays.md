@@ -1,6 +1,74 @@
-Details coming soon
-<!-- Slide deck: https://www.slideshare.net/secret/tu4YwrsP1v9Pu5
-Homework assignments:
-- Big O part 1
-- Restricted Arrays
+# Array data structure, Introduction to efficiency of algorithms
+## Learning Goals
++ Arrays – as a data structure
+  + How Array data structure or (native) arrays or arrays in strongly typed languages differ from objects of Ruby’s Array class
+  + Algorithms related to Array data structure on unsorted and sorted data
+    + Compute length given termination character
+    + Search for a value
+    + Find largest value
+    + Find smallest value
+    + Reverse an array
++ Introduction to Efficiency of Algorithms
+  + Why we care about it
+  + What do we care about: Time & Space
+  + How to deduce efficiency and compare two algorithmic solutions to the same problem.
+
+## Notes:
+### Algorithm Efficiency
+An _efficient algorithm_ is one that runs as fast as possible and requires as little computer memory as possible. You often have to settle for a trade-off between these two goals, compromising memory to make things faster, or speed to use less memory.
+
+There are three ways of expressing performance: Best-case, worst-case and average case.
+
+Consider the task of performing a sequential search on some sort of list, i.e. an array. Best-case would be that your target value was found in the first element. Worst-case would be that the value was not there at all (so all elements would have to be compared and tested, including the last). Average-case would be mid-way between the two.
+
+*In Computer Science, we care about worst case and average case, and represent these using asymptotic notation which we call Big-O.*
+
+### Order Breakdown
+- *O(1)* is the no-growth curve. An O(1) algorithm's performance is conceptually independent of the size of the data set on which it operates. Array element access using index is O(1).
+- *O(log N)* means that the data set size does affect the efficiency of the algorithm, but only in a logarithmic fashion. The key thing to note is that log (base 2) N grows slowly. Doubling N has a relatively small effect. Logarithmic curves flatten out nicely.
+- *O(N)* says that the algorithm's performance is directly proportional to the size of the data set being processed. Scanning an array takes O(N) time.
+- *O(N^2)* says that the algorithm's performance is proportional to the square of the data set size. This happens when the algorithm processes each element of a set, and that processing requires another pass through the set. We'll see this when we look at some sorting algorithms in the future.
+
+### Nuances
+- Usually when an algorithm's growth rate is a mix of orders, the dominant order is shown, and the rest are dropped. O(N^2 + N) would be shortened to O(N^2).
+- Likewise, constants are dropped. Constants only shift our graph slightly, but do not affect the overall look of the graph by much. O(2N) is shortened to O(N). O(1⁄2 N) is shortened to O(N).
+
+### Complexity Analogy
+Consider the a physical phone book as an example to illustrate Big O notation for algorithm complexity. Let's take a look at some of the use cases related to phone book:
+- *O(1)* – Find a random person’s phone number by flipping open any page in the phone book.
+- *O(log n)* – Given a person’s name, find the corresponding phone number (This is a binary search for a person’s phone number).
+- *O(n)* – Find all people whose phone numbers contain the digit “5″.
+- *O(n log n)* – Sort a phone book’s pages by looking at the first name on each page. We'll look at such a sort algorithm in a future lesson.
+
+## Essential Reading
+Here's some good follow up reading after we meet in class:
+  + [Big O notation and complexity in Ruby](https://devblast.com/b/big-o-notation-complexity-ruby) by DevBlast
+  + 
+
+## Exercises
+Here's the exercises we'll cover in class.
+Given an array data structure holding integer values, device an algorithm for the following exercises.
+1. Compute the length of the array, given that the array is terminated by `nil` i.e. `array[length] = nil`.
+2. Return the value at index k, such that 0 <= k < length.
+3. <strong>Linear Search</strong> Search for a given integer value in the unsorted array. Return true if the value if found in the array. Return false otherwise.
+4. Return the maximum (or minimum) integer value in the unsorted array.
+5. Return the maximum (or minimum) integer value in a sorted array.
+6. <strong>Binary Search</strong> Search for a given integer value in a sorted array. Return true if the value if found in the array. Return false otherwise.
+7. Reverse the elements in the array in place.
+
+## Assignments
+Assignments are expected to be worked on after the class discussion and due before the next class.
+1. Fork, clone and complete the methods in using_restricted_array.rb on [Ada-C8/Restricted-Arrays-Part1](https://github.com/Ada-C8/Restricted-Arrays-Part1). See the readme file for details. Submit your PR after testing your code.
+2. Work through [this quiz](http://www.codequizzes.com/computer-science/beginner/big-o-algorithms) on Big O. Try out the code snippets and read the answers.
+3. Watch this [Video: On Asymptotic Notation by Khan Academy](https://www.khanacademy.org/computing/computer-science/algorithms#asymptotic-notation) and solve this quiz(https://www.khanacademy.org/computing/computer-science/algorithms/asymptotic-notation/e/quiz--comparing-function-growth)
+
+## Additional Resources:
+Videos and additional reading material for furthering your learning for curiosity on topics related to what we covered in class:
+   + [Binary Search by Khan Academy](https://www.khanacademy.org/computing/computer-science/algorithms#binary-search)
+
+## Slide Deck
++ Slide Deck used in class</br>
+<!--
+<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://www.slideshare.net/secret/tu4YwrsP1v9Pu5">Array data structure and Introduction to Efficiency of Algorithms</a></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</br>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /> Please use the <strong>Download</strong> button and play the slide show locally (PowerPoint works best). Without this, the animations which are necessary in understanding the solutions will not render properly.
 -->
