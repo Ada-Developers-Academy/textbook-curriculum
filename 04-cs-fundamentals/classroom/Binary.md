@@ -16,6 +16,7 @@
 ## Essential Reading:
 Here's some good follow up reading after we meet in class:
   + [Computer Data Basics](https://docs.google.com/document/d/1g-Dxn1rVTChBs9ZZSOgmohjP_RoWNyPJTE-m_n35aZ0/edit)
+  + [Video: Understand how memory addressing works](https://www.youtube.com/watch?v=F0Ri2TpRBBg)
 
 ## Exercises
 Here's the exercises we'll cover in class
@@ -42,6 +43,7 @@ Videos and additional reading material for furthering your learning for curiosit
    + [Video: Understanding the differences between 8bit, 16bit, 32bit, and 64bit -- Arrow Tech Trivia](https://www.youtube.com/watch?v=_SkpnG571z8)
    + Learn about how a CPU processes instructions, espcially when it comes to [branch prediction](https://danluu.com/branch-prediction/)
    + [Book: Hacker's Delight by Henry S. Warren](https://www.amazon.com/Hackers-Delight-2nd-Henry-Warren/dp/0321842685)
+   + [Book: Code: The Hidden Language of Computer Hardware and Software by Charles Petzold](https://www.amazon.com/Code-Language-Computer-Hardware-Software/dp/0735611319)
 
 ## Slide Deck
 + Slide Deck used in class</br>
