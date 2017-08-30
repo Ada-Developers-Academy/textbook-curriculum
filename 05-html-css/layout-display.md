@@ -54,11 +54,11 @@ However, the behavior changes when the browser encounters a _block element_, lik
 
 ```html
 first bit of text
-<img src="http://www.fillmurray.com/200/200" class="first-img">
+<img src="http://lorempixel.com/200/200/nature/" class="first-img">
 some text in the
 <p>
   middle
-  <img src="http://www.fillmurray.com/200/200" class="second-img">
+  <img src="http://lorempixel.com/200/200/nature/" class="second-img">
   last piece
 </p>
 of text
