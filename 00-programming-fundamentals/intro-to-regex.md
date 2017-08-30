@@ -83,7 +83,7 @@ Examples:
 
 Sometimes you want to exclude a certain group of characters, or sometimes it's easier to exclude a type of character rather than list all the valid possibilities.  In that case you need the `^` character and the square brackets.  
 
-For example:  `/[^abc]/` excludes all characters except a, b and c.
+For example:  `/[^abc]/` includes all characters except a, b and c.
 
 Another example would be `/[^0-9]/` which would exclude any digit or `/Ada is number [^2-9^a-z^A-Z^0]` which would exclude any letter or digit, except `1`.
 
@@ -175,7 +175,7 @@ There a number of tools you can use to compose regular expressions.
 |   ()	|   Parentheses 	|   The open and close parenthesis are used for grouping characters	|
 |   .	|   Dot	|   the dot matches any character except the newline.	|
 |   *	|   Star	|   The star is the match-zero-or-more quantifier.	|
-|   +	|   Plus	|   The plus is the match-one-or-one quantifier.	|
+|   +	|   Plus	|   The plus is the match-one-or-more quantifier.	|
 |   ?	|   Question Mark	|   The question mark	 is the match-one-or-more quantifier.	|
 |   &#124;	|   Pipe	|   The vertical pipe separates a series of alternatives.	|
 |  < > 	|   Anchors	|   The smaller and greater signs are anchors that specify a left or right word boundary.	|
