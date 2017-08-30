@@ -24,9 +24,9 @@ As an example, consider the following HTML. Note that there is no `<p>` tag arou
 
 ```html
 first bit of text
-<img src="http://www.fillmurray.com/200/200" class="first-img"></img>
+<img src="http://lorempixel.com/200/200/nature/" class="first-img"></img>
 some text in the middle
-<img src="http://www.fillmurray.com/200/200" class="second-img"></img>
+<img src="http://lorempixel.com/200/200/nature/" class="second-img"></img>
 last piece of text
 ```
 
