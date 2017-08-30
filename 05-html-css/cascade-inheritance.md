@@ -24,7 +24,7 @@ This is especially important as our stylesheets become longer and more complex a
 
 For example:
 ```html
-<p> Eeny, Meeny, Miny, <strong>MOE</strong>!</p>
+<p>Eeny, Meeny, Miny, <strong>MOE</strong>!</p>
 ```
 
 ```css
