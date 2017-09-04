@@ -95,13 +95,50 @@ end
 &nbsp;&nbsp;&nbsp;&nbsp;[7, 11, 16, 35, 40, 45, 50, **99**, **90**]&nbsp;&nbsp;*i=7; min_index=8*</br>
 &nbsp;&nbsp;&nbsp;&nbsp;[7, 11, 16, 35, 40, 45, 50, 90, 99]&nbsp;&nbsp;*sorting complete*</br>
 
-Selection sort has a worst case time complexity of O(n^2).
+<strong>Analysis:</strong> The time complexity of Selection sort is *O(n^2)*. Each of the nested loops has an upper bound defined by the count of elements, *n* in the list to be sorted.
 
 #### Insertion Sort
-The insertion sort works by inserting each item into its proper place in a final list. The simplest implementation of this requires two list structures - the source list and the list into which sorted items are inserted. To save memory, most implementations use an in-place sort that works by moving the current item past the already sorted items and repeatedly swapping it with the preceding item until it is in place.
-
+The insertion sort algorithm works by inserting each item into its proper place in a final list. The simplest implementation of this requires two list structures - the source list and the list into which sorted items are inserted. One entry is removed at a time and then each is inserted into a sorted part (initially empty). To save memory, most implementations use an in-place sort that works by moving the current item past the already sorted items and repeatedly swapping it with the preceding item until it is in place. </br>
+Here's an example:</br>
 ![Insertion Sort Example](images/insertion-sort.png)
 
-The insertion sort has a complexity of O(n^2). Unlike selection sort, insertion sort has a best case time complexity of O(n) when the items are already sorted.
+**Example implementation:**
+```ruby
+def insertion_sort(array, length)
+  i = 1
+  while i < length
+    to_insert = array[i]
+    j = i
+    # search in the sorted portion of the array
+    # for the correct position to insert array[i]
+    while j > 0 && array[j-1] > to_insert
+      array[j] = array[j-1]
+      j -= 1
+    end
+    array[j] = to_insert
+    i += 1
+  end
+end
+```
+<strong>Example:</strong> Consider the initial unsorted array [99, 45, 35, 40, 16, 50, 11, 7, 90]. Here's what it looks like before and after each iteration of the outer loop. The sorted sub-array is **bolded**</br>
+&nbsp;&nbsp;&nbsp;&nbsp;[**99**, 45, 35, 40, 16, 50, 11, 7, 90]
+&nbsp;&nbsp;&nbsp;&nbsp;[**45, 99**, 35, 40, 16, 50, 11, 7, 90]
+&nbsp;&nbsp;&nbsp;&nbsp;[**35, 45, 99**, 40, 16, 50, 11, 7, 90]
+&nbsp;&nbsp;&nbsp;&nbsp;[**35, 40, 45, 99**, 16, 50, 11, 7, 90]
+&nbsp;&nbsp;&nbsp;&nbsp;[**16, 35, 40, 45, 99**, 50, 11, 7, 90]
+&nbsp;&nbsp;&nbsp;&nbsp;[**16, 35, 40, 45, 50, 99**, 11, 7, 90]
+&nbsp;&nbsp;&nbsp;&nbsp;[**11, 16, 35, 40, 45, 50, 99**, 7, 90]
+&nbsp;&nbsp;&nbsp;&nbsp;[**7, 11, 16, 35, 40, 45, 50, 99**, 90]
+&nbsp;&nbsp;&nbsp;&nbsp;[**7, 11, 16, 35, 40, 45, 50, 90, 99**]
+
+<strong>Analysis:</strong> In sorting the most expensive part is a comparison of two elements. Insertion sort algorithm requires
+- 0 comparisons to insert the first element
+- 1 comparison to insert the second element
+- 2 comparisons to insert the third element
+- ... and so on
+- *n-1* comparisons (worst case) to insert the last element
+Overall, this is *1 + 2 + 3 + ... + (n-1)* = *O(n^2)*
+
+The insertion sort has a complexity of O(n^2). Unlike selection sort, insertion sort has a best case time complexity of O(n) when the items are already sorted. In other words, insertion sort runs in linear time on a nearly sorted list of elements.
 
 + Watch this [sorting algorithms' comparison demo](https://www.youtube.com/watch?v=ZZuD6iUe3Pc) and this [visualization](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html)
