@@ -121,15 +121,15 @@ def insertion_sort(array, length)
 end
 ```
 <strong>Example:</strong> Consider the initial unsorted array [99, 45, 35, 40, 16, 50, 11, 7, 90]. Here's what it looks like before and after each iteration of the outer loop. The sorted sub-array is **bolded**</br>
-&nbsp;&nbsp;&nbsp;&nbsp;[**99**, 45, 35, 40, 16, 50, 11, 7, 90]
-&nbsp;&nbsp;&nbsp;&nbsp;[**45, 99**, 35, 40, 16, 50, 11, 7, 90]
-&nbsp;&nbsp;&nbsp;&nbsp;[**35, 45, 99**, 40, 16, 50, 11, 7, 90]
-&nbsp;&nbsp;&nbsp;&nbsp;[**35, 40, 45, 99**, 16, 50, 11, 7, 90]
-&nbsp;&nbsp;&nbsp;&nbsp;[**16, 35, 40, 45, 99**, 50, 11, 7, 90]
-&nbsp;&nbsp;&nbsp;&nbsp;[**16, 35, 40, 45, 50, 99**, 11, 7, 90]
-&nbsp;&nbsp;&nbsp;&nbsp;[**11, 16, 35, 40, 45, 50, 99**, 7, 90]
-&nbsp;&nbsp;&nbsp;&nbsp;[**7, 11, 16, 35, 40, 45, 50, 99**, 90]
-&nbsp;&nbsp;&nbsp;&nbsp;[**7, 11, 16, 35, 40, 45, 50, 90, 99**]
+&nbsp;&nbsp;&nbsp;&nbsp;[**99**, 45, 35, 40, 16, 50, 11, 7, 90]</br>
+&nbsp;&nbsp;&nbsp;&nbsp;[**45, 99**, 35, 40, 16, 50, 11, 7, 90]</br>
+&nbsp;&nbsp;&nbsp;&nbsp;[**35, 45, 99**, 40, 16, 50, 11, 7, 90]</br>
+&nbsp;&nbsp;&nbsp;&nbsp;[**35, 40, 45, 99**, 16, 50, 11, 7, 90]</br>
+&nbsp;&nbsp;&nbsp;&nbsp;[**16, 35, 40, 45, 99**, 50, 11, 7, 90]</br>
+&nbsp;&nbsp;&nbsp;&nbsp;[**16, 35, 40, 45, 50, 99**, 11, 7, 90]</br>
+&nbsp;&nbsp;&nbsp;&nbsp;[**11, 16, 35, 40, 45, 50, 99**, 7, 90]</br>
+&nbsp;&nbsp;&nbsp;&nbsp;[**7, 11, 16, 35, 40, 45, 50, 99**, 90]</br>
+&nbsp;&nbsp;&nbsp;&nbsp;[**7, 11, 16, 35, 40, 45, 50, 90, 99**]</br>
 
 <strong>Analysis:</strong> In sorting the most expensive part is a comparison of two elements. Insertion sort algorithm requires
 - 0 comparisons to insert the first element
@@ -141,4 +141,11 @@ Overall, this is *1 + 2 + 3 + ... + (n-1)* = *O(n^2)*
 
 The insertion sort has a complexity of O(n^2). Unlike selection sort, insertion sort has a best case time complexity of O(n) when the items are already sorted. In other words, insertion sort runs in linear time on a nearly sorted list of elements.
 
+#### Merge Sort
+Merge sort is a *divide-and-conquer* algorithm. It involves the following three steps:
+1. Divide the array into two (or more) sub-arrays
+2. Sort each sub-array
+3. Merge the sub-arrays into one array
+
+### Additional Notes
 + Watch this [sorting algorithms' comparison demo](https://www.youtube.com/watch?v=ZZuD6iUe3Pc) and this [visualization](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html)
