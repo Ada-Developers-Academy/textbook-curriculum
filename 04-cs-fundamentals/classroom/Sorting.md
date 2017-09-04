@@ -21,10 +21,10 @@ The bubble sort algorithm is a simple sorting algorithm that repeatedly steps th
 ```ruby
 def bubble_sort(array, length)
   i = 0
-  while i < length
+  while i < length # outer loop
     j = 0
-    while j < length-i-1
-      if array[j] > array[j+1]
+    while j < length-i-1 # inner loop
+      if array[j] > array[j+1] # swap
         temp = array[j]
         array[j] = array[j+1]
         array[j+1] = temp
@@ -35,7 +35,7 @@ def bubble_sort(array, length)
   end
 end
 ```
-<stong>Example:</strong> Consider the initial unsorted array [99, 45, 35, 40, 16, 50, 11, 7, 90]. Here's one step through the outer loop of the algorithm (i.e. while *i* is *0* and *j* ranges from *0* to *7*). The largest element, 99 gets bubbled to the top.</br>
+<strong>Example:</strong> Consider the initial unsorted array [99, 45, 35, 40, 16, 50, 11, 7, 90]. Here's one step through the outer loop of the algorithm (i.e. while *i* is *0* and *j* ranges from *0* to *7*). The largest element, 99 gets bubbled to the top.</br>
 &nbsp;&nbsp;&nbsp;&nbsp;[<strong>99, 45</strong>, 35, 40, 16, 50, 11, 7, 90]</br>
 &nbsp;&nbsp;&nbsp;&nbsp;[45, <strong>99, 35</strong>, 40, 16, 50, 11, 7, 90]</br>
 &nbsp;&nbsp;&nbsp;&nbsp;[45, 35, <strong>99, 40</strong>, 16, 50, 11, 7, 90]</br>
@@ -45,6 +45,13 @@ end
 &nbsp;&nbsp;&nbsp;&nbsp;[45, 35, 40, 16, 50, 11, <strong>99, 7</strong>, 90]</br>
 &nbsp;&nbsp;&nbsp;&nbsp;[45, 35, 40, 16, 50, 11, 7, <strong>99, 90</strong>]</br>
 &nbsp;&nbsp;&nbsp;&nbsp;[45, 35, 40, 16, 50, 11, 7, 90, 99]</br>
+
+<strong>Analysis:</strong> The time complexity of Bubble sort is *O(n^2)*
+- The inner most swap conditional statement is *O(1)*
+- The inner loop runs *i* times i.e. *O(i)* time complexity
+- The outer loop runs from *i* = *0* to *n* i.e. 1 + 2 + 3 + ... + (n-1) = *O(n^2)*
+
+Note: The best case time complexity for Bubble sort can be improved by optimizing this algorithm. Read further on [GeeksForGeeks: Bubble Sort](http://www.geeksforgeeks.org/bubble-sort/)
 
 #### Selection Sort
 The selection sort works by selecting the smallest unsorted item remaining in the list, and then swapping it with the item in the next position to be filled.
