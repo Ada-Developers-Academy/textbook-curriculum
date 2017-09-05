@@ -213,13 +213,12 @@ end
 
 ### In Minitest
 
-If we expect a method to raise an exception and it doesn't, that's a bug! This means that we must test that our methods raise the exceptions we want, as well as testing nominal behavior. As we saw on the BankAccounts project, you can look for an exception in a given block of code in Minitest like this
+If we expect a method to raise an exception and it doesn't, that's a bug! This means that we must test that our methods raise the exceptions we want, as well as testing nominal behavior. As we saw on in several projects, you can look for an exception in a given block of code in Minitest like this
 
 ```ruby
-it "Raises an ArgumentError when asked to withdraw a negative amount" do
-  account = Bank::Account.new(1337, 10000)
+it "Raises an ArgumentError when given an invalid word" do
   proc {
-    account.withdraw(-100)
+    Scrabble::Scoring.score("1337")
   }.must_raise ArgumentError
 end
 ```
@@ -267,16 +266,16 @@ end
 
 So when are exceptions appropriate? There are a lot of [differing opinions](https://www.sitepoint.com/ruby-error-handling-beyond-basics/), but the consensus seems to be that exception handling should be for *exceptional* circumstances.
 
-Here are some examples of when and when not to raise an exception. Each of the following situations is paired with an example in the context of `BankAccounts`.
+Here are some examples of when and when not to raise an exception. Each of the following situations is paired with an example in the context of `GroceryStore`.
 
 **Raise an Exception When:**
 - A method is given invalid arguments
-  - Negative withdrawal amount
+  - Negative price 
 - Some prerequisite condition isn't true
-  - Not enough money to withdraw
+  - An order without any products
 - Some required resource can't be found or is invalid
-  - `accounts.csv` doesn't exist
-  - `accounts.csv` doesn't contain account information
+  - `orders.csv` doesn't exist
+  - `onlineorders.csv` doesn't contain order information
 - There's a problem external to Ruby
   - User pressed `Ctrl-C`
 
