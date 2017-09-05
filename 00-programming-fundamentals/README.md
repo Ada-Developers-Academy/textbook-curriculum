@@ -15,6 +15,7 @@
 1. [Introduction to Agile](intro-to-agile.md)
 1. [Pair Programming](pair-programming.md)
 1. [What is Pseudocode?](pseudocode.md)
+1. [User Stories](user-stories.md)
 
 ### Tools
 1. [Introduction to Automated Tests](intro-to-automated-tests.md)

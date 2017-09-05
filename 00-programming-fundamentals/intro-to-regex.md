@@ -175,7 +175,7 @@ There a number of tools you can use to compose regular expressions.
 |   ()	|   Parentheses 	|   The open and close parenthesis are used for grouping characters	|
 |   .	|   Dot	|   the dot matches any character except the newline.	|
 |   *	|   Star	|   The star is the match-zero-or-more quantifier.	|
-|   +	|   Plus	|   The plus is the match-zero-or-one quantifier.	|
+|   +	|   Plus	|   The plus is the match-one-or-more quantifier.	|
 |   ?	|   Question Mark	|   The question mark	 is the match-one-or-more quantifier.	|
 |   &#124;	|   Pipe	|   The vertical pipe separates a series of alternatives.	|
 |  < > 	|   Anchors	|   The smaller and greater signs are anchors that specify a left or right word boundary.	|

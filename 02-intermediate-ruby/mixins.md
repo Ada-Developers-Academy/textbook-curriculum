@@ -64,5 +64,5 @@ Mixins are modules of methods that are composed into a Ruby class either through
 Mixins are what make things like `Enumerable` work. They are very powerful, but not very common.
 
 ## Additional Resources
-- For more information on Mixins, read up on it in [this chapter](mixins.md)
+- For more information on Enumerable, read up on it in [our chapter on Enumerable](enumerable.md) and [more Enumerable](more-enumerable.md)
 - For another interesting Mixin, look up [Comparable](https://ruby-doc.org/core-2.4.0/Comparable.html)
