@@ -34,7 +34,7 @@ So why gather requirements with user-stories?  Users often don't know exactly wh
 
 Using user stories we can gather the tasks our software needs to be able to perform and prioritize the tasks.  Then we can begin implementing the features and get more details on each user story as we implement them.
 
-That doesn't mean every user story gets implemented as originally defined.  Using Agile techniques we develop software in increments building or prototyping features and solicting more user feedback.  As developers it's important to recognize that code is always changing and repeatably and user stories help us narrow down the functionality our software needs and adapt to changing requirements.
+That doesn't mean every user story gets implemented as originally defined.  Using Agile techniques we develop software in increments building or prototyping features and solicting more user feedback.  As developers it's important to recognize that code is always changing. User stories help us narrow down the functionality our software needs and adapt to changing requirements.
 
 
 
