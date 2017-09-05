@@ -297,7 +297,7 @@ In general, an exception indicates that either there was a programming error, or
 | Stack Trace | The stuff Ruby dumps to the screen when it hits an unhandled exception. Describes exactly what the program was doing when the exception occurred. |
 | `raise` | Ruby keyword used to cause an exception to take effect. Often used as a verb. |
 | `begin` | Ruby keyword used to mark the beginning of a block of code that might produce an exception. |
-| `raise` | Ruby keyword used to specify code to execute if an exception happens. Attached to a `begin` block. |
+| `rescue` | Ruby keyword used to specify code to execute if an exception happens. Attached to a `begin` block. |
 | `ensure` | Ruby keyword used to specify code that must execute, even if there's an unhandled exception. Attached to a `begin` block. Not covered in this lecture. |
 | Throw | Synonym for raise |
 | Catch | Synonym for rescue |
