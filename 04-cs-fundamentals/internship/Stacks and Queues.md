@@ -1,23 +1,22 @@
 # Stacks and Queues
-## Goals
+## Learning Goals
 + Introduction to Stacks
 + Memory address space and call stacks/activation records
 + Introduction to Queues
 + Circular buffer
 
-
-## Offline Reading Material
+## Required
 Go through what you've already learned:
-+ Revise classroom session on [Stacks and Queues](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/02-ADTs-Stacks-Queues.md)
++ Revise classroom session on [Stacks and Queues](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/ADTs-Stacks-Queues.md)
 
-Find the reading material that helps you learn from the below links:
+## Additional Resources 
 + Kal academy's material on [Stacks and Queues](https://drive.google.com/open?id=0BxHords9odw3a2V5cVpkNTl2amc)
 + Read about [Method Call Stack](https://drive.google.com/open?id=0BxHords9odw3cG9WM1Y2S0FQWVE)
 + Read about [Stacks](https://simple.wikipedia.org/wiki/Stack_(data_structure)) on Wikipedia
 + Read about [Queues](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)) on Wikipedia
 + CMU lecture notes on [Stacks and Queues](https://www.cs.cmu.edu/~adamchik/15-121/lectures/Stacks%20and%20Queues/Stacks%20and%20Queues.html)
 
-## Offline Problem Sets
+## Assignments
 + Implement a Stack using an array to hold integer data
 + Implement a Stack using a linked list to hold integer data
 + Implement a Queue using an array to hold integer data
@@ -39,15 +38,6 @@ Challenge Problems:
 Additional problems:
 + In "Cracking the Coding Interview" book, "Chapter 3: Stacks and Queue"
 + Kal academy's problems on [Stacks and Queues](https://drive.google.com/open?id=0BxHords9odw3b2d1ZTJtVkZZTkk)
-
-## In Class
-Here's the problems we'll cover in class.
-Design and implement pseudo code for:
-+ 1. Implement Top for a Stack using only Push(e) and Pop. (Note: This is an example of extending functionality without knowing the implementation details of how the Stack is implemented i.e. not knowing whether the Stack is implemented using an array or a linked list). Assume the data contained is int.
-+ 2. Implement Front for a Queue using only Dequeue, Enqueue(e) & Empty.  (Note: This is an example of extending functionality without knowing the implementation details of how the Queue is implemented i.e. not knowing whether the Queue is implemented using an array or a linked list) Assume the data contained is int. Feel free to use additional data structures.
-+ 3. Write a function to reverse a string (the funciton takes a string as input parameter) using a Stack.
-+ 4. Write a function to print all integer values in a binary tree in pre-order traversal iteratively. (Hint: Use a Stack.)
-</br>
 
 ## Slide deck
 + Slide deck used in class</br>
