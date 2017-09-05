@@ -14,7 +14,7 @@ A user story is a sentence identifying the type of user, the task and often the 
 For example:  
 
 - As an **Air BNB host** I want to **pull up a calendar listing all my reservations** so **I can plan my schedule**.  
-- As an **Anynomous user on Expedia** I want to **search for flights by day**.  So **I can find a cheap flight**.
+- As an **Anynomous user on Expedia** I want to **search for flights by day** so **I can find a cheap flight**.
 
 User stories are typically written on index cards or post-it notes and they help define what needs to be done in a project.  Sometimes they have acceptance tests attached to them.  
 
@@ -28,12 +28,10 @@ A typical template for a user story could be:
 
 This template identifies the who, what and why of the story.
 
-
-
 ## Things to avoid in user stories
 User stories should focus on the user experience and avoid...
--  Implementation details
--  Making a story too big and complex.  They should be small discrete tasks.  Break down tasks that are too big and complicated into smaller stories.
+- Implementation details
+- Making a story too big and complex. They should be small discrete tasks. Break down tasks that are too big and complicated into smaller stories.
 
 ## Resources
 - [Wikipedia on User Stories](https://en.wikipedia.org/wiki/User_story)
