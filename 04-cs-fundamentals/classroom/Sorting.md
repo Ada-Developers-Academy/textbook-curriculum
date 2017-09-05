@@ -94,7 +94,7 @@ end
 <strong>Analysis:</strong> The time complexity of Selection sort is *O(n^2)*. Each of the nested loops has an upper bound defined by the count of elements, *n* in the list to be sorted.
 
 #### Insertion Sort
-The insertion sort algorithm works by inserting each item into its proper place in a final list. The simplest implementation of this requires two list structures - the source list and the list into which sorted items are inserted. One entry is removed at a time and then each is inserted into a sorted part (initially empty). To save memory, most implementations use an in-place sort that works by moving the current item past the already sorted items and repeatedly swapping it with the preceding item until it is in place. </br>
+The insertion sort algorithm works by inserting each item into its proper place to form the sorted list. The simplest implementation of this requires two list structures - the source list and the list into which sorted items are inserted. One entry is removed at a time and then each is inserted into a sorted part (initially empty). To save memory, most implementations use an in-place sort that works by moving the current item past the already sorted items and repeatedly swapping it with the preceding item until it is in place. </br>
 Here's an example:</br>
 ![Insertion Sort Example](images/insertion-sort.png)
 
@@ -139,21 +139,21 @@ The insertion sort has a complexity of O(n^2). Unlike selection sort, insertion 
 
 #### Merge Sort
 Merge sort is a *divide-and-conquer* algorithm. It involves the following three stages:
-1. **Divide** the array into two sub-arrays at each step until each sub-array is size one.
+1. **Divide** the array into two sub-arrays at each step until each sub-array is of size one.
 2. **Sort** each sub-array. (An array of size one is sorted by default.)
 3. **Merge** the sub-arrays into one array by combining two sub-arrays into one at each step.</br></br>
 
 This is usually done by keeping track of three indices in the array: *starting index*, *ending index* and *midway index* as shown in the image below. </br></br>
 ![Merge Sort Example](images/MergeSort.png)
-</br>As you can see in the image above, in the first *divide* step, the original array of size eight gets divided into two sub-arrays of size four each. This is done by setting *starting index* to *0*, the index of the first element in the array and the *ending index* s set to the index of the last element in the array. The *midway index* is then computed using the formula: </br>
+</br>As you can see in the image above, in the first *divide* step, the original array of size eight gets divided into two sub-arrays of size four each. This is done by setting *starting index* to *0*, the index of the first element in the array and the *ending index* set to the index of the last element in the array. The *midway index* is then computed using the formula: </br>
 &nbsp;&nbsp;&nbsp;&nbsp;*midway index* = (*starting index* + *ending index*)/2
 
 For the first *divide* step, the *midway index* will be *(0+7)/2* i.e. *3* (by considering the floor of *3.5*).</br>
-In the next *divide* step, we have two sub-arrays, one raning in index from *0* to *3* and the other ranging in index from *4* to *7*. The sub-arrays are not yet of size one. So, the same action gets repeated to compute the *midway index*. This *divide* stage continues until the original array of size *n* is reduced to sub-arrays of size *1* each.
+In the next *divide* step, we have two sub-arrays, one ranging in index from *0* to *3* and the other ranging in index from *4* to *7*. The sub-arrays are not yet of size one. So, the same action gets repeated to compute the *midway index*. This *divide* stage continues until the original array of size *n* is reduced to sub-arrays of size *1* each.
 
 A sub-array of size one is trivially, and by default sorted.
 
-The *merge* stage starts by combining two sub-arrays at a time. While combining the sub-arrays containing *7* and *2*, the values in each is compared, the smaller value i.e. *2* is written to the lower index, and the higher value i.e. *7* is written to the higher index. The mergining process continues. An auxiliary array of size *n* is often used to faciliate the merge steps. 
+The *merge* stage starts by combining two sub-arrays at a time. While combining the sub-arrays containing *7* and *2* respectively, the values in each is compared, the smaller value i.e. *2* is written to the lower index, and the higher value i.e. *7* is written to the higher index. The mergining process continues in this manner. An auxiliary array of size *n* is often used to faciliate the merge steps. 
 
 Consider the two sub-arrays *[1, 2, 7, 8]* and *[3, 5, 6, 9]* in the final merge step in our example image above.
 - We start with comparing *1* with *3*. The smaller value, *1* gets written to the auxiliary array. (Auxiliary array: *[1]*)
