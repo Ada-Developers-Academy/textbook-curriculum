@@ -283,7 +283,7 @@ Note that many of these are handled automatically by Ruby!
 
 **Don't Raise an Exception When:**
 - A search yields no results
-  - No account with that ID
+  - No order with that ID
 - The user quits via a normal method
   - Types `quit` at the prompt
 
