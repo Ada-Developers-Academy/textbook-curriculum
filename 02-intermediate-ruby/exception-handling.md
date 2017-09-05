@@ -12,11 +12,11 @@ At the end of this you should be able to:
 
 With any program there are things that can go wrong. Maybe a file you are planning to read doesn't exist, your database server is unavailable, or you try to divide something by zero. In these cases, Ruby programs use _exceptions_ to indicate that something has gone wrong.
 
-We've seen exceptions before. If you try and access an undefined variable, Ruby will raise a `NameError`, and we've even raise our own `ArgumentError` exceptions in the Bank Accounts project.
+We've seen exceptions before. If you try and access an undefined variable, Ruby will raise a `NameError`, and we've even raise our own `ArgumentError` exceptions in our projects.
 
 ### Producing Exceptions
 
-For a quick reminder of what this looks like, save the following code as `divide_by_zero.rb`
+For a quick reminder of what an exception looks like, save the following code as `divide_by_zero.rb`
 
 ```ruby
 # divide_by_zero.rb
@@ -32,7 +32,7 @@ divide_by_zero.rb:2:in `/': divided by 0 (ZeroDivisionError)
   from divide_by_zero.rb:2:in `<main>'
 ```
 
-If you need to produce an exception you can use the `raise` keyword
+If you need to produce an exception of your own you can use the `raise` keyword
 
 ```ruby
 def make_toast(slices)
