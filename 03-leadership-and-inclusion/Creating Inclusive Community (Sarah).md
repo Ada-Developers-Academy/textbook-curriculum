@@ -6,7 +6,7 @@ Create a supportive forum in which students can define what inclusive community 
 
 ## Community Affirmation Activity (30 min)
 
-Have all participants sit and close their eyes. Dim the lights and start with a short breathing exercise. Have about 1/5 of the group open their eyes and stand. Give an  instruction to those standing like, "Touch the should of several people who made you feel really welcome the first week." They will slowly circulate and touch the shoulders of classmates gently. Give several more affirmations and then have those students sit and others stand. Do this until all students have had the opportunity to stand.
+Have all participants sit and close their eyes. Dim the lights and start with a short breathing exercise. Have about 1/5 of the group open their eyes and stand. Give an  instruction to those standing like, "Touch the shoulder of several people who made you feel really welcome the first week." They will slowly circulate and touch the shoulders of classmates gently. Give several more affirmations and then have those students sit and others stand. Do this until all students have had the opportunity to stand.
 *As facilitator, be aware of group dynamics. At times, ask participants to touch the shoulders of only people they haven't affirmed yet. Step in and give your own shoulder touches when appropriate.*
 
 ## Building Our Container (20 min)
@@ -16,7 +16,7 @@ Draw a large jar or box on the whiteboard to write over. Ask the group, "What ma
 
 ## Break Out Discussion (45 min)
 
-During the container, distribute a bowl for students to randomly draw numbers for the small group discussion. Based on the number they drew, they will meet their randomly assigned group in a particular location of the building where they'll find a packet to guide the conversation. Before sending them off to their groups, let them know that the goal of the conversation is to define what inclusive community means to us and how we can move closer to that Ada, both institutionally and socially. Ask them to be aware of speaking time and creating space for quieter group members. Take questions.
+During the container, distribute a bowl for students to randomly draw numbers for the small group discussion. Based on the number they drew, they will meet their randomly assigned group in a particular location of the building where they'll find a packet to guide the conversation. Before sending them off to their groups, let them know that the goal of the conversation is to define what inclusive community means to us and how we can move closer to that at Ada, both institutionally and socially. Ask them to be aware of speaking time and creating space for quieter group members. Take questions.
 
 Packet Questions:
   1. What is an "inclusive community?"
