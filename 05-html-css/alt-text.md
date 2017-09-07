@@ -19,8 +19,6 @@ Let's do a few examples for funs, then we'll get into more detail:
 
 ![""](http://boredomtherapy.com/wp-content/uploads/2015/04/22-fake-animal-hybrids.jpg)
 
-![""](https://pbs.twimg.com/media/B59UpYnCAAETNMI.jpg)
-
 ## More on good alt text:
 - The context of the image is everything
   - Is the image purely decorative?

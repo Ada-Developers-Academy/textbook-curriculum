@@ -1,7 +1,7 @@
 # Layout: Floats
 
 ## Sample Code
-For this lecture, we'll be modifying [this silly but plausible website](https://github.com/Ada-C7/bob-ross). Go ahead and fork/clone it now.
+For this lecture, we'll be modifying a silly but plausible website! Go ahead and fork/clone the code that goes along with these lecture notes in your calendar.
 
 ## Learning Goals 📚
 - Use the *float* property to lay out web pages
@@ -114,3 +114,4 @@ This is a strange quirk of HTML/CSS - the whitespace between the two articles ta
 
 ### Additional Resources
 - [All About Floats](https://css-tricks.com/all-about-floats/)
+- [Float Theory: Things you should know](https://www.smashingmagazine.com/2007/05/css-float-theory-things-you-should-know/)

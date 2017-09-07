@@ -1,130 +1,116 @@
-# CSS
+# CSS {  display: intro; }
 
-CSS (Cascading Style Sheet) exists to style your HTML for web, print, and more!
+## 📚 Learning Goals 📚
+- Identify parts of CSS Syntax
+- Apply CSS styles to HTML
+- Use selectors to target specific elements to add custom style
 
-We use CSS to add layout and design to our page. We can also use CSS to share styles across websites and pages.
+## CSS adds the style to a website
 
-- There are a *ton* of CSS properties
-- We will not get anywhere close to
-covering all of them
-- Practice the basics before getting fancy
+**CSS** stands for **Cascading Style Sheets**. It is the language for specifying how documents (such as HTML) are presented to users. We will use CSS to define styles for our documents, including the design, layout and variations in display for different devices and screen sizes.
 
-## Anatomy of CSS
 
-`selector { property: value; }`
+**Note:** if you want to make a front-end developer cringe, tell them how CSS makes a website 'pretty'. They'll love it.
 
-- __Selector__ is the thing you want to style
-- __Property__ is what aspect you want to style
-- __Value__ is how you want to style it
-- Property + value = __declaration__
-- Declarations end in semicolons (;)
-- Selector + declaration = __rule__
+## CSS Syntax Structure
 
-## Selectors
-
-CSS selectors are used to "find" (or select) HTML elements. There are a few different ways that we can select elements using CSS:
-
-1. __Elements__: `h1 { property: value; }`
-1. __Classes__: classes are used in html to group elements. These are particularly helpful when you want to select only a subset of an element type (only first paragraphs, etc).
-    * In HTML, add a class to an element: `<p class="intro">words</p>`
-    * In CSS, select elements with a given class: `.intro {background-color: yellow;}`
-1. __IDs__: IDs are used in html to identify a specific element. IDs are *globally unique*, meaning each ID can be used only once in an HTML document. Because IDs can't be reused, they often lead to extra clutter in your style sheet, and should be used sparingly.
-    * In HTML, add an ID to an element: `<p id="second-p">more words</p>`.
-    * In CSS, select the element with a given ID: `#second-p {background-color: blue;}`
-1. __Pseudoclasses__: A pseudoclass is used to define styles on a special state of an element. You can select these on an element without designating it in the HTML. The most common of these are hover, visited, and focus.
+This is a **CSS rule-set** with a declaration block. The declaration block has two declarations on lines 2 & 3:
 ```css
-p:hover {color: red;}
-p:visited {color: purple;}
-p:focus {border-color: pink;}
+selector {
+  property: value;
+  property: value;
+}
+```
+- **selector**: *what* you want to change
+- **property**: *what part* you want to change
+- **value**: is *how* you want to change it.
+
+The **declaration** is the property and value combined. The **rule-set** is the selector with the declaration block.
+
+Example:
+```css
+h1 {
+  color: orange;
+  font-family: helvetica;
+}
+
+p {
+ color: gray;
+ text-align: justify;
+}
+```
+What does the above code do?
+
+A few notes about **code style**:
+- Each **rule-set** is separated by a link break
+- Each **declaration** is indented
+- There is a space after the **selector** before the curly brace `{`
+- Each closing curly brace `}` is on its own line
+
+**Note**: After coming from backend programming, HTML and CSS can be difficult as it never throws errors if there is a syntax error. Instead it just won't do what you want it to. We will learn some debugging strategies throughout the week.
+
+## Adding CSS to a Website
+There are a few different ways to include CSS in your website. One is to put them directly into your HTML, also known as _inline styles_. The other is to reference external style sheet(s). We are only going to use external style sheets to maintain an organized code base.
+
+An **external style sheet** has many advantages over inline styles. Keeping the styles separate from your HTML content:
+- Helps avoid duplication
+- Makes maintenance easier
+- Allows you to make a site-wide change in one place
+
+
+### HTML & CSS In Action
+Let's try this out!
+
+#### Create a new CSS Style Sheet Document
+
+1. In your project's directory, create a new folder called `styles`. Inside of your new directory, create a new file called `style.css`.
+1. Add a new rule-set, changing all the `h1` elements in your HTML.
+1. Preview the site in the browser. Did it work?
+
+It doesn't work because we didn't *link* the CSS to the HTML document. Right now the two files have no idea each other exist.
+
+#### Link CSS to HTML
+For CSS to be applied on HTML element, we will need to go back to our HTML document and link our CSS.
+
+In the `head` tag of our HTML document, use a [`link`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link) tag to provide the relative path to your stylesheet.
+```html
+  <head>
+    <meta charset="UTF-8">
+    <title> This site should have a title! </title>
+    <!-- Link to Style Sheet -->
+    <link href="styles/style.css" rel="stylesheet">
+  </head>
 ```
 
-## The Cascade and Precedence
-Within CSS, all styles __cascade__ from the top of a style sheet to the bottom, allowing different styles to be added or overwritten as the style sheet progresses. The cascade also works with properties inside individual selectors. Two examples:
-```css
-  .intro {
-    background-color: yellow;
-    background-color: brown;
-  }
-```
+The `href` attribute should contain the relative path to your stylesheet file. The `link` tag can have different uses, but for now, the `rel` attribute will always be `stylesheet`. If you have multiple stylesheets, you will need to include multiple `link` tags.
 
-```css
-  .intro {
-    background-color: yellow;
-  }
+Now preview you webpage, and voila! 🎉
 
-  .intro {
-    background-color: brown;
-  }
-```
-In both cases `background-color: brown;` overwrites `background-color: yellow;`
+### Explore the Styles!
 
-Specificity: The __specificity__ of your selector can clash with the cascade.
-```css
-  .intro {
-    background-color: brown;
-  }
+To get started, we will use MDN's documentation on Fundamental Font and Text styling to learn common properties and values. [Click here](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals) to get started!
 
-  p {
-    background-color: yellow;
-  }
-```
-In this case, the `.intro` style will _not_ be overridden by the `p` style, even though the `p` comes after `.intro`. This is because a class is more specific than an element. Element < Class < ID.
+**Note**: CSS has A LOT of properties and even more values. It is not at all practical to memorize them all. Instead, looking up a kind of style you want to achieve will yield some code examples with properties and values to try.  
 
-## Combining Selectors:
-You are not limited to a single selector at a time. You have a number of options that allow you be a little more specific.
-- `.class p` - This selects any paragraphs that are _children_ of the class. Notice that there is a space between `.class` and `p`. This is important because this is what defines that we're selecting only `p` elements that are children of `.class`.
-- `p.class` - This selects any `p` that _also_ has that class assigned to it.
-- `.class > p` - This selects any paragraphs that are _direct_ children of the class.
-We are using a class and an element in this example, but you can use combinations of elements, classes, or IDs.
-Combining selectors can be very useful, but you should be careful not to go overboard. The selectors we combine, the more specific we get; The more specific we get, the more likely you are to run into trouble.
-
-## Grouping Selectors:
-If you have some styles that apply to multiple selectors, you can consolidate these. Instead of using a separate rule for each selector, you can group these selectors. This eliminates redundancy.
-```css
-p {background-color: yellow;}
-li {background-color: yellow;}
-footer {background-color: yellow;}
-```
-Group selectors like so:
-```css
-p, li, footer {background-color: yellow;}
-```
-
-## Units
-Many properties require some measure of size (font-size, width, etc). There are a number of common units:
-- __px__ - Pixels are an absolute unit, meaning their size does not change with screen size. This is very common, but has some shortcomings. For instance, if you use pixels, and your user zooms in, your layout is likely to break.
-- __em__ - This is a relative unit. Not to be confused with the `<em>` tag. Em is a proportion of the parent's value. This requires more math and can be more difficult to implement than...
-- __rem__ - Rems are also a relative unit, proportional to a base value, but rems are proportional to the _root_ value of a property for the whole document. This means you can more easily predict the effects. Rems are great for almost every situation.
-- __%__ - This is a unit relative to its containing block.
+For example, I want to change my font to be larger. I could google 'css change font size'.
 
 
-## Common Properties
+## Best Practices
+- CSS should be in it's own .css file
+- Declaration blocks should have a line break between declarations
+- Keep all styles for a selector in one rule-set
 
-### Font Properties
 
-- font-size: a number followed by a measurement of how tall the element's text is, usually in ems (em) or pixels (px)
-- font-family: the name of a typeface, or typefaces
-- font-style: italic
-- font-weight: bold | values of bold!
-- line-height: a number followed by a
-measurement of how tall the element's line of is,
-usually in ems (em) or pixels (px)
+## Vocab ✅
+- Markup language
+- Element
+- Declaration
+- Selector
+- Property
+- Rule-set
 
-### Text Properties
+## 🔑 Key Takeaway
+Use CSS to define styles for your documents. CSS declarations should always be kept in a separate file. In future discussions, we will explore how we can use CSS for layout modification.
 
-- text-align: left | right | center | justify
-- text-transform: capitalize | uppercase | lowercase | some others
-- text-decoration: underline | overline | line-through | some others
-- Note: A lot of properties will take a value of none
-
-### Colors
-
-- To set text colors, the property is color
-- To set background colors, the property is background-color
-- The value can be done a few ways:
-  - Hex: #ff0000
-  - RGB: rgb(255,0,0)
-  - RGBA: rgb(255,0,0,0)
-  - Also possible but not preferred: red
-
-A large list of [common CSS properties here](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference)
+### Additional Resources
+[MDN CSS Syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax)

@@ -10,7 +10,7 @@
 1. [Attributes, Classes & IDs](attributes-classes-ids.md)
 1. [CSS Selectors](css-selectors.md)
 1. [Cascade & Inheritance](cascade-inheritance.md)
-1. [Worksheet: Specificity](specificity-practice.md)
+  - [Worksheet: Specificity](exercises/specificity-practice.md)
 1. [Dev Tools](dev-tools-into-default-styles.md)
 
 ### Layout
@@ -18,3 +18,7 @@
 1. [Display](layout-display.md)
 1. [Floats](layout-floats.md)
 1. [Positioning](layout-positioning.md)
+
+### Other
+1. [Semantics: Best Practices](semantics-best-practices.md)
+1. [Alt Text](alt-text.md)

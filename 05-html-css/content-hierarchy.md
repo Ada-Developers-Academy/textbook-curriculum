@@ -14,21 +14,21 @@ They bring a big advantage for people who need the structure to help them unders
 Below are tags that group elements together.
 
 ```html
-  <body> </body>
+  <body></body>
 
-  <div> </div>
+  <div></div>
 
-  <section> </section>
+  <section></section>
 
-  <article> </article>
+  <article></article>
 
-  <nav> </nav>
+  <nav></nav>
 
-  <aside> </aside>
+  <aside></aside>
 
-  <header> </header>
+  <header></header>
 
-  <footer> </footer>
+  <footer></footer>
 ```
 **Think, Pair, Share**
 Take some time to research how to use each of the above tags.
@@ -56,17 +56,17 @@ The relationship tree above is modeled from the following code:
 ```html
 <body>
   <header>
-    <h1><a href="index.html"> Meowspace </a></h1>
-  </header>
+    <h1><a href="index.html">Meowspace</a></h1>
+ </header>
   <article>
-    <h2> You're Meowsome  </h2>
+    <h2>You're Meowsome</h2>
     <p>
       Soft kitty warm kitty little ball of furr but hide when guests come over, for gnaw the corn cob purr for no reason. Lies down knock over christmas tree but kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff or massacre a bird in the living room and then look like the cutest and most innocent animal on the planet, and hide head under blanket so no one can see. Kitty power!
-    </p>
-  </article>
+   </p>
+ </article>
   <footer>
-    <h3> &copy; 2016 </h3>
-  </footer>
+    <h3>&copy; 2016</h3>
+ </footer>
 </body>
 ```
 
@@ -75,35 +75,35 @@ The relationship tree above is modeled from the following code:
 ```html
   <body>
     <header>
-      <h1> Meowspacee </h1>
+      <h1>Meowspacee</h1>
       <nav>
         <ul>
-          <li><a href="#"> Login  </a></li>
-          <li><a href="#"> Signup </a></li>
-        </ul>
-      </nav>
-    </header>
+          <li><a href="#">Login</a></li>
+          <li><a href="#">Signup</a></li>
+       </ul>
+     </nav>
+   </header>
     <section>
       <article>
-        <h2> Everybody Wants to be a Cat </h2>
-        <h3> By: Tiger </h3>
-        <p> Leave hair everywhere. Wake up wander around the house making large amounts of noise jump on top of your human's bed and fall asleep again poop in the plant pot all of a sudden cat goes crazy, so pee in the shoe. Cat is love, cat is life eat owner's food human is washing you why halp oh the horror flee scratch hiss bite or paw at your fat belly. </p>
-        <p> This human feeds me, i should be a god love to play with owner's hair tie. Kitty power! see owner, run in terror all of a sudden cat goes crazy. Attack feet russian blue so intently sniff hand. Leave hair everywhere. Wake up wander around the house making large amounts of noise jump on top of your human's bed and fall asleep again poop in the plant pot. Destroy couch as revenge. </p>
-      </article>
+        <h2>Everybody Wants to be a Cat</h2>
+        <h3>By: Tiger</h3>
+        <p>Leave hair everywhere. Wake up wander around the house making large amounts of noise jump on top of your human's bed and fall asleep again poop in the plant pot all of a sudden cat goes crazy, so pee in the shoe. Cat is love, cat is life eat owner's food human is washing you why halp oh the horror flee scratch hiss bite or paw at your fat belly.</p>
+        <p>This human feeds me, i should be a god love to play with owner's hair tie. Kitty power! see owner, run in terror all of a sudden cat goes crazy. Attack feet russian blue so intently sniff hand. Leave hair everywhere. Wake up wander around the house making large amounts of noise jump on top of your human's bed and fall asleep again poop in the plant pot. Destroy couch as revenge.</p>
+     </article>
       <article>
-        <h2> Everybody Wants to be a Cat </h2>
-        <h3> By:  </h3>
-        <p>  </p>
-        <p> </p>
-      </article>
-    </section>
+        <h2>Everybody Wants to be a Cat</h2>
+        <h3>By: </h3>
+        <p></p>
+        <p></p>
+     </article>
+   </section>
     <footer>
       <ul>
-        <li><a href="#"> Contact </a></li>
-        <li><a href="#"> Careers </a></li>
-      </ul>
-    </footer>
-  </body>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Careers</a></li>
+     </ul>
+   </footer>
+ </body>
 ```
 
 ## Vocab ✅

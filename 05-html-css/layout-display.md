@@ -24,9 +24,9 @@ As an example, consider the following HTML. Note that there is no `<p>` tag arou
 
 ```html
 first bit of text
-<img src="http://www.fillmurray.com/200/200" class="first-img"></img>
+<img src="http://lorempixel.com/200/200/nature/" class="first-img"></img>
 some text in the middle
-<img src="http://www.fillmurray.com/200/200" class="second-img"></img>
+<img src="http://lorempixel.com/200/200/nature/" class="second-img"></img>
 last piece of text
 ```
 
@@ -37,11 +37,11 @@ _Inline elements_ like `<a>` and `<span>` do not change this flow - the browser 
 
 ```html
 first bit of text
-<img src="http://www.fillmurray.com/200/200" class="first-img">
+<img src="http://lorempixel.com/200/200/nature/" class="first-img">
 some text in the
-<a href="https://en.wikipedia.org/wiki/Bill_Murray">
+<a href="https://adadevelopersacademy.org">
   middle
-  <img src="http://www.fillmurray.com/200/200" class="second-img">
+  <img src="http://lorempixel.com/200/200/nature/" class="second-img">
   last piece
 </a>
 of text
@@ -54,11 +54,11 @@ However, the behavior changes when the browser encounters a _block element_, lik
 
 ```html
 first bit of text
-<img src="http://www.fillmurray.com/200/200" class="first-img">
+<img src="http://lorempixel.com/200/200/nature/" class="first-img">
 some text in the
 <p>
   middle
-  <img src="http://www.fillmurray.com/200/200" class="second-img">
+  <img src="http://lorempixel.com/200/200/nature/" class="second-img">
   last piece
 </p>
 of text
