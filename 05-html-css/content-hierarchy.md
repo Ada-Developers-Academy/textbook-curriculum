@@ -98,9 +98,13 @@ The relationship tree above is modeled from the following code:
      </article>
      <article>
         <h2>Everybody Wants to be a Cat</h2>
-        <h3>By: </h3>
-        <p></p>
-        <p></p>
+        <h3>By: Felix</h3>
+        <p>
+        Kitty power! see owner, run in terror all of a sudden cat goes crazy. Attack feet russian blue so intently sniff hand.
+        </p>
+        <p>
+        Cat is love, cat is life eat owner's food human is washing you why halp oh the horror flee scratch hiss bite or paw at your fat belly.
+        </p>
      </article>
    </section>
    
