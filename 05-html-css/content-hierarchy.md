@@ -55,16 +55,16 @@ A visual diagram of elements relationships to each other:
 The relationship tree above is modeled from the following code:
 ```html
 <body>
-  <header>
+ <header>
     <h1><a href="index.html">Meowspace</a></h1>
  </header>
-  <article>
+ <article>
     <h2>You're Meowsome</h2>
     <p>
       Soft kitty warm kitty little ball of furr but hide when guests come over, for gnaw the corn cob purr for no reason. Lies down knock over christmas tree but kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff or massacre a bird in the living room and then look like the cutest and most innocent animal on the planet, and hide head under blanket so no one can see. Kitty power!
    </p>
  </article>
-  <footer>
+ <footer>
     <h3>&copy; 2016</h3>
  </footer>
 </body>
