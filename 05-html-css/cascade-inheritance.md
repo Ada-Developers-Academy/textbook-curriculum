@@ -81,3 +81,4 @@ The way in which CSS is applied to your HTML elements can sometimes seem straigh
 
 [MDN Cascade and Inheritance](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started/Cascading_and_inheritance)  
 [Specificity Practice](exercises/specificity-practice.md)
+[Specificity Calculator](https://specificity.keegan.st/)
