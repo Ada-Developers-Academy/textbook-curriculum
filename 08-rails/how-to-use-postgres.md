@@ -22,7 +22,7 @@ On the upside using Postgres on both the development and production ends means r
 
 To install Postgres you can use the Brew package manager, then set brew to start postgres to launch every time the machine reboots and set it up so that postgres is the default database.  
 
-These steps you only need perform once.
+**These steps you only need perform once.**
 
 ```bash
 $ brew install postgresql
@@ -56,7 +56,7 @@ In the Gemfile convert:
 ```ruby
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-``` 
+```
 
 to:
 
@@ -116,6 +116,9 @@ production:
 ```
 
 Then run `bundle install` and `rails db:reset` and `rails db:migrate`.  You can now use the Postgres database instead of the default SQLite3.
+
+## Learning Summary
+We use the Postgres database to ensure more reliable database performance and fewer issues once we deploy our applications to Heroku. Once we have completed these setup steps, the Rails configuration on our computer will choose Postgres for each new Rails application we create, so we won't need to run these steps again.
 
 ## Resources
 
