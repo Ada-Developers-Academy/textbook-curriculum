@@ -4,7 +4,8 @@
 - Learn how to use `rails` and AR to control the _schema_ of a database
 - Understand the role of _migrations_ in a Rails application
 
-Active Record is an important piece of the Rails approach to web applications. Distributed as a gem, AR is an **Object Relational Mapping** technique. It is used to abstract, normalize, and simplify the interaction between Ruby code and a relational database. It's primary role is to _model_ data structures and their relationships, providing a Ruby class to represent each collection of data (table) in your application's database.
+## Introduction
+Active Record (AR) is an important piece of the Rails approach to web applications. Distributed as a gem, AR is an **Object Relational Mapping** technique. It is used to abstract, normalize, and simplify the interaction between Ruby code and a relational database. It's primary role is to _model_ data structures and their relationships, providing a Ruby class to represent each collection of data (table) in your application's database.
 
 __Question: What is the role of _models_ in the MVC pattern?__
 
@@ -106,5 +107,5 @@ By convention, _model_ class and file names are singular. The associated databas
 | Deer                    | deers                  | deer.rb             |
 
 ## Additional Resources
-- http://guides.rubyonrails.org/active_record_basics.html
-- http://guides.rubyonrails.org/migrations.html  
+- [AR Basics](http://guides.rubyonrails.org/active_record_basics.html)
+- [Migrations](http://guides.rubyonrails.org/migrations.html)
