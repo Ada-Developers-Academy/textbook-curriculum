@@ -59,9 +59,11 @@ Connection: Keep-Alive
 ```
 
 ## Ruby's role in all of this
-We will use Ruby--specifically a collection of Gems--to create a _webserver_.
+We will use Ruby--specifically a collection of Gems called **Rails**--to create a _webserver_.
 
 The _webserver_ is a program on the _server_ which monitors incoming _HTTP requests_
-and then responds with an _HTTP response_. A _webserver_ interfaces your application with incoming _HTTP requests_ on the server. By using Ruby, we can introduce logic into our server so that it can make decisions, process user input, query data, and more.
+and then responds with an _HTTP response_. A _webserver_ interfaces your application with incoming _HTTP requests_ on the server. By using Rails, we can introduce logic into our server so that it can make decisions, process user input, query data, and more.
 
-![The Request Cycle](images/rails-request-cycle.jpg)
+When we create a Rails web application, we make a **request** from our browser to our webserver, which then will send a **response** back to our browser. When we develop our Rails applications, we run our webserver locally, on our own computer.
+
+![Localhost Request Response](images/local-request-response.png)
