@@ -91,6 +91,3 @@ When the server interprets the request, it constructs a response to send back. T
 - 500 Internal Server Error
 
 Oftentimes, the server's response also contains HTML. This is the HTML that will be displayed on the page when your browser renders the response. Even when there is a 404 Not Found error, the response often still contains HTML which will display this information to the user. One example, is [GitHub's 404 page](https://github.com/sdjflksjdfksdjfkljsdlkfjs), which you've probably seen before.
-
-## Additional Resources
-- [HTTP Basics](https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/HTTP_Basics.html)

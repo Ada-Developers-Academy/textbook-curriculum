@@ -5,10 +5,40 @@
   - Define _idempotent_ and _safe_ in the context of HTTP requests
 - Explore how the acronym _CRUD_ (**C**reate **R**ead **U**pdate and **D**elete) relates to both making interactive web applications and HTTP _verbs_.
 
-## HTTP _verbs_
-The typical http request from a client is a `GET`.  When your browser goes to `localhost:3000/books` it sends an http get request.
+
+
+## Introduction
+The main differences between a _website_ and a _web application_ is the management of **resources**, aka **data**. There is always a set of common actions that we want to execute on data in a web application.
+
+Those actions are to:
+- **Create** new data
+- **Read** existing data
+- **Update** existing data
+- **Delete** existing data
+
+You'll hear this set of actions referred to as **CRUD**.
+
+![CRUD](images/CRUD.png)
+
+## HTTP verbs
+We'll start by introducing what each verb is at a high level and then dive into the details of each.
+
+
+## Summary Table
+
+| HTTP Verb | CRUD Action | Safe | Idempotent |
+|-----------|-------------|------|------------|
+| `GET`     | Read        | ✅  | ✅        |
+| `POST`    | Create      | ❌   | ❌         |
+| `PATCH` or `PUT` | Update | ❌ | ✅        |
+| `DELETE`  | Delete      | ❌   | ✅        |
+
+
 
 ### So what does an _HTTP GET Request_ look like?
+
+The typical http request from a client is a `GET`.  When your browser goes to `localhost:3000/books` it sends an http get request.
+
 Kinda like this:
 
 ```
@@ -74,16 +104,11 @@ There is a caveat about `DELETE` idempotence, however. Calling `DELETE` on a res
 ## CRUD
 **C**reate. **R**ead. **U**pdate. **D**elete. This acronym embodies a huge majority of what we do with our web applications both simple and complex. We begin architecting our applications routes and interfaces by considering what kind of actions users will perform (CRUD) and what effects those actions will have on resources within the application (idempotency).
 
-## Summary Table
 
-| HTTP Verb | CRUD Action | Safe | Idempotent |
-|-----------|-------------|------|------------|
-| `GET`     | Read        | Yes  | Yes        |
-| `POST`    | Create      | No   | No         |
-| `PATCH` or `PUT` | Update | No | Yes        |
-| `DELETE`  | Delete      | No   | Yes        |
 
 ## Additional Resources
 
 - [Description of the various HTTP verbs](http://www.restapitutorial.com/lessons/httpmethods.html)
 - [Difference between HTTP verbs and CRUD](http://softwareengineering.stackexchange.com/questions/120716/difference-between-rest-and-crud)
+- [HTTP Status Dogs](https://httpstatusdogs.com/)
+- [HTTP Basics](https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/HTTP_Basics.html)
