@@ -21,20 +21,21 @@ You'll hear this set of actions referred to as **CRUD**.
 ![CRUD](images/CRUD.png)
 
 ## HTTP verbs
-We'll start by introducing what each verb is at a high level and then dive into the details of each.
+When creating these CRUD actions for our web application, we must use the **HTTP Verb** in our request which corresponds to the action we want to take.
+
+In the table below, you can see the starter mapping between the HTTP Verb and the CRUD Action.
+
+| HTTP Verb | CRUD Action |
+|-----------|-------------|
+| `GET`     | Read        |
+| `POST`    | Create      |
+| `PATCH` or `PUT` | Update|
+| `DELETE`  | Delete      |
+
+By specifying the appropriate HTTP Verb, we will give our web application the information it needs to construct the appropriate response. If we send a `GET` request, our web application should understand that we don't want to _change_ anything in our data, we just want to _read_ it.
 
 
-## Summary Table
-
-| HTTP Verb | CRUD Action | Safe | Idempotent |
-|-----------|-------------|------|------------|
-| `GET`     | Read        | ✅  | ✅        |
-| `POST`    | Create      | ❌   | ❌         |
-| `PATCH` or `PUT` | Update | ❌ | ✅        |
-| `DELETE`  | Delete      | ❌   | ✅        |
-
-
-
+## The Details
 ### So what does an _HTTP GET Request_ look like?
 
 The typical http request from a client is a `GET`.  When your browser goes to `localhost:3000/books` it sends an http get request.
@@ -104,6 +105,18 @@ There is a caveat about `DELETE` idempotence, however. Calling `DELETE` on a res
 ## CRUD
 **C**reate. **R**ead. **U**pdate. **D**elete. This acronym embodies a huge majority of what we do with our web applications both simple and complex. We begin architecting our applications routes and interfaces by considering what kind of actions users will perform (CRUD) and what effects those actions will have on resources within the application (idempotency).
 
+## Summary
+
+**Safe**: The request can be made without resulting in data modification.
+
+**Idempotent**: Making the same request multiple times will result in the same behavior.
+
+| HTTP Verb | CRUD Action | Safe | Idempotent |
+|-----------|-------------|------|------------|
+| `GET`     | Read        | ✅  | ✅        |
+| `POST`    | Create      | ❌   | ❌         |
+| `PATCH` or `PUT` | Update | ❌ | ✅        |
+| `DELETE`  | Delete      | ❌   | ✅        |
 
 
 ## Additional Resources
