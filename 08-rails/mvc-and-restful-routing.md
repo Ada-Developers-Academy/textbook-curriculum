@@ -69,6 +69,7 @@ The combination of __VERB__ and __URL__ tell our web server (Rails, in this exam
 ## Additional Resources
 ### MVC
 - [Short YouTube overview of MVC Architecture from Lynda.com](https://www.youtube.com/watch?v=3mQjtk2YDkM)
+- [Image: Rails Structure](http://docs.railsbridge.org/job-board/img/request-cycle.jpg)
 
 ### REST
 - [Dr. Dobbs article by M. Vaqqas describing RESTful Web Services](http://www.drdobbs.com/web-development/restful-web-services-a-tutorial/240169069)

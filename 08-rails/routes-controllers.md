@@ -45,8 +45,8 @@ Let's break down this code:
   - **request method**: `get` in this example
   - **path**: what will be matched with the URL in the HTTP request, `"/books"` in this example
   - **controller and action**: defining the controller and action, split by the `#`. `"books#index"` in this case this would point to the `index` method in the `BooksController` class.
-  
-### Naming Routes 
+
+### Naming Routes
 
 A `routes.rb` file which lists all the CRUD operations would look like this:
 
@@ -58,7 +58,7 @@ Rails.application.routes.draw do
   post "/books", to: "books#create", as: "books"
 
   get '/books/:id/edit', to: 'books#edit', as: "edit_book"
-  
+
   get "/books/:id", to: "books#show", as: "book"
 
   patch '/books/:id', to: 'books#update'
@@ -97,9 +97,9 @@ We can use anything for a path name.  We could for example use:  `get "/books/:i
 So for example for:
 
 -  route:  `get "/books/:id", to: "books#show", as: "banana"`
-	-  Prefix: `banana` 
+	-  Prefix: `banana`
 	-  Path Helper: `banana_path`.  
-	
+
 Additionally any route beyond the standard set of CRUD routes should be named descriptively.  
 
 For example a path to mark a book as read could be:
@@ -128,8 +128,6 @@ Notice that the `update`, `show` & `destroy` actions both use the `book_path`.  
 It's also important to note that the Router selects the first route that matches the request.  So if you swapped `get "/books/new", to: "books#new", as: "new_book"` with `get "/books/:id", to: "books#show", as: "book"` then when a GET request came in for `/books/new` the router would match it to the `books#show` action because the `:id` placeholder can match any value, not just an ID number.  
 
 Because of this it's important to list your routes from most specific to least specific.
-
-![Rails Request Cycle](images/rails-request-cycle.jpg)
 
 ## Setting Up a Controller
 Before we go further lets set up our own Controller class.  A Rails Controller is the central manager of a Rails application.  It takes requests from the web server, pulls information from data models and makes decisions.  It then hands information to the views for rendering the data back to the user.  Below we will setup a Controller to list a set of book titles.

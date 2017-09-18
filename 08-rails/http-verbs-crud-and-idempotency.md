@@ -5,10 +5,41 @@
   - Define _idempotent_ and _safe_ in the context of HTTP requests
 - Explore how the acronym _CRUD_ (**C**reate **R**ead **U**pdate and **D**elete) relates to both making interactive web applications and HTTP _verbs_.
 
-## HTTP _verbs_
+
+
+## Introduction
+The main differences between a _website_ and a _web application_ is the management of **resources**, aka **data**. There is always a set of common actions that we want to execute on data in a web application.
+
+Those actions are to:
+- **Create** new data
+- **Read** existing data
+- **Update** existing data
+- **Delete** existing data
+
+You'll hear this set of actions referred to as **CRUD**.
+
+![CRUD](images/CRUD.png)
+
+## HTTP verbs
+When creating these CRUD actions for our web application, we must use the **HTTP Verb** in our request which corresponds to the action we want to take.
+
+In the table below, you can see the starter mapping between the HTTP Verb and the CRUD Action.
+
+| HTTP Verb | CRUD Action |
+|-----------|-------------|
+| `GET`     | Read        |
+| `POST`    | Create      |
+| `PATCH` or `PUT` | Update|
+| `DELETE`  | Delete      |
+
+By specifying the appropriate HTTP Verb, we will give our web application the information it needs to construct the appropriate response. If we send a `GET` request, our web application should understand that we don't want to _change_ anything in our data, we just want to _read_ it.
+
+
+## The Details
+### So what does an _HTTP GET Request_ look like?
+
 The typical http request from a client is a `GET`.  When your browser goes to `localhost:3000/books` it sends an http get request.
 
-### So what does an _HTTP GET Request_ look like?
 Kinda like this:
 
 ```
@@ -74,16 +105,23 @@ There is a caveat about `DELETE` idempotence, however. Calling `DELETE` on a res
 ## CRUD
 **C**reate. **R**ead. **U**pdate. **D**elete. This acronym embodies a huge majority of what we do with our web applications both simple and complex. We begin architecting our applications routes and interfaces by considering what kind of actions users will perform (CRUD) and what effects those actions will have on resources within the application (idempotency).
 
-## Summary Table
+## Summary
+
+**Safe**: The request can be made without resulting in data modification.
+
+**Idempotent**: Making the same request multiple times will result in the same behavior.
 
 | HTTP Verb | CRUD Action | Safe | Idempotent |
 |-----------|-------------|------|------------|
-| `GET`     | Read        | Yes  | Yes        |
-| `POST`    | Create      | No   | No         |
-| `PATCH` or `PUT` | Update | No | Yes        |
-| `DELETE`  | Delete      | No   | Yes        |
+| `GET`     | Read        | ✅  | ✅        |
+| `POST`    | Create      | ❌   | ❌         |
+| `PATCH` or `PUT` | Update | ❌ | ✅        |
+| `DELETE`  | Delete      | ❌   | ✅        |
+
 
 ## Additional Resources
 
 - [Description of the various HTTP verbs](http://www.restapitutorial.com/lessons/httpmethods.html)
 - [Difference between HTTP verbs and CRUD](http://softwareengineering.stackexchange.com/questions/120716/difference-between-rest-and-crud)
+- [HTTP Status Dogs](https://httpstatusdogs.com/)
+- [HTTP Basics](https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/HTTP_Basics.html)
