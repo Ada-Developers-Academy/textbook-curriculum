@@ -142,11 +142,6 @@ This command has Rails generate a Controller and Views for the /books path, so w
 
 ![view in browser](images/index.html.erb.png)
 
-When generating a Controller/View you can specify as many methods or actions as you wish for example:
-```bash
-$ bin/rails generate controller Books index new update delete show
-```
-
 ### The Controller Class
 
 Rails places controller classes in the `app/controllers` folder.  In the case of the Controller we just generated it will be in the `books_controller.rb` class.
