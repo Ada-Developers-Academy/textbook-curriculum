@@ -22,13 +22,13 @@ Here's the exercises we'll cover in class.
 4. Count number of nodes in the linked list
 
 ## Assignments
-Complete integers and arrays practice questions on [Ada-C8/IntegersAndArrays](https://github.com/Ada-C8/IntegersAndArrays)
+Complete integers and arrays practice questions on [Ada-C8/IntegersAndArrays](https://github.com/Ada-C8/IntegersAndArrays). See the slide deck linked below for hints and tips.
 
-<!--
 ## Additional Resources:
+- Read further on [Wikipedia: Memory Leak](https://en.wikipedia.org/wiki/Memory_leak)
+- Video on [Memory Leak explained](https://www.youtube.com/watch?v=hSDAJNCVhjs)
 
 ## Slide Deck
 + Slide Deck used in class</br>
-<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://www.slideshare.net/secret/akXp3hJePlBdvz">Introduction to Data Structures</a></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</br>
+<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://www.slideshare.net/secret/b4XV1mknFC1kpO">Introduction to Linked Lists</a></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</br>
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /> Please use the <strong>Download</strong> button and play the slide show locally (PowerPoint works best). Without this, the animations which are necessary in understanding the solutions will not render properly.
--->
