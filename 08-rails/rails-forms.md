@@ -32,7 +32,7 @@ Within the `form_tag` block, additional form helpers can be used to create input
 it expects is the HTML name attribute. The second is the default value of the input. Additional HTML options can be passed in a hash. For example:
 
 ```erb
-<%= text_field_tag book[author], "J.K. Rowling", class: "books"" %>
+<%= text_field_tag "book[author]", "J.K. Rowling", class: "books" %>
 ```
 
 Results in:
