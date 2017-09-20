@@ -27,6 +27,9 @@ Complete integers and arrays practice questions on [Ada-C8/IntegersAndArrays](ht
 ## Additional Resources:
 - Read further on [Wikipedia: Memory Leak](https://en.wikipedia.org/wiki/Memory_leak)
 - Video on [Memory Leak explained](https://www.youtube.com/watch?v=hSDAJNCVhjs)
+- More reading on [memory leak on lifehacker.com](https://lifehacker.com/what-it-really-means-when-a-program-leaks-memory-1711957819)
+- Sitepoint reading on [How Ruby uses memory](https://www.sitepoint.com/ruby-uses-memory/)
+- [Introduction to pointers](https://www.slideshare.net/secret/qCrOIS4xRIAE4k)
 
 ## Slide Deck
 + Slide Deck used in class</br>
