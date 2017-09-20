@@ -132,7 +132,7 @@ We can then use the params as attributes for Active Record models. If, for examp
 ```ruby
 # in app/controllers/books_controller.rb
 def create
-  @book = Book.new(params[:author], params[:title]) #instantiate a new book
+  @book = Book.new(params[:book][:author], params[:book][:title]) #instantiate a new book
   if @book.save # save returns true if the database insert succeeds
     redirect_to root_path # go to the index so we can see the book in the list
   else # save failed :(
