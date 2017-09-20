@@ -72,7 +72,7 @@ Next we have two `input` tags with the type of 'text' (see [here](https://develo
 <input type="text" name="author" value="" id="author">
 ```
 
-Each `input` tag will pass a value along to the server when we submit the form. The data passed to the web server in our _POST request_ is collected in a Ruby hash called `params`. In this hash, the `name` attribute of the HTML `<input>` defines the key, and the user input is value. In this case `username` will be assigned to what we type into the first text field.
+Each `input` tag will pass a value along to the server when we submit the form. The data passed to the web server in our _POST request_ is collected in a Ruby hash called `params`. In this hash, the `name` attribute of the HTML `<input>` defines the key, and the user input is value. In this case `title` will be assigned to what we type into the first text field.
 
 And finally we have an `input` with the type of _submit_. This input creates a button to click that will send an HTTP request with the form data to the route in the `action` attribute of the `form` tag.
 
