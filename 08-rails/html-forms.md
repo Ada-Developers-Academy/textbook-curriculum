@@ -99,5 +99,5 @@ end
 ```
 ```ruby
 # app/controllers/books_controller.rb
-book = Book.new(title: params[:book][:title], author: params[:book][:author])
+book = Book.new(title: params[:title], author: params[:author])
 ```
