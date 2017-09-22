@@ -15,7 +15,7 @@ Partial views should start with an `_`. In addition, we want to rename the view 
 #### Step 1
 Let's start by creating a new view called `_form.html.erb`:
 ```bash
-touch app/views/entries/_form.html.erb
+touch app/views/books/_form.html.erb
 ```
 
 Next, we should copy in the existing `edit` form that we have been using.
