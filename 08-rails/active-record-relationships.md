@@ -79,4 +79,4 @@ And, for the table-oriented among you:
 | `author.books.create(book_hash)` | Book object | Yes | **Does** set `book.author_id` |
 
 ### Try it out!
-Now let's try it out for ourselves. We're going to run through the steps to update our book app to have this relationship using [these notes](../active-record-relationships-exercise.md).
+Now let's try it out for ourselves. We're going to run through the steps to update our book app to have this relationship using [these notes](active-record-relationships-exercise.md).
