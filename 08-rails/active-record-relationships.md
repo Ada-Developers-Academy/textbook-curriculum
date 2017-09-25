@@ -24,6 +24,7 @@ Two Rails models can be related to each other through an identifier field (what 
 
 We would call this a __one-to-many__ association. We would say that Author *has_many* Books, and each Book *belongs_to* an Author. The `author_id` column for a Book corresponds to the `id` of an Author record.
 
+
 ### Defining an Association
 ActiveRecord provides lovely methods to quickly create an association between two (or more!) models. We can use class methods within models to make the definition.
 
