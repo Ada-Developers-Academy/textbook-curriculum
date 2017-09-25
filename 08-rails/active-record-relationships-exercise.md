@@ -77,17 +77,29 @@ Let's update our books application from our previous lectures to have this struc
 #### Step Four
 In order for ActiveRecord to establish this relationship with the "dot methods" we want to use, we must modify the model objects to contain the relationship reference.
 
+1. Update the `Book` model
+  ```ruby
+  # app/models/book.rb
+  class Book < ApplicationRecord
+    has_one :author   # singular
+  end
+  ```
 
-```ruby
-# app/models/book.rb
-class Book < ApplicationRecord
-  has_one :author   # singular
-end
-```
+2. Update the `Author` model
+  ```ruby
+  # app/models/author.rb
+  class Author < ApplicationRecord
+    has_many :books   # plural
+  end
+  ```
 
-```ruby
-# app/models/author.rb
-class Author < ApplicationRecord
-  has_many :books   # plural
-end
-```
+#### Step Five
+To set up some test data, let's dive into the Rails console to create some database and model associations.
+
+1. Create a new `Author`
+2. Set a `Book` instance to have the `Author` we created in step #1
+3. Repeat!
+
+
+#### Step Six
+Now that we have the appropriate data set up, let's try out a bunch of the "dot methods" on our models. Refer back to the relationships notes to see some ideas for things you can try out.
