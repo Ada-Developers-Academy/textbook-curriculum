@@ -77,3 +77,6 @@ And, for the table-oriented among you:
 | `author.books.where(condition)` |  Collection of books | Yes | |
 | `author.books.build(book_hash)` | Book object | No | **Does** set `book.author_id` |
 | `author.books.create(book_hash)` | Book object | Yes | **Does** set `book.author_id` |
+
+### Try it out!
+Now let's try it out for ourselves. We're going to run through the steps to update our book app to have this relationship using [these notes](../active-record-relationships-exercise.md).
