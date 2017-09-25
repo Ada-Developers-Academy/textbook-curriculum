@@ -3,7 +3,6 @@ Let's update our books application from our previous lectures to have this struc
 
 1. Remove the existing `author` column on the books table
 2. Create a new `authors` table and `Author` model.
-  - this will start with one column, `name`
 3. Add an `author_id` column to the `books` table to relate to the two tables
 4. Set up the model relationship
 5. Set up some test data
