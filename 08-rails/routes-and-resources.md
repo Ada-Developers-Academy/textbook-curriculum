@@ -25,14 +25,14 @@ Representational state transfer (REST) is an architectural style. This is a reco
 
 The core of this idea can be described through routing. For example, let's look at how to represent a `Book` resource:
 
-| PATH         | METHOD | DESCRIPTION                                                                                    | Path Helper Name | 
-|--------------|--------|------------------------------------------------------------------------------------------------|------------------| 
-| /books     | GET    | Retrieves a collection of book objects.                                                       | books_path     | 
-| /books     | POST   | Creates a book object on the server.                                                         | books_path     | 
-| /books/:id | GET    | Retrieves an individual book object through an identifying attribute, given in the url path. | book_path(:id) | 
-| /books/:id | PATCH  | Updates an individual book object through an identifying attribute, given in the url path.   | book_path(:id) | 
-| /books/:id | PUT    | Updates an individual book object through an identifying attribute, given in the url path.   | book_path(:id) | 
-| /books/:id | DELETE | Removes an individual book object through an identifying attribute, given in the url path.   | book_path(:id) | 
+| PATH         | METHOD | DESCRIPTION                                                                                    | Path Helper Name |
+|--------------|--------|------------------------------------------------------------------------------------------------|------------------|
+| /books     | GET    | Retrieves a collection of book objects.                                                       | books_path     |
+| /books     | POST   | Creates a book object on the server.                                                         | books_path     |
+| /books/:id | GET    | Retrieves an individual book object through an identifying attribute, given in the url path. | book_path(:id) |
+| /books/:id | PATCH  | Updates an individual book object through an identifying attribute, given in the url path.   | book_path(:id) |
+| /books/:id | PUT    | Updates an individual book object through an identifying attribute, given in the url path.   | book_path(:id) |
+| /books/:id | DELETE | Removes an individual book object through an identifying attribute, given in the url path.   | book_path(:id) |
 
 You can see that many actions can be performed on a book object using only two paths.
 The paths represent the scope of the objects to operate on and the HTTP method indicates what type of action should be performed.
@@ -88,5 +88,21 @@ Rails.application.routes.draw do
   resources :authors, except: [:create, :destroy]
 end
 ```
+
+## Exercise
+Let's try out using `resources` in our TaskList project to see what will happen.
+
+1. Run `rails routes` in your terminal. Make notes of what you see - either copy/paste the result or jot it down. Did your custom routes follow the standards listed in the table above?
+1. Comment out all of your routes in the `routes.rb` file.
+1. Add one line using `resources` and the name of your resource. (Most folks probably used "tasks", but we know not everyone did).
+1. Run `rails routes` in your terminal again. Make notes of what is different from this version to the version that was created by your custom routes.
+1. See if you can run your `rails server` and navigate to some of the pages you have set up. This will probably not work depending on how different your custom routes are from the standard set.
+
+## Final Notes
+- From now on, you are encouraged to use `resources` rather than defining each route "manually"
+- When you look up Rails documentation on routing, most reference material uses `resources`
+- Use `except` and `only` regularly to ensure you aren't creating extraneous routes that you will not use in your application
+- Now it is even more important to be running `rails routes` regularly. Since the routes created are behind this new layer of abstraction, `rails routes` should help you clarify how your resources are set up.
+
 ## Resources
 - [Official Rails Guide on Resources](http://guides.rubyonrails.org/routing.html#singular-resources)
