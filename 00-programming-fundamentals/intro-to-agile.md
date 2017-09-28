@@ -2,7 +2,6 @@
 ## Learning Goals
 - What is _Waterfall_? What is _Agile?_ What is _agile_?
 - How to _stand up_? Why to _stand up_?
-- How to write a _user story_?
 - What is _Kanban_? Why is _Kanban_?
 
 
@@ -33,18 +32,6 @@ The point is to keep is short and sweet. Do not:
 1. Ask in-depth questions of others. Instead, quickly communicate a time to meet individually to talk _after standup_.
 1. Ramble.
 1. Show up unprepared.
-
-## User Stories
-User _stories_ are a way to define application requirements. Typically they are
-written by a project manager, product owner, or customer. The format of a user story varies
-but is typically something like:
-
-    As a <role>, I want <goal/desire>
-
-- As a __user__, I want to __search for my customers by their first and last names__.
-- As an __author__, I want to __start an application with the last edit__.
-
-Implementing these _stories_ is the developer's job. Defining them is typically the role of the product team (hopefully with input from customers and engineering).
 
 ## Kanban!
 A Kanban board is visual representation of the _stories_ related to a project. It's used to know, at a glance, what everyone is working on, what's been done, and what's still waiting to be done. The simplest Kanban board consists of three columns: "to-do", "in progress" and "done":
