@@ -21,6 +21,7 @@
 1. [Routes with Resources](./routes-and-resources.md)  
 1. [Rails Debugging](./rails-debugging.md)  
 1. [Active Record Validations](./active-record-validations.md)  
+1. [Nested Routes](./nested-routes.md)
 
 ## Part 3
 1. [Testing Introduction](./test-intro.md)
@@ -29,4 +30,3 @@
 1. [The Test Database](./test-the-test-database.md)
 1. [Unit Testing Controllers](./test-controllers.md)
 1. [Installing Foundation Gem](./installing-foundation.md)
-
