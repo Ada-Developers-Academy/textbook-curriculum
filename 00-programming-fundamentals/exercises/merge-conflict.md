@@ -28,19 +28,6 @@ There are a few things to look out for when working through this activity:
 - There's no "right" way to do this activity, all of the strategies listed below are valid ways to build the recipe file.
 - Have fun!
 
-#### Collaboration strategies
-There are a number of ways that your group can collaborate to build the recipe file and you should discuss them to figure out which strategy to employ:
-
-- **Round robin**: This strategy involves direct coordination between everyone in the group, resulting in a strictly ordered merge sequence.
-  - One at a time each person pushes their changes and resolves any merge conflicts.
-  - The next person in turn pulls those changes and pushes their own until everyone's changes have been pushed.
-- **Ad-hoc**: This approach relies the most upon Git's merge coordination capabilities to ensure that everyone's changes get merged in properly.
-  - Essentially, everyone attempts to `git push` at once.
-  - The first person to get there doesn't have to merge, but everyone after that probably will.
-- **Branched**: This approach is kind of a mix of the other two.
-  - It uses a more advanced feature of Git known as _branching_.
-  - Branching is generally considered the heart of a Git-based workflow and you'll have an opportunity to try it on a larger team project.
-
 #### Recipe building process
 Not sure which strategy is best? That's understandable, so for this activity you'll follow this specific process:
 
@@ -60,3 +47,16 @@ Not sure which strategy is best? That's understandable, so for this activity you
     - Were there any merge conflicts that were particularly tricky to figure out?
     - How could this process have been made easier?
     - Write up a set of steps to follow when dealing with merge conflicts.
+
+#### Collaboration strategies
+There are a number of ways that a group of developers can collaborate to handle merging their changes together into a final, correct result. Each strategy has pros and cons. For example if a particular strategy is good for minimizing the number of complex merge conflicts, it probably requires a slower development process in which developers are often waiting on their peers to merge in changes before they can start working.
+
+- **Round robin**: This strategy involves direct coordination between everyone in the group, resulting in a strictly ordered merge sequence.
+  - One at a time each person pushes their changes and resolves any merge conflicts.
+  - The next person in turn pulls those changes and pushes their own until everyone's changes have been pushed.
+- **Ad-hoc**: This approach relies the most upon Git's merge coordination capabilities to ensure that everyone's changes get merged in properly.
+  - Essentially, everyone attempts to `git push` at once.
+  - The first person to get there doesn't have to merge, but everyone after that probably will.
+- **Branched**: This approach is kind of a mix of the other two.
+  - It uses a more advanced feature of Git known as _branching_.
+  - Branching is generally considered the heart of a Git-based workflow and you'll have an opportunity to try it on a larger team project.
