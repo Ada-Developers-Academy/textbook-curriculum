@@ -59,3 +59,4 @@ Not sure which strategy is best? That's understandable, so for this activity you
     - What went well? What didn't?
     - Were there any merge conflicts that were particularly tricky to figure out?
     - How could this process have been made easier?
+    - Write up a set of steps to follow when dealing with merge conflicts.
