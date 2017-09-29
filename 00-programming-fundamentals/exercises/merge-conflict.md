@@ -11,9 +11,6 @@ Before we can start putting the recipe together we need to make sure that everyo
 1. **Split into groups**: Each table is marked with a particular group number and everyone at that table will be part of the group. There should be six people in each group.
 1. **Fork the activity repo**: One person in your group should fork the carnival-recipes repo and then add everyone else as a collaborator.
 1. **Clone the forked repo**: Everyone else in your group should clone the forked repository.
-1. **Create the recipe file**: To keep things better organized, _one_ person in your group should take the title scrap and copy its contents into another file in the `recipes/` folder. This new file should be named appropriately based on the recipe title.
-    - **Important**: The _one_ person creating the recipe file should also delete the title scrap once its contents have been copied into the recipe file. Copying the contents and deleting the old file can all be done with a single move command: `git mv scraps/<title scrap file> recipes/<recipe file>`.
-1. **Pull the recipe file**: Once the recipe file has been created, committed, and pushed by _one_ person, everyone else in your group should `git pull` that commit to their local copy of the repository.
 1. **Find your recipe scrap**: Each group is assigned six recipe scraps that should all be part of the same recipe. You can split these scraps up amongst your group however you wish. The scraps assigned to each group are listed in the carnival-recipes repo.
 1. **Add your recipe scrap**: Copy the contents of your recipe scrap into the recipe file and delete the recipe scrap then commit both of these changes.
     - **Remember**: When you delete a file from a Git repo you should use `git rm <scrap file>` so that the deletion gets committed!
