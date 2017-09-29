@@ -29,7 +29,7 @@ There are a few things to look out for when working through this activity:
 - Have fun!
 
 #### Recipe building process
-Not sure which strategy is best? That's understandable, so for this activity you'll follow this specific process:
+Because each member of your group now has a different version of the recipe file in their local repository, building the complete recipe by merging those versions together will result in merge conflicts. To handle those merge conflicts sensibly your group should use the following process to construct the final recipe file:
 
 1. Split your group into two teams of three.
 1. Both teams will use the _round robin_ strategy separately.
