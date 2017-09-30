@@ -22,7 +22,9 @@ Here's the exercises we'll cover in class.
 4. Count number of nodes in the linked list
 
 ## Assignments
-Complete integers and arrays practice questions on [Ada-C8/IntegersAndArrays](https://github.com/Ada-C8/IntegersAndArrays). See the slide deck linked below for hints and tips.
+1. Complete integers and arrays practice questions on [Ada-C8/IntegersAndArrays](https://github.com/Ada-C8/IntegersAndArrays). See the slide deck linked below for hints and tips.
+2. Create .rb file and define the Linked List and Node classes keeping object oriented principles in mind. Author methods to add a value, search for a value, count the number of entries and delete a value from the linked list, assuming that the values in each nodes are integers. Be mindful of when the linked list is empty (before adding the first node, after deleting the last node etc.) in your methods.</br>
+Do the above for a singly linked list and a separate file for a doubly linked list.
 
 ## Additional Resources:
 - Read further on [Wikipedia: Memory Leak](https://en.wikipedia.org/wiki/Memory_leak)
