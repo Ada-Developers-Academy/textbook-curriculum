@@ -27,6 +27,8 @@ Once everyone in your group has completed the baseline setup instructions above 
 #### General advice
 There are a few things to look out for when working through this activity:
 
+- If you're still unsure about what a merge conflict is, or how to resolve one please review the [Merge Conflicts curriculum](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/00-programming-fundamentals/git-merge-conflicts.md).
+- You can review the [slides](https://docs.google.com/presentation/d/15OFyyoNJevzk7IpdZCP6VwMLju0MVS2pv0qeETLOa6Q/edit?usp=sharing) and video if you are unsure about how to complete the activity.
 - The end result should be a real, usable recipe. The original recipe files were all complete works from various recipe websites online.
 - If you find that the result of one of your merges is missing critical ingredients or any numbered steps, you should go back and double check that you didn't lose any lines while resolving a merge conflict.
 - Your recipe scraps may have duplicate lines. We've added these in to more accurately portray the full range of potential merge conflicts. **Important**: you should get rid of any duplicate lines while merging.
