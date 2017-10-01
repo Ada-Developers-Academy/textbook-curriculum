@@ -7,6 +7,7 @@ Let's update our books application from our previous lectures to have this struc
 4. Set up the model relationship
 5. Set up some test data
 6. Test it out!
+7. Update the views (we are going to skip this part in class)
 
 #### Step One
 1. Create a new migration where we will modify the existing table.
@@ -101,4 +102,16 @@ To set up some test data, let's dive into the Rails console to create some datab
 
 
 #### Step Six
-Now that we have the appropriate data set up, let's try out a bunch of the "dot methods" on our models. Refer back to the relationships notes to see some ideas for things you can try out.
+Now that we have the appropriate data set up, let's try out a bunch of the "dot methods" on our models in the Rails console. Refer back to the relationships notes to see some ideas for things you can try out.
+
+#### Step Seven
+Since we have updated the way that the data is retrieved within our books application, we need to update the views that go along with this data.
+
+1. Locate the views whether the author name is displayed. Update the view code to use the author's name rather than an author field directly.
+
+  From `book.author` to `book.author.name`
+
+1. Locate the view where the new book form is located. Switch the form from using a `text_field` for the author to using a `select`. You can read more about the different types of select tags Rails provides [here](http://guides.rubyonrails.org/form_helpers.html#making-select-boxes-with-ease).
+
+  Within a `form_for` you can use:
+  `<%= f.select :author_id, Author.all.map{ |auth| auth.name, auth.id } %>`
