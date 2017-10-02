@@ -10,8 +10,10 @@
 Let's use an example in our book application to classify books under certain genres. As an example,  let's use two books:
 1. **Bad Feminist** by _Roxane Gay_
   - Genres: Nonfiction, Feminism, Writing: Essays, Autobiography: Memoir
+
 1. **Hidden Figures** by _Margot Lee Shetterly_
   - Genres: Nonfiction, History, Science, Biography, Historical
+
 
 To implement this feature we'll want to:
 1. Add a genre resource & all CRUD functionality (controller, model, views, routes)
