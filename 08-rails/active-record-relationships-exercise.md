@@ -81,7 +81,7 @@ In order for ActiveRecord to establish this relationship with the "dot methods" 
   ```ruby
   # app/models/book.rb
   class Book < ApplicationRecord
-    has_one :author   # singular
+    belongs_to :author   # singular
   end
   ```
 
