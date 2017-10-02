@@ -17,6 +17,7 @@ Read:
 + [Deep Work: The productivity secret behind Bill Gates' incredible success](https://www.inc.com/jessica-stillman/the-productivity-secret-behind-bill-gates-incredible-success.html)
 + [Deep Work: conversation on deep work](https://heleo.com/conversation-real-productivity-isnt-what-you-think-it-is/13728/)
 + [Forming your own routine for focused work](https://journal.thriveglobal.com/this-morning-routine-will-save-you-20-hours-per-week-c3088cd2c685#.ignrky3k7)
++ [Consistency: I will not be outworked](https://medium.com/personal-growth/consistency-beats-talent-luck-good-intentions-and-even-quality-66ba255aa4f7)
 + [Competence is not confidence](https://hbr.org/2013/08/why-do-so-many-incompetent-men)
 + [How to become a programmer or the art of googling well](https://okepi.wordpress.com/2014/08/21/how-to-become-a-programmer-or-the-art-of-googling-well/)
 + [10000 hours of practice to achieve mastery](http://wisdomgroup.com/blog/10000-hours-of-practice/)
