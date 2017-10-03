@@ -17,7 +17,7 @@ The bubble sort algorithm is a simple sorting algorithm that repeatedly steps th
 ```ruby
 def bubble_sort(array, length)
   i = 0
-  while i < length # outer loop
+  while i < length-1 # outer loop
     j = 0
     while j < length-i-1 # inner loop
       if array[j] > array[j+1] # swap
