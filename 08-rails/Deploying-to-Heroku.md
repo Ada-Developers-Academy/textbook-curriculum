@@ -79,6 +79,24 @@ running `rake db:migrate` attached to terminal... up, run.1833
 ...
 ```
 
+### Summary
+
+Initial deployment:
+
+```
+heroku create app-name
+git push heroku
+heroku run rails db:migrate
+```
+
+Updates:
+
+```
+git push heroku
+# If your database schema changed
+heroku run rails db:migrate
+```
+
 ## Things to Remember
 
 - If you make changes to your application, you'll have to `git push heroku` again.
