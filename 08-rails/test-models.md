@@ -87,9 +87,9 @@ Also check our _expectations_. They look like Minitest _expectations_ because th
 
 - `must_be(expression, fail_message)`
 - `wont_be(expression, fail_message)`
-- `must_equal(expr1, expr2, fail_message)`
+- `must_equal(expr2, fail_message)`
 - `must_include(object, fail_message)`
-- `wont_be_nil(expression, fail_message)`
+- `wont_be_nil(fail_message)`
 
 The last thing to note is the use of a nested `describe` block. While not strictly necessary, this is a very useful organizational tool, especially when test files start to get very large.
 
