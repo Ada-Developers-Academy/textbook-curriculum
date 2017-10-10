@@ -83,34 +83,28 @@ end
 When we follow what's happening as we make a recursive call, it can be hard to keep track of variables and results since there can be many activation records (or method calls). Trace what you expect to show up on the stack: the function call along with parameters e.g. *factorial(3)* shows up on the stack. Then it makes a recursive call, so *factorial(2)* gets pushed above it on the stack. With another recursive call, *factorial(1)* gets pushed on the stack. *factorial1)* is the base case. It returns 1 and *factorial(1)* gets popped from the stack. This return value of 1 is multiplied to 2, and 2 gets returned by factorial(2) as it gets popped from the stack. The stack frame for *factorial(3)* get popped after 3 is multiplied with the returned value of 2. 6 gets returned as the final value of *factorial(3)*.
 
 ### Understanding space and time complexities for the example
-
-
-
-<!--
-Need to think through the following and update
-### Why (or why not) Recursion?
-Some problems are naturally recursive.  If you can easily identify a base case and a recursive case, then a recursive method might be easier to write and understand.  Sometimes a recursive method just makes more sense than an iterative method.  All recursive methods can be written iteratively.
-
-However, recursive methods come at a cost.  Recursive methods use a lot of memory because each activation requires more memory to be allocated for each parameter and local variable.
+To compute *factorial(n)*, n operations will be needed. Therefore, the time complexity will be *O(n)*.</br>
+Each recursive call will end up with a stack frame on the call stack. There will be *n* such stack frames by the time the base case is reached and the stack starts unwinding. Stack frames take up space in memory. So, the space complexity will be *O(n)*.
 
 ### Writing a recursive method
 When writing a recursive method, try the following:
 - Think about how you can reduce the problem to one or more simpler sub-problems of the same form.
 - Think about what information you need to give to the sub-problems (the parameters).
 - Think about what information you want back from the sub-problems (the return type).
-- Write the method header.
+- Write the method prototype.
 - Think about the base case: When is the answer so simple that we know the answer without recursing?
 - Think about the recursive case: How are we going to break the problem into a smaller problem (by calling out method again) and get closer to the base case?
-Write the code.
 - Write a method specification (like the static view of the problem) that explains exactly what it will do in terms of the parameters. Include any preconditions.
+- Write the code.
 - Test out your code with several different cases.
 
+<!--
 ## Presentation
-+ [Recursion](https://drive.google.com/open?id=1nnjCzrJ1-j-4t20Je0o5KgOa1-N53WQuOywApqsmqxc)
++ [Recursion](https://drive.google.com/open?id=1nnjCzrJ1-j-4t20Je0o5KgOa1-N53WQuOywApqsmqxc) -->
 
 ## Assignments
-+ Assigned: [AdaGold/recursion-tracing](https://github.com/AdaGold/recursion-tracing)
-+ Optional: [AdaGold/recursion-writing](https://github.com/AdaGold/recursion-writing)
++ Define terms, practice tracing and deduce the time and space complexities for problems in [Ada-C8/recursion-tracing](https://github.com/Ada-C8/recursion-tracing). Answer key for reference can be found [here](https://github.com/Ada-C8/recursion-tracing/tree/solutions)
+<!--+ Optional: [AdaGold/recursion-writing](https://github.com/AdaGold/recursion-writing)-->
 
 ## Additional Resources:
 - This content assumes a good understanding of [understand a function call](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Understanding%20function%20calls.md)
@@ -119,4 +113,3 @@ Write the code.
 + Slide Deck used in class</br>
 <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://www.slideshare.net/secret/hYxKn9Azw2bUFs">Introduction to Recursion</a></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</br>
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /> Please use the <strong>Download</strong> button and play the slide show locally (PowerPoint works best). Without this, the animations which are necessary in understanding the solutions will not render properly.
--->
