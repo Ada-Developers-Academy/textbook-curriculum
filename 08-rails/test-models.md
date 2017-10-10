@@ -88,7 +88,7 @@ Also check our _expectations_. They look like Minitest _expectations_ because th
 - `must_be(expression, fail_message)`
 - `wont_be(expression, fail_message)`
 - `must_equal(expr1, expr2, fail_message)`
-- `must_include(collection, object, fail_message)`
+- `must_include(object, fail_message)`
 - `wont_be_nil(expression, fail_message)`
 
 The last thing to note is the use of a nested `describe` block. While not strictly necessary, this is a very useful organizational tool, especially when test files start to get very large.
@@ -184,5 +184,5 @@ In the next section, we'll examine a slightly more elegant way to test the same 
 - [Ruby on Rails Guide - Model Testing](http://guides.rubyonrails.org/testing.html#model-testing)
 - [Minitest Quick Reference](http://www.mattsears.com/articles/2011/12/10/minitest-quick-reference/)
 - [Minitest Expectations](http://ruby-doc.org/stdlib-trunk/libdoc/minitest/spec/rdoc/MiniTest/Expectations.html)
-- [Minitest Rails Spec Documentation](http://blowmage.com/minitest-rails/)]
+- [Minitest Rails Spec Documentation](http://blowmage.com/minitest-rails/)
 - [Minitest Model Testing for Beginners](http://buildingrails.com/a/rails_unit_testing_with_minitest_for_beginners)
