@@ -112,16 +112,11 @@ Instead you can overwrite Foundations styles your own CSS files. You can also se
 ## Add Foundation to your project
 We will be taking a version of Foundation from the web and installing in into a Rails application.
 
-1.  We can [download this specific version](https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.css) on this site. Note that the text loaded here is the CSS we will need so go ahead and select it all and copy it.
+1.  We can [download this specific version](https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.css) on this site. Note that the text loaded here is the CSS we will need so go ahead and select it all and copy it. Foundation made some breaking changes to a later version of Foundation, and so we'll be using an earlier version to ensure our usage of the grid layout is good.
 
-1. Create a new CSS file in your Rails application under `app/assets/stylesheets`. Call this file `foundation.css`.
+1. Create a new CSS file in your Rails application under `app/assets/stylesheets`. Call this file `foundation.css`. Copy the contents of the copied file in step 1 into this file.
 
-1. Link the CSS file in your Rails application. In `application.css` (The pre-existing rails file), Link to `foundation.css` by adding this line to the top:
-
-  ```css
-    @import url('foundation');
-  ```
-  **note:** The import url should not include '.css' at the end of foundation. Doing so will cause foundation to not load once you deploy to Heroku.
+1. Reload a page in your browser in your Rails application and verify that it looks different! Foundation should modify some default styles and fonts so you should be able to tell right away.
 
 That's it!
 
