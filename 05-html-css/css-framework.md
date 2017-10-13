@@ -110,35 +110,20 @@ Instead you can overwrite Foundations styles your own CSS files. You can also se
 
 
 ## Add Foundation to your project
-Go to [Foundation's Download page](http://foundation.zurb.com/sites/download.html/) and download the Complete framework by clicking the 'Download Everything' button.
+We will be taking a version of Foundation from the web and installing in into a Rails application.
 
-The download will contain the following files:
-  - index.html _(HTML file, linking to Foundation's CSS and JavaScript files with demo code to reference)_
-  - /css
-    - app.css _(File to write your own, custom CSS)_
-    - foundation.css _(Foundation's pre-written CSS, in human readable form. Ideal for development.)_
-    - foundation.min.css _(The same code as foundation.css, without any spaces or line breaks. Minified files are more efficient for production.)
-  - /js _(Blissfuly ignore the contents of this directory for now)_
-    - app.js
-    - /vendor
-      - foundation.js
-      - foundation.min.js
-      - jquery.js
-      - what-input.js
+1.  We can [download this specific version](https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.css) on this site. Note that the text loaded here is the CSS we will need so go ahead and select it all and copy it.
 
-If you're working on a static site, you're set!
+1. Create a new CSS file in your Rails application under `app/assets/stylesheets`. Call this file `foundation.css`.
 
-If you're working on a rails app, add the CSS file foundation.css to app/assets/stylesheets.
+1. Link the CSS file in your Rails application. In `application.css` (The pre-existing rails file), Link to `foundation.css` by adding this line to the top:
 
-In application.css (The pre-existing rails file), Link to foundation.css by adding this line to the top:
-
-```css
-  @import url('foundation');
-```
-**note:** The import url should not include '.css' at the end of foundation. Doing so will cause foundation to not load in Heroku. 
+  ```css
+    @import url('foundation');
+  ```
+  **note:** The import url should not include '.css' at the end of foundation. Doing so will cause foundation to not load once you deploy to Heroku.
 
 That's it!
-To focus on only working with making our sites responsive using the grid, we are going to not worry about the other files for now.
 
 ## Best Practices
 - NEVER change any CSS in Foundation's documents
