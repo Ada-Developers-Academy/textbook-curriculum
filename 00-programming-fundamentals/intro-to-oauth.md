@@ -7,7 +7,7 @@ You should be able to:
 
 ## Introduction
 
-OAuth is an authorization framework, meaning it allows a user to grant access to their user account in one service (the OAuth provider) to another (the client).  At Ada we will primarily use OAuth to use another service (Github) to provide secure authentication to our sites.  
+OAuth is an **authorization** framework, meaning it allows a user to grant access to their user account in one service (the OAuth provider) to another (the client).  An **authentication** framework on the other hand is a method for someone to prove their identity, usually with a username/password, but could be with touch-id, or even a QR code.  At Ada we will primarily use OAuth to use another service (Github) to authorize our sites to gather information about the user, such as their username.  So users will log into Github's site (authentication) and then authorize Github to give our apps information about themselves, allowing our site to securely know who is requesting access to our service.  
 
 ## OAuth Roles
 
