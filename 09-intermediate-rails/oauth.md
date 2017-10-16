@@ -222,7 +222,9 @@ end
 Before the `session` is sent to the browser it is encrypted. This means its contents are _opaque_ to the browser. All the browser sees is several KB of garbled nonsense, which it can neither interpret nor change. This makes the `session` ideal for things like storing the ID of an authenticated user, since there's no way for a malicious browser to fake a login.
 
 ## Additional Resources
-[Sessions, Cookies and Authentication ](http://www.theodinproject.com/courses/ruby-on-rails/lessons/sessions-cookies-and-authentication)(not including 'Rolling Your Own Auth')  
-[How Sessions Work](http://www.justinweiss.com/articles/how-rails-sessions-work/)  
+*  [oauth Overview Notes](https://docs.google.com/presentation/d/1lIQ4F8gpXwaIEBHlsussoIEN31sqCY2upGIV_L81zi4)
+*  [oAuth Youtube video overview](https://youtu.be/CPbvxxslDTU)
+*  [Sessions, Cookies and Authentication ](http://www.theodinproject.com/courses/ruby-on-rails/lessons/sessions-cookies-and-authentication)(not including 'Rolling Your Own Auth')  
+*  [How Sessions Work](http://www.justinweiss.com/articles/how-rails-sessions-work/)  
 [Rails Guides: Accessing the Session](http://guides.rubyonrails.org/action_controller_overview.html#accessing-the-session)
-[How to Set Environment Variables in Heroku](https://devcenter.heroku.com/articles/config-vars)
+*  [How to Set Environment Variables in Heroku](https://devcenter.heroku.com/articles/config-vars)
