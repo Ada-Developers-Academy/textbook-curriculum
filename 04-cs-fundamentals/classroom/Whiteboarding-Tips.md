@@ -44,7 +44,7 @@ Technical Questions: Problem Solving approach
    * Can you improve your solution? Red, Green, Refactor!
 
 ## Assignment
-- Watch [Google: How to prepare for a  technical interview](https://www.youtube.com/watch?v=ko-KkSmp-Lk)
+<!-- - Watch [Google: How to prepare for a  technical interview](https://www.youtube.com/watch?v=ko-KkSmp-Lk) -->
 - Watch [Google: Example coding interview](https://www.youtube.com/watch?v=XKu_SEDAykw)
 - Practice (more the better) white boarding questions in 20 minute slots with peers, friends and mentors.
 
