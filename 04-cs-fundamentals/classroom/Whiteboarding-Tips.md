@@ -43,6 +43,11 @@ Technical Questions: Problem Solving approach
    * Run examples through your whiteboard code
    * Can you improve your solution? Red, Green, Refactor!
 
+## Assignment
+- Watch [Google: How to prepare for a  technical interview](https://www.youtube.com/watch?v=ko-KkSmp-Lk)
+- Watch [Google: Example coding interview](https://www.youtube.com/watch?v=XKu_SEDAykw)
+- Practice (more the better) white boarding questions in 20 minute slots with peers, friends and mentors.
+
 ## Slide Deck
 + Slide Deck used in class</br>
 <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://drive.google.com/file/d/0B__DV26QHsH4dnBwSnpBa1ZQWEU/view?usp=sharing">Whiteboarding interview preparation</a></span></br> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</br>
