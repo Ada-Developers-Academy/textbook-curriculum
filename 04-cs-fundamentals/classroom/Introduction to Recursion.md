@@ -43,7 +43,7 @@ Which broken down to model a recursive algorithm is:
 If we were to divide this concept into a recursive definition, we might say:
 - If n = 1, return 1
 - If n > 1, return n * (n-1)!
-We call this the *static view* of a recursive method.  Basically the static view is the mathematical way of looking at a recursive problem.
+We call this the *static view* of a recursive method.  Basically the **static view** is the mathematical way of looking at a recursive problem.
 
 Mathametically, factorial can be explained as:</br>
 *0! = 1*</br>
@@ -88,26 +88,30 @@ Each recursive call will end up with a stack frame on the call stack. There will
 
 ### Writing a recursive method
 When writing a recursive method, try the following:
-- Think about how you can reduce the problem to one or more simpler sub-problems of the same form.
+- Think about the recursive case: How are we going to break the problem into a smaller problem (by calling out method again) and get closer to the base case?
+- Think about how you can reduce the problem to one or more smaller sub-problems of the same form.
 - Think about what information you need to give to the sub-problems (the parameters).
 - Think about what information you want back from the sub-problems (the return type).
 - Write the method prototype.
 - Think about the base case: When is the answer so simple that we know the answer without recursing?
-- Think about the recursive case: How are we going to break the problem into a smaller problem (by calling out method again) and get closer to the base case?
 - Write a method specification (like the static view of the problem) that explains exactly what it will do in terms of the parameters. Include any preconditions.
 - Write the code.
-- Test out your code with several different cases.
-
-<!--
-## Presentation
-+ [Recursion](https://drive.google.com/open?id=1nnjCzrJ1-j-4t20Je0o5KgOa1-N53WQuOywApqsmqxc) -->
+- Test out your code with several different cases. Ensure all of them terminate with a base case and yield the right results.
 
 ## Assignments
 + Define terms, practice tracing and deduce the time and space complexities for problems in [Ada-C8/recursion-tracing](https://github.com/Ada-C8/recursion-tracing). Answer key for reference can be found [here](https://github.com/Ada-C8/recursion-tracing/tree/solutions)
-<!--+ Optional: [AdaGold/recursion-writing](https://github.com/AdaGold/recursion-writing)-->
++ Design and implement recursive algorithms and explain the time and space complexities of your solution for the problems in [Ada-C8/recursion-writing](https://github.com/Ada-C8/recursion-writing)
 
 ## Additional Resources:
 - This content assumes a good understanding of [understand a function call](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Understanding%20function%20calls.md)
+- Optional assignments from GeeksForGeeks:
+  - [Set 1: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion/)
+  - [Set 2: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-2/)
+  - [Set 3: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-3/)
+  - [Set 4: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-4/)
+  - [Set 5: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-5/)
+  - [Set 6: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-6/)
+  - [Set 7: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-7/)
 
 ## Slide Deck
 + Slide Deck used in class</br>
