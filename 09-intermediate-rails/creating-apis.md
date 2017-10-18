@@ -202,9 +202,10 @@ We need to make sure we set an appropriate status code - `:bad_request` will do 
 def create
   pet = Pet.new(pet_params)
   if pet.save
-    render status: :ok, json: { id: pet.id }
+    render json: { id: pet.id }, status: :ok
   else
-    render status: :bad_request, json: { errors: pet.errors.messages }
+    render json: { errors: pet.errors.messages },
+      status: :bad_request
   end
 end
 ```
