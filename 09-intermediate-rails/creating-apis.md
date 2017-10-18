@@ -62,7 +62,7 @@ You'll notice that we have one basic get route created for pets, and one basic c
 The error below is where we diverge from our "normal" rails approach. Normally, we'd create a view that would correspond with our controller action.  The error should be something like:
 
 ```bash
-Missing template pets/index, application/index...
+Missing a template for this request format and variant.
 ```
 
 Since we are building a JSON API, we don't want to render an HTML template (or really use any of the view layer). Instead we want to return the requested data in a standard format. Using the `render` method in the controller with some new options, we can choose to return json:
@@ -70,17 +70,17 @@ Since we are building a JSON API, we don't want to render an HTML template (or r
 ```ruby
 # pets_controller.rb
 def index
-  render :json => { ready_for_lunch: "yassss" }
+  render json: { ready_for_lunch: "yassss" }
 end
 ```
 
-Notice that we didn't for realsies write any JSON. We provided a plain Ruby hash and let Rails do the conversion for us (with the `render :json =>` call. So to make progress on our tests, we could do something like:
+Notice that we didn't for realsies write any JSON. We provided a plain Ruby hash and let Rails do the conversion for us (with the `render json: ` call. So to make progress on our tests, we could do something like:
 
 ```ruby
 # pets_controller.rb
 def index
   pets = Pet.all
-  render :json => pets
+  render json: pets
 end
 ```
 
@@ -110,7 +110,7 @@ To set status code in your controller, just pass `:status` to our render method.
 ```ruby
 def index
   pets = Pet.all
-  render :json => pets, :status => :ok
+  render json: pets, status: :ok
 end
 ```
 
@@ -157,7 +157,7 @@ The `create` action will look very similar to how it would in a web app. Rails p
 def create
   pet = Pet.new(pet_params)
   pet.save!
-  render status: :ok, json: { id: pet.id }
+  render json: { id: pet.id }, status: :ok
 end
 
 private
