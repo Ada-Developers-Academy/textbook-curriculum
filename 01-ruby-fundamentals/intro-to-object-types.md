@@ -153,7 +153,7 @@ fibb.last
 ### `Hash`
 The other _object type_ for managing collections if data is the `Hash`. Every `Hash` is composed of zero to many key/value pairs. This means that every piece of data, called a _value_, in a `Hash` is accessed by referencing its _key_. Most often, these keys are `Symbol`s, but they can also be `String`s or `Integer`s.
 
-__Unlike `Array`s, `Hash` objects do not guarantee the order of key/value pairs!__ Create a hash by defining key/value pairs between braces (`{}`). The key comes first and can be declared using either _symbol_ or _hashrocket_ notation. The most recent versions of Ruby prefer _symbol_ notation, but both work. Key/value pairs are separated by a comma.
+__Unlike `Array`s, `Hash` objects do not rely upon the order of key/value pairs!__ Create a hash by defining key/value pairs between braces (`{}`). The key comes first and can be declared using either _symbol_ or _hashrocket_ notation. The most recent versions of Ruby prefer _symbol_ notation, but both work. Key/value pairs are separated by a comma.
 
 To access a _value_ in a `Hash`, use bracket notation with the corresponding _key_, like `my_hash[:my_key]`. You can use the same notation to create new keys in the `Hash` as well.
 
