@@ -87,9 +87,5 @@ Try out a few api's using your browser and the [HTTParty gem](http://httparty.ru
 
 - [Google Books](https://developers.google.com/books/docs/v1/getting_started)
     - `https://www.googleapis.com/books/v1/volumes?q=<search term>`
-- [Open Weather Map](http://openweathermap.org)
-    - `http://api.openweathermap.org/data/2.5/forecast?q=<search term>`
-- [Meme Generator](http://version1.api.memegenerator.net)
-    - `http://version1.api.memegenerator.net/Generators_Search?q=<search term>`
 - [IP Address Lookup](http://www.hostip.info/use.html)
     - `http://api.hostip.info/get_html.php?ip=<ip address>`
