@@ -42,7 +42,7 @@ In the context of OAuth, this means every test we write will need to send not on
 This approach would have worked great for MediaRanker, but now that we've added OAuth it's got some problems:
 
 - Logging in with GitHub OAuth is complicated
-- We'd real GitHub usernames and passwords for our tests
+- We'd need real GitHub usernames and passwords for our tests
 - This introduces GitHub as a **dependency** to our tests. If talking to GitHub is slow then our tests will be slow, and if GitHub is down then our tests will fail even though our code is correct.
 
 To resolve these issues, we'll use a strategy known as **mocking**. The basic idea is when we're running our test, instead of going all the way to GitHub for user data we'll short-circuit the process and use some made up data instead.
