@@ -8,40 +8,40 @@
 
 Web api's are requested using HTTP, this means that many tools and any programming language can make requests. Ruby has **many** tools to make HTTP requests:
 
-- [HTTParty](http://httparty.rubyforge.org): Super simple, great to use for learning and simple requests
+- [HTTParty](http://httparty.rubyforge.org): Just a few features, great to use for learning and simple requests
 - [Net::HTTP](http://ruby-doc.org/stdlib-2.1.0/libdoc/net/http/rdoc/Net/HTTP.html): Standard Ruby library.
 - [Typheous](https://github.com/typhoeus/typhoeus): Advanced functionality such as parallel requests and streaming.
 
-Here is an example of a simple HTTP request using the HTTParty gem.
+Here is an example of an HTTP request using the HTTParty gem.
 
 ```ruby
 require 'httparty'
-r = HTTParty.get("http://pokeapi.co/api/v2/pokemon/25/")
+response = HTTParty.get("https://dog.ceo/api/breeds/image/random")
 ```
 
-It's that simple. This HTTP request is exactly the same as a request coming from your browser, a form, link, button, etc...  The return value of the HTTParty `.get` method is an HTTParty instance
+...and just like that we will get back data from an API! This HTTP request is exactly the same as a request coming from your browser, a form, link, button, etc...  The return value of the HTTParty `.get` method is an HTTParty instance
 
-    #<HTTParty::Response:0x7fe5dc1b8b08 parsed_response={"id"=>25, "name"=>"pikachu", "base_experience"=>112, "height"=>4, "is_default"=>true, "order"=>32, "weight"=>60, "abilities"=>[...
+    #<HTTParty::Response:0x7fa8c282d008 parsed_response={"status"=>"success", "message"=>"https://dog.ceo/api/img/hound-Ibizan/n02091244_1025.jpg"},...
 
 This instance of HTTParty has methods to access the data from the request:
 
 ```ruby
-r.body    # => Raw response of the HTTP body (the html in this case)
-r.code    # => The numerical code of the response (200)
-r.message # => The text message that corresponds to the code ("OK")
-r.headers # => A hash of data about the request (date, server, content-type)
+response.body    # => Raw response of the HTTP body (the html in this case)
+response.code    # => The numerical code of the response (200)
+response.message # => The text message that corresponds to the code ("OK")
+response.headers # => A hash of data about the request (date, server, content-type)
 ```
 
 So HTTParty is a tool to make HTTP requests, but HTML isn't a great way for computers to consume data, typically JSON or XML are used to represent data when it's not being displayed to humans. Let's look at an example of HTTParty with a JSON response.
 
 ```ruby
-r = HTTParty.get("http://pokeapi.co/api/v2/pokemon/25/")
+response = HTTParty.get("https://dog.ceo/api/breeds/image/random")
 ```
 
 HTTParty will attempt to automatically parse any data that it knows how, it's very good at doing this with JSON
 
-    r.parsed_response
-    # => {"id"=>25, "name"=>"pikachu", "base_experience"=>112, ...
+    response.parsed_response
+    # => {"status"=>"success", "message"=>"https://dog.ceo/api/img/hound-Ibizan/n02091244_1025.jpg"}
 
 As you can see the `.parsed_response` returns a ruby `Hash`. HTTParty took the response JSON, and parsed it into ruby. This works similarly with XML.
 
@@ -54,32 +54,32 @@ When `HTTParty` isn't being used, you would need to parse the JSON using Ruby. R
 We've looked at what an API is, how to make a request to it using ruby, and the types of responses you can expect back. Let's look at an example of how we could use this data.
 ```ruby
 require 'httparty' # If using Rails with a Gemfile, this require is not needed
-class Pokemon
-  attr_accessor :name
+class Dog
+  attr_accessor :breed
 
-  def initialize(name)
-    @name = name
+  def initialize(breed)
+    @breed = breed
   end
 
   #Using HTTParty to get and parse a JSON request
-  def base_info
-    HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{ @name }").parsed_response
-  end
-
-  def species
-    HTTParty.get("http://pokeapi.co/api/v2/pokemon-species/#{ @name }").parsed_response
+  def random_picture
+    # this will ensure that there are no weird characters in the URI (like a space in the breed name)
+    encoded_uri = URI.encode("https://dog.ceo/api/breed/#{ @breed }/images/random")   
+    HTTParty.get(encoded_uri).parsed_response
   end
 end
 ```
 
 We can see this class is initialized with a name, then the instance has two methods to access the Pokemon api:
 ```ruby
-pikachu = Pokemon.new("Pikachu")
-pikachu.base_info
-pikachu.species
+husky = Dog.new("Husky")
+husky.random_picture
+
+english_spaniel = Dog.new("English Spaniel")
+english_spaniel.random_picture
 ```
 
-With this class we can now easily use the Pokemon API, the functionality can also be easy to test and extend, and even wrap in a gem to use in multiple projects.
+With this class we can now easily use the Dog CEO API, the functionality can also test and extend, and even wrap in a gem to use in multiple projects.
 
 ### Practice
 
