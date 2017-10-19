@@ -27,10 +27,10 @@ $ brew install node
 Bash completion has been installed to:
   /usr/local/etc/bash_completion.d
 ==> Summary
-🍺  /usr/local/Cellar/node/7.0.0: 3,655 files, 38.8M
+🍺  /usr/local/Cellar/node/8.6.0: 3,655 files, 38.8M
 ```
 
-Alright. Now, `node --version` should report to you something like `v7.0.0`. Yay! We'll use Node's command line program to do all the same things we did with Ruby's. We can use Node to run JavaScript programs (`$ node my_program.js`) and use Node as a _REPL_ (`$ node`).
+Alright. Now, `node --version` should report to you something like `v8.X.X`. Yay! We'll use Node's command line program to do all the same things we did with Ruby's. We can use Node to run JavaScript programs (`$ node my_program.js`) and use Node as a _REPL_ (`$ node`).
 
 Node is also packaged with __npm__, the _Node Package Manager_. npm is to Node like gem is to Ruby. We'll use npm to define, install, and manage dependencies in our Node applications.
 
@@ -67,18 +67,30 @@ undefined
 >
 ```
 
-__Hint: Use `.exit` to get out of the Node REPL__
+__Hint: Use `.exit` or ctrl-d to get out of the Node REPL__
 
 Now that we've got a REPL available to us, let's jump in with some JavaScript specifics. We are going to talk about __variables__, __datatypes__, and __functions__.
 
 ### Variables
-__Declare all variables with the var operator!__
+__Declare all variables with the var or let operators!__
 
 ```javascript
 var five = 5;
+let six  = 6;
 ```
 
-If you omit `var` you will get a __global__ variable, which can lead to all sorts of problems. __JUST DON'T DO IT!__
+If you omit `var` or `let` you will get a __global__ variable, which can lead to all sorts of problems. __JUST DON'T DO IT!__
+
+`var` and `let` mean subtly different things, both having to do with [scope](https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var-to-declare-a-variable) which we'll get to later.  A good rule of thumb is to use `let` unless you are working with an older version of the JavaScript interpreter.
+
+#### Constants
+
+You can declare a constant with the `const` operator.  Constants are like variables declared with `let`, but cannot change their value through reassignment.
+
+```javascript
+const FIVE = 5;
+FIVE = 6;  // TypeError: Assignment to constant variable.
+```
 
 **Note** that each line of JavaScript code ends with the `;`. This is optional for the code to work (sometimes, and the rules are inconsistent) but **not** optional when taking into consideration style guidelines.
 
@@ -89,20 +101,20 @@ JavaScript's basic _types_ are similar to Ruby's: `Boolean`, `Null`, `Undefined`
 
 #### `Boolean` is `true` or `false`
 ```javascript
-var t = true;
-var f = false;
+let t = true;
+let f = false;
 ```
 
 #### `Null` is the value null. This represents an "empty" value.
 ```javascript
-var empty = null; // similar to Ruby's nil
+let empty = null; // similar to Ruby's nil
 ```
 
 #### `Undefined` is the value undefined.
 When a variable which has not declared is accessed, JS returns undefined.
 
 ```javascript
-var u;
+let u;
 console.log(u); //-> undefined
 ```
 
@@ -110,7 +122,7 @@ console.log(u); //-> undefined
 It includes integers (1, 2, 3, etc.), floats (1.4, -40.1), infinity (+Infinity, -Infinity), and `NaN` which means "not a number." `NaN` is returned when you do a numeric operation on anything that's not a `Number`.
 
 ```javascript
-var four = 4,     // Note the comma-separated variable declarations
+let four = 4,     // Note the comma-separated variable declarations
     two = 2.0;
 
 Infinity < Number.MAX_VALUE  // false
@@ -125,16 +137,19 @@ two == four / two; // true
 "asdf" - 5; // NaN
 ```
 
-#### `Strings` are declared with `""` or `''`.
-They're the same. Pick one and stick with it! __Note:__ There is a new way to declare a string literal with backticks `` (`) ``, which is the only way to perform string interpolation, but not every web browser supports this yet.
+#### `Strings` are declared with `""` or `''` or use backticks `    ``    `.
+The first two are the same. Pick one and stick with it!
+
+Using backticks will allow you to do string interpolation, but some browsers may not have implemented it yet.
 
 ```javascript
-var str = "This is a string";
+let str = "This is a string";
 str.length;      // 16 - access the length property
 str.substr(2,5); // "is is" - call the substr function
 
-var e = "elephant";
-console.log("#{e} hotdog"); // "#{e} hotdog" js doesn't do interpolation
+let e = "elephant";
+console.log("#{e} hotdog"); // "#{e} hotdog" js doesn't do interpolation with ""
+console.log(`#{e} hotdog`);  // `elephant hotdog`
 ```
 
 JavaScript does not have symbols, and uses strings wherever Ruby would use symbols.
@@ -214,7 +229,7 @@ Looks similar to a conditional! This syntax comes from the programming language 
 Here's a realistic example:
 
 ```javascript
-for (var i = 0; i < 5; i += 1) {
+for (let i = 0; i < 5; i += 1) {
   console.log("Iteration " + i);
 }
 ```
@@ -232,7 +247,7 @@ To point out the three components:
 JavaScript also uses the `while` loop in a similar way to the way we use it in Ruby. The following code does the same thing as the `for` loop above, more verbosely.
 
 ```javascript
-var i = 0;
+let i = 0;
 while (i < 10) {
     console.log("Iteration " + i);
     i++;
