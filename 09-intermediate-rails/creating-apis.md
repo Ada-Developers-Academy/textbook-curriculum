@@ -74,7 +74,9 @@ def index
 end
 ```
 
-Notice that we didn't for realsies write any JSON. We provided a plain Ruby hash and let Rails do the conversion for us (with the `render json: ` call. So to make progress on our tests, we could do something like:
+Notice that we didn't for realsies write any JSON. We provided a plain Ruby hash and let Rails do the conversion for us (with the `render json: ` call. When we run `rails test` again we see that our test is expecting an `Array` rather than a Ruby `Hash` which is what our controller method contains.
+
+To create the appropriate data and ensure we send back an array, we could do something like:
 
 ```ruby
 # pets_controller.rb
@@ -86,6 +88,8 @@ end
 
 Note that we have removed the `@pets` instance variable here that we are normally used to creating. Why do you think we've done that?
 
+Now run your tests and examine the next error. What is the test expecting that your code isn't handling?
+
 ### Filtering Fields
 You won't always want to send _everything_ in your database to the user. Databases often contain sensitive data that should be treated judiciously. Or, that data might just not be relevant, like `created_at` or `updated_at`. Right now Rails is sending all these fields back in the JSON response.
 
@@ -95,26 +99,26 @@ To filter what Rails sends back, you can use the `as_json` method as follows:
 # pets_controller.rb
 def index
   pets = Pet.all
-  render json: pets.as_json(only: [:id, :name, :age, :human]), status: :ok
+  render json: pets.as_json(only: [:id, :name, :age, :human])
 end
 ```
 
-Rails is smart enough to know how to use `as_json` for both a Collection and an individual Model, so this same technique will work later when we test and implement `show`.
+Rails is smart enough to know how to use `as_json` for both a Collection and an individual Model, so this same technique will work later when we test and implement `show`. Now, lets run our tests again to see how we're doing!
 
 ### Response Codes
 
 We've built a simple API that responds with some data. We could let the consumer of our API parse that data to figure out if their request was successful or if there was an error of some sort, but that seems cumbersome for them. Instead, we should use HTTP status codes to provide a quick and easy way for our API's users to see the status of their request.
 
-To set status code in your controller, just pass `:status` to our render method.
+To set status code in your controller, you can pass `status` to our render method.
 
 ```ruby
 def index
   pets = Pet.all
-  render json: pets, status: :ok
+  render json:  pets.as_json(only: [:id, :name, :age, :human]), status: :ok
 end
 ```
 
-Notice in the example above, I used `:ok` instead of the official numeric value of 200 to inform the consumer that the request was a success. I tend to use the built-in Rails symbols for this, as they're easier to read, but its good to know at least the most common [HTTP status codes](http://billpatrianakos.me/blog/2013/10/13/list-of-rails-status-code-symbols/).
+Notice in the example above, we've used `:ok` instead of the official numeric value of 200 to inform the consumer that the request was a success. It's good to use the built-in Rails symbols for this, as they're easier to read, but its good to know at least the most common [HTTP status codes](http://billpatrianakos.me/blog/2013/10/13/list-of-rails-status-code-symbols/).
 
 + 200 - :ok
 + 204 - :no_content
@@ -137,6 +141,7 @@ Questions to consider:
   - Status code
   - Response body
 - What test cases might be useful for this endpoint?
+  - There should be at least one test already in the project but see if you should add more
 - How do the two endpoints we've implemented so far compare to similar functionality in a non-API Rails app?
 
 ## Creating a New Pet
