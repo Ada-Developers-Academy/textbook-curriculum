@@ -3,9 +3,9 @@
 ## Introduction
 1. [Welcome to JS](welcome-to-js.md)
   - [Worksheet: Ruby to JS](ruby-to-js-worksheet.md)
-1. [Fun with Functions](fun-with-functions.md)
+2. [Fun with Functions](fun-with-functions.md)
   - [Worksheet: Functions](functions-worksheet.md)
-1. [Objects](objects.md)
+3. [Objects](objects.md)
   - [Worksheet: Objects](objects-worksheet.md)
 
 ## In the Browser: jQuery
