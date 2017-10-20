@@ -7,9 +7,7 @@
 - Use data from an API in a Rails site
 
 ## Initial Setup
-
-To start clone or fork and clone the [initial project setup](https://github.com/Ada-C7/slack_api_example).
-
+In the calendar, you'll find a link to a github repo. Go ahead and clone that repo!
 
 What's here?
 - Standard Rails app setup
@@ -28,10 +26,10 @@ Open up Postman, and send a `POST` request to `https://slack.com/api/chat.postMe
 
 | Key       | Value                                    |
 |:----------|:-----------------------------------------|
-| `channel` | `test-api-queues` or `test-api-stacks` |
+| `channel` | `test-api-channel` |
 | `text`    | `Some test text`                         |
 
-The idea is for this to post a message in the `test-api-xxx` channel, but it didn't work! Insetad, no message was posted, and you should have gotten back a response from Slack:
+The idea is for this to post a message in the `test-api-channel` channel, but it didn't work! Instead, no message was posted, and you should have gotten back a response from Slack:
 
 ```json
 {
@@ -54,7 +52,7 @@ To use the token, add it to the params in your Postman request:
 | Key       | Value                                    |
 |:----------|:-----------------------------------------|
 | `token`   | `xoxp-XXXXXXXX-YYYYYYYY-ZZZZZZZZ`        |
-| `channel` | `test-api-queues` or `test-api-stacks` |
+| `channel` | `test-api-channel` |
 | `text`    | `Some test text`                         |
 
 Poof! Message sent! Check it out on Slack! Also take a look at the response the Slack API sent back.
