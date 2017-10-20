@@ -7,6 +7,7 @@
 - Use data from an API in a Rails site
 
 ## Overall Approach
+<!-- Diagram located here https://drive.google.com/a/adadevelopersacademy.org/file/d/0B6Pq6XZ1hzv1WXhPVGpUUmhES2M/view?usp=sharing -->
 ![API Diagram](images/rails-authenticated-API.png)
 
 ## Initial Setup
