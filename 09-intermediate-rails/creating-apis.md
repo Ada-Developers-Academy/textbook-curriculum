@@ -74,7 +74,9 @@ def index
 end
 ```
 
-Notice that we didn't for realsies write any JSON. We provided a plain Ruby hash and let Rails do the conversion for us (with the `render json: ` call. When we run `rails test` again we see that our test is expecting an `Array` rather than a Ruby `Hash` which is what our controller method contains.
+Notice that we didn't for realsies write any JSON. We provided a plain Ruby hash and let Rails do the conversion for us (with the `render json:` call.
+
+When we run `rails test` again we see that our test is expecting an `Array` rather than a Ruby `Hash` which is what our controller method passes in the render call.
 
 To create the appropriate data and ensure we send back an array, we could do something like:
 
@@ -173,6 +175,7 @@ end
 
 As before, the big difference from a web app is in what we send back. While in a web app we would probably redirect the client to the resource they created, that doesn't make sense for an API. Instead, we just send back some JSON containing the ID of the newly created pet as well as the appropriate status code.
 
+### Cross-Site Request Forgery (CSRF)
 **ALERT!** Rails is built with CSRF protection which essentially prevents malicious requests. You might remember seeing notes in passing about this in our forms curriculum, where we had to explicitly add an _authenticity token_ to each form.
 
 Since preventing these cross site requests doesn't apply in an API context, we will add a Rails helper method to our controller to allow these `POST` requests to go through:

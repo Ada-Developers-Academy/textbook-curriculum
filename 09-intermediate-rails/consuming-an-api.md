@@ -43,7 +43,7 @@ HTTParty will attempt to automatically parse any data that it knows how, it's ve
     response.parsed_response
     # => {"status"=>"success", "message"=>"https://dog.ceo/api/img/hound-Ibizan/n02091244_1025.jpg"}
 
-As you can see the `.parsed_response` returns a ruby `Hash`. HTTParty took the response JSON, and parsed it into ruby. This works similarly with XML.
+As you can see the `.parsed_response` returns a ruby `Hash`. HTTParty took the response JSON, and parsed it into ruby. This works similarly with XML. Note that in this response, the `"status"` refers to a string representing the response, not a status code.
 
 ### Parsing JSON Directly
 
