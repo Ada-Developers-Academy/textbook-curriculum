@@ -82,6 +82,16 @@ If you omit `var` you will get a __global__ variable, which can lead to all sort
 
 **Note** that each line of JavaScript code ends with the `;`. This is optional for the code to work (sometimes, and the rules are inconsistent) but **not** optional when taking into consideration style guidelines.
 
+### Constants
+Use the `const` keyword in a variable definition to create a constant. JavaScript will prevent changing the value of a variable that is defined as a constant.
+
+```javascript
+const base_url = "http://www.adadev.org"
+base_url = base_url + "bananas"
+
+> TypeError: Assignment to constant variable.
+```
+
 ### Types
 [MDN Data Types and Data Structures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
 
@@ -138,6 +148,14 @@ console.log("#{e} hotdog"); // "#{e} hotdog" js doesn't do interpolation
 ```
 
 JavaScript does not have symbols, and uses strings wherever Ruby would use symbols.
+
+#### String Literals
+JavaScript does not have string interpolation like we had in Ruby, but it does have these **string literals**. It requires us to use the _backtick_ character (```) around our strings and a `${}` to encompass your variable.
+
+```javascript
+var name = "Ada Lovelace";
+var greeting = `Say hello and welcome to ${ name }`;
+```
 
 #### Arrays
 [Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) are similar to Ruby arrays. They are declared and accessed with square brackets ([]).
@@ -211,7 +229,7 @@ Looks similar to a conditional! This syntax comes from the programming language 
 - **Condition:** Runs before each iteration (including the first), determines whether the loop should keep going
 - **Increment:** Runs after each iteration, sets up the following iteration
 
-Here's a realistic example:
+Here's an example:
 
 ```javascript
 for (var i = 0; i < 5; i += 1) {
@@ -227,6 +245,17 @@ To point out the three components:
 **Question:** What would the above loop print out?
 
 **Question:** What Ruby code could you use to achieve the same thing?
+
+#### Another `for` loop
+We can also create a `for` loop which will act similar to our `each` loop in Ruby.
+
+```javascript
+var myArray = [1, 5, 8, 12]
+for (let num in myArray) {
+  
+}
+```
+
 
 #### `while` Loop
 JavaScript also uses the `while` loop in a similar way to the way we use it in Ruby. The following code does the same thing as the `for` loop above, more verbosely.
