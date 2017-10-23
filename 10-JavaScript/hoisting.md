@@ -1,8 +1,10 @@
-# JavaScript Hoisting
+# JavaScript Hoisting & `var` vs `let`
 
 ## Learning Goals
+Be able to explain:
 - What is hoisting?
 - Why is hoisting in JS important?
+- How variables declared with `let` and `var` differ
 
 What is hoisting? In JavaScript, __hoisting__ refers to the process of "lifting" and declaring things __prior__ to their explicit definition or declaration.
 
@@ -72,6 +74,99 @@ test();
 In the example above, the `foo` function _will not_ be hoisted because it is an **expression** not a **declaration**. Though, the `foo` variable will be, which is why we get the "foo is not a function error".
 
 Function `bar` _will_ be hoisted because it is a **declaration**.
+
+## Block-Level Scoping with `let`
+
+Variables, including functions, declared using `let` differ from `var` in that they are scoped to the block-level rather than the function.  
+
+Remember that using `var` the interpreter look at this block.
+
+```javascript
+function foo() {
+  if (false) {
+    var x = 1;
+  }
+  return;
+  var y = 1;
+}
+```
+
+as:
+
+```javascript
+function foo() {
+  var x,y;
+  if (false) {
+    x = 1;
+  }
+  return;
+  y = 1;
+}
+```
+
+However if we had used `let`
+
+```javascript
+function foo() {
+  if (false) {
+    let x = 1;
+  }
+  return;
+  let y = 1;
+}
+```
+
+The interpreter would look not create, or hoist, the variables to the top of the function.  
+
+JavaScript also gives variables declared with `var` scope throughout the entire function so:
+
+```javascript
+function sum(max) {
+  var sum = 0;
+  for (var i = 0; i < max; i++) {
+    sum += i;
+    console.log(i); // <-- 0...max
+  }
+  var i = 2; // <--  Same variable!
+  console.log(i); // 2
+  return sum;
+}
+```
+
+**Why is this important**
+
+Using Var:
+1.  Even if you declare a variable with `var` inside a block, like a `for` loop the variable will have scope and can be accessed throughout the function.    
+1.  With closures like below, using `let` can make closures simpler.
+
+```javascript
+var fun = function() {
+
+  var list = ["a","b","c"];
+
+  for (var i = 0; i < 3; ++i ) {
+     var msg = list[i];
+     setTimeout(function() { console.log(msg); }, i*1000);
+  }
+}
+
+fun(); // output: c c c
+```
+Using `let`:
+```javascript
+var fun = function() {
+
+  var list = ["a","b","c"];
+
+  for (let i = 0; i < 3; ++i ) {
+     var msg = list[i];
+     setTimeout(function() { console.log(msg); }, i*1000);
+  }
+}
+
+fun(); // output:  a b c
+```
+
 
 
 ## Additional Resources
