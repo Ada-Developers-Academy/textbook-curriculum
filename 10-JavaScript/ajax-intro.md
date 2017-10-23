@@ -53,15 +53,15 @@ This is how to do it using vanilla JavaScript:
 
 ```javascript
 // Setting up AJAX request (create a new one for each request)
- var request = new XMLHTTPRequest();
+ let request = new XMLHTTPRequest();
 
  // Create a callback function, with event handler
  request.onreadystatechange = function () {
   if (request.readyState === 4) {
     if (response.status === 200) {
-      var pets = JSON.parse(response.responseText);
-      var petsHTML = '';
-      for (var i = 0; i < pets.length; i += 1){
+      let pets = JSON.parse(response.responseText);
+      let petsHTML = '';
+      for (let i = 0; i < pets.length; i += 1){
         petsHTML += '<h3>' + pets[i].name + '</h3>'
       }
       document.getElementByID('pets').innerHTML = petsHTML;
@@ -80,7 +80,7 @@ function getPets(){
   request.send();
 };
 
-var loadItem = document.getElementById("load");
+let loadItem = document.getElementById("load");
 loadItem.onclick = getPets();
 ```
 Let's have a look at all of the moving parts.
@@ -98,10 +98,10 @@ When it comes to AJAX, jQuery _really_ likes to make our lives easier.
 ### `get`
 ```javascript
 // Which URL do we want to 'get'?
-var url = 'https://petdibs.herokuapp.com/pets';
+let url = 'https://petdibs.herokuapp.com/pets';
 
 // What do we want to happen when we get our response?
-var successCallback = function (response) {
+let successCallback = function (response) {
   console.log('success!');
 };
 
