@@ -48,7 +48,7 @@ Next we've got a regular old JavaScript for loop. You already know all about tho
 Inside the for loop, we have two lines that both work with jQuery. The first,
 
 ```javascript
-var listItem = $('<li>' + i + '</li>');
+let listItem = $('<li>' + i + '</li>');
 ```
 
 creates a jQuery representation of an HTML element, in this case a list item. At this point the element hasn't been added to our document yet - it only exists in our JavaScript variable.
@@ -136,7 +136,7 @@ This exercise should be completed on your own computer, with Atom and Chrome. Co
 Your task is to take following data, and dynamically render it in a table:
 
 ```javascript
-var pets = [
+let pets = [
   { name: 'kylo', species: 'dog', human: 'kari', mammal: true },
   { name: 'gecky', species: 'lizard', human: 'dan', mammal: false },
   { name: 'hedwig', species: 'owl', human: 'harry', mammal: false },
