@@ -2,7 +2,7 @@
 
 ## Introduction
 1. [Welcome to JS](welcome-to-js.md)
-  - [Worksheet: Ruby to JS](ruby-to-js-worksheet.md)
+  - [Worksheet: Ruby to JS](exercises/ruby-to-js-worksheet.md)
 2. [Fun with Functions](fun-with-functions.md)
   - [Worksheet: Functions](functions-worksheet.md)
 3. [Objects](objects.md)
