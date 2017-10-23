@@ -23,7 +23,7 @@ let myDog = {
     address: '1215 4th Ave #1050'
   },
   toString: function() {
-    return this.name + ", a " + this.breed " owned by " + this.owner.name;
+    return `${this.name}, a ${this.breed} owned by ${this.owner.name}`;
   }
 };
 ```
@@ -118,7 +118,7 @@ Dog.speak = function() {
 // Set up our instance-specific functionality
 Dog.prototype = {
   info: function () {
-    return "Meet " + this.name + " who is a " + this.breed;
+    return `Meet ${this.name} who is a ${this.breed}`;
   }
 };
 
