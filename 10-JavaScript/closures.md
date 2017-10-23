@@ -56,8 +56,8 @@ So the paragraph at the top of the page told us that a closure is created when a
 
 ```javascript
 function powerer(p) {
-  var power = p;
-  var mather = function(num) {
+  let power = p;
+  let mather = function(num) {
     return Math.pow(num, power);
   }
 
@@ -70,7 +70,7 @@ The outer function, `powerer`, defines a local variable (`power`) and a function
 ```javascript
 .load closure.js
 
-var sqrer = powerer(2),
+let sqrer = powerer(2),
     cuber = powerer(3),
     niner = powerer(9);
 
