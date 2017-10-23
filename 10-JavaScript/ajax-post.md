@@ -8,12 +8,12 @@ Just like we used AJAX to send GET requests, we can also use it to send POST req
 ### POST request
 POST requests are set up very similar to GET requests.
 ```javascript
-var url = 'https://petdibs.herokuapp.com/pets';
-var data = {
+let url = 'https://petdibs.herokuapp.com/pets';
+let data = {
   name: 'Chestnut',
   age: 17
 };
-var callback = function(){
+let callback = function(){
   console.log('success!');
 }
 
@@ -60,8 +60,8 @@ $('form').submit(function(e) {
   // By default, the form will attempt to do it's own local POST so we want to prevent that default behavior
   e.preventDefault();
 
-  var url = $(this).attr("action"); // Retrieve the action from the form
-  var formData = $(this).serialize();
+  let url = $(this).attr("action"); // Retrieve the action from the form
+  let formData = $(this).serialize();
 
   $.post(url, formData, function(response){
     $('#message').html('<p> Pet added! </p>');
