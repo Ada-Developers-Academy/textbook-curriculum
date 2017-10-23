@@ -42,6 +42,12 @@ The Chrome console is kind of like the rails console. It gives you access to all
 ### In a Real Web Site
 Obviously we don't expect users to type out all their own JavaScript by hand. Instead, we'll add a link to our JavaScript file in our HTML, similar to the way we included CSS before.
 
+Our browser will request an HTML page which will contain references to our JavaScript as well as CSS. These files will be loaded into the browser.
+<!-- Diagram located here: https://drive.google.com/a/adadevelopersacademy.org/file/d/0B6Pq6XZ1hzv1WHcyUnZZREtadDg/view?usp=sharing -->
+![JS and CSS in the browser](images/js-css-browser.png)
+
+
+Now, we're going to set this up for ourselves to try it out.
 Create a new directory called `browser-js`, with two files: `index.html` and `index.js`:
 ```bash
 $ mkdir browser-js
