@@ -12,7 +12,7 @@ You can use [Regexpal](http://www.regexpal.com/) to craft Regular a Expression a
 | aba, ababa, ababa | a, aaba, ba |  |
 | can, man, fan | dan, ran, pan |  |
 | abcde, zx231, 55723 | dan, a, 123, ada lovelace |
-| ada445ada, snoopy has 445, fans | 445, ada, snoopy has 45 fans |  |
+| ada445ada, snoopy has 445 fans | 445, ada, snoopy has 45 fans |  |
 | ada_student_list.pdf, ada_personel.pdf, ada_textbook.pdf| ada_files.pdf.tmp, files.pdf |  |
 
 ## Practical Regex
