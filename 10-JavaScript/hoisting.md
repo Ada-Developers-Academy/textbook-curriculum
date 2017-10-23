@@ -137,7 +137,9 @@ function sum(max) {
 
 Using Var:
 1.  Even if you declare a variable with `var` inside a block, like a `for` loop the variable will have scope and can be accessed throughout the function.    
-1.  With closures like below, using `let` can make closures simpler.
+1.  With closures like below, using `let` can avoid some common errors.
+
+The code below looks like it will print `a b c`, but because the anonymous function is called later, after the loop completes the function will use the last value of `i`.  Each subsequent call of the anonymous function accesses the same instance of `i`.  
 
 ```javascript
 var fun = function() {
@@ -152,14 +154,16 @@ var fun = function() {
 
 fun(); // output: c c c
 ```
-Using `let`:
+
+Using `let`, each call to the function receives the value of `i` at the time the callback was created.
+
 ```javascript
 var fun = function() {
 
   var list = ["a","b","c"];
 
   for (let i = 0; i < 3; ++i ) {
-     var msg = list[i];
+     let msg = list[i];
      setTimeout(function() { console.log(msg); }, i*1000);
   }
 }
@@ -171,3 +175,4 @@ fun(); // output:  a b c
 
 ## Additional Resources
 - [You Don't Know JS: Hoisting](https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch4.md)
+- [MDN on `let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)
