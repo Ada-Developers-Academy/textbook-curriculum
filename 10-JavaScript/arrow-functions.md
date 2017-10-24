@@ -48,7 +48,7 @@ console.log(foo());
 >  bar
 ```
 
-Since `"bar"` is the only line in the function, it's considered an _implicit return_.  In other words JavaScript assumes the function will return that value.  That's a lot less code, but we can reduce it further.  Since this is a 1-line function we can remove the curly braces and make them implicit as well.
+Since `"bar"` is the only line in the function, it's considered an _implicit return_.  In other words, JavaScript assumes the function will return that value.  That's a lot less code, but we can reduce it further.  Since this is a 1-line function we can remove the curly braces and make them implicit as well.
 
 ```javascript
 const foo = () => "bar";
@@ -95,12 +95,18 @@ squared([3, 4, 5]);
 
 **Note**: This works **only** for functions with a single argument.  Zero parameters or more than one will require you to include the parentheses.  
 
+For example with two parameters
+
+```javascript
+let add = (x, y) => x + y;
+```
+
 ## Inline Arrow Functions Returning Objects
 
 If your arrow function returns a JavaScript object like this normal function.
 
 ```javascript
-let person = function(id, name) {
+let makePerson = function(id, name) {
   return {id: id,
     name: name
   };
@@ -110,7 +116,7 @@ let person = function(id, name) {
 You would need to surround the returned object with parentheses like this:
 
 ```javascript
-let person = (id, name) => ({ id: id, name: name });
+let makePerson = (id, name) => ({ id: id, name: name });
 ```
 
 ### More Reason to use Arrow Functions
@@ -134,9 +140,9 @@ let Dog = function(name, age) {
 let fido = new Dog("Fido", 1);
 ```
 
-The code above is **supposed** to make the dog 1 year older each second.  Instead it prints `NaN` over and over again.  This is because every traditional function gets it's own instance of `this`.  
+The code above is **supposed** to make the dog 1 year older each second.  Instead it prints `NaN` over and over again.  The reason is that every traditional function gets it's own instance of `this`.  So the anonymous function does not know about Dog's instance variables.
 
-The traditional work-around to this situation is to save the context (`this`) into another variable and use that.
+The traditional work-around to this situation is to save the context (`this`) into another variable and use that variable instead of `this`.
 
 ```javascript
 let Dog = function(name, age) {
@@ -156,7 +162,7 @@ let fido = new Dog("Fido", 1);
 
 Notice the line `let that = this;`  saving the current context in `that` allows the anonymous function to access `age` without the confusion surrounding `this`.
 
-Arrow functions do not have their own `this` context, instead they inherit `this` from the surrounding block.  So using an arrow function makes the resulting code less confusing and error-prone.
+**Arrow functions do not have their own `this` context**, instead they inherit `this` from the surrounding block.  So using an arrow function makes the resulting code less confusing and error-prone.
 
 ```javascript
 let Dog = function(name, age) {
@@ -175,5 +181,52 @@ let fido = new Dog("Fido", 1);
 
 Because arrow functions do not have their own context (`this`), they make excellent anonymous callback functions.  
 
+
+## Places **Not** To Use Arrow Functions
+
+Arrow functions are great for callbacks, and are great shortcuts for regular functions, but there are a couple of places you don't want to use them.
+
+### As Constructors
+
+An Arrow function will give you an error if you use it as a constructor.  **Why?**  What does the example below use, that arrow functions don't have?
+
+```javascript
+var Dog = (name, age) => {
+  this.name = name;
+  this.age = age;
+}
+
+let fido = new Dog("Fido", 3); // <-- TypeError!
+```
+
+**Answer:** `this`!  Since Arrow functions do not have a `this` reference the interpreter cannot resolve things like `this.name`.  Further arrow functions do not have a **prototype** attribute, so `Dog.prototype` will generate an error.
+
+### As Methods
+
+Closely related to their unsuitability as constructors, arrow functions make poor methods.  Because they do not contain a reference to `this`, you cannot access an object's instance variables.
+
+```javascript
+var fido = {
+  name: "Fido",
+  age: 3,
+  toString: () => {
+    return `${this.name} is ${this.age} years old`; // error!
+  }
+}
+```
+
+The above example will generate an error because the toString method doesn't have a `this` reference.  
+
+## Older Browsers
+
+One final note.  Arrow functions are a relatively new feature introduced in ES6.  Some older browsers may not understand them.  If you build a project that may run on older browsers you will need to use a tool like [Babel](https://babeljs.io/) which can convert or transpile ES6 code to run allow it to run on older browsers.  
+
+## Summary
+
+Arrow functions are a great way to minimize your JavaScript typing and make very good anonymous callback functions.  
+
+However they lack a `this` context, making them useful as callback functions, but unsuitable for constructors or as object methods.  
+
 ## Additional Resources
 - [MDN Docs on Arrow Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+- [Learning ES6 Arrow Functions](https://www.eventbrite.com/engineering/learning-es6-arrow-functions/)
