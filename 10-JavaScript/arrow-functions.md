@@ -119,6 +119,24 @@ You would need to surround the returned object with parentheses like this:
 let makePerson = (id, name) => ({ id: id, name: name });
 ```
 
+## As An Anonymous Function
+
+Arrow functions work well with collection functions like `map`, `select`, and `sort`.
+
+```javascript
+let numbers = [3, 4, 5, 6];
+
+let doubled = numbers.map(function(num) {
+  return num + num;  
+});
+
+// as an arrow function
+
+doubled = numbers.map( num => num + num);
+```
+
+In the above example we map an array to one where each element is doubled.  Looking at the two examples the arrow function, once you adjust to the new syntax, is more compact and visually conveys the concept that we're mapping each number (`num`) to twice it's value.
+
 ### More Reason to use Arrow Functions
 
 There are additional benefits to using arrow functions beyond minimized syntax.  
