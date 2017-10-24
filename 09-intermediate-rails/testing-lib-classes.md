@@ -3,7 +3,7 @@
 
 ## Learning Goals
 
-At the end of this you should be able to:
+At the end of this lesson you should be able to:
 - Write general Minitest Spec code for classes in a Rails app's /lib folder.
 - Run Tests for lib code individually or with controller/model tests
 
@@ -52,12 +52,12 @@ describe Channel do
     proc {
       Channel.new
     }.must_raise ArgumentError
-    
+
     proc {
       Channel.new "Name"
     }.must_raise ArgumentError
   end
-  
+
   it "Must initialize name & id properly" do
     channel = Channel.new("Name", "ID")
     channel.name.must_equal "Name"
@@ -69,9 +69,8 @@ end
 **Practice:**  Add additional tests for the optional fields.
 
 
-## What Did We Accomplish 
+## What Did We Accomplish
 We have:
 -  Created a folder to test our lib code
 -  Written tests using spec-style testing
--  Run the tests either individually or as part of all app testing.	
-
+-  Run the tests either individually or as part of all app testing.

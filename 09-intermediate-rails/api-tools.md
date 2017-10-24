@@ -63,11 +63,11 @@ Examine the results.  Can you find links to album covers?  What about music samp
 
 Slack, the chat program we all know and love has a robust [API](https://api.slack.com) that the Slack App uses to function.  It's a great way to learn how APIs work and experiment with Postman.
 
-Take a look at the [Slack API Page](https://api.slack.com/).  To use the Slack API you have to **authenticated** which means in this case that you'll need a token which is essentially a password for accessing the API.  
+Take a look at the [Slack API Page](https://api.slack.com/).  To use the Slack API you have to be **authenticated** which allows Slack to have information about their users. The way that Slack implements this is to provide a token which is essentially a password for accessing the API.  
 
 #### Pick Up A Temporary Token for the Slack API
 
-You can go [here](https://api.slack.com/docs/oauth-test-tokens) and register for an oAuth token to test with the API.  
+You can go [here](https://api.slack.com/docs/oauth-test-tokens) and register for an OAuth token to test with the API.  
 ![slack API Key](images/postman-slack1.png)
 
 This is essentially your password to use the API.  **Do not post** or otherwise make it publicly available.  
@@ -78,7 +78,7 @@ Next we can make a call on some of the Slack Methods.
 
 To start in the URL bar we can run the Slack Test method to learn how to call the API and how to use parameters.  The Slack test method essentially parrots what we send it back to us in JSON form.  
 
-Go to the address bar and enter:  [https://slack.com/api/api.test?foo=bar](https://slack.com/api/api.test?foo=bar) 
+Go to the address bar and enter:  [https://slack.com/api/api.test?foo=bar](https://slack.com/api/api.test?foo=bar)
 
 Then hit submit you should get the following response:
 

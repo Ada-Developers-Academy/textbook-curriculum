@@ -142,3 +142,65 @@ When the EB CLI prompts you for a database username and password, keep the defau
 
 ### Check out the application
 Run the command `eb open` to open your browser to the deployed application URL.
+
+## Deploying Your Rails Project
+There are a few changes that are needed before a Rails project can be deployed to Elastic Beanstalk. In particular, we need to configure the database details for the production environment, and create any environment variables the application will use.
+
+### Database configuration
+Rails uses the file `config/database.yml` to determine how it should connect to its database. When we run the command `rails new` to create a new Rails project this file is generated for us and it has sections for each of the three environments: `development`, `test`, and `production`.
+
+Both `development` and `test` are configured by default to use a Postgres database running on the same computer as Rails, which is appropriate for our needs. However, the `production` environment's configuration will need to be updated for deployment to Elastic Beanstalk, because the deployed application will need to connect to a separate computer that is running the RDS database.
+
+Luckily, Elastic Beanstalk gives us environment variables with all of the configuration parameters we need. The following code should work without modification to configure Rails's production database:
+
+```yaml
+# config/database.yml
+
+production:
+  <<: *default
+  database: <%= ENV['RDS_DB_NAME'] %>
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  host: <%= ENV['RDS_HOSTNAME'] %>
+  port: <%= ENV['RDS_PORT'] %>
+```
+
+**WARNING**: You should completely replace the `production` section of your `config/database.yml` file with the above code snippet. If there are any pieces from the original version of the `production` section it may prevent your application from connecting to the DB properly. Compare your version against the [`config/database.yml`](https://github.com/AdaGold/aws-eb-rails/blob/master/config/database.yml) from the live demonstration app to see if it's the same.
+
+### Setting Environment Variables
+The other piece that we need to configure when deploying any Rails app is the environment variables. In particular, Rails requires that the `SECRET_KEY_BASE` variable be set however there may be other environment variables specific to your application (basically everything in your `.env` file) that also must be set.
+
+#### Checking Environment Variables
+Before making any changes to the environment variables, we should check what our variables are currently set to. This can be done using the Elastic Beanstalk CLI with `eb printenv`. If your application already has all of the necessary variables set (`SECRET_KEY_BASE` and anything in `.env`), then you can skip the remainder of this section.
+
+#### Setting the Secret Key Base
+One variable that Rails requires us to set is the "secret key base", which it uses for encrypting data like the session and cookies. We need to set this variable to a very long random sequence of numbers and letters (a through f). Thankfully, Rails also gives us a command for generating an appropriate value for the secret key base:
+
+```bash
+$ rake secret
+```
+
+The above command will print a long string of letters and numbers and you can use that string directly when setting the `SECRET_KEY_BASE` variable in Elastic Beanstalk.
+
+#### Setting Environment Variables
+Finally, once we know at least one variable that we need to set we can use the Elastic Beanstalk CLI to do so:
+
+```bash
+$ eb setenv SECRET_KEY_BASE=abcd1234
+```
+
+The above command will set the environment variable `SECRET_KEY_BASE` to have the value `abcd1234`. You should replace `abcd1234` with the output from running the `rake secret` command mentioned earlier.
+
+You can set other variables similarly:
+
+```bash
+$ eb setenv GITHUB_CLIENT_ID=dae31c40363c11d0dba6
+```
+
+**TIP**: It is possible to set multiple variables at the same time by putting them all in the same command. This is very helpful not just for reducing your typing, but also because **Elastic Beanstalk will re-deploy after each time you set a variable**. Because deploying can take multiple minutes, setting all of the variables at once could save you quite some time.
+
+The syntax for setting multiple variables at once is:
+
+```bash
+$ eb setenv VARIABLE_ONE=apple VARIABLE_TWO=banana
+```
