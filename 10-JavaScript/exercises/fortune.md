@@ -7,7 +7,7 @@ You should have one method, `read` that takes no parameters and __returns a stri
 The following code should run once you've written your code. Use it as a template for how to structure your objects and function(s).
 
 ```javascript
-var myFortune = new Fortune("Ada");
+let myFortune = new Fortune("Ada");
 reading = myFortune.read();
 console.log(reading); // "Ada says: 'Try again later.'"
 ```

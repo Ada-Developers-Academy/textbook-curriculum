@@ -4,9 +4,10 @@
 1. [Welcome to JS](welcome-to-js.md)
   - [Worksheet: Ruby to JS](exercises/ruby-to-js-worksheet.md)
 2. [Fun with Functions](fun-with-functions.md)
-  - [Worksheet: Functions](functions-worksheet.md)
+  - [Worksheet: Functions](exercises/functions-worksheet.md)
 3. [Objects](objects.md)
-  - [Worksheet: Objects](objects-worksheet.md)
+  - [Worksheet: Objects](exercises/objects-worksheet.md)
+4. [Arrow Functions](arrow-functions.md)
 
 ## In the Browser: jQuery
 1. [JS in the browser](js-in-the-browser.md)
