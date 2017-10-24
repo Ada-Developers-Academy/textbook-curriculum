@@ -43,6 +43,24 @@ def output(items)
 end
 ```
 
+6.  
+```ruby
+class Chair
+  def initialize(name)
+    @name = name
+  end
+
+  def name
+    return @name
+  end  
+
+  def weight_in_lbs
+    return 29
+  end
+end
+```
+
+
 ### Part 2
 1.
 Invoke the zombies function.
@@ -79,4 +97,7 @@ console.log(blabbermouth.name);
 ```
 
 5.
-Create a constructor function called `Square()` to create square objects with a side property and a method to calculate the area. Use the `Square()` function to create a square object.
+Create a class with constructor function called `Rectangle` to create rectangle objects with length and width properties and a method to calculate the area. Use the `Rectangle` class to create a rectangle object.
+
+6.
+Now create a subclass of `Rectangle` called `Square` which is a rectangle with equal length and width sides and has a constructor which only takes one argument.
