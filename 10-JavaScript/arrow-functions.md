@@ -227,6 +227,8 @@ Arrow functions are a great way to minimize your JavaScript typing and make very
 
 However they lack a `this` context, making them useful as callback functions, but unsuitable for constructors or as object methods.  
 
+On older browsers newer features like Arrow Functions, template strings etc will not work requiring a tool to convert newer (ES6) code like Babel
+
 ## Additional Resources
 - [MDN Docs on Arrow Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 - [Learning ES6 Arrow Functions](https://www.eventbrite.com/engineering/learning-es6-arrow-functions/)
