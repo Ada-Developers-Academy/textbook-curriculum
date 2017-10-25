@@ -1,0 +1,207 @@
+# JavaScript Classes
+
+## Introduction
+
+JavaScript uses prototype-based inheritance.  This works, but is very awkward for OOP-trained developers.  So for ES6 classes were introduced as syntactical sugar to allow developers to write classes and OOP code, like we did in Ruby, for JavaScript.  It's important to remember that classes don't change how JavaScript behaves, instead it provides a more traditional framework for the developer and the interpreter converts it all behind the scenes into prototype based OOP.
+
+**Note**: Classes were introduced to JavaScript in ES6 and are not available in older browsers.
+
+## Learning Goals
+By the end of this you should be able to:
+- Create your own classes with instance variables and methods.
+- Use `static` to create class methods.
+- Use `extends` to create subclasses and use super to access a parent class' attributes & methods.
+
+## A Book Example
+
+Below is an example class modeling a book.  It has a title, and author attributes and a `toString` method which outputs the object as a String.
+
+```javascript
+class Book {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+  }
+
+  toString() {
+   return `${this.title} by ${this.author}`;
+  }
+}
+
+let warAndPeace = new Book("War and Peace", "Leo Tolstoy");
+
+console.log(warAndPeace.toString());
+> War and Peace by Leo Tolstoy
+```
+
+Classes can also be declared as an expression, similar to a function.
+
+```javascript
+const Book = class {
+ // code
+};
+```
+
+
+## Methods
+
+Methods in a JavaScript class are declared inside the curly braces.  This is similar to how you declare instance methods in Ruby between where the class starts and the matching `end`.  
+
+### Constructor Methods
+
+The constructor method is a special method named `constructor` which is called when a new instance is created.  You can think of it like an `initialize` method from Ruby.  Constructors exist to start our instances off in a proper state.  Use them to set your attributes with initial values using `this.<attributeName>` to create attributes (similar to using @ in Ruby).
+
+```javascript
+class Book {
+  constructor(title, author) {
+    console.log("Constructor Ran!");
+    this.title = title;
+    this.author = author;
+  }
+}
+
+let poodr = new Book("Practical Object Oriented Programming in Ruby", "Sandy Mietz");
+
+> Constructor Ran!
+```
+
+### Instance Methods
+
+Instance methods are created like a constructors with their own names.  
+
+```javascript
+const SALESTAX = 0.08;
+
+class Book {
+  constructor(title, author, price) {
+    this.title = title;
+    this.author = author;
+    this.price = price;
+  }
+  totalPrice() {
+    return this.price * (1.0 + SALESTAX);
+  }
+}
+
+var adaBook = new Book("Poodr", "Sandy Meitz", 100);
+console.log(adaBook.totalPrice());
+> 108
+```
+
+### Getter & Setter Methods
+
+Getter methods are methods which are run when a property with the same name is accessed.  Similarly a Setter method is called when there is an attempt to change a property.  
+
+```javascript
+class Book {
+  constructor(title, author) {
+    console.log("Constructor Run!");
+    this._title = title;
+    this._author = author;
+  }
+
+  // getter methods
+  get author() {
+    return this._author;
+  }
+
+  // setter method
+  set author(newAuthor) {
+    if (typeof newAuthor === "string") {
+      this._author = newAuthor;
+    }
+  }
+
+}
+let poodr = new Book("Practical Object Oriented Programming in Ruby", "Sandy Meitz");
+
+poodr.author = "Chris";
+
+console.log(`${poodr.author}`);
+> Chris
+```
+
+Notice that the properties are all named __\_propertyName__.  This is a typical naming convention for instance variables you want to keep private, as nothing is really private in JavaScript.  We can't name our properties the same as our getter and setter methods as doing so will result in infinite recursion.  
+
+**Question**:  Why would naming the property the same as the getter or setter method result in infinite recursion?
+
+**Exercise**:  Create getter and setter methods for title.
+
+### Static Methods
+
+Static methods are equivalent to class methods in Ruby.  They are attached to the class rather than instances of the class.
+
+
+```javascript
+class Book {
+  constructor(title, author, price) {
+    this.title = title;
+    this.author = author;
+    this.price = price;
+  }
+
+  static compare(bookA, bookB) {
+    return bookA.price - bookB.price;
+  }
+}
+
+let poodr = new Book("Practical Object Oriented Programming in Ruby", 49);
+let learnToProgram = new Book("C Learn to Program", "Bjarne Stroustrup" 30);
+
+console.log(Person.compare(poodr, learnToProgram));
+> 19
+```
+
+Like Ruby the above example calls the static method with the name of the class as `Book.compare`.  Trying to call the method with `poodr.compare(poodr, learnToProgram);` will result in a TypeError.  
+
+## Inheritance
+
+Classes can be subclassed using the `extends` keyword.  
+
+```javascript
+class Book {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+  }
+
+  toString() {
+    return `${this.title} by ${this.author}`;
+  }
+
+}
+
+class Textbook extends Book {
+
+  constructor(title, author, subject) {
+    super(title, author);
+
+    this.subject = subject
+  }
+  toString() {
+    return super.toString() + " about: " + this.subject;
+  }
+
+}
+
+let cHowToProgram = new Textbook("C How to Program", "Bjarne S", "Comp Sci");
+console.log(cHowToProgram.toString());
+>  C How to Program by Bjarne S about: Comp Sci
+```
+
+In the example above we can use the `super` keyword to access the parent class'  version of the `toString` method and we overrode the parent class' method to add our own functionality.  
+
+## Summary
+
+In this less we have seen:
+- How to use classes to create object instances
+- How to use a constructor to set up a new object in proper state
+- Add instance methods including getter and setter methods to control access to our attributes.
+- Create static methods using the `static` keyword
+- Extend existing classes with subclasses
+
+## Resources
+- [MDN on classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+- [MDN on getter methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get)
+- [MDN on setter methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set)
+- [JavaScript ES6 Class Syntax](https://coryrylan.com/blog/javascript-es6-class-syntax)
