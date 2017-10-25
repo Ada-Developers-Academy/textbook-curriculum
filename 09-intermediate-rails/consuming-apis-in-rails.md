@@ -153,7 +153,7 @@ def self.send_msg(channel, msg, token = nil)
 end
 ```
 
-Verify it works through the rails console: `SlackApiWrapper.send_msg("@<username>", "test test test")`
+Verify it works through the rails console: `SlackApiWrapper.send_msg("test-api-channel", "test test test")`
 
 ### The Controller
 
