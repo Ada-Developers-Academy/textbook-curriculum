@@ -141,7 +141,7 @@ def self.send_msg(channel, msg, token = nil)
   puts "Sending message to channel #{channel}: #{msg}"
 
   url = BASE_URL + "chat.postMessage?" + "token=#{token}"
-  data = HTTParty.post(url,
+  response = HTTParty.post(url,
   body:  {
     "text" => "#{msg}",
     "channel" => "#{channel}",
@@ -150,6 +150,7 @@ def self.send_msg(channel, msg, token = nil)
     "as_user" => "false"
   },
   :headers => { 'Content-Type' => 'application/x-www-form-urlencoded' })
+  return response.success?
 end
 ```
 
@@ -166,7 +167,9 @@ Work with your seat squad to complete the controller actions to tie together the
 
 1. First, we want to set up the controller to show the list of channels from the API.
 
-2. Next, we want to be able to use our Rails app to send a new message via our browser. We will utilize the routes for `new` and `create` to complete this action. First, get the `new` form to render. Second, get the form post to work with sending a message to Slack!
+2. Next, we want to be able to use our Rails app to send a new message via our browser. We will utilize the routes for `new` and `create` to complete this action. Be sure to look at how the routes are set up before you dive in!
+
+First, get the `new` form to render. Second, get the form post to work with sending a message to Slack!
 
 
 ### Cleaning Up: The Channel Object
