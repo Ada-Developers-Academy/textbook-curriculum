@@ -100,7 +100,7 @@ When writing a recursive method, try the following:
 
 ## Assignments
 + Define terms, practice tracing and deduce the time and space complexities for problems in [Ada-C8/recursion-tracing](https://github.com/Ada-C8/recursion-tracing). Answer key for reference can be found [here](https://github.com/Ada-C8/recursion-tracing/tree/solutions)
-+ Design and implement recursive algorithms and explain the time and space complexities of your solution for the problems in [Ada-C8/recursion-writing](https://github.com/Ada-C8/recursion-writing)
++ Design and implement recursive algorithms and explain the time and space complexities of your solution for the problems in [Ada-C8/recursion-writing](https://github.com/Ada-C8/recursion-writing). One approach to implementing the solutions can be found [here](https://github.com/Ada-C8/recursion-writing/tree/solution)
 
 ## Additional Resources:
 - This content assumes a good understanding of [understand a function call](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Understanding%20function%20calls.md)
