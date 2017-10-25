@@ -209,19 +209,38 @@ And modifications to our API wrapper:
 
 ```ruby
 # lib/slack_api_wrapper.rb
-def self.channels()
+def self.list_channels
   url = BASE_URL + "channels.list?" + "token=#{TOKEN}" + "&pretty=1&exclude_archived=1"
   data = HTTParty.get(url)
   channel_list = []
   if data["channels"]
-    data["channels"].each do |channel|
-      wrapper = Channel.new channel["name"], channel["id"] , purpose: channel["purpose"], is_archived: channel["is_archived"], members: channel["members"]
-      channel_list << wrapper
+    data["channels"].each do |channel_data|
+      channel_list << create_channel(channel_data)
     end
   end
   return channel_list
 end
+
+private
+
+def self.create_channel(api_params)
+    Channel.new(
+      api_params["name"],
+      api_params["id"],
+      {
+        purpose: api_params["purpose"],
+        is_archived: api_params["is_archived"],
+        members: api_params["members"]
+      }
+    )
+  end
 ```
+
+Now, all of the logic that relies on the specific Slack API channel data is encapsulated into a single method `create_channel`. If the data in the API response changes, this will be the only method we need to update.
+
+When you reload the root route now, what do you notice? Is there anything else we need to update? (Spoiler alert: YES!)
+
+Once you update the index view, you should now see that
 
 ## What Have We Accomplished?
 
