@@ -136,11 +136,10 @@ end
 And finally, `send_msg`:
 
 ```ruby
-def self.send_msg(channel, msg, token = nil)
-  token = TOKEN if token == nil
+def self.send_msg(channel, msg)
   puts "Sending message to channel #{channel}: #{msg}"
 
-  url = BASE_URL + "chat.postMessage?" + "token=#{token}"
+  url = BASE_URL + "chat.postMessage?" + "token=#{TOKEN}"
   response = HTTParty.post(url,
   body:  {
     "text" => "#{msg}",
@@ -224,7 +223,7 @@ end
 private
 
 def self.create_channel(api_params)
-    Channel.new(
+    return Channel.new(
       api_params["name"],
       api_params["id"],
       {
@@ -240,7 +239,7 @@ Now, all of the logic that relies on the specific Slack API channel data is enca
 
 When you reload the root route now, what do you notice? Is there anything else we need to update? (Spoiler alert: YES!)
 
-Once you update the index view, you should now see that
+Once you update the index view, you should now see that the list of channels is the same as what we saw before! Though we don't see anything different, we can sleep well knowing that we've reduced dependencies in the underlying code. GREAT JOB!
 
 ## What Have We Accomplished?
 
