@@ -23,7 +23,7 @@ Today, we'll be experimenting with Slack's API. This API is the same one used by
 [You can read about the details of Slack's API here.](https://api.slack.com/)
 
 ### Sending a Message
-Open up Postman, and send a `POST` request to `https://slack.com/api/chat.postMessage`, with these params:
+Open up Postman, and send a `POST` request to `https://slack.com/api/chat.postMessage`, with these params under `x-www-form-urlencoded`:
 
 | Key       | Value                                    |
 |:----------|:-----------------------------------------|
@@ -44,7 +44,7 @@ Slack won't let just anyone post to a team's board. Before it will send your mes
 
 The token we're about to create is a secret! Keep it safe, just like you would a password or your GitHub OAuth credentials. Don't ever check it in to GitHub, or post it in a public place. We'll be using the same `dot-env` technique to keep it safe as we did for GitHub OAuth.
 
-To generate a token, navigate to https://api.slack.com/docs/oauth-test-tokens, find the entry for the `Ada C7` channel, and click `Create token`.
+To generate a token, navigate to https://api.slack.com/docs/oauth-test-tokens, find the entry for your cohort's channel, and click `Create token`.
 
 ![Slack API Token](images/slack-api-token.png)  
 
@@ -56,7 +56,7 @@ To use the token, add it to the params in your Postman request:
 | `channel` | `test-api-channel` |
 | `text`    | `Some test text`                         |
 
-Poof! Message sent! Check it out on Slack! Also take a look at the response the Slack API sent back.
+Poof! Message sent! Check it out on Slack! Also take a look at the response the Slack API sent back in Postman.
 
 Today we'll only be using two of the Slack API calls
 ```
@@ -98,7 +98,7 @@ module SlackAPI
 end
 ```
 
-To verify it worked, spin up the `rails console`, and run `SlackWrapper.new`. It should return a new instance of SlackWrapper, instead of throwing an error.
+To verify it worked, spin up the `rails console`, and run `SlackApiWrapper.new`. It should return a new instance of SlackApiWrapper, instead of throwing an error.
 
 You'll have to restart the rails server in order for it to load the new library.  **Note:  Each time you make a change to code in the /lib folder, you will need to restart the rails server.**
 
@@ -153,7 +153,7 @@ def self.send_msg(channel, msg, token = nil)
 end
 ```
 
-Verify it works through the rails console: `SlackWrapper.send_msg("@<username>", "test test test")`
+Verify it works through the rails console: `SlackApiWrapper.send_msg("@<username>", "test test test")`
 
 ### The Controller
 
@@ -162,7 +162,7 @@ The last step is to call our new API wrapper, so that we can build a nice websit
 This will all take place in `app/controllers/chat_controller.rb`
 
 #### Exercise
-Work with your seat squad to complete the controller actions to tie together the API wrapper code we've written with your existing knowledge of the Rails request cycle. 
+Work with your seat squad to complete the controller actions to tie together the API wrapper code we've written with your existing knowledge of the Rails request cycle.
 
 1. First, we want to set up the controller to show the list of channels from the API.
 
