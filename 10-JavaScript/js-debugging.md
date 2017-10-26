@@ -47,7 +47,7 @@ If you choose **step over** you will remain in the debugger and the debugger wil
 If you choose to **continue** then the debugger will continue executing all of the remaining code.
 
 ## Key Takeaways
-- Browser dev tools are powerful debugging rsesources
+- Browser dev tools are powerful debugging resources
 - Breakpoints are a good way to see a snapshot of variable values throughout the execution of your code
 - Breakpoints will only be hit if the code is executed
 - **You should be using these tools in the development of your JS applications!**
