@@ -2,19 +2,100 @@
 
 ## Introduction
 
-JavaScript uses prototype-based inheritance.  This works, but is very awkward for OOP-trained developers.  So for ES6 classes were introduced as syntactical sugar to allow developers to write classes and OOP code, like we did in Ruby, for JavaScript.  It's important to remember that classes don't change how JavaScript behaves, instead it provides a more traditional framework for the developer and the interpreter converts it all behind the scenes into prototype based OOP.
+JavaScript uses prototype-based objects.  This works, but is very awkward for OOP-trained developers.  So for ES6 classes were introduced as syntactical sugar to allow developers to write classes and OOP code, like we did in Ruby, for JavaScript.  It's important to remember that classes don't change how JavaScript behaves, instead it provides a more traditional framework for the developer and the interpreter converts it all behind the scenes into prototype based OOP.
 
 **Note**: Classes were introduced to JavaScript in ES6 and are not available in older browsers.
 
 ## Learning Goals
 By the end of this you should be able to:
+- Explain how JavaScript creates object instances with __prototypical__ objects.  
 - Create your own classes with instance variables and methods.
 - Use `static` to create class methods.
 - Use `extends` to create subclasses and use super to access a parent class' attributes & methods.
 
-## A Book Example
+## JavaScript Objects
 
-Below is an example class modeling a book.  It has a title, and author attributes and a `toString` method which outputs the object as a String.
+As we saw in the intro you can create an object that is very similar to a Ruby hash.  Objects can contain any kind of variable, including arrays, functions and even other objects.  Remember you can use a `this` to refer to the object similarly to Ruby's `self`.  Here's an example:
+
+```javascript
+let myDog = {
+  name: 'fido',
+  breed: 'labrador',
+  age: 4,
+  speak: function() {
+    console.log('woof');
+  },
+  owner: {
+    name: 'Ada',
+    address: '1215 4th Ave #1050'
+  },
+  toString: function() {
+    return `${this.name}, a ${this.breed} owned by ${this.owner.name}`;
+  }
+};
+```
+
+## Prototype-based Objects
+
+You can create an object manually like a Ruby hash, but to create a template to generate objects from like you would with a Ruby class.
+
+```javascript
+const SALESTAX = 0.08;
+let Book = function(title, author, price) {
+  this.title = title;
+  this.author = author;
+  this.price = price;
+};
+
+Book.prototype.totalPrice = function() {
+  return this.price + this.price * SALESTAX;
+}
+
+let forWhomtheBell = new Book("For Whom the Bell Tolls", "Hemmingway", 15);
+
+console.log(forWhomtheBell.totalPrice());
+console.log(forWhomtheBell.title);
+
+> 16.2
+> For Whom the Bell Tolls
+```
+
+The function `Book` above, called a **constructor** creates instance variables by attaching them to it's context `this`.    Every function has a prototype object as a field in JavaScript and instances created with `new` gain the prototype of it's constructor method.
+
+So instance of `Book` created with `new Book` will run the constructor and gain any methods and properties from the `Book` prototype.
+
+If you think this is a little odd... yes it is.  
+
+Fortunately as of [ES6](http://es6-features.org/#ClassDefinition), JavaScript has added some syntactical sugar to let us write classes and the JavaScript interpreter will convert that into __prototypical__ objects.  
+
+**So why cover this?**  It's important to know when you inspect and examine JavaScript code in debuggers that behind the scenes things are actually done using functions and prototypes.  Classes are simply syntax sugar to make our lives as devs easier.  Also as a developer, you will often work on an existing codebase that predates classes, and with team members who still write JavaScript code using the older methods.  
+
+## Introducing Classes
+
+In Ruby classes look like this:
+
+```ruby
+class Book
+  attr_reader :title, :author
+  def initialize(name, author)
+    @title = title
+    @author = author
+  end
+
+  def to_s      # Each dog instance is unique
+    "#{@title} by #{@author}"
+  end
+end
+
+# Test it out
+my_book = book.new ("Pragmatic Thinking & Learning", "Hunt")
+puts my_book.to_s   # Instance method
+
+```
+
+When you create a new book instance the `initialize` method runs and sets the instance variables to starting values.  
+
+Below is this Book class written in JavaScript.  It has a title, and author attributes and a `toString` method which outputs the object as a String.  Notice that everything in a class falls between the curly braces without any commas to separate each item.  
 
 ```javascript
 class Book {
@@ -45,7 +126,7 @@ const Book = class {
 
 ## Methods
 
-Methods in a JavaScript class are declared inside the curly braces.  This is similar to how you declare instance methods in Ruby between where the class starts and the matching `end`.  
+In a JavaScript class, methods are functions declared inside the class, without the `function` keyword.  There are a number of special functions such as __constructor__, __getter methods__ and __setter methods__.
 
 ### Constructor Methods
 
@@ -115,13 +196,14 @@ class Book {
 }
 let poodr = new Book("Practical Object Oriented Programming in Ruby", "Sandy Meitz");
 
+// setter method
 poodr.author = "Chris";
 
-console.log(`${poodr.author}`);
+console.log(`${poodr.author}`); // getter method
 > Chris
 ```
 
-Notice that the properties are all named __\_propertyName__.  This is a typical naming convention for instance variables you want to keep private, as nothing is really private in JavaScript.  We can't name our properties the same as our getter and setter methods as doing so will result in infinite recursion.  
+Notice that the properties are all named __\_propertyName__.  This is a typical naming convention for instance variables you want to keep private.  It's a convention that signals an intent to prevent access outside the class as nothing is really private in JavaScript.  Properties cannot have the same names as our getter and setter methods as doing so will result in infinite recursion.  
 
 **Question**:  Why would naming the property the same as the getter or setter method result in infinite recursion?
 
@@ -152,7 +234,7 @@ console.log(Person.compare(poodr, learnToProgram));
 > 19
 ```
 
-Like Ruby the above example calls the static method with the name of the class as `Book.compare`.  Trying to call the method with `poodr.compare(poodr, learnToProgram);` will result in a TypeError.  
+Like a Ruby class method the above example calls the static method with the name of the class as `Book.compare`.  Trying to call the method with `poodr.compare(poodr, learnToProgram);` will result in a TypeError.  
 
 ## Inheritance
 
