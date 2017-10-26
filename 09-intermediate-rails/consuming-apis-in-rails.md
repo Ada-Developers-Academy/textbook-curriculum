@@ -6,6 +6,10 @@
 - Build an API wrapper in the context of a Rails app
 - Use data from an API in a Rails site
 
+## Overall Approach
+<!-- Diagram located here https://drive.google.com/a/adadevelopersacademy.org/file/d/0B6Pq6XZ1hzv1WXhPVGpUUmhES2M/view?usp=sharing -->
+![API Diagram](images/rails-authenticated-API.png)
+
 ## Initial Setup
 In the calendar, you'll find a link to a github repo. Go ahead and clone that repo!
 
