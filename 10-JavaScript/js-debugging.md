@@ -1,7 +1,7 @@
 # JavaScript Debugging
 
 ## Learning Goals
-- Explore the debugging tools provide by the Chrome developer console
+- Explore the debugging tools provided by the Chrome developer console
 - Define a breakpoint
 - Use breakpoints in debugging activities
 
