@@ -70,7 +70,7 @@ class Dog
 end
 ```
 
-We can see this class is initialized with a name, then the instance has two methods to access the Pokemon api:
+We can see this class is initialized with a name. Then the instance has one method that accesses the Dog CEO API:
 ```ruby
 husky = Dog.new("Husky")
 husky.random_picture
@@ -79,11 +79,11 @@ english_spaniel = Dog.new("English Spaniel")
 english_spaniel.random_picture
 ```
 
-With this class we can now easily use the Dog CEO API, the functionality can also test and extend, and even wrap in a gem to use in multiple projects.
+With this class we can now easily use the Dog CEO API. We can also test or extend this functionality, or even wrap it in a gem to use in multiple projects.
 
 ### Practice
 
-Try out a few api's using your browser and the [HTTParty gem](http://httparty.rubyforge.org), We've supplied one example request with each api, try to read through the api and figure out a different action to use:
+Try out a few APIs using your browser and the [HTTParty gem](http://httparty.rubyforge.org), We've supplied one example request with each api, try to read through the api and figure out a different action to use:
 
 - [Google Books](https://developers.google.com/books/docs/v1/getting_started)
     - `https://www.googleapis.com/books/v1/volumes?q=<search term>`

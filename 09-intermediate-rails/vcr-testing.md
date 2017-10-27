@@ -67,7 +67,7 @@ Each interaction is recorded as a **cassette**. We can load cassettes in our tes
   it "Can send valid message to real channel" do
     VCR.use_cassette("channels") do
       message = "test message"
-      response = SlackApiWrapper.sendmsg("<CHANNELID>", message)
+      response = SlackApiWrapper.send_msg("<CHANNELID>", message)
       response["ok"].must_equal true
       response["message"]["text"].must_equal message
     end
@@ -78,7 +78,7 @@ Each interaction is recorded as a **cassette**. We can load cassettes in our tes
   ```ruby
   it "Can't send message to fake channel" do
     VCR.use_cassette("channels") do
-      response = SlackApiWrapper.sendmsg("this-channel-does-not-exist", "test message")
+      response = SlackApiWrapper.send_msg("this-channel-does-not-exist", "test message")
       response["ok"].must_equal false
       response["error"].wont_be_nil
     end
