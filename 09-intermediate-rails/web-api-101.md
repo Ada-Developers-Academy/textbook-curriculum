@@ -3,7 +3,7 @@
 ## Learning Goals:
 - What is an API?
 - API data formats
-- Consume a web API using Ruby
+- Consider example APIs and consider authentication for APIs
 
 ## What is an API?
 A web API is a programmatic interface to request and deliver data using HTTP. There isn't much difference between an API and the applications we've been making so far, except the responses aren't in HTML and usually the request is not coming from a browser.
