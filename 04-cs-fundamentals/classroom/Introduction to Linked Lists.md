@@ -35,5 +35,5 @@ Do the above for a singly linked list and a separate file for a doubly linked li
 
 ## Slide Deck
 + Slide Deck used in class</br>
-<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://www.slideshare.net/secret/b4XV1mknFC1kpO">Introduction to Linked Lists</a></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</br>
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /> Please use the <strong>Download</strong> button and play the slide show locally (PowerPoint works best). Without this, the animations which are necessary in understanding the solutions will not render properly.
+<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://drive.google.com/file/d/0B__DV26QHsH4TnUzdU4zWF85S1k/view?usp=sharing">Introduction to Linked Lists</a></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</br>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /> 
