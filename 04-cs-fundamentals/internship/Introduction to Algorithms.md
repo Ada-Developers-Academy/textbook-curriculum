@@ -8,6 +8,7 @@ Greedy algorithms:
 + Greedy sort - updated to be selection sort
 + Merging sorted lists
 + Knapsack problem
+Introduction to Graphs and graph representation
 + Dijkstra's algorithm for shortest path
 
 ## Offline
