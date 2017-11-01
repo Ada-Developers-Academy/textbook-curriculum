@@ -53,7 +53,7 @@ This is how to do it using vanilla JavaScript:
 
 ```javascript
 // Setting up AJAX request (create a new one for each request)
- let request = new XMLHTTPRequest();
+ let request = new XMLHttpRequest();
 
  // Create a callback function, with event handler
  request.onreadystatechange = function () {
