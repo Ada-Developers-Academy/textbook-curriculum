@@ -53,31 +53,31 @@ This is how to do it using vanilla JavaScript:
 
 ```javascript
 // Setting up AJAX request (create a new one for each request)
- let request = new XMLHttpRequest();
+let request = new XMLHttpRequest();
 
- // Create a callback function, with event handler
- request.onreadystatechange = function () {
-  if (request.readyState === 4) {
-    if (response.status === 200) {
-      let pets = JSON.parse(response.responseText);
-      let petsHTML = '';
-      for (let i = 0; i < pets.length; i += 1){
-        petsHTML += '<h3>' + pets[i].name + '</h3>'
-      }
-      document.getElementByID('pets').innerHTML = petsHTML;
-    } else if (response.status == 404) {
-        // display message for user if file not found
-    } else if (response.status == 500) {
-        // display message for user if Server had a problem
-    }
-  }
+// Create a callback function, with event handler
+request.onreadystatechange = function () {
+if (request.readyState === 4) {
+ if (request.status === 200) {
+   let pets = JSON.parse(request.responseText);
+   let petsHTML = '';
+   for (let i = 0; i < pets.length; i += 1){
+     petsHTML += '<h3>' + pets[i].name + '</h3>'
+   }
+   document.getElementById('pets').innerHTML = petsHTML;
+ } else if (request.status == 404) {
+     // display message for user if file not found
+ } else if (request.status == 500) {
+     // display message for user if Server had a problem
+ }
+}
 };
 // Prepare the request with the HTTP METHOD (GET and POST most common) and
-response.open('GET', 'https://petdibs.herokuapp.com/pets');
+request.open('GET', 'https://petdibs.herokuapp.com/pets');
 
 // Create a function to send the request, in response to an event (button onClick)
 function getPets(){
-  request.send();
+request.send();
 };
 
 let loadItem = document.getElementById("load");
