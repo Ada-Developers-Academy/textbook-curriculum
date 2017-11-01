@@ -27,6 +27,7 @@ console.log(foo());
 Using an arrow function we could reduce it as:
 
 ```javascript
+// if there are no parameters you need to include empty parentheses to indicate it's a function
 const foo = () => {
   return "bar";
 }
