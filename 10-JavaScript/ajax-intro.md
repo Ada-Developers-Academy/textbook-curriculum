@@ -53,23 +53,24 @@ This is how to do it using vanilla JavaScript:
 
 ```javascript
 // Setting up AJAX request (create a new one for each request)
+
 let request = new XMLHttpRequest();
 
 // Create a callback function, with event handler
-request.onreadystatechange = function () {
+request.onreadystatechange =  () => {
 if (request.readyState === 4) {
- if (request.status === 200) {
-   let pets = JSON.parse(request.responseText);
-   let petsHTML = '';
-   for (let i = 0; i < pets.length; i += 1){
-     petsHTML += '<h3>' + pets[i].name + '</h3>'
-   }
-   document.getElementById('pets').innerHTML = petsHTML;
- } else if (request.status == 404) {
-     // display message for user if file not found
- } else if (request.status == 500) {
-     // display message for user if Server had a problem
- }
+  if (request.status === 200) {
+    let pets = JSON.parse(request.responseText);
+    let petsHTML = '';
+    for (let i = 0; i < pets.length; i += 1){
+      petsHTML += '<h3>' + pets[i].name + '</h3>'
+    }
+    document.getElementById('pets').innerHTML = petsHTML;
+  } else if (request.status == 404) {
+      // display message for user if file not found
+  } else if (request.status == 500) {
+      // display message for user if Server had a problem
+  }
 }
 };
 // Prepare the request with the HTTP METHOD (GET and POST most common) and
@@ -101,7 +102,7 @@ When it comes to AJAX, jQuery _really_ likes to make our lives easier.
 let url = 'https://petdibs.herokuapp.com/pets';
 
 // What do we want to happen when we get our response?
-let successCallback = function (response) {
+let successCallback =  response => {
   console.log('success!');
 };
 
@@ -112,7 +113,7 @@ $.get(url, successCallback);
 Oftentimes, you'll see the above collapsed into one function call:
 ```javascript
 $.get('https://petdibs.herokuapp.com/pets',
-  function(response){
+  response => {
     console.log('success!');
   });
 ```
@@ -143,7 +144,7 @@ jQuery handles the response and the callback function(s) will run when the reque
 The syntax gets a bit weird, so let's see how it looks. We add the callbacks as _chained functions_ after the initial `$.get` function.
 ```javascript
 $.get('https://petdibs.herokuapp.com/pets',
-  function(response){
+  response => {
     console.log('success!');
     console.log(response);
   })
