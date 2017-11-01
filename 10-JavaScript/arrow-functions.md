@@ -36,7 +36,7 @@ console.log(foo());
 > bar
 ```
 
-So what have we done?  We've gotten rid of the `function` keyword and placed a "fat arrow" to the right of the function parameters.  This lets us create a function with less typing, but we can do this with even less code.
+So what have we done?  We've gotten rid of the `function` keyword and placed a "arrow" to the right of the function parameters.  This lets us create a function with less typing, but we can do this with even less code.
 
 **Note**:  The arrow must be on the same line as the parentheses.  If they are on separate lines, it will generate a Syntax error.
 
