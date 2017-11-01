@@ -65,7 +65,7 @@ Wow that's a lot less code.
 Here is an example for defining a function with no parameters which returns a string "hello world".  Convert this into an arrow function and minimize the code typed.
 
 ```javascript
-let hello = function() {
+const hello = function() {
   return "hello world"
 };
 ```
@@ -81,7 +81,7 @@ This arrow function takes an array and returns each element of that array square
 Note that this function is not called or assigned to a value to refer later, so if we define it in the way above, it will be lost. Here the is same example, but we assign it to a variable to refer to execute the function afterwards.
 
 ```javascript
-let squared = (numbers) => numbers.map(function(num) {return num * num});
+const squared = (numbers) => numbers.map(function(num) {return num * num});
 squared([3, 4, 5]);
 > [ 9, 16, 25 ]
 ```
@@ -89,7 +89,7 @@ squared([3, 4, 5]);
 So this is a pretty compact syntax, but... we're not done.  Because this function takes a **single** argument, we can dispense with the parentheses around `numbers`.
 
 ```javascript
-let squared = numbers => numbers.map(function(num) {return num * num});
+const squared = numbers => numbers.map(function(num) {return num * num});
 squared([3, 4, 5]);
 > [ 9, 16, 25 ]
 ```
@@ -99,7 +99,7 @@ squared([3, 4, 5]);
 For example with two parameters
 
 ```javascript
-let add = (x, y) => x + y;
+const add = (x, y) => x + y;
 ```
 
 ## Inline Arrow Functions Returning Objects
@@ -107,7 +107,7 @@ let add = (x, y) => x + y;
 If your arrow function returns a JavaScript object like this normal function.
 
 ```javascript
-let makePerson = function(id, name) {
+const makePerson = function(id, name) {
   return {id: id,
     name: name
   };
@@ -117,7 +117,7 @@ let makePerson = function(id, name) {
 You would need to surround the returned object with parentheses like this:
 
 ```javascript
-let makePerson = (id, name) => ({ id: id, name: name });
+const makePerson = (id, name) => ({ id: id, name: name });
 ```
 
 ## As An Anonymous Function
@@ -210,7 +210,7 @@ Arrow functions are great for callbacks, and are great shortcuts for regular fun
 An Arrow function will give you an error if you use it as a constructor.  **Why?**  What does the example below use, that arrow functions don't have?
 
 ```javascript
-var Dog = (name, age) => {
+const Dog = (name, age) => {
   this.name = name;
   this.age = age;
 }
