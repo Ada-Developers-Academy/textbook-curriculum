@@ -38,7 +38,7 @@ Read:
 + To take charge of managing your journey to be a software engineer
 
 ### Presentation
-+ [Impostor Syndrome](https://www.slideshare.net/secret/qJ8R1yCwybGvZU)
++ [Impostor Syndrome](https://drive.google.com/file/d/0B__DV26QHsH4LXQtenlnRWxRV2s/view?usp=sharing)
 
 ### Activities
 + Rank the 5 "P"s in the order you value them and think of your reasons.

@@ -226,7 +226,7 @@ Looks similar to a conditional! This syntax comes from the programming language 
 - **Condition:** Runs before each iteration (including the first), determines whether the loop should keep going
 - **Increment:** Runs after each iteration, sets up the following iteration
 
-Here's a realistic example:
+Here's an example:
 
 ```javascript
 for (let i = 0; i < 5; i += 1) {

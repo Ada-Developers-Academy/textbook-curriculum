@@ -77,7 +77,7 @@ The idea for our app is simple: it should display a list of all public channels 
 ### Adding the Token
 Let's start by adding our token to the `.env` file. Remembering back to our lecture on GitHub OAuth, the steps are:
 
-1. Add `dotenv-rails` to the `:development` group in the Gemfile (this has already been done).
+1. Add `dotenv-rails` to the `:development, :test` group in the Gemfile (this has already been done).
 1. Add `.env` to your `.gitignore` file
 1. `$ touch .env`
 1. In the `.env`, add the line `SLACK_TOKEN = xoxp-XXXXXXXX-YYYYYYYY-ZZZZZZZZ`

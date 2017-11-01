@@ -83,9 +83,14 @@ With this class we can now easily use the Dog CEO API. We can also test or exten
 
 ### Practice
 
-Try out a few APIs using your browser and the [HTTParty gem](http://httparty.rubyforge.org), We've supplied one example request with each api, try to read through the api and figure out a different action to use:
+Try out a few APIs using your browser and the [HTTParty gem](http://httparty.rubyforge.org), We've supplied one example request with each api, try to read through the api and figure out a different action to use.
 
 - [Google Books](https://developers.google.com/books/docs/v1/getting_started)
     - `https://www.googleapis.com/books/v1/volumes?q=<search term>`
 - [IP Address Lookup](http://www.hostip.info/use.html)
     - `http://api.hostip.info/get_html.php?ip=<ip address>`
+    
+When reading through an API, ask the following questions:
+- How do you walk through the response?
+- Does this API require authentication?
+- How does this API handle errors?

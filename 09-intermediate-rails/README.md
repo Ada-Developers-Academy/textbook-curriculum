@@ -11,8 +11,8 @@
 
 ## Part 2 - APIs
 1. [Web API 101](./web-api-101.md)  
-1. [Consuming an API](./consuming-an-api.md)  
 1. [API Tools](./api-tools.md)  
+1. [Consuming an API](./consuming-an-api.md)  
 1. [API Tools with Authentication](./api-tools-Authentication.md)
 1. [Consuming an API in Rails](./consuming-apis-in-rails.md)
 1. [Testing The lib folder](./testing-lib-classes.md)
