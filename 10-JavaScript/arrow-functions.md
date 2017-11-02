@@ -73,23 +73,16 @@ const hello = function() {
 ### Arrow Functions with parameters
 
 ```javascript
-(numbers) => numbers.map(function(num) {return num * num});
+const squarer = (number) => {
+  return number * number
+}
 ```
+This arrow function takes a single number and returns that number squared.  Like normal functions arrow functions have their parameters listed in the parentheses.  
 
-This arrow function takes an array and returns each element of that array squared.  Like normal functions arrow functions have their parameters listed in the parentheses.  
-
-Note that this function is not called or assigned to a value to refer later, so if we define it in the way above, it will be lost. Here the is same example, but we assign it to a variable to refer to execute the function afterwards.
+So this is a pretty compact syntax, but... we're not done.  Because this function takes a **single** argument, we can dispense with the parentheses around `number`.
 
 ```javascript
-const squared = (numbers) => numbers.map(function(num) {return num * num});
-squared([3, 4, 5]);
-> [ 9, 16, 25 ]
-```
-
-So this is a pretty compact syntax, but... we're not done.  Because this function takes a **single** argument, we can dispense with the parentheses around `numbers`.
-
-```javascript
-const squared = numbers => numbers.map(function(num) {return num * num});
+const squarer = number => {return number * number;};
 squared([3, 4, 5]);
 > [ 9, 16, 25 ]
 ```
@@ -100,6 +93,14 @@ For example with two parameters
 
 ```javascript
 const add = (x, y) => x + y;
+```
+
+Just like earlier since `squarer` has a 1-line function body we can remove the curly braces.
+
+```javascript
+const squarer = number => return number * number; ;
+squared([3, 4, 5]);
+> [ 9, 16, 25 ]
 ```
 
 ## Inline Arrow Functions Returning Objects
@@ -145,18 +146,20 @@ There are additional benefits to using arrow functions beyond minimized syntax.
 Lets look at a more complex example:
 
 ```javascript
-let Dog = function(name, age) {
-  this.name = name;
-  this.age = age;
-  // every 1 second the dog grows older
-  this.interval = setInterval(function() {
-    this.age++;
-    console.log(this.age);
-    if (this.age > 100) clearInterval(this);
-  }, 1000);
-};
+class Dog {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    this.interval = setInterval(function() {
+      console.log(this.age);
+      this.age++;
+      if (this.age > 10) clearInterval(this);
 
-let fido = new Dog("Fido", 1);
+    }, 1000);
+  }
+}
+
+let fido = new Dog("Fido", 3);
 ```
 
 The code above is **supposed** to make the dog 1 year older each second.  Instead it prints `NaN` over and over again.  The reason is that every traditional function gets it's own instance of `this`.  So the anonymous function does not know about Dog's instance variables.
@@ -164,19 +167,21 @@ The code above is **supposed** to make the dog 1 year older each second.  Instea
 The traditional work-around to this situation is to save the context (`this`) into another variable and use that variable instead of `this`.
 
 ```javascript
-let Dog = function(name, age) {
-  this.name = name;
-  this.age = age;
-  let that = this;
-  // every 1 second the dog grows older
-  this.interval = setInterval(function() {
-    that.age++;
-    console.log(that.age);
-    if (that.age > 5) clearInterval(this);
-  }, 1000);
-};
+class Dog {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    let that = this;
+    this.interval = setInterval(function() {
+      console.log(that.age);
+      that.age++;
+      if (that.age > 10) clearInterval(that);
 
-let fido = new Dog("Fido", 1);
+    }, 1000);
+  }
+}
+
+let fido = new Dog("Fido", 3);
 ```
 
 Notice the line `let that = this;`  saving the current context in `that` allows the anonymous function to access `age` without the confusion surrounding `this`.
@@ -184,18 +189,21 @@ Notice the line `let that = this;`  saving the current context in `that` allows 
 **Arrow functions do not have their own `this` context**, instead they inherit `this` from the surrounding block.  So using an arrow function makes the resulting code less confusing and error-prone.
 
 ```javascript
-let Dog = function(name, age) {
-  this.name = name;
-  this.age = age;
-  // every 1 second the dog grows older
-  this.interval = setInterval( () => {
-    this.age++;
-    console.log(this.age);
-    if (this.age > 5) clearInterval(this.interval);
-  }, 1000);
-};
 
-let fido = new Dog("Fido", 1);
+class Dog {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    let that = this;
+    this.interval = setInterval(function() {
+      console.log(that.age);
+      that.age++;
+      if (that.age > 10) clearInterval(that.interval);
+    }, 1000);
+  }
+}
+
+let fido = new Dog("Fido", 3);
 ```
 
 Because arrow functions do not have their own context (`this`), they make excellent anonymous callback functions.  
@@ -205,7 +213,7 @@ Because arrow functions do not have their own context (`this`), they make excell
 
 Arrow functions are great for callbacks, and are great shortcuts for regular functions, but there are a couple of places you don't want to use them.
 
-### As Constructors
+### As Constructors for Prototype-based Objects
 
 An Arrow function will give you an error if you use it as a constructor.  **Why?**  What does the example below use, that arrow functions don't have?
 
@@ -238,7 +246,7 @@ The above example will generate an error because the toString method doesn't hav
 
 ## Older Browsers
 
-One final note.  Arrow functions are a relatively new feature introduced in ES6.  Some older browsers may not understand them.  If you build a project that may run on older browsers you will need to use a tool like [Babel](https://babeljs.io/) which can convert or transpile ES6 code to run allow it to run on older browsers.  
+One final note.  Arrow functions are a relatively new feature introduced in ES6.  Some older browsers may not understand them.  If you build a project that may run on older browsers ES6 and Arrow functions won't work directly.  That does **not** mean you can't use them however!  You can need to use a tool like [Babel](https://babeljs.io/) which can convert or transpile ES6 code to run allow it to run on older browsers.  
 
 ## Summary
 
