@@ -164,7 +164,7 @@ class Book {
   }
 }
 
-var adaBook = new Book("Poodr", "Sandy Meitz", 100);
+var adaBook = new Book("Practical Object Oriented Programming in Ruby", "Sandy Meitz", 100);
 console.log(adaBook.totalPrice());
 > 108
 ```
@@ -228,13 +228,13 @@ class Book {
 }
 
 let poodr = new Book("Practical Object Oriented Programming in Ruby", 49);
-let learnToProgram = new Book("C Learn to Program", "Bjarne Stroustrup" 30);
+let cpppl = new Book("The C++ Programming Language", "Bjarne Stroustrup" 30);
 
-console.log(Person.compare(poodr, learnToProgram));
+console.log(Person.compare(poodr, cpppl));
 > 19
 ```
 
-Like a Ruby class method the above example calls the static method with the name of the class as `Book.compare`.  Trying to call the method with `poodr.compare(poodr, learnToProgram);` will result in a TypeError.  
+Like a Ruby class method the above example calls the static method with the name of the class as `Book.compare`.  Trying to call the method with `poodr.compare(poodr, cpppl);` will result in a TypeError.  
 
 ## Inheritance
 
@@ -266,9 +266,9 @@ class Textbook extends Book {
 
 }
 
-let cHowToProgram = new Textbook("C How to Program", "Bjarne S", "Comp Sci");
-console.log(cHowToProgram.toString());
->  C How to Program by Bjarne S about: Comp Sci
+let cpppl = new Textbook("The C++ Programming Language", "Bjarne Stroustrup", "Comp Sci");
+console.log(cpppl.toString());
+>  The C++ Programming Language by Bjarne Stroustrup about: Comp Sci
 ```
 
 In the example above we can use the `super` keyword to access the parent class'  version of the `toString` method and we overrode the parent class' method to add our own functionality.  
