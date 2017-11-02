@@ -44,8 +44,8 @@ puts x + y
 ```
 
 ```javascript
-var x = 10,
-    y = 15;
+let x = 10;
+let y = 15;
 console.log(x + y);
 ```
 
@@ -58,7 +58,7 @@ Start the REPL by typing `node` in the terminal. You'll get a caret (`>`) prompt
 
 ```
 $ node
-> var x = 7;
+> let x = 7;
 undefined
 > x + 2
 9
@@ -158,7 +158,7 @@ JavaScript does not have symbols, and uses strings wherever Ruby would use symbo
 [Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) are similar to Ruby arrays. They are declared and accessed with square brackets ([]).
 
 ```javascript
-var arr = [1, 2, 3, 4];
+let arr = [1, 2, 3, 4];
 arr.length;  // 4 - access the length property
              // Note this *cannot* be accessed like a method with parenthesis
 arr[0];      // 1
@@ -171,7 +171,7 @@ arr;         // [1, 2, 3]; pop() mutates the array
 [Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) are similar to Ruby hashes, but much more versatile. They are declared with braces(`{}`). You can access properties in an Object with bracket notation (like an array) or dot notation.
 
 ```javascript
-var obj = {     // We can span lines; whitespace is mostly ignored.
+let obj = {     // We can span lines; whitespace is mostly ignored.
   num: 5,
   str: "This is a string",
   subObject: {
@@ -190,7 +190,7 @@ obj.foo;    // undefined
 Conditional expressions are surrounded by parenthesis `()` and each block is surrounded by brackets `{}`.
 
 ```javascript
-var name = "kittens";
+let name = "kittens";
 
 if (name == "puppies") {
   name += "!";
@@ -206,7 +206,7 @@ console.log(name);
 JavaScript also has the ternary operator, which we all adore, amirite?
 
 ```javascript
-var adult = (age > 18) ? "yes" : "no";
+let adult = (age > 18) ? "yes" : "no";
 ```
 
 ### Iterators
@@ -235,7 +235,7 @@ for (let i = 0; i < 5; i += 1) {
 ```
 
 To point out the three components:
-- **Initialization:** `var i = 0`
+- **Initialization:** `let i = 0`
 - **Condition:** `i < 5`
 - **Increment:** `i += 1`
 
@@ -264,6 +264,9 @@ JavaScript has a `forEach` loop that allows you to iterate over the elements of 
 
 - Install Node, so we can run JavaScript from the command line
 - Define variables
+  - `let` for local variables
+  - `const` for constants
+  - `var` for legacy code
 - Discuss the different variable types
   - `null`
   - `undefined`
