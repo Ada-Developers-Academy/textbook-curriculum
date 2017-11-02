@@ -38,13 +38,13 @@ Let's open it in `irb` and give it a whirl: `irb -r ./closure.rb`. This is great
 Ok. Let's look at how we'd do this in JavaScript. Open `closure.js` in your editor and copypasta this in:
 
 ```javascript
-function sqrer(num) {
+let sqrer = function(num) {
   return Math.pow(num, 2);
-}
+};
 
-function cuber(num) {
+let cuber = function(num) {
   return Math.pow(num, 3);
-}
+};
 ```
 
 Ok. Same thing. Let's take a look at this in the node REPL. Start the REPL by typing `node` in the terminal then load our file with: `.load closure.js`. This will open the file and enter it, line by line, into the REPL. Weird, but workable. Give our functions a try. `sqrer(2)` and `cuber(2)` and `sqrer(cuber(2))` all work as you'd expect, yeah?
@@ -55,14 +55,14 @@ So, same questions: what if our requirements changed and we suddenly needed to r
 So the paragraph at the top of the page told us that a closure is created when a function access variables not defined in its local scope, but in its parent scope.  Using this idea, we can create a function that provides us the functionality and flexibility we're looking for. Let's modify `closure.js` to leverage a closure:
 
 ```javascript
-function powerer(p) {
+let powerer = function(p) {
   let power = p;
-  let mather = function(num) {
+  let mather = (num) => {
     return Math.pow(num, power);
   }
 
   return mather
-}
+};
 ```
 
 The outer function, `powerer`, defines a local variable (`power`) and a function (`mather`). It then returns `mather`. The inner function references `power`, a local variable defined in the outer function. Therefore, when invoked, a closure is created so that `mather` knows what `power` is supposed to be. Let's try it out in the Node REPL:
@@ -86,12 +86,12 @@ Every time we call `powerer()`, a new closure is created. The `mather` function 
 Define a function named `makeAccumulator` that takes no arguments. It should create and return a function that takes __one__ argument and __returns a running total of all the arguments it has seen__. _E.g_ if `f` is the function returned by `makeAccumulator`, the first time you call `f(3)` it should return _3_, then if you call `f(2)`, it should return _5_. If you called `f(1000)` after that, it should return _1005_. Like this:
 
 ```javascript
-function makeAccumulator() {
+let makeAccumulator = function() {
   //you write this code
   //it will return a function
-}
+};
 
-var f = makeAccumulator();
+let f = makeAccumulator();
 console.log(f(0)); // 0
 console.log(f(5)); // 5
 console.log(f(5)); // 10
