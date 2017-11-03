@@ -216,7 +216,7 @@ class Textbook extends Book {
   constructor(title, author, subject) {
     super(title, author);
 
-    this.subject = subject
+    this.subject = subject;
   }
   toString() {
     return super.toString() + " about: " + this.subject;
