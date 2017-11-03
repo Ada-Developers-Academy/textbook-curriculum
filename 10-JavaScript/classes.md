@@ -233,7 +233,7 @@ In the example above we can use the `super` keyword to access the parent class' 
 
 ## Summary
 
-In this less we have seen:
+In this lesson we have seen:
 - How to use classes to create object instances
 - How to use a constructor to set up a new object in proper state
 - Add instance methods including getter and setter methods to control access to our attributes.
