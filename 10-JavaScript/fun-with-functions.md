@@ -15,10 +15,12 @@ All functions in JavaScript are variables. Just like any other variable, you dec
 How do you set the value to be a function? With the `function` keyword of course!
 
 ```javascript
-let bark = function() {
+const bark = function() {
   console.log("Woof!");
 };
 ```
+
+Note we declared the function `bark` here with `const`.  We could have used `let` or `var`, but because we don't want `bark` to be reassigned, it makes sense to make it a constant.
 
 #### Calling a Function
 Unlike in Ruby, JavaScript requires you to type in parentheses if you want to invoke a function. You can access functions like you would any other variable:
