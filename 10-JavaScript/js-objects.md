@@ -82,6 +82,8 @@ let amper = new Cat("Amper", 7);
 
 By using `new` JavaScript runs the constructor function `Cat` and returns an object with `name`, `age` attributes.
 
+All objects in JavaScript have an object named `prototype` as an attribute.  The prototype has a collection of instance variables and methods inherited from either Object or the object's constructor.  
+
 We can attach methods by extending the object's prototype.  You can do so by assigning the prototype to an object with the methods defined within, or add methods to the prototype object one-by-one.  
 
 ```javascript
@@ -102,7 +104,7 @@ octo.purr();
 > Prrrrr
 ```
 
-So how does this prototype thing work?  When the `new` operator is used, JavaScript looks at the constructor's prototype and links the new instance to the constructor's prototype.  The constructor Cat constructor's prototype also links back to it's "parent", which in this case is Object.
+So how does this prototype thing work?  When the `new` operator is used, JavaScript looks at the constructor's prototype and links the new instance to the constructor's prototype.  The constructor Cat constructor's prototype also links back to it's "parent", which in this case is Object.  So `amper` has access to methods in both the `Cat` prototype and `Object`.
 
 ![js inheritance of prototype](images/js-inheritance.png)
 
