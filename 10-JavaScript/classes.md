@@ -36,7 +36,7 @@ class Book
 end
 
 # Test it out
-my_book = book.new ("Pragmatic Thinking & Learning", "Hunt")
+my_book = Book.new("Pragmatic Thinking & Learning", "Hunt")
 puts my_book.to_s   # Instance method
 
 ```
