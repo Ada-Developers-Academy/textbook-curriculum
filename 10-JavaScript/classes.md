@@ -30,7 +30,7 @@ class Book
     @author = author
   end
 
-  def to_s      # Each dog instance is unique
+  def to_s      # Each book instance is unique
     "#{@title} by #{@author}"
   end
 end
