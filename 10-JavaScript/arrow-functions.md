@@ -109,7 +109,8 @@ If your arrow function returns a JavaScript object like this normal function.
 
 ```javascript
 const makePerson = function(id, name) {
-  return {id: id,
+  return {
+    id: id,
     name: name
   };
 }
