@@ -149,7 +149,7 @@ str.substr(2,5); // "is is" - call the substr function
 
 let e = "elephant";
 console.log("#{e} hotdog"); // "#{e} hotdog" js doesn't do interpolation with ""
-console.log(`#{e} hotdog`);  // `elephant hotdog`
+console.log(`${e} hotdog`);  // `elephant hotdog`
 ```
 
 JavaScript does not have symbols, and uses strings wherever Ruby would use symbols.
