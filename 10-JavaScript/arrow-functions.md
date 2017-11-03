@@ -220,7 +220,7 @@ const Dog = (name, age) => {
 let fido = new Dog("Fido", 3); // <-- TypeError!
 ```
 
-**Answer:** `this`!  Since Arrow functions do not have a `this` reference the interpreter cannot resolve things like `this.name`.  Further arrow functions do not have a **prototype** attribute, so `Dog.prototype` will generate an error.
+**Answer:** `this!` We know that arrow functions take the value of this from the context in which they are defined. Since our constructor is defined outside any other object, `this` doesn't make any sense, and our code does the wrong thing.  Further arrow functions do not have a **prototype** attribute, so `Dog.prototype` will generate an error.
 
 ### As Methods
 
