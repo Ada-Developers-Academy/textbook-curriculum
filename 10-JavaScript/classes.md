@@ -88,7 +88,7 @@ class Book {
   }
 }
 
-let poodr = new Book("Practical Object Oriented Programming in Ruby", "Sandy Meitz");
+let poodr = new Book("Practical Object Oriented Programming in Ruby", "Metz");
 
 > Constructor Ran!
 ```
@@ -114,7 +114,7 @@ class Book {
   }
 }
 
-let adaBook = new Book("Practical Object Oriented Programming in Ruby", "Sandy Meitz", 100);
+let adaBook = new Book("Practical Object Oriented Programming in Ruby", "Metz", 100);
 console.log(adaBook.totalPrice());
 
 > 108
@@ -147,7 +147,7 @@ class Book {
   }
 
 }
-let poodr = new Book("Practical Object Oriented Programming in Ruby", "Sandy Meitz");
+let poodr = new Book("Practical Object Oriented Programming in Ruby", "Metz");
 
 // setter method
 poodr.author = "Chris";
