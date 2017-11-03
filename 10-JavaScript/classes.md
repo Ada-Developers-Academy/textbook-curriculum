@@ -88,7 +88,7 @@ class Book {
   }
 }
 
-let poodr = new Book("Practical Object Oriented Programming in Ruby", "Sandy Mietz");
+let poodr = new Book("Practical Object Oriented Programming in Ruby", "Sandy Meitz");
 
 > Constructor Ran!
 ```
