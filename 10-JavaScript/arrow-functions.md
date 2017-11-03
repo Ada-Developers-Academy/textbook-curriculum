@@ -238,10 +238,6 @@ let fido = {
 
 The above example will generate an error because the toString method doesn't have a `this` reference.  
 
-## Older Browsers
-
-One final note.  Arrow functions are a relatively new feature introduced in ES6.  Some older browsers may not understand them.  If you build a project that may run on older browsers ES6 and Arrow functions won't work directly.  That does **not** mean you can't use them however!  You can need to use a tool like [Babel](https://babeljs.io/) which can convert or transpile ES6 code to run allow it to run on older browsers.  
-
 ## Summary
 
 Arrow functions are a great way to minimize your JavaScript typing and make very good anonymous callback functions.  
