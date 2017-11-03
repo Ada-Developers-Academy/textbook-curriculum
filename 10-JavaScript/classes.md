@@ -4,8 +4,6 @@
 
 JavaScript uses prototype-based objects.  This works, but is very awkward for OOP-trained developers.  So for ES6, classes were introduced as syntactical sugar to allow developers to write classes and __classical__ OOP code, like we did in Ruby, for JavaScript.  It's important to remember that classes don't change how JavaScript behaves, instead it provides a more traditional framework for the developer.  The interpreter converts it all behind the scenes into prototype based OOP.
 
-**Note**: Classes were introduced to JavaScript in ES6 and are not available in older browsers.
-
 ## Learning Goals
 By the end of this you should be able to:
 - Create your own classes with instance variables and methods.
