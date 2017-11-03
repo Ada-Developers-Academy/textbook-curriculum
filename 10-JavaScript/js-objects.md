@@ -106,7 +106,7 @@ So how does this prototype thing work?  When the `new` operator is used, JavaScr
 
 ![js inheritance of prototype](images/js-inheritance.png)
 
-By creating a constructor and extending the prototype you then have a template to generate as many objects with the needed fields and methods as needed.  
+By creating a constructor and extending the prototype you then have a template to generate as many objects with the needed fields and methods.  
 
 ### Class Methods in JavaScript
 
@@ -124,7 +124,7 @@ Cat.speak();
 Since this method is directly attached to `Cat`, you can't call it directly on instance of `Cat`.  Calling `octo.speak()` for example would fail.
 
 ### Prototypical Inheritance
-Inheritance in traditional JavaScript is complicated! It also doesn't come up all that often, and because the syntax is so weird the ES2015 version of JavaScript has created a more traditional syntax based on classes to make it easier. As such we won't cover it in detail in this course. Just know that JavaScript classes use prototypes under the hood.  If you're interested in learning more about how inheritance works in raw JavaScript, check out [the MDN guide](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance).  
+Inheritance in traditional JavaScript is complicated! It also doesn't come up all that often, and because the syntax is so weird the ES2015 version of JavaScript has created a more traditional syntaxical sugar based on classes to make it easier. As such we won't cover it in detail in this course. Just know that JavaScript classes use prototypes under the hood.  If you're interested in learning more about how inheritance works in raw JavaScript, check out [the MDN guide](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance).  
 
 ## Summary
 
