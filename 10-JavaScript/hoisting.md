@@ -79,7 +79,7 @@ Function `bar` _will_ be hoisted because it is a **declaration**.
 
 Variables, including functions, declared using `let` differ from `var` in that they are scoped to the block-level rather than the function.  
 
-Remember that using `var` the interpreter look at this block.
+If you use var to declare variables:
 
 ```javascript
 function foo() {
@@ -91,7 +91,7 @@ function foo() {
 }
 ```
 
-as:
+The JavaScript interpreter will move the declarations to the top of the function as below.  
 
 ```javascript
 function foo() {
@@ -127,8 +127,7 @@ function sum(max) {
     sum += i;
     console.log(i); // <-- 0...max
   }
-  var i = 2; // <--  Same variable!
-  console.log(i); // 2
+  console.log(`i = ${i}`); // 5 <-- Works
   return sum;
 }
 ```
