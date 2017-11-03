@@ -116,7 +116,7 @@ function foo() {
 }
 ```
 
-The interpreter would look not create, or hoist, the variables to the top of the function.  
+The interpreter would look not hoist, the variable declaration to the top of the function.  They would only exist in the scope in which they are declared.
 
 JavaScript also gives variables declared with `var` scope throughout the entire function so:
 
