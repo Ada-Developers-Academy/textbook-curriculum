@@ -5,6 +5,7 @@
     - [Worksheet: Ruby to JS](exercises/ruby-to-js-worksheet.md)
 1. [Fun with Functions](fun-with-functions.md)
     - [Worksheet: Functions](exercises/functions-worksheet.md)
+1. [JavaScript Objects](js-objects.md)
 1. [Classes](classes.md)
     - [Worksheet: Objects](exercises/objects-worksheet.md)
 1. [Arrow Functions](arrow-functions.md)
