@@ -66,7 +66,7 @@ This pattern of defining a class and then instantiating it is very common in obj
 
 In the above Ruby example we have actions we perform on __instances__ (info) and actions we performed at the __class__ level (speak).  To create a template in JavaScript and generate instances involves 3 important steps.  
 
-1. Define a __constructor__ method which sets up the instance, usually setting up instance variables.
+1. Define a __constructor__ method which sets up the instance, usually initializing instance variables.
 1. Extend the object's __prototype__ to add pieces common to all instances of this type of object, usually instance methods.
 1. Call the constructor using the `new` keyword to create new instances.
 
