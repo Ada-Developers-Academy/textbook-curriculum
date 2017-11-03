@@ -108,13 +108,15 @@ class Book {
     this.author = author;
     this.price = price;
   }
+
   totalPrice() {
-    return this.price * (1.0 + SALESTAX);
+    return this.price * (1 + SALESTAX);
   }
 }
 
-var adaBook = new Book("Practical Object Oriented Programming in Ruby", "Sandy Meitz", 100);
+let adaBook = new Book("Practical Object Oriented Programming in Ruby", "Sandy Meitz", 100);
 console.log(adaBook.totalPrice());
+
 > 108
 ```
 
