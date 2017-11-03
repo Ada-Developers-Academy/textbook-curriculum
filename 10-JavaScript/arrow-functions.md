@@ -119,7 +119,7 @@ const makePerson = function(id, name) {
 You would need to surround the returned object with parentheses like this:
 
 ```javascript
-const makePerson = (id, name) => ({ id: id, name: name });
+const makePerson = (id, name) => ( return { id: id, name: name });
 ```
 
 ## As An Anonymous Function
@@ -147,64 +147,57 @@ There are additional benefits to using arrow functions beyond minimized syntax.
 Lets look at a more complex example:
 
 ```javascript
-class Dog {
-  constructor(name, age) {
-    this.name = name;
-    this.age = age;
-    this.interval = setInterval(function() {
-      console.log(this.age);
-      this.age++;
-      if (this.age > 10) clearInterval(this);
-
-    }, 1000);
+obj = {
+  thing: 0,
+  increment: function() {
+    [1,2,3].forEach(function(num) {
+      this.thing += num;
+    });
   }
 }
 
-let fido = new Dog("Fido", 3);
+console.log(obj.thing); // 0
+obj.increment();
+console.log(obj.thing); // Expected 6, but prints 0
 ```
 
-The code above is **supposed** to make the dog 1 year older each second.  Instead it prints `NaN` over and over again.  The reason is that every traditional function gets it's own instance of `this`.  So the anonymous function does not know about Dog's instance variables.
+The code above is **supposed** to add each element of the array and store the result in `thing`, but... because the anynomous function has it's own instance of `this` it tries to add each number to the wrong... `thing`.
 
 The traditional work-around to this situation is to save the context (`this`) into another variable and use that variable instead of `this`.
 
 ```javascript
-class Dog {
-  constructor(name, age) {
-    this.name = name;
-    this.age = age;
+obj = {
+  thing: 0,
+  increment: function() {
     let that = this;
-    this.interval = setInterval(function() {
-      console.log(that.age);
-      that.age++;
-      if (that.age > 10) clearInterval(that);
-
-    }, 1000);
+    [1,2,3].forEach(function(num) {
+      that.thing += num;
+    });
   }
 }
 
-let fido = new Dog("Fido", 3);
+console.log(obj.thing); // 0
+obj.increment();
+console.log(obj.thing); // Expected 6, and prints 6
 ```
 
-Notice the line `let that = this;`  saving the current context in `that` allows the anonymous function to access `age` without the confusion surrounding `this`.
+Notice the line `let that = this;`  saving the current context in `that` allows the anonymous function to access `thing` without the confusion surrounding `this`. Whew!  What a work-around!
 
 **Arrow functions do not have their own `this` context**, instead they inherit `this` from the surrounding block.  So using an arrow function makes the resulting code less confusing and error-prone.
 
 ```javascript
-
-class Dog {
-  constructor(name, age) {
-    this.name = name;
-    this.age = age;
-    let that = this;
-    this.interval = setInterval(function() {
-      console.log(that.age);
-      that.age++;
-      if (that.age > 10) clearInterval(that.interval);
-    }, 1000);
+obj = {
+  thing: 0,
+  increment: function() {
+    [1,2,3].forEach((num) => {
+      this.thing += num;
+    });
   }
 }
 
-let fido = new Dog("Fido", 3);
+console.log(obj.thing); // 0
+obj.increment();
+console.log(obj.thing); // Expected 6, and prints 6
 ```
 
 Because arrow functions do not have their own context (`this`), they make excellent anonymous callback functions.  
@@ -234,7 +227,7 @@ let fido = new Dog("Fido", 3); // <-- TypeError!
 Closely related to their unsuitability as constructors, arrow functions make poor methods.  Because they do not contain a reference to `this`, you cannot access an object's instance variables.
 
 ```javascript
-var fido = {
+let fido = {
   name: "Fido",
   age: 3,
   toString: () => {
