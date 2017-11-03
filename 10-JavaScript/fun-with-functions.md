@@ -20,7 +20,7 @@ const bark = function() {
 };
 ```
 
-Note we declared the function `bark` here with `const`.  We could have used `let` or `var`, but because we don't want `bark` to be reassigned, it makes sense to make it a constant.
+**Note** we declared the function `bark` here with `const`.  We could have used `let` or `var`, but because we don't want `bark` to be reassigned, it makes sense to make it a constant.
 
 #### Calling a Function
 Unlike in Ruby, JavaScript requires you to type in parentheses if you want to invoke a function. You can access functions like you would any other variable:
@@ -33,7 +33,7 @@ bark(); // "Woof!"
 Parameters are very similar to how they work in Ruby:
 
 ```javascript
-let sayItTwice = function(text) {
+const sayItTwice = function(text) {
   console.log(text);
   console.log(text);
 };
@@ -46,7 +46,7 @@ sayItTwice("JS is OK!"); // "JS is OK!"
 Like any other variable, you can include a function as member of an object. Other members can be accessed through the `this` keyword, similar to Ruby's `self`.
 
 ```javascript
-let animal = {
+const animal = {
   species: "dog",
   sound: "woof",
   describe: function() {
@@ -65,14 +65,14 @@ One of the big differences between Ruby and JavaScript is that in JavaScript, fu
 ```javascript
 // Invoke the callback function on every number from 0 through 9,
 // and print the results to the command line
-let doMath = function(callback) {
+const doMath = function(callback) {
   for (let i = 0; i < 10; i += 1) {
     let result = callback(i);
     console.log(i + ": " + result);
   }
 };
 
-let double = function(number) {
+const double = function(number) {
   return number + number;
 };
 
@@ -125,7 +125,7 @@ Something that may come up in your exploration of JavaScript is the difference b
 
 ```javascript
 // functional expression - this is the right way
-let foo = function(bar) {};
+const foo = function(bar) {};
 ```
 
 A functional declaration looks like this. Note the lack of `let` and a semicolon, and the difference word order.
@@ -153,7 +153,7 @@ If you're interested in more details, [this StackOverflow answer](http://stackov
 ```javascript
 let arrayOfNums = [2, 7, 7, 3, 9, 0, 1, 6, 8, 3, 8, 4, 7, 9];
 
-let getBiggest = function(array) {
+const getBiggest = function(array) {
   // your code goes here!!
 };
 
