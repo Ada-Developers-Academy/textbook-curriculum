@@ -150,7 +150,7 @@ let poodr = new Book("Practical Object Oriented Programming in Ruby", "Metz");
 // setter method
 poodr.author = "Chris";
 
-console.log(`${poodr.author}`); // getter method
+console.log(poodr.author); // getter method
 > Chris
 ```
 
