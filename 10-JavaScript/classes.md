@@ -168,9 +168,9 @@ Static methods are equivalent to class methods in Ruby.  They are attached to th
 ```javascript
 class Book {
   constructor(title, author, price) {
-    this.title = title;
-    this.author = author;
-    this.price = price;
+    this._title = title;
+    this._author = author;
+    this._price = price;
   }
   //... getter & setter methods
   static bestPrice(bookA, bookB) {
@@ -199,10 +199,10 @@ Classes can be subclassed using the `extends` keyword.
 ```javascript
 class Book {
   constructor(title, author) {
-    this.title = title;
-    this.author = author;
+    this._title = title;
+    this._author = author;
   }
-
+  // .. getter & setter functions
   toString() {
     return `${this.title} by ${this.author}`;
   }
