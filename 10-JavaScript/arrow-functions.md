@@ -98,10 +98,12 @@ const add = (x, y) => x + y;
 Just like earlier since `squarer` has a 1-line function body we can remove the curly braces.
 
 ```javascript
-const squarer = number => return number * number; ;
+const squarer = number => return number * number;
 squared([3, 4, 5]);
 > [ 9, 16, 25 ]
 ```
+
+**Note**  This is **not** good style as it's hard to identify the code above as a function.  You should avoid writing an arrow function with no parentheses around the argument and no curly braces around the method body.  However you will see this style of function outside of Ada.
 
 ## Inline Arrow Functions Returning Objects
 
