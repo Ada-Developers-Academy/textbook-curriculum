@@ -116,7 +116,7 @@ function foo() {
 }
 ```
 
-The interpreter would look not hoist, the variable declaration to the top of the function.  They would only exist in the scope in which they are declared.
+The interpreter will not hoist the variable declaration to the top of the function when using let. The interpreter will keep the scope in which these variables are declared.  Variables declared with `let` only exist in the scope in which they are declared.
 
 JavaScript also gives variables declared with `var` scope throughout the entire function so:
 
