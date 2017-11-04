@@ -119,7 +119,7 @@ const makePerson = function(id, name) {
 You would need to surround the returned object with parentheses like this:
 
 ```javascript
-const makePerson = (id, name) => ( return { id: id, name: name });
+const makePerson = (id, name) => ( { id: id, name: name });
 ```
 
 ## As An Anonymous Function
