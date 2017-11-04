@@ -172,7 +172,7 @@ class Book {
     this.author = author;
     this.price = price;
   }
-
+  //... getter & setter methods
   static bestPrice(bookA, bookB) {
     if (bookA.price <= bookB.price)
       return bookA.title;
