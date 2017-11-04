@@ -7,7 +7,7 @@
 
 ## Introduction
 ### What is serialization?
-**Serialization** is the process of translating data structures into a format that can be transmitted.
+**Serialization** is the process of translating data structures into a format that can be transmitted. In web development, we often see data transmitted via HTTP to a web browser or other software system.
 
 We have already utilized serialization in Rails without being fully aware of it. Rails is built to do some of this for us by default, but we have the opportunity to customize the way our data is serialized for even more control over our JSON responses.
 
@@ -43,9 +43,9 @@ We'll start off by removing the `as_json` method in our controller methods so we
 2. Run the server and hit those endpoints in the browser or Postman to verify that all model fields are returned.
 
 ### Gemfile
-Rails and ActiveRecord have thought about this concept a lot and therefore have provided us with a great gem to help us out.
+ActiveRecord has thought about this concept and provided us with a great gem to help us out.
 
-1. Add `gem "active_model_serializers"` to your `Gemfile`
+1. Add `gem "active_model_serializers"` to your `Gemfile` (include in the overall section, not development or test)
 2. run `bundle install`
 
 ## Create the Serializer
@@ -57,10 +57,10 @@ Let's create a pet serializer:
 
 `rails g serializer pet`
 
-This will create a new serializer file called `pet_serializer` in the `app/serializer/` folder.
+This will create a new serializer file called `pet_serializer` in the `app/serializers/` folder.
 
 ### Configure Serializer
-Now that we have a serializer file, we want to set it up to contain the relevant fields and methods that we want to utilize in returning this model's data.
+Next, we'll configure the serializer file to select the relevant fields and methods we want to include in our model's data transformation.
 
 Let's see what it gives us by default:
 1. Open the `/app/serializers/pet_serializer.rb` file. Examine the contents of the file that was created by default.
@@ -69,6 +69,13 @@ Let's see what it gives us by default:
 The serializer uses the `attributes` collection to determine the attributes on the model that should be included when the data is serialized to JSON.
 
 We know that we want more than just the `id` returned in our API response, so go ahead and update the `attributes` collection to include all of the fields that we originally had in `as_json`.
+
+The updated code should look something like:
+```ruby
+class PetSerializer < ActiveModel::Serializer
+  attributes :id, :name, :age, :human
+end
+```
 
 Test it out again! Success!
 
