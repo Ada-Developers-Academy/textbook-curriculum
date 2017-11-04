@@ -23,7 +23,7 @@ let cat = {
 }
 
 cat.speak();
-> Ada says meow
+> Amper says meow
 ```
 
 #### What is `this`?
