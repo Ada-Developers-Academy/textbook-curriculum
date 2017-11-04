@@ -25,7 +25,7 @@ There are three steps to Underscore templating:
 The data we'll be working with is a TODO list. Here is some sample data:
 
 ```javascript
-var todoData = [
+let todoData = [
   {
     title: 'Mow the lawn',
     description: 'Must be finished before BBQ on Sat afternoon',
@@ -81,7 +81,7 @@ Right now our template is empty, so our next step is to add some contents. Under
     </p>
     <p>
       <strong>Assigned To:</strong>
-      <% for (var i = 0; i < data.assignedTo.length; i++) { %>
+      <% for (let i = 0; i < data.assignedTo.length; i++) { %>
         <%- data.assignedTo[i] %>
       <% } %>
     </p>
@@ -114,7 +114,7 @@ The next step is to _compile_ the template. This is accomplished using Underscor
 
 ```javascript
 $(document).ready(function() {
-  var todoTemplate = _.template($('#todo-item-template').html());
+  let todoTemplate = _.template($('#todo-item-template').html());
 });
 ```
 
@@ -125,7 +125,7 @@ First, notice that we've put this bit of code in `$(document).ready`. Even thoug
 Next, lets look at the big structure of the line:
 
 ```javascript
-var todoTemplate = _.template(/* some stuff */);
+let todoTemplate = _.template(/* some stuff */);
 ```
 
 Here we're calling `_.template`, Underscore's template compiler, and saving the result in a variable named `todoTemplate`.
@@ -144,8 +144,8 @@ Turns out the compiled template is just a function. Underscore uses some fancy c
 The template function takes one argument, a hash of variables to make available in the template. Invoking the template looks like this:
 
 ```javascript
-for (var i = 0; i < todoData.length; i++) {
-  var generatedHtml = todoTemplate({
+for (let i = 0; i < todoData.length; i++) {
+  let generatedHtml = todoTemplate({
     data: todoData[i]
   });
   $('#todo-list').append($(generatedHtml));

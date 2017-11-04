@@ -10,15 +10,17 @@
 The syntax for functions is a lot different in JavaScript than in Ruby.
 
 ### Defining Functions
-All functions in JavaScript are variables. Just like any other variable, you declare functions with the `var` keyword and a name, but you set the value to be a function instead of a number or a string.
+All functions in JavaScript are variables. Just like any other variable, you declare functions with the `let` keyword and a name, but you set the value to be a function instead of a number or a string.
 
 How do you set the value to be a function? With the `function` keyword of course!
 
 ```javascript
-var bark = function() {
+const bark = function() {
   console.log("Woof!");
 };
 ```
+
+**Note** we declared the function `bark` here with `const`.  We could have used `let` or `var`, but because we don't want `bark` to be reassigned, it makes sense to make it a constant.
 
 #### Calling a Function
 Unlike in Ruby, JavaScript requires you to type in parentheses if you want to invoke a function. You can access functions like you would any other variable:
@@ -31,7 +33,7 @@ bark(); // "Woof!"
 Parameters are very similar to how they work in Ruby:
 
 ```javascript
-var sayItTwice = function(text) {
+const sayItTwice = function(text) {
   console.log(text);
   console.log(text);
 };
@@ -44,7 +46,7 @@ sayItTwice("JS is OK!"); // "JS is OK!"
 Like any other variable, you can include a function as member of an object. Other members can be accessed through the `this` keyword, similar to Ruby's `self`.
 
 ```javascript
-var animal = {
+const animal = {
   species: "dog",
   sound: "woof",
   describe: function() {
@@ -63,14 +65,14 @@ One of the big differences between Ruby and JavaScript is that in JavaScript, fu
 ```javascript
 // Invoke the callback function on every number from 0 through 9,
 // and print the results to the command line
-var doMath = function(callback) {
-  for (var i = 0; i < 10; i += 1) {
-    var result = callback(i);
+const doMath = function(callback) {
+  for (let i = 0; i < 10; i += 1) {
+    let result = callback(i);
     console.log(i + ": " + result);
   }
 };
 
-var double = function(number) {
+const double = function(number) {
   return number + number;
 };
 
@@ -106,15 +108,15 @@ Note the weird `});` on the last line. As with most syntactic sugar, anonymous f
 JavaScript's `forEach` is an example of a function that takes another function as an argument. Note how it behaves similarly to a block in Ruby.
 
 ```javascript
-var data = [4, 7, 9, 12, 3, 18, 6];
-var sum = 0;
+let data = [4, 7, 9, 12, 3, 18, 6];
+let sum = 0;
 
 // Another anonymous function
 data.forEach(function (num) {
   sum += num;
 });
 
-var average = sum / data.length;
+let average = sum / data.length;
 console.log("Average is " + average);
 ```
 
@@ -123,17 +125,17 @@ Something that may come up in your exploration of JavaScript is the difference b
 
 ```javascript
 // functional expression - this is the right way
-var foo = function(bar) {};
+const foo = function(bar) {};
 ```
 
-A functional declaration looks like this. Note the lack of `var` and a semicolon, and the difference word order.
+A functional declaration looks like this. Note the lack of `let` and a semicolon, and the difference word order.
 
 ```javascript
 // functional declaration - this is the wrong way
 function foo(bar) {}
 ```
 
-In many cases the differences are nominal, but every once in a while they'll bite you. The vast majority of the time, a functional expression is what you want. In other words, **always define your functions with the `var` keyword**. The declaration style (no `var`) should be avoided unless you have a good reason to use it.
+In many cases the differences are nominal, but every once in a while they'll bite you. The vast majority of the time, a functional expression is what you want. In other words, **always define your functions with the `let` keyword**. The declaration style (no `let`) should be avoided unless you have a good reason to use it.
 
 If you're interested in more details, [this StackOverflow answer](http://stackoverflow.com/questions/3887408/javascript-function-declaration-and-evaluation-order) is one of the best I've seen in describing the difference and when it matters. We don't expect you to be able to recite the nitty gritty details, but we do expect you to be able to identify the two types of function and tell us which is correct.
 
@@ -149,9 +151,9 @@ If you're interested in more details, [this StackOverflow answer](http://stackov
 - `getBiggest` should accept an array as a parameter and return a the largest number in the array
 
 ```javascript
-var arrayOfNums = [2, 7, 7, 3, 9, 0, 1, 6, 8, 3, 8, 4, 7, 9];
+let arrayOfNums = [2, 7, 7, 3, 9, 0, 1, 6, 8, 3, 8, 4, 7, 9];
 
-var getBiggest = function(array) {
+const getBiggest = function(array) {
   // your code goes here!!
 };
 
@@ -159,7 +161,7 @@ var getBiggest = function(array) {
 // pass an array to getBiggest;
 // get a return value that is the biggest number in the array
 //
-var biggest = getBiggest(arrayOfNums);
+let biggest = getBiggest(arrayOfNums);
 console.log("The biggest is: ", biggest);
 ```
 

@@ -11,7 +11,7 @@ We spoke briefly about objects in our introductory conversation, but there's way
 So far, every object we've built has been defined explicitly in our code. This is very similar to how hashes work in Ruby. Objects can contain any sort of variable, including arrays, functions and even other objects. Remember that inside an object, you can use `this` to refer to that object, similar to Ruby's `self`. Here's an example, just to review:
 
 ```javascript
-var myDog = {
+let myDog = {
   name: 'fido',
   breed: 'labrador',
   age: 4,
@@ -23,7 +23,7 @@ var myDog = {
     address: '1215 4th Ave #1050'
   },
   toString: function() {
-    return this.name + ", a " + this.breed " owned by " + this.owner.name;
+    return `${this.name}, a ${this.breed} owned by ${this.owner.name}`;
   }
 };
 ```
@@ -70,7 +70,7 @@ When we don't particularly care about an instance of an object, we can model our
 First, we must define the object where we want this behavior to exist:
 ```javascript
 // dog.js
-var Dog = function() {
+let Dog = function() {
 
 };
 ```
@@ -105,7 +105,7 @@ The big idea of these types of objects is that, rather than defining a special l
 // dog.js
 
 // Update our constructor to have instance-specific variables
-var Dog = function(name, breed) {
+let Dog = function(name, breed) {
   this.name = name;
   this.breed = breed;
 };
@@ -118,7 +118,7 @@ Dog.speak = function() {
 // Set up our instance-specific functionality
 Dog.prototype = {
   info: function () {
-    return "Meet " + this.name + " who is a " + this.breed;
+    return `Meet ${this.name} who is a ${this.breed}`;
   }
 };
 
@@ -126,7 +126,7 @@ Dog.prototype = {
 console.log(Dog.speak());
 
 // We can also use instance-specific functions
-var myDog = new Dog("fido", "labrador");
+let myDog = new Dog("fido", "labrador");
 console.log(myDog.info());
 ```
 
@@ -147,7 +147,7 @@ Dog.prototype.isHungry = function() {
 Here is another example: a `Calculator` object that keeps track of a result as you do mathematical operations. Note the use of `prototype` to add new functions to `Calculator`. Using this, I can _instantiate_ as many calculators as I need. Consuming this function looks like this:
 
 ```javascript
-var Calculator = function(x) {
+let Calculator = function(x) {
   this._x = x; //let's talk a moment about _x
 };
 
@@ -158,7 +158,7 @@ Calculator.prototype = {
   multiply: function(n) { return this._x *= n; }
 };
 
-var calc = new Calculator(0);
+let calc = new Calculator(0);
 calc.addition(4); // 4
 calc.multiply(3); // 12
 calc.division(2); // 6
