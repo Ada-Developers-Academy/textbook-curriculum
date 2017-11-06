@@ -31,7 +31,7 @@ The jQuery `click()` function waits for a user event--in this case the user clic
 We've seen something very similar to this jQuery event handling syntax in the past:
 
 ```javascript
-$(document).ready(function() {
+$(document).ready(() => {
   // Do some stuff, manipulate the DOM
 });
 ```
