@@ -102,7 +102,7 @@ When it comes to AJAX, jQuery _really_ likes to make our lives easier.
 let url = 'https://petdibs.herokuapp.com/pets';
 
 // What do we want to happen when we get our response?
-let successCallback =  response => {
+let successCallback =  (response) => {
   console.log('success!');
 };
 
@@ -113,10 +113,12 @@ $.get(url, successCallback);
 Oftentimes, you'll see the above collapsed into one function call:
 ```javascript
 $.get('https://petdibs.herokuapp.com/pets',
-  response => {
+  (response) => {
     console.log('success!');
   });
 ```
+
+Notice our use of arrow functions here.  Because of their compact syntax and the fact that an arrow function gets `this` from it's outside container, they often make great callback functions.  
 
 ### Other Tools
 A similar way we can do the same thing (in this context) is by using the `$.getJSON` functionality. See more about that [here](http://api.jquery.com/jquery.getjson/).
@@ -172,6 +174,7 @@ With the person sitting near you:
 ## Best Practices
 - Keep your JavaScript organized and easy to read. If one block is doing too much, split into functions.
 - Code should be within `$(document).ready(function() { };`
+- Use Arrow functions where their brevity and lack of `this` context makes them useful.
 
 
 ## Vocab
