@@ -42,6 +42,19 @@ sayItTwice("JS is OK!"); // "JS is OK!"
                          // "JS is OK!"
 ```
 
+##### Default Function arguments
+
+Sometimes, you may want to provide a default value in case a user does not specify an argument.  Just with with Ruby, JavaScript functions can take default Arguments.  You specify the default value for a parameter by setting the variable equal to a value in the function header's parentheses.
+
+const sayItTwice = function(text = "JS is Awesome") {
+  console.log(text);
+  console.log(text);
+};
+
+sayItTwice(); // "JS is Awesome"
+              // "JS is Awesome"
+```
+
 #### Attaching Functions to Objects
 Like any other variable, you can include a function as member of an object. Other members can be accessed through the `this` keyword, similar to Ruby's `self`.
 
