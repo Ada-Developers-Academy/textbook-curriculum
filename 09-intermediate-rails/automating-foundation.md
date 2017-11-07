@@ -30,7 +30,7 @@ Lastly to install the motion UI animations (useful for menus etc) you can uncomm
 
 ## Automating the installation
 
-To automate the installation you can modify the `~/.rails-template.rb` file we created for testing with [this file](/reference/.rails-template.rb).
+To automate the installation you can modify the `~/.rails-template.rb` file we created for testing with [this file](./reference/.rails-template.rb).
 
 This template adds the foundation gem to the Gemfile, runs `rails g foundation:install` and uncomments the motion-ui library.  
 
