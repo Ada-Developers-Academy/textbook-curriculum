@@ -230,7 +230,7 @@ Here's an example:
 
 ```javascript
 for (let i = 0; i < 5; i += 1) {
-  console.log("Iteration " + i);
+  console.log(`Iteration ${ i }`);
 }
 ```
 
@@ -242,6 +242,29 @@ To point out the three components:
 **Question:** What would the above loop print out?
 
 **Question:** What Ruby code could you use to achieve the same thing?
+
+#### more `for` Loops
+There are a few other types of for loops that are useful. These are a bit more similar to the `each` loops we are used to seeing in Ruby.
+
+**`for`...`in`...**
+
+This `for` loop gives us access to each element's key within a collection. With an array, this is each element's index. This isn't so useful.
+
+With an object, it iterates through each property name. This is where this type of loop becomes very useful. We haven't seen how objects are used yet, so we're going to save this [reading material](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in) for later.
+
+**`for`...`of`...**
+
+This `for` loop gives us access to each element's value within an array. This is the closest option to our `each` loop in Ruby, for this data type.
+
+```javascript
+let animals = ["horse", "cat", "dog"];
+
+for (let animal of animals) {
+  console.log(`A ${ animal } is a cool animal!`);
+}
+```
+
+Note that this `for` loop can be used with many other data types beyond arrays. You can read more about those options [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of).
 
 #### `while` Loop
 JavaScript also uses the `while` loop in a similar way to the way we use it in Ruby. The following code does the same thing as the `for` loop above, more verbosely.
@@ -277,7 +300,7 @@ JavaScript has a `forEach` loop that allows you to iterate over the elements of 
   - Object
 - Demonstrate conditionals
 - Briefly show the three types of loop
-  - `for` loop
+  - `for` loops
   - `while` loop
   - `forEach` loop
 
@@ -288,3 +311,4 @@ As with HTML and CSS, there are two main educational resources about JavaScript:
 - [MDN intro to JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction)
 - [MDN re-introduction to JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) - worth going over once you're comfortable with the basics
 - [JavaScript: The Good Parts](http://shop.oreilly.com/product/9780596517748.do) - wonderful (and delightfully slim) dead trees book on the language
+- [MDN Loops](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
