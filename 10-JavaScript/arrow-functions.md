@@ -83,8 +83,7 @@ So this is a pretty compact syntax, but... we're not done.  Because this functio
 
 ```javascript
 const squarer = number => {return number * number;};
-squared([3, 4, 5]);
-> [ 9, 16, 25 ]
+console.log(squared(3)); // 9
 ```
 
 **Note**: This works **only** for functions with a single argument.  Zero parameters or more than one will require you to include the parentheses.  
