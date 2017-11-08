@@ -68,7 +68,7 @@ Each problem stands alone. Variables from previous problems do not exist.
     ```ruby
     fruits = ["banana", "apple", "kiwi"]
     fruits.each do |fruit|
-      puts "I love " + fruit + "!"
+      puts "I love #{fruit}!"
     end
     ```
 
