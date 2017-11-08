@@ -118,7 +118,31 @@ $.get('https://petdibs.herokuapp.com/pets',
   });
 ```
 
-Notice our use of arrow functions here.  Because of their compact syntax and the fact that an arrow function gets `this` from it's outside container, they often make great callback functions.  
+Notice our use of arrow functions here.  Because of their compact syntax and the fact that an arrow function gets `this` from it's outside container, they often make great callback functions.  Below includes a more complicated example adding pets to a person.  Because it uses arrow functions it can continue to use `this` and refer to the current instance of `Person`'s name and pets list.
+
+```javascript
+class Person {
+  constructor(name) {
+    this.name = name;
+    this.pets = [];
+
+    $.get('https://petdibs.herokuapp.com/pets',
+      (response) => {
+        console.log('success!');
+        // add all this person's pets to the array
+        response.forEach((pet) => {
+          console.log(pet);
+          if(pet.owner == this.name) {
+            this.pets.push(pet);
+            console.log(pet.name);
+          }
+        });
+    });
+  }
+}
+
+let kar = new Person("Kari");  // Create a person and get Kari's list of pets
+```
 
 ### Other Tools
 A similar way we can do the same thing (in this context) is by using the `$.getJSON` functionality. See more about that [here](http://api.jquery.com/jquery.getjson/).
