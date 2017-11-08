@@ -51,8 +51,10 @@ const sayItTwice = function(text = "JS is Awesome") {
   console.log(text);
 };
 
-sayItTwice(); // "JS is Awesome"
-              // "JS is Awesome"
+sayItTwice();                   // "JS is Awesome"
+                                // "JS is Awesome"
+sayItTwice("JS is wonderful");  // "JS is wonderful"
+                                // "JS is wonderful"
 ```
 
 #### Attaching Functions to Objects
