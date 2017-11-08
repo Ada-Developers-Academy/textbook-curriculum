@@ -46,6 +46,7 @@ sayItTwice("JS is OK!"); // "JS is OK!"
 
 Sometimes, you may want to provide a default value in case a user does not specify an argument.  Just as with Ruby, JavaScript functions can take default Arguments.  You specify the default value for a parameter by setting the variable equal to a value in the function header's parentheses.
 
+```javascript
 const sayItTwice = function(text = "JS is Awesome") {
   console.log(text);
   console.log(text);
