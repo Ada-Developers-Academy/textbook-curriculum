@@ -1,7 +1,9 @@
 # Make $(document).ready work as expected, despite turbolinks weirdness
 gem 'jquery-turbolinks'
 
-gem 'foundation-rails'
+gem 'jquery-rails'
+
+gem 'foundation-rails', '6.4.1.2'
 
 gem_group :development, :test do
   # Use pry for rails console, enable binding.pry
