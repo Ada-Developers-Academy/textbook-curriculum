@@ -15,7 +15,7 @@ As you saw in the JavaScript intro, JavaScript objects look much like Ruby Hashe
 
 ```javascript
 let cat = {
-  name: "Amper",
+  name: 'Amper',
   age: 13,
   speak: function() {
     console.log(`${this.name} says meow`);
@@ -29,6 +29,22 @@ cat.speak();
 #### What is `this`?
 
 You may have noticed the keyword `this`.  In JavaScript `this` refers to the current object like `self` in Ruby classes.   Inside an object's instance method you can access an instance variable with `this.<variable name>`
+
+#### A Shorthand
+
+You can and should also create object methods with a bit of shorthand removing the colon and `function` keyword like this:
+
+```javascript
+const cat = {
+  name: 'Amper',
+  age: 13,
+  speak() {
+    console.log(`${this.name} says meow`);
+  },
+};
+
+cat.speak();
+```
 
 ### Object Templates with Prototype
 
@@ -72,12 +88,13 @@ In the above Ruby example we have actions we perform on __instances__ (info) and
 
 Below is an example of a constructor method.  
 ```javascript
-let Cat = function(name, age) {
+const Cat = function Cat(name, age) {
   this.name = name;
   this.age = age;
 };
 
-let amper = new Cat("Amper", 7);
+let amper = new Cat('Amper', 7);
+
 ```
 
 By using `new` JavaScript runs the constructor function `Cat` and returns an object with `name`, `age` attributes.
