@@ -94,7 +94,6 @@ const Cat = function Cat(name, age) {
 };
 
 let amper = new Cat('Amper', 7);
-
 ```
 
 By using `new` JavaScript runs the constructor function `Cat` and returns an object with `name`, `age` attributes.
@@ -105,18 +104,18 @@ We can attach methods by extending the object's prototype.  You can do so by ass
 
 ```javascript
 Cat.prototype = {
-  info: function() {
-    return `Meet ${this.name} who is a ${this.age} years old`
-  }
-}
+  info() {
+    return `Meet ${this.name} who is a ${this.age} years old`;
+  },
+};
 
-Cat.prototype.purr = function() {
-  console.log("Prrrrr");
-}
+Cat.prototype.purr = function purr() {
+  console.log('Prrrrr');
+};
 
-let octo = new Cat("Octo", 13);
+const octo = new Cat('Octo', 13);
 console.log(octo.info()); // Meet Octo who is a 13 years old
-octo.purr();  // Prrrrr
+octo.purr(); // Prrrrr
 ```
 
 So how does this prototype thing work?  When the `new` operator is used, JavaScript looks at the constructor's prototype and links the new instance to the constructor's prototype.  The constructor Cat constructor's prototype also links back to it's "parent", which in this case is Object.  So `amper` has access to methods in both the `Cat` prototype and `Object`.
@@ -131,7 +130,7 @@ If you want to create methods which operate like Ruby class methods in JavaScrip
 
 ```javascript
 Cat.speak = function() {
-  console.log("meow");
+  console.log('meow');
 }
 
 Cat.speak();
