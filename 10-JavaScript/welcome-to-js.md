@@ -134,7 +134,7 @@ two == four / two; // true
 0.1 + 0.2 == 0.3; // false!
 0.1 + 0.2;
 
-"asdf" - 5; // NaN
+'asdf' - 5; // NaN
 ```
 
 #### `Strings` are declared with `""` or `''` or use backticks `    ``    `.
@@ -151,6 +151,8 @@ let e = "elephant";
 console.log("#{e} hotdog"); // "#{e} hotdog" js doesn't do interpolation with ""
 console.log(`${e} hotdog`);  // `elephant hotdog`
 ```
+
+**Note** We will standardize on using single quotes '' for strings, except in cases of string interpolation (where backticks are acceptable).
 
 JavaScript does not have symbols, and uses strings wherever Ruby would use symbols.
 
