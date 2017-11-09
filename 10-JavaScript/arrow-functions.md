@@ -54,7 +54,7 @@ Since `'bar'` is the only line in the function, it's considered an _implicit ret
 ```javascript
 const foo = () => 'bar';
 
-console.log(foo());  
+console.log(foo());
 >  bar
 ```
 
@@ -65,7 +65,7 @@ Wow that's a lot less code.
 Here is an example for defining a function with no parameters which returns a string "hello world".  Convert this into an arrow function and minimize the code typed.
 
 ```javascript
-const hello = function() {
+const hello = function hello() {
   return 'hello world'
 };
 ```
@@ -95,12 +95,12 @@ For example with two parameters
 const add = (x, y) => x + y;
 ```
 
-Just like earlier since `squarer` has a 1-line function body we can remove the curly braces.
+Just like earlier since `squarer` has a 1-line function body we can remove the curly braces and the `return` keyword.
 
 ```javascript
-const squarer = number => return number * number;
-squared([3, 4, 5]);
-> [ 9, 16, 25 ]
+const squarer = number => number * number;
+squarer(3);
+> 9
 ```
 
 **Note**  This is **not** good style as it's hard to identify the code above as a function.  You should avoid writing an arrow function with no parentheses around the argument and no curly braces around the method body.  However you will see this style of function outside of Ada.
@@ -122,6 +122,14 @@ You would need to surround the returned object with parentheses like this:
 
 ```javascript
 const makePerson = (id, name) => ( { id: id, name: name });
+```
+
+### Note On Object Shorthand
+
+When you have a function that returns an object like above you can also use the following shorthand when the key and value of an attribute are the same.
+
+```javascript
+const makePerson = (id, name) => ({ id, name });
 ```
 
 ## As An Anonymous Function
