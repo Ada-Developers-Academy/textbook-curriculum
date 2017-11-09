@@ -248,9 +248,25 @@ There are a few other types of for loops that are useful. These are a bit more s
 
 **`for`...`in`...**
 
-This `for` loop gives us access to each element's key within a collection. With an array, this is each element's index. This isn't so useful.
+The `for...in` loop iterates over the keys of a collection. This is most useful when working with an object (similar to a Ruby hash). We haven't discussed objects in detail yet, but the following syntax should seem familiar:
 
-With an object, it iterates through each property name. This is where this type of loop becomes very useful. We haven't seen how objects are used yet, so we're going to save this [reading material](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in) for later.
+```javascript
+let pets = {
+  kari: "Kylo",
+  dan: "Gecky",
+  jamie: "Octo and Amper"
+};
+
+for (let human in pets) {
+  console.log(`${ human }'s pets: ${ pets[human] }`);
+}
+
+// kari's pets: Kylo
+// dan's pets: Gecky
+// jamie's pets: Octo and Amper
+```
+
+**Question:** What do you get when you use a `for...in` loop on an array? Why might this be useful?
 
 **`for`...`of`...**
 
