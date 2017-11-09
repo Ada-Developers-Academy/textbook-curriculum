@@ -194,12 +194,12 @@ Conditional expressions are surrounded by parenthesis `()` and each block is sur
 ```javascript
 let name = 'kittens';
 
-if (name == 'puppies') {
+if (name === 'puppies') {
   name += '!';
-} else if (name == 'kittens') {
+} else if (name === 'kittens') {
   name += '!!';
 } else {
-  name = '!' + name;
+  name = `!${name}`;
 }
 
 console.log(name);
@@ -232,7 +232,7 @@ Here's an example:
 
 ```javascript
 for (let i = 0; i < 5; i += 1) {
-  console.log('Iteration ' + i);
+  console.log(`Iteration ${i}`);
 }
 ```
 
@@ -251,7 +251,7 @@ JavaScript also uses the `while` loop in a similar way to the way we use it in R
 ```javascript
 let i = 0;
 while (i < 10) {
-    console.log('Iteration ' + i);
+    console.log(`Iteration ${i}`);
     i++;
 }
 ```
