@@ -81,7 +81,7 @@ And finally, add some JavaScript to `index.js`:
 
 ```javascript
 // index.js
-console.log("This is a test");
+console.log('This is a test');
 ```
 
 #### Linking Them Together
@@ -138,7 +138,7 @@ The DOM is accessed through an object called `document`. Let's update our `index
 
 ```javascript
 // index.js
-console.log("This is a test");
+console.log('This is a test');
 
 var target = document.getElementById('js-lecture-target');  // Find the HTML element where the ID is js-lecture-target
 target.innerHTML = '<p>I give you... content!</p>'; // Put this HTML inside the div we retrieved above
