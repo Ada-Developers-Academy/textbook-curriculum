@@ -18,9 +18,9 @@ jQuery is a JavaScript library for DOM (web page) manipulation and cross-browser
 You can use the jQuery function ($) to grab and manipulate elements of your web page. jQuery uses CSS selectors to find the elements on the page.
 
 ```javascript
-$("body");     // returns the body element
-$(".content"); // returns an array of elements with the "content" class
-$("#someId");  // returns the element with id == "someId"
+$('body');     // returns the body element
+$('.content'); // returns an array of elements with the 'content' class
+$('#someId');  // returns the element with id == 'someId'
 ```
 
 ### DOM Manipulation
@@ -136,13 +136,23 @@ This exercise should be completed on your own computer, with Atom and Chrome. Co
 Your task is to take following data, and dynamically render it in a table:
 
 ```javascript
-let pets = [
-  { name: 'kylo', species: 'dog', human: 'kari', mammal: true },
-  { name: 'gecky', species: 'lizard', human: 'dan', mammal: false },
-  { name: 'hedwig', species: 'owl', human: 'harry', mammal: false },
-  { name: 'crookshanks', species: 'cat', human: 'hermione', mammal: true },
-  { name: 'scabbers', species: 'rat', human: 'ron', mammal: true }
-]
+const pets = [
+  {
+    name: 'kylo', species: 'dog', human: 'kari', mammal: true
+  },
+  {
+    name: 'gecky', species: 'lizard', human: 'dan', mammal: false
+  },
+  {
+    name: 'hedwig', species: 'owl', human: 'harry', mammal: false
+  },
+  {
+    name: 'crookshanks', species: 'cat', human: 'hermione', mammal: true
+  },
+  {
+    name: 'scabbers', species: 'rat', human: 'ron', mammal: true
+  },
+];
 ```
 
 Once you've got that going, add some CSS. Format your table so that rows for mammals are colored blue, and rows for non-mammals are colored orange. You might need to [read the docs](https://api.jquery.com/) a bit - maybe something about adding a class to an element?
