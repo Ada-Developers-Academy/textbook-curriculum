@@ -165,9 +165,11 @@ console.log(poodr.author); // getter method
 > Chris
 ```
 
-Notice that the properties are all named __\_propertyName__.  This is a typical naming convention for instance variables you want to keep private.  It's a convention that signals an intent to prevent access outside the class as nothing is **really** private in JavaScript.  Properties cannot have the same names as our getter and setter methods as doing so will result in infinite recursion.  
+Notice that the properties are all named __\_propertyName__.  This is a common naming convention for instance variables you want to keep private.  It's a convention that signals an intent to prevent access outside the class as nothing is **really** private in JavaScript.  Properties cannot have the same names as our getter and setter methods as doing so will result in infinite recursion.  
 
 **Question**:  Why would naming the property the same as the getter or setter method result in infinite recursion?
+
+At Ada we will not use getter and setter functions and not use the  __\_propertyName__ convention, but it is a convention you will likely encounter.  Instead we will use regular functions to access and change variables as per [AirBNB's style guide](https://github.com/airbnb/javascript#accessors--no-getters-setters).
 
 **Exercise**:  Create getter and setter methods for the `Animal`'s `sound`' so that you can do:  `myAnimal.sound = 'Ruff'` and `console.log(myAnimal.sound)`.
 
@@ -179,11 +181,10 @@ Static methods are equivalent to class methods in Ruby.  They are attached to th
 ```javascript
 class Book {
   constructor(title, author, price) {
-    this._title = title;
-    this._author = author;
-    this._price = price;
+    this.title = title;
+    this.author = author;
+    this.price = price;
   }
-  //... getter & setter methods
   static bestPrice(bookA, bookB) {
     if (bookA.price <= bookB.price)
       return bookA.title;
