@@ -11,7 +11,7 @@ After reading this you should be able to:
 ### Recap Objects in Ruby
 
 
-As you saw in the JavaScript intro, JavaScript objects look much like Ruby Hashes with keys mapped to values.  Unlike Ruby hashes however, JavaScript objects can contain methods.  
+As you saw in the JavaScript intro, JavaScript objects look much like Ruby Hashes with keys mapped to values.  Unlike Ruby hashes however, JavaScript objects can contain methods.
 
 ```javascript
 let cat = {
@@ -32,7 +32,7 @@ You may have noticed the keyword `this`.  In JavaScript `this` refers to the cur
 
 ### Object Templates with Prototype
 
-Manual definition is great for 1-off objects, but what if we want to design a template to build numerous objects from, like we do with classes in Ruby?  JavaScript creates object templates differently than Ruby and other Object Oriented Languages.  
+Manual definition is great for 1-off objects, but what if we want to design a template to build numerous objects from, like we do with classes in Ruby?  JavaScript creates object templates differently than Ruby and other Object Oriented Languages.
 
 #### Ruby-Style:  Classical OOP
 
@@ -64,13 +64,14 @@ This pattern of defining a class and then instantiating it is very common in obj
 
 #### Object Templates in JavaScript
 
-In the above Ruby example we have actions we perform on __instances__ (info) and actions we performed at the __class__ level (speak).  To create a template in JavaScript and generate instances involves 3 important steps.  
+In the above Ruby example we have actions we perform on __instances__ (info) and actions we performed at the __class__ level (speak).  To create a template in JavaScript and generate instances involves 3 important steps.
 
 1. Define a __constructor__ method which sets up the instance, usually initializing instance variables.
 1. Extend the object's __prototype__ to add pieces common to all instances of this type of object, usually instance methods.
 1. Call the constructor using the `new` keyword to create new instances.
 
-Below is an example of a constructor method.  
+Below is an example of a constructor method.
+
 ```javascript
 let Cat = function(name, age) {
   this.name = name;
@@ -82,9 +83,9 @@ let amper = new Cat("Amper", 7);
 
 By using `new` JavaScript runs the constructor function `Cat` and returns an object with `name`, `age` attributes.
 
-All objects in JavaScript have an object named `prototype` as an attribute.  The prototype has a collection of instance variables and methods inherited from either Object or the object's constructor.  
+All objects in JavaScript have an object named `prototype` as an attribute.  The prototype has a collection of instance variables and methods inherited from either Object or the object's constructor.
 
-We can attach methods by extending the object's prototype.  You can do so by assigning the prototype to an object with the methods defined within, or add methods to the prototype object one-by-one.  
+We can attach methods by extending the object's prototype.  You can do so by assigning the prototype to an object with the methods defined within, or add methods to the prototype object one-by-one.
 
 ```javascript
 Cat.prototype = {
@@ -106,11 +107,11 @@ So how does this prototype thing work?  When the `new` operator is used, JavaScr
 
 ![js inheritance of prototype](images/js-inheritance.png)
 
-By creating a constructor and extending the prototype you then have a template to generate as many objects with the needed fields and methods.  
+By creating a constructor and extending the prototype you then have a template to generate as many objects with the needed fields and methods.
 
 ### Class Methods in JavaScript
 
-If you want to create methods which operate like Ruby class methods in JavaScript you add the method to the Object and not it's prototype.  
+If you want to create methods which operate like Ruby class methods in JavaScript you add the method to the Object and not it's prototype.
 
 ```javascript
 Cat.speak = function() {
@@ -124,7 +125,7 @@ Cat.speak();
 Since this method is directly attached to `Cat`, you can't call it directly on instance of `Cat`.  Calling `octo.speak()` for example would fail.
 
 ### Prototypical Inheritance
-Inheritance in traditional JavaScript is **complicated!** It also doesn't come up all that often, and because the syntax is so weird the ES2015 version of JavaScript has created a more traditional syntaxical sugar based on classes to make it easier. As such we won't cover it in detail in this course. Just know that JavaScript classes use prototypes under the hood.  If you're interested in learning more about how inheritance works in raw JavaScript, check out [the MDN guide](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance).  
+Inheritance in traditional JavaScript is **complicated!** It also doesn't come up all that often, and because the syntax is so weird the ES2015 version of JavaScript has created a more traditional syntaxical sugar based on classes to make it easier. As such we won't cover it in detail in this course. Just know that JavaScript classes use prototypes under the hood.  If you're interested in learning more about how inheritance works in raw JavaScript, check out [the MDN guide](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance).
 
 ## Summary
 
