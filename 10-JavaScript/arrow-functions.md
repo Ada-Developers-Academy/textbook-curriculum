@@ -145,7 +145,7 @@ let doubled = numbers.map(function(num) {
 
 // as an arrow function
 
-doubled = numbers.map( num => num + num);
+doubled = numbers.map(num => num + num);
 ```
 
 In the above example we map an array to one where each element is doubled.  Looking at the two examples the arrow function, once you adjust to the new syntax, is more compact and visually conveys the concept that we're mapping each number (`num`) to twice it's value.
@@ -157,9 +157,9 @@ There are additional benefits to using arrow functions beyond minimized syntax.
 Lets look at a more complex example:
 
 ```javascript
-obj = {
+const obj = {
   thing: 0,
-  increment: function() {
+  increment() {
     [1,2,3].forEach(function(num) {
       this.thing += num;
     });
@@ -176,10 +176,10 @@ The code above is **supposed** to add each element of the array and store the re
 The traditional work-around to this situation is to save the context (`this`) into another variable and use that variable instead of `this`.
 
 ```javascript
-obj = {
+const obj = {
   thing: 0,
-  increment: function() {
-    let that = this;
+  increment() {
+    const that = this;
     [1,2,3].forEach(function(num) {
       that.thing += num;
     });
@@ -196,14 +196,14 @@ Notice the line `let that = this;`  saving the current context in `that` allows 
 **Arrow functions do not have their own `this` context**, instead they inherit `this` from the surrounding block.  So using an arrow function makes the resulting code less confusing and error-prone.
 
 ```javascript
-obj = {
+const obj = {
   thing: 0,
-  increment: function() {
-    [1,2,3].forEach((num) => {
+  increment() {
+    [1, 2, 3].forEach((num) => {
       this.thing += num;
     });
-  }
-}
+  },
+};
 
 console.log(obj.thing); // 0
 obj.increment();
@@ -225,7 +225,7 @@ An Arrow function will give you an error if you use it as a constructor.  **Why?
 const Dog = (name, age) => {
   this.name = name;
   this.age = age;
-}
+};
 
 let fido = new Dog('Fido', 3); // <-- TypeError!
 ```
@@ -242,8 +242,8 @@ let fido = {
   age: 3,
   toString: () => {
     return `${this.name} is ${this.age} years old`; // error!
-  }
-}
+  },
+};
 ```
 
 The above example will generate an error because the toString method doesn't have a `this` reference.  
