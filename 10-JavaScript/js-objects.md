@@ -8,10 +8,32 @@ After reading this you should be able to:
 
 ## JavaScript Objects
 
-### Recap Objects in Ruby
+### Recap Objects and Hashes in Ruby
 
+In Ruby, objects and hashes are two different things. A hash is a data structure that maps keys to values. The keys are strings or symbols, and the values can be any data type.
 
-As you saw in the JavaScript intro, JavaScript objects look much like Ruby Hashes with keys mapped to values.  Unlike Ruby hashes however, JavaScript objects can contain methods.
+```ruby
+ruby_hash = {
+  key: "value"
+}
+```
+
+Objects, on the other hand, are formally specified through a class definition. Their structure is much more rigid, and they can contain methods that act on the data they store.
+
+```ruby
+class RubyClass
+  attr_reader :value
+  def initialize(value)
+    @value = value
+  end
+end
+```
+
+### Objects in JavaScript
+
+In JavaScript, hashes and objects are the same thing! All objects are hashes, and all hashes are objects. In the interest of only having one name for things, we just call them "objects".
+
+The syntax for creating a JavaScript object is very similar to the syntax for a Ruby hash. One important difference is that a JavaScript object can contain functions.
 
 ```javascript
 let cat = {
@@ -28,7 +50,7 @@ cat.speak();
 
 #### What is `this`?
 
-You may have noticed the keyword `this`.  In JavaScript `this` refers to the current object like `self` in Ruby classes.   Inside an object's instance method you can access an instance variable with `this.<variable name>`
+You may have noticed the keyword `this`.  In JavaScript `this` refers to the current object like `self` in Ruby classes.   Inside an object's instance method you can access an instance variable with `this.<variable name>`.
 
 ### Object Templates with Prototype
 
