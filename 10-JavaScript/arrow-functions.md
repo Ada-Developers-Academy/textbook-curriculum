@@ -16,8 +16,8 @@ Arrow functions have minimized _syntactic sugar_ compared to regular JavaScript 
 Traditional functions look like this:
 
 ```javascript
-const foo = function() {
-  return "bar";
+const foo = function foo() {
+  return 'bar';
 }
 
 console.log(foo());  
@@ -29,30 +29,30 @@ Using an arrow function we could reduce it as:
 ```javascript
 // if there are no parameters you need to include empty parentheses to indicate it's a function
 const foo = () => {
-  return "bar";
+  return 'bar';
 }
 
 console.log(foo());  
 > bar
 ```
 
-So what have we done?  We've gotten rid of the `function` keyword and placed a "arrow" to the right of the function parameters.  This lets us create a function with less typing, but we can do this with even less code.
+So what have we done?  We've gotten rid of the `function` keyword and placed a 'arrow' to the right of the function parameters.  This lets us create a function with less typing, but we can do this with even less code.
 
 **Note**:  The arrow must be on the same line as the parentheses.  If they are on separate lines, it will generate a Syntax error.
 
 Because our function has only a **one** line return, we can remove the return keyword and make it smaller.
 
 ```javascript
-const foo = () => {  "bar"; }
+const foo = () => {  'bar'; }
 
 console.log(foo());  
 >  bar
 ```
 
-Since `"bar"` is the only line in the function, it's considered an _implicit return_.  In other words, JavaScript assumes the function will return that value.  That's a lot less code, but we can reduce it further.  Since this is a 1-line function we can remove the curly braces and make them implicit as well.
+Since `'bar'` is the only line in the function, it's considered an _implicit return_.  In other words, JavaScript assumes the function will return that value.  That's a lot less code, but we can reduce it further.  Since this is a 1-line function we can remove the curly braces and make them implicit as well.
 
 ```javascript
-const foo = () => "bar";
+const foo = () => 'bar';
 
 console.log(foo());  
 >  bar
@@ -66,7 +66,7 @@ Here is an example for defining a function with no parameters which returns a st
 
 ```javascript
 const hello = function() {
-  return "hello world"
+  return 'hello world'
 };
 ```
 
@@ -219,7 +219,7 @@ const Dog = (name, age) => {
   this.age = age;
 }
 
-let fido = new Dog("Fido", 3); // <-- TypeError!
+let fido = new Dog('Fido', 3); // <-- TypeError!
 ```
 
 **Answer:** `this!` We know that arrow functions take the value of this from the context in which they are defined. Since our constructor is defined outside any other object, `this` doesn't make any sense, and our code does the wrong thing.  Further arrow functions do not have a **prototype** attribute, so `Dog.prototype` will generate an error.
@@ -230,7 +230,7 @@ Closely related to their unsuitability as constructors, arrow functions make poo
 
 ```javascript
 let fido = {
-  name: "Fido",
+  name: 'Fido',
   age: 3,
   toString: () => {
     return `${this.name} is ${this.age} years old`; // error!
