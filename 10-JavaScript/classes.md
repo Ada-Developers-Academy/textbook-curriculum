@@ -169,14 +169,21 @@ Notice that the properties are all named __\_propertyName__.  This is a common n
 
 **Question**:  Why would naming the property the same as the getter or setter method result in infinite recursion?
 
-At Ada we will not use getter and setter functions and not use the  __\_propertyName__ convention, but it is a convention you will likely encounter.  Instead we will use regular functions to access and change variables as per [AirBNB's style guide](https://github.com/airbnb/javascript#accessors--no-getters-setters).
+At Ada we will not use getter and setter functions and not use the  __\_propertyName__ convention, but it is a convention you will likely encounter.  Instead we will use regular functions to access and change variables as per [AirBNB's style guide](https://github.com/airbnb/javascript#accessors--no-getters-setters).  This is because they can cause unexpected side-effects because we're treating functions like they are instance variables.
+
+For example if I wrote:
+```javascript
+poodr.auth = 'Kari';
+```
+That will give __no error__ at all!  Because Objects are extendable (you can always add more attributes), this will not result in an error message and tracking down the bug is harder to spot.  You can read more about it [here.](https://nemisj.com/why-getterssetters-is-a-bad-idea-in-javascript/)
 
 **Exercise**:  Create getter and setter methods for the `Animal`'s `sound`' so that you can do:  `myAnimal.sound = 'Ruff'` and `console.log(myAnimal.sound)`.
+
+**Exercise** After you have created getter and setter methods, convert them into regular methods.
 
 ### Static Methods
 
 Static methods are equivalent to class methods in Ruby.  They are attached to the class rather than instances of the class.
-
 
 ```javascript
 class Book {
@@ -186,10 +193,10 @@ class Book {
     this.price = price;
   }
   static bestPrice(bookA, bookB) {
-    if (bookA.price <= bookB.price)
+    if (bookA.price <= bookB.price) {
       return bookA.title;
-    else
-      return bookB.title;
+    }
+    return bookB.title;
   }
 }
 
