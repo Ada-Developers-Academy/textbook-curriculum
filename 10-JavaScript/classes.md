@@ -44,18 +44,29 @@ When you create a new book instance the `initialize` method runs and sets the in
 Below is this Book class written in JavaScript.  It has a title, and author attributes and a `toString` method which outputs the object as a String.  Notice that everything in a class falls between the curly braces without any commas to separate each item.  
 
 ```javascript
+/**
+  *  Book class
+  */
 class Book {
+  /**
+    * Book Constructor
+    * @param {string} title book title
+    * @param {string} author book author
+    */
   constructor(title, author) {
     this.title = title;
     this.author = author;
   }
-
+  /**
+    * toString method
+    * @returns {string} the book in title by author format
+    */
   toString() {
-   return `${this.title} by ${this.author}`;
+    return `${this.title} by ${this.author}`;
   }
 }
 
-let warAndPeace = new Book("War and Peace", "Leo Tolstoy");
+const warAndPeace = new Book('War and Peace', 'Leo Tolstoy');
 
 console.log(warAndPeace.toString());
 > War and Peace by Leo Tolstoy
@@ -80,13 +91,13 @@ The constructor method is a special method named `constructor` which is called w
 ```javascript
 class Book {
   constructor(title, author) {
-    console.log("Constructor Ran!");
+    console.log('Constructor Ran!');
     this.title = title;
     this.author = author;
   }
 }
 
-let poodr = new Book("Practical Object Oriented Programming in Ruby", "Metz");
+let poodr = new Book('Practical Object Oriented Programming in Ruby', 'Metz');
 
 > Constructor Ran!
 ```
@@ -112,7 +123,7 @@ class Book {
   }
 }
 
-let adaBook = new Book("Practical Object Oriented Programming in Ruby", "Metz", 100);
+let adaBook = new Book('Practical Object Oriented Programming in Ruby', 'Metz', 100);
 console.log(adaBook.totalPrice());
 
 > 108
@@ -127,7 +138,7 @@ Getter methods are methods which are run when a property with the same name is a
 ```javascript
 class Book {
   constructor(title, author) {
-    console.log("Constructor Run!");
+    console.log('Constructor Run!');
     this._title = title;
     this._author = author;
   }
@@ -139,16 +150,16 @@ class Book {
 
   // setter method
   set author(newAuthor) {
-    if (typeof newAuthor === "string") {
+    if (typeof newAuthor === 'string') {
       this._author = newAuthor;
     }
   }
 
 }
-let poodr = new Book("Practical Object Oriented Programming in Ruby", "Metz");
+let poodr = new Book('Practical Object Oriented Programming in Ruby', 'Metz');
 
 // setter method
-poodr.author = "Chris";
+poodr.author = 'Chris';
 
 console.log(poodr.author); // getter method
 > Chris
@@ -158,7 +169,7 @@ Notice that the properties are all named __\_propertyName__.  This is a typical 
 
 **Question**:  Why would naming the property the same as the getter or setter method result in infinite recursion?
 
-**Exercise**:  Create getter and setter methods for the `Animal`'s `sound`' so that you can do:  `myAnimal.sound = "Ruff"` and `console.log(myAnimal.sound)`.
+**Exercise**:  Create getter and setter methods for the `Animal`'s `sound`' so that you can do:  `myAnimal.sound = 'Ruff'` and `console.log(myAnimal.sound)`.
 
 ### Static Methods
 
@@ -181,8 +192,8 @@ class Book {
   }
 }
 
-let poodr = new Book("Practical Object Oriented Programming in Ruby", 49);
-let cpppl = new Book("The C++ Programming Language", "Bjarne Stroustrup", 30);
+let poodr = new Book('Practical Object Oriented Programming in Ruby', 49);
+let cpppl = new Book('The C++ Programming Language', 'Bjarne Stroustrup', 30);
 
 console.log(Book.bestPrice(poodr, cpppl));
 > The C++ Programming Language
@@ -217,12 +228,12 @@ class Textbook extends Book {
     this.subject = subject;
   }
   toString() {
-    return super.toString() + " about: " + this.subject;
+    return `${super.toString()} about: ${this.subject}`;
   }
 
 }
 
-let cpppl = new Textbook("The C++ Programming Language", "Bjarne Stroustrup", "Comp Sci");
+let cpppl = new Textbook('The C++ Programming Language', 'Bjarne Stroustrup', 'Comp Sci');
 console.log(cpppl.toString());
 >  The C++ Programming Language by Bjarne Stroustrup about: Comp Sci
 ```
