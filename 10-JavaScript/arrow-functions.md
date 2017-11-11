@@ -125,7 +125,7 @@ const makePerson = (id, name) => ( { id: id, name: name });
 
 ### Note On Object Shorthand
 
-When you have a function that returns an object like above you can also use the following shorthand when the key and value of an attribute are the same.
+When you have a function that returns an object like above you can also use the following shorthand when the key and value of an attribute are the same.  This is the case anywhere you're creating an object literal.
 
 ```javascript
 const makePerson = (id, name) => ({ id, name });
