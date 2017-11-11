@@ -13,7 +13,7 @@ const data = {
   name: 'Chestnut',
   age: 17,
 };
-let callback = function callback() {
+const callback = function callback() {
   console.log('success!');
 };
 
