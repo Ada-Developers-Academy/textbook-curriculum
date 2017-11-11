@@ -152,7 +152,7 @@ console.log("#{e} hotdog"); // "#{e} hotdog" js doesn't do interpolation with ""
 console.log(`${e} hotdog`);  // `elephant hotdog`
 ```
 
-**Note** We will standardize on using single quotes '' for strings, except in cases of string interpolation (where backticks are acceptable).
+**Note** We will standardize on using single quotes '' for strings, except in cases of string interpolation (where backticks are required).
 
 JavaScript does not have symbols, and uses strings wherever Ruby would use symbols.
 
