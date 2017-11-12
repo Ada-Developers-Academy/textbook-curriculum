@@ -2,7 +2,7 @@
 
 This walkthrough will help you set up Atom's `eslint` linter to follow the AirBNB standard globally and help keep you in line with the coding standard.
 
-__Why do this?__  Without a good style guide that all parties adhere to, inevitably ugly, inconsistent code creeps in.  Agreeing on a coding standard helps keep the codebase readable and avoid bad habits that can lead to subtle bugs.  You can read more on it [here](https://medium.freecodecamp.org/adding-some-air-to-the-airbnb-style-guide-3df40e31c57a).  Using a Linter is one way of enforcing a coding standard, the text editor reminds you when you veer off the road.  
+__Why do this?__  Without a good style guide that all parties adhere to, inevitably ugly, inconsistent code creeps in.  Agreeing on a coding standard helps keep the codebase readable, and encourage best practices.  You can read more on it [here](https://medium.freecodecamp.org/adding-some-air-to-the-airbnb-style-guide-3df40e31c57a).  Using a Linter is one way of enforcing a coding standard, the text editor reminds you when you veer off the road.  
 
 [AirBNB](https://github.com/airbnb/javascript) has a well documented coding standard that is very popular.  There are others including [Google](https://google.github.io/styleguide/jsguide.html).
 
