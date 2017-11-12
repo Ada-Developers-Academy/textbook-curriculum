@@ -136,7 +136,7 @@ let average = sum / data.length;
 console.log(`Average is ${average}`);
 ```
 
-### Function Expressions vs. Function Declarations
+### Functional Expressions vs. Function Declarations
 Something that may come up in your exploration of JavaScript is the difference between a functional expression and a function declaration. A functional expression is what we've seen so far:
 
 ```javascript
