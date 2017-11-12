@@ -6,6 +6,8 @@ __Why do this?__  Without a good style guide that all parties adhere to, inevita
 
 [AirBNB](https://github.com/airbnb/javascript) has a well documented coding standard that is very popular.  There are others including [Google](https://google.github.io/styleguide/jsguide.html).
 
+We are going to use the AirBNB JavaScript style guide at Ada to enforce a good consistent style.  
+
 ## Install Node Modules
 
 First we will install some node modules eslint, our linter will use to enforce our coding standard.  
@@ -16,7 +18,7 @@ $ npm install -g eslint eslint-plugin-jasmine jasmine babel-eslint eslint-config
 
 ## A Global Linter Configuration File
 
-Our linter `eslint` will naturally look for a `.eslintrc` file in our projects to know what coding standards to enforce.  We will create one in our home folders which will be the default, if the file does not exist in our project.
+Our linter `eslint` will naturally look for a `.eslintrc` file in our projects to know what coding standards to enforce.  We will create one in our home folders which will be the default, if the file does not exist in our local project.  You can always override this file by providing one of your own in your project's root directory.
 
 Add this file `~/.eslintrc`
 
@@ -52,6 +54,8 @@ Add this file `~/.eslintrc`
 
 ## Install `eslint`
 
+Back to Atom!  Now we can install Atom's linter and get it set up.  
+
 In atom go to preferences-->install and install `eslint`.
 
 Preferences:
@@ -59,6 +63,7 @@ Preferences:
 Install
 ![install](images/install.png)
 
+### Atom ESLint Settings
 
 Then go to the settings and add these settings.
 
@@ -87,6 +92,9 @@ You should get a warning (Unexpected console statement) about not including `con
 
 Notice the link on the right-side of the message.  That will take you to an eslint page about the rule.
 
+## Summary
+
+In this exercise we set up Atom to use the AirBNB coding standards by default in any JavaScript file we create (ending with .js).  To do so we had to install some node modules (like Ruby Gems) and install the `eslint` package in Atom.  
 
 ## Resources
 - [AirBNB JavaScript Style Guide](https://github.com/airbnb/javascript)
