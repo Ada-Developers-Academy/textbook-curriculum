@@ -92,7 +92,7 @@ You should get a warning (Unexpected console statement) about not including `con
 
 ![no-console](images/no-console.png)
 
-Notice the link on the right-side of the message.  That will take you to an eslint page about the rule.
+Notice the link on the right-side of the message.  That will take you to an eslint page about the rule.  If you get this message, it worked!
 
 ## Summary
 
