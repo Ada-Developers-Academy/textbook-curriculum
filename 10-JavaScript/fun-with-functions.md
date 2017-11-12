@@ -3,7 +3,7 @@
 ## Learning Goals
 - Write and invoke some JavaScript functions
 - Learn how JavaScript functions are different than Ruby methods
-- Distinguish between a function _expression_ and a function _declaration_
+- Distinguish between a functional _expression_ and a function _declaration_
 - Begin exploring what _higher order_ functions are
 
 ## Using Functions in JavaScript
