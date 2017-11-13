@@ -22,11 +22,11 @@ end
 
 3.
 ```ruby
-def larger_num(num1, num2)
-  if num1 >= num2
-    num1
-  elsif num2 > num1
-    num2
+def larger_num(first, second)
+  if first >= second
+    first
+  elsif second > first
+    second
   end
 end
 ```
@@ -43,29 +43,12 @@ def output(items)
 end
 ```
 
-6.  
-```ruby
-class Chair
-  def initialize(name)
-    @name = name
-  end
-
-  def name
-    return @name
-  end  
-
-  def weight_in_lbs
-    return 29
-  end
-end
-```
-
 
 ### Part 2
 1.
 Invoke the zombies function.
 ```javascript
-var zombies = function() {
+const zombies = function() {
   return "We like to eat people";
 };
 ```
@@ -73,12 +56,12 @@ var zombies = function() {
 2.
 Call the `square()` method on the `my_calculator` object.
 ```javascript
-var Calculator = function() {
+const Calculator = function() {
   this.square = function (x) {
     return x * x;
   }
 };
-var my_calculator = new Calculator();
+let my_calculator = new Calculator();
 ```
 
 3.
@@ -92,12 +75,6 @@ console.log(function () {
 4.
 What does the following code print to the console?
 ```javascript
-var blabbermouth = function() { };
+const blabbermouth = function() { };
 console.log(blabbermouth.name);
 ```
-
-5.
-Create a class called `Rectangle` with constructor function to create objects representing rectangles with length and width properties and a method to calculate the area. Use the `Rectangle` class to create an instance and print the area of the rectangle to the console.
-
-6.
-Now create a subclass of `Rectangle` called `Square` which is a rectangle with equal length and width sides and has a constructor which only takes one argument.
