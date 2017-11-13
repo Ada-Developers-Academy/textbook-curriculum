@@ -66,7 +66,7 @@ const animal = {
   species: 'dog',
   sound: 'woof',
   describe: function() {
-    console.log(`A  + ${this.species} goes ${this.sound}`);
+    console.log(`A ${this.species} goes ${this.sound}`);
   },
 };
 
