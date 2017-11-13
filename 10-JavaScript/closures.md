@@ -38,12 +38,12 @@ Let's open it in `irb` and give it a whirl: `irb -r ./closure.rb`. This is great
 Ok. Let's look at how we'd do this in JavaScript. Open `closure.js` in your editor and copypasta this in:
 
 ```javascript
-let sqrer = function(num) {
-  return Math.pow(num, 2);
+const sqrer = function sqrer(num) {
+  return num ** 2;
 };
 
-let cuber = function(num) {
-  return Math.pow(num, 3);
+const cuber = function cuber(num) {
+  return num ** 3;
 };
 ```
 
@@ -55,13 +55,13 @@ So, same questions: what if our requirements changed and we suddenly needed to r
 So the paragraph at the top of the page told us that a closure is created when a function access variables not defined in its local scope, but in its parent scope.  Using this idea, we can create a function that provides us the functionality and flexibility we're looking for. Let's modify `closure.js` to leverage a closure:
 
 ```javascript
-let powerer = function(p) {
-  let power = p;
-  let mather = (num) => {
-    return Math.pow(num, power);
-  }
+const powerer = function powerer(p) {
+  const power = p;
+  const mather = function mather(num)  {
+    return num ** power;
+  };
 
-  return mather
+  return mather;
 };
 ```
 

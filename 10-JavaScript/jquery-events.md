@@ -16,9 +16,9 @@ Here is [an updated version](http://codepen.io/kariabancroft/pen/gLaBve) of the 
 There are two new pieces, both of which look something like this:
 
 ```javascript
-$('.dynamic-list').click(function() {
+$('.dynamic-list').click(() => {
   $(this).addClass('list-thinking');
-})
+});
 ```
 
 We use jQuery to select an element with the class `dynamic-list`, and then call the `click()` function on it. `click()` has one argument: a function to be called when the user clicks on the element. The function that the event is associated with is referred to as a _callback_.
@@ -59,8 +59,8 @@ The way we invoke this method is similar to the click event, but we act on a key
 Let's see this [updated example](http://codepen.io/kariabancroft/pen/woKYRR):
 
 ```javascript
-$("body").keydown(function(event) {
-  if (event.key == 'a') {
+$('body').keydown((event) => {
+  if (event.key === 'a') {
     alert('You got an A!');
   }
 });
@@ -91,9 +91,9 @@ $(this)
 Armed with `this` knowledge, let's get back to our task: telling the user what element they clicked on. Change the JavaScript in the CodePen to the following:
 
 ```javascript
-$(document).ready(function() {
-  $('li').click(function(event) {
-    alert('Got a click on an <li> containing "' + $(this).html() + '"');
+$(document).ready(() => {
+  $('li').click((event) => {
+    alert(`Got a click on an <li> containing "${$(this).html()}"`);
   });
 });
 ```
@@ -112,9 +112,9 @@ Turns out you can only bind an event to an element that currently exists on the 
 Enter _event delegation_. The big idea here is that when an event happens doesn't just happen to one element, but also to all containing elements. So in our case, the click happens on the `<li>`, then gets propagated to the `<ul>`, and then to `<ul>`'s parent, eventually winding up in `<body>`. Let's see this in action, by changing the selector on our click handler from `li` to `#mylist`:
 
 ```javascript
-$(document).ready(function() {
-  $('#mylist').click(function(event) {
-    alert('Got a click on an <li> containing "' + $(this).html() + '"');
+$(document).ready(() => {
+  $('#mylist').click((event) => {
+    alert(`Got a click on an <li> containing "${$(this).html()}"`);
   });
 
   $('#mylist').append($('<li>Herbie Hancock</li>'));
@@ -132,9 +132,9 @@ In order to get the behavior we want, we'll have to make two changes:
 The final, fully functional version of our JavaScript should look like this:
 
 ```javascript
-$(document).ready(function() {
-  $('#mylist').on('click', 'li', function(event) {
-    alert('Got a click on an <li> containing "' + $(this).html() + '"');
+$(document).ready(() => {
+  $('#mylist').on('click', 'li', (event) => {
+    alert(`Got a click on an <li> containing "${$(this).html()}"`);
   });
 
   $('#mylist').append($('<li>Herbie Hancock</li>'));

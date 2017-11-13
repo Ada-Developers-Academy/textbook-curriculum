@@ -134,7 +134,7 @@ two == four / two; // true
 0.1 + 0.2 == 0.3; // false!
 0.1 + 0.2;
 
-"asdf" - 5; // NaN
+'asdf' - 5; // NaN
 ```
 
 #### `Strings` are declared with `""` or `''` or use backticks `    ``    `.
@@ -151,6 +151,8 @@ let e = "elephant";
 console.log("#{e} hotdog"); // "#{e} hotdog" js doesn't do interpolation with ""
 console.log(`${e} hotdog`);  // `elephant hotdog`
 ```
+
+**Note** We will standardize on using single quotes '' for strings, except in cases of string interpolation (where backticks are required).
 
 JavaScript does not have symbols, and uses strings wherever Ruby would use symbols.
 
@@ -173,7 +175,7 @@ arr;         // [1, 2, 3]; pop() mutates the array
 ```javascript
 let obj = {     // We can span lines; whitespace is mostly ignored.
   num: 5,
-  str: "This is a string",
+  str: 'This is a string',
   subObject: {
     otherNum: 4
   }
@@ -190,14 +192,14 @@ obj.foo;    // undefined
 Conditional expressions are surrounded by parenthesis `()` and each block is surrounded by brackets `{}`.
 
 ```javascript
-let name = "kittens";
+let name = 'kittens';
 
-if (name == "puppies") {
-  name += "!";
-} else if (name == "kittens") {
-  name += "!!";
+if (name === 'puppies') {
+  name += '!';
+} else if (name === 'kittens') {
+  name += '!!';
 } else {
-  name = "!" + name;
+  name = `!${name}`;
 }
 
 console.log(name);
@@ -206,7 +208,7 @@ console.log(name);
 JavaScript also has the ternary operator, which we all adore, amirite?
 
 ```javascript
-let adult = (age > 18) ? "yes" : "no";
+let adult = (age > 18) ? 'yes' : 'no';
 ```
 
 ### Iterators
@@ -230,7 +232,7 @@ Here's an example:
 
 ```javascript
 for (let i = 0; i < 5; i += 1) {
-  console.log(`Iteration ${ i }`);
+  console.log(`Iteration ${i}`);
 }
 ```
 
@@ -288,7 +290,7 @@ JavaScript also uses the `while` loop in a similar way to the way we use it in R
 ```javascript
 let i = 0;
 while (i < 10) {
-    console.log("Iteration " + i);
+    console.log(`Iteration ${i}`);
     i++;
 }
 ```

@@ -102,7 +102,7 @@ When it comes to AJAX, jQuery _really_ likes to make our lives easier.
 let url = 'https://petdibs.herokuapp.com/pets';
 
 // What do we want to happen when we get our response?
-let successCallback =  response => {
+let successCallback =  (response) => {
   console.log('success!');
 };
 
@@ -113,9 +113,35 @@ $.get(url, successCallback);
 Oftentimes, you'll see the above collapsed into one function call:
 ```javascript
 $.get('https://petdibs.herokuapp.com/pets',
-  response => {
+  (response) => {
     console.log('success!');
   });
+```
+
+Notice our use of arrow functions here.  Because of their compact syntax and the fact that an arrow function gets `this` from it's outside container, they often make great callback functions.  Below includes a more complicated example adding pets to a person.  Because it uses arrow functions it can continue to use `this` and refer to the current instance of `Person`'s name and pets list.
+
+```javascript
+class Person {
+  constructor(name) {
+    this.name = name;
+    this.pets = [];
+
+    $.get('https://petdibs.herokuapp.com/pets',
+      (response) => {
+        console.log('success!');
+        // add all this person's pets to the array
+        response.forEach((pet) => {
+          console.log(pet);
+          if(pet.owner == this.name) {
+            this.pets.push(pet);
+            console.log(pet.name);
+          }
+        });
+    });
+  }
+}
+
+let kar = new Person("Kari");  // Create a person and get Kari's list of pets
 ```
 
 ### Other Tools
@@ -172,6 +198,7 @@ With the person sitting near you:
 ## Best Practices
 - Keep your JavaScript organized and easy to read. If one block is doing too much, split into functions.
 - Code should be within `$(document).ready(function() { };`
+- Use Arrow functions where their brevity and lack of `this` context makes them useful.
 
 
 ## Vocab

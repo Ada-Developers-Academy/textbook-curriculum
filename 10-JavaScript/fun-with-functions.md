@@ -3,7 +3,7 @@
 ## Learning Goals
 - Write and invoke some JavaScript functions
 - Learn how JavaScript functions are different than Ruby methods
-- Distinguish between a function _expression_ and a function _declaration_
+- Distinguish between a functional _expression_ and a function _declaration_
 - Begin exploring what _higher order_ functions are
 
 ## Using Functions in JavaScript
@@ -15,12 +15,12 @@ All functions in JavaScript are variables. Just like any other variable, you dec
 How do you set the value to be a function? With the `function` keyword of course!
 
 ```javascript
-const bark = function() {
-  console.log("Woof!");
+const bark = function bark() {
+  console.log('Woof!');
 };
 ```
 
-**Note** we declared the function `bark` here with `const`.  We could have used `let` or `var`, but because we don't want `bark` to be reassigned, it makes sense to make it a constant.
+**Note** we declared the function `bark` here with `const`.  We could have used `let` or `var`, but because we don't want `bark` to be reassigned, it makes sense to make it a constant.  We also added the function name to the right of the `function` keyword.  This is optional, but it can allow us to provide a [longer-more descriptive name for the stack trace](https://github.com/airbnb/javascript/issues/794).
 
 #### Calling a Function
 Unlike in Ruby, JavaScript requires you to type in parentheses if you want to invoke a function. You can access functions like you would any other variable:
@@ -33,13 +33,29 @@ bark(); // "Woof!"
 Parameters are very similar to how they work in Ruby:
 
 ```javascript
-const sayItTwice = function(text) {
+const sayItTwice = function sayItTwice(text) {
   console.log(text);
   console.log(text);
 };
 
-sayItTwice("JS is OK!"); // "JS is OK!"
+sayItTwice('JS is OK!'); // "JS is OK!"
                          // "JS is OK!"
+```
+
+#### Default Function arguments
+
+Sometimes, you may want to provide a default value in case a user does not specify an argument.  Just as with Ruby, JavaScript functions can take default Arguments.  You specify the default value for a parameter by setting the variable equal to a value in the function header's parentheses.
+
+```javascript
+const sayItTwice = function sayItTwice(text = 'JS is Awesome') {
+  console.log(text);
+  console.log(text);
+};
+
+sayItTwice();                   // "JS is Awesome"
+                                // "JS is Awesome"
+sayItTwice('JS is wonderful');  // "JS is wonderful"
+                                // "JS is wonderful"
 ```
 
 #### Attaching Functions to Objects
@@ -47,11 +63,11 @@ Like any other variable, you can include a function as member of an object. Othe
 
 ```javascript
 const animal = {
-  species: "dog",
-  sound: "woof",
+  species: 'dog',
+  sound: 'woof',
   describe: function() {
-    console.log("A " + this.species + " goes " + this.sound);
-  }
+    console.log(`A  + ${this.species} goes ${this.sound}`);
+  },
 };
 
 animal.describe(); // "A dog goes woof"
@@ -65,14 +81,14 @@ One of the big differences between Ruby and JavaScript is that in JavaScript, fu
 ```javascript
 // Invoke the callback function on every number from 0 through 9,
 // and print the results to the command line
-const doMath = function(callback) {
+const doMath = function doMath(callback) {
   for (let i = 0; i < 10; i += 1) {
     let result = callback(i);
-    console.log(i + ": " + result);
+    console.log(`${i}: ${result}`);
   }
 };
 
-const double = function(number) {
+const double = function double(number) {
   return number + number;
 };
 
@@ -117,7 +133,7 @@ data.forEach(function (num) {
 });
 
 let average = sum / data.length;
-console.log("Average is " + average);
+console.log(`Average is ${average}`);
 ```
 
 ### Functional Expressions vs. Function Declarations
@@ -125,17 +141,17 @@ Something that may come up in your exploration of JavaScript is the difference b
 
 ```javascript
 // functional expression - this is the right way
-const foo = function(bar) {};
+const foo = function foo(bar) {};
 ```
 
-A functional declaration looks like this. Note the lack of `let` and a semicolon, and the difference word order.
+A functional declaration looks like this. Note the lack of `const` and a semicolon, and the different word order.
 
 ```javascript
 // functional declaration - this is the wrong way
 function foo(bar) {}
 ```
 
-In many cases the differences are nominal, but every once in a while they'll bite you. The vast majority of the time, a functional expression is what you want. In other words, **always define your functions with the `let` keyword**. The declaration style (no `let`) should be avoided unless you have a good reason to use it.
+In many cases the differences are nominal, but every once in a while they'll bite you. The vast majority of the time, a functional expression is what you want. In other words, **always define your functions with the `const` keyword**. The declaration style (no `const`) should be avoided unless you have a good reason to use it.
 
 If you're interested in more details, [this StackOverflow answer](http://stackoverflow.com/questions/3887408/javascript-function-declaration-and-evaluation-order) is one of the best I've seen in describing the difference and when it matters. We don't expect you to be able to recite the nitty gritty details, but we do expect you to be able to identify the two types of function and tell us which is correct.
 
@@ -153,7 +169,7 @@ If you're interested in more details, [this StackOverflow answer](http://stackov
 ```javascript
 let arrayOfNums = [2, 7, 7, 3, 9, 0, 1, 6, 8, 3, 8, 4, 7, 9];
 
-const getBiggest = function(array) {
+const getBiggest = function getBiggest(array) {
   // your code goes here!!
 };
 
@@ -162,7 +178,7 @@ const getBiggest = function(array) {
 // get a return value that is the biggest number in the array
 //
 let biggest = getBiggest(arrayOfNums);
-console.log("The biggest is: ", biggest);
+console.log(`The biggest is: ${biggest}`);
 ```
 
 ## Vocab List
