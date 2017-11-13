@@ -273,7 +273,7 @@ for (let human in pets) {
 This `for` loop gives us access to each element's value within an array. This is the closest option to our `each` loop in Ruby, for this data type.
 
 ```javascript
-let animals = ["horse", "cat", "dog"];
+let animals = ['horse', 'cat', 'dog'];
 
 for (let animal of animals) {
   console.log(`A ${ animal } is a cool animal!`);
