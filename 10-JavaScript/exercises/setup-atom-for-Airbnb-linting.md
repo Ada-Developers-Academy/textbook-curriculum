@@ -91,7 +91,7 @@ Settings:
 Now open a new .js file and type:
 
 ```javascript
-console.log("Am I linting yet?");
+console.log('Am I linting yet?');
 ```
 
 You should get a warning (Unexpected console statement) about not including `console.log` in production code (for the most part it's just used for debugging).
