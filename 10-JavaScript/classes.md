@@ -44,23 +44,11 @@ When you create a new book instance the `initialize` method runs and sets the in
 Below is this Book class written in JavaScript.  It has a title, and author attributes and a `toString` method which outputs the object as a String.  Notice that everything in a class falls between the curly braces without any commas to separate each item.  
 
 ```javascript
-/**
-  *  Book class
-  */
 class Book {
-  /**
-    * Book Constructor
-    * @param {string} title book title
-    * @param {string} author book author
-    */
   constructor(title, author) {
     this.title = title;
     this.author = author;
   }
-  /**
-    * toString method
-    * @returns {string} the book in title by author format
-    */
   toString() {
     return `${this.title} by ${this.author}`;
   }
