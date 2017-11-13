@@ -148,11 +148,12 @@ str.length;      // 16 - access the length property
 str.substr(2,5); // "is is" - call the substr function
 
 let e = "elephant";
-console.log("#{e} hotdog"); // "#{e} hotdog" js doesn't do interpolation with ""
+console.log("${e} hotdog"); // "${e} hotdog" js doesn't do interpolation with ""
 console.log(`${e} hotdog`);  // `elephant hotdog`
 ```
 
-**Note** We will standardize on using single quotes '' for strings, except in cases of string interpolation (where backticks are required).
+**Note** JavaScript uses `${}` for string interpolation instead of Ruby's `#{}`
+**Note Note** We will standardize on using single quotes `' '` for strings, except in cases of string interpolation (where backticks are required).
 
 JavaScript does not have symbols, and uses strings wherever Ruby would use symbols.
 
