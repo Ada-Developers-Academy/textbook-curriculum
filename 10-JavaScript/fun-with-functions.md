@@ -20,7 +20,7 @@ const bark = function bark() {
 };
 ```
 
-**Note** we declared the function `bark` here with `const`.  We could have used `let` or `var`, but because we don't want `bark` to be reassigned, it makes sense to make it a constant.  We also added the function name to the right of the `function` keyword.  This is optional, but helps identify things in the stack trace.
+**Note** we declared the function `bark` here with `const`.  We could have used `let` or `var`, but because we don't want `bark` to be reassigned, it makes sense to make it a constant.  We also added the function name to the right of the `function` keyword.  This is optional, but it can allow us to provide a [longer-more descriptive name for the stack trace](https://github.com/airbnb/javascript/issues/794).
 
 #### Calling a Function
 Unlike in Ruby, JavaScript requires you to type in parentheses if you want to invoke a function. You can access functions like you would any other variable:
