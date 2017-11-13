@@ -26,7 +26,7 @@ Add this file `~/.eslintrc`
 
 ```json
 {
-  "extends": ["airbnb",  "eslint:recommended", "plugin:jasmine/recommended"],
+  "extends": "airbnb",
   "parser": "babel-eslint",
   "env": {
     "browser": true,
