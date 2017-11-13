@@ -80,6 +80,8 @@ Settings:
 
 ![use global eslint install](images/use-global.png)
 
+3. Also make sure that `Disable when no ESLint config is found (in package.json or .eslintrc)` is **unchecked**.
+
 ## Trust But Verify!
 
 Now open a new .js file and type:
