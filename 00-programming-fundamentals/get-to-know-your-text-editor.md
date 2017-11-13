@@ -19,7 +19,6 @@ We can install add-ons in Atom through it's internal package manager.
     - Autoclose HTML
     - Color Picker
     - Linter
-    - Linter jshint
     - Linter ruby
     - Linter CSSlint
     - Atom Zurb Foundation
