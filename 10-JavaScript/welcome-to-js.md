@@ -254,9 +254,10 @@ The `for...in` loop iterates over the keys of a collection. This is most useful 
 
 ```javascript
 let pets = {
-  kari: "Kylo",
-  dan: "Gecky",
-  jamie: "Octo and Amper"
+  kari: 'Kylo',
+  dan: 'Gecky',
+  jamie: 'Octo and Amper',
+  dee: 'Samson',
 };
 
 for (let human in pets) {
@@ -266,6 +267,7 @@ for (let human in pets) {
 // kari's pets: Kylo
 // dan's pets: Gecky
 // jamie's pets: Octo and Amper
+// dee's pets: Samson
 ```
 
 **Question:** What do you get when you use a `for...in` loop on an array? Why might this be useful?
