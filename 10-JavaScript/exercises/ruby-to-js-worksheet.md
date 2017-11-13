@@ -3,8 +3,6 @@ Read the code in each section, then write the equivalent JavaScript code for the
 
 Each problem stands alone. Variables from previous problems do not exist.
 
-Some of the later problems use Ruby `each` loops. For now, solve them using `for` loops - it's good practice! Once we've talked about functions, you can come back and do it with a `forEach`.
-
 ## Problem Set
 1. &nbsp;
     ```ruby
@@ -45,13 +43,6 @@ Some of the later problems use Ruby `each` loops. For now, solve them using `for
 
 1. &nbsp;
     ```ruby
-    (1..3).each do |i|
-      puts i * i
-    end
-    ```
-
-1. &nbsp;
-    ```ruby
     total = 0
 
     (1..3).each do |i|
@@ -59,16 +50,6 @@ Some of the later problems use Ruby `each` loops. For now, solve them using `for
     end
 
     puts total
-    ```
-
-1. &nbsp;
-    ```ruby
-    i = 0
-
-    while i < 3
-      puts "hi"
-      i = i + 1
-    end
     ```
 
 1. &nbsp;
@@ -87,7 +68,7 @@ Some of the later problems use Ruby `each` loops. For now, solve them using `for
     ```ruby
     fruits = ["banana", "apple", "kiwi"]
     fruits.each do |fruit|
-      puts "I love " + fruit + "!"
+      puts "I love #{fruit}!"
     end
     ```
 
