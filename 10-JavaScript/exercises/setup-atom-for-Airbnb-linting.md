@@ -62,7 +62,9 @@ In atom go to preferences-->install and install `eslint`.
 
 Preferences:
 ![preferences](images/preferences.png)
+
 Install
+
 ![install](images/install.png)
 
 ### Atom ESLint Settings
@@ -70,6 +72,7 @@ Install
 Then go to the settings and add these settings.
 
 Settings:
+
 ![settings](images/search-packages.png)
 
 1. .eslintrc path to: `~/.eslintrc`
