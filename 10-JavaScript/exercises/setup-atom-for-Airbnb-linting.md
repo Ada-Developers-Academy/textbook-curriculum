@@ -61,6 +61,7 @@ Back to Atom!  Now we can install Atom's linter and get it set up.
 In atom go to preferences-->install and install `eslint`.
 
 Preferences:
+
 ![preferences](images/preferences.png)
 
 Install
