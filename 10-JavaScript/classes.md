@@ -8,7 +8,8 @@ JavaScript uses prototype-based objects.  This works, but is very awkward for OO
 By the end of this you should be able to:
 - Create your own classes with instance variables and methods.
 - Use `static` to create class methods.
-- Use `extends` to create subclasses and use super to access a parent class' attributes & methods.
+- Use `extends` to create subclasses.
+- Use `super` to access a parent class' attributes & methods.
 
 ##  Introducing Classes
 
