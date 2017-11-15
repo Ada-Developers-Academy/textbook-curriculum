@@ -83,7 +83,7 @@ So this is a pretty compact syntax, but... we're not done.  Because this functio
 
 ```javascript
 const squarer = number => {return number * number;};
-console.log(squared(3)); // 9
+console.log(squarer(3)); // 9
 ```
 
 **Note**: This works **only** for functions with a single argument.  Zero parameters or more than one will require you to include the parentheses.  
@@ -144,7 +144,7 @@ let doubled = numbers.map(function(num) {
 
 // as an arrow function
 
-doubled = numbers.map(num => num + num);
+let doubled = numbers.map(num => num + num);
 ```
 
 In the above example we map an array to one where each element is doubled.  Looking at the two examples the arrow function, once you adjust to the new syntax, is more compact and visually conveys the concept that we're mapping each number (`num`) to twice it's value.
