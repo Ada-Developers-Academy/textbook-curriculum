@@ -10,7 +10,7 @@
 The syntax for functions is a lot different in JavaScript than in Ruby.
 
 ### Defining Functions
-All functions in JavaScript are variables. Just like any other variable, you declare functions with the `let` keyword and a name, but you set the value to be a function instead of a number or a string.
+All functions in JavaScript are variables. Just like any other variable, you declare functions with the `let` or `const` keywords and a name, but you set the value to be a function instead of a number or a string.
 
 How do you set the value to be a function? With the `function` keyword of course!
 
@@ -66,7 +66,7 @@ const animal = {
   species: 'dog',
   sound: 'woof',
   describe: function() {
-    console.log(`A  + ${this.species} goes ${this.sound}`);
+    console.log(`A ${this.species} goes ${this.sound}`);
   },
 };
 

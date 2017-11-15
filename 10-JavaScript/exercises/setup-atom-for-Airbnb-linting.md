@@ -61,8 +61,11 @@ Back to Atom!  Now we can install Atom's linter and get it set up.
 In atom go to preferences-->install and install `eslint`.
 
 Preferences:
+
 ![preferences](images/preferences.png)
+
 Install
+
 ![install](images/install.png)
 
 ### Atom ESLint Settings
@@ -70,6 +73,7 @@ Install
 Then go to the settings and add these settings.
 
 Settings:
+
 ![settings](images/search-packages.png)
 
 1. .eslintrc path to: `~/.eslintrc`
@@ -80,12 +84,14 @@ Settings:
 
 ![use global eslint install](images/use-global.png)
 
+3. Also make sure that `Disable when no ESLint config is found (in package.json or .eslintrc)` is **unchecked**.
+
 ## Trust But Verify!
 
 Now open a new .js file and type:
 
 ```javascript
-console.log("Am I linting yet?");
+console.log('Am I linting yet?');
 ```
 
 You should get a warning (Unexpected console statement) about not including `console.log` in production code (for the most part it's just used for debugging).
