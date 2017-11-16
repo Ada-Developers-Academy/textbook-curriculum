@@ -25,7 +25,7 @@ There are three steps to Underscore templating:
 The data we'll be working with is a TODO list. Here is some sample data:
 
 ```javascript
-let todoData = [
+const todoData = [
   {
     title: 'Mow the lawn',
     description: 'Must be finished before BBQ on Sat afternoon',
@@ -42,10 +42,9 @@ Our goal is to have an easy way to generate the HTML for one of these tasks, som
 
 ```html
 <section>
-  <p>
-    <strong>Title:</strong>
+  <h2>
     Mow the lawn
-  </p>
+  </h2>
   <p>
     <strong>Description:</strong>
     Must be finished before BBQ on Sat afternoon
@@ -65,7 +64,7 @@ Template definitions live in your HTML. They're wrapped in a `<script>` tag that
 </script>
 ```
 
-The `<script>` tag has two attributes. First is `id` - this is what we'll use to find the template later. Second is `type`, which is set to `text/template`. Turns out `text/template` is just a made up type. The browser doesn't know what to do with it, so it just ignores it. This suits us perfectly, since we don't want the template to render until we're ready.
+The `<script>` tag has two attributes. First is `id` - this is what we'll use to find the template later. Second is `type`, which is set to `text/template`. Turns out `text/template` is a made up type. The browser doesn't know what to do with it, so it ignores it. This suits us perfectly, since we don't want the template to render until we're ready.
 
 Right now our template is empty, so our next step is to add some contents. Underscore's syntax is inspired by ERB, so this ought to look familiar.
 
@@ -73,16 +72,16 @@ Right now our template is empty, so our next step is to add some contents. Under
 <script id="todo-item-template" type="text/template">
   <section>
     <h2>
-      <%- data.title %>
+      <%- title %>
     </h2>
     <p>
       <strong>Description:</strong>
-      <%- data.description %>
+      <%- description %>
     </p>
     <p>
       <strong>Assigned To:</strong>
-      <% for (let i = 0; i < data.assignedTo.length; i++) { %>
-        <%- data.assignedTo[i] %>
+      <% for (let i = 0; i < assignedTo.length; i++) { %>
+        <%- assignedTo[i] %>
       <% } %>
     </p>
   </section>
@@ -114,7 +113,7 @@ The next step is to _compile_ the template. This is accomplished using Underscor
 
 ```javascript
 $(document).ready(function() {
-  let todoTemplate = _.template($('#todo-item-template').html());
+  const todoTemplate = _.template($('#todo-item-template').html());
 });
 ```
 
@@ -125,10 +124,12 @@ First, notice that we've put this bit of code in `$(document).ready`. Even thoug
 Next, lets look at the big structure of the line:
 
 ```javascript
-let todoTemplate = _.template(/* some stuff */);
+const todoTemplate = _.template(/* some stuff */);
 ```
 
 Here we're calling `_.template`, Underscore's template compiler, and saving the result in a variable named `todoTemplate`.
+
+**Question:** Why do we make the compiled template `const`?
 
 Last but not least, the arguments to `_.template`:
 
@@ -136,23 +137,21 @@ Last but not least, the arguments to `_.template`:
 $('#todo-item-template').html()
 ```
 
-We've seen this before - it's not Underscore at all, just good old jQuery. We select the element with ID `todo-item-template`, and get its contents.
+We've seen this before - it's not Underscore at all, but good old jQuery. We select the element with ID `todo-item-template`, and get its contents.
 
 ### Using the Template
-Turns out the compiled template is just a function. Underscore uses some fancy closure work to make sure it has access to everything it needs, but we don't need to worry about that.
+Turns out the compiled template is a function. Underscore uses some fancy closure work to make sure it has access to everything it needs, but we don't need to worry about that. The basic pattern is: call the generated function, get back some HTML.
 
 The template function takes one argument, a hash of variables to make available in the template. Invoking the template looks like this:
 
 ```javascript
 for (let i = 0; i < todoData.length; i++) {
-  let generatedHtml = todoTemplate({
-    data: todoData[i]
-  });
+  let generatedHtml = todoTemplate(todoData[i]);
   $('#todo-list').append($(generatedHtml));
 }
 ```
 
-Note that Underscore doesn't assume we have access to jQuery. That means the return value from the template is just a vanilla JavaScript DOM object. If you want to do fancy jQuery things with it, you'll have to pass it through `$`, like we do here.
+Note that Underscore doesn't assume we have access to jQuery. That means the return value from the template is a vanilla JavaScript DOM object. If you want to do fancy jQuery things with it, you'll have to pass it through `$`, like we do here.
 
 ### Putting It All Together
 [Here is a CodePen](http://codepen.io/droberts-ada/pen/wodpWe?editors=1011) that does all the things we just talked about!
