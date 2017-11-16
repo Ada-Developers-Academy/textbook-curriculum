@@ -11,13 +11,13 @@
 
 ## jQuery Event Handling
 ### First, an Example
-Here is [an updated version](http://codepen.io/kariabancroft/pen/gLaBve) of the CodePen example we used with intro to jQuery.
+Here is [an updated version](https://codepen.io/adadev/pen/POOZPO?editors=0110) of the CodePen example we used with intro to jQuery.
 
 There are two new pieces, both of which look something like this:
 
 ```javascript
 $('.dynamic-list').click(() => {
-  $(this).addClass('list-thinking');
+  $(this).addClass('bold');
 });
 ```
 
@@ -56,7 +56,7 @@ Note that each of these have a slightly different and nuanced behavior. Also, th
 
 The way we invoke this method is similar to the click event, but we act on a keyboard action rather than a mouse action. The other relevant difference is that we care which key has been pressed, as opposed to the click event which is more relevant to the item we clicked on.
 
-Let's see this [updated example](http://codepen.io/kariabancroft/pen/woKYRR):
+Let's see this [updated example](https://codepen.io/adadev/pen/dZZGOO?editors=0010#0):
 
 ```javascript
 $('body').keydown((event) => {
@@ -69,7 +69,7 @@ $('body').keydown((event) => {
 Notice the `event` argument to our callback. This will get filled in with a bunch of info about what happened to trigger the event - for example, which key was pressed, exactly when the event occurred, and where the mouse was on the screen when it happened. The `event` argument has actually been available for all our events so far, we've just been ignoring it.
 
 #### Exercise: Color Switching
-[Using this CodePen](http://codepen.io/droberts-ada/pen/pNRbJd), build a script that changes the background color of the color-box div each time the spacebar or enter key is pressed.
+[Using this CodePen](https://codepen.io/adadev/pen/xPPZdZ), build a script that changes the background color of the color-box div each time the spacebar or enter key is pressed.
 
 Hints:
 - Calling `nextColor()` will get the name of the next color to switch to.
@@ -78,7 +78,7 @@ Hints:
 - `console.log()` is your friend.
 
 ## Extending to Multiple Elements
-In the above examples, we only used ID selectors for jQuery, which means our event was only attached to one object. However, a CSS selector can select multiple elements. [Take this CodePen](http://codepen.io/droberts-ada/pen/jVygpR?editors=1010) for example. When you click on any of the list items, the click handler activates.
+In the above examples, we only used ID selectors for jQuery, which means our event was only attached to one object. However, a CSS selector can select multiple elements. [Take this CodePen](https://codepen.io/adadev/pen/yPPejm?editors=1010#0) for example. When you click on any of the list items, the click handler activates.
 
 Instead of alerting with a generic message, let's tell the user which list item they clicked on. In order to do so, we'll need to figure out which element was clicked. Fortunately, jQuery lets us know which element we're in via `this`.
 
@@ -113,11 +113,11 @@ Enter _event delegation_. The big idea here is that when an event happens doesn'
 
 ```javascript
 $(document).ready(() => {
-  $('#mylist').click((event) => {
+  $('#my-list').click((event) => {
     alert(`Got a click on an <li> containing "${$(this).html()}"`);
   });
 
-  $('#mylist').append($('<li>Herbie Hancock</li>'));
+  $('#my-list').append($('<li>Herbie Hancock</li>'));
 });
 ```
 
@@ -133,11 +133,11 @@ The final, fully functional version of our JavaScript should look like this:
 
 ```javascript
 $(document).ready(() => {
-  $('#mylist').on('click', 'li', (event) => {
+  $('#my-list').on('click', 'li', (event) => {
     alert(`Got a click on an <li> containing "${$(this).html()}"`);
   });
 
-  $('#mylist').append($('<li>Herbie Hancock</li>'));
+  $('#my-list').append($('<li>Herbie Hancock</li>'));
 });
 ```
 
