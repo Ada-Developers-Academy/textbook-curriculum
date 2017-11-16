@@ -25,7 +25,7 @@ $('#someId');  // returns the element with id == 'someId'
 
 ### DOM Manipulation
 
-Here's [an example](http://codepen.io/kariabancroft/pen/JbYmMR) on CodePen.
+Here's [an example](https://codepen.io/adadev/pen/Xzzmey) on CodePen.
 
 Let's start by looking at the HTML and CSS.
 
@@ -79,7 +79,7 @@ The following functions are of practical value. Look 'em up!
 * .submit()
 
 ## Getting jQuery Into Your Web Page
-In the CodePen example above, we used the `$` and things just worked. This is because jQuery is so ubiquitous, CodePen just includes it for us without us even asking.
+In the CodePen example above, we used the `$` and things just worked. This is because CodePen can include it for us.
 
 Getting jQuery to work in a web page you've published is a little more work, but not that much.
 
