@@ -20,6 +20,7 @@
 + [What every Computer Science major should know](http://matt.might.net/articles/what-cs-majors-should-know/)
 
 ## Books
++ [The Algorithm Design Manual by Steven Skiena - link to pdf](https://github.com/haseebr/competitive-programming/blob/master/Materials/The%20Algorithm%20Design%20Manual%20by%20Steven%20S.%20Skiena.pdf)
 + [Grokking Algorithms: An illustrated guide for programmers and other curious people by Aditya Bhargava](https://www.amazon.com/Grokking-Algorithms-illustrated-programmers-curious/dp/1617292230)
 + [Fundamentals of Computer Algorithms by Ellis Horowitz, Sartaj Sahani](https://www.amazon.com/Fundamentals-Computer-Algorithms-software-engineering/dp/0914894226)
 + [Fundamentals of Algorithmics by Gilles Brassard, Paul Bratley](https://www.amazon.com/Fundamentals-Algorithmics-Gilles-Brassard/dp/0133350681)
