@@ -18,8 +18,6 @@ In this lecture we will begin to scratch the surface of the power of collections
 
 ![Backbone Collections](images/Collection.png)
 
-##
-
 ## Creating a Collection
 ### Defining the Collection
 The first thing we need to do is create the collection itself.  Our collection will get its own file: `app/collections/task_list.js`. As with models, we will call `extend()` on `Backbone.Collection`.
