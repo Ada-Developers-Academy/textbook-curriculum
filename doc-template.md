@@ -8,8 +8,8 @@
 | :------------- | :------------- |
 | Item One       | Item Two       |
 
-## Key Takeaways
-- sample
+## Key Takeaway
+Description of one or two sentences with key takeaway.
 
 ## Additional Resources
 - [sample]()
