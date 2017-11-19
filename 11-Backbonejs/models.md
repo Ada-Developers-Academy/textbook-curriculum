@@ -12,7 +12,7 @@ By the end of this lesson, you should be able to...
 
 ## What are Models in Backbone?
 
-Backbone Models are much like Rails Models.  They keep track of your data and help in saving and loading information to and from your back end.
+Backbone Models are much like Rails Models. They keep track of your data and help in saving and loading information to and from your back end.
 
 Things you can do with a model in Backbone include:
 - Setting default values for new data
