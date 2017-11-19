@@ -156,7 +156,7 @@ const render = function render(bookList) {
     - _Hint:_ what happens if you call `render()` twice?
 - [What is the vocab word for the property this gives our `render()` function](https://en.wikipedia.org/wiki/Idempotence)?
 
-Idempotency doesn't matter yet, because `render()` is only ever called once in our application. As we add more complicated functionality being able to call `render()` multiple times will become quite important, as we'll see in the next lecture.
+This property may not seem to matter yet, because `render()` is only ever called once in our application. As we add more complicated functionality being able to call `render()` multiple times will become quite important, as we'll see in the next lecture.
 
 ## Summary
 
