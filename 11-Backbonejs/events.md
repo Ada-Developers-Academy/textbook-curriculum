@@ -56,7 +56,66 @@ Before we go any further, let's review our vocabulary around event handling. Thi
 
 ## Adding Models to a Collection
 
+As a demonstration of this technique, we will add functionality for adding a book to our library. This is what the high-level architecture will look like:
+
+TODO DPR: expanded diagram similar to above but w/ event names
+
+1. A user fills out and submits the "Add a book" form, triggering a `submit` DOM event
+1. Our `submit` event handler will read the form data and use it to add a book to the collection
+1. When the book is added, the collection will emit a `update` event
+1. Our `update` event handler will re-build the table of books in the DOM
+
+We will build these components in reverse order, starting with the handler for the `update` event, and then adding code to read the form and add a model to the collection.
+
+### Building the `update` Event Handler
+
+Let's look a little closer at that `update` event we mentioned earlier. This is a real event that Backbone collections emit automatically whenever a model is added to or removed from the collection. The `update` event was emitted yesterday when we called `bookList.add()`, but since we weren't yet listening for it nothing happened as a result.
+
+How do we know that the `update` event will be triggered on `.add()`? By reading [Backbone's documentation for the `.add()` function](http://backbonejs.org/#Collection-add). Backbone also has a list of [all the events that are emitted automatically](http://backbonejs.org/#Events-catalog), which includes the arguments passed to the event handler. Very useful information!
+
+Reading this list, we see that when Backbone invokes a callback for the `update` event it passes the collection that was updated as an argument. That means that our event handler needs to have the following structure:
+
+```javascript
+const updateHandler = (bookList) => {
+  // Handle the update
+};
+```
+
+What should our handler do? Usually an event handler is responsible for updating the DOM to reflect the current state of the model or collection. In this case, that means we need to rebuild the table of books.
+
+Fortunately we've already got a function that does exactly that: `render()`. Render also conveniently takes a `BookList` as an argument. Of course the previous lesson was designed with this in mind, but it's also good that Backbone allows our code to follow a somewhat intuitive pattern.
+
+The following code will register `render()` as an event handler for the `update` event.
+
+```javascript
+bookList.on('update', render);
+```
+
+**Question:** Where should this registration code be placed? Does it need to be inside `$(document).ready`? Why or why not?
+
+**Question:** How would we test this code manually, to ensure we've connected all the pieces correctly?
+
+### Triggering the `update` Event
+
+Now that we've got our event handler in place, we need to build some code that triggers an `update` event by adding a model to our collection. This code itself will be an event handler, waiting for the `submit` even on the form.
+
+Working with the person next to you, build this logic. Things to think about include:
+
+- Where will you define this function?
+- How will you read the values from the form?
+- How will you turn these values into a new model in the collection?
+- Where will you listen for the `submit` event?
+- Do you need to prevent the `submit` event's default behavior?
+- Do you need to clear the form?
+- What sort of logging might you add to aid you in debugging?
+
+We'll come back as a class and review this code. Once you're finished, you should have something like this.
+
+TODO DPR: add resource from the `add-book` branch
+
 ## Sorting the Collection
+
+
 
 ## Summary
 
