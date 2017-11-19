@@ -131,7 +131,15 @@ $('#book-list').append($(bookHTML));
 
 ## Summary
 
-
+- Models in Backbone are the core unit of data management
+- A model is defined using `Backbone.Model.extend`
+    - Each model should be defined in its own file
+    - What you get back from `extend` is a constructor function
+    - There are many options you can set when defining a model, but for now we will stick with the default behavior
+- A model can be instantiated with arbitrary data
+- Use the `.get(key)` and `.set(key, value)` functions to read and write model attributes
+- The `.attributes` property gives a read-only hash of a model's attributes
+    - This is often useful when filling out an Underscore template
 
 ## Additional Resources
 

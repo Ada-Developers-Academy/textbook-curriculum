@@ -6,7 +6,8 @@
 1. [Intro to Backbone](Introduction-to-Backbonejs.md)
 1. [Underscore Templates](../10-JavaScript/underscore-templates.md)
 1. [Live Code Overview](live-code-overview.md)
-1. [Organizing Data with Models and Collections](models-and-collections.md)
+1. [Structuring Data with Models](models.md)
+1. [Organizing Data with Collecitons](collections.md)
     - Model / collection events?
 
 ## Tuesday

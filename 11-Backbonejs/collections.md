@@ -126,7 +126,7 @@ let recentBooks = bookList.filter((book) => {
 
 Note that collections implement several iterators that ES6 arrays do not, that most of the iterators have an alias (`forEach` -> `each`, `reduce` -> `collect`, etc.) and that the names on some of the more obscure iterators may differ. [You can find a complete list in the Backbone documentation](http://backbonejs.org/#Collection-Underscore-Methods).
 
-Remember, Backbone predates ES6 by several years. In fact Underscore's iteration functions (which Backbone uses) were a big part of the inspiration for ES6.
+This discrepency exists because Backbone predates ES6 by several years. In fact Underscore's iteration functions (which Backbone uses) were a big part of the inspiration for ES6.
 
 **Exercise:** Write code to log information about each `Cat` to the console.
 
@@ -153,10 +153,19 @@ const render = function render(bookList) {
 
 ## Summary
 
-
+- A Backbone collection is a special type of model that stores a list of other models
+- Like models, collections are defined using `Backbone.Collection.extend`
+    - Each collection gets its own file
+    - As with models, `extend` gives you a constructor function
+    - A collection needs to know what kind of model it contains
+    - Collections can be defined with many other options set, but for now we will stick with the default behavior
+- When a collection is instantiated from an array, Backbone will attempt to turn each element in the array into a model of the appropriate type
+- The `.add` method adds elements to a collection
+    - It can take a raw JavaScript object or an existing model
+- Use `.at` to retrieve values by index, and `.get` to retrieve by `cid`
+- Collections provide have many useful enumeration methods
 
 ## Additional Resources
 
 - [Backbone docs on Collections](http://backbonejs.org/#Collection)
 - [cdnjs on Collections](https://cdnjs.com/libraries/backbone.js/tutorials/what-is-a-collection)
-- [Backbone Built-in Events Catalog](http://backbonejs.org/#Events-catalog)
