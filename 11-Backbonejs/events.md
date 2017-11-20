@@ -171,7 +171,7 @@ When a Backbone collection has a comparator defined, new models will be inserted
 
 To test this out, sort by `title` and then add `Bad Feminist` by `Roxane Gay` (published 2014).
 
-#### Providing Feedback
+#### Providing Visual Feedback
 
 An important principle of UI design is that when a user takes an action, they should immediately get feedback that something has happened. This helps make applications feel snappy and responsive rather than sluggish.
 
