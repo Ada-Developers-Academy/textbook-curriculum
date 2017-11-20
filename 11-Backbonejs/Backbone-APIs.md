@@ -69,6 +69,8 @@ bookList.fetch();
 
 Backbone knows that when `fetch()` is called, it should look for the appropriate configuration in the collection to load the data. Since the use of an API for data retrieval is so common, this can feel a bit like "magic".
 
+Your code should now match [the `api-read-only` branch](https://github.com/AdaGold/backbooks-client/tree/api-read-only).
+
 ## Writing Data To an API
 
 Our original goal was to make our data persistent: if we make changes, the next time we load the page we should see them. We're not quite there yet - if you add a book and then reload the page the changes will be gone. The reason is we haven't told Backbone to **write** those changes to the API, we are currently only **reading**.
@@ -100,6 +102,8 @@ $('#add-book-form').on('submit', (event) => {
 });
 ```
 
+The final result should match the [code on the `api-no-error-handling` branch](https://github.com/AdaGold/backbooks-client/blob/api-no-error-handling/src/app.js).
+
 ### Error Handling
 
 From our reading of the API earlier we know that the Rails `Book` model has validations, which means our API call will fail if the user sends bad data. We know from experience how important it is to report errors to the user in a polite and actionable way. This will both improve the user experience and make developing the application much less painful.
@@ -117,9 +121,10 @@ book.save({}, {
 
 Of course, you'll have to define those callbacks somewhere. Work with the person next to you to come up with a plan for how to display errors to the user.
 
-TODO DPR: error handling code ended up being far-and-away the most complex thing we've written this week. Not sure what to do about that - maybe it's just complex :(
+This error handling is one of the more complex pieces of code we've built so far, and it's not really even Backbone code! One approach is demonstrated on [the `api-error-handling` branch](https://github.com/AdaGold/backbooks-client/blob/api-error-handling/src/app.js).
 
 ### Matching Backbone to Non-standard APIs
+
 Not all APIs follow the standard RESTful convention. Fortunately, Backbone's API integration is flexible enough to fit most any oddly-shaped web service.
 
 We saw an example of this above, when we implemented `parse()` in our Collection. Other ways to customize include overriding the `toJSON()` methods in the Model and Collection, and the `url()` function in the Model. Read the docs for more info!

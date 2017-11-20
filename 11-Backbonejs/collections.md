@@ -134,22 +134,8 @@ This discrepency exists because Backbone predates ES6 by several years. In fact 
 
 You should now have all the pieces you need to build the list of books and render it in the DOM. Spend a few minutes attempting this with a partner, then we'll come together as a class and check our work.
 
-[Once you're done, `app.js` should look something like this]().
+Once you're done, `app.js` should look like [what's on the `collection` branch]](https://github.com/AdaGold/backbooks-client/blob/collection/src/app.js).
 
-TODO DPR: make the completed JS file a separate resource. Will look something like this (don't forget to create the bookList).
-
-```javascript
-const render = function render(bookList) {
-  let bookListElement = $('#book-list');
-  bookListElement.empty();
-
-  bookList.forEach((book) => {
-    console.log(`Rendering book ${ book.get('title') }`);
-    let bookHTML = bookTemplate(book.attributes);
-    bookListElement.append($(bookHTML));
-  });
-};
-```
 
 **Question:** Note the call to `bookListElement.empty()`.
 - What would happen if we removed this line?

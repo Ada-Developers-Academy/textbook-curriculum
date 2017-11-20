@@ -20,15 +20,13 @@ You can see the finished version here: [https://cheezitman.github.io/tasklist-js
 The live code setup is a little more complex than what we've done in the past with JavaScript. Instead of directing your browser straight to a file, we'll run a simple webserver, kind of like what we did with Rails. To get started, run the following in the command line:
 
 ```bash
-$ git clone https://github.com/Ada-C8/backbooks.git
+$ git clone https://github.com/AdaGold/backbooks-client.git
 $ cd backbooks
 $ npm install
 $ npm start
 ```
 
-`npm start` runs the webserver - that's what all those scrolling statements are. If you navigate to http://localhost:8080, you should see the words `Hello World!` in the familiar Foundation font on a white background.
-
-TODO DPR what does the initial splash look like?
+`npm start` runs the webserver - that's what all those scrolling statements are. If you navigate to http://localhost:8080, you should see the words `Welcome to the Backbone Book List` in the familiar Foundation fond on a white background, along with a form and an empty table.
 
 ### Modules
 

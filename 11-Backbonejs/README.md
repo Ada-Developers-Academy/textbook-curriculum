@@ -8,7 +8,6 @@
 1. [Live Code Overview](live-code-overview.md)
 1. [Structuring Data with Models](models.md)
 1. [Organizing Data with Collecitons](collections.md)
-    - Model / collection events?
 
 ### Tuesday
 1. [Backbone Events](events.md)

@@ -111,7 +111,7 @@ Working with the person next to you, build this logic. Things to think about inc
 
 We'll come back as a class and review this code. Once you're finished, you should have something like this.
 
-TODO DPR: add resource from the `add-book` branch
+The completed handlers should match the [code on the `add-book` branch](https://github.com/AdaGold/backbooks-client/blob/add-book/src/app.js).
 
 ## Sorting the Collection
 
@@ -161,7 +161,7 @@ There are three columns we need to be able to sort by, so this code will be a li
 
 We'll come back as a class to review this code. Once you're finished, you should have something like this.
 
-TODO DPR add resource from the `sort` branch
+Once you're done, you should have something that resembles the [code on the `sort` branch](https://github.com/AdaGold/backbooks-client/blob/sort/src/app.js).
 
 ### Details
 
@@ -188,6 +188,8 @@ $('th.sort').removeClass('current-sort-field');
 // Add the class to the appropriate header
 $(`th.sort.${ bookList.comparator }`).addClass('current-sort-field');
 ```
+
+The final result should match the [code on the `sort-feedback` branch](https://github.com/AdaGold/backbooks-client/blob/sort-feedback/src/app.js).
 
 ## Summary
 
