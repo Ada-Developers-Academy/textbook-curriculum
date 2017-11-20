@@ -115,8 +115,91 @@ TODO DPR: add resource from the `add-book` branch
 
 ## Sorting the Collection
 
+Our customers are delighted with our book-adding functionality, but now they've got so many books in their table that it's becoming difficult to manage. To help address this, they want to be able to sort the table by each of its columns: `title`, `author` or `publication_year`.
 
+Spend some time brainstorming this feature with your table group. Consider the following questions:
+- Backbone collections have a [comparator property and a sort method](http://backbonejs.org/#Collection-comparator). Can we use this somehow?
+- How will this code be architected? Draw a diagram.
+- What should the DOM event handler do?
+- What should the Backbone event handler do?
+- What will the UI look like?
+
+### Architecture
+
+Here is a high-level diagram of how the sorting feature will work.
+
+TODO DPR: diagram
+
+1. User clicks a column header, triggering a `click` event
+1. Our `click` handler will modify the collection's comparator, and then call the `.sort()` function
+1. After the collection is done sorting, it will emit a `sort` event
+1. Our `sort` handler will update the DOM to match
+
+Note the similarities to the "add" workflow above. This pattern of "user event changes the data, causing the DOM to update" is extremely common when building UI code.
+
+This flow of control is at the foundation of much of Backbone's design, and many other front-end frameworks such as React/Redux are built on the same high-level pattern. There's also a close parallel to the request/response cycle we saw in Rails, though the details here are very different.
+
+As before, we'll set up the backbone handler first, then write code to update the collection based on user actions.
+
+### Handling the `sort` Event
+
+What does our app need to do when the collection is sorted? Clear out the DOM table, and rebuild its contents in the correct order. Fortunately we've already got a function that can do this: `render()`. Setting this up will follow the same pattern we saw before.
+
+```javascript
+bookList.on('sort', render);
+```
+
+As before, one of the big questions is "How can we verify things are set up correctly?" We want to build our app in as small of increments as possible, so that when things don't work (as they often don't the first time) we have less to dig through.
+
+### Triggering the `sort` Event
+
+Work with the person next to you to write code to detect a click event on the `<th>` elements and sort the collection by the appropriate attribute.
+
+The handler will need to set `bookList.comparator` to the name of the field, and then call `bookList.sort()`.
+
+There are three columns we need to be able to sort by, so this code will be a little complex. Start by building a click handler for only the `title` field. Once you've got that working, generalize your code to handle all three fields. Do your best to keep things DRY.
+
+We'll come back as a class to review this code. Once you're finished, you should have something like this.
+
+TODO DPR add resource from the `sort` branch
+
+### Details
+
+#### Interaction with Add
+
+When a Backbone collection has a comparator defined, new models will be inserted in the proper spot. This means that if our table is sorted and we add a new book that should go between two existing entries, order will be maintained.
+
+To test this out, sort by `title` and then add `Bad Feminist` by `Roxane Gay` (published 2014).
+
+#### Providing Feedback
+
+An important principle of UI design is that when a user takes an action, they should immediately get feedback that something has happened. This helps make applications feel snappy and responsive rather than sluggish.
+
+What should we do when the user sorts the table? One common technique is to highlight the table header for that column. This makes it clear that we're doing what they asked, even if nothing else has changed (for example sorting by `title` yields the same order as sorting by `author`).
+
+To do so we'll use the CSS ruleset for the class `.current-sort-field` (this has already been built). We will apply that class to the header of the currently selected column.
+
+**Question:** Should this code go in the `click` handler or in our `render()` function? Why?
+
+```javascript
+// Clear the old sort field
+$('th.sort').removeClass('current-sort-field');
+
+// Add the class to the appropriate header
+$(`th.sort.${ bookList.comparator }`).addClass('current-sort-field');
+```
 
 ## Summary
 
+- Backbone's event library provides a powerful tool for organizing code
+    - This allows you to separate code that updates the model from code that updates the DOM
+- Many events are emitted automatically by models and collections
+    - These events are often triggered as a result of user actions
+- To register an event handler, use `collection.on('event', callback)`
+- A `render()` function will often serve as a callback for Backbone events
+- Backbone collections emit `update` when a model is added or removed, and `sort` when the collection is sorted
+
 ## Additional Resources
+
+- [Backbone Event documentation](http://backbonejs.org/#Events)
+- [SitePoint on Backbone Event](https://www.sitepoint.com/backbone-basics-events/) (assumes knowledge of views)
