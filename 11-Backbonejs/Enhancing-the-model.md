@@ -9,64 +9,64 @@ There are a lot of other things we can add to our Backbone models.  They can be 
 
 ## Default Values
 
-We can edit the Task model by adding a hash of attributes to initialize.  For example below we can set default values for attributes:
+We can edit the Book model by adding a hash of attributes to initialize.  For example below we can set default values for attributes:
 
 ```javascript
-// src/app/models/task.js
+// src/app/models/book.js
 import Backbone from 'backbone';
 
-var Task = Backbone.Model.extend({
+const Book = Backbone.Model.extend({
   defaults: {
     title: '',
-    completed: false
+    author: 'Unknown',
   }
 });
 
-export default Task;
+export default Book;
 ```
 
-Then any tasks created like `var my_other_task = new Task({title: "Study JavaScript" });` will automatically have a field named `completed` set to false.  
+Then any books created like `let poodr = new Book({title: "Practical Object-Oriented Programming in Ruby" });` will automatically have a field named `author` set to 'Unknown'.  
 
 
 ## Custom Methods
 
-This is also how you can add custom methods (including business logic) to your model. For example we've done a lot of printing the title & completion status of our Task to the console, a `logStatus` method might be handy. 
+This is also how you can add custom methods (including business logic) to your model. For example we've done a lot of printing the title & completion status of our Book to the console, a `logStatus` method might be handy.
 
 ```javascript
-// src/app/models/task.js
+// src/app/models/book.js
 import Backbone from 'backbone';
 
-var Task = Backbone.Model.extend({
+const Book = Backbone.Model.extend({
   defaults: {
     title: '',
-    completed: false
+    author: 'Unknown',
   },
   logStatus: function() {
     console.log("Title: " + this.get("title"));
-    console.log("Completed: " + this.get("completed"));
+    console.log("Author: " + this.get("author"));
   }
 });
 
-export default Task;
+export default Book;
 ```
 
-Then in our `app.js` we can simply print out the status of our task with:  `myTask.logStatus();`
+Then in our `app.js` we can simply print out the status of our book with:  `poodr.logStatus();`
 
 ### Initialize
 
 Just like with a Rails Model you can create an `initialize` method and it will be called each time a new model is instantiated with `new`.
 
 ```javascript
-// src/app/models/task.js
+// src/app/models/book.js
 //...
 
-var Task = Backbone.Model.extend({
+const Book = Backbone.Model.extend({
   defaults: {
     title: '',
-    completed: false
+    author: 'Unknown',
   },
   initialize: function(params) {
-    console.log("Task initialized: " + this.get("title"));
+    console.log("Book initialized: " + this.get("title"));
     // just to see what params looks like
     console.log(params);
   }
@@ -75,6 +75,7 @@ var Task = Backbone.Model.extend({
 
 Take a look at the code in the example and examine what `params` in initialize looks like.
 
+TODO:  CM - Update image for Ada books
 ![params in the Dev Tools console](images/params.png)
 
 The parameter to initialize is a JavaScript object containing the argument given when the Model is constructed with `new`.  
@@ -83,9 +84,15 @@ Later on we will use this method in our views.
 
 #### Exercise
 
-Add a `toggleComplete` method to the `Task` model which will toggle the `completed` attribute.  We'll try to use it later.
+TODO:  CM - Practice making a custom method
 
-If you're stuck you can see a working solution [here:](https://gist.github.com/CheezItMan/38fac3dfd1f26cdd19a32b50b2a5c359)
+## Validations
+
+TODO:  CM - Add some validations
+
+## Summary
+
+TODO:  CM - Summary of learning
 
 ## Resources
 -  [What is a model?](https://cdnjs.com/libraries/backbone.js/tutorials/what-is-a-model)

@@ -14,7 +14,7 @@
 1. [API Integration](Backbone-APIs.md)
 
 ### Wednesday
-1. Advanced Model stuff (TODO DPR)
+1. Advanced Model stuff (TODO CM)
 
 ### Week 2
 1. Views
