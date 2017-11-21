@@ -134,7 +134,7 @@ This discrepency exists because Backbone predates ES6 by several years. In fact 
 
 You should now have all the pieces you need to build the list of books and render it in the DOM. Spend a few minutes attempting this with a partner, then we'll come together as a class and check our work.
 
-Once you're done, `app.js` should look like [what's on the `collection` branch]](https://github.com/AdaGold/backbooks-client/blob/collection/src/app.js).
+Once you're done, `app.js` should look like [what's on the `collection` branch](https://github.com/AdaGold/backbooks-client/blob/collection/src/app.js).
 
 
 **Question:** Note the call to `bookListElement.empty()`.

@@ -16,7 +16,8 @@ Think back to Rails, and ERB. ERB gave us a straightforward way to generate comp
 
 Similar to jQuery's `$`, all Underscore functions are accessed through the global `_` object.
 
-There are three steps to Underscore templating:
+### The Three Steps to Underscore Templating:
+
 - Define the template in your HTML file
 - Compile the template once in your JavaScript
 - Invoke the compiled template to generate HTML

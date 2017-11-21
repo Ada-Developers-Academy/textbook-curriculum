@@ -51,6 +51,14 @@ This inherited functionality is enough for us now. As with Rails, we'll start of
 
 One question you might ask is, why does Backbone build its own inheritance mechanism instead of using ES6 classes? The answer is that Backbone predates ES6 by several years, and there are millions of applications out there built on the old behavior. In this case, stability is far more important than immediately switching to the newest technology.
 
+#### No Schema
+
+One thing you might have noticed is that we haven't said what our attributes our `Book` model has. In Rails we had to build migrations that spelled out exactly what a model looked like, but with Backbone we have done no such thing.
+
+Instead, Backbone models act much like JavaScript objects, taking on whatever properties you give them. While this may feel a little nerve-wracking, in practice it works well for the same reason that duck typing is effective.
+
+Moreover, because our data will usually come from an API, we can rely on the server to define these types for us. To do otherwise would not be DRY.
+
 ### Working with Models
 
 Before we move on to working with collections, let's investigate this Backbone Model we've created. The code we write here will be temporary, since we'll soon replace it with code that uses a collection. However, the techniques we demonstrate for working with models will apply just as well to models in a collection.
@@ -77,7 +85,7 @@ let book = new Book({
 });
 ```
 
-Whenever a Backbone model is created, Backbone will assign it a globally unique "client ID" or `cid`. The `cid` is a property on the model itself, not an attribute, so you can access it directly on the model:
+Whenever an instance of a Backbone model is created, Backbone will assign it a globally unique "client ID" or `cid`. The `cid` is a property on the model itself, not an attribute, so you can access it directly on the model:
 
 ```javascript
 console.log(book.cid);

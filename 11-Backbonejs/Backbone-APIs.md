@@ -4,7 +4,7 @@
 By the end of this lesson you should be able to...
 
 - Use Backbone to retrieve and render data from an API
-- Send Backbone data to an API
+- Use Backbone to send data to an API
 - Write custom parsers and formatters to match API data and Backbone Models
 
 ## Introduction
@@ -110,7 +110,7 @@ From our reading of the API earlier we know that the Rails `Book` model has vali
 
 Fortunately, Backbone allows you to define success and error callbacks in the arguments to `.save()` (and `.fetch()`).
 
-One tricky bit of syntax: the hash specifying these callbacks must be the second argument to `.save()`. The first is reserved for if you want to specify which attributes to send. If you don't specify them Backbone will send everything, which is what we want, so add an empty hash as the first argument.
+One tricky bit of syntax: the JavaScript object specifying these callbacks must be the second argument to `.save()`. The first is reserved for if you want to specify which attributes to send. If you don't specify them Backbone will send everything, which is what we want, so add an empty hash as the first argument.
 
 ```javascript
 book.save({}, {

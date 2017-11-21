@@ -54,6 +54,8 @@ TODO DPR update once finished
 
 ![Backbone Project Directory structure](images/backbone-baseline.png)
 
+This is very different that what we did with Rails. JavaScript projects in general tend to be much more open-ended than an opinionated framework like Rails, and this is reflected in our directory structure. This flexibility is powerful, but it also means there's a lot for us to keep track of.
+
 ### The `dist` Folder: Mostly HTML
 
 In the `dist` folder you'll find a file called `index.html`. This is the page that will be served to the browser. It should have everything we need already, but if you need to make changes this is the place to do it.
@@ -83,12 +85,11 @@ Forms and tables are old hat at this point, but let's dive into that underscore 
 </script>
 ```
 
-Based on what we know about Underscore templates, answer the following questions:
-- Of the three steps, what have we done already?
-- What two steps remain? Where should we put code to accomplish them?
-- What type of thing will the compiled template be?
-- What additional information does the compiled template need to generate HTML? What form does this take?
-- What will the generated HTML look like? Where in the existing HTML file will we put it?
+We'll do a quick recall activity with your chair pair to recall what we just learned about Underscore:
+1. Recall that there are three steps in creating an Underscore template. Discuss what those steps are with your chair pair.
+1. Now that you know which steps you need, identify which of those steps we have completed and which we still need to complete.
+1. What does it mean to "compile the template"? What code corresponds to this instruction?
+1. Does "compiling the template" directly result in the necessary HTML? If not, what else needs to be done to get the HTML?
 
 #### Compiled JavaScript
 
@@ -107,6 +108,23 @@ For JavaScript, the "main" file is `src/app.js`. We'll be adding other files as 
 Take a look at `src/app.js`. This is our "main" JavaScript file, where the code to drive our application will live. This file has a few important pieces.
 
 TODO DPR: Diagram
+
+```
+-
+|  Imports
+-
+-
+| Variables
+|
+-
+-
+| Helper functions
+|
+-
+-
+| $(document).ready
+-
+```
 
 ##### Imports
 
