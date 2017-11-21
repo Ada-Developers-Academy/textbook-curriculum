@@ -14,7 +14,9 @@ By the end of this lesson, you should be able to:
 
 Backbone models and collections can emit events. This works almost exactly like the DOM events we've already seen. The big difference is that while DOM events are triggered in response to user actions, Backbone events are triggered when our data changes.
 
-TODO DPR: Maybe move this code down to the vocab section, to give a clear running example?
+Why is this important? **It means we can separate code that updates the model from code that updates the DOM.** In practice, this allows us to simplify and DRY our code that handles DOM events.
+
+![backbone-event-cycle](images/events/model-event-diagram-generic.png)
 
 We listen for Backbone events in the same way we listen for DOM events: using the `.on()` function. For example, to listen for a `update` event on our `bookList`, we would use the following code.
 
@@ -26,10 +28,6 @@ bookList.on('update', updateHandler);
 ```
 
 Once this code has been run, whenever our `bookList` emits a `update` event the `updateHandler()` function will be called. Neat!
-
-Why is this important? **It means we can separate code that updates the model from code that updates the DOM.** In practice, this allows us to simplify and DRY our code that handles DOM events.
-
-![backbone-event-cycle](images/events/model-event-diagram-generic.png)
 
 ### Event Vocabulary
 
