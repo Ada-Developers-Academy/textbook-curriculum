@@ -1,4 +1,4 @@
-# Organizing Data with Models and Collections
+# Structuring Data with Models
 
 As we've worked with JavaScript, up until this point all our data in has been stored as arrays of objects. This is fine for simple programs, but for more complex applications we'll need a more robust way to organize things. In the Backbone framework, this problem is solved through Models and Collections.
 
@@ -8,20 +8,23 @@ By the end of this lesson, you should be able to...
 
 - Explain what a Backbone Model is
 - Define a Backbone Model
-- Instantiate a Backbone Model and assign attributes
+- Instantiate a Backbone Model
+- Get and set Model attributes
 
 ## What are Models in Backbone?
 
 Backbone Models are much like Rails Models. They keep track of your data and help in saving and loading information to and from your back end.
 
-Things you can do with a model in Backbone include:
+Models are also the building blocks of collections. This is the role where we'll see them first - today we need to learn the basics of models so that we can begin working with collections.
+
+Later in the week we will return to models, and learn how to use some of their more interesting features:
 - Setting default values for new data
 - Validating changes to the data
 - Reading data from and writing it to an API
 - Abstracting away complex bits of business logic
 - Triggering events when the data changes
 
-Organizing all this functionality ourselves would be a ton of work, so instead let's create a Model and a Collection for our books!
+Much like our exploration of models in Rails, it will take some time to uncover all these useful abilities. In the meantime there will be an upfront cost, as we learn the basic syntax of Backbone models. Be patient - the benefit of well-managed data will be worth this tax.
 
 ## Book
 

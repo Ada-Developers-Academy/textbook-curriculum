@@ -1,4 +1,4 @@
-# Organizing Data with Models and Collections
+# Organizing Data with Collections
 
 As we've worked with JavaScript, up until this point all our data in has been stored as arrays of objects. This is fine for simple programs, but for more complex applications we'll need a more robust way to organize things. In the Backbone framework, this problem is solved through Models and Collections.
 
