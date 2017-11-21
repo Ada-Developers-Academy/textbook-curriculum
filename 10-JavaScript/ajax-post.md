@@ -57,7 +57,7 @@ Most of the time, the request data is not hard-coded like the example above. Usu
 ```
 
 ```javascript
-$('form').submit((e) => {
+$('form').submit( function(e) {
   // By default, the form will attempt to do it's own
   // local POST so we want to prevent that default
   // behavior
