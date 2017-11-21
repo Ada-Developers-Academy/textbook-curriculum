@@ -29,12 +29,8 @@ Once this code has been run, whenever our `bookList` emits a `update` event the 
 
 Why is this important? **It means we can separate code that updates the model from code that updates the DOM.** In practice, this allows us to simplify and DRY our code that handles DOM events.
 
-TODO DPR: diagram. Something like
-```
-     => DOM event handler (jQuery) =>
-DOM                                    Model / Collection
-     <= Backbone event handler     <=
-```
+![backbone-event-cycle](images/model-event-diagram-generic.png)
+
 ### Event Vocabulary
 
 Before we go any further, let's review our vocabulary around event handling. This vocab is general - it applies not just to DOM events and Backbone events in JavaScript, but to event handling in any language.
@@ -58,7 +54,7 @@ Before we go any further, let's review our vocabulary around event handling. Thi
 
 As a demonstration of this technique, we will add functionality for adding a book to our library. This is what the high-level architecture will look like:
 
-TODO DPR: expanded diagram similar to above but w/ event names
+![backbone-event-cycle](images/model-event-diagram-add-book.png)
 
 1. A user fills out and submits the "Add a book" form, triggering a `submit` DOM event
 1. Our `submit` event handler will read the form data and use it to add a book to the collection
@@ -126,7 +122,7 @@ Spend some time brainstorming this feature with your table group. Consider the f
 
 Here is a high-level diagram of how the sorting feature will work.
 
-TODO DPR: diagram
+![backbone-event-cycle](images/model-event-diagram-sort.png)
 
 1. User clicks a column header, triggering a `click` event
 1. Our `click` handler will modify the collection's comparator, and then call the `.sort()` function
