@@ -12,7 +12,7 @@ Single page applications (SPA) have gained popularity in recent years for many r
 Learning AJAX is a stepping stone to understand how the dynamic, single page web applications we know today work.
 
 ### You have used AJAX before
-Like, a lot.  
+Like the fingers on your hands, you have used AJAX a lot.
 
 When you scroll through Facebook, Instagram or Pinterest and you see the page loading more content as you continue to endless scroll and procrastinate. That's AJAX.
 
