@@ -157,9 +157,7 @@ The handler will need to set `bookList.comparator` to the name of the field, and
 
 There are three columns we need to be able to sort by, so this code will be a little complex. Start by building a click handler for only the `title` field. Once you've got that working, generalize your code to handle all three fields. Do your best to keep things DRY.
 
-We'll come back as a class to review this code. Once you're finished, you should have something like this.
-
-Once you're done, you should have something that resembles the [code on the `sort` branch](https://github.com/AdaGold/backbooks-client/blob/sort/src/app.js).
+We'll come back as a class to review this code. Once you're done, you should have something that resembles the [code on the `sort` branch](https://github.com/AdaGold/backbooks-client/blob/sort/src/app.js).
 
 ### Details
 
