@@ -15,9 +15,3 @@
 
 ### Wednesday
 1. Advanced Model stuff (TODO DPR)
-
-### Week 2
-1. Views
-1. Custom Events
-1. Testing
-1. ... the router? probably not
