@@ -19,6 +19,8 @@ Why is this important? **It means we can separate code that updates the model fr
 
 ![backbone-event-cycle](images/events/model-event-diagram-generic.png)
 
+<!-- https://www.lucidchart.com/documents/edit/d9fe9e68-a0bc-492f-ae71-06786851ed06?shared=true&existing=1&docId=d9fe9e68-a0bc-492f-ae71-06786851ed06 -->
+
 We listen for Backbone events in the same way we listen for DOM events: using the `.on()` function. For example, to listen for a `update` event on our `bookList`, we would use the following code.
 
 ```javascript
