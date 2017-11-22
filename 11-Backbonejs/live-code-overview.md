@@ -26,7 +26,7 @@ $ npm install
 $ npm start
 ```
 
-`npm start` runs the webserver - that's what all those scrolling statements are. If you navigate to http://localhost:8080, you should see the words `Welcome to the Backbone Book List` in the familiar Foundation fond on a white background, along with a form and an empty table.
+`npm start` runs the webserver - that's what all those scrolling statements are. If you navigate to http://localhost:8080, you should see the words `Welcome to the Backbone Book List` in the familiar Foundation font on a white background, along with a form and an empty table.
 
 ### Modules
 
@@ -40,7 +40,7 @@ For those with an unquenchable thirst for understanding, [Ada's Backbone scaffol
 
 #### Relation to Backbone
 
-Neither babel nor webpack have anything to do whatsoever with Backbone!
+Neither Babel nor webpack have anything to do whatsoever with Backbone!
 
 You can use Backbone without them, and use them without Backbone - in fact, right now Backbone is installed, but we're not using it at all. So why are we jumping through all these hoops? Because we've been learning JavaScript for 2 whole weeks, and it's time to switch to a big kids development environment!
 
@@ -54,7 +54,7 @@ TODO DPR update once finished
 
 ![Backbone Project Directory structure](images/backbone-baseline.png)
 
-This is very different that what we did with Rails. JavaScript projects in general tend to be much more open-ended than an opinionated framework like Rails, and this is reflected in our directory structure. This flexibility is powerful, but it also means there's a lot for us to keep track of.
+This is very different from what we did with Rails. JavaScript projects in general tend to be much more open-ended than an opinionated framework like Rails, and this is reflected in our directory structure. This flexibility is powerful, but it also means there's a lot for us to keep track of.
 
 ### The `dist` Folder: Mostly HTML
 
@@ -63,11 +63,11 @@ In the `dist` folder you'll find a file called `index.html`. This is the page th
 Though we shouldn't need to edit this file, we'll be looking at it a lot, so let's spend some time on it now. `dist/index.html` has three important components:
 - A `<form>` to add a new book
 - An empty `<table>` where we will list books
-- An underscore template for a row in the book table
+- An Underscore template for a row in the book table
 
 #### Book Template
 
-Forms and tables are old hat at this point, but let's dive into that underscore template. You'll find it at the bottom of `index.html.erb`.
+Forms and tables are old hat at this point, but let's dive into that Underscore template. You'll find it at the bottom of `index.html.erb`.
 
 ```html
 <script type="text/template" id="book-template">
@@ -128,7 +128,7 @@ TODO DPR: Diagram
 
 ##### Imports
 
-At the top of the file you'll find the `import` statements. This is a Webpack thing, and allows us to split our app into multiple files.
+At the top of the file you'll find the `import` statements. This is a webpack thing, and allows us to split our app into multiple files.
 
 - CSS: We import Foundation as well as our app-specific styles. You can find these in `src/style.css`
 - JavaScript: Right now we only import jQuery (`$`) and Underscore (`_`), but we'll be adding more here as we define Backbone components.
@@ -146,7 +146,7 @@ After the variables come definitions of helper functions. Currently there is onl
 
 ##### $(document).ready
 
-Finally we find `$(document).ready`, the code that will run when the page has finished loading. This is where we'll put any code that interacts with the DOM, such as compiling underscore templates, adding books to the page, and attaching event handlers to elements like the `<form>`.
+Finally we find `$(document).ready`, the code that will run when the page has finished loading. This is where we'll put any code that interacts with the DOM, such as compiling Underscore templates, adding books to the page, and attaching event handlers to elements like the `<form>`.
 
 One important thing to note is that there are no Backbone components in this file. Those will be defined in their own files, as we'll see shortly.
 
