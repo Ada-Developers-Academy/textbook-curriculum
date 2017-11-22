@@ -62,7 +62,7 @@ Backbone implements the familiar MVC architecture that we learned in Rails in a 
 
 To keep things manageable, in the first week of curriculum we will only cover Models and Collections, with the goal of better organizing our app's data. Interacting with the DOM will still be handled by jQuery, similar to what we did in previous assignments.
 
-In the following week we will explore Views, and how they help translate between the DOM and the Models.
+In the following week we will explore Views, and how they can be used to manage the DOM and connect it to our Backbone Models.
 
 ## Resources
 - [Underscore Documentation](http://underscorejs.org/)
