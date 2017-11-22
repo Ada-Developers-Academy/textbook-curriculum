@@ -30,9 +30,9 @@ $ npm start
 
 ### Modules
 
-The webserver is called **webpack**, and it is what's known as a "bundler". Much like the Rails server, its job is to keep track of all the JavaScript files we write and libraries we use, and pull them all together into one application. It can even do clever tricks like detecting when the code has changed and automatically refreshing your browser window.
+The most important module in our live code, and in the setup for all of our Backbone projects, is a tool called **webpack**. webpack is the central piece of many modern JavaScript "toolchains" (combinations of different programs that are used for development). With the proper webpack configuration, and the right add-on tools, we can get a development workflow that is pretty similar to what we're used to from Rails.
 
-In addition to webpack, we've included a module called **babel**. Babel is called a transpiler, and it helps deal with the fact that some users are running old versions of browsers that don't yet support ES6. Babel takes our ES6 code and _transpiles_ (translates and compiles) it into older versions of JavaScript. Because we've tied it into webpack, this happens automatically - you should be able to write ES6 code and have it work in any browser, new or old.
+In addition to webpack, we've included a module called **Babel**. Babel is called a transpiler, and it helps deal with the fact that some users are running old versions of browsers that don't yet support ES6. Babel takes our ES6 code and _transpiles_ (translates and compiles) it into older versions of JavaScript. Because we've tied it into webpack, this happens automatically - you should be able to write ES6 code and have it work in any browser, new or old.
 
 In addition to those two several other libraries have been pre-installed, including jQuery, Backbone itself, and Underscore (a Backbone dependency). These are specified in `package.json`, which will act sort of like your Gemfile in a Rails app (with `npm install` taking the place of `bundle`).
 
@@ -133,7 +133,7 @@ One important thing to note is that there are no Backbone components in this fil
 
 ## Summary
 
-- The BackBooks project uses Webpack as a development server
+- The BackBooks project uses webpack to manage the development toolchain
 - HTML lives in `dist/index.html`
 - JavaScript lives under `src/`, with `src/app.js` as the "main" file
   - We'll be adding more files here as we go
