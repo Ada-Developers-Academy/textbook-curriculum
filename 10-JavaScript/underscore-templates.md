@@ -30,13 +30,14 @@ const todoData = [
   {
     title: 'Mow the lawn',
     description: 'Must be finished before BBQ on Sat afternoon',
-    assignedTo: ['Kari', 'Charles']
-  }, {
+    assignedTo: ['Kari', 'Charles'],
+  },
+  {
     title: 'Go to the Bank',
     description: 'Need to make a transfer',
-    assignedTo: ['Dan', 'Jamie', 'Chris']
-  }
-]
+    assignedTo: ['Dan', 'Jamie', 'Chris'],
+  },
+];
 ```
 
 Our goal is to have an easy way to generate the HTML for one of these tasks, something like:
@@ -99,8 +100,8 @@ Any JavaScript variables accessed in any of these tags will need to be passed in
 What's the difference between `<%=` and `<%-`? Consider the following template:
 
 ```javascript
-<%= "<em>italic?</em>" %>
-<%- "<em>italic?</em>" %>
+<%= '<em>italic?</em>' %>
+<%- '<em>italic?</em>' %>
 ```
 
 For the first line, the string will be inserted into the document as-is, so that the browser will render it as "_italic?_".
@@ -113,7 +114,7 @@ For the second line, the string is HTML-escaped before being added, which means 
 The next step is to _compile_ the template. This is accomplished using Underscore's `template` method. The template only needs to be compiled once, and can be used to generate HTML many times, so put the compilation somewhere that only happens once.
 
 ```javascript
-$(document).ready(function() {
+$(document).ready(() => {
   const todoTemplate = _.template($('#todo-item-template').html());
 });
 ```
@@ -147,7 +148,7 @@ The template function takes one argument, a hash of variables to make available 
 
 ```javascript
 todoData.forEach((todo) => {
-  let generatedHtml = todoTemplate(todo);
+  const generatedHtml = todoTemplate(todo);
   $('#todo-list').append($(generatedHtml));
 });
 ```
