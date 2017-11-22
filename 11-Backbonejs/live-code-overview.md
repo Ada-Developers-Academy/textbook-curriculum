@@ -105,26 +105,7 @@ For JavaScript, the "main" file is `src/app.js`. We'll be adding other files as 
 
 #### Existing JavaScript
 
-Take a look at `src/app.js`. This is our "main" JavaScript file, where the code to drive our application will live. This file has a few important pieces.
-
-TODO DPR: Diagram
-
-```
--
-|  Imports
--
--
-| Variables
-|
--
--
-| Helper functions
-|
--
--
-| $(document).ready
--
-```
+Take a look at `src/app.js`. This is our "main" JavaScript file, where the code to drive our application will live. This file is organized into a few sections:
 
 ##### Imports
 
