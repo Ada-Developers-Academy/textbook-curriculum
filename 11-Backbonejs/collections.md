@@ -50,7 +50,7 @@ As with the model, most of the behavior we need is gained through `extend`ing `B
 As before, we'll need to import our newly defined collection into `app.js`:
 
 ```javascript
-import BookList from 'collections/book_list'
+import BookList from 'collections/book_list';
 ```
 
 #### Creating a Collection
