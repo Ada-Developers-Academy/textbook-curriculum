@@ -81,9 +81,9 @@ Right now our template is empty, so our next step is to add some contents. Under
     </p>
     <p>
       <strong>Assigned To:</strong>
-      <% for (let i = 0; i < assignedTo.length; i++) { %>
-        <%- assignedTo[i] %>
-      <% } %>
+      <% assignedTo.forEach((person) => { %>
+        <%- person %>
+      <% }); %>
     </p>
   </section>
 </script>
@@ -146,10 +146,10 @@ Turns out the compiled template is a function. Underscore uses some fancy closur
 The template function takes one argument, a hash of variables to make available in the template. Invoking the template looks like this:
 
 ```javascript
-for (let i = 0; i < todoData.length; i++) {
-  let generatedHtml = todoTemplate(todoData[i]);
+todoData.forEach((todo) => {
+  let generatedHtml = todoTemplate(todo);
   $('#todo-list').append($(generatedHtml));
-}
+});
 ```
 
 Note that Underscore doesn't assume we have access to jQuery. That means the return value from the template is a vanilla JavaScript DOM object. If you want to do fancy jQuery things with it, you'll have to pass it through `$`, like we do here.
