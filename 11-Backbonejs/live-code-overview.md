@@ -156,3 +156,6 @@ One important thing to note is that there are no Backbone components in this fil
 - HTML lives in `dist/index.html`
 - JavaScript lives under `src/`, with `src/app.js` as the "main" file
   - We'll be adding more files here as we go
+
+## Resources
+- [A video on getting started with webpack](https://www.youtube.com/watch?v=eWmkBNBTbMM)
