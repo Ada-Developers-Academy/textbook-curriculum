@@ -6,8 +6,9 @@ In this lesson we'll look at Backbone's event handling behavior, one of the big 
 
 By the end of this lesson, you should be able to:
 
+- Fluently use event-handling vocabulary
 - Describe what a Backbone event is
-- Register a callback function for an event
+- Register a callback function for a Backbone event
 - List some of the events emitted by collections, including `update` and `sort`
 
 ## Backbone Events

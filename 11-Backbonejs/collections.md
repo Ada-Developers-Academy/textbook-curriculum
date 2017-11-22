@@ -126,7 +126,7 @@ let recentBooks = bookList.filter((book) => {
 
 Note that collections implement several iterators that ES6 arrays do not, that most of the iterators have an alias (`forEach` -> `each`, `reduce` -> `collect`, etc.) and that the names on some of the more obscure iterators may differ. [You can find a complete list in the Backbone documentation](http://backbonejs.org/#Collection-Underscore-Methods).
 
-This discrepency exists because Backbone predates ES6 by several years. In fact Underscore's iteration functions (which Backbone uses) were a big part of the inspiration for ES6.
+This discrepancy exists because Backbone predates ES6 by several years. In fact Underscore's iteration functions (which Backbone uses) were a big part of the inspiration for ES6.
 
 **Exercise:** Write code to log information about each `Cat` to the console.
 

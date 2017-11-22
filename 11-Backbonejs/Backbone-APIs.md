@@ -6,6 +6,7 @@ By the end of this lesson you should be able to...
 - Use Backbone to retrieve and render data from an API
 - Use Backbone to send data to an API
 - Write custom parsers and formatters to match API data and Backbone Models
+- Handle Backbone API errors in a polite and informative manner
 
 ## Introduction
 
