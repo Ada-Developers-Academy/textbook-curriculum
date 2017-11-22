@@ -84,7 +84,7 @@ To create instances of `Book`, invoke the `Book` constructor with the `new` keyw
 let book = new Book({
   title: "Ancillary Justice",
   author: "Ann Leckie",
-  publication_year: 2013
+  publication_year: 2013,
 });
 ```
 

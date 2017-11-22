@@ -14,7 +14,8 @@
 1. [API Integration](Backbone-APIs.md)
 
 ### Wednesday
-1. Advanced Model stuff (TODO DPR)
+1. [Enhancing the Model](Enhancing-the-model.md)
+1. [Filtering and Sorting Collections](filtering-and-sorting-collections.md)
 
 ### Week 2
 1. Views
