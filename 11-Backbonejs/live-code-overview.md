@@ -61,8 +61,8 @@ This is very different that what we did with Rails. JavaScript projects in gener
 In the `dist` folder you'll find a file called `index.html`. This is the page that will be served to the browser. It should have everything we need already, but if you need to make changes this is the place to do it.
 
 Though we shouldn't need to edit this file, we'll be looking at it a lot, so let's spend some time on it now. `dist/index.html` has three important components:
-- A form to add a new book
-- An empty table where we will list books
+- A `<form>` to add a new book
+- An empty `<table>` where we will list books
 - An underscore template for a row in the book table
 
 #### Book Template
@@ -86,9 +86,9 @@ Forms and tables are old hat at this point, but let's dive into that underscore 
 ```
 
 We'll do a quick recall activity with your chair pair to recall what we just learned about Underscore:
-1. Recall that there are three steps in creating an Underscore template. Discuss what those steps are with your chair pair.
+1. What are the three steps in creating an Underscore template?
 1. Now that you know which steps you need, identify which of those steps we have completed and which we still need to complete.
-1. What does it mean to "compile the template"? What code corresponds to this instruction?
+1. What does it mean to "compile the template"? What code corresponds to this instruction (JavaScript lives in `src/app.js`)?
 1. Does "compiling the template" directly result in the necessary HTML? If not, what else needs to be done to get the HTML?
 
 #### Compiled JavaScript
