@@ -17,11 +17,11 @@ You can see the finished version here: [https://cheezitman.github.io/tasklist-js
 
 ### Running the Code
 
-The live code setup is a little more complex than what we've done in the past with JavaScript. Instead of directing your browser straight to a file, we'll run a simple webserver, kind of like what we did with Rails. To get started, run the following in the command line:
+The live code setup is a little more complex than what we've done in the past with JavaScript. Instead of directing your browser straight to a file, we'll run a simple webserver, kind of like what we did with Rails.
+
+To get started, first clone (forking is not necessary) the `backbooks-client` repo from your cohort's GitHub organization. Then `cd` into the project directory and run the following commands:
 
 ```bash
-$ git clone https://github.com/AdaGold/backbooks-client.git
-$ cd backbooks
 $ npm install
 $ npm start
 ```
