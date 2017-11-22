@@ -69,6 +69,10 @@ bookList.fetch();
 
 Backbone knows that when `fetch()` is called, it should look for the appropriate configuration in the collection to load the data. Since the use of an API for data retrieval is so common, this can feel a bit like "magic".
 
+**Question:** A bit of experimenting will show that you can also delete the call to `render()` in `$(document).ready()`. What do you think is going on here? How would you find out more?
+
+**Question:** What does this tell us about where the call to `bookList.fetch()` should go within `app.js`?
+
 Your code should now match [the `api-read-only` branch](https://github.com/AdaGold/backbooks-client/tree/api-read-only).
 
 ## Writing Data To an API
