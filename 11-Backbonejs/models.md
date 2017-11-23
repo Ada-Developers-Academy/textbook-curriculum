@@ -81,10 +81,10 @@ Because of how we have configured webpack and Babel, this code will search in th
 To create instances of `Book`, invoke the `Book` constructor with the `new` keyword. Pass in a hash with the attributes you want.
 
 ```javascript
-let book = new Book({
-  title: "Ancillary Justice",
-  author: "Ann Leckie",
-  publication_year: 2013
+const book = new Book({
+  title: 'Ancillary Justice',
+  author: 'Ann Leckie',
+  publication_year: 2013,
 });
 ```
 
@@ -131,7 +131,7 @@ console.log(book.attributes);
 **Question:** How would we get the information in an instance of `Book` to show up in our web page?
 
 ```javascript
-let bookHTML = bookTemplate(book.attributes);
+const bookHTML = bookTemplate(book.attributes);
 console.log(bookHTML);
 $('#book-list').append($(bookHTML));
 ```
