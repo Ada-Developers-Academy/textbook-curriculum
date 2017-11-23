@@ -62,7 +62,7 @@ Backbone implements the familiar MVC architecture that we learned in Rails in a 
 
 To keep things manageable, in the first week of curriculum we will only cover Models and Collections, with the goal of better organizing our app's data. Interacting with the DOM will still be handled by jQuery, similar to what we did in previous assignments.
 
-In the following week we will explore Views, and how they help translate between the DOM and the Models.
+In the following week we will explore Views, and how they can be used to manage the DOM and connect it to our Backbone Models.
 
 ## Resources
 - [Underscore Documentation](http://underscorejs.org/)
@@ -71,4 +71,3 @@ In the following week we will explore Views, and how they help translate between
 - [Top JavaScript Frameworks, Libraries and Tools and When to Use Them](https://www.sitepoint.com/top-javascript-frameworks-libraries-tools-use/)
 - [StackOverflow on the difference between a Framework and a Library](http://stackoverflow.com/questions/3057526/framework-vs-toolkit-vs-library)
 - [Jamie's Backbone.js Overview slides](https://docs.google.com/presentation/d/12wG-8q4AH9UU-Z1DjANf7m--CiVTKqj9OO0rX7oMlDc/edit?usp=sharing)
-- [A Video on getting started with Webpack](https://www.youtube.com/watch?v=eWmkBNBTbMM)
