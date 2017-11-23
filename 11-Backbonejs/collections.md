@@ -1,6 +1,6 @@
 # Organizing Data with Collections
 
-As we've worked with JavaScript, up until this point all our data in has been stored as arrays of objects. This is fine for simple programs, but for more complex applications we'll need a more robust way to organize things. In the Backbone framework, this problem is solved through Models and Collections.
+We've seen how Backbone Models can be used to organize our data, similar to ActiveRecord models in Rails. However, in any interesting application we are going to have more than one instance of a given Model, so we will also need a way to manage groups of those instances. We could use standard JavaScript arrays, as we have been doing so far, but Backbone provides us another option: Collections.
 
 ## Learning Goals
 
