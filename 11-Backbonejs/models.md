@@ -69,10 +69,10 @@ Before we move on to working with collections, let's investigate this Backbone M
 First we need to import our model. Open up `src/app.js` and add the following line to the import section at the top:
 
 ```javascript
-import Book from './models/book'
+import Book from 'models/book'
 ```
 
-Because the path begins with a `./`, Webpack will interpret this as a relative path, which should get us to `src/models/book.js`. It will load whatever that file `export`s, in this case the `Book` constructor, and make it available in an object called `Book`.
+Because of how we have configured webpack and Babel, this code will search in the `src/` directory for a subdirectory named `models` and then import the `book.js` file from within there. It will load whatever that file `export`s, in this case the `Book` constructor, and make it available in a variable called `Book`.
 
 **Exercise:** Working with a whiteboard and the person next to you, write the code to define a `Cat` model.
 
