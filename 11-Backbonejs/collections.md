@@ -6,7 +6,7 @@ As we've worked with JavaScript, up until this point all our data in has been st
 
 By the end of this lesson, you should be able to...
 
-- Explain what a Backbone collection is
+- Explain what a Backbone Collection is
 - Define and instantiate a Backbone Collection
 - Add models to a collection
 - Retrieve models from a collection
