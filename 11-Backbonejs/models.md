@@ -1,6 +1,6 @@
 # Structuring Data with Models
 
-As we've worked with JavaScript, up until this point all our data in has been stored as arrays of objects. This is fine for simple programs, but for more complex applications we'll need a more robust way to organize things. In the Backbone framework, this problem is solved through Models and Collections.
+As we've worked with JavaScript, up until this point all our data has been stored as arrays of objects. This is fine for simple programs, but for more complex applications we'll need a more robust way to organize things. In the Backbone framework, this problem is solved through Models and Collections.
 
 ## Learning Goals
 
@@ -44,7 +44,7 @@ Our first step in organizing our data is to define the `Book` model.
     export default Book;
     ```
 
-The first and last lines are directives to Webpack. They say that we'll need access to Backbone, and that when this file is imported it should give access to the Book object.
+The first and last lines are directives to webpack. They say that we'll need access to Backbone, and that when this file is imported it should give access to the Book object.
 
 The middle lines are the interesting part. Here we `extend` `Backbone.Model`, which you can think of as creating a subclass. Similar to how in Rails our model classes inherited most of their behavior from `ApplicationRecord`, by `extend`ing `Backbone.Model` we get much of the functionality we need for free.
 
