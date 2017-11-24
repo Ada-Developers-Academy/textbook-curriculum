@@ -1,6 +1,6 @@
 # Structuring Data with Models
 
-As we've worked with JavaScript, up until this point all our data in has been stored as arrays of objects. This is fine for simple programs, but for more complex applications we'll need a more robust way to organize things. In the Backbone framework, this problem is solved through Models and Collections.
+As we've worked with JavaScript, up until this point all our data has been stored as arrays of objects. This is fine for simple programs, but for more complex applications we'll need a more robust way to organize things. In the Backbone framework, this problem is solved through Models and Collections.
 
 ## Learning Goals
 
@@ -44,7 +44,7 @@ Our first step in organizing our data is to define the `Book` model.
     export default Book;
     ```
 
-The first and last lines are directives to Webpack. They say that we'll need access to Backbone, and that when this file is imported it should give access to the Book object.
+The first and last lines are directives to webpack. They say that we'll need access to Backbone, and that when this file is imported it should give access to the Book object.
 
 The middle lines are the interesting part. Here we `extend` `Backbone.Model`, which you can think of as creating a subclass. Similar to how in Rails our model classes inherited most of their behavior from `ApplicationRecord`, by `extend`ing `Backbone.Model` we get much of the functionality we need for free.
 
@@ -69,10 +69,10 @@ Before we move on to working with collections, let's investigate this Backbone M
 First we need to import our model. Open up `src/app.js` and add the following line to the import section at the top:
 
 ```javascript
-import Book from './models/book'
+import Book from 'models/book'
 ```
 
-Because the path begins with a `./`, Webpack will interpret this as a relative path, which should get us to `src/models/book.js`. It will load whatever that file `export`s, in this case the `Book` constructor, and make it available in an object called `Book`.
+Because of how we have configured webpack and Babel, this code will search in the `src/` directory for a subdirectory named `models` and then import the `book.js` file from within there. It will load whatever that file `export`s, in this case the `Book` constructor, and make it available in a variable called `Book`.
 
 **Exercise:** Working with a whiteboard and the person next to you, write the code to define a `Cat` model.
 
@@ -81,10 +81,10 @@ Because the path begins with a `./`, Webpack will interpret this as a relative p
 To create instances of `Book`, invoke the `Book` constructor with the `new` keyword. Pass in a hash with the attributes you want.
 
 ```javascript
-let book = new Book({
-  title: "Ancillary Justice",
-  author: "Ann Leckie",
-  publication_year: 2013
+const book = new Book({
+  title: 'Ancillary Justice',
+  author: 'Ann Leckie',
+  publication_year: 2013,
 });
 ```
 
@@ -131,7 +131,7 @@ console.log(book.attributes);
 **Question:** How would we get the information in an instance of `Book` to show up in our web page?
 
 ```javascript
-let bookHTML = bookTemplate(book.attributes);
+const bookHTML = bookTemplate(book.attributes);
 console.log(bookHTML);
 $('#book-list').append($(bookHTML));
 ```
