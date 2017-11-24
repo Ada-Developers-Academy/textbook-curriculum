@@ -1,7 +1,7 @@
 
 # Enhancing the Model
 
-There are a lot of other things we can add to our Backbone models.  They can be constructed running a special `initialize` method.  They can be set up with default attribute values.  They can also, like our Rails models, be set up with methods to hold business logic.
+There are a lot of other things we can add to our Backbone models. They can be constructed running a special `initialize` method. They can be set up with default attribute values. They can also, like our Rails models, be set up with methods to hold business logic.
 
 ## Learning Goals
 -  Setup default values for model attributes
@@ -9,7 +9,7 @@ There are a lot of other things we can add to our Backbone models.  They can be 
 
 ## Default Values
 
-We can edit the Book model by adding a hash of attributes to initialize.  For example below we can set default values for attributes:
+We can edit the Book model by adding a hash of attributes to initialize. For example below we can set default values for attributes:
 
 ```javascript
 // src/app/models/book.js
@@ -25,7 +25,7 @@ const Book = Backbone.Model.extend({
 export default Book;
 ```
 
-Then any books created like `let poodr = new Book({title: "Practical Object-Oriented Programming in Ruby" });` will automatically have a field named `author` set to 'Unknown'.  
+Then any books created like `let poodr = new Book({title: "Practical Object-Oriented Programming in Ruby" });` will automatically have a field named `author` set to 'Unknown'.
 
 
 ## Custom Methods
@@ -78,7 +78,7 @@ Take a look at the code in the example and examine what `params` in initialize l
 TODO:  CM - Update image for Ada books
 ![params in the Dev Tools console](images/params.png)
 
-The parameter to initialize is a JavaScript object containing the argument given when the Model is constructed with `new`.  
+The parameter to initialize is a JavaScript object containing the argument given when the Model is constructed with `new`.
 
 Later on we will use this method in our views.
 
@@ -88,9 +88,9 @@ TODO:  CM - Practice making a custom method
 
 ## Validations
 
-You've done validation before in Rails.  These validations are done on the **server-side**.  This is wasteful because you have **one** server doing all the work!  It's better to shift as much work as possible to the browser because it distributes the load among your clients.  In addition by doing the validation in the browser, the users gets immediate feedback because they do not have to wait for an entire request-cycle to complete.  This makes the application feel more responsive and improves the user experience.
+You've done validation before in Rails. These validations are done on the **server-side**. This is wasteful because you have **one** server doing all the work!  It's better to shift as much work as possible to the browser because it distributes the load among your clients. In addition by doing the validation in the browser, the users gets immediate feedback because they do not have to wait for an entire request-cycle to complete. This makes the application feel more responsive and improves the user experience.
 
-To add validations to your model, create a `validate` function in your model.  The method should return `false` if the model is valid and a truthy value if the model is invalid.  
+To add validations to your model, create a `validate` function in your model. The method should return `false` if the model is valid and a truthy value if the model is invalid.
 
 ```javascript
 // src/models/book.js
@@ -119,7 +119,7 @@ const Book = Backbone.Model.extend({
 });
 ```
 
-When a `Book` instance is saved with `.save()`, the model's `validate` function is called.  The model will not post to the API if `validate` returns a truthy value, and you can access validation errors with the `validationError` property.
+When a `Book` instance is saved with `.save()`, the model's `validate` function is called. The model will not post to the API if `validate` returns a truthy value, and you can access validation errors with the `validationError` property.
 
 ```javascript
 // src/app.js
@@ -149,9 +149,9 @@ $('#add-book-form').on('submit', (event) => {
   }
 });
 ```
-In the above example, we read in the form's fields and used the collection's `create` method to create a book model and added it to the collection, as well as saving it to the API.  The function `create` returns the new model instance and we can check validation errors with the `validationError` property.  
+In the above example, we read in the form's fields and used the collection's `create` method to create a book model and added it to the collection, as well as saving it to the API. The function `create` returns the new model instance and we can check validation errors with the `validationError` property.
 
-Now this kind of validation works, but it won't report to the user **all** the validations which failed.  Instead we can collect all the validation failures and return an object containing them.
+Now this kind of validation works, but it won't report to the user **all** the validations which failed. Instead we can collect all the validation failures and return an object containing them.
 
 ```javascript
 // src/models/book.js
@@ -202,11 +202,11 @@ $('#add-book-form').on('submit', (event) => {
 // ...
 ```
 
-So after all that, why bother doing server-side validations, if we have them on the client-side?  Server-side validations are expensive, but as we've seen with Postman and other apps, submissions to our API are not guaranteed to come from our front-end, and in larger teams, there's no guarantee that every front-end's validations are perfect.  Think of validations as layers of protections for your database.  On the outer layer are client-side validations providing quick feedback to users when they make a mistake.  Beyond that are server-side validations which provide an additional layer of protection.  Lastly the database can have restrictions on data as well and provides a final layer of protection.  
+So after all that, why bother doing server-side validations, if we have them on the client-side?  Server-side validations are expensive, but as we've seen with Postman and other apps, submissions to our API are not guaranteed to come from our front-end, and in larger teams, there's no guarantee that every front-end's validations are perfect. Think of validations as layers of protections for your database. On the outer layer are client-side validations providing quick feedback to users when they make a mistake. Beyond that are server-side validations which provide an additional layer of protection. Lastly the database can have restrictions on data as well and provides a final layer of protection.
 
 ## Summary
 
-In this lesson we have examined models in more depth.  We discovered how to set default values for attributes and add custom methods.  Lastly we added a special custom method `validate` which is called to validate a model.  We used `validate` to display any validation errors encountered when we created new Books.  
+In this lesson we have examined models in more depth. We discovered how to set default values for attributes and add custom methods. Lastly we added a special custom method `validate` which is called to validate a model. We used `validate` to display any validation errors encountered when we created new Books.
 
 ## Resources
 -  [What is a model?](https://cdnjs.com/libraries/backbone.js/tutorials/what-is-a-model)
