@@ -1,11 +1,21 @@
 
 # Enhancing the Model
 
-There are a lot of other things we can add to our Backbone models. They can be constructed running a special `initialize` method. They can be set up with default attribute values. They can also, like our Rails models, be set up with methods to hold business logic.
-
 ## Learning Goals
 -  Setup default values for model attributes
 -  Write Custom methods in a model
+
+## Introduction
+
+Backbone provides a wide variety of built-in functionality for models. So far we haven't tapped into much of this - our application has been simple enough that we haven't needed it. Let's start looking at some of these features.
+
+Today we'll explore:
+- Default values
+- Model constructors
+- Custom methods
+- Client-side validations
+
+Every piece of functionality we add to the model will be added to the object we pass to `Backbone.Model.extend()`, similar to the way we added `url` and `toJson()` to `Backbone.Collection.extend()` in the lesson on APIs.
 
 ## Default Values
 
