@@ -83,7 +83,9 @@ const readForm = () => {
 
 ## Custom Methods
 
-This is also how you can add custom methods (including business logic) to your model. For example we've done a lot of printing the title & completion status of our Book to the console, a `logStatus` method might be handy.
+Backbone allows you to add custom functions to your models. These are attached to the object prototype, which means they act like instance methods in Ruby. This is useful if you have some complex business logic you want to add to your model.
+
+For example, here we add a custom function to calculate a `Book`'s age.
 
 ```javascript
 // src/app/models/book.js
@@ -91,21 +93,37 @@ import Backbone from 'backbone';
 
 const Book = Backbone.Model.extend({
   defaults: {
-    title: '',
     author: 'Unknown',
   },
-  logStatus: function() {
-    console.log("Title: " + this.get("title"));
-    console.log("Author: " + this.get("author"));
+  age: function() {
+    const currentYear = (new Date()).getFullYear();
+    return currentYear - this.get('publication_year');
   }
 });
 
 export default Book;
 ```
 
-Then in our `app.js` we can simply print out the status of our book with:  `poodr.logStatus();`
+Now you can call `.age()` on any instance of `Book`
 
-### Initialize
+```javascript
+const poodr = new Book({
+  title: 'Practical Object-Oriented Design in Ruby',
+  author: 'Sandi Metz',
+  publication_year: 2012
+});
+
+console.log(poodr.age());
+// => 5
+```
+
+### Exercise
+
+Write a `toString` function for our `Book` model. As we've seen previously, [`toString` is the function that JavaScript calls automatically when asked to string interpolate an object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString#Examples), so overriding it can be very handy.
+
+### Initialize and Parse
+
+There are two special
 
 Just like with a Rails Model you can create an `initialize` method and it will be called each time a new model is instantiated with `new`.
 
@@ -115,7 +133,6 @@ Just like with a Rails Model you can create an `initialize` method and it will b
 
 const Book = Backbone.Model.extend({
   defaults: {
-    title: '',
     author: 'Unknown',
   },
   initialize: function(params) {
@@ -161,7 +178,6 @@ To add validations to your model, create a `validate` function in your model. Th
 // src/models/book.js
 const Book = Backbone.Model.extend({
   defaults: {
-    title: '',
     author: 'Unknown',
   },
   validate(attributes) {
