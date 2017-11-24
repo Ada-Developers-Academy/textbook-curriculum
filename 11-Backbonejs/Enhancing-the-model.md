@@ -15,7 +15,7 @@ Today we'll explore:
 - Custom methods
 - Client-side validations
 
-Every piece of functionality we add to the model will be added to the object we pass to `Backbone.Model.extend()`, similar to the way we added `url` and `toJson()` to `Backbone.Collection.extend()` in the lesson on APIs.
+Every piece of functionality we add to the model will be added to the object we pass to `Backbone.Model.extend()`, similar to the way we added `url` and `parse()` to `Backbone.Collection.extend()` in the lesson on APIs.
 
 ## Default Values
 
@@ -121,50 +121,71 @@ console.log(poodr.age());
 
 Write a `toString` function for our `Book` model. As we've seen previously, [`toString` is the function that JavaScript calls automatically when asked to string interpolate an object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString#Examples), so overriding it can be very handy.
 
-### Initialize and Parse
+## Template Methods
 
-There are two special
+There are a few special methods that Backbone allows you to override. These are [template methods](https://en.wikipedia.org/wiki/Template_method_pattern), following the pattern discussed in Metz ch 6. Backbone provides a reasonable default behavior for each of these, but if you override the function your version will be used instead.
 
-Just like with a Rails Model you can create an `initialize` method and it will be called each time a new model is instantiated with `new`.
+We'll look at four of these template methods today:
+- `initialize(attributes)`
+- `parse(response)`
+- `toJSON()`
+- `validate(attributes)`
+
+### Initialize
+
+The `initialize(attributes)` method is a constructor. It is called whenever a new model is instantiated.
+
+The parameter `attributes` is what you passed into `new Book`.
 
 ```javascript
-// src/app/models/book.js
-//...
+// src/models/book.js
 
 const Book = Backbone.Model.extend({
   defaults: {
-    author: 'Unknown',
+    author: 'Unknown'
   },
-  initialize: function(params) {
-    console.log(`Book initialized: ${this.get("title")}`);
-    // just to see what params looks like
-    console.log(params);
+  initialize: function(attributes) {
+    console.log(`Book initialized: ${ this.get('title') } by ${ this.get('author') }`);
+    // just to see what attributes looks like
+    console.log(attributes);
   }
 });
 ```
 
-Take a look at the code in the example and examine what `params` in initialize looks like.
+```javascript
+const poodr = new Book({
+  title: 'POODR',
+  publication_year: 2012
+});
+// => Book initialized: POODR by Unknown
+// => { title: 'POODR', publication_year: 2012 }
+```
 
-TODO:  CM - Update image for Ada books
-![params in the Dev Tools console](images/params.png)
+A couple of observations we can make:
 
-The parameter to initialize is a JavaScript object containing the argument given when the Model is constructed with `new`.
+- Values from `attributes` have already been saved
+- Default values have been filled in
+- The `attributes` parameter contains exactly what we passed in, without defaults.
 
-Later on we will use this method in our views.
+Because Backbone does much of the setup for us, most of the time we won't need to define `initialize` ourselves. Use it for debugging or if there's some complex state you need to set up.
 
-#### Exercise
+### Parse and toJSON
 
-TODO:  CM - Practice making a custom method
+### Validate
 
-## Client-Side Validations
+The `validate(attributes)` template method provides client-side validation.
+
+#### Client-Side vs Server-Side
 
 You've done validation before in Rails. These validations are done on the **server-side**. This works, but it means we need a full request-response cycle in order to see whether what the user typed was valid. This has a couple of downsides:
+
 - The user has to wait for the server's response to get feedback
 - We might waste a bunch of network bandwidth sending bad data
 
 A more user-friendly approach is **client-side validation**. The core idea is we should validate as much of the user's data as possible in the browser before it is sent. With client-side validation, the users gets immediate feedback because they do not have to wait for an entire request-cycle to complete. This makes the application feel more responsive and improves the user experience.
 
 It's worth noting that **we still need to write validations on the server**, for two reasons:
+
 - Some of the validations might require data the client doesn't have (e.g. uniqueness constraints)
 - Because we can't trust the client, we have no guarantee the client-side validations were actually run
 
