@@ -139,9 +139,21 @@ Later on we will use this method in our views.
 
 TODO:  CM - Practice making a custom method
 
-## Validations
+## Client-Side Validations
 
-You've done validation before in Rails. These validations are done on the **server-side**. This is wasteful because you have **one** server doing all the work!  It's better to shift as much work as possible to the browser because it distributes the load among your clients. In addition by doing the validation in the browser, the users gets immediate feedback because they do not have to wait for an entire request-cycle to complete. This makes the application feel more responsive and improves the user experience.
+You've done validation before in Rails. These validations are done on the **server-side**. This works, but it means we need a full request-response cycle in order to see whether what the user typed was valid. This has a couple of downsides:
+- The user has to wait for the server's response to get feedback
+- We might waste a bunch of network bandwidth sending bad data
+
+A more user-friendly approach is **client-side validation**. The core idea is we should validate as much of the user's data as possible in the browser before it is sent. With client-side validation, the users gets immediate feedback because they do not have to wait for an entire request-cycle to complete. This makes the application feel more responsive and improves the user experience.
+
+It's worth noting that **we still need to write validations on the server**, for two reasons:
+- Some of the validations might require data the client doesn't have (e.g. uniqueness constraints)
+- Because we can't trust the client, we have no guarantee the client-side validations were actually run
+
+Even with these constraints client-side validation is an extremely useful technique.
+
+### Validations in Backbone
 
 To add validations to your model, create a `validate` function in your model. The method should return `false` if the model is valid and a truthy value if the model is invalid.
 
