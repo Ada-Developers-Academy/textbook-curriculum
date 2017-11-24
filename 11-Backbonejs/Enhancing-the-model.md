@@ -19,7 +19,7 @@ Every piece of functionality we add to the model will be added to the object we 
 
 ## Default Values
 
-We can edit the Book model by adding a hash of attributes to initialize. For example below we can set default values for attributes:
+To set default values for model attributes, add an object called `defaults` to `Backbone.Model.extend()`. For example, this code will make the default author for a book `'Unknown'`.
 
 ```javascript
 // src/app/models/book.js
@@ -27,7 +27,6 @@ import Backbone from 'backbone';
 
 const Book = Backbone.Model.extend({
   defaults: {
-    title: '',
     author: 'Unknown',
   }
 });
@@ -35,8 +34,52 @@ const Book = Backbone.Model.extend({
 export default Book;
 ```
 
-Then any books created like `let poodr = new Book({title: "Practical Object-Oriented Programming in Ruby" });` will automatically have a field named `author` set to 'Unknown'.
+Now any book created without an author will have the author set to `'Unknown'`:
 
+```javascript
+const poodr = new Book({
+  title: 'Practical Object-Oriented Development in Ruby'
+});
+
+console.log(poodr.get('author'));
+// => 'Unknown'
+```
+
+One important thing to be aware of: the empty string is a perfectly valid value! This means that if the `add-book` form is empty, we will _not_ get `'Unknown'` as our author:
+
+```javascript
+const bookData = readForm();
+console.log(bookData['author']);
+// => ''
+const book = new Book(bookData);
+console.log(book.get('author'));
+// => ''
+```
+
+To take advantage of this default value, we'll need to modify our `readForm()` method to skip fields that are empty:
+
+```javascript
+const readForm = () => {
+  let bookData = {};
+  BOOK_FIELDS.forEach((field) => {
+    // Use jQuery to select the field in the form
+    const inputElement = $(`#add-book-form input[name="${ field }"]`);
+
+    // Grab the field's current value
+    const value = inputElement.val();
+
+    // Ignore if the field is empty
+    if (value != '') {
+      bookData[field] = value;
+    }
+
+    // Clear the field
+    inputElement.val('');
+  });
+
+  return bookData;
+};
+```
 
 ## Custom Methods
 
