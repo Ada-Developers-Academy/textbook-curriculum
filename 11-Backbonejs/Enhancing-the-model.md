@@ -171,140 +171,15 @@ Because Backbone does much of the setup for us, most of the time we won't need t
 
 ### Parse and toJSON
 
-### Validate
+`.parse(serverData)` and `.toJSON()` are template methods for working with an API. As you might expect from the names, `parse` is for _reading_ data from an API, whereas `toJSON` is for _writing_ data to an API.
 
-The `validate(attributes)` template method provides client-side validation.
+We've already seen `parse` in the context of collections. It allowed us to modify the data sent by the server so it looked like what Backbone was expecting. In a model it fills the same role. `parse` will be called for every element in a collection when `.fetch()` is called.
 
-#### Client-Side vs Server-Side
+`toJSON` does exactly the opposite: it should turn the model's current state into a JavaScript object so it can be sent to the server. The default implementation uses the `attributes` property, but if you've added anything extra this is how you would encode it.
 
-You've done validation before in Rails. These validations are done on the **server-side**. This works, but it means we need a full request-response cycle in order to see whether what the user typed was valid. This has a couple of downsides:
+While it's important to know they're there, neither of these functions will be very useful to us for our BackBooks project. Reimplementing `.parse(serverData)` and `.toJSON()` is most useful if you're trying to do something complex and non-RESTful, or if you're communication with an API you don't control.
 
-- The user has to wait for the server's response to get feedback
-- We might waste a bunch of network bandwidth sending bad data
 
-A more user-friendly approach is **client-side validation**. The core idea is we should validate as much of the user's data as possible in the browser before it is sent. With client-side validation, the users gets immediate feedback because they do not have to wait for an entire request-cycle to complete. This makes the application feel more responsive and improves the user experience.
-
-It's worth noting that **we still need to write validations on the server**, for two reasons:
-
-- Some of the validations might require data the client doesn't have (e.g. uniqueness constraints)
-- Because we can't trust the client, we have no guarantee the client-side validations were actually run
-
-Even with these constraints client-side validation is an extremely useful technique.
-
-### Validations in Backbone
-
-To add validations to your model, create a `validate` function in your model. The method should return `false` if the model is valid and a truthy value if the model is invalid.
-
-```javascript
-// src/models/book.js
-const Book = Backbone.Model.extend({
-  defaults: {
-    author: 'Unknown',
-  },
-  validate(attributes) {
-    const errors = [];
-    if (!attributes.title || attributes.title === '') {
-      return 'Title is required';
-    }
-
-    if (!attributes.author) {
-      return 'Books require an author';
-    }
-
-    if (!attributes.publication_year || isNaN(attributes.publication_year) ||
-      (attributes.publication_year >= 1000 && attributes.publication_year <= (new Date()).getFullYear())) {
-      return 'A publication year is required and must between 1000 and this year.';
-    }
-
-    return false;
-  }
-});
-```
-
-When a `Book` instance is saved with `.save()`, the model's `validate` function is called. The model will not post to the API if `validate` returns a truthy value, and you can access validation errors with the `validationError` property.
-
-```javascript
-// src/app.js
-const readForm = function() {
-  const title = $('#title-field').val();
-  const author = $('#author-field').val();
-  const publication_year = $('#publication-year-field').val();
-  $('#title-field').val('');
-  $('#author-field').val('');
-  $('#publication-year-field').val('');
-
-  return {
-    title,
-    author,
-    publication_year
-  };
-};
-// ...
-$('#add-book-form').on('submit', (event) => {
-  event.preventDefault();
-  let bookData = readForm();
-  const book = bookList.create(bookData, {
-      wait: true // Don't update the list until save completes
-  });
-  if (book.validationError) {
-    $('#error-messages').append(`<li>${book.validationError}</li>`);
-  }
-});
-```
-In the above example, we read in the form's fields and used the collection's `create` method to create a book model and added it to the collection, as well as saving it to the API. The function `create` returns the new model instance and we can check validation errors with the `validationError` property.
-
-Now this kind of validation works, but it won't report to the user **all** the validations which failed. Instead we can collect all the validation failures and return an object containing them.
-
-```javascript
-// src/models/book.js
-// ...
-validate(attributes) {
-    const errors = {};
-    if (!attributes.title || attributes.title === '') {
-      errors.title = 'Title is required';
-    }
-
-    if (!attributes.author) {
-      errors.author = 'Books require an author';
-    }
-
-    if (!attributes.publication_year || isNaN(attributes.publication_year) ||
-      attributes.publication_year < 1000 || attributes.publication_year > (new Date()).getFullYear()) {
-      errors.publication_year = 'A publication year is required and must between 1000 and this year.';
-    }
-
-    return errors.length === 0 ? false : errors;
-  }
-// ...
-```
-
-And in our event handler we can display the validation errors with a loop.
-
-```javascript
-// src/app.js
-// ...
-
-$('#add-book-form').on('submit', (event) => {
-    event.preventDefault();
-    let bookData = readForm();
-
-    const book = bookList.create(bookData, {
-        success: function(model, response) { },
-        error: function(model, response) { },
-        wait: true // Don't update the list until save completes
-    });
-    if (book.validationError) {
-      console.log(book.validationError);
-      Object.keys(book.validationError).forEach( (key) => {
-        $('#error-messages').append(`<li>${key}: ${book.validationError[key]}</li>`);
-      });
-    }
-  });
-
-// ...
-```
-
-So after all that, why bother doing server-side validations, if we have them on the client-side?  Server-side validations are expensive, but as we've seen with Postman and other apps, submissions to our API are not guaranteed to come from our front-end, and in larger teams, there's no guarantee that every front-end's validations are perfect. Think of validations as layers of protections for your database. On the outer layer are client-side validations providing quick feedback to users when they make a mistake. Beyond that are server-side validations which provide an additional layer of protection. Lastly the database can have restrictions on data as well and provides a final layer of protection.
 
 ## Summary
 
