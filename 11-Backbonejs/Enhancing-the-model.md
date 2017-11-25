@@ -10,10 +10,9 @@
 Backbone provides a wide variety of built-in functionality for models. So far we haven't tapped into much of this - our application has been simple enough that we haven't needed it. Let's start looking at some of these features.
 
 Today we'll explore:
-- Default values
-- Model constructors
-- Custom methods
-- Client-side validations
+- Setting default values
+- Defining custom methods
+- Overriding template methods
 
 Every piece of functionality we add to the model will be added to the object we pass to `Backbone.Model.extend()`, similar to the way we added `url` and `parse()` to `Backbone.Collection.extend()` in the lesson on APIs.
 
@@ -45,7 +44,11 @@ console.log(poodr.get('author'));
 // => 'Unknown'
 ```
 
-One important thing to be aware of: the empty string is a perfectly valid value! This means that if the `add-book` form is empty, we will _not_ get `'Unknown'` as our author:
+### Form Input
+
+**Question:** As we've written it, will our validations be applied to new books created through the form?
+
+No! Turns out when a form field is empty, calling `.val()` gives the empty string, `''`. According to Backbone this is a perfectly valid value for an attribute, so it will _not_ apply the default value.
 
 ```javascript
 const bookData = readForm();
@@ -80,6 +83,8 @@ const readForm = () => {
   return bookData;
 };
 ```
+
+Now books created from our form should have the defaults applied as expected.
 
 ## Custom Methods
 
@@ -125,11 +130,10 @@ Write a `toString` function for our `Book` model. As we've seen previously, [`to
 
 There are a few special methods that Backbone allows you to override. These are [template methods](https://en.wikipedia.org/wiki/Template_method_pattern), following the pattern discussed in Metz ch 6. Backbone provides a reasonable default behavior for each of these, but if you override the function your version will be used instead.
 
-We'll look at four of these template methods today:
+We'll look at three of these template methods in this lesson:
 - `initialize(attributes)`
 - `parse(response)`
 - `toJSON()`
-- `validate(attributes)`
 
 ### Initialize
 
@@ -179,11 +183,14 @@ We've already seen `parse` in the context of collections. It allowed us to modif
 
 While it's important to know they're there, neither of these functions will be very useful to us for our BackBooks project. Reimplementing `.parse(serverData)` and `.toJSON()` is most useful if you're trying to do something complex and non-RESTful, or if you're communication with an API you don't control.
 
-
-
 ## Summary
 
-In this lesson we have examined models in more depth. We discovered how to set default values for attributes and add custom methods. Lastly we added a special custom method `validate` which is called to validate a model. We used `validate` to display any validation errors encountered when we created new Books.
+- Any property passed in to `Backbone.Model.extend()` will be part of the model's prototype
+- Use `defaults` to set default values for attributes
+- Custom methods can be defined here as well
+- Backbone provides many _template methods_ to let you further customize behavior
+  - `initialize(attributes)` acts as a constructor
+  - `parse(serverData)` and `toJSON()` facilitate working with a non-standard API
 
 ## Resources
 -  [What is a model?](https://cdnjs.com/libraries/backbone.js/tutorials/what-is-a-model)

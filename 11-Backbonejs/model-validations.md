@@ -24,7 +24,7 @@ A more user-friendly approach is **client-side validation**. The core idea is we
 
 ## Validating Data
 
-To add validations to your model, create a `validate` function in your model. The method should return `false` if the model is valid and a truthy value if the model is invalid.
+To add validations to your model, create a `validate` function in your model. This is another template method - as long as the name matches, Backbone will be able to find it. The method should return `false` if the model is valid and a truthy value if the model is invalid.
 
 For our `Book` model, we will organize our validation errors the same way Rails does. This requires a little extra work on our part, but has two benefits:
 - Multiple errors can be reported at once
@@ -103,7 +103,7 @@ $('#add-book-form').on('submit', (event) => {
   });
 ```
 
-## Client-Side vs Server-Side
+## Client-Side and Server-Side
 
 With all this fancy client-side validation, do we still need to write server-side validations?
 
