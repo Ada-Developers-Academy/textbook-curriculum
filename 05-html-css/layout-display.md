@@ -96,7 +96,7 @@ We can modify how an element affects the flow of the webpage using the `display`
 
 To have elements with default block displays to be inline with each other, it's `display` property and `width` need to be modified.
 
-Use this [Codepen](http://codepen.io/jamazing/pen/rrxLZo) example to experiment with the element's display values.
+Use this [Codepen](https://codepen.io/adadev/pen/vWRJpO?editors=1100#0) example to experiment with the element's display values.
 - Use Chrome's developer tools to inspect the `<div>`s
 - What happens when you remove the `display: inline-block;` line?
 

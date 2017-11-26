@@ -1,12 +1,12 @@
 # Organizing Data with Collections
 
-As we've worked with JavaScript, up until this point all our data in has been stored as arrays of objects. This is fine for simple programs, but for more complex applications we'll need a more robust way to organize things. In the Backbone framework, this problem is solved through Models and Collections.
+We've seen how Backbone Models can be used to organize our data, similar to ActiveRecord models in Rails. However, in any interesting application we are going to have more than one instance of a given Model, so we will also need a way to manage groups of those instances. We could use standard JavaScript arrays, as we have been doing so far, but Backbone provides us another option: Collections.
 
 ## Learning Goals
 
 By the end of this lesson, you should be able to...
 
-- Explain what a Backbone collection is
+- Explain what a Backbone Collection is
 - Define and instantiate a Backbone Collection
 - Add models to a collection
 - Retrieve models from a collection
@@ -28,7 +28,7 @@ Now that we've defined our `Book` Model, it's time to build a Collection to cont
 1. Open that file in Atom, and add the following code:
     ```javascript
     import Backbone from 'backbone';
-    import Book from '../models/book';
+    import Book from 'models/book';
 
     const BookList = Backbone.Collection.extend({
       model: Book
@@ -60,7 +60,7 @@ To create an instance of `BookList`, use `new BookList()`. If you pass in no arg
 A `BookList` can also be created with books. If you pass an array to `new BookList`, Backbone will attempt to create a model instance from each element in the array, using whatever model you specified when you defined the collection. For this we can use the `rawBookData` variable that is already defined.
 
 ```javascript
-let bookList = new BookList(rawBookData);
+const bookList = new BookList(rawBookData);
 ```
 
 One interesting thing to note is that in Backbone you can have more than one of a given collection. How does this compare to Rails? When might this be useful?
@@ -74,10 +74,10 @@ You can also add models to an existing collection. There are two ways to do so.
 If you already have a model, you can use the `.add` function to add it to a collection:
 
 ```javascript
-let book = new Book({
-  title: "Ancillary Justice",
-  author: "Ann Leckie",
-  publication_year: 2013
+const book = new Book({
+  title: 'Ancillary Justice',
+  author: 'Ann Leckie',
+  publication_year: 2013,
 });
 
 bookList.add(book);
@@ -88,9 +88,9 @@ Alternately, if you pass a raw JavaScript object in to `.add`, Backbone will att
 ```javascript
 // This code does exactly the same thing as above in fewer lines
 bookList.add({
-  title: "Ancillary Justice",
-  author: "Ann Leckie",
-  publication_year: 2013
+  title: 'Ancillary Justice',
+  author: 'Ann Leckie',
+  publication_year: 2013,
 });
 ```
 
@@ -119,14 +119,12 @@ bookList.forEach((book) => {
 });
 
 // Get a subset of books matching a condition (similar to Ruby's select)
-let recentBooks = bookList.filter((book) => {
-  book.get('publication_year') > 1990
-});
+const recentBooks = bookList.filter(book => book.get('publication_year') > 1990);
 ```
 
 Note that collections implement several iterators that ES6 arrays do not, that most of the iterators have an alias (`forEach` -> `each`, `reduce` -> `collect`, etc.) and that the names on some of the more obscure iterators may differ. [You can find a complete list in the Backbone documentation](http://backbonejs.org/#Collection-Underscore-Methods).
 
-This discrepency exists because Backbone predates ES6 by several years. In fact Underscore's iteration functions (which Backbone uses) were a big part of the inspiration for ES6.
+This discrepancy exists because Backbone predates ES6 by several years. In fact Underscore's iteration functions (which Backbone uses) were a big part of the inspiration for ES6.
 
 **Exercise:** Write code to log information about each `Cat` to the console.
 

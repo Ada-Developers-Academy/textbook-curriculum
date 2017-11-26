@@ -6,8 +6,9 @@ In this lesson we'll look at Backbone's event handling behavior, one of the big 
 
 By the end of this lesson, you should be able to:
 
+- Fluently use event-handling vocabulary
 - Describe what a Backbone event is
-- Register a callback function for an event
+- Register a callback function for a Backbone event
 - List some of the events emitted by collections, including `update` and `sort`
 
 ## Backbone Events
@@ -17,6 +18,8 @@ Backbone models and collections can emit events. This works almost exactly like 
 Why is this important? **It means we can separate code that updates the model from code that updates the DOM.** In practice, this allows us to simplify and DRY our code that handles DOM events.
 
 ![backbone-event-cycle](images/events/model-event-diagram-generic.png)
+
+<!-- https://www.lucidchart.com/documents/edit/d9fe9e68-a0bc-492f-ae71-06786851ed06?shared=true&existing=1&docId=d9fe9e68-a0bc-492f-ae71-06786851ed06 -->
 
 We listen for Backbone events in the same way we listen for DOM events: using the `.on()` function. For example, to listen for a `update` event on our `bookList`, we would use the following code.
 

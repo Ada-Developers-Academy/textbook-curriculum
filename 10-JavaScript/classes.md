@@ -8,7 +8,8 @@ JavaScript uses prototype-based objects.  This works, but is very awkward for OO
 By the end of this you should be able to:
 - Create your own classes with instance variables and methods.
 - Use `static` to create class methods.
-- Use `extends` to create subclasses and use super to access a parent class' attributes & methods.
+- Use `extends` to create subclasses.
+- Use `super` to access a parent class' attributes & methods.
 
 ##  Introducing Classes
 
@@ -49,13 +50,12 @@ class Book {
     this.title = title;
     this.author = author;
   }
-
   toString() {
-   return `${this.title} by ${this.author}`;
+    return `${this.title} by ${this.author}`;
   }
 }
 
-let warAndPeace = new Book("War and Peace", "Leo Tolstoy");
+const warAndPeace = new Book('War and Peace', 'Leo Tolstoy');
 
 console.log(warAndPeace.toString());
 > War and Peace by Leo Tolstoy
@@ -80,13 +80,13 @@ The constructor method is a special method named `constructor` which is called w
 ```javascript
 class Book {
   constructor(title, author) {
-    console.log("Constructor Ran!");
+    console.log('Constructor Ran!');
     this.title = title;
     this.author = author;
   }
 }
 
-let poodr = new Book("Practical Object Oriented Programming in Ruby", "Metz");
+let poodr = new Book('Practical Object Oriented Programming in Ruby', 'Metz');
 
 > Constructor Ran!
 ```
@@ -112,7 +112,7 @@ class Book {
   }
 }
 
-let adaBook = new Book("Practical Object Oriented Programming in Ruby", "Metz", 100);
+let adaBook = new Book('Practical Object Oriented Programming in Ruby', 'Metz', 100);
 console.log(adaBook.totalPrice());
 
 > 108
@@ -127,7 +127,7 @@ Getter methods are methods which are run when a property with the same name is a
 ```javascript
 class Book {
   constructor(title, author) {
-    console.log("Constructor Run!");
+    console.log('Constructor Run!');
     this._title = title;
     this._author = author;
   }
@@ -139,50 +139,58 @@ class Book {
 
   // setter method
   set author(newAuthor) {
-    if (typeof newAuthor === "string") {
+    if (typeof newAuthor === 'string') {
       this._author = newAuthor;
     }
   }
 
 }
-let poodr = new Book("Practical Object Oriented Programming in Ruby", "Metz");
+let poodr = new Book('Practical Object Oriented Programming in Ruby', 'Metz');
 
 // setter method
-poodr.author = "Chris";
+poodr.author = 'Chris';
 
 console.log(poodr.author); // getter method
 > Chris
 ```
 
-Notice that the properties are all named __\_propertyName__.  This is a typical naming convention for instance variables you want to keep private.  It's a convention that signals an intent to prevent access outside the class as nothing is **really** private in JavaScript.  Properties cannot have the same names as our getter and setter methods as doing so will result in infinite recursion.  
+Notice that the properties are all named __\_propertyName__.  This is a common naming convention for instance variables you want to keep private.  It's a convention that signals an intent to prevent access outside the class as nothing is **really** private in JavaScript.  Properties cannot have the same names as our getter and setter methods as doing so will result in infinite recursion.  
 
 **Question**:  Why would naming the property the same as the getter or setter method result in infinite recursion?
 
-**Exercise**:  Create getter and setter methods for the `Animal`'s `sound`' so that you can do:  `myAnimal.sound = "Ruff"` and `console.log(myAnimal.sound)`.
+At Ada we will not use getter and setter functions and not use the  __\_propertyName__ convention, but it is a convention you will likely encounter.  Instead we will use regular functions to access and change variables as per [AirBNB's style guide](https://github.com/airbnb/javascript#accessors--no-getters-setters).  This is because they can cause unexpected side-effects because we're treating functions like they are instance variables.
+
+For example if I wrote:
+```javascript
+poodr.auth = 'Kari';
+```
+That will give __no error__ at all!  Because Objects are extendable (you can always add more attributes), this will not result in an error message and tracking down the bug is harder to spot.  You can read more about it [here.](https://nemisj.com/why-getterssetters-is-a-bad-idea-in-javascript/)
+
+**Exercise**:  Create getter and setter methods for the `Animal`'s `sound`' so that you can do:  `myAnimal.sound = 'Ruff'` and `console.log(myAnimal.sound)`.
+
+**Exercise** After you have created getter and setter methods, convert them into regular methods.
 
 ### Static Methods
 
 Static methods are equivalent to class methods in Ruby.  They are attached to the class rather than instances of the class.
 
-
 ```javascript
 class Book {
   constructor(title, author, price) {
-    this._title = title;
-    this._author = author;
-    this._price = price;
+    this.title = title;
+    this.author = author;
+    this.price = price;
   }
-  //... getter & setter methods
   static bestPrice(bookA, bookB) {
-    if (bookA.price <= bookB.price)
+    if (bookA.price <= bookB.price) {
       return bookA.title;
-    else
-      return bookB.title;
+    }
+    return bookB.title;
   }
 }
 
-let poodr = new Book("Practical Object Oriented Programming in Ruby", 49);
-let cpppl = new Book("The C++ Programming Language", "Bjarne Stroustrup", 30);
+let poodr = new Book('Practical Object Oriented Programming in Ruby', 49);
+let cpppl = new Book('The C++ Programming Language', 'Bjarne Stroustrup', 30);
 
 console.log(Book.bestPrice(poodr, cpppl));
 > The C++ Programming Language
@@ -217,12 +225,12 @@ class Textbook extends Book {
     this.subject = subject;
   }
   toString() {
-    return super.toString() + " about: " + this.subject;
+    return `${super.toString()} about: ${this.subject}`;
   }
 
 }
 
-let cpppl = new Textbook("The C++ Programming Language", "Bjarne Stroustrup", "Comp Sci");
+let cpppl = new Textbook('The C++ Programming Language', 'Bjarne Stroustrup', 'Comp Sci');
 console.log(cpppl.toString());
 >  The C++ Programming Language by Bjarne Stroustrup about: Comp Sci
 ```

@@ -134,7 +134,7 @@ two == four / two; // true
 0.1 + 0.2 == 0.3; // false!
 0.1 + 0.2;
 
-"asdf" - 5; // NaN
+'asdf' - 5; // NaN
 ```
 
 #### `Strings` are declared with `""` or `''` or use backticks `    ``    `.
@@ -148,9 +148,12 @@ str.length;      // 16 - access the length property
 str.substr(2,5); // "is is" - call the substr function
 
 let e = "elephant";
-console.log("#{e} hotdog"); // "#{e} hotdog" js doesn't do interpolation with ""
+console.log("${e} hotdog"); // "${e} hotdog" js doesn't do interpolation with ""
 console.log(`${e} hotdog`);  // `elephant hotdog`
 ```
+
+**Note** JavaScript uses `${}` for string interpolation instead of Ruby's `#{}`
+**Note Note** We will standardize on using single quotes `' '` for strings, except in cases of string interpolation (where backticks are required).
 
 JavaScript does not have symbols, and uses strings wherever Ruby would use symbols.
 
@@ -173,7 +176,7 @@ arr;         // [1, 2, 3]; pop() mutates the array
 ```javascript
 let obj = {     // We can span lines; whitespace is mostly ignored.
   num: 5,
-  str: "This is a string",
+  str: 'This is a string',
   subObject: {
     otherNum: 4
   }
@@ -190,14 +193,14 @@ obj.foo;    // undefined
 Conditional expressions are surrounded by parenthesis `()` and each block is surrounded by brackets `{}`.
 
 ```javascript
-let name = "kittens";
+let name = 'kittens';
 
-if (name == "puppies") {
-  name += "!";
-} else if (name == "kittens") {
-  name += "!!";
+if (name === 'puppies') {
+  name += '!';
+} else if (name === 'kittens') {
+  name += '!!';
 } else {
-  name = "!" + name;
+  name = `!${name}`;
 }
 
 console.log(name);
@@ -206,7 +209,7 @@ console.log(name);
 JavaScript also has the ternary operator, which we all adore, amirite?
 
 ```javascript
-let adult = (age > 18) ? "yes" : "no";
+let adult = (age > 18) ? 'yes' : 'no';
 ```
 
 ### Iterators
@@ -230,7 +233,7 @@ Here's an example:
 
 ```javascript
 for (let i = 0; i < 5; i += 1) {
-  console.log("Iteration " + i);
+  console.log(`Iteration ${i}`);
 }
 ```
 
@@ -243,13 +246,54 @@ To point out the three components:
 
 **Question:** What Ruby code could you use to achieve the same thing?
 
+#### more `for` Loops
+There are a few other types of for loops that are useful. These are a bit more similar to the `each` loops we are used to seeing in Ruby.
+
+**`for`...`in`...**
+
+The `for...in` loop iterates over the keys of a collection. This is most useful when working with an object (similar to a Ruby hash). We haven't discussed objects in detail yet, but the following syntax should seem familiar:
+
+```javascript
+let pets = {
+  kari: 'Kylo',
+  dan: 'Gecky',
+  jamie: 'Octo and Amper',
+  dee: 'Samson',
+};
+
+for (let human in pets) {
+  console.log(`${ human }'s pets: ${ pets[human] }`);
+}
+
+// kari's pets: Kylo
+// dan's pets: Gecky
+// jamie's pets: Octo and Amper
+// dee's pets: Samson
+```
+
+**Question:** What do you get when you use a `for...in` loop on an array? Why might this be useful?
+
+**`for`...`of`...**
+
+This `for` loop gives us access to each element's value within an array. This is the closest option to our `each` loop in Ruby, for this data type.
+
+```javascript
+let animals = ['horse', 'cat', 'dog'];
+
+for (let animal of animals) {
+  console.log(`A ${ animal } is a cool animal!`);
+}
+```
+
+Note that this `for` loop can be used with many other data types beyond arrays. You can read more about those options [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of).
+
 #### `while` Loop
 JavaScript also uses the `while` loop in a similar way to the way we use it in Ruby. The following code does the same thing as the `for` loop above, more verbosely.
 
 ```javascript
 let i = 0;
 while (i < 10) {
-    console.log("Iteration " + i);
+    console.log(`Iteration ${i}`);
     i++;
 }
 ```
@@ -277,7 +321,7 @@ JavaScript has a `forEach` loop that allows you to iterate over the elements of 
   - Object
 - Demonstrate conditionals
 - Briefly show the three types of loop
-  - `for` loop
+  - `for` loops
   - `while` loop
   - `forEach` loop
 
@@ -288,3 +332,4 @@ As with HTML and CSS, there are two main educational resources about JavaScript:
 - [MDN intro to JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction)
 - [MDN re-introduction to JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) - worth going over once you're comfortable with the basics
 - [JavaScript: The Good Parts](http://shop.oreilly.com/product/9780596517748.do) - wonderful (and delightfully slim) dead trees book on the language
+- [MDN Loops](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)

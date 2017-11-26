@@ -8,14 +8,14 @@ Just like we used AJAX to send GET requests, we can also use it to send POST req
 ### POST request
 POST requests are set up very similar to GET requests.
 ```javascript
-let url = 'https://petdibs.herokuapp.com/pets';
-let data = {
+const url = 'https://petdibs.herokuapp.com/pets';
+const data = {
   name: 'Chestnut',
-  age: 17
+  age: 17,
 };
-let callback = function(){
+const callback = function callback() {
   console.log('success!');
-}
+};
 
 $.post(url, data, callback);
 ```
@@ -27,9 +27,10 @@ The main difference here is that along with a POST request, we want to pass some
 We can also see the alternate syntax of providing all of the `$.post` parameters in one single function call:
 ```javascript
 $.post('https://petdibs.herokuapp.com/pets',
-  { name: 'Chestnut',
-    age: 17 },
-  function(response){
+  {
+    name: 'Chestnut',
+    age: 17,
+  }, (response) => {
     console.log('success!');
   }
 );
@@ -56,16 +57,17 @@ Most of the time, the request data is not hard-coded like the example above. Usu
 ```
 
 ```javascript
-$('form').submit(function(e) {
-  // By default, the form will attempt to do it's own local POST so we want to prevent that default behavior
+$('form').submit( function(e) {
+  // By default, the form will attempt to do it's own
+  // local POST so we want to prevent that default
+  // behavior
   e.preventDefault();
 
-  let url = $(this).attr("action"); // Retrieve the action from the form
-  let formData = $(this).serialize();
+  const url = $(this).attr('action'); // Retrieve the action from the form
+  const formData = $(this).serialize();
 
-  $.post(url, formData, function(response){
+  $.post(url, formData, (response) => {
     $('#message').html('<p> Pet added! </p>');
-
     // What do we get in the response?
     console.log(response);
   });
@@ -79,15 +81,14 @@ We have the same status callbacks that we had for the `$.get` requests that we s
 
 Let's update our previous example to add a callback to handle the failure scenario. We've condensed our example above to highlight only the `$.post` section that needs to be modified.
 ```javascript
-$.post(url, formData, function(response){
+$.post(url, formData, (response) => {
   $('#message').html('<p> Pet added! </p>');
 
   // What do we get in the response?
   console.log(response);
-})
-  .fail(function(){
-    $('#message').html('<p>Adding Pet Failed</p>');
-  });
+}).fail(() => {
+  $('#message').html('<p>Adding Pet Failed</p>');
+});
 ```
 
 ## Key Takeaway
