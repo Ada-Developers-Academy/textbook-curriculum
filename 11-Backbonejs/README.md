@@ -9,7 +9,7 @@
 1. [Backbone Events](events.md)
 1. [API Integration](Backbone-APIs.md)
 1. [Enhancing the Model](Enhancing-the-model.md)
-1. [Model Validations](model-validation.md)
+1. [Model Validations](model-validations.md)
 
 
 <!--
