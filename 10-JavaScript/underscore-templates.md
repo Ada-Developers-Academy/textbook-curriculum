@@ -155,8 +155,16 @@ todoData.forEach((todo) => {
 
 Note that Underscore doesn't assume we have access to jQuery. That means the return value from the template is a vanilla JavaScript DOM object. If you want to do fancy jQuery things with it, you'll have to pass it through `$`, like we do here.
 
+Here, we're appending our generated HTML to some element we're targetting with jQuery. Let's create a blank element that we can target with `#todo-list` in our HTML.
+
+```html
+<div id="todo-list"></div>
+```
+
+Now we should be able to see that in JavaScript we iterate through our data, generate some HTML using a function that uses `_.template()`, and add that generated HTML to some (empty) element on our HTML.
+
 ### Putting It All Together
-[Here is a CodePen](http://codepen.io/droberts-ada/pen/wodpWe?editors=1011) that does all the things we just talked about!
+[Here is a CodePen](https://codepen.io/adadev/pen/zPLJzw?editors=1011) that does all the things we just talked about!
 
 ### Adding
 Note that we've added the Underscore library to our CodePen via the CodePen library add-ins. To add the Underscore library to your JavaScript file you'll need to add a `<script>` tag to your HTML file which will link to the [Underscore CDN](https://cdnjs.com/libraries/underscore.js/).
