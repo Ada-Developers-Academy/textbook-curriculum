@@ -24,7 +24,7 @@ Why is this important? **It means we can separate code that updates the model fr
 We listen for Backbone events in the same way we listen for DOM events: using the `.on()` function. For example, to listen for a `update` event on our `bookList`, we would use the following code.
 
 ```javascript
-let updateHandler = (list) => {
+const updateHandler = (list) => {
   // do some work, handle the update
 };
 bookList.on('update', updateHandler);
