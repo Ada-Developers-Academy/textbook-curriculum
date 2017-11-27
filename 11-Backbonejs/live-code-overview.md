@@ -12,9 +12,6 @@ By the end of this lecture, you should be able to:
 
 As we learn about Backbone, we'll be using a running example: an application to keep track of a library of books, similar to the one we built at the beginning of Rails. The difference is, this library will be a Single Page Application. You can find the initial setup linked in the calendar. The initial setup lives on the branch `master`, and the final result that we're working toward lives on the branch `endgame`.
 
-TODO DPR
-You can see the finished version here: [https://cheezitman.github.io/tasklist-js/](https://cheezitman.github.io/tasklist-js//)
-
 ### Running the Code
 
 The live code setup is a little more complex than what we've done in the past with JavaScript. Instead of directing your browser straight to a file, we'll run a simple webserver, kind of like what we did with Rails.
