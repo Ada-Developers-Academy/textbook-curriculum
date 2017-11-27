@@ -28,7 +28,7 @@ Now that we've defined our `Book` Model, it's time to build a Collection to cont
 1. Open that file in Atom, and add the following code:
     ```javascript
     import Backbone from 'backbone';
-    import Book from 'models/book';
+    import Book from '../models/book';
 
     const BookList = Backbone.Collection.extend({
       model: Book
@@ -50,7 +50,7 @@ As with the model, most of the behavior we need is gained through `extend`ing `B
 As before, we'll need to import our newly defined collection into `app.js`:
 
 ```javascript
-import BookList from 'collections/book_list';
+import BookList from './collections/book_list';
 ```
 
 #### Creating a Collection
