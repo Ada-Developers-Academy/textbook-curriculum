@@ -64,7 +64,7 @@ Now that we are configured to read our data from an API, that means we don't nee
 Since we're not getting data locally, we need to tell Backbone to read it from the remote server which we have configured. To do so, add a call to `bookList.fetch()` once you've initialized the collection. The end result will look like this:
 
 ```javascript
-let bookList = new BookList();
+const bookList = new BookList();
 bookList.fetch();
 ```
 
@@ -101,8 +101,8 @@ Second, where do we actually call `.save()`? The best place is probably in the c
 ```javascript
 $('#add-book-form').on('submit', (event) => {
   event.preventDefault();
-  let bookData = readForm();
-  let book = bookList.add(bookData);
+  const bookData = readForm();
+  const book = bookList.add(bookData);
   book.save();
 });
 ```
