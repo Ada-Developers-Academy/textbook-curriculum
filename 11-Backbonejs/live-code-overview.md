@@ -45,9 +45,7 @@ You can use Backbone without them, and use them without Backbone - in fact, righ
 
 Let's take a look at the directory structure. We are interested in the root folder and the  `dist` and `src` folders. Both these folder names are completely arbitrary - you can see them specified in `webpack.config.js`.
 
-Our Project structure will look like this, including hidden files:
-
-TODO DPR update once finished
+Our Project structure will look like this.
 
 ![Backbone Project Directory structure](images/backbone-baseline.png)
 
