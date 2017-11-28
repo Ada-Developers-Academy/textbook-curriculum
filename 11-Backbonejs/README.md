@@ -5,7 +5,7 @@
 1. [Intro to Backbone](Introduction-to-Backbonejs.md)
 1. [Live Code Overview](live-code-overview.md)
 1. [Structuring Data with Models](models.md)
-1. [Organizing Data with Collecitons](collections.md)
+1. [Organizing Data with Collections](collections.md)
 1. [Backbone Events](events.md)
 1. [API Integration](Backbone-APIs.md)
 1. [Enhancing the Model](Enhancing-the-model.md)
