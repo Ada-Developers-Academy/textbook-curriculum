@@ -79,6 +79,10 @@ Resulting in:
 
 So when you add elements to a collection or modify a model etc there is a line of code in Backbone calling the `trigger` function.  If you want code to respond to these events, you just need to add a listener.
 
+Notice that the 2nd argument to the `trigger` function is passed into the event handler as a parameter.  This is often used to pass needed state information.
+
+**Question** Take a look at the [backbone documentation](http://backbonejs.org/#Events-trigger) and answer the following question.  What does the 3rd argument to the `on` function do in the code above?
+
 ## Adding Models to a Collection
 
 As a demonstration of this technique, we will add functionality for adding a book to our library. This is what the high-level architecture will look like:
