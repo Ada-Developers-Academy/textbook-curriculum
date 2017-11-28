@@ -81,7 +81,7 @@ So when you add elements to a collection or modify a model etc there is a line o
 
 Notice that the 2nd argument to the `trigger` function is passed into the event handler as a parameter.  This is often used to pass needed state information.
 
-**Question** Take a look at the [backbone documentation](http://backbonejs.org/#Events-trigger) and answer the following question.  What does the 3rd argument to the `on` function do in the code above?
+**Question** Take a look at the [backbone documentation](http://backbonejs.org/#Events-trigger) and answer the following question.  What does the 3rd argument to the `on` function do in the code above?  Experiment with `console.log` to verify your hypothesis.  
 
 ## Adding Models to a Collection
 
