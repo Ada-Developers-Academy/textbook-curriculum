@@ -56,7 +56,7 @@ Before we go any further, let's review our vocabulary around event handling. Thi
 We can see how events get triggered ourselves in three steps.
 
 1. First we create a callback function to handle the event
-2. Second we tell a Backbone component (Model, Collection or View to call that callback function when the event occurs)
+2. Second we tell a Backbone component (Model, Collection or View) to call that callback function when the event occurs)
 3. Lastly we trigger the event with the Backbone `trigger` method.
 
 ```javascript
