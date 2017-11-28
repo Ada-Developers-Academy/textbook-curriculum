@@ -51,6 +51,38 @@ Before we go any further, let's review our vocabulary around event handling. Thi
 - In the above code, we are _listening_ for a `update` event
 - We have _registered_ the `updateHandler()` function as an event handler
 
+## Triggering Our Own Events
+
+We can see how events get triggered ourselves in three steps.
+
+1. First we create a callback function to handle the event
+2. Second we tell a Backbone component (Model, Collection or View) to call that callback function when the event occurs)
+3. Lastly we trigger the event with the Backbone `trigger` method.
+
+```javascript
+// app.js
+
+// Create an event handler
+const sampleEventHandler = (event) => {
+  console.log(`Sample Event Triggered`);
+  console.log(event);
+}
+// Tell the Collection to call `sampleEventHandler`
+// when the event 'bogus' occurs
+bookList.on('bogus', sampleEventHandler, bookList);
+
+// When ready trigger the events
+bookList.trigger('bogus', 'argument!');
+```
+Resulting in:  
+![Console from the above code](images/triggered-event-console.png)
+
+So when you add elements to a collection or modify a model etc there is a line of code in Backbone calling the `trigger` function.  If you want code to respond to these events, you just need to add a listener.
+
+Notice that the 2nd argument to the `trigger` function is passed into the event handler as a parameter.  This is often used to pass needed state information.
+
+**Question** Take a look at the [backbone documentation](http://backbonejs.org/#Events-trigger) and answer the following question.  What does the 3rd argument to the `on` function do in the code above?  Experiment with `console.log` to verify your hypothesis.  
+
 ## Adding Models to a Collection
 
 As a demonstration of this technique, we will add functionality for adding a book to our library. This is what the high-level architecture will look like:
