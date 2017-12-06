@@ -21,7 +21,7 @@ import $ from 'jquery';
 import TaskView from '../views/task_view.js';
 
 
-var TaskListView = Backbone.View.extend({
+const TaskListView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
   },
@@ -47,7 +47,7 @@ var TaskListView = Backbone.View.extend({
 
 export default TaskListView;
 ```
-Just like the `TaskView`, in `initialize` we store the template in an attribute of the view.  The view's render method looks like the render method we wrote earlier with a few differences particularly with regard to `this` and `that`.
+Just like in `TaskView`, in `initialize` we store the template in an attribute of the view.  The view's render method looks like the render method we wrote earlier with a few differences particularly with regard to `this` and `that`.
 
 
 // TODO: work on this and this.$
@@ -90,7 +90,7 @@ $(document).ready(function() {
 
 We create the TaskListView and set it's model to be our taskList collection and set the template attribute.  In this case we start off our View attached to an element in the DOM, in this case our `main` tag.
 
-Lastly we call render on the taskListView.
+Lastly, we call render on the taskListView.
 
 **Wait-- The Add & Delete buttons just got broken!!**  Don't worry, we'll handle that shortly.  
 

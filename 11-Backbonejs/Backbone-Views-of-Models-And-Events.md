@@ -43,15 +43,15 @@ import _ from 'underscore';
 import $ from 'jquery';
 import Task from '../models/task.js';
 
-var TaskView = Backbone.View.extend({
+const TaskView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
   },
   render: function() {
-    var compiledTemplate = this.template(this.model.toJSON());
+    const compiledTemplate = this.template(this.model.toJSON());
     this.$el.html(compiledTemplate);
     return this;
-  }
+  },
 });
 
 export default TaskView;
@@ -94,27 +94,30 @@ import TaskView from './views/task_view.js';
 
 const renderList = function(taskList) {
   // Clear the unordered list
-  $('#todo-items').empty();
+  const $taskList = $('#todo-items');
+  $taskList.empty();
 
   // Iterate through the list rendering each Task
-  taskList.each(function(task) {
+  taskList.forEach((task) => {
 
     // Create a new TaskView with the model & template
     const taskView = new TaskView({
       model: task,
-      template: _.template($('#task-item-template').html()),
-      tagName: 'li'
+      template: _.template($('#task-template').html()),
+      tagName: 'li',
+      className: 'task columns small-6',
     });
 
     // Then render the TaskView
     // And append the resulting HTML to the DOM.
-    $('#todo-items').append(taskView.render().$el);
+    $taskList.append(taskView.render().$el);
   });
 };
 ```
 
-Notice that in the code above we used `taskView.render().$el`.  We can do this because the view's `render()` method returns a reference to the view with the line `return this;`.  It is convention in Backbone to always have the `render()` method return `this` exactly so that we can do this kind of chaining.  We also set the
-that we are using for `el` to be `li` or a list item.
+Notice that in the code above we used `taskView.render().$el`.  We can do this because the view's `render()` method returns a reference to the view with the line `return this;`.  It is convention in Backbone to always have the `render()` method return `this` exactly so that we can do this kind of chaining.  
+
+We also set the element that we are using for `el` to be `li`, such that our template will be wrapped in an `li` element. This will require us to adjust our template and remove the redundant `li`, and move the classes we had on that parent `li` to the `taskView` under the attribute className.
 
 We are performing many of the same operations we performed in our `app.js` file's `render` function as we create the `TaskView` and render it.
 
@@ -130,12 +133,12 @@ The `events` object is structured like a Ruby hash with DOM events as the keys a
 // task_view.js
 }, // render
   events: {
-    'click button.alert': "deleteTask"
+    'click button.delete': 'deleteTask',
   },
   deleteTask: function(e) {
     this.model.destroy();
     this.remove();
-  }
+  },
 }};
 ```
 
@@ -150,13 +153,15 @@ The line `this.remove();` removes the View from the DOM and also calls `stopList
 
 ## Exercise
 
-Now try to add another event yourself toggling the task between complete or incomplete using the model method you made earlier.  **You will also need to finish the event handler by calling `render()` to draw the updated Task.**
+Now try to add another event yourself toggling the task between complete or incomplete using the model method you made earlier.  
+
+// TODO: working version
 
 You can see a working version [here](https://gist.github.com/CheezItMan/ebd6a77aab299aa247ea3e9b1164dd1a).
 
 ## Backbone Events
 
-Our view's `toggleComplete` function works, but not quite in the Backbone way.  In Backbone events follow this pattern:
+Our view's `toggleComplete` function works, but it may not quite be in the Backbone way.  In Backbone events follow this pattern:
 
 1.  A user performs an action
 1.  A DOM event listener in the View responds to the action calling methods to change data in the Model.
