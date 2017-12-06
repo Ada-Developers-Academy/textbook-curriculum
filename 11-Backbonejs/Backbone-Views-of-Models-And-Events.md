@@ -105,7 +105,7 @@ const renderList = function(taskList) {
       model: task,
       template: _.template($('#task-template').html()),
       tagName: 'li',
-      className: 'task columns small-6',
+      className: 'task',
     });
 
     // Then render the TaskView
@@ -117,9 +117,11 @@ const renderList = function(taskList) {
 
 Notice that in the code above we used `taskView.render().$el`.  We can do this because the view's `render()` method returns a reference to the view with the line `return this;`.  It is convention in Backbone to always have the `render()` method return `this` exactly so that we can do this kind of chaining.  
 
-We also set the element that we are using for `el` to be `li`, such that our template will be wrapped in an `li` element. This will require us to adjust our template and remove the redundant `li`, and move the classes we had on that parent `li` to the `taskView` under the attribute className.
+We also set the element that we are using for `el` to be `li`, such that our template will be wrapped in an `li` element. This will require us to adjust our template (`#task-template`) and remove the redundant `li`, and move the classes we had on that parent `li` to the `taskView` under the attribute className.
 
 We are performing many of the same operations we performed in our `app.js` file's `render` function as we create the `TaskView` and render it.
+
+Now that we've moved the rendering of a task to the TaskView, let's remove all references to `taskTemplate`, as they aren't being used anymore.
 
 ## DOM Events & Views
 

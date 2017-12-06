@@ -18,7 +18,7 @@ This view starts like `TaskView` with a file named `/src/views/task_list_view.js
 import Backbone from 'backbone';
 import _ from 'underscore';
 import $ from 'jquery';
-import TaskView from '../views/task_view.js';
+import TaskView from '../views/task_view';
 
 
 const TaskListView = Backbone.View.extend({
@@ -29,17 +29,17 @@ const TaskListView = Backbone.View.extend({
     // Clear the unordered list
     this.$('#todo-items').empty();
     // Iterate through the list rendering each Task
-    var that = this;
-    this.model.each(function(task) {
+    this.model.each((task) => {
       // Create a new TaskView with the model & template
-      var taskView = new TaskView({
+      const taskView = new TaskView({
         model: task,
-        template: that.template,
-        tagName: 'li'
+        template: this.template,
+        tagName: 'li',
+        className: 'task',
       });
       // Then render the TaskView
       // And append the resulting HTML to the DOM.
-      that.$('#todo-items').append(taskView.render().$el);
+      this.$('#todo-items').append(taskView.render().$el);
     });
     return this;
   }
@@ -47,13 +47,7 @@ const TaskListView = Backbone.View.extend({
 
 export default TaskListView;
 ```
-Just like in `TaskView`, in `initialize` we store the template in an attribute of the view.  The view's render method looks like the render method we wrote earlier with a few differences particularly with regard to `this` and `that`.
-
-
-// TODO: work on this and this.$
-### A Note about `this` and `that`.  
-
-If you'll notice we save our current context `this` into a variable named `that` in the render method.  We do this because the `.each` method's callback method is called within the context of the collection.  
+Just like in `TaskView`, in `initialize` we store the template in an attribute of the view.  The view's render method looks like the render method we wrote earlier with a few differences.
 
 We finish the `render` method by appending each TaskView to the list inside the DOM and when the loop is finished we `return this;` by convention.  It's a fairly common pattern developers use in JavaScript to deal with confusing `this` issues.
 
@@ -65,7 +59,7 @@ In the `render` method we clear the list using `this.$`.  The method `this.$` pe
 
 ### Updating `app.js`
 
-We will adjust our `$(document).ready` handler to use the `TaskView`.
+We will adjust our `$(document).ready` handler to use the `TaskListView`.
 
 
 ```javascript
@@ -80,8 +74,8 @@ $(document).ready(function() {
   // Why does this belong in $(document).ready ?
   const taskListView = new TaskListView({
     model: taskList,
-    template: _.template($('#task-list-template').html()),
-    el: 'main'
+    template: _.template($('#task-template').html()),
+    el: 'main',
   });
 
   taskListView.render();
@@ -92,11 +86,11 @@ We create the TaskListView and set it's model to be our taskList collection and 
 
 Lastly, we call render on the taskListView.
 
-**Wait-- The Add & Delete buttons just got broken!!**  Don't worry, we'll handle that shortly.  
+Let's take the time to also remove the references to `renderList` and `TaskView` in `app.js`, as they are now unused!
 
 ### Handling Creating New Tasks
 
-Just like we added event handlers in the `TaskView` to handle button clicks, we can add an event handler to create a new task and a method to read from the new task form, and add them to the collection.
+Just like we added event handlers in the `TaskView` to handle button clicks, we can add an event handler to create a new task and a method to read from the new task form, and add them to the collection. Let's move our logic to add a new task into our view.
 
 ![Creating New Tasks](images/addButton.png)
 
@@ -151,8 +145,13 @@ Similar to `on`, we can use the method called `listenTo` to add an event listene
   initialize: function(params) {
     this.template = params.template;
 
-    this.listenTo(this.model, "update", this.render);
+    this.listenTo(this.model, 'update', this.render);
   },
+```
+
+Adding this will allow us to delete the following line that we had previously in our `app.js` file in `$(document.ready())`
+```javascript
+taskList.on('update', renderList, taskList);
 ```
 
 ## Last bit, adjusting styles
