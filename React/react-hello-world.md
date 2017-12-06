@@ -54,13 +54,33 @@ render() {
   }
 ```
 
+
+
 Here are some important things to note about this function:
+- The pieces that look like HTML are **JSX**
 - Every component has a `render` function
 - The `render` function must return a *single* element
   - In this case, it is the outermost `div`. Every other element in the function is contained within that outermost `div`.
 
-####
-1. Make a `components` folder within the `src` folder
+#### What is JSX?
+JSX is a pre-processor (similar to ERB in Rails) that adds XML syntax to JavaScript. JSX can be used with or without React, but oftentimes it is used with React as together it creates a more elegant solution. JSX looks a lot like HTML though there are a few important differences.
+
+**Adding Classes**
+
+Since JSX is within our JavaScript code, we cannot use the `class` keyword the way we would directly in our HTML. Instead, we must use `className` to avoid the reserved word. You'll notice this in many lines of the `render` function that we were examining above.
+
+**Making it Dynamic**
+
+Take a look at the code above and see if you can identify a location within the `render` function that is rendered dynamically. You'll notice it because the syntax looks a bit different.
+
+In ERB, we were familiar with using the `<%` and `<%=` elements to dynamically generate content for our views. In JSX, we utilize `{}` to provide the content that we will pass in to dynamically generate.
+
+**Other Notes**
+
+- JSX cannot contain if-statements. If you need to include logic within your render function, you can do so _before_ the return statement.
+- The `render` function must return a **single element**. This does not mean that there can't be more complicated JSX in the `return`, but it does mean that all elements must be contained within **one** outermost element.
+
 
 ## Additional Resources
 - [`create-react-app`](https://github.com/facebookincubator/create-react-app)
+- [JSX Tutorial](http://buildwithreact.com/tutorial/jsx)
