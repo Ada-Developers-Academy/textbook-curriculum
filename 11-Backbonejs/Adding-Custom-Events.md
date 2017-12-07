@@ -34,44 +34,42 @@ Remember [Ruby Mix-ins](https://www.tutorialspoint.com/ruby/ruby_modules.htm)?  
 ```javascript
 // generic Javascript example
 
-var task = {
+const task = {
   assignee: "Dan",
-  task:     "Do work",
+  task_name: "Accomplish a thing",
   due_date: "01/01/2017"
 };
 
 _.extend(task, Backbone.Events);
 
-task.listenTo(task, "Past_Due", function(message) {
-    $("#content").append("<h2>Your Task <span class='red'>" + this.task + 
-    	"</span> is " + message.msg + ".</h2> <p> Current Date: " +
-    	 message.date.toLocaleDateString('en-US') + "</p>")
+task.listenTo(task, "past_due", function(message) {
+  $("#content").append(`<h2>Your task <span class='red'> ${this.task_name} </span> is ${message.msg}.</h2> <p> Current Date: ${message.date.toLocaleDateString('en-US')} </p>`)
 });
 
-task.trigger("Past_Due", {msg: "past due",
-							date: new Date()						
+task.trigger("past_due", {
+  msg: "past due",
+  date: new Date(),
 });
 ```
 
-You can play with this in action [here:](http://codepen.io/CheezItMan/pen/JbyrOG).
+You can play with this in action [here](https://codepen.io/adadev/pen/QOROxX).
 
 
-When you fire an event with `.trigger`.  The function takes 3 parameters.  
+When you fire an event with `.trigger`, we handle the event with `.listenTo`.  The `.listenTo` function takes 3 parameters.  
 
-1.  The name of the object we are listening to.  In this simple case, the task is listening to itself.  Later we'll have views listening to models etc.
+1.  The name of the object we are listening to.  In this simple case, the task is listening to itself.
 1.  The name of the event to trigger, which can be any name you define, for a custom event.   
 1.  The function handling the event.  That function can be sent an optional parameter.  In this case above it was a simple message about the task being overdue.  Notice that we had it sent a JavaScript object as a parameter as a sneaky way to send it multiple values.  
 
 
-### Events: `ListenTo()` & `trigger()`
+### Events: `listenTo()` & `trigger()`
 
-Notice that listenTo takes 3 parameters, one of which is the object being listened to.  To keep the example short, I have task listening for it's own event, but you can have any object, with Events mixed in listen for another object's events.  This is a great way to get otherwise unrelated objects to communicate.  
+The first parameter for `listenTo` is the object being listened to.  To keep the example short, I have task listening for it's own event, but you can have any object, with Events mixed in listen for another object's events.  This is a great way to get otherwise unrelated objects to communicate.  
 
 You can cancel a `listenTo()` with  `stopListening()`.   For example: `view.stopListening(model);`, The stopListening function takes an optional argument which tells the listener which object to stop listening to.  Otherwise the listener stops listening to **everything**.  
 
 
-The `trigger()` function causes all callbacks to the given Event to run.  You can specify an argument to pass to the callback function as a 2nd argument.  In the example above we did so here:  `task.trigger("Past_Due", {msg: "past due", date: new Date()                        
-});`.
+The `trigger()` function causes all callbacks to the given Event to run.  You can specify an argument to pass to the callback function as a 2nd argument.  In the example above we did so in the line:  `task.trigger("past_due", {msg: "past due", date: new Date(),});`.
 
 
 ### Adding Events To A View
@@ -85,28 +83,30 @@ Dom Events are added as an Object property of the view with the name of the even
 ```javascript
 // 'app/views/task.js'
 
-var TaskView = Backbone.View.extend({
+const TaskView = Backbone.View.extend({
   tagName: "li",
   events: {
-  	// Click is the name of the event, onClick the event handler
+    // "click" is the name of the event, "onClick" is the event handler
     "click": "onClick"
   },
   onClick: function() {
     console.log("Clicked!  Model:  " + this.model.get("title"));
   },
   render: function() {
-    this.$el.html(this.model.get("title"));
+    this.$el.html(this.model.get("task_name"));
     return this;
-  }
+  },
 });
-``` 
+```
 
 If you wanted to listen for a specific item within the view you could, with jQuery, specify the item using a CSS Selector.  For example if there was a block within the view with a class `title` and you wanted to listen for clicks on that block, you could put this line into the events hash `"click .title": "onTitleClick"`.  This would cause the View to listen for clicks on any element within the view and with the `title` class.  When any sub-element with that class is clicked on the `onTitleClick` event handler will run.
 
+**Exercise:** Add a small event listener inside of the `events` hash within a view that detects for "click" and takes in a selector. Create a callback function that runs `console.log()` with a message of happiness.
 
-Backbone Events API allows you to add event handlers with the `.listenTo` method as you saw earlier.  This lets you create custom events that can be triggered in your Models or Views to update other objects when something occurs, a change in status, user interaction etc.  
 
-Looking at the TaskViews in the Codepen, we can see when a task is clicked on using a DOM event.  However it would be REALLY useful if we could update another view when a Task item is clicked on, for example to show more details on the selected Todo item.  Thus we will return to the Backbone Events API and the idea of an Event Bus later.
+Backbone Events API allows you to add event handlers with the `.listenTo` method as you saw earlier.  This lets you create custom events that can be triggered in your Models or Views to update other objects when something occurs, a change in status, user interaction, etc.  
+
+Looking at the TaskViews in the CodePen, we can see when a task is clicked on using a DOM event.  However it would be REALLY useful if we could update another view when a Task item is clicked on, for example to show more details on the selected Todo item.  Thus we will return to the Backbone Events API and the idea of an Event Bus later.
 
 
 ## Events & Collections
@@ -120,93 +120,104 @@ Collection Events:
 
 We *often* have our views listen for these events because when the data for the collection changes, we need to re-render our views.  We used this in our TaskList app.
 ```javascript
-	// in app/views/task_list_view.js
+// in app/views/task_list_view.js
 ...
-	// in initialize()
-	// set a listener to call render when the collection is updated.
+// in initialize()
+// set a listener to call render when the collection is updated.
 this.listenTo(this.model, "update", this.render);
 ...
 ```
 
 ## Events in our TaskList App
 
-Right now we can create, delete and view our Tasks, but what about editing?  Well we could Edit the cards by reusing the existing input fields.
+Right now we can create, and delete our Tasks, but what about editing?  Well we could edit the cards by reusing the existing input fields.
 
 So what we'll do:  
 
-1.  Setup an event handler for when a task card is clicked on.  
+1.  Make a new edit button on a single task view.
+1.  Setup an event handler for when the edit button on a task is clicked on.  **Question:** Where do events performed on a "task card" get handled?
 1.  Then we can 'trigger' an event letting our TaskListView know that we want to edit this task.
-1.  When the task Lists' listener 'hears' the event it can delete the card being edited, and put the title & description fields in the input tags.
+1.  When the Task Lists' listener 'hears' the event, it can delete the card being edited, and put the title & description fields in the input tags.
 
 There will be drawbacks, but we'll see how it works.
 
-### First create an Event listener in TaskView for when the `<div>` in the template is clicked on:
+### First add a new edit button to our task template
+
+```
+<script id="task-template" type="text/template">
+    ...
+    <div>
+      <button type="button" class="button primary toggle-complete">Toggle Completion</button>
+      <button type="button" class="button secondary edit">Edit</button>
+      <button type="button" class="button alert delete">Delete Task</button>
+    </div>
+```
+
+### Then create an Event listener in TaskView for when the edit button in the template is clicked on
+
+...
+
+### Third: Listen for the Event & `trigger` a custom Backbone Event when it occurs.
 
 ```javascript
    // in app/views/task_view.js
   events: {
-    'click .complete-button': 'completeHandler',
-    'click .delete-button': 'deleteTask',
-    'click div': 'editTask'
-  },
-  editTask: function() {
-    // Trigger the editMe event
-    this.trigger('editMe', this);
+    'click button.delete': 'deleteTask',
+    'click button.edit': 'editTask',
   },
 ```
 
-Notice that above we are **triggering** an event called `editMe` and passing any listeners a copy of `this` object.  
-
-### Second Listen for the Event & `trigger` a custom Backbone Event when it occurs.
-
-TaskListView needs to listen to the event however, so we'll need to add a Listener to each 'card' in our view and define a callback function.  
+### Third: Listen for the Event & `trigger` a custom Backbone Event when it occurs.
 
 ```javascript
-    // In app/views/task_list_view.js
-addTask: function(task) {
-    // Create a TaskView object
-  var card = new TaskView({
-    model: task,
-    template: this.taskTemplate
-  });
-  
-    // Add the object to the list of TaskViews  
-  this.cardList.push(card);
-  
-    // Listen for the 'editMe' event.
-  this.listenTo(card, "editMe", this.editCard);
+editTask: function(e) {
+  // Trigger the editMe event
+  this.trigger('editMe', this);
 },
+```
+Notice that above we are **triggering** an event called `editMe` and passing any listeners a copy of `this` object.  
 
-  // EventListener
-editCard: function(card) {
-    // set the title to the selected Card's title
-  this.input.title.val( card.model.get("title"));
+### Lastly, Have `TaskListView` listen for the custom event
 
+TaskListView needs to listen to the event, so we'll need to add a Listener to each taskView in our view and define a callback function.  
 
-    // set the description to the selected card's description
-  this.input.description.val(card.model.get("description"));
-
-    // remove the Task from the collection
-  this.model.remove(card.model);
+```javascript
+// In app/views/task_list_view.js
+render: function() {
+  ...
+  this.model.each((task) => {
+    const taskView = new TaskView({
+      model: task,
+      template: this.template,
+      tagName: 'li',
+      className: 'task',
+    });
+    this.listenTo(taskView, 'editMe', this.editTask);
+    this.$('#todo-items').append(taskView.render().$el);
+  });
+  ...
+}, //end of addTask
+editTask: function(task) {
+  this.$('#add-task-form [name=task_name]').val( task.model.get('task_name') );
+  this.model.remove(task.model);
 },
 ```
 
-### Third Have `TaskListView` listen for the custom event
+**Note:** because in this case we need a reference to a specific `this`, our `addTask` function is not an arrow function.
 
-Now our TaskListView will listen for any TaskView it contains.  Further when the `editMe` event occurs our `editCard` function will run setting the form fields to the fields in the selected card's model.  Then we remove the card from our collection.  
-
+Now our TaskListView will listen for any TaskView it contains.  Further when the `editMe` event occurs, our `editCard` function will run setting the form fields to the fields in the selected card's model.  Then we remove the card from our collection.  
 
 
 ## Check-in
+
+// TODO, solution on commit 2c5d8127b0ff5566
 
 At this point your views should look like [this:](https://gist.github.com/CheezItMan/14346e3bcf1cb25879341713a849015d)
 
 
 ### Questions:  
 
-Why don't we have to remove it from our `cardList` array?  
-
-Further, if we click on cards randomly we end up deleting them...  How could we handle this better?  
+If we click on task randomly we end up deleting them...  How could we handle this better?  
 
 
 

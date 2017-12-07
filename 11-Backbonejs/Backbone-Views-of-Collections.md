@@ -97,40 +97,61 @@ Just like we added event handlers in the `TaskView` to handle button clicks, we 
 
 ```javascript
 // views/task_list_view.js
+import Task from '../models/task'
+
+...
 }, // end of render
 
-events: {
-  'click .add-task': "addTask"
-},
-readNewTaskForm: function() {
-  // Get the values from the fields
-  const formTitle = this.$('#title').val();
-  this.$('#title').val('');
-  const formDescription = this.$('#description').val();
-  this.$('#description').val('');
-  const formCompleted = this.$('#completed-checkbox').is(":checked");
-  this.$('#completed-checkbox').prop('checked', false);
+  events: {
+    'click .add-task': "addTask"
+  },
+  addTask: function(event) {
+    event.preventDefault();
+    const taskData ={};
+    ['task_name', 'assignee'].forEach( (field) => {
+      const val = this.$(`#add-task-form input[name=${field}]`).val();
+      if (val != '') {
+        taskData[field] = val;
+      }
+    });
+    const newTask = new Task(taskData);
 
-  return {
-    title: formTitle,
-    description: formDescription,
-    completed: formCompleted
-  };
-},
-addTask: function(e) {
-  const taskData = this.readNewTaskForm();
-  const task = new Task(taskData);
-  this.model.add(task);
-}
+    if (newTask.isValid()) {
+      this.model.add(newTask);
+      this.updateStatusMessageWith(`New task added: ${newTask.get('task_name')}`);
+    } else {
+      this.updateStatusMessageFrom(newTask.validationError);
+    }
+    this.model.add(newTask);
+  },
+  updateStatusMessageFrom: (messageHash) => {
+    const statusMessages = this.$('#status-messages');
+    statusMessages.empty();
+    _.each(messageHash, (messageType) => {
+      messageType.forEach((message) => {
+        statusMessages.append($(`<li>${message}</li>`));
+      })
+    });
+    statusMessages.show();
+  },
+  updateStatusMessageWith: (message) => {
+    const statusMessages = this.$('#status-messages');
+    statusMessages.empty();
+    statusMessages.append($(`<li>${message}</li>`));
+    statusMessages.show();
+  }
+});
+
+export default TaskListView;
 ```
 
-Again, this looks very much like what we originally wrote in `app.js`  We did change the code to use `this.$` instead of direct jQuery, and we called `readNewTaskForm()` as an instance method with `this`.  
+Again, this looks very much like what we originally wrote in `app.js`  We did change the code to use `this.$` instead of direct jQuery, and we called any helper methods we defined (such as `updateStatusMessageFrom()`) as an instance method with `this`.  
+
+**Note:** because in this case we need a reference to a specific `this`, our `addTask` function is not an arrow function.
 
 Take some time to delete the original event handlers in `app.js` and make sure everything is still working.
 
 ## Adding a Backbone Event Listener
-
-**Question:** We've broken our delete handler (again). Why isn't it working?
 
 With a little bit of digging, we can find that the delete and add buttons are doing what they're supposed to: tasks are getting added and removed from the collection. The problem is we're not re-rendering the updated list.
 
@@ -149,34 +170,10 @@ Similar to `on`, we can use the method called `listenTo` to add an event listene
   },
 ```
 
-Adding this will allow us to delete the following line that we had previously in our `app.js` file in `$(document.ready())`
+Adding this to our view's `initialize` will allow us to delete the following line that we had previously in our `app.js` file in `$(document.ready())`
 ```javascript
 taskList.on('update', renderList, taskList);
 ```
-
-## Last bit, adjusting styles
-
-You may have noticed that the styling is a bit broken.  That's because the `li` tag we set in the `TaskView` doesn't have any classes added to it for styling.  
-
-**NOTE** this is for `task_view.js` not `task_list_view.js`.  
-
-
-```javascript
-// src/views/task_view.js
-
-  initialize: function(params) {
-    this.template = params.template;
-
-    this.listenTo(this.model, "update", this.render);
-
-	 // Add classes for styling
-    this.$el.addClass("task-item");
-    this.$el.addClass("column");
-    this.$el.addClass("column-block");
-  },
-```
-
-We also need to make one adjustment by removing the `li` tag from the HTML template.
 
 ## Summary
 
