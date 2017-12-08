@@ -66,8 +66,8 @@ We should use one `describe` block for our overall `Word` model, and another nes
 Each `describe` function has two parameters. The first is the description of the `describe` block and the second is the function which contains the actions/logic. Note that we add a `;` at the end of each `describe` block.
 
 ```javascript
-describe('Word', function() {
-  describe('constructor', function() {
+describe('Word', () => {
+  describe('constructor', () => {
 
   });
 });
@@ -78,9 +78,9 @@ describe('Word', function() {
 `it` blocks should define one distinct test. The description that goes along with the `it` block should describe the specific scenario that you are testing.
 
 ```javascript
-describe('Word', function() {
-  describe('constructor', function() {
-    it ('Converts text to lowercase', function() {
+describe('Word', () => {
+  describe('constructor', () => {
+    it ('Converts text to lowercase', () => {
 
     });
   });
@@ -94,10 +94,10 @@ Expectations should be the "meat and potatoes" of your tests, inside of your `it
 The syntax of `describe` and `it` is pretty similar to Minitest (at least as similar as Ruby and JS can be), but `expect` is somewhat different. Note that there are actually two functions being called, the `expect` and the matcher (`toEqual` in this case), each taking one argument.
 
 ```javascript
-describe('Word', function() {
-  describe('constructor', function() {
-    it ('Converts text to lowercase', function() {
-      var word = new Word({ text: 'TeSt' });
+describe('Word', () => {
+  describe('constructor', () => {
+    it ('Converts text to lowercase', () => {
+      const word = new Word({ text: 'TeSt' });
       expect(word.get('text')).toEqual('test');
     });
   });
