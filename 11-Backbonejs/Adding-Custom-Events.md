@@ -155,10 +155,6 @@ There will be drawbacks, but we'll see how it works.
 
 ### Then create an Event listener in TaskView for when the edit button in the template is clicked on
 
-...
-
-### Third: Listen for the Event & `trigger` a custom Backbone Event when it occurs.
-
 ```javascript
    // in app/views/task_view.js
   events: {
@@ -167,7 +163,7 @@ There will be drawbacks, but we'll see how it works.
   },
 ```
 
-### Third: Listen for the Event & `trigger` a custom Backbone Event when it occurs.
+### Third: Receive the event & `trigger` a custom Backbone Event when it occurs.
 
 ```javascript
 editTask: function(e) {
@@ -175,15 +171,15 @@ editTask: function(e) {
   this.trigger('editMe', this);
 },
 ```
-Notice that above we are **triggering** an event called `editMe` and passing any listeners a copy of `this` object.  
+Notice above that when we are **triggering** an event called `editMe`, we pass a copy of `this` object to the listeners.
 
 ### Lastly, Have `TaskListView` listen for the custom event
 
-TaskListView needs to listen to the event, so we'll need to add a Listener to each taskView in our view and define a callback function.  
+TaskListView needs to listen to the event, so we'll need to add a Listener to our view that listens to each taskView, and we'll need to define a callback function.  
 
 ```javascript
 // In app/views/task_list_view.js
-render: function() {
+render() {
   ...
   this.model.each((task) => {
     const taskView = new TaskView({
@@ -205,7 +201,7 @@ editTask: function(task) {
 
 **Note:** because in this case we need a reference to a specific `this`, our `addTask` function is not an arrow function.
 
-Now our TaskListView will listen for any TaskView it contains.  Further when the `editMe` event occurs, our `editCard` function will run setting the form fields to the fields in the selected card's model.  Then we remove the card from our collection.  
+Now our TaskListView will listen to any TaskView it contains.  Further when the `editMe` event occurs, our `editCard` function will run, setting the form fields to the fields in the selected card's model.  Then we remove the card from our collection.  
 
 
 ## Check-in
