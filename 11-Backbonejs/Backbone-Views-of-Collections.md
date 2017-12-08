@@ -5,21 +5,19 @@ We have created a view for an individual task.  However, views can also be built
 ## Learning Goals
 -  Create a view to manage the entire TaskList collection
 -  Create event listeners to add new models to the collection
--  Create a `render` method which creates and renders a group of smaller views.  
+-  Create a `render` method which creates and renders a group of smaller views
 -  Create event listeners for custom Backbone Events
 
 ## Getting Started
 
-This view starts like `TaskView` with a file named `/src/views/task_list_view.js`.  We can move our renderList code into the view's render method and make a few adjustments.
+This view starts like `TaskView` with a new file named `/src/views/task_list_view.js`.  We can move our renderList code into the view's render method and make a few adjustments.
 
-// TODO: update to ES6
 ```javascript
 // /src/views/task_list_view.js
 import Backbone from 'backbone';
 import _ from 'underscore';
 import $ from 'jquery';
 import TaskView from '../views/task_view';
-
 
 const TaskListView = Backbone.View.extend({
   initialize: function(params) {
@@ -54,7 +52,7 @@ We finish the `render` method by appending each TaskView to the list inside the 
 
 ### About `this.$`
 
-In the `render` method we clear the list using `this.$`.  The method `this.$` performs a jQuery selection for HTML inside `el`.  Using `this.$` we can ensure that our view does not interact with any code outside of it.  You should never use jQuery directly within a view.  Instead you should use `this.$` just as you would jQuery to avoid impacting the DOM outside your view.  
+In the `render` method we clear the list using `this.$`.  The method `this.$` performs a jQuery selection for HTML inside `el`.  Using `this.$` we can ensure that our view does not interact with any code outside of it.  **You should never use jQuery directly within a view.**  Instead **you should use `this.$`** just as you would jQuery to avoid impacting the DOM outside your view.  
 
 
 ### Updating `app.js`
@@ -82,7 +80,10 @@ $(document).ready(function() {
 });
 ```
 
-We create the TaskListView and set it's model to be our taskList collection and set the template attribute.  In this case we start off our View attached to an element in the DOM, in this case our `main` tag.
+We create the TaskListView and set the following things:
+- `model`: we'll pass in `taskList` to so that it's the main model we'll be operating on
+- `template`: we'll pass in the Underscore template (which is a function) for the task template, as we'll be using this template by passing it to our TaskView within the TaskListView
+- `el`: We can start off our View attached to an existing element in the DOM, in this case we're choosing our `main` tag.
 
 Lastly, we call render on the taskListView.
 
@@ -190,6 +191,4 @@ So now we have a solution which displays our list of tasks, lets us toggle them 
 
 ## Additional Resources
 - [Backbone View Documentation](http://backbonejs.org/#View)
-- [Backbone Applications Intro to Views](https://addyosmani.com/backbone-fundamentals/#views-1)
 - [Underscore documentation](http://underscorejs.org/)
-- [SitePoint Underscore tutorial](https://www.sitepoint.com/getting-started-with-underscore-js/)

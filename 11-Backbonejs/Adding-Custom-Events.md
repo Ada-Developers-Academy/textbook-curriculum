@@ -7,7 +7,7 @@ By the end of this document you should be able:
 
 ## Adding An Event To An Object
 
-In Backbone Models contain information and business logic and Views render model data.  Events are how Views & Models communicate.  
+In Backbone, Models contain information and business logic and Views render model data.  Events are how Views & Models communicate.  
 
 You've seen jQuery Events like below:
 
@@ -48,7 +48,7 @@ task.listenTo(task, "past_due", function(message) {
 
 task.trigger("past_due", {
   msg: "past due",
-  date: new Date(),
+  date: new Date()
 });
 ```
 
@@ -69,7 +69,7 @@ The first parameter for `listenTo` is the object being listened to.  To keep the
 You can cancel a `listenTo()` with  `stopListening()`.   For example: `view.stopListening(model);`, The stopListening function takes an optional argument which tells the listener which object to stop listening to.  Otherwise the listener stops listening to **everything**.  
 
 
-The `trigger()` function causes all callbacks to the given Event to run.  You can specify an argument to pass to the callback function as a 2nd argument.  In the example above we did so in the line:  `task.trigger("past_due", {msg: "past due", date: new Date(),});`.
+The `trigger()` function causes all callbacks to the given Event to run.  You can specify an argument to pass to the callback function as a 2nd argument.  In the example above we did so in the line:  `task.trigger("past_due", {msg: "past due", date: new Date()});`.
 
 
 ### Adding Events To A View
@@ -95,11 +95,11 @@ const TaskView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.model.get("task_name"));
     return this;
-  },
+  }
 });
 ```
 
-If you wanted to listen for a specific item within the view you could, with jQuery, specify the item using a CSS Selector.  For example if there was a block within the view with a class `title` and you wanted to listen for clicks on that block, you could put this line into the events hash `"click .title": "onTitleClick"`.  This would cause the View to listen for clicks on any element within the view and with the `title` class.  When any sub-element with that class is clicked on the `onTitleClick` event handler will run.
+If you wanted to listen for a specific item within the view you could, with jQuery, specify the item using a CSS Selector.  For example if there was a block within the view with a class `title` and you wanted to listen for clicks on that block, you could put this line into the events object `"click .title": "onTitleClick"`.  This would cause the View to listen for clicks on any element within the view and with the `title` class.  When any sub-element with that class is clicked on the `onTitleClick` event handler will run.
 
 **Exercise:** Add a small event listener inside of the `events` hash within a view that detects for "click" and takes in a selector. Create a callback function that runs `console.log()` with a message of happiness.
 
@@ -217,7 +217,7 @@ At this point your views should look like [this:](https://gist.github.com/CheezI
 
 ### Questions:  
 
-If we click on task randomly we end up deleting them...  How could we handle this better?  
+If we click on a task randomly we end up deleting them...  How could we handle this better?  
 
 
 
