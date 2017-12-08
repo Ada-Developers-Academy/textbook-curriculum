@@ -157,8 +157,8 @@ Follow the same TDD workflow to test and implement `WordList.highestScoringWord(
 
 ## Additional Resources
 
-- [Jasmine documentation](https://jasmine.github.io/api/2.6/global)
-- [Jasmine Examples v2.6](https://jasmine.github.io/2.6/introduction) (full of good examples)
+- [Jasmine documentation](https://jasmine.github.io/api/2.8/global)
+- [Jasmine Examples v2.8](https://jasmine.github.io/2.8/introduction) (full of good examples)
 - [Selenium](http://www.seleniumhq.org/)
 - [Testing Backbone models with Jasmine](https://tinnedfruit.com/articles/testing-backbone-apps-with-jasmine-sinon-2.html)
 - [Backbone model validations](http://beletsky.net/2012/11/baby-steps-to-backbonejs-model.html) (the next post on this blog is about testing them!)
