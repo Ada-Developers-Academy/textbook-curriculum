@@ -130,7 +130,7 @@ The Jasmine docs also have some great examples of how to use the different match
 
 ### Wave 1: `word.spec.js`
 
-Read through the rest of the implemented tests in `word.spec.js`. Many of them cover model validations, which we haven't explicitly covered but which are similar enough to Rails to pick up. Is there anything in the tests that surprised you?
+Read through the rest of the implemented tests in `word.spec.js`. Many of them cover model validations, which we covered in week 1. Is there anything in the tests that surprised you?
 
 Now use a test-driven development workflow to implement the `Word.score()` method. Remember: the TDD cycle: pseudocode-red-green-refactor!
 
