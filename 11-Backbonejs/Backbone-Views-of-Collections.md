@@ -104,7 +104,7 @@ import Task from '../models/task'
 }, // end of render
 
   events: {
-    'click .add-task': "addTask"
+    'click #add-new-task': "addTask"
   },
   addTask: function(event) {
     event.preventDefault();
@@ -126,20 +126,20 @@ import Task from '../models/task'
     this.model.add(newTask);
   },
   updateStatusMessageFrom: (messageHash) => {
-    const statusMessages = this.$('#status-messages');
-    statusMessages.empty();
+    const statusMessagesEl = this.$('#status-messages');
+    statusMessagesEl.empty();
     _.each(messageHash, (messageType) => {
       messageType.forEach((message) => {
-        statusMessages.append($(`<li>${message}</li>`));
+        statusMessagesEl.append(`<li>${message}</li>`);
       })
     });
-    statusMessages.show();
+    statusMessagesEl.show();
   },
   updateStatusMessageWith: (message) => {
-    const statusMessages = this.$('#status-messages');
-    statusMessages.empty();
-    statusMessages.append($(`<li>${message}</li>`));
-    statusMessages.show();
+    const statusMessagesEl = this.$('#status-messages');
+    statusMessagesEl.empty();
+    statusMessagesEl.append(`<li>${message}</li>`);
+    statusMessagesEl.show();
   }
 });
 
@@ -149,6 +149,67 @@ export default TaskListView;
 Again, this looks very much like what we originally wrote in `app.js`  We did change the code to use `this.$` instead of direct jQuery, and we called any helper methods we defined (such as `updateStatusMessageFrom()`) as an instance method with `this`.  
 
 **Note:** because in this case we need a reference to a specific `this`, our `addTask` function is not an arrow function.
+
+Let's break down the above code to understand what's going on:
+
+```javascript
+  events: {
+    'click #add-new-task': "addTask"
+  },
+```
+
+We're adding an events object to our TaskListView, just like how we added an events object to our TaskView previously. Here, we're defining an event for Backbone to match on. In this case, we want to match on a 'click' event on the selector '.add-task'. The value of this is going to be the name of a callback as a string, and we're passing in "addTask", which is going to be defined in this view next after we close `events`.
+
+```javascript
+  addTask: function(event) {
+    event.preventDefault();
+    const taskData ={};
+    ['task_name', 'assignee'].forEach( (field) => {
+      const val = this.$(`#add-task-form input[name=${field}]`).val();
+      if (val != '') {
+        taskData[field] = val;
+      }
+    });
+    const newTask = new Task(taskData);
+
+    if (newTask.isValid()) {
+      this.model.add(newTask);
+      this.updateStatusMessageWith(`New task added: ${newTask.get('task_name')}`);
+    } else {
+      this.updateStatusMessageFrom(newTask.validationError);
+    }
+    this.model.add(newTask);
+  },
+```
+
+This is our callback for our event, which we've named `addTask`. The implementation is almost exactly what we already had in `app.js` for adding a new task, but now we can move it to the more appropriate location of a Backbone View. (Remember [MV*](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/11-Backbonejs/Introduction-to-Backbonejs.md#backbone-mv)?)
+
+The parts that **did** change are important to note:
+1. We need to change our jQuery call to scope it to just this view: `const val = this.$(`#add-task-form input[name=${field}]`).val();`.
+1. Instead of using the reference to a `taskList` that was defined in `app.js`, we can just use the Backbone Collection stored in this View as `this.model`.
+1. We want to bring over our helper methods `updateStatusMessageWith` and `updateStatusMessageFrom`. We'll define those within our view next. Since we know we're going to make those helpers right now, we can call them with `this.updateStatusMessageWith( ... )` and `this.updateStatusMessageFrom( ... )`
+
+```javascript
+  updateStatusMessageFrom: (messageHash) => {
+    const statusMessagesEl = this.$('#status-messages');
+    statusMessagesEl.empty();
+    _.each(messageHash, (messageType) => {
+      messageType.forEach((message) => {
+        statusMessagesEl.append(`<li>${message}</li>`);
+      })
+    });
+    statusMessagesEl.show();
+  },
+  updateStatusMessageWith: (message) => {
+    const statusMessagesEl = this.$('#status-messages');
+    statusMessagesEl.empty();
+    statusMessagesEl.append(`<li>${message}</li>`);
+    statusMessagesEl.show();
+  }
+  ...
+```
+
+Now we're bringing over our helper methods that help us update the status message element. We made one crucial update: instead of calling jQuery directly, we used `this.$`. We also took this opportunity to refactor the code by pull out the selector into the local variable `statusMessagesEl` to make it more readable.
 
 Take some time to delete the original event handlers in `app.js` and make sure everything is still working.
 
