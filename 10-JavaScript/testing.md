@@ -23,7 +23,7 @@ In short, most interesting JavaScript code is full of *external dependencies*. M
 
 ### Testing Strategy
 
-We'll be using a test suite called [Jasmine](https://jasmine.github.io/index.html) (maintained by Pivotal Labs, part of the Ada network). Jasmine is availabe as an npm package, and it is included in our standard Ada webpack setup.
+We'll be using a test suite called [Jasmine](https://jasmine.github.io/index.html) (maintained by Pivotal Labs, part of the Ada network). Jasmine is available as an npm package, and it is included in our standard Ada webpack setup.
 
 Jasmine tests are run from the command line using `npm test` (more on this later). While this is fast and convenient, it also means that our tests are being run without support from the browser, and anything that relies on the browser (like manipulating the DOM or waiting for user events) will break.
 
