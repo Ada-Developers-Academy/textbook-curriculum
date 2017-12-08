@@ -7,11 +7,11 @@ By the end of this lesson, students should be able to...
 - Discuss strategies for mitigating this complexity
 - Run Jasmine tests from the command line
 - Enumerate the parts of a Jasmine test file
-- Write tests in Jasmine for models and business logic
+- Write tests in Jasmine for models and business logic methods
 
 ## Testing in JavaScript
 
-Automated testing is an essential part of the process of writing good software. [Study](http://ieeexplore.ieee.org/abstract/document/1201238/) [after](http://www.sciencedirect.com/science/article/pii/S0950584903002040) [study](https://link.springer.com/article/10.1007/s10664-008-9062-z) have shown that folowing a strong test-driven development workflow reduces bug counts, increases code maintainability and helps teams deliver projects on time (and spend less time fixing them later).
+Automated testing is an essential part of the process of writing good software. [Study](http://ieeexplore.ieee.org/abstract/document/1201238/) [after](http://www.sciencedirect.com/science/article/pii/S0950584903002040) [study](https://link.springer.com/article/10.1007/s10664-008-9062-z) have shown that following a strong test-driven development workflow reduces bug counts, increases code maintainability and helps teams deliver projects on time (and spend less time fixing them later).
 
 While JavaScript is no exception to this rule, there are a few factors that make testing front-end web applications a little more difficult than what we've seen so far:
 
@@ -157,7 +157,7 @@ Follow the same TDD workflow to test and implement `WordList.highestScoringWord(
 
 ## Additional Resources
 
-- [Jasmine documentation](https://jasmine.github.io/api/2.6/global) 
+- [Jasmine documentation](https://jasmine.github.io/api/2.6/global)
 - [Jasmine Examples v2.6](https://jasmine.github.io/2.6/introduction) (full of good examples)
 - [Selenium](http://www.seleniumhq.org/)
 - [Testing Backbone models with Jasmine](https://tinnedfruit.com/articles/testing-backbone-apps-with-jasmine-sinon-2.html)
