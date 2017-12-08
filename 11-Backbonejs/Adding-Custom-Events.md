@@ -130,9 +130,9 @@ this.listenTo(this.model, "update", this.render);
 
 ## Events in our TaskList App
 
-Right now we can create, and delete our Tasks, but what about editing?  Well we could edit the cards by reusing the existing input fields.
+Right now we can create, and delete our Tasks, but what about editing?  Well we could edit the tasks by reusing the existing input fields. However, the edit button for a task is in one view, while the existing input fields on the task form is in another...
 
-So what we'll do:  
+Here's what we'll do:
 
 1.  Make a new edit button on a single task view.
 1.  Setup an event handler for when the edit button on a task is clicked on.  **Question:** Where do events performed on a "task card" get handled?
@@ -140,6 +140,10 @@ So what we'll do:
 1.  When the Task Lists' listener 'hears' the event, it can delete the card being edited, and put the title & description fields in the input tags.
 
 There will be drawbacks, but we'll see how it works.
+
+**Exercise:** Before we start, let's take a moment to diagram our flow of events (triggering and listening) and updating within our app.
+
+Alright, let's begin!
 
 ### First add a new edit button to our task template
 
@@ -166,6 +170,7 @@ There will be drawbacks, but we'll see how it works.
 ### Third: Receive the event & `trigger` a custom Backbone Event when it occurs.
 
 ```javascript
+// in app/views/task_view.js
 editTask: function(e) {
   // Trigger the editMe event
   this.trigger('editMe', this);
