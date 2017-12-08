@@ -171,7 +171,7 @@ The `events` object is structured like a Ruby hash with DOM events as the keys a
 // task_view.js
 }, // render
   events: {
-    'click button.delete': 'deleteTask',
+    'click button.delete': 'deleteTask'
   },
   deleteTask: function(e) {
     this.model.destroy();

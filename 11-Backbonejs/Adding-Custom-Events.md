@@ -64,7 +64,7 @@ When you fire an event with `.trigger`, we handle the event with `.listenTo`.  T
 
 ### Events: `listenTo()` & `trigger()`
 
-The first parameter for `listenTo` is the object being listened to.  To keep the example short, I have task listening for it's own event, but you can have any object, with Events mixed in listen for another object's events.  This is a great way to get otherwise unrelated objects to communicate.  
+The first parameter for `listenTo` is the object being listened to.  To keep the example short, I have task listening for it's own event, but you can have any object, with Events mixed in listen for another object's events.  This is a great way to get otherwise unrelated objects to communicate.  For example, in the context of a more fully-featured task list app, there may be also a separate view displaying a graph of "productivity statistics." If "productivity statistics" had its own view, you may want that ProductivityStatsView to listen for a custom event that is broadcasted when a task is marked complete. That ProductivityStatsView can define its own callback for updating its own view based on that event.
 
 You can cancel a `listenTo()` with  `stopListening()`.   For example: `view.stopListening(model);`, The stopListening function takes an optional argument which tells the listener which object to stop listening to.  Otherwise the listener stops listening to **everything**.  
 

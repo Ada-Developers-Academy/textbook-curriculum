@@ -4,9 +4,17 @@ We have created a view for an individual task.  However, views can also be built
 
 ## Learning Goals
 -  Create a view to manage the entire TaskList collection
--  Create event listeners to add new models to the collection
 -  Create a `render` method which creates and renders a group of smaller views
--  Create event listeners for custom Backbone Events
+-  Create event listeners to add new models to the collection
+-  Create event listeners for Backbone Events
+
+## Our Approach
+To accomplish these goals, we're going to take the following concrete steps with our backbone-tasklist project:
+1. **Move the responsibility of rendering a list of tasks out of app.js**. Replicate the implementation of `renderList` in `app.js` into a TaskListView that manages the TaskList collection, and render all tasks in the task list
+1. Use the new TaskListView in `app.js`
+1. Remove the now redundant `renderList` in `app.js`
+1. **Move the responsibility of adding a new task to the list of tasks out of app.js**. Define an event listener for the TaskListView to handle adding a new task
+1. **Move the responsibility of re-rendering the list of tasks on update out of app.js**. Update our TaskListView to listen to the Backbone Event 'update' and re-render
 
 ## Getting Started
 
