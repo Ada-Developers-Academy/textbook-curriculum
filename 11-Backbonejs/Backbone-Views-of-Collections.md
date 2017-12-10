@@ -24,14 +24,14 @@ This view starts like `TaskView` with a new file named `/src/views/task_list_vie
 // /src/views/task_list_view.js
 import Backbone from 'backbone';
 import _ from 'underscore';
-import $ from 'jquery';
 import TaskView from '../views/task_view';
 
 const TaskListView = Backbone.View.extend({
-  initialize: function(params) {
+  initialize(params) {
     this.template = params.template;
+    this.listenTo(this.model, 'update', this.render);
   },
-  render: function() {
+  render() {
     // Clear the unordered list
     this.$('#todo-items').empty();
     // Iterate through the list rendering each Task
@@ -81,7 +81,7 @@ $(document).ready(function() {
   const taskListView = new TaskListView({
     model: taskList,
     template: _.template($('#task-template').html()),
-    el: 'main',
+    el: 'main'
   });
 
   taskListView.render();
@@ -112,7 +112,7 @@ import Task from '../models/task'
 }, // end of render
 
   events: {
-    'click #add-new-task': "addTask"
+    'click #add-new-task': 'addTask'
   },
   addTask: function(event) {
     event.preventDefault();
@@ -131,9 +131,8 @@ import Task from '../models/task'
     } else {
       this.updateStatusMessageFrom(newTask.validationError);
     }
-    this.model.add(newTask);
   },
-  updateStatusMessageFrom: (messageHash) => {
+  updateStatusMessageFrom: function(messageHash) {
     const statusMessagesEl = this.$('#status-messages');
     statusMessagesEl.empty();
     _.each(messageHash, (messageType) => {
@@ -143,7 +142,7 @@ import Task from '../models/task'
     });
     statusMessagesEl.show();
   },
-  updateStatusMessageWith: (message) => {
+  updateStatusMessageWith: function(message) {
     const statusMessagesEl = this.$('#status-messages');
     statusMessagesEl.empty();
     statusMessagesEl.append(`<li>${message}</li>`);
@@ -162,7 +161,7 @@ Let's break down the above code to understand what's going on:
 
 ```javascript
   events: {
-    'click #add-new-task': "addTask"
+    'click #add-new-task': 'addTask'
   },
 ```
 
@@ -198,7 +197,7 @@ The parts that **did** change are important to note:
 1. We want to bring over our helper methods `updateStatusMessageWith` and `updateStatusMessageFrom`. We'll define those within our view next. Since we know we're going to make those helpers right now, we can call them with `this.updateStatusMessageWith( ... )` and `this.updateStatusMessageFrom( ... )`
 
 ```javascript
-  updateStatusMessageFrom: (messageHash) => {
+  updateStatusMessageFrom: function(messageHash) {
     const statusMessagesEl = this.$('#status-messages');
     statusMessagesEl.empty();
     _.each(messageHash, (messageType) => {
@@ -208,7 +207,7 @@ The parts that **did** change are important to note:
     });
     statusMessagesEl.show();
   },
-  updateStatusMessageWith: (message) => {
+  updateStatusMessageWith: function(message) {
     const statusMessagesEl = this.$('#status-messages');
     statusMessagesEl.empty();
     statusMessagesEl.append(`<li>${message}</li>`);

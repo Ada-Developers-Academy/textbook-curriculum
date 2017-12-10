@@ -8,12 +8,11 @@ By the end of this lesson you should be able to:
 - Render HTML using a view & an Underscore Template
 
 ## Context for backbone-taskList
-// TODO: add more context about the task list.
-For this week, we'll be working with a codebase around making a task list.
-// TODO: add link
-We've provided some starter code. The starter code is located here.
+For this week, we'll be working with a codebase around making a task list. Our task list will feature a list of tasks that have some task name and some assignee. We'll be able to toggle completion, add a new one, delete existing ones, and eventually edit them.
 
-Pull the code (no need to fork) and open it.
+We've provided some starter code. The starter code is located in your cohort's Github org in the repo named `backbone-tasklist`.
+
+Clone the repo (no need to fork) and open it.
 
 As always, run the following commands to get it going:
 ```
@@ -30,23 +29,22 @@ Backbone views are kind of middle-managers in the Backbone world, filling a simi
 
 You may have noticed in the previous lectures, we have a jumble of functions handling events, and drawing to the browser etc. This could quickly become a mess. It's time for some structure!
 
-For backbone-tasklist, we will create two views: one for a single task item and, later, a second view for the collection of Tasks.  Each view is responsible for rendering a specific section of the page, and for handling DOM events coming from that section. Larger views can delegate responsibility for a sub-section within its purview to another view. In backbone-tasklist we will create this structure by having the collection view delegate responsibility to multiple task views that each handle a single entry within the collection.
+For backbone-tasklist, we will create two views: one for a single task item and, later, a second view for the collection of Tasks.  Each view is responsible for rendering a specific section of the page, and for handling DOM events coming from that section. Larger views can delegate responsibility for a sub-section within its purview to another view. In backbone-tasklist, we will create this structure by having the collection view delegate responsibility to multiple task views that each handle a single entry within the collection.
 
 ![Backbone Views](images/backbone-views.png)
 
 ## Creating a View for a Task (a TaskView)
-A TaskView will handle drawing an individual task item and responding to events that concern just that task.  To start, we create a file in `app/views/task_view.js`  Each TaskView will only be concerned with rendering a specific task and dealing with events on that task.
+A TaskView will handle drawing an individual task item and responding to events that concern just that task.  To start, we create a file in `src/views/task_view.js`.  Each TaskView will only be concerned with rendering a specific task and dealing with events on that task.
 
 ```javascript
 import Backbone from 'backbone';
-import _ from 'underscore';
-import Task from '../models/task.js';
+import Task from '../models/task';
 
 const TaskView = Backbone.View.extend({
-  initialize: function(params) {
+  initialize(params) {
     this.template = params.template;
   },
-  render: function() {
+  render() {
     const compiledTemplate = this.template(this.model.toJSON());
     this.$el.html(compiledTemplate);
     return this;
@@ -58,17 +56,17 @@ export default TaskView;
 
 ### Important Parts of a View
 
-Just like Models and Collections a view extends [`Backbone.View`](http://backbonejs.org/#View).  This view comes with 5 important properties: `initialize`, `render` `el`, `model`, and `$el`. `$el` is a cached jQuery object for the view's element, and we can reference it automatically, too.
+Just like Models and Collections, a view extends [`Backbone.View`](http://backbonejs.org/#View).  This view comes with these important properties: `initialize`, `render` `el`, `model`, and `$el`. `$el` is a cached jQuery object for the view's element, and we can reference it automatically, too.
 
 |   Property	|   Description	|
 |---	|---	|
 |   `initialize`	|   A function, like in a Ruby class, called immediately when a new Backbone object is created, View, Model or Collection. 	|
 |   `el`	|   An HTML DOM element that, by default, is an empty `div`.  We use `el` to insert our view into the page when it is rendered.  	|
 |   `model`	|   The Backbone model which provides the data for the view.  The view's `model` can be a Backbone Model or Collection.  Each View should, in general, have **one** `model`.    	|
-|   `render`	|   A function called to draw (or redraw) the view.  By convention the render function always returns `this` so that it can be chained with other methods.  |
+|   `render`	|   A function called to draw (or redraw) the view.  **By convention the render function always returns `this`** so that it can be chained with other methods.  |
 |   `$el`	|   A jQuery selection of `el`, and you can use jQuery functions on it.  With `$el` you can run jQuery selections for HTML elements inside, and only inside the view.  For example, `$el.find('button.delete')` is jQuery selection of button with the class `delete` inside of `el` (the view). 	In other words `myView.$el` and `$(myView.el)` are equivalent.  |
 
-// TODO: Add description about `params` in initialize
+In our `initialize()` method, we take in a parameter named `params`. `params` is an object that we pass into a new `TaskView` at the time of initialization that contains a set of standard values that Backbone expects, but can additionally include anything. In this case, we're making the assumption that `params` is going to have inside of it a `template` that will represent an Underscore template. In `initialize`, we store the template from params into our `TaskView` in its own property called `template`. We'll make sure to pass in the Underscore template when we make a TaskView, but for now let's focus on how we use `this.template` in render().
 
 **Exercise:** Identify all of the ways we use these properties on our view in the code we just added for TaskView.
 
@@ -83,13 +81,14 @@ Notice that we only used `$el` to select items inside a view.  **Views should ne
 We can update our code to use the new view to draw each element.  
 
 Let's add our view to `app.js` with the following steps:
+1. Import our new `TaskView` into `app.js`
 1. Instead of calling the `render` method we created in `app.js`, let's create a new TaskView with the given model & template.
-2. Then let's render the template and append the resulting `$el` to the DOM.  
+1. Then let's render the template and append the resulting `$el` to the DOM.  
 
 ```javascript
 // app.js
 // imports etc...
-import TaskView from './views/task_view.js';
+import TaskView from './views/task_view';
 
 const renderList = (taskList) => {
   // Clear the unordered list
@@ -105,6 +104,7 @@ const renderList = (taskList) => {
     });
 
     $taskList.append(taskView.render().$el);
+    ...
   });
 };
 ```
@@ -159,6 +159,8 @@ We are performing many of the same operations we performed in our `app.js` file'
 
 Now that we've moved the rendering of a task to the TaskView, let's remove all references to `taskTemplate`, as they aren't being used anymore.
 
+Also, let's comment out/delete the code in `renderList` about deleting and toggling completion. We're going to fix that now.
+
 ## DOM Events & Views
 
 Switching to using views has rendered the delete button inoperative.  Backbone however provides a way to configure a View to respond to DOM events using a JavaScript object called `events`.  
@@ -166,6 +168,8 @@ Switching to using views has rendered the delete button inoperative.  Backbone h
 The `events` object is structured like a Ruby hash with DOM events as the keys and event handler functions as the values.  When a DOM event occurs, like when the user clicks on a button, Backbone looks at `events` and tries to match the event with a key in the event object.  Below we create an events object with our click event and an event handling method.  
 
 ![DOM Events like the click for the delete button](images/backbone-views-delete.png)
+
+Add the following code to `TaskView`:
 
 ```javascript
 // task_view.js
@@ -181,11 +185,11 @@ The `events` object is structured like a Ruby hash with DOM events as the keys a
 ```
 
 When the user clicks a delete button inside the view for the task (a TaskView):
-1.  Backbone will check the events object and match the event with an event handler function.  
+1.  Backbone will check the events object and match the event with an event handler function
 1.  Then that function will execute, calling the model's `destroy()` function.  
-1.  The model will then remove itself from all collections.  
+1.  The model will then remove itself from all collections
 1.  Once the model is removed from the collection, the Collection will trigger an "update" event
-1.  Our event handler for "update" on that Collection causes our `app.js` file's `renderList` function to execute.  
+1.  Our event handler for "update" on that Collection causes our `app.js` file's `renderList` function to execute (see in `app.js` the line `taskList.on('update', renderList, taskList);`)
 
 The line `this.remove();` removes the View from the DOM and also calls `stopListening()` which causes the view to stop listening to other objects, such as the model.
 
@@ -193,9 +197,7 @@ The line `this.remove();` removes the View from the DOM and also calls `stopList
 
 Now try to add another event yourself toggling the task between complete or incomplete using the model method you made earlier.  
 
-// TODO: working version
-
-You can see a working version [here](https://gist.github.com/CheezItMan/ebd6a77aab299aa247ea3e9b1164dd1a).
+You can see a working version [here](https://codepen.io/adadev/pen/GOVPOX?editors=1011).
 
 ## Backbone Events
 
@@ -223,7 +225,7 @@ var TaskView = Backbone.View.extend({
   },
 ```
 
-The [`listenTo`](http://backbonejs.org/#Events-listenTo) method causes the Backbone object to listen for custom events emitted by a different Backbone object.  In this case our View is listening for change events from the model.  We can now take out `this.render();` from the `toggleComplete` function.  
+The [`listenTo`](http://backbonejs.org/#Events-listenTo) method causes the Backbone object to listen for custom events emitted by a different Backbone object.  In this case our View is listening for change events from the model. This is a good practice so now we can be sure that the View will run `render` any time the model is updated.
 
 Backbone Models emit custom events like "change" to allow other components to respond when data in the model changes.  
 

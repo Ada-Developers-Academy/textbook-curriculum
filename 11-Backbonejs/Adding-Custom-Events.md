@@ -163,7 +163,8 @@ Alright, let's begin!
    // in app/views/task_view.js
   events: {
     'click button.delete': 'deleteTask',
-    'click button.edit': 'editTask',
+    'click button.toggle-complete': 'toggleComplete',
+    'click button.edit': 'editTask'
   },
 ```
 
@@ -200,6 +201,7 @@ render() {
 }, //end of addTask
 editTask: function(task) {
   this.$('#add-task-form [name=task_name]').val( task.model.get('task_name') );
+  this.$('#add-task-form [name=assignee]').val( task.model.get('assignee') );
   this.model.remove(task.model);
 },
 ```
@@ -211,18 +213,19 @@ Now our TaskListView will listen to any TaskView it contains.  Further when the 
 
 ## Check-in
 
-// TODO, solution on commit 2c5d8127b0ff5566
+Take a minute to check with your neighbor on what each other's solutions look like. Review the diagram we made at the beginning of the lesson to talk through the entire chain of events, from the click to the final update on the DOM.
 
-At this point your views should look like [this:](https://gist.github.com/CheezItMan/14346e3bcf1cb25879341713a849015d)
+Check your solution against the original `backbone-tasklist` project on the branch `custom-events`.
 
+## Summary
 
-### Questions:  
+We can both **trigger** and **listen to** our own custom events. In our `backbone-tasklist` project, when we clicked on the Edit button that existed in the Task View, in the callback for that event, we triggered our custom event named "editMe". In our TaskList View, for every instance of TaskView we created, we told our TaskListView to listen to that instance of TaskView broadcasting the event named "editMe". From there, we defined another callback in `TaskListView`, which updated the DOM and model.
 
-If we click on a task randomly we end up deleting them...  How could we handle this better?  
-
-
-
-
+## What Did We Accomplish?
+- Created a custom event
+- Used `trigger()` and `listenTo()`
+- Went over built-in events on Backbone.Collection (`add`, `remove`, and `change`)
+- Triggered a custom event in one view, and registered a listener for that event in a second view
 
 
 ## Resources
