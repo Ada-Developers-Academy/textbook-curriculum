@@ -119,7 +119,7 @@ import Task from '../models/task'
     const taskData ={};
     ['task_name', 'assignee'].forEach( (field) => {
       const val = this.$(`#add-task-form input[name=${field}]`).val();
-      if (val != '') {
+      if (val !== '') {
         taskData[field] = val;
       }
     });
