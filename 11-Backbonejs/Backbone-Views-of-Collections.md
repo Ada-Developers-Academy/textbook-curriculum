@@ -114,7 +114,7 @@ import Task from '../models/task'
   events: {
     'click #add-new-task': 'addTask'
   },
-  addTask: function(event) {
+  addTask(event) {
     event.preventDefault();
     const taskData ={};
     ['task_name', 'assignee'].forEach( (field) => {
@@ -132,7 +132,7 @@ import Task from '../models/task'
       this.updateStatusMessageFrom(newTask.validationError);
     }
   },
-  updateStatusMessageFrom: function(messageHash) {
+  updateStatusMessageFrom(messageHash) {
     const statusMessagesEl = this.$('#status-messages');
     statusMessagesEl.empty();
     _.each(messageHash, (messageType) => {
@@ -142,7 +142,7 @@ import Task from '../models/task'
     });
     statusMessagesEl.show();
   },
-  updateStatusMessageWith: function(message) {
+  updateStatusMessageWith(message) {
     const statusMessagesEl = this.$('#status-messages');
     statusMessagesEl.empty();
     statusMessagesEl.append(`<li>${message}</li>`);
@@ -168,7 +168,7 @@ Let's break down the above code to understand what's going on:
 We're adding an events object to our TaskListView, just like how we added an events object to our TaskView previously. Here, we're defining an event for Backbone to match on. In this case, we want to match on a 'click' event on the selector '.add-task'. The value of this is going to be the name of a callback as a string, and we're passing in "addTask", which is going to be defined in this view next after we close `events`.
 
 ```javascript
-  addTask: function(event) {
+  addTask(event) {
     event.preventDefault();
     const taskData ={};
     ['task_name', 'assignee'].forEach( (field) => {
@@ -197,7 +197,7 @@ The parts that **did** change are important to note:
 1. We want to bring over our helper methods `updateStatusMessageWith` and `updateStatusMessageFrom`. We'll define those within our view next. Since we know we're going to make those helpers right now, we can call them with `this.updateStatusMessageWith( ... )` and `this.updateStatusMessageFrom( ... )`
 
 ```javascript
-  updateStatusMessageFrom: function(messageHash) {
+  updateStatusMessageFrom(messageHash) {
     const statusMessagesEl = this.$('#status-messages');
     statusMessagesEl.empty();
     _.each(messageHash, (messageType) => {
@@ -207,7 +207,7 @@ The parts that **did** change are important to note:
     });
     statusMessagesEl.show();
   },
-  updateStatusMessageWith: function(message) {
+  updateStatusMessageWith(message) {
     const statusMessagesEl = this.$('#status-messages');
     statusMessagesEl.empty();
     statusMessagesEl.append(`<li>${message}</li>`);
@@ -232,7 +232,7 @@ Similar to `on`, we can use the method called `listenTo` to add an event listene
 
 ```javascript
 // /views/task_list_view.js
-  initialize: function(params) {
+  initialize(params) {
     this.template = params.template;
 
     this.listenTo(this.model, 'update', this.render);
