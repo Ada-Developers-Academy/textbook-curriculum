@@ -173,7 +173,7 @@ We're adding an events object to our TaskListView, just like how we added an eve
     const taskData ={};
     ['task_name', 'assignee'].forEach( (field) => {
       const val = this.$(`#add-task-form input[name=${field}]`).val();
-      if (val != '') {
+      if (val !== '') {
         taskData[field] = val;
       }
     });
