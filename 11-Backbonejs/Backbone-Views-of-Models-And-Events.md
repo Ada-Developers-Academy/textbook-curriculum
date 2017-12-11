@@ -179,7 +179,7 @@ Add the following code to `TaskView`:
   events: {
     'click button.delete': 'deleteTask'
   },
-  deleteTask: function(e) {
+  deleteTask(event) {
     this.model.destroy();
     this.remove();
   },
@@ -223,7 +223,7 @@ var TaskView = Backbone.View.extend({
     this.template = params.template;
 
     // Listen to changes in the model and call render when they occur.
-    this.listenTo(this.model, "change", this.render);
+    this.listenTo(this.model, 'change', this.render);
   },
 ```
 
