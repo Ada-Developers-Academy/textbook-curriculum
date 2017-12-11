@@ -7,7 +7,7 @@ By the end of this lesson you should be able to:
 - Create a view around a Backbone Model
 - Render HTML using a view & an Underscore Template
 
-## Context for backbone-taskList
+## Context for backbone-tasklist
 For this week, we'll be working with a codebase around making a task list. Our task list will feature a list of tasks that have some task name and some assignee. We'll be able to toggle completion, add a new one, delete existing ones, and eventually edit them.
 
 We've provided some starter code. The starter code is located in your cohort's Github org in the repo named `backbone-tasklist`.
@@ -23,6 +23,8 @@ npm start
 Take some time to look through the code. What code is already there? What displays on the browser?
 
 Our goal will be to take this code and make it take advantage of Backbone Views, which will also help us handle events.
+
+Note: While your instructor will be working and pushing their progress into branches on your specific cohort's repo, you can follow along with a generalized solution on the branches found on [this repo](https://github.com/AdaGold/backbone-tasklist).
 
 ## What is a View?
 Backbone views are kind of middle-managers in the Backbone world, filling a similar role to controllers in Rails. A view's job is to coordinate between the data and the DOM. When a DOM event happens, it's the view's job to handle it and update the data as needed, and when the data changes it's the view's job to modify the DOM to match.
