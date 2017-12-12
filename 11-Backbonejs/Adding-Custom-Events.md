@@ -16,7 +16,7 @@ You've seen jQuery Events like below:
 
 <script>
 $('#sample-button').on('click', function() {
-  alert("You Pressed it");
+  alert('You Pressed it');
 })
 </script>
 ```
@@ -35,19 +35,19 @@ Remember [Ruby Mix-ins](https://www.tutorialspoint.com/ruby/ruby_modules.htm)?  
 // generic Javascript example
 
 const task = {
-  assignee: "Dan",
-  task_name: "Accomplish a thing",
-  due_date: "01/01/2017"
+  assignee: 'Dan',
+  task_name: 'Accomplish a thing',
+  due_date: '01/01/2017',
 };
 
 _.extend(task, Backbone.Events);
 
-task.listenTo(task, "past_due", function(message) {
-  $("#content").append(`<h2>Your task <span class='red'> ${this.task_name} </span> is ${message.msg}.</h2> <p> Current Date: ${message.date.toLocaleDateString('en-US')} </p>`)
+task.listenTo(task, 'past_due', function(message) {
+  $('#content').append(`<h2>Your task <span class='red'> ${this.task_name} </span> is ${message.msg}.</h2> <p> Current Date: ${message.date.toLocaleDateString('en-US')} </p>`)
 });
 
-task.trigger("past_due", {
-  msg: "past due",
+task.trigger('past_due', {
+  msg: 'past due',
   date: new Date()
 });
 ```
@@ -69,7 +69,7 @@ The first parameter for `listenTo` is the object being listened to.  To keep the
 You can cancel a `listenTo()` with  `stopListening()`.   For example: `view.stopListening(model);`, The stopListening function takes an optional argument which tells the listener which object to stop listening to.  Otherwise the listener stops listening to **everything**.  
 
 
-The `trigger()` function causes all callbacks to the given Event to run.  You can specify an argument to pass to the callback function as a 2nd argument.  In the example above we did so in the line:  `task.trigger("past_due", {msg: "past due", date: new Date()});`.
+The `trigger()` function causes all callbacks to the given Event to run.  You can specify an argument to pass to the callback function as a 2nd argument.  In the example above we did so in the line:  `task.trigger('past_due', {msg: 'past due', date: new Date()});`.
 
 
 ### Adding Events To A View
@@ -84,22 +84,22 @@ Dom Events are added as an Object property of the view with the name of the even
 // 'app/views/task.js'
 
 const TaskView = Backbone.View.extend({
-  tagName: "li",
+  tagName: 'li',
   events: {
-    // "click" is the name of the event, "onClick" is the event handler
-    "click": "onClick"
+    // 'click' is the name of the event, 'onClick' is the event handler
+    'click': 'onClick',
   },
-  onClick: function() {
-    console.log("Clicked!  Model:  " + this.model.get("title"));
+  onClick() {
+    console.log(`Clicked!  Model: ${this.model.get('title')}`);
   },
-  render: function() {
-    this.$el.html(this.model.get("task_name"));
+  render(){
+    this.$el.html(this.model.get('task_name'));
     return this;
   }
 });
 ```
 
-If you wanted to listen for a specific item within the view you could, with jQuery, specify the item using a CSS Selector.  For example if there was a block within the view with a class `title` and you wanted to listen for clicks on that block, you could put this line into the events object `"click .title": "onTitleClick"`.  This would cause the View to listen for clicks on any element within the view and with the `title` class.  When any sub-element with that class is clicked on the `onTitleClick` event handler will run.
+If you wanted to listen for a specific item within the view you could, with jQuery, specify the item using a CSS Selector.  For example if there was a block within the view with a class `title` and you wanted to listen for clicks on that block, you could put this line into the events object `'click .title': 'onTitleClick'`.  This would cause the View to listen for clicks on any element within the view and with the `title` class.  When any sub-element with that class is clicked on the `onTitleClick` event handler will run.
 
 **Exercise:** Add a small event listener inside of the `events` hash within a view that detects for "click" and takes in a selector. Create a callback function that runs `console.log()` with a message of happiness.
 
@@ -124,7 +124,7 @@ We *often* have our views listen for these events because when the data for the 
 ...
 // in initialize()
 // set a listener to call render when the collection is updated.
-this.listenTo(this.model, "update", this.render);
+this.listenTo(this.model, 'update', this.render);
 ...
 ```
 
@@ -172,7 +172,7 @@ Alright, let's begin!
 
 ```javascript
 // in app/views/task_view.js
-editTask: function(e) {
+editTask(e) {
   // Trigger the editMe event
   this.trigger('editMe', this);
 },
@@ -199,7 +199,7 @@ render() {
   });
   ...
 }, //end of addTask
-editTask: function(task) {
+editTask(task) {
   this.$('#add-task-form [name=task_name]').val( task.model.get('task_name') );
   this.$('#add-task-form [name=assignee]').val( task.model.get('assignee') );
   this.model.remove(task.model);
