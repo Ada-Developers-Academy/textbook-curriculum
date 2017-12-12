@@ -162,3 +162,5 @@ Follow the same TDD workflow to test and implement `WordList.highestScoringWord(
 - [Selenium](http://www.seleniumhq.org/)
 - [Testing Backbone models with Jasmine](https://tinnedfruit.com/articles/testing-backbone-apps-with-jasmine-sinon-2.html)
 - [Backbone model validations](http://beletsky.net/2012/11/baby-steps-to-backbonejs-model.html) (the next post on this blog is about testing them!)
+- [Sinonjs a way to mock things like API calls](http://sinonjs.org/)
+- [Karma a way to test your code in browsers automatically](https://karma-runner.github.io/1.0/index.html)
