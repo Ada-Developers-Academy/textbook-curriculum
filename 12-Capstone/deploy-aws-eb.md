@@ -15,7 +15,7 @@ Previously we've seen deployment with Heroku which is easy to get started with, 
 One alternative for deploying back-end web applications is to use Amazon Web Services (which Heroku is built on).
 
 ### What is AWS?
-Amazon Web Services is a _cloud_ computing system offered by Amazon. Amazon operates and maintains several large datacenters of physical computer and networking equipment including servers, hard disks, routers, switches -- collectively known as infrastructure.
+Amazon Web Services is a _cloud_ computing system offered by Amazon. Amazon operates and maintains [several large datacenters](https://aws.amazon.com/about-aws/global-infrastructure/) of physical computer and networking equipment including servers, hard disks, routers, switches -- collectively known as infrastructure.
 
 Much of this infrastructure is dedicated to running Amazon-specific applications (Amazon.com, Kindle, Alexa, their warehouse management system, etc.). In order to support peak loads, such as during black Friday / cyber Monday, Amazon owns a significant amount of infrastucture that goes unused the rest of the time.
 
@@ -26,7 +26,7 @@ Ontop of the services that AWS offers which give access to rent (provision) its 
 In this lecture we will be looking at one of those deployment options, Elastic Beanstalk, and the associated AWS services that it integrates with.
 
 ### What is Elastic Beanstalk?
-[Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/) is a deployment system built ontop of AWS that allows for a deployment experience very similar in capability and scope to Heroku.
+[Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/) is a deployment system built ontop of AWS that allows for a deployment experience very [similar in capability and scope to Heroku](https://hackernoon.com/aws-vs-heroku-cloud-platform-comparison-for-2017-5f2194c0673e).
 
 When deploying to Elastic Beanstalk (EB), developers configure an application for deployment using the [AWS Management Console](https://console.aws.amazon.com/), then use the EB CLI program within the Git repository for their application to trigger a deployment.
 
@@ -40,6 +40,8 @@ EB then packages up the application source code, uploads it to AWS (using the [S
 ### Components of an Elastic Beanstalk stack
 #### Networking
 EB uses another AWS service known as [Virtual Private Cloud](https://aws.amazon.com/vpc/) (VPC) to manage the networking setup for your deployed application.
+
+![EB Instance Diagram](assets/EB-Instance-Diagram.png)
 
 VPC supports a great many options for configuring internet and intranet access to the other resources that AWS offers. In the case of an Elastic Beanstalk deployment, the load balancers are made accessible directly via the Internet while the web servers and database are only accessible internally within AWS by the other components of your application.
 
@@ -204,3 +206,9 @@ The syntax for setting multiple variables at once is:
 ```bash
 $ eb setenv VARIABLE_ONE=apple VARIABLE_TWO=banana
 ```
+
+## Elastic Beanstalk Resources
+
+- [Amazon's EB Developer Guide](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html)
+- [Django Python 3 and Postgres with EB](https://realpython.com/blog/python/deploying-a-django-app-and-postgresql-to-aws-elastic-beanstalk/)
+- [Deploying a Node Site with MongoDB with EB](https://www.mongodb.com/blog/post/develop-and-deploy-a-nodejs-app-to-aws-elastic-beanstalk-and-mongodb-atlas)
