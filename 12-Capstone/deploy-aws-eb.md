@@ -142,11 +142,15 @@ Instance type is the term AWS uses to identify which "size" of resource is being
 
 When the EB CLI prompts you for a database username and password, keep the default `ebroot` for the username and type `password` for the password.
 
+Then wait 10 minutes or so, as it will take time for AWS to finish setting up your application.  
+
 ### Check out the application
 Run the command `eb open` to open your browser to the deployed application URL.
 
 ## Deploying Your Rails Project
 There are a few changes that are needed before a Rails project can be deployed to Elastic Beanstalk. In particular, we need to configure the database details for the production environment, and create any environment variables the application will use.
+
+To deploy your committed changes in your application you can use the command `eb deploy`
 
 ### Database configuration
 Rails uses the file `config/database.yml` to determine how it should connect to its database. When we run the command `rails new` to create a new Rails project this file is generated for us and it has sections for each of the three environments: `development`, `test`, and `production`.
