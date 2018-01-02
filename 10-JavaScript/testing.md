@@ -7,11 +7,11 @@ By the end of this lesson, students should be able to...
 - Discuss strategies for mitigating this complexity
 - Run Jasmine tests from the command line
 - Enumerate the parts of a Jasmine test file
-- Write tests in Jasmine for models and business logic
+- Write tests in Jasmine for models and business logic methods
 
 ## Testing in JavaScript
 
-Automated testing is an essential part of the process of writing good software. [Study](http://ieeexplore.ieee.org/abstract/document/1201238/) [after](http://www.sciencedirect.com/science/article/pii/S0950584903002040) [study](https://link.springer.com/article/10.1007/s10664-008-9062-z) have shown that folowing a strong test-driven development workflow reduces bug counts, increases code maintainability and helps teams deliver projects on time (and spend less time fixing them later).
+Automated testing is an essential part of the process of writing good software. [Study](http://ieeexplore.ieee.org/abstract/document/1201238/) [after](http://www.sciencedirect.com/science/article/pii/S0950584903002040) [study](https://link.springer.com/article/10.1007/s10664-008-9062-z) have shown that following a strong test-driven development workflow reduces bug counts, increases code maintainability and helps teams deliver projects on time (and spend less time fixing them later).
 
 While JavaScript is no exception to this rule, there are a few factors that make testing front-end web applications a little more difficult than what we've seen so far:
 
@@ -23,7 +23,7 @@ In short, most interesting JavaScript code is full of *external dependencies*. M
 
 ### Testing Strategy
 
-We'll be using a test suite called [Jasmine](https://jasmine.github.io/index.html) (maintained by Pivotal Labs, part of the Ada network). Jasmine is availabe as an npm package, and it is included in our standard Ada webpack setup.
+We'll be using a test suite called [Jasmine](https://jasmine.github.io/index.html) (maintained by Pivotal Labs, part of the Ada network). Jasmine is available as an npm package, and it is included in our standard Ada webpack setup.
 
 Jasmine tests are run from the command line using `npm test` (more on this later). While this is fast and convenient, it also means that our tests are being run without support from the browser, and anything that relies on the browser (like manipulating the DOM or waiting for user events) will break.
 
@@ -66,8 +66,8 @@ We should use one `describe` block for our overall `Word` model, and another nes
 Each `describe` function has two parameters. The first is the description of the `describe` block and the second is the function which contains the actions/logic. Note that we add a `;` at the end of each `describe` block.
 
 ```javascript
-describe('Word', function() {
-  describe('constructor', function() {
+describe('Word', () => {
+  describe('constructor', () => {
 
   });
 });
@@ -78,9 +78,9 @@ describe('Word', function() {
 `it` blocks should define one distinct test. The description that goes along with the `it` block should describe the specific scenario that you are testing.
 
 ```javascript
-describe('Word', function() {
-  describe('constructor', function() {
-    it ('Converts text to lowercase', function() {
+describe('Word', () => {
+  describe('constructor', () => {
+    it ('Converts text to lowercase', () => {
 
     });
   });
@@ -94,10 +94,10 @@ Expectations should be the "meat and potatoes" of your tests, inside of your `it
 The syntax of `describe` and `it` is pretty similar to Minitest (at least as similar as Ruby and JS can be), but `expect` is somewhat different. Note that there are actually two functions being called, the `expect` and the matcher (`toEqual` in this case), each taking one argument.
 
 ```javascript
-describe('Word', function() {
-  describe('constructor', function() {
-    it ('Converts text to lowercase', function() {
-      var word = new Word({ text: 'TeSt' });
+describe('Word', () => {
+  describe('constructor', () => {
+    it ('Converts text to lowercase', () => {
+      const word = new Word({ text: 'TeSt' });
       expect(word.get('text')).toEqual('test');
     });
   });
@@ -130,7 +130,7 @@ The Jasmine docs also have some great examples of how to use the different match
 
 ### Wave 1: `word.spec.js`
 
-Read through the rest of the implemented tests in `word.spec.js`. Many of them cover model validations, which we haven't explicitly covered but which are similar enough to Rails to pick up. Is there anything in the tests that surprised you?
+Read through the rest of the implemented tests in `word.spec.js`. Many of them cover model validations, which we covered in week 1. Is there anything in the tests that surprised you?
 
 Now use a test-driven development workflow to implement the `Word.score()` method. Remember: the TDD cycle: pseudocode-red-green-refactor!
 
@@ -157,8 +157,10 @@ Follow the same TDD workflow to test and implement `WordList.highestScoringWord(
 
 ## Additional Resources
 
-- [Jasmine documentation](https://jasmine.github.io/api/2.6/global) 
-- [Jasmine Examples v2.6](https://jasmine.github.io/2.6/introduction) (full of good examples)
+- [Jasmine documentation](https://jasmine.github.io/api/2.8/global)
+- [Jasmine Examples v2.8](https://jasmine.github.io/2.8/introduction) (full of good examples)
 - [Selenium](http://www.seleniumhq.org/)
 - [Testing Backbone models with Jasmine](https://tinnedfruit.com/articles/testing-backbone-apps-with-jasmine-sinon-2.html)
 - [Backbone model validations](http://beletsky.net/2012/11/baby-steps-to-backbonejs-model.html) (the next post on this blog is about testing them!)
+- [Sinonjs a way to mock things like API calls](http://sinonjs.org/)
+- [Karma a way to test your code in browsers automatically](https://karma-runner.github.io/1.0/index.html)

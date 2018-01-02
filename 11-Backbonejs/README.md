@@ -1,6 +1,8 @@
 
 # Backbone
 
+## Week 1
+
 1. [Underscore Templates](../10-JavaScript/underscore-templates.md)
 1. [Intro to Backbone](Introduction-to-Backbonejs.md)
 1. [Live Code Overview](live-code-overview.md)
@@ -11,6 +13,13 @@
 1. [Enhancing the Model](Enhancing-the-model.md)
 1. [Model Validations](model-validations.md)
 
+## Week 2
+
+1. [Intro to Backbone Views: Views of Models and DOM Events](Backbone-Views-of-Models-And-Events.md)
+1. [Backbone Views: Views of Collections](Backbone-Views-of-Collections.md)
+1. [Custom Events](Adding-Custom-Events.md)
+1. [Event Bus](Backbone-Event-Bus.md)
+1. [JavaScript Testing with Jasmine](../10-JavaScript/testing.md)
 
 <!--
 ### Week 2
