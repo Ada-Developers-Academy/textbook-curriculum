@@ -5,8 +5,8 @@ You've dealt with variables holding a single value and you've been introduced to
 The objectives of this unit are to make you comfortable with:
 * Explaining what an Array & Hash are and the differences.
 * Declaring an Array & Hash
-*  Write code to access and change the values inside an Array & Hash.
-*  Iterate (loop) through an Array & Hash
+* Write code to access and change the values inside an Array & Hash.
+* Iterate (loop) through an Array & Hash
 
 ## Variables and Data Types
 We use variables to store information that we want to access and/or change later, and they can hold different "types" of data.  Right now we know about:
@@ -45,7 +45,7 @@ puts my_list[0]
 puts "My list has #{ my_list.length } elements"
 ```
 
-**Question**:  1.  How can you find the last element of the Array?
+**Question**: How can you find the last element of the Array?
 
 You can loop through an array like this:
 ```ruby
@@ -86,7 +86,7 @@ end
 | 5       |  4    |    3016   |   3758      |
 
 
-**Question**: 2.  How could you write it with the `times` type of loop?
+**Question**: How could you write it with the `times` type of loop?
 
 ### Hashes
 
@@ -164,7 +164,7 @@ And you could access "Bayleef" by doing this:
 pokemon_types["Grass"][1]
 ```
 
-**Question**: 3.  How could you look through printing each of the elements of the `pokemon_types` Hash?
+**Question**: How could you look through printing each of the elements of the `pokemon_types` Hash?
 
 ### Looping through Hashes
 
@@ -202,7 +202,10 @@ Exercise: Let's modify the example above
 
 ## Reference
 
-|  Operation     | Array    |  Hash     |
-|----------------|----------|-----------|
-|  initalization | arr = [] | hash = {} |
-| Initialize with values | arr = ["Pikachu", "Rattata"] | hash = { "Pikachu" => "Electric", "Rattata" => "Normal" }|
+Operation              | Array                             |  Hash
+---                    | ---                               | ---
+Initialize empty       | `arr = []`                        | `hash = {}`
+Initialize with values | `arr = ["Pikachu", "Rattata"]`    | `hash = { "Pikachu" => "Electric", "Rattata" => "Normal" }`
+Read a value           | `arr[0]`                          | `hash["Pikachu"]`
+Set a value            | `arr[1] = "Geodude"`              | `hash["Geodude"] = "Rock"`
+Iterate                | `arr.each \|element\| do ... end` | `hash.each \|key, value\| do ... end`
