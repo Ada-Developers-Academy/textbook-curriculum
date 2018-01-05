@@ -73,7 +73,7 @@ Since JSX is within our JavaScript code, we cannot use the `class` keyword the w
 
 Take a look at the code above and see if you can identify a location within the `render` function that is rendered dynamically. You'll notice it because the syntax looks a bit different.
 
-In ERB, we were familiar with using the `<%` and `<%=` elements to dynamically generate content for our views. In JSX, we utilize `{}` to provide the content that we will pass in to dynamically generate.
+In ERB, we were familiar with using the `<%` and `<%=` elements to dynamically generate content for our views. In JSX, we utilize `{}` to pass in code that we'll use to dynamically generate view data.
 
 **Other Notes**
 
