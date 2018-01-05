@@ -37,18 +37,23 @@ React does not have a nice CLI interface like Rails to create new components for
 
 1. **QUICK BREAK!** Check in with your seat squad to verify that they are at the same place in setting up their component file.
 
+### Customize our Component
+
+1. **EXERCISE:** With your seat squad, add some JSX elements to a `render()` function that you add to this component. We can't fully test it out quite yet, but you can make sure that your React application compiles and does not show you any errors in the browser as confirmation of success. For now, don't worry too much about what you are adding, just try anything!
+
 ### Loading a Component into Another
+1. In our `app.js` file, we will load our new component. Add the file `import` to the top.
+    ```JavaScript
+    import ListComponent from './components/list_component';
+    ```
 
+1. Now we can render our `ListComponent` within our App component. Add `<ListComponent />` to the existing render function in the App component. Note that the render function can only return one outermost element, so the new component must be **nested within** that outermost element.
 
-### Customize our Component 
+1. Verify! Take a look now at your React application running in the browser and ensure that you see the elements you added within your list component.
 
-## Vocabulary
-| Term     | Definition     |
-| :------------- | :------------- |
-| Item One       | Item Two       |
 
 ## Key Takeaway
-Description of one or two sentences with key takeaway.
+Nesting components within one another is the most powerful construct of React. You will structure much of your applications using this paradigm, applying additional patterns and skills to it as you learn.
 
 ## Additional Resources
 - [sample]()
