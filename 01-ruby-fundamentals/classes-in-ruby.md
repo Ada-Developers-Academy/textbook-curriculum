@@ -6,6 +6,7 @@ By the end of this lesson, students should be able to...
 - Store object state using _instance variables_
 - Define object behavior using _instance methods_
 - DRY up repeated code using _helper methods_
+- Use Ruby's `self` keyword to refer to the current object
 
 ## Classes in Ruby
 
@@ -234,6 +235,31 @@ Helper methods like `attr_accessor` are very useful, because they allow us to ad
 
 We'll see many more helper methods as we start talking about Rails in a few weeks.
 
+## The `self` Keyword
+
+Inside an instance method, it's sometimes useful to refer to the current object, the instance upon which this method was invoked. Ruby's `self` keyword does exactly this.
+
+```ruby
+class User
+  def puts_self
+    puts self
+  end
+end
+```
+
+```ruby
+ada = User.new('Ada Lovelace', 'ada@adadev.org')
+ada.puts_self     # => #<User:0x007fb7da550ca0>
+```
+
+`self` acts much like any other variable. You can print it, call methods on it, and even pass it to other methods. The only thing you can't do is reassign it.
+
+Some other languages (notably JavaScript) use `this` instead of `self`, but the meaning is the same.
+
+The `self` keyword will come up quite a lot as we continue to learn about Ruby and build more complicated programs, but for now it's enough to know that it exists.
+
+**Question:** In what situations might `self` be useful?
+
 ## Classes Vocabulary
 
 Term              | Definition | Example&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -247,6 +273,7 @@ Constructor       | A special instance method that is called automatically when 
 Reader Method     | Instance method that returns the value of an instance variable. Also known as a _getter_ or _accessor_. | `def email`<br>&nbsp;&nbsp;&nbsp;&nbsp;`return @email`<br>`end`
 Writer Method     | Instance method that sets the value of an instance variable. Also known as a _setter_ or _mutator_. | `def email=(new_email)`<br>&nbsp;&nbsp;&nbsp;&nbsp;`@email=new_email`<br>`end`
 Helper Method     | A small piece of code that generates a big piece of code. In Ruby, they're used to automatically add functionality to a class, like reader or writer methods. | `attr_accessor :email`
+`self`            | Ruby keyword referring to the current object | `self`
 
 ## Additional Resources
 
