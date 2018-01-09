@@ -1,7 +1,7 @@
 # Object Composition
 ## Learning Goals
 - Put a name to something we've been doing: _Composition_
-- Learn how to describe relationships between objects in terms of _has-a_, _is-a_, and _acts-like_
+- Learn how to describe relationships between objects in terms of _has-a_, and _is-a_
 - Use _composition_ to bring behavior from one class into another
     + We want _composition_ when `first_class` _has-a_ `second_class`
     + The classic example: `Car` _has-a_ `Wheel`
