@@ -43,4 +43,4 @@ In the example above, `Developer` _has-a_ `Code`. Each has its own data and beha
 
 ## Small Note _acts-like_
 
-Another form of _composition_ is described by and _acts-like_ relationship. This relationship leverages Ruby modules to `include` shared behavior in __unrelated classes__. You may find this type of composition referenced online or in books.  We will not use this type of composition in class, but know that `acts-like` is an uncommon type of composition.  
+Another form of _composition_ is described by an _acts-like_ relationship. This relationship leverages Ruby modules to `include` shared behavior in __unrelated classes__. You may find this type of composition referenced online or in books.  We will not use this type of composition in class, but know that `acts-like` is an uncommon type of composition.  
