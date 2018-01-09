@@ -2,7 +2,7 @@
 ## Learning Goals
 - Learn about _Test Driven Development_ (TDD)
 - Discover techniques to verify our code performs as expected using _automated tests_
-- Write code that can test code using _assertions_
+- Write code that can test code using _expectations._
 - Have a basic grasp on what _Rake_ & _Rakefiles_ are.
 
 ## TDD
@@ -149,7 +149,7 @@ The `describe` block indicates that this contains a suite of tests.  Minitest wi
 
 #### Step 2:  Create an `it` block
 
-Now we'll create an `it` block which is a test-case.  Each `describe` block can have many `it` blocks inside it and even many `describe` blocks.  Each `it` block however should focus on testing one specific thing.
+Now we'll create an `it` block which is a test-case.  Each `describe` block can have many `it` blocks inside it and even many `describe` blocks.  Each `it` block however should focus on testing one specific thing, while `describe` blocks are used to group a set of tests.
 
 
 ```ruby
@@ -169,7 +169,7 @@ end
 #### Step 3:  Add an expectation
 
 
-So we have a test-case, but it's not actually checking anything yet.  So we can add an _expectation_ which is a method call that **expects** that an item must meet.  In this case we need to **expect** that if we create a die, it's an instance of the Die class.
+So we have a test-case, but it's not actually checking anything yet.  So we can add an _expectation_ which is a method call that describes a condition it **expects** the given item to meet.  In this case we need to **expect** that if we create a die, it's an instance of the Die class.  Expectations typically start with `must_` or `wont_`.
 
 So lets write our expectation
 
