@@ -72,7 +72,7 @@ In the above example, the code in `exponate_test.rb` are _automated tests_. We c
 
 Writing your own tests with puts is wonderful, but it would be handy to have a standard way that developers can use to write tests on their code, a way that other developers understand.  The maintainers of the Ruby language have adopted a testing library called [Minitest](http://docs.seattlerb.org/minitest/) as the default standard for testing in Ruby & later Rails.  For the remainder of your time using Ruby at Ada, we will be using Minitest to write unit-tests for your code.  [RSpec](http://rspec.info/) is another very common testing framework used along with Ruby and Rails. We won't be using it here at Ada but it's good to know about when you're browsing the internet for testing help.
 
-### Before We Get Started 
+### Before We Get Started
 
 Because colored output is so much nicer we'll add a gem called minitest-reporters.
 
@@ -87,7 +87,7 @@ $  gem install minitest-reporters
 
 Lets say we need to write a class which simulates a 6-sided die.  We could use such a module in any number of board games (Monopoly etc).  
 
-To start with we'll create a file to test the class.  We'll call it `die_test.rb`.  We will also require `minitest/autorun`
+To start with we'll create a file to test the class.  We'll call it `die_spec.rb`.  We will also require `minitest/autorun`
 
 ```ruby
 # die_test.rb
@@ -104,7 +104,7 @@ Then we can create an empty file `die.rb` which will hold our class.
 ```
 
 
-We can run the tests by typing:  `ruby die_test.rb` and get the following:
+We can run the tests by typing:  `ruby die_spec.rb` and get the following:
 
 ```bash
 $ ruby die_test.rb
@@ -124,91 +124,108 @@ We are now setup, but we haven't actually written a test yet.
 
 ### A Tale of Two Styles
 
-In the TDD World there are two styles of testing.  In the first more traditional method people use *assertions* which are statements that check if a value is what it should be.  The other method is a subset of TDD, called Behavior-Driven Development (BDD) which accomplishes the same thing in a more English-friendly fashion that even non-developers can understand. 
+In the TDD World there are two styles of testing.  In the first more traditional method people use *assertions* which are statements that check if a value is what it should be.  The other method is a subset of TDD, called Behavior-Driven Development (BDD) which accomplishes the same thing in a more English-friendly fashion that even non-developers can understand.  At Ada we will use the second BDD style of testing.  You should know assertion-style testing is a thing, and that it accomplishes the same job as our behavior-driven development, but we will not require you to write assertion-style tests.  
 
 
-#### Writing Your First Test - Assertion Style
+#### Writing Your First Test
 
-To start we'll need to create a TestCase class.  We create a set of unit tests by subclassing `MiniTest::Unit::TestCase` and add each set of tests in instance methods.  
+To start we'll need to create a `description` block and place our tests inside that block.  
 
 
-#### Step 1:  Create a TestDie Class
-
-First we'll create a class that extends `Minitest::Unit::TestCase`, basically make a class that contains a series of TestCases.
+#### Step 1:  Create a `describe` block
 
 ```ruby
-class TestDie < MiniTest::Unit::TestCase
+# die_spec.rb
+require 'minitest/autorun'
+require 'minitest/reporters'
+require_relative 'die'
+
+describe "die" do
 
 end
 ```
 
-The `< MiniTest::Unit::TestCase` indicates that this class gets all the methods & instance variables of the TestCase class in Minitest.  
+The `describe` block indicates that this contains a suite of tests.  Minitest will run these tests together and any instance variables created inside this block will be shared among the test cases.  
 
-#### Step 2:  Create a `test_creation_of_die` method.
+#### Step 2:  Create an `it` block
 
-Now we'll create a method called `test_creation_of_die`, this is a test-case.  All test-cases in assert-style Minitest must start with "test_".  
+Now we'll create an `it` block which is a test-case.  Each `describe` block can have many `it` blocks inside it and even many `describe` blocks.  Each `it` block however should focus on testing one specific thing.
 
 
 ```ruby
-# die_test.rb
+# die_spec.rb
 
 require 'minitest/autorun'
 require 'minitest/reporters'
 require_relative 'die'
 
-class TestDie < MiniTest::Unit::TestCase
-  def test_creation_of_die
-
+describe "die" do
+  it "Can be created" do
+    # Testing goes in here
   end
 end
 ```
 
-#### Step 3:  Add an assertion
+#### Step 3:  Add an expectation
 
 
-So we have a test-case, but it's not actually checking anything yet.  So we can add an _assertion_ which is a method that **asserts** that a specific condition must be true.  In this case we need to **assert** that if we create a die, it's an instance of the Die class.
+So we have a test-case, but it's not actually checking anything yet.  So we can add an _expectation_ which is a method call that **expects** that an item must meet.  In this case we need to **expect** that if we create a die, it's an instance of the Die class.
 
-So we create a 
-
+So lets write our expectation
 
 ```ruby
-# die_test.rb
+# die_spec.rb
 
 require 'minitest/autorun'
 require 'minitest/reporters'
 require_relative 'die'
 
-class TestDie < MiniTest::Unit::TestCase
-  def test_creation_of_die
+describe "die" do
+  it "Can be created" do
     @die = Die.new
-    # The class of @die should be Die
-    assert @die.class == Die, "There must be a Die class."
+    # the class of @die should be Die
+    @die.class.must_equal Die
   end
 end
 ```
 
-Notice the line `assert @die.class, Die`.  The `assert` method takes two required arguments and an optional message.  If the two required arguments are equal, the test passes, otherwise it fails.  
+Notice the line `@die.class.must_be_instance_of Die`.  Minitest adds the `must_equal` method to all objects and it takes one required argument.  If the required argument is equal to the object `must_equal` is being called on, the expectation passes, otherwise it fails.  
 
-When we run this with `ruby die_test.rb` we get:
+When we run this with `ruby die_spec.rb` we get:
 
 ```bash
-ruby die_test.rb
-MiniTest::Unit::TestCase is now Minitest::Test. From die_test.rb:6:in `<main>'
-Run options: --seed 29986
+ruby die_spec.rb
+Run options: --seed 2271
 
 # Running:
 
-E
+Run options: --seed 2271
 
-Finished in 0.001219s, 820.3446 runs/s, 0.0000 assertions/s.
+# Running:
+
+EE
+
+Error:
+die#test_0001_Can be created:
+NameError: uninitialized constant Die
+Did you mean?  Dir
+    die_spec.rb:8:in `block (2 levels) in <main>'
+
+Finished in 0.001745s, 573.0659 runs/s, 0.0000 assertions/s.
 
   1) Error:
-TestDie#test_creation_of_die:
-NameError: uninitialized constant TestDie::Die
+die#test_0001_Can be created:
+NameError: uninitialized constant Die
 Did you mean?  Dir
-    die_test.rb:8:in `test_creation_of_die'
+    die_spec.rb:8:in `block (2 levels) in <main>'
 
 1 runs, 0 assertions, 0 failures, 1 errors, 0 skips
+
+
+
+Finished in 0.382043s, 2.6175 runs/s, 0.0000 assertions/s.
+1 runs, 0 assertions, 0 failures, 1 errors, 0 skips
+
 ```
 
 **This is a good thing.**  We have our first **red** test.  There's an error because we haven't created the Die class yet.
@@ -225,93 +242,49 @@ class Die
 end
 ```
 
-Now `ruby die_test.rb` gets us:
+Now `ruby die_spec.rb` gets us:
 
 ```bash
-MiniTest::Unit::TestCase is now Minitest::Test. From die_test.rb:6:in `<main>'
-Run options: --seed 61965
+Run options: --seed 39582
 
 # Running:
 
-.
+Run options: --seed 39582
 
-Finished in 0.001211s, 825.7638 runs/s, 825.7638 assertions/s.
+# Running:
 
+..
+
+Finished in 0.001041s, 960.6148 runs/s, 960.6148 assertions/s.
+
+1 runs, 1 assertions, 0 failures, 0 errors, 0 skips
+
+Finished in 0.367340s, 2.7223 runs/s, 2.7223 assertions/s.
 1 runs, 1 assertions, 0 failures, 0 errors, 0 skips
 ```
 
 Now we have our first **green/passing** test.  
 
-There are a [number of assertions](https://gist.github.com/rastasheep/4248006#Minitest::Unit::TestCase) in Minitest beyond the assert method.  
+There are a [number of expectations](http://mattsears.com/articles/2011/12/10/minitest-quick-reference/) in Minitest beyond the `must_equal` method.  
 
 
 #### A Word on Parentheses
 
-Check out the code above.  We are calling assert without using parentheses here:  `assert @die.class == Die, "There must be a Die class."`  Ruby doesn't FORCE you to put parentheses around a method's arguments but [the community-driven style guidelines](https://github.com/bbatsov/ruby-style-guide) suggest that it's good coding style to put parentheses around method arguments **except** for methods part of an internal Domain Specific Language (DSL), or basically the syntax of some kind of framework like... Minitest.  
+Check out the code above.  We are calling `must_equal` without using parentheses here:  `@die.class.must_equal Die`  Ruby doesn't FORCE you to put parentheses around a method's arguments but [the community-driven style guidelines](https://github.com/bbatsov/ruby-style-guide) suggest that it's good coding style to put parentheses around method arguments **except** for methods part of an internal Domain Specific Language (DSL), or basically the syntax of some kind of framework like... Minitest.  
 
-So you shouldn't put parentheses around the arguments to `assert` or later `must` method arguments, but you **should** around your own methods.  
+So you shouldn't put parentheses around the arguments to `must` method arguments, but you **should** around your own methods.  
 
 #### Practice Exercise
 
-Now we need to test that we can roll the die.  Write a test that checks the roll method of the Die class.  When a die is rolled it should return a number between 1 and 6 inclusive.  You can use the `assert_operator` method.  
+Now we need to test that we can roll the die.  Write a test (`it` block) that checks the roll method of the Die class.  When a die is rolled it should return a number between 1 and 6 inclusive.  You can use the `must_be` method.  
 
 #### Check & Verify
 
-Check with your neighbor.  You can find a solution [here.](https://github.com/AdaGold/die/blob/solution/tests/die_test.rb)
-
-### Spec Style Testing
-
-Spec style tests look very different, but read in a more English friendly fashion.  We'll create the test with a file named `die_spec.rb`.
-
-```ruby
-# die_spec.rb
-
-require 'minitest/autorun'
-require 'minitest/reporters'
-require_relative 'die'
-```
-
-Up until now this all looks the same, now things change.  Instead of creating a class we'll write a `describe` block which identifies a group of tests that belong together, usually because they are testing the same thing.  Inside the `describe` block are `it` blocks.  Each `it` block is a test.   
-
-Why?  Well to make things more readable we `describe` what we're testing, a class, or a feature etc.  You can even put `describe` blocks inside `describe` blocks to further organize our testing.  Then we can break each test-case into `it` blocks.  Minitest runs each `it` block in a random order and resets things between them to prevent one test result from interfering with another.   
-
-```ruby
-# die_spec.rb
-
-require 'minitest/autorun'
-require 'minitest/reporters'
-require_relative 'die'
-
-describe "Testing Die Class" do
-  it "You can create an instance of Die" do
-    die = Die.new
-
-    die.class.must_equal Die
-  end
-end
-
-```
-
-Observe how this reads more easily from left to right than our original assert test.  The idea with **BDD** is the that with our tests we are defining specifications or behaviors our code should follow.  
-
-Similar to Assertions Minitest adds a bunch of methods to all objects called *matchers*.  There are a large number of matchers, but you can usually get by with `must_equal`, `must_include`, `must_match` and `must_raise`.  You can see a full list of Minitest matchers at the bottom of this lesson along with examples.  
-
-### Exercise Writing Another Test
-
-So just like writing the assertion, now write another test for the roll method.  You should create an `it` block and use the `must_be` matcher.  
-
-### Check & Verify
-
-Check again with your partner when you are finished.  You can find a solution [here](https://github.com/AdaGold/die/blob/solution/specs/die_spec.rb)
-
-
-## Which Style Should I Use?
-
-So which style is better?  Functionally both do the same job, but the spec-style is more readable by non-technical people.  So we will, from this point on, use **Spec-style tests.**  However it is important for you to know that both exist and when you get to rails, a great deal more documentation exists for assert-style tests compared to spec-style.   
+Check with your neighbor.  You can find a solution [here.](https://github.com/AdaGold/die/blob/solution/specs/die_spec.rb)
 
 ## What Should I Test?
 
-More important than how you test your code is what you are testing.  If you're not testing the right things bugs can creep through your tests and into production code.  Many many many developers have trouble knowing what to test.   Here are some general guidelines. 
+More important than how you test your code is what you are testing.  If you're not testing the right things bugs can creep through your tests and into production code.  Many many many developers have trouble knowing **what** to test.   Here are some general guidelines.
 
 *  Look at your code for branches (if statements and loops) and make sure that each branch of execution is tested.
 *  Test your methods with edge case values.
