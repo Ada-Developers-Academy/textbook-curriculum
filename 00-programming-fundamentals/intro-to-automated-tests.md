@@ -267,6 +267,8 @@ Now we have our first **green/passing** test.
 
 There are a [number of expectations](http://mattsears.com/articles/2011/12/10/minitest-quick-reference/) in Minitest beyond the `must_equal` method.  
 
+**Exercise** Look at the list of expectations above and revise the `@die.class.must_equal Die` to use the `must_be_instance_of` expectation instead.
+
 
 #### A Word on Parentheses
 
