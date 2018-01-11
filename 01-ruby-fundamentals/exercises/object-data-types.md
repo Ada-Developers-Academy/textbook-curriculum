@@ -35,10 +35,10 @@ Without putting the code into Ruby or IRB predict the output and data-type of th
 1.  Value __________   Data Type: _________  
 
     ```ruby
-    pipe_teacher = "Jamie"
-    caret_teacher = "Chris"
-    c8_teachers = pipe_teacher + " " + caret_teacher
-    c8_teachers
+    cool_thing = "dinosaur"
+    awesome_thing = "astronaut"
+    rad_thing = cool_thing + " " + awesome_thing
+    rad_thing
     ```
 
 1.  Value __________   Data Type: _________  
@@ -187,9 +187,7 @@ Without putting the code into Ruby or IRB predict the output and data-type of th
 
 ### Comprehension Questions
 
-1.  Given a variable `list` which is an array, how can you print the last element of the array?   
-
-How about the first?
-
-
-2.  Explain how Arrays & Hashes are similar.  In what respects are they different.  
+1. Given a variable `list` which is an array:
+    * How would you print the last element of the array?   
+    * How about the first?
+1. Compare and contrast arrays and hashes. How are they similar, and how do they differ?
