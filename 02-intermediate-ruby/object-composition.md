@@ -1,12 +1,12 @@
 # Object Composition
 ## Learning Goals
 - Put a name to something we've been doing: _Composition_
-- Learn how to describe relationships between objects in terms of _has-a_, _is-a_, and _acts-like_
+- Learn how to describe relationships between objects in terms of _has-a_, and _is-a_
 - Use _composition_ to bring behavior from one class into another
     + We want _composition_ when `first_class` _has-a_ `second_class`
     + The classic example: `Car` _has-a_ `Wheel`
 
-## _is-a_ vs. _has-a_ vs. _acts-like_
+## _is-a_ vs. _has-a_
 From __Learn Ruby The Hard Way__:
   > You use the phrase _is-a_ when you talk about objects and classes being related to each other by a class relationship. You use _has-a_ when you talk about objects and classes that are related only because they __reference__ each other.
 
@@ -41,38 +41,18 @@ end
 
 In the example above, `Developer` _has-a_ `Code`. Each has its own data and behaviors. Telling an instance of `Developer` to `code` invokes the `make_bugs` method on an instance of `Code`. `Developer` has a behavior (`code`) that is _encapsulated_ by the `Code` class. Maybe a `Developer` can `code` without `make_bugs` happening, but we haven't taught it how yet.
 
-## Object Composition: _acts-like_
-Another form of _composition_ is described by and _acts-like_ relationship. This relationship leverages Ruby modules to `include` shared behavior in __unrelated classes__. That is, when the relationship between two or more Ruby classes is that they both _act like_ a certain thing, you want this form of composition.
+## Small Note _acts-like_
 
-This is something of an advanced technique, so we won't spend much time here. _Object Composition_ in this form leverages modules in a way we haven't seen. We organize methods into a `module`, and then bring the `module` into the Ruby classes that need to model the shared behavior. We use `include` to _compose_ instance methods into a class, and `extend` to _compose_ class methods into a class. Whew. Too many words. Here's code:
+Another form of _composition_ is described by an _acts-like_ relationship. This relationship leverages Ruby modules to `include` shared behavior in __unrelated classes__. You may find this type of composition referenced online or in books.  We will not use this type of composition in class, but know that `acts-like` is an uncommon type of composition.  
 
-```ruby
-module Sleeper # this is the collection of shared behavior
-  def snooze(hours) # note this is a method not attached to a class
-    "zzz" * hours
-  end
-end
+## Summary
 
-class Human
-  include Sleeper
-end
+We've seen that Composition defines a _has-a_ relationship where a class is constructed by using other classes to provide the needed functionality.  This makes our code more modular and lets each class focus on it's single area of responsibility.  We create complex functionality by combining smaller, simpler classes.  To do so our classes create instances of other classes and use them.
 
-class Dog
-  include Sleeper
-end
+You will find that composition is much more commonly used to add functionality to our classes compared to inheritance.  In general use composition unless there are clearly related concepts that fit as a single concept or because you have to because of a library you are using.   
 
-class Computer
-  include Sleeper
-end
 
-jeremy = Human.new
-rosa = Dog.new
-iridium = Computer.new
-
-# everybody knows how to snooze!!!!
-jeremy.snooze(1) => "zzz"
-rosa.snooze(2) => "zzzzzz"
-iridium.snooze(5) => "zzzzzzzzzzzzzzz"
-```
-
-This is a powerful technique that isn't appropriate to every situation. Be aware that it exists, but recognize that in many parts of the Ruby world, including where we will be spending lots of our time, _composition_ using `modules` is uncommon.
+## Resources
+- [Learn Ruby the Hard Way - Composition](https://learnrubythehardway.org/book/ex44.html#composition)
+- [Ruby : Composition over Inheritance because The Force is Strong with Composition](https://medium.com/aviabird/ruby-composition-over-inheritance-3ff786ad9e5d)
+- [Refactoring From Inheritance To Composition To Data](https://www.rubypigeon.com/posts/refactoring-inheritance-composition-data/)
