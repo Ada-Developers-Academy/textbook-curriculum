@@ -153,9 +153,11 @@ fibb.last
 ### `Hash`
 The other _object type_ for managing collections if data is the `Hash`. Every `Hash` is composed of zero to many key/value pairs. This means that every piece of data, called a _value_, in a `Hash` is accessed by referencing its _key_. Most often, these keys are `Symbol`s, but they can also be `String`s or `Integer`s.
 
-__Unlike `Array`s, `Hash` objects do not rely upon the order of key/value pairs!__ Create a hash by defining key/value pairs between braces (`{}`). The key comes first and can be declared using either _symbol_ or _hashrocket_ notation. The most recent versions of Ruby prefer _symbol_ notation, but both work. Key/value pairs are separated by a comma.
+Create a hash by defining key/value pairs between braces (`{}`). The key comes first and can be declared using either _symbol_ or _hashrocket_ notation. The most recent versions of Ruby prefer _symbol_ notation, but both work. Key/value pairs are separated by a comma.
 
 To access a _value_ in a `Hash`, use bracket notation with the corresponding _key_, like `my_hash[:my_key]`. You can use the same notation to create new keys in the `Hash` as well.
+
+An important difference between `Array`s and `Hash`es is that unlike an `Array`, a `Hash` does not keep track of the _order_ of its key/value pairs.
 
 ```ruby
 # hashrocket string notation
@@ -197,13 +199,28 @@ ada.length
 # => 4
 ```
 
+### Comparing Arrays and Hashes
+
+Arrays and hashes are very similar. Both store a collection of elements, and they have similar syntax. However the vocabulary is a little different, and each solves a different sort of programming problem.
+
+Array                                     | Hash
+---                                       | ---
+Created with square brackets `[]`         | Created with curly braces `{}`
+Uses integers for indices                 | Uses strings or symbols for keys
+Indices start from 0 and count up         | Any key is OK
+Stores any kind of element                | Stores any kind of value
+Access elements with square brackets `[]` | Access values with square brackets `[]`
+Elements are ordered                      | Keys/values are unordered
+
+
+
 Look at the Ruby docs for [Array](http://www.ruby-doc.org/core-2.4.0/Array.html) and [Hash](http://www.ruby-doc.org/core-2.4.0/Hash.html) for more details about collections.
 
-### Nil
+## Nil
 
-One value you may have seen is `nil`.  Nil is a special object of type `NilClass` and we use it in Ruby to mean "nothing."  
+One value you may have seen is `nil`.  Nil is a special object of type `NilClass` and we use it in Ruby to mean "nothing."
 
-We use it to show that a variable has not been assigned a value yet (the variable is set to `nil` or nothing.  You will often see nil in error messages when a variable is set to nil and you call a method that nil doesn't have.  
+We use it to show that a variable has not been assigned a value yet (the variable is set to `nil` or nothing.  You will often see nil in error messages when a variable is set to nil and you call a method that nil doesn't have.
 
 ```ruby
 
