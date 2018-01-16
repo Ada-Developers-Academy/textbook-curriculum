@@ -219,6 +219,15 @@ Now we need to test that we can roll the die.  Write a test (`it` block) that ch
 
 Check with your neighbor.  You can find a solution [here.](https://github.com/AdaGold/die/blob/solution/specs/die_spec.rb)
 
+### Arrange-Act-Assert
+
+In our tests we will typically follow this pattern:
+1. Arrange our code with all our variables and inputs:  **Arrange**
+2. Perform an action which we want to test: **Act**
+3. Check with an expectation if it gives the desired result:  **Assert**.
+
+There are exceptions to this pattern, such as when we only want to test that specific methods exist (no actions), but you will see the arrange-act-assert pattern over and over again in your code.
+
 ## Organizing Code
 
 As our projects get larger putting all our code in the same folder gets messy, especially with test files.  So we will be setting up projects like this:
