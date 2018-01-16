@@ -189,7 +189,7 @@ describe "die" do
 end
 ```
 
-Notice the line `@die.class.must_be_instance_of Die`.  Minitest adds the `must_equal` method to all objects and it takes one required argument.  If the required argument is equal to the object `must_equal` is being called on, the expectation passes, otherwise it fails.  
+Notice the line `@die.class.must_equal Die`.  Minitest adds the `must_equal` method to all objects and it takes one required argument.  If the required argument is equal to the object `must_equal` is being called on, the expectation passes, otherwise it fails.  
 
 When we run this with `ruby die_spec.rb` we get:
 
