@@ -272,7 +272,7 @@ There are a [number of expectations](http://mattsears.com/articles/2011/12/10/mi
 
 #### A Word on Parentheses
 
-Check out the code above.  We are calling `must_equal` without using parentheses here:  `@die.class.must_equal Die`  Ruby doesn't FORCE you to put parentheses around a method's arguments but [the community-driven style guidelines](https://github.com/bbatsov/ruby-style-guide) suggest that it's good coding style to put parentheses around method arguments **except** for methods part of an internal Domain Specific Language (DSL), or basically the syntax of some kind of framework like... Minitest.  
+In the code above, we are calling `must_equal` without using parentheses `@die.class.must_equal Die`.  Ruby doesn't FORCE you to put parentheses around a method's arguments but [the community-driven style guidelines](https://github.com/bbatsov/ruby-style-guide) suggest that it's good coding style to put parentheses around method arguments **except** for methods which are part of an internal Domain Specific Language (DSL), or basically the syntax of some kind of framework like... Minitest.  
 
 So you shouldn't put parentheses around the arguments to `must` method arguments, but you **should** around your own methods.  
 
