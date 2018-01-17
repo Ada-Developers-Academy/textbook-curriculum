@@ -1,5 +1,11 @@
 # Intro to Data Structures: Arrays and Hashes
 
+<!--
+Instructor notes: May want to assign the first half
+of this as flipped classroom pre-reading, since it's
+mostly review of what they've seen in JSL.
+-->
+
 ## Learning Goals
 By the end of this lesson, students should be able to...
 
@@ -299,7 +305,7 @@ Copy the above data into a file, then write code to address the following prompt
 1. Write code to produce a list of all the allergens in the menu
     - How would you make sure there aren't duplicates?
 1. Write code that asks the user for the name of a meal and prints out the price
-    - What should it do if the meal isn't found?
+    - What should your code do if the meal isn't found?
 
 ## Additional Resources
 
