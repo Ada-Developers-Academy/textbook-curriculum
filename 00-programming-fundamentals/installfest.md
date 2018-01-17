@@ -62,7 +62,7 @@ $ git config --global color.branch auto
 - When it finishes, set it as the default version: `$ rvm use 2.5.0 --default`
 
 ### Trust but Verify
-- `$ ruby -v` should return _ruby 2.5.0p111_ (your `p` version might be different)
+- `$ ruby -v` should return _ruby 2.5.0p0_ (your `p` version might be different)
 - `which ruby` should return a path like _/Users/ada/.rvm/rubies/ruby-2.5.0/bin/ruby_
 - `which gem` should return a path like _/Users/ada/.rvm/rubies/ruby-2.5.0/bin/gem_
 
