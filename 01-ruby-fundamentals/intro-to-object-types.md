@@ -1,4 +1,4 @@
-# Ruby 102
+# Object Types in Ruby
 
 ## Learning Goals
 - Gain some familiarity with Ruby's core _Object Types_
@@ -199,18 +199,7 @@ ada.length
 # => 4
 ```
 
-### Comparing Arrays and Hashes
 
-Arrays and hashes are very similar. Both store a collection of elements, and they have similar syntax. However the vocabulary is a little different, and each solves a different sort of programming problem.
-
-Array                                     | Hash
----                                       | ---
-Created with square brackets `[]`         | Created with curly braces `{}`
-Uses integers for indices                 | Uses strings or symbols for keys
-Indices start from 0 and count up         | Any key is OK
-Stores any kind of element                | Stores any kind of value
-Access elements with square brackets `[]` | Access values with square brackets `[]`
-Elements are ordered                      | Keys/values are unordered
 
 
 
