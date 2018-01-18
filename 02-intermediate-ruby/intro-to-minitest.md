@@ -254,8 +254,7 @@ Now we need make a method that calculates the bill subtotal.  Write a test (`it`
 
 #### Check & Verify
 
-# TODO FIX LINK
-Check with your neighbor.  You can find a solution [here.](https://github.com/AdaGold/bill_calculator/blob/solution/specs/bill_spec.rb)
+Check with your neighbor.  You can find a solution [here.](https://github.com/AdaGold/bill_calculator/commit/12548edbe1d88bce598b642764e7953c10ced204)
 
 ### Arrange-Act-Assert
 
@@ -272,10 +271,9 @@ Now write a test to evaluate the Sales tax on a particular bill.  Add another `i
 
 Then modify `Bill` to make the test pass.
 
-# TODO ADD LINK
-Check your solution with a classmate and you can verify your answer [here.]()
+Check your solution with a classmate and you can verify your answer [here.](https://github.com/AdaGold/bill_calculator/blob/solution/specs/bill_spec.rb)
 
-**Question**:  What edge cases should you cover?
+**Question**:  What additional edge cases should you cover?
 ## Drying Tests
 
 Notice that we are doing `bill = Bill.new ...` a lot!  We can DRY out our code by adding a `before` block inside our `describe`.  `before` blocks are executed before each `it` executes.  That lets us create an instance variable and use it rather than repeat our **arrange** steps.
