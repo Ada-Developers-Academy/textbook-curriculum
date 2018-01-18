@@ -1,19 +1,19 @@
 # Introduction to Minitest
 
-Minitest is the default testing framework for Ruby.  We will learn and explore writing tests by creating a class which simulates a 6-sided die.  We could use such a module in any number of board games (Monopoly etc).  We are going to build the `Die` class in a TDD fashion using Minitest, a framework for TDD which is built-into the Ruby language, as our testing framework.  In doing so we will both learn the syntax of Minitest and practice writing code in a TDD fashion.
+Minitest is the default testing framework for Ruby.  We will learn and explore writing tests by creating a class which simulates a bill with the ability to calculate, subtotal, tax and total.  We could use such a class in any number of e-commerce applications.  We are going to build the `Bill` class in a TDD fashion using Minitest, as our testing framework.  In doing so we will both learn the syntax of Minitest and practice writing code in a TDD fashion.
 
 ## Learning Goals
 - Discover techniques to verify our code performs as expected using _automated tests_
-- Write code that can test code using _expectations._
+- Test code using _expectations._
 - Have a basic grasp on what _Rake_ & _Rakefiles_ are
 
 ## Starter Files
 
-As we work we will use the files located in this [repository.](https://github.com/AdaGold/die).  Fork & Clone the repository and follow along as you go.
+As we work we will use the files located in this [repository.](https://github.com/AdaGold/bill_calculator).  Fork & Clone the repository and follow along as you go.
 
 Our starter code has 2 files we will focus on.  
-- `die.rb` a file we will build our class in to simulate a 6-sided die.
-- `die_spec.rb` a file in which we will place tests to verify that our code meets expectations.
+- `bill.rb` a file we will build our class in to simulate a bill.
+- `bill_spec.rb` a file in which we will place tests to verify that our code meets expectations.
 
 ### Before We Get Started
 
@@ -27,27 +27,27 @@ $  gem install minitest-reporters
 
 ### How To Use Minitest?
 
-To start with we'll add some code to `die_spec.rb`.  We will also require `minitest/autorun`
+To start with we'll add some code to `bill_spec.rb`.  We will also require `minitest/autorun`
 
 ```ruby
-# die_test.rb
+# bill_test.rb
 
 require 'minitest/autorun'
 require 'minitest/reporters'
-require_relative 'die'
+require_relative 'bill'
 ```
 
-Note that `die.rb` which will hold our class is currently empty.
+Note that `bill.rb` which will hold our class is currently empty.
 
 ```ruby
-# die.rb
+# bill.rb
 ```
 
 
-We can run the tests by typing:  `ruby die_spec.rb` and get the following:
+We can run the tests by typing:  `ruby bill_spec.rb` and get the following:
 
 ```bash
-$ ruby die_test.rb
+$ ruby bill_test.rb
 Run options: --seed 35264
 
 # Running:
@@ -70,12 +70,12 @@ To start we'll need to create a `description` block and place our tests inside t
 #### Step 1:  Create a `describe` block
 
 ```ruby
-# die_spec.rb
+# bill_spec.rb
 require 'minitest/autorun'
 require 'minitest/reporters'
-require_relative 'die'
+require_relative 'bill'
 
-describe "die" do
+describe "bill" do
 
 end
 ```
@@ -88,13 +88,13 @@ Now we'll create an `it` block which is a test-case.  Each `describe` block can 
 
 
 ```ruby
-# die_spec.rb
+# bill_spec.rb
 
 require 'minitest/autorun'
 require 'minitest/reporters'
-require_relative 'die'
+require_relative 'bill'
 
-describe "die" do
+describe "bill" do
   it "Can be created" do
     # Testing goes in here
   end
@@ -104,120 +104,158 @@ end
 #### Step 3:  Add an expectation
 
 
-So we have a test-case, but it's not actually checking anything yet.  So we can add an _expectation_ which is a method call that describes a condition it **expects** the given item to meet.  In this case we need to **expect** that if we create a die, it's an instance of the Die class.  Expectations typically start with `must_` or `wont_`.
+So we have a test-case, but it's not actually checking anything yet.  So we can add an _expectation_ which is a method call that describes a condition it **expects** the given item to meet.  In this case we need to **expect** that if we create a bill, it's an instance of the Bill class.  Expectations typically start with `must_` or `wont_`.
 
 So lets write our expectation
 
 ```ruby
-# die_spec.rb
+# bill_spec.rb
 
 require 'minitest/autorun'
 require 'minitest/reporters'
-require_relative 'die'
+require_relative 'bill'
 
-describe "die" do
+describe "Bill" do
   it "Can be created" do
-    @die = Die.new
-    # the class of @die should be Die
-    @die.class.must_equal Die
+    bill = Bill.new
+    # the class of @bill should be Bill
+    bill.class.must_equal Bill
   end
 end
 ```
 
-Notice the line `@die.class.must_equal Die`.  Minitest adds the `must_equal` method to all objects and it takes one required argument.  If the required argument is equal to the object `must_equal` is being called on, the expectation passes, otherwise it fails.
+Notice the line `bill.class.must_equal Bill`.  Minitest adds a bunch of expectations including the  `must_equal` method to all objects and most take one required argument.  If the required argument is equal to the object `must_equal` is being called on, the expectation passes, otherwise it fails.
 
-When we run this with `ruby die_spec.rb` we get:
+When we run this with `ruby bill_spec.rb` we get:
 
 ```bash
-ruby die_spec.rb
-Run options: --seed 2271
+ruby bill_spec.rb
+Run options: --seed 21626
 
 # Running:
 
-Run options: --seed 2271
+Run options: --seed 21626
 
 # Running:
 
 EE
 
 Error:
-die#test_0001_Can be created:
-NameError: uninitialized constant Die
-Did you mean?  Dir
-    die_spec.rb:8:in `block (2 levels) in <main>'
+bill#test_0001_can be created:
+NameError: uninitialized constant Bill
+    bill_spec.rb:9:in `block (2 levels) in <main>'
 
-Finished in 0.001745s, 573.0659 runs/s, 0.0000 assertions/s.
+
+bin/rails test bill_spec.rb:8
+
+
+
+Finished in 0.003340s, 299.4012 runs/s, 0.0000 assertions/s.
 
   1) Error:
-die#test_0001_Can be created:
-NameError: uninitialized constant Die
-Did you mean?  Dir
-    die_spec.rb:8:in `block (2 levels) in <main>'
+bill#test_0001_can be created:
+NameError: uninitialized constant Bill
+    bill_spec.rb:9:in `block (2 levels) in <main>'
 
 1 runs, 0 assertions, 0 failures, 1 errors, 0 skips
 
 
 
-Finished in 0.382043s, 2.6175 runs/s, 0.0000 assertions/s.
+Finished in 0.457662s, 2.1850 runs/s, 0.0000 assertions/s.
 1 runs, 0 assertions, 0 failures, 1 errors, 0 skips
-
 ```
 
-**This is a good thing.**  We have our first **red** test.  There's an error because we haven't created the Die class yet.
+**This is a good thing.**  We have our first **red** test.  There's an error because we haven't created the Bill class yet.
 
-####  Step 4:  Build a Die class
+####  Step 4:  Write Code To Make It Pass
 
-Lets do so:
+Lets make the test pass by creating a Bill class.
 
 ```ruby
-# die.rb
+# bill.rb
 
-class Die
+class Bill
 
 end
 ```
 
-Now `ruby die_spec.rb` gets us:
+Now `ruby bill_spec.rb` gets us:
 
 ```bash
-Run options: --seed 39582
+Run options: --seed 32657
 
 # Running:
 
-Run options: --seed 39582
+Run options: --seed 32657
 
 # Running:
 
 ..
 
-Finished in 0.001041s, 960.6148 runs/s, 960.6148 assertions/s.
+Finished in 0.001089s, 918.2736 runs/s, 918.2736 assertions/s.
 
 1 runs, 1 assertions, 0 failures, 0 errors, 0 skips
 
-Finished in 0.367340s, 2.7223 runs/s, 2.7223 assertions/s.
+Finished in 0.454822s, 2.1987 runs/s, 2.1987 assertions/s.
 1 runs, 1 assertions, 0 failures, 0 errors, 0 skips
+
 ```
 
 Now we have our first **green/passing** test.
 
 There are a [number of expectations](http://mattsears.com/articles/2011/12/10/minitest-quick-reference/) in Minitest beyond the `must_equal` method.
 
-**Exercise** Look at the list of expectations above and revise the `@die.class.must_equal Die` to use the `must_be_instance_of` expectation instead.
+**Exercise** Look at the list of expectations above and revise the `bill.class.must_equal Bill` to use the `must_be_instance_of` expectation instead.
 
 
 #### A Word on Parentheses
 
-In the code above, we are calling `must_equal` without using parentheses `@die.class.must_equal Die`.  Ruby doesn't FORCE you to put parentheses around a method's arguments but [the community-driven style guidelines](https://github.com/bbatsov/ruby-style-guide) suggest that it's good coding style to put parentheses around method arguments **except** for methods which are part of an internal Domain Specific Language (DSL), or basically the syntax of some kind of framework like... Minitest.
+In the code above, we are calling `must_equal` without using parentheses `bill.class.must_equal Bill`.  Ruby doesn't FORCE you to put parentheses around a method's arguments but [the community-driven style guidelines](https://github.com/bbatsov/ruby-style-guide) suggest that it's good coding style to put parentheses around method arguments **except** for methods which are part of an internal Domain Specific Language (DSL), or basically the syntax of some kind of framework like... Minitest.
 
 So you shouldn't put parentheses around the arguments to `must` method arguments, but you **should** around your own methods.
 
+### Adding Functionality
+
+We are going to require that Bill must be instantiated with a list (array) of hashes.  Each item will have a name and price.  So we will revise the test to look like this:
+
+```ruby
+# bill_test.rb
+
+require 'minitest/autorun'
+require 'minitest/reporters'
+require_relative 'bill'
+
+describe "bill" do
+  it "can be created" do
+    bill = Bill.new [{name: 'Coffee', price: 4.75}, {name: 'Pancakes', price: 8.75}]
+    # the class of @bill should be Die
+    bill.class.must_equal Bill
+  end
+end
+```
+
+We also need to ensure that if Bill.new is called without an argument it raises an error.  
+
+So we will add another `it` block and use the `must_raise` expectation.
+
+```ruby
+it "will raise an error if created with an invalid argument" do
+  proc {
+    bill = Bill.new
+  }.must_raise ArgumentError
+end
+```
+
+**Question**: Look back at the [guidelines for what to test]().  What other kinds of things should we test on the `initialize` method?
+
 #### Practice Exercise
 
-Now we need to test that we can roll the die.  Write a test (`it` block) that checks the roll method of the Die class.  When a die is rolled it should return a number between 1 and 6 inclusive.  You can use the `must_be` method.
+Now we need make a method that calculates the bill subtotal.  Write a test (`it` block) that creates an instance of Bill, calls a `subtotal` method and ensure that it returns the correct answer (the sum of the prices).  You can use the `must_equal` matcher.  
 
 #### Check & Verify
 
-Check with your neighbor.  You can find a solution [here.](https://github.com/AdaGold/die/blob/solution/specs/die_spec.rb)
+# TODO FIX LINK
+Check with your neighbor.  You can find a solution [here.](https://github.com/AdaGold/bill_calculator/blob/solution/specs/bill_spec.rb)
 
 ### Arrange-Act-Assert
 
@@ -227,6 +265,34 @@ In our tests we will typically follow this pattern:
 3. Check with an expectation if it gives the desired result:  **Assert**.
 
 There are exceptions to this pattern, such as when we only want to test that specific methods exist (no actions), but you will see the arrange-act-assert pattern over and over again in your code.
+
+### Practice Exercise - Sales Tax
+
+Now write a test to evaluate the Sales tax on a particular bill.  Add another `it` block inside the existing `describe` block.
+
+Then modify `Bill` to make the test pass.
+
+# TODO ADD LINK
+Check your solution with a classmate and you can verify your answer [here.]()
+
+**Question**:  What edge cases should you cover?
+## Drying Tests
+
+Notice that we are doing `bill = Bill.new ...` a lot!  We can DRY out our code by adding a `before` block inside our `describe`.  `before` blocks are executed before each `it` executes.  That lets us create an instance variable and use it rather than repeat our **arrange** steps.
+
+```ruby
+describe "Bill" do
+  before do
+    @bill = Bill.new [{name: 'Coffee', price: 4.75}, {name: 'Pancakes', price: 8.75}]
+  end
+
+  it "can be created" do
+    # the class of @die should be Die
+    @bill.must_be_instance_of Bill
+  end
+
+  ...
+```
 
 ## Organizing Code
 
@@ -252,7 +318,7 @@ gem install rake
 
 1.  Move your non-testing source code into a folder called `lib`.
 1.  Move your testing specs into a folder called `specs`.
-1.  Change the require_relative line in the spec to point to the lib folder.
+1.  Change the **require_relative** line in the spec to point to the lib folder.
 1.  Create the following `Rakefile` in the project root directory
 
 ```ruby
@@ -281,6 +347,11 @@ Finished in 0.001215s, 2469.1358 runs/s, 3292.1811 assertions/s.
 
 3 runs, 4 assertions, 0 failures, 0 errors, 0 skips
 ```
+Now you can have as many spec files as you want and run all the tests with a single `rake` command.
+
+## Homework
+
+Tonight create a test for the total bill including the tax.  Then write code to make the test pass.  
 
 ## List of Minitest Matchers
 
@@ -289,7 +360,7 @@ Finished in 0.001215s, 2469.1358 runs/s, 3292.1811 assertions/s.
 |   `must_equal`	|   `obj1.must_equal obj2`	|   The test succeeds if the object equals the given object.  It fails otherwise.	|   	`wont_equal` |
 |   `must_be`	|   `num.must_be :>, 5`	|   It lets you compare the given object to another using a given operator.  In this example num must be greater than 5.	|  `wont_be`  |
 |   `must_be_empty`	|   `list.must_be_empty`	|   The test passes if the given collection is empty.	|  `wont_be_empty` |
-|   `must_be_instance_of`	|   `@die.must_be_instance_of Die`	|   The test passes if the object is an instance of the given class.	|  `wont_be_instance_of`  |
+|   `must_be_instance_of`	|   `@bill.must_be_instance_of Die`	|   The test passes if the object is an instance of the given class.	|  `wont_be_instance_of`  |
 |   `must_be_kind_of`	|   `list.must_be_kind_of Enumerable`	|   The test fails if the object is not a kind of the argument.	| `wont_be_kind_of`  |
 |   `must_be_nil`	|   `list.must_be_nil`	|   The test fails if the given object is not nil.	|  `wont_be_nil`   |
 |   `must_be_same_as`	|   `list.must_be_same_as another_list`	|   The test fails if the object is not the same as the given argument.	|    `wont_be_same_as`  |
