@@ -75,6 +75,21 @@ More important than how you test your code is what you are testing.  If you're n
 	*  If your method took an array as a parameter you would test it with an empty array, a one element array and a large array.  
 *  Think about how someone might misuse your method, check for invalid or weird input.  If someone can break your code... they will.
 
+### A More Practical Example
+
+Lets consider a class designed to embody the concept of a bill.  This could be a grocery store bill, an online bill from a store, or anything that takes in a list of items with prices and calculates a subtotal, tax and total price.  
+
+
+
+### The Process of Testing: Arrange-Act-Assert
+
+Testing typically follows this pattern:
+1. Arrange our code with all our variables and inputs:  **Arrange**
+2. Perform an action which we want to test: **Act**
+3. Check with an expectation if it gives the desired result:  **Assert**.
+
+There are exceptions to this pattern, such as when we only want to test that specific methods exist (no actions), but you will see the arrange-act-assert pattern over and over again in many languages and frameworks.
+
 ## Testing in Ruby
 
 Writing your own tests with puts is wonderful, but it would be handy to have a standard way that developers can use to write tests on their code, a way that other developers understand.  The maintainers of the Ruby language have adopted a testing library called [Minitest](http://docs.seattlerb.org/minitest/) as the default standard for testing in Ruby & later Rails.  For the remainder of your time using Ruby at Ada, we will be using Minitest to write unit-tests for your code.  [RSpec](http://rspec.info/) is another very common testing framework used along with Ruby and Rails. We won't be using it here at Ada but it's good to know about when you're browsing the internet for testing help.  Later in JavaScript we will be using the [Jasmine](https://jasmine.github.io/) BDD framework to test our front-end code.
@@ -83,38 +98,7 @@ Writing your own tests with puts is wonderful, but it would be handy to have a s
 
 In the TDD World there are two styles of testing.  In the first more traditional method people use *assertions* which are statements that check if a value is what it should be.  The other method is a subset of TDD, called Behavior-Driven Development (BDD) which accomplishes the same thing in a more English-friendly fashion business analysts can understand.  At Ada we will use the second BDD style of testing.  You should know assertion-style testing is a thing, and that it accomplishes the same job as our behavior-driven development, but we will not require you to write assertion-style tests.
 
-Below are examples of a test written in each format:
 
-Assertion style tests suites are created by defining a class which extends Minitest::test and each test is defined in an instance method which starts with `test_`. The test then **asserts** things that must be true.  Note the `assert_equal` method.
-
-```ruby
-class EmailTest < Minitest::Test
-
-  def test_subject_is_test_subject
-    email = Email.new(subject: "Test Subject",
-      from: "ada@adadev.org",
-      to: "student@adadev.org",
-      body: "test body")
-      # If you create an instance of Email, the subject must be saved in the subject property.
-    assert_equal "Test Subject", email.subject
-  end
-end
-```
-BDD or "spec-style" tests are written in a more English-friendly syntax.  Each set of tests are written within a `describe` block.  Each test is then written within an `it` block.  Inside the `it` block we arrange our code to set up an initial situation and perform some action we want to test (like creating an instance) and then state what we expect to be true with an expectation.  Note the `must_equals` method.
-
-```ruby
-describe "Email" do
-
-  it "will have the proper subject" do
-    email = Email.new(subject: "Test Subject",
-      from: "ada@adadev.org",
-      to: "student@adadev.org",
-      body: "test body")
-
-    email.subject.must_equal "Test Subject"
-  end
-end
-```
 
 ## Summary
 

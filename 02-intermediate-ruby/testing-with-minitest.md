@@ -231,14 +231,14 @@ We also need to ensure that if Bill.new is called without an argument it raises 
 So we will add another `it` block and use the `must_raise` expectation.
 
 ```ruby
-it "will raise an error if created with an invalid argument" do
+it "will raise an error if created without a list of prices" do
   proc {
     bill = Bill.new
   }.must_raise ArgumentError
 end
 ```
 
-**Question**: Look back at the [guidelines for what to test]().  What other kinds of things should we test on the `initialize` method?
+**Question**: Look back at the guidelines for what to test.  What other kinds of things should we test on the `initialize` method?
 
 #### Practice Exercise
 
@@ -248,18 +248,11 @@ Now we need make a method that calculates the bill subtotal.  Write a test (`it`
 
 Check with your neighbor.  You can find a solution [here.](https://github.com/AdaGold/bill_calculator/commit/12548edbe1d88bce598b642764e7953c10ced204)
 
-### Arrange-Act-Assert
-
-In our tests we will typically follow this pattern:
-1. Arrange our code with all our variables and inputs:  **Arrange**
-2. Perform an action which we want to test: **Act**
-3. Check with an expectation if it gives the desired result:  **Assert**.
-
-There are exceptions to this pattern, such as when we only want to test that specific methods exist (no actions), but you will see the arrange-act-assert pattern over and over again in your code.
-
 ### Practice Exercise - Sales Tax
 
-Now write a test to evaluate the Sales tax on a particular bill.  Add another `it` block inside the existing `describe` block.
+Next we need to add functionality for our class to evaluate sales tax on the bill.  To start we will write a test for a method, `tax`, to calculate the taxes on a bill.  We will for now assume 8% sales tax.  
+
+Add another `it` block inside the existing `describe` block, create an instance of `Bill`, and use a matcher to verify that `tax` returns the correct value.
 
 Then modify `Bill` to make the test pass.
 
@@ -339,9 +332,9 @@ Finished in 0.001215s, 2469.1358 runs/s, 3292.1811 assertions/s.
 ```
 Now you can have as many spec files as you want and run all the tests with a single `rake` command.
 
-## Homework
+## Final Exercise
 
-Tonight create a test for the total bill including the tax.  Then write code to make the test pass.  
+Create a test for a method to calculate the total bill including the tax.  Then write code to make the test pass.  
 
 ## List of Minitest Matchers
 
