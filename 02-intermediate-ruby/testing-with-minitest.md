@@ -219,7 +219,7 @@ require_relative 'bill'
 
 describe "bill" do
   it "can be created" do
-    bill = Bill.new [{name: 'Coffee', price: 4.75}, {name: 'Pancakes', price: 8.75}]
+    bill = Bill.new [4.75, 8.75]
     # the class of @bill should be Bill
     bill.class.must_equal Bill
   end
@@ -273,7 +273,7 @@ Notice that we are doing `bill = Bill.new ...` a lot!  We can DRY out our code b
 ```ruby
 describe "Bill" do
   before do
-    @bill = Bill.new [{name: 'Coffee', price: 4.75}, {name: 'Pancakes', price: 8.75}]
+    @bill = Bill.new [4.75, 8.75]
   end
 
   it "can be created" do
