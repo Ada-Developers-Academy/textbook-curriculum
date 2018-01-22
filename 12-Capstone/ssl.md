@@ -64,16 +64,16 @@ Let's Encrypt has to verify you control a domain before they'll give you a certi
 
 1. Add this route to your Rails project:
 
-  ```ruby
+    ```ruby
     get "/.well-known/acme-challenge/#{ENV['LE_AUTH_REQUEST']}", to: 'welcome#letsencrypt'
-  ```
+    ```
 1. And add this action into the WelcomeController (or whichever controller your route goes to):
 
-  ```ruby
+    ```ruby
     def letsencrypt
       render plain: ENV['LE_AUTH_RESPONSE']
     end
-  ```
+    ```
 1. Then `git add` and `git commit` those changes.
 1. Push your code to Heroku with `git push heroku`, or to AWS with `eb deploy`.
 
