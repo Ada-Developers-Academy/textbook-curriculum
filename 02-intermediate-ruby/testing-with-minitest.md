@@ -134,10 +134,6 @@ Run options: --seed 21626
 
 # Running:
 
-Run options: --seed 21626
-
-# Running:
-
 EE
 
 Error:
