@@ -9,7 +9,7 @@ Minitest is the default testing framework for Ruby.  We will learn and explore w
 
 ## Starter Files
 
-As we work we will use the files located in this [repository.](https://github.com/AdaGold/bill_calculator).  Fork & Clone the repository and follow along as you go.
+As we work we will use the files located in this [repository](https://github.com/AdaGold/bill_calculator).  Fork & Clone the repository and follow along as you go.
 
 Our starter code has 2 files we will focus on.  
 - `bill.rb` a file we will build our class in to simulate a bill.
