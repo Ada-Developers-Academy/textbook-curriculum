@@ -203,7 +203,7 @@ Array                                     | Hash
 Created with square brackets `[]`         | Created with curly braces `{}`
 Uses integers for indices                 | Uses strings or symbols for keys
 Indices start from 0 and count up         | Any string or symbol is OK
-Stores any kind of element                | Stores any kind of value
+Any object can be an element              | Any object can be a value
 Access elements with square brackets `[]` | Access values with square brackets `[]`
 Add an element with `.push()` or `<<`     | Add a key/value pair with `[]`
 Access via an index that doesn't exist returns `nil` | Access via a key that doesn't exist returns `nil`
