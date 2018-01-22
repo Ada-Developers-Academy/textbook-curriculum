@@ -182,10 +182,6 @@ Run options: --seed 32657
 
 # Running:
 
-Run options: --seed 32657
-
-# Running:
-
 ..
 
 Finished in 0.001089s, 918.2736 runs/s, 918.2736 assertions/s.
@@ -224,7 +220,7 @@ require_relative 'bill'
 describe "bill" do
   it "can be created" do
     bill = Bill.new [{name: 'Coffee', price: 4.75}, {name: 'Pancakes', price: 8.75}]
-    # the class of @bill should be Die
+    # the class of @bill should be Bill
     bill.class.must_equal Bill
   end
 end
@@ -281,7 +277,7 @@ describe "Bill" do
   end
 
   it "can be created" do
-    # the class of @die should be Die
+    # the class of @bill should be Bill
     @bill.must_be_instance_of Bill
   end
 
@@ -354,7 +350,7 @@ Tonight create a test for the total bill including the tax.  Then write code to 
 |   `must_equal`	|   `obj1.must_equal obj2`	|   The test succeeds if the object equals the given object.  It fails otherwise.	|   	`wont_equal` |
 |   `must_be`	|   `num.must_be :>, 5`	|   It lets you compare the given object to another using a given operator.  In this example num must be greater than 5.	|  `wont_be`  |
 |   `must_be_empty`	|   `list.must_be_empty`	|   The test passes if the given collection is empty.	|  `wont_be_empty` |
-|   `must_be_instance_of`	|   `@bill.must_be_instance_of Die`	|   The test passes if the object is an instance of the given class.	|  `wont_be_instance_of`  |
+|   `must_be_instance_of`	|   `@bill.must_be_instance_of Bill`	|   The test passes if the object is an instance of the given class.	|  `wont_be_instance_of`  |
 |   `must_be_kind_of`	|   `list.must_be_kind_of Enumerable`	|   The test fails if the object is not a kind of the argument.	| `wont_be_kind_of`  |
 |   `must_be_nil`	|   `list.must_be_nil`	|   The test fails if the given object is not nil.	|  `wont_be_nil`   |
 |   `must_be_same_as`	|   `list.must_be_same_as another_list`	|   The test fails if the object is not the same as the given argument.	|    `wont_be_same_as`  |
@@ -363,7 +359,7 @@ Tonight create a test for the total bill including the tax.  Then write code to 
 |   `must_include`	|   `list.must_include 31`	|   The test fails if the collection does not contain the given value.	|  `wont_include`  |
 |   `must_match`	|   `name.must_match /silly/`	|   The test fails if the object doesn't match the given regular expression.	|  `wont_match`  |
 |   `must_output`	|   `proc { obj.do_something }.must_output "something"	`|   The test fails if the given block does not output the given value.	|
-|   `must_respond_to`	|   `die.must_respond_to :roll`	|   The test fails if the object does not respond to the given method name.  	|  `wont_respond_to`  |
+|   `must_respond_to`	|   `bill.must_respond_to :tax`	|   The test fails if the object does not respond to the given method name.  	|  `wont_respond_to`  |
 |   `must_raise`	|   `proc { obj1.do_something }.must_raise NoMethodError`	|   The test fails if the given block does not raise the given exception.	|    |
 |   `must_throw` |   	`proc { obj1.do_something }.must_throw Exception` |   	Similar to `must_raise`  You can probably safely ignore this, but you can see [here](http://stackoverflow.com/questions/51021/what-is-the-difference-between-raising-exceptions-vs-throwing-exceptions-in-ruby) for an explanation on the differences between raise and throw..  | `wont_throw`  |
 
