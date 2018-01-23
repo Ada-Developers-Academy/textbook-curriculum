@@ -1,10 +1,12 @@
 # Testing With Minitest
 
-Minitest is the default testing framework for Ruby.  We will learn and explore writing tests by creating a class which simulates a bill with the ability to calculate, subtotal, tax and total.  We could use such a class in any number of e-commerce applications.  We are going to build the `Bill` class in a TDD fashion using Minitest, as our testing framework.  In doing so we will both learn the syntax of Minitest and practice writing code in a TDD fashion.
+Minitest is the default testing framework for Ruby.  We will learn and explore writing tests by creating a class which simulates a bill with the ability to calculate, subtotal, tax and total.  We could use such a class in any number of e-commerce applications or even a Point of Sale (POS) system.  We are going to build the `Bill` class in a TDD fashion using Minitest, as our testing framework.  In doing so we will both learn the syntax of Minitest and practice writing code in a TDD fashion.
 
 ## Learning Goals
 - Discover techniques to verify our code performs as expected using _automated tests_
-- Test code using _expectations._
+- Learn the syntax of Minitest spec-style testing
+- Test code using _expectations_
+- Practice spotting _nominal_ and _edge cases_.
 - Have a basic grasp on what _Rake_ & _Rakefiles_ are
 
 ## Starter Files
@@ -59,7 +61,7 @@ Finished in 0.000751s, 0.0000 runs/s, 0.0000 assertions/s.
 0 runs, 0 assertions, 0 failures, 0 errors, 0 skips
 ```
 
-We are now setup, but we haven't actually written a test yet.
+Minitest is running (Yippie!), but we haven't actually written a test yet.
 
 
 #### Writing Your First Test
@@ -202,7 +204,7 @@ There are a [number of expectations](http://mattsears.com/articles/2011/12/10/mi
 
 #### A Word on Parentheses
 
-In the code above, we are calling `must_equal` without using parentheses `bill.class.must_equal Bill`.  Ruby doesn't FORCE you to put parentheses around a method's arguments but [the community-driven style guidelines](https://github.com/bbatsov/ruby-style-guide) suggest that it's good coding style to put parentheses around method arguments **except** for methods which are part of an internal Domain Specific Language (DSL), or basically the syntax of some kind of framework like... Minitest.
+In the code above, we are calling `must_equal` without using parentheses `bill.class.must_equal Bill`.  Ruby doesn't FORCE you to put parentheses around a method's arguments but [the community-driven style guidelines](https://github.com/bbatsov/ruby-style-guide#method-invocation-parens) suggest that it's good coding style to put parentheses around method arguments **except** for methods which are part of an internal Domain Specific Language (DSL), or basically the syntax of some kind of framework like... Minitest.
 
 So you shouldn't put parentheses around the arguments to `must` method arguments, but you **should** around your own methods.
 
@@ -228,13 +230,13 @@ end
 
 #### Our First Edge Cases
 
-You may remember from the [Introduction to Automated Testing](../00-programming-fundamentals/intro-to-automated-tests.md) that we also have an edge-case when the list is empty.  As designers we can decide that if:
+You may remember from the [Introduction to Automated Testing](../00-programming-fundamentals/intro-to-automated-tests.md) that we also have an edge-case when the list is empty.  As designers we decide what to do when:
 
 1. A `Bill` is constructed without an argument
 1. A `Bill` is constructed with a non-array argument
-1. Or if Bill.new is called an empty list
+1. Or Bill.new is called an empty list
 
-We will **raise an error**.  By doing this we can insure that no `Bill` is created in an invalid state.
+We will choose to **raise an error**.  By doing this we can insure that no `Bill` is created in an invalid state.
 
 So we will add another `it` block and use the `must_raise` expectation.
 
@@ -288,9 +290,13 @@ Notice our example followed a pattern from our earlier [introduction to automate
 
 Next we need to add functionality for our class to evaluate sales tax on the bill.  To start we will write a test for a method, `tax`, to calculate the taxes on a bill.  We will for now assume 8% sales tax.  
 
+**First Write the Test**
+
 Add another `it` block inside the existing `describe` block, create an instance of `Bill`, and use a matcher to verify that `tax` returns the correct value.  Follow the same arrange-act-assert pattern as above.  
 
 Check your solution with a classmate and you can verify your answer [here](https://github.com/AdaGold/bill_calculator/commit/c9a7a2dd28c1f4edce4d9b65a0e9ef206a8ec41d)
+
+**Next Make It Pass**
 
 Then modify `Bill` to make the test pass.
 
