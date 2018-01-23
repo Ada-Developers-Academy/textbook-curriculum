@@ -75,7 +75,7 @@ require 'minitest/autorun'
 require 'minitest/reporters'
 require_relative 'bill'
 
-describe "bill" do
+describe "Bill" do
 
 end
 ```
@@ -94,7 +94,7 @@ require 'minitest/autorun'
 require 'minitest/reporters'
 require_relative 'bill'
 
-describe "bill" do
+describe "Bill" do
   it "Can be created" do
     # Testing goes in here
   end
@@ -219,14 +219,22 @@ require_relative 'bill'
 
 describe "bill" do
   it "can be created" do
-    bill = Bill.new [4.75, 8.75]
+    bill = Bill.new([4.75, 8.75])
     # the class of @bill should be Bill
     bill.class.must_equal Bill
   end
 end
 ```
 
-We also need to ensure that if Bill.new is called without an argument it raises an error.  
+#### Our First Edge Cases
+
+You may remember from the [Introduction to Automated Testing](../00-programming-fundamentals/intro-to-automated-tests.md) that we also have an edge-case when the list is empty.  As designers we can decide that if:
+
+1. A `Bill` is constructed without an argument
+1. A `Bill` is constructed with a non-array argument
+1. Or if Bill.new is called an empty list
+
+We will **raise an error**.  By doing this we can insure that no `Bill` is created in an invalid state.
 
 So we will add another `it` block and use the `must_raise` expectation.
 
@@ -238,15 +246,39 @@ it "will raise an error if created without a list of prices" do
 end
 ```
 
-**Question**: Look back at the guidelines for what to test.  What other kinds of things should we test on the `initialize` method?
+**Question**: The code above tests for the first situation.  How can you write a tests for the others?  You can find a solution [here](https://github.com/AdaGold/bill_calculator/commit/96f00a74e60d4e4246d0c8a10dfe66dea89cfd6d)
+
+#### How to make it pass?
+
+Now we need to write code to make the tests pass.  Raising an error is new for us right now, so lets look at how we can do so:
+
+```ruby
+# bill.rb
+
+class Bill
+  def initialize(prices)
+    if !(prices.is_a? Array) || prices.length < 1
+      raise ArgumentError.new("Bill requires a non-empty array")
+    end
+    @prices = prices
+  end
+end
+```
+
+The command `raise ArgumentError.new("...")` triggers an error, known in programming as an **exception** to occur which will rise up to the calling method and force the user of our class to either handle the error or prevent it from occuring.  In this case it prevents misuse of our class.  Anyone using our `Bill` must instantiate it with a non-empty list, or it will not work.  
+
+#### Question
+Consider other edge cases we might want?  What kinds of invalid arguments could get passed to initialize?
 
 #### Practice Exercise
 
 Now we need make a method that calculates the bill subtotal.  Write a test (`it` block) that creates an instance of Bill, calls a `subtotal` method and ensure that it returns the correct answer (the sum of the prices).  You can use the `must_equal` matcher.  
 
+Then make the test pass by editing `bill.rb`
+
 #### Check & Verify
 
-Check with your neighbor.  You can find a solution [here.](https://github.com/AdaGold/bill_calculator/commit/12548edbe1d88bce598b642764e7953c10ced204)
+Check with your neighbor.  You can find a solution [here for the test](https://github.com/AdaGold/bill_calculator/commit/e5bbfe7cd0235e93408e6fae81abf5f2c8624437) [and here for `bill.rb`](https://github.com/AdaGold/bill_calculator/commit/c67fec9271b50fe1d2fd28cf93db343b2dee4f06)
 
 ### Practice Exercise - Sales Tax
 
@@ -254,9 +286,12 @@ Next we need to add functionality for our class to evaluate sales tax on the bil
 
 Add another `it` block inside the existing `describe` block, create an instance of `Bill`, and use a matcher to verify that `tax` returns the correct value.
 
+Check your solution with a classmate and you can verify your answer [here](https://github.com/AdaGold/bill_calculator/commit/c9a7a2dd28c1f4edce4d9b65a0e9ef206a8ec41d)
+
 Then modify `Bill` to make the test pass.
 
-Check your solution with a classmate and you can verify your answer [here.](https://github.com/AdaGold/bill_calculator/blob/solution/specs/bill_spec.rb)
+Check your solution with a classmate and you can verify your answer [here](https://github.com/AdaGold/bill_calculator/commit/b2917775a00b5ada7aec8073409dc9278a54582b)
+
 
 **Question**:  What additional edge cases should you cover?
 ## Drying Tests
@@ -334,7 +369,17 @@ Now you can have as many spec files as you want and run all the tests with a sin
 
 ## Final Exercise
 
-Create a test for a method to calculate the total bill including the tax.  Then write code to make the test pass.  
+#### Exercise Testing `total` Method
+
+Now write a test for and implement the `Bill#total` method which should return the sum of the subtotal and tax.
+
+After you finish you can check your work with a solution [here](https://github.com/AdaGold/bill_calculator/tree/0e9911c482033bf00cb949407025e96c5afd4dc8).
+
+## Testing Floats
+
+Note here that we are testing floating point numbers for equality.  This [can be dangerous](https://books.google.com/books?id=oRqkBwAAQBAJ&pg=PA73&lpg=PA73&dq=ruby+float+comparison&source=bl&ots=8O2nV1Zjn0&sig=ckve5lVDtS-ff9hPMqhXJlNnaNM&hl=en&sa=X&ved=0ahUKEwiVvKvL6-zYAhUS-2MKHadID2YQ6AEIUjAE#v=onepage&q=ruby%20float%20comparison&f=false) because floating point numbers are inexact approximations of the real numbers.  In the real-world we would certainly round our floating point numbers to 2 decimals as it represents money and for other comparisons when you use floating point numbers you would use `must_be_within_delta` to ensure that a value is within a certain range of the target number.  
+
+The big take-away is to never compare floats for exact values.  Instead use `must_be_within_delta`.
 
 ## List of Minitest Matchers
 

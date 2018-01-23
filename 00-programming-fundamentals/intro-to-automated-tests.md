@@ -79,7 +79,61 @@ More important than how you test your code is what you are testing.  If you're n
 
 Lets consider a class designed to embody the concept of a bill.  This could be a grocery store bill, an online bill from a store, or anything that takes in a list of items with prices and calculates a subtotal, tax and total price.  
 
+In Ruby `Bill` could look like:
 
+```ruby
+class Bill
+  def initialize(item)
+    #...
+  end
+
+  def subtotal
+    #...    
+  end
+
+  def tax
+    #...    
+  end
+
+  def total
+    #...    
+  end
+end
+```
+
+We will give each `Bill` a list of prices for individual items and it should be able to:
+
+- Calculate the subtotal before taxes
+- Calculate the sales taxes
+- Calculate the total amount owed
+
+So when we test the Bill class we will need to test both _nominal cases_, where we test that your code works normally, and _edge cases_ where you test the borders of possible inputs.  Anytime you think of a scenario where you say, "Huh that's interesting,"" or "I dunno," you're probably at an _edge case_.
+
+#### Nominal Cases
+
+Some nominal cases include:
+
+- Can I create a `Bill` with a list of normal prices?
+- Given a created bill, does it calculate the subtotal correctly?
+- Given a created bill does it calculate the proper sales tax?
+- Given a created bill does it calculate the proper total, including tax?
+
+For every method you create you should include **at least one nominal test.**
+
+#### Edge Cases
+
+Edge cases push the bounds of what's normal.  Given our Bill example, the input is a list of prices, thus a good edge case might include:
+
+-  Can I create a `Bill` with an empty list?
+
+In Ruby this might look like `Bill.new([])`.  It could easily happen through a programming error, or an end-user mistake.  
+
+How do we deal with this scenario?  There's not an obvious answer.  The program could work fine returning zero for `Bill#subtotal`, `Bill#tax` and `Bill#total`, or it could raise an error, or something else.  Because it's not immediately obvious it makes a clear _edge case_.  You, as the designer, have to decide on the proper behavior and should write a test for it.  
+
+**Questions:**
+
+-  Are there any other edge cases, or variations on input you should test for when you create a `Bill`?  
+- Are there edge cases to test for with `Bill#tax`, `Bill#total`, or `Bill#subtotal`
 
 ### The Process of Testing: Arrange-Act-Assert
 
