@@ -174,9 +174,10 @@ There are a few things to note here:
 
 Keyword arguments aren't always the right choice.
 
-Sometimes an argument doesn't have a clear default value. For `type`, should the default be `:drip`, `:latte` or `:cappuccino`?
-
-Sometimes a method doesn't make sense without one of the arguments. How can you price coffee if you don't know the size?
+- Sometimes an argument doesn't have a clear default value
+  - For `type`, should the default be `:drip`, `:latte` or `:cappuccino`?
+- Sometimes a method doesn't make sense without one of the arguments
+  - How can you price coffee if you don't know the size?
 
 In these cases, positional arguments are usually the right choice. Keyword arguments are useful when a method has an alternate way of behaving, or a long list of optional arguments.
 
