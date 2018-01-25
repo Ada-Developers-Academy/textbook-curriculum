@@ -60,7 +60,7 @@ Put your name in the file.
 
 ## 7.  Then Tell Git To Track And Save The Changes To Github
 
-These commands tell Git to track the changes you just made to the file, and push those changes up to the website. 
+These commands tell Git to track the changes you just made to the file, and push those changes up to the website.
 
 ```bash
 $  git add name.md
@@ -80,3 +80,13 @@ Lastly Click on **Create Pull Request**
 ![Create Pull Request](./images/create-pull-req.png)
 
 Then check with your instructor, the request should register and they should be able to verify that you have
+
+## What if it doesn't work!!!
+
+First, don't panic!
+
+![Don't panic](./images/nopanic.jpg)
+
+Go back through the [installfest](../installfest.md) instructions for git and make sure the email address and username match what's in the profile of your github account.  
+
+You can also grab help from an instructor or classmate.
