@@ -83,7 +83,7 @@ In Ruby `Bill` could look like:
 
 ```ruby
 class Bill
-  def initialize(item)
+  def initialize(items)
     #...
   end
 
