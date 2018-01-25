@@ -114,9 +114,9 @@ So when we test the Bill class we will need to test both _nominal cases_, where 
 Some nominal cases include:
 
 - Can I create a `Bill` with a list of normal prices?
-- Given a created bill, does it calculate the subtotal correctly?
-- Given a created bill does it calculate the proper sales tax?
-- Given a created bill does it calculate the proper total, including tax?
+- Given a created `Bill` does it calculate the subtotal correctly?
+- Given a created `Bill` does it calculate the proper sales tax?
+- Given a created `Bill` does it calculate the proper total, including tax?
 
 For every method you create you should include **at least one nominal test.**
 
