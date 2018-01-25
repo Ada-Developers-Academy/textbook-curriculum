@@ -63,7 +63,8 @@ Shortcut | Effect
 `⌘^up` & `⌘^down` | Move the active line up or down
 `⌘d`     | Select the next instance of the highlighted string
 `⌃⇧up` & `⌃⇧down` | add a cursor in the same position on the line above/below. Press `esc` to get back to a single cursor.
-`⌘\`     |  Open/close the Tree View pane
+`⌘\`     | Open/close the Tree View pane
+`⌘/`     | Comment out the current line
 
 Remember that normal osx keyboard shortcuts will work here too!
 
