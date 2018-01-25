@@ -140,7 +140,7 @@ How do we deal with this scenario?  There's not an obvious answer.  The program 
 Testing typically follows this pattern:
 1. Arrange our code with all our variables and inputs:  **Arrange**
 2. Perform an action which we want to test: **Act**
-3. Check with an expectation if it gives the desired result:  **Assert**.
+3. Check with an expectation if it gives the desired result:  **Assert**
 
 There are exceptions to this pattern, such as when we only want to test that specific methods exist (no actions), but you will see the arrange-act-assert pattern over and over again in many languages and frameworks.
 
