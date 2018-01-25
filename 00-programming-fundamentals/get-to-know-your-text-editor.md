@@ -4,52 +4,26 @@
 [Atom](https://atom.io/) is a powerful new text editor created by Github. It's build using node.js and other web technologies.  Atom is the text editor we will be using and supporting at Ada.
 
 ### There are lots of other editors.
-And every person you ask will have a favorite with a very personal list of reasons why their choice is right. Take these with a grain of salt. Use what makes the most sense to you. It's likely you'll change editors every couple of years anyway.  The most important thing is that the editor works for you and meshes with your workflow.  
+And every person you ask will have a favorite with a very personal list of reasons why their choice is right. Take these with a grain of salt. Use what makes the most sense to you. It's likely you'll change editors every couple of years anyway.  The most important thing is that the editor works for you and meshes with your workflow.
 
 ## More About Atom
-### Packages
-We can install add-ons in Atom through it's internal package manager.
-
-1. Open the preferences pane from the app menu `Atom > Preferences...` (or press `⌘,`).
-2. Click on the `Packages` tab in the left menu. This will show you the packages that are installed by default.
-3. Click on the '+Install' tab in the left menu. Search and install the following packages:
-    - Autoclose HTML
-    - Color Picker
-    - Linter
-    - Linter ruby
-    - Linter CSSlint
-    - Atom Zurb Foundation
-    - Sublime Style Column Selection
-    - Eslint
-
-
-#### Term:  Linter
-
-*  A Linter is a name for a program that flags suspicious code that are probably errors.  You'll see the error message at the bottom of your text editor like this:
-
-![Linter Error Msg](images/linter.png "Linter Error Message")
-
 
 ### Themes
 Themes change the way your editor looks, similar to packages
 enter the `Preference` and click on the `Themes` tab, browse, and install.
 
-### Customizing Themes
-There are many ways to customize Atom, but most simple is to edit the stylesheet
+You can even customize themes using a language called CSS, which we'll be learning in a few weeks.
 
-- Open the Command Pallet (`⌘⇧p`) and type "open your stylesheet", and press enter.
-- Try writing some CSS (don't worry we'll learn it in the future):
+### Packages
 
-```css
-.editor {
-  background-color: red;
-}
-```
+One of the most powerful parts of Atom is the ability to install custom packages. These can add features as weird and varied as:
 
-Press `⌘s` to save and you should see the change instantly!
+- Linters (spellchecker for code)
+- A minimap of your code
+- Autocomplete for common patterns
+- A tool to let you pick colors
 
-You can select any part of the application to manipulate with CSS.
-To browse the CSS selectors for the app open the debug console with `⌘⌥i`
+We'll add some of these as they become relevant. Feel free to look some up if they interest you, but for now just know that they exist.
 
 ## Awesome Keyboard Shortcuts
 
@@ -66,7 +40,7 @@ Shortcut | Effect
 `⌘\`     | Open/close the Tree View pane
 `⌘/`     | Comment out the current line
 
-Remember that normal osx keyboard shortcuts will work here too!
+Remember that normal OSX keyboard shortcuts will work here too!
 
 Shortcut | Effect
 ---      | ---
