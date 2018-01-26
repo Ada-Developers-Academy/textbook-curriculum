@@ -248,7 +248,7 @@ Lastly in our `/app/views/layouts/application.html.erb` file we can add links to
 
 ```erb
 <% if session[:user_id] %>
-  <%= link_to "Log out", logout_path%>
+  <%= link_to "Log out", logout_path, method: "delete"   %>
 <% else %>
   <%= link_to "Login with Github", "/auth/github" %>
 ```
