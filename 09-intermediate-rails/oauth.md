@@ -262,3 +262,4 @@ Lastly in our `/app/views/layouts/application.html.erb` file we can add links to
 *  [How Sessions Work](http://www.justinweiss.com/articles/how-rails-sessions-work/)  
 [Rails Guides: Accessing the Session](http://guides.rubyonrails.org/action_controller_overview.html#accessing-the-session)
 *  [How to Set Environment Variables in Heroku](https://devcenter.heroku.com/articles/config-vars)
+*  [Logout Route delete or get?](https://stackoverflow.com/questions/26018471/routing-trouble-for-logout-link-delete-vs-get-action)
