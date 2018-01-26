@@ -1,19 +1,11 @@
 ## Ruby Fundamentals
 
-1. [Welcome to Ruby](welcome-to-ruby.md)
-1. [Intro to Object Types](intro-to-object-types.md)
-    - [Worksheet: Object Types](./exercises/object-data-types.md)
-1. [Data Structures](data-structures.md)
-    - [Activity: Divide & Conquer Methods](./exercises/activity-methods-dc.md)
-1. [Comparison and Flow Control](comparisons-and-flow-control.md)
-1. [Iteration & Blocks](iteration-and-blocks.md)
-    - [Worksheet: Loop Table](./exercises/loop-table-worksheet.md)
 1. [Compound Conditionals](compound-and-complex-conditionals.md)
     - [Worksheet: Conditions](./exercises/conditions-worksheet.md)
-    - [Worksheet: While Loops](./exercises/while-worksheet.md)
-1. [Literals](literals.md)
 1. [Methods](methods.md)
-    - [Worksheet: Friendship Note](./exercises/methods-worksheet.md)
+    - [Activity: Builtin Method Divide & Conquer](./exercises/activity-methods-dc.md)
+    - [Activity: Friendship Note](./exercises/methods-worksheet.md)
+1. [Data Structures](data-structures.md)
 1. [Classes Overview](classes-overview.md)
 1. [Classes in Ruby](classes-in-ruby.md)
     - [Worksheet: Objects](./exercises/oo-worksheet.md)
@@ -22,7 +14,10 @@
 1. [Keyword Arguments](keyword-arguments.md)
 1. [Intro to Ruby Gems](intro-to-ruby-gems.md)
 
-## Optional Exercises for More Practice
+## Exercises for More Practice
+- [Worksheet: Object Types](./exercises/object-data-types.md)
 - [Practice on Conditionals](./exercises/conditionals.md)
+- [Worksheet: Loop Table](./exercises/loop-table-worksheet.md)
+- [Worksheet: While Loops](./exercises/while-worksheet.md)
 - [Object Orientation: Library Book](./exercises/oo-library.md)
 - [Object Orientation: Flower](./exercises/oo-flower.md)
