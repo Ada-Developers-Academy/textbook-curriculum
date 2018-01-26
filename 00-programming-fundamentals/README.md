@@ -4,8 +4,6 @@
 ### Introductory
 1. [How To OSX](how-to-osx.md)
 1. [OSX Useful Apps](osx-useful-apps.md)
-1. [Intro to the Command Line](intro-to-the-command-line.md)
-    - [Command Line Exercises](terminal-commands.md)
 1. [Installfest](installfest.md)
 1. [Get to know your Text Editor](get-to-know-your-text-editor.md)
 
