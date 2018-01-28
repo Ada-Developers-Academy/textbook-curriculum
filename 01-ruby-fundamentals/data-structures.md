@@ -27,8 +27,8 @@ Here are some facts about arrays.
 - Arrays are created by putting square brackets `[]` around a list of things
   - The list can be empty
 - Since an array is an object, we can store it in a variable
-- You can get the length of the array with `Array#length`
-- The array will keep track of the order elements were added
+- You can get the length of the array by calling `my_array.length`
+- The elements in an array are _ordered_ - you get them out in the order you put them in
 
 ```ruby
 students = ['Ada', 'Katherine']
@@ -40,17 +40,20 @@ puts students.length
 # => 2
 ```
 
+**Question:** Why do we interpolate when printing the whole array? What is the difference between `puts students` and `puts "#{students}"`?
+- Open up `irb` and find out!
+
 #### Indices and Elements
 
 - Each element in the array is assigned a number called its _index_
   - Indices always start from 0
-  - This means the last element is at `arr.length - 1`
-  - Negative indices count backwards from the end, starting at `-1`
+  - The index of the last element is always `my_array.length - 1` (why?)
+  - Negative indices count backwards from the end, starting at `-1` for the last element
 - Any object can be an element in an array
-- You can add a new element to the array with the `Array#push` method or with `<<`
+- You can add a new element to the array with the `my_array.push` method or with `<<`
 - You can read elements using square brackets `[]` and the index
 - Changing the value of an element is done in the same way
-- Trying to read an element that doesn't exist will result in `nil`
+- Trying to read with an index that is not in the array will result in `nil`
 
 ```ruby
 # Read the element at index 0
@@ -89,9 +92,9 @@ puts students[4]
 
 #### Iteration
 
-- Iteration is the process of doing something to each element in the array, like printing it to the command line or adding 7 to it
-- To iterate manually, you can use a `times` loop on the length of the array
-- There is an `Array#each` method, which is more readable
+- Iteration is the process of doing something to each element in the collection
+- To iterate using indices, you can use a `times` loop on the length of the array
+- There is an `my_array.each` method, which is more readable
 
 ```ruby
 # Print every student to the command line
@@ -123,13 +126,13 @@ Here are some facts about hashes.
 - Hashes are created by putting curly braces `{}` around a list of `key: value` pairs
   - The list can be empty
 - Since a hash is an object, we can store it in a variable
-- You can get the number of key/value pairs with `Hash#length`
-- The hash does **not** keep track of the order of its key/value pairs
+- You can get the number of key/value pairs with `my_hash.length`
+- The hash does **not** keep track of the order of its key/value pairs*
 
 ```ruby
 fruit_prices = {
   apple: 2.15,
-  pear: 3.02,
+  pear: 3.02
 }
 
 puts "#{fruit_prices}"
@@ -147,7 +150,7 @@ puts fruit_prices.length
 - Values can be read using square brackets `[]` an the corresponding key
 - You can set values using the same notation
 - Trying to read the value for a key not in the hash will result in `nil`
-- Calling `Hash#keys` will give you a list of all the keys for this hash
+- Calling `my_hash.keys` will give you a list of all the keys for this hash
 
 ```ruby
 # Read a value using its key
@@ -179,19 +182,20 @@ puts fruit_prices["orange"]
 #### Iteration
 
 - Like an array, you can iterate through the key/value pairs in a hash
-  - Unlike an array, the order is not guaranteed
-- `Hash#each` provides two iteration variables, the key and the value
+  - Unlike an array, the order is not guaranteed*
+- `my_hash.each` provides two iteration variables, the key and the value
 
 ```ruby
 fruit_prices.each |fruit, price| do
   puts "#{fruit} costs $#{price}"
 end
 ```
+&ast;For more on hash ordering, see the footnote below.
 
 #### Questions
 
 1. Does it make sense to access the "last" key/value pair in a hash?
-1. What data type do you get back from `Hash#keys`?
+1. What data type do you get back from `my_hash.keys`?
 1. How would you get a list of fruits costing less than $3.00?
 
 ## Comparing Arrays and Hashes
@@ -234,18 +238,18 @@ menu = [
   {
     name: 'beet salad',
     price: 6.75,
-    allergens: ['nuts',],
+    allergens: ['nuts']
   },
   {
     name: 'quiche',
     price: 10.00,
-    allergens: ['gluten', 'dairy',],
+    allergens: ['gluten', 'dairy']
   },
   {
     name: 'molten chocolate cake',
     price: 8.50,
-    allergens: [],
-  },
+    allergens: []
+  }
 ]
 ```
 
@@ -307,6 +311,39 @@ Copy the above data into a file, then write code to address the following prompt
 1. Write code that asks the user for the name of a meal and prints out the price
     - What should your code do if the meal isn't found?
 
-## Additional Resources
+## Footnote: On the Order of Key/Value Pairs
 
-- [SO question on hash order in Ruby](https://stackoverflow.com/questions/31418673/is-order-of-a-ruby-hash-literal-guaranteed)
+This isn't something you need to worry about right now, but if you want to nerd out a little over language design than read on.
+
+Hash ordering is a tricky subject in Ruby. According to the Ruby language definition the order of keys and values in a hash is not guaranteed. To understand what this means, consider the following program.
+
+```ruby
+test_hash = {
+  a: 'one',
+  b: 'two'
+}
+puts "#{test_hash}"
+```
+
+According to the spec, for this program both `{a: 'one', b: 'two'}` and `{b: 'two', a: 'one'}` are valid outputs, and the two permutations of the hash are considered equivalent.
+
+However, in the standard implementation of Ruby that we're using hash ordering _is_ preserved. When iterating through a hash, you'll always get key/value pairs out in the order they were inserted. That means that _in our version of ruby_ we can predict the following results:
+
+```ruby
+h1 = {:a=>"one", :b=>"two"}
+h2 = {:b=>"two", :a=>"one"}
+
+# Iteration (and printing) is in FIFO order
+puts "#{h1}"
+# => {:a=>"one", :b=>"two"}
+puts "#{h2}"
+# => {:b=>"two", :a=>"one"}
+
+# Even though they print differently, the two are considered equal
+puts h1 == h2
+# => true
+```
+
+This behavior does **not** appear in other programming languages like [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in#Description) or [Python](https://docs.python.org/3/tutorial/datastructures.html#dictionaries), or even in [other implementations of Ruby](https://stackoverflow.com/questions/31418673/is-order-of-a-ruby-hash-literal-guaranteed). Moreover, unlike an array you cannot change the order of a hash; a hash cannot be sorted.
+
+For these reasons **you should not rely on hash ordering** - it's a bad habit that will produce subtle bugs when you change languages.
