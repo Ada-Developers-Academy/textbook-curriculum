@@ -39,7 +39,7 @@ This is far and away the easiest method for obtaining a cert if you're working i
 1. Open `Services` menu in upper left
 1. Under `Security, Identity & Compliance` click `Certificate Manager`
 1. Click `Request a Certificate`
-1. Type your URL, and click `Review and Request`
+1. Type your URL, select email validation, and click `Review and Request`
 1. Click `Confirm and Request`
 1. In a couple minutes, you'll get an email at the address you associated with that domain via Route 53. Click the link and Amazon will issue the cert.
 
@@ -64,16 +64,16 @@ Let's Encrypt has to verify you control a domain before they'll give you a certi
 
 1. Add this route to your Rails project:
 
-  ```ruby
+    ```ruby
     get "/.well-known/acme-challenge/#{ENV['LE_AUTH_REQUEST']}", to: 'welcome#letsencrypt'
-  ```
+    ```
 1. And add this action into the WelcomeController (or whichever controller your route goes to):
 
-  ```ruby
+    ```ruby
     def letsencrypt
       render plain: ENV['LE_AUTH_RESPONSE']
     end
-  ```
+    ```
 1. Then `git add` and `git commit` those changes.
 1. Push your code to Heroku with `git push heroku`, or to AWS with `eb deploy`.
 
