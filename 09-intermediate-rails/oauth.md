@@ -237,10 +237,11 @@ Then in the `SessionsController` we can add a method, `destroy` to handle logout
 class SessionsController < ApplicationController
   ...
   def destroy
-  session[:user_id] = nil
-  flash[:success] = "Successfully logged out!"
+    session[:user_id] = nil
+    flash[:success] = "Successfully logged out!"
 
-  redirect_to root_path
+    redirect_to root_path
+  end
 end
 ```
 
