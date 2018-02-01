@@ -85,8 +85,6 @@ You should see your name highlighted in **green** on the instructor's screen.  T
 
 ![images/classroom-app.png]
 
-Note student names were obscured in the image above.
-
 ## What if it doesn't work!!!
 
 First, don't panic!
