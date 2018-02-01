@@ -265,11 +265,11 @@ Then make the test pass by editing `bill.rb`
 
 Check with your neighbor.  You can find a solution [here for the test](https://github.com/AdaGold/bill_calculator/commit/e5bbfe7cd0235e93408e6fae81abf5f2c8624437) [and here for `bill.rb`](https://github.com/AdaGold/bill_calculator/commit/c67fec9271b50fe1d2fd28cf93db343b2dee4f06)
 
-#### Arrange-Act-Assert
+### Arrange-Act-Assert
 
 Notice our example followed a pattern from our earlier [introduction to automated tests](../00-programming-fundamentals/intro-to-automated-tests.md).  First we created a `Bill`, or **arranged** the situation.  Then by calling the `subtotal` method we **acted**, or performed the action we wanted to test.  Lastly we used the expectation to **assert** that the result of our action was correct.    This is a good example of the _Arrange-Act-Assert_ pattern discussed earlier.  
 
-#### Practice Exercise - Sales Tax
+### Practice Exercise - Sales Tax
 
 Next we need to add functionality for our class to evaluate sales tax on the bill.  To start we will write a test for a method, `tax`, to calculate the taxes on a bill.  We will for now assume 8% sales tax.  
 
