@@ -210,7 +210,7 @@ So you shouldn't put parentheses around the arguments to `must` method arguments
 
 ### Adding Functionality
 
-We are going to require that Bill must be instantiated with a list (array) of hashes.  Each item will have a name and price.  So we will revise the test to look like this:
+We are going to require that Bill must be instantiated with a list (array) of prices (integers).  Each item will have a name and price.  So we will revise the test to look like this:
 
 ```ruby
 # bill_test.rb
