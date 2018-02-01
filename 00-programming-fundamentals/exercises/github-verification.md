@@ -18,9 +18,9 @@ This will make a copy of the repository onto your github account.
 
 ## 3.  Copy the Clone Link
 
-Next you need to get a link to connect git and github.  To get it Click on the Clone or Download Button and select
+Next you need to get a link to connect git and github.  To get it Click on the Clone or Download Button and select.  Make sure you have the **https** link.
 
-![Clone or Download](./images/clone-or-download.png)
+![Clone or Download](./images/clone-or-download2.png)
 
 Then click on the clipboard to copy the link.
 
@@ -79,7 +79,9 @@ Lastly Click on **Create Pull Request**
 
 ![Create Pull Request](./images/create-pull-req.png)
 
-Then check with your instructor, the request should register and they should be able to verify that you have
+Then check with your instructor, the request should register and they should be able to verify that you have.
+
+You should see your name highlighted on the instructor's screen.  They may need to refresh their browser.
 
 ## What if it doesn't work!!!
 
