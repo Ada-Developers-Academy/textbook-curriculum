@@ -255,7 +255,7 @@ That's easy!  It **already** passes!
 #### Question
 What could we do for invalid arguments to `initialize`?
 
-#### Practice Exercise
+### Practice Exercise
 
 Now we need make a method that calculates the bill subtotal.  Write a test (`it` block) that creates an instance of Bill, calls a `subtotal` method and ensure that it returns the correct answer (the sum of the prices).  You can use the `must_equal` matcher.  
 
