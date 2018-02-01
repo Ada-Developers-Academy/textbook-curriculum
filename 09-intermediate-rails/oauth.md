@@ -221,6 +221,41 @@ end
 
 Before the `session` is sent to the browser it is encrypted. This means its contents are _opaque_ to the browser. All the browser sees is several KB of garbled nonsense, which it can neither interpret nor change. This makes the `session` ideal for things like storing the ID of an authenticated user, since there's no way for a malicious browser to fake a login.
 
+## Wait!  How Do I Log Out!
+
+We have authentication working now, but the user cannot actually log out.  The user is instead permanently logged in.  To log the person out we need to clear the session.
+
+To start with we can add a route for logging out.
+
+```ruby
+delete "/logout", to: "sessions#destroy", as: "logout"
+```
+Then in the `SessionsController` we can add a method, `destroy` to handle logout.  
+
+```ruby
+#  app/controllers/sessions_controller.rb
+class SessionsController < ApplicationController
+  ...
+  def destroy
+    session[:user_id] = nil
+    flash[:success] = "Successfully logged out!"
+
+    redirect_to root_path
+  end
+end
+```
+
+Lastly in our `/app/views/layouts/application.html.erb` file we can add links to log in and out.
+
+```erb
+<% if session[:user_id] %>
+  <%= link_to "Log out", logout_path, method: "delete"   %>
+<% else %>
+  <%= link_to "Login with Github", "/auth/github" %>
+```
+
+**Question**: How could you display the name or email address of the logged-in user? 
+
 ## Additional Resources
 *  [oauth Overview Notes](https://docs.google.com/presentation/d/1lIQ4F8gpXwaIEBHlsussoIEN31sqCY2upGIV_L81zi4)
 *  [oAuth Youtube video overview](https://youtu.be/CPbvxxslDTU)
@@ -228,3 +263,4 @@ Before the `session` is sent to the browser it is encrypted. This means its cont
 *  [How Sessions Work](http://www.justinweiss.com/articles/how-rails-sessions-work/)  
 [Rails Guides: Accessing the Session](http://guides.rubyonrails.org/action_controller_overview.html#accessing-the-session)
 *  [How to Set Environment Variables in Heroku](https://devcenter.heroku.com/articles/config-vars)
+*  [Logout Route delete or get?](https://stackoverflow.com/questions/26018471/routing-trouble-for-logout-link-delete-vs-get-action)
