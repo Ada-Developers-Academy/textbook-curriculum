@@ -32,7 +32,7 @@ $  gem install minitest-reporters
 To start with we'll add some code to `bill_spec.rb`.  We will also require `minitest/autorun`
 
 ```ruby
-# bill_test.rb
+# bill_spec.rb
 
 require 'minitest/autorun'
 require 'minitest/reporters'
@@ -49,7 +49,7 @@ Note that `bill.rb` which will hold our class is currently empty.
 We can run the tests by typing:  `ruby bill_spec.rb` and get the following:
 
 ```bash
-$ ruby bill_test.rb
+$ ruby bill_spec.rb
 Run options: --seed 35264
 
 # Running:
@@ -213,7 +213,7 @@ So you shouldn't put parentheses around the arguments to `must` method arguments
 We are going to require that Bill must be instantiated with a list (array) of prices (integers).  Each item will have a name and price.  So we will revise the test to look like this:
 
 ```ruby
-# bill_test.rb
+# bill_spec.rb
 
 require 'minitest/autorun'
 require 'minitest/reporters'
