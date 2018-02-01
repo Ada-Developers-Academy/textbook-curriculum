@@ -236,41 +236,24 @@ You may remember from the [Introduction to Automated Testing](../00-programming-
 1. A `Bill` is constructed with a non-array argument
 1. Or Bill.new is called an empty list
 
-We will choose to **raise an error**.  By doing this we can insure that no `Bill` is created in an invalid state.
+We will choose, for now, to ignore the case where someone creates a `Bill` without an argument or with an non-array.  We will come back to this on another day.  In the case of an empty array, the bill should be zero.  
 
-So we will add another `it` block and use the `must_raise` expectation.
+So we will add another `it` block.
 
 ```ruby
-it "will raise an error if created without a list of prices" do
-  proc {
-    bill = Bill.new
-  }.must_raise ArgumentError
+it "can be created with an empty array" do
+  bill = Bill.new []
+
+  bill.must_be_instance_of Bill
 end
 ```
-
-**Question**: The code above tests for the first situation.  How can you write a tests for the others?  You can find a solution [here](https://github.com/AdaGold/bill_calculator/commit/96f00a74e60d4e4246d0c8a10dfe66dea89cfd6d)
 
 #### How to make it pass?
 
-Now we need to write code to make the tests pass.  Raising an error is new for us right now, so lets look at how we can do so:
-
-```ruby
-# bill.rb
-
-class Bill
-  def initialize(prices)
-    if !(prices.is_a? Array) || prices.length < 1
-      raise ArgumentError.new("Bill requires a non-empty array")
-    end
-    @prices = prices
-  end
-end
-```
-
-The command `raise ArgumentError.new("...")` triggers an error, known in programming as an **exception** to occur which will rise up to the calling method and force the user of our class to either handle the error or prevent it from occuring.  In this case it prevents misuse of our class.  Anyone using our `Bill` must instantiate it with a non-empty list, or it will not work.  
+That's easy!  It **already** passes!  
 
 #### Question
-Consider other edge cases we might want?  What kinds of invalid arguments could get passed to initialize?
+What could we do for invalid arguments to `initialize`?
 
 #### Practice Exercise
 
