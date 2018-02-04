@@ -81,7 +81,7 @@ Lastly Click on **Create Pull Request**
 
 Then check with your instructor, the request should register and they should be able to verify that you have.
 
-You should see your name highlighted in **green** on the instructor's screen.  They may need to refresh their browser.
+You should see your name highlighted in **yellow** on the instructor's screen.  They may need to refresh their browser.
 
 ![images/classroom-app.png]
 
