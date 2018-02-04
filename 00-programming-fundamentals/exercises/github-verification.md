@@ -83,7 +83,7 @@ Then check with your instructor, the request should register and they should be 
 
 You should see your name highlighted in **yellow** on the instructor's screen.  They may need to refresh their browser.
 
-![images/classroom-app.png]
+![classroom app image](images/classroom-app.png)
 
 ## What if it doesn't work!!!
 
