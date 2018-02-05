@@ -6,7 +6,7 @@
 
 ## Required
 Go through what you've already learned in the CS Fundamentals classroom curriculum:
-+ [Linked List](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/LinkedList.md)
++ [Linked List](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Introduction%20to%20Linked%20Lists.md)
 
 ## Exercises
 Design an algorithm, deduce the space and time complexity and then, author functions to do the following:
@@ -27,11 +27,11 @@ For each of the problems below: Assume you are given a singly linked list where 
   12. Find the nth node from the end of the linked list and return its value. Assume indexing starts at 0 while counting to n.
   13. Check if the linked list has a cycle. A cycle exists if any node in the linked list links to a node already visited. Returns true if a cycle is found, false otherwise.
 
-### Optional
+### Additional Exercises
 Do the same exercises for a doubly linked list where each node contains an integer data and two links: one to the previous node and one to the next node in the doubly linked list.
 
 ## Assignment
-Implement methods in a singly linked list, linked_list.rb in [Ada-C7/Linked-List](https://github.com/Ada-C7/Linked-List)
+Implement methods in a singly linked list, linked_list.rb in [Ada-C8/Linked-List](https://github.com/Ada-C8/Linked-List)
 
 ## Additional Resources
 + Kal academy's material on [Linear Data Structures](https://drive.google.com/open?id=0BxHords9odw3cDhCdGMxcWFVRms)
