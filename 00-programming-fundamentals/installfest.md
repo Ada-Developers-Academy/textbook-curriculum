@@ -29,26 +29,6 @@ You may need to enter your computer password to complete the installation.
 ### Trust but Verify
 Run `$ brew doctor`. Brew is super great at telling you what else it may need. Sometimes there are file permissions to fix. Sometimes there's a warning that can be ignored. If there's anything ever wrong with Brew, `brew doctor` will usually be able to tell you what it is and how to fix it.
 
-## Git
-Git is an open source distributed version control system. We will talk about Git in significant detail later. The short version is that we will use Git to version and share our code with others.
-
-We install Git with Brew: `$ brew install git`.
-
-#### Configuring Git
-We need to do some configuration so Git knows who we are, and so that it gives us colorful feedback. After Brew finishes the install, run these commands:
-
-```bash
-$ git config --global user.name "Your Actual Name"
-$ git config --global user.email "The Email Associated with Your Github Account"
-$ git config --global color.diff auto
-$ git config --global color.status auto
-$ git config --global color.branch auto
-```
-
-### Trust but Verify
-- `$ git config --get user.name` Should show your name
-- `$ git config --get user.email` Should show your email
-
 ## RVM
 [RVM](http://rvm.io) (Ruby Version Manager) is a command-line tool which allows you to easily install, manage, and work with multiple ruby environments from interpreters to sets of gems. In essence, RVM is a package manager specifically for working with Ruby code.
 
@@ -70,6 +50,31 @@ $ git config --global color.branch auto
 There are many options for text editors. _Sublime Text_, _TextMate_ and _Atom_ are popular **Graphic User Interface (GUI)** editors. _vim_ and _emacs_ are popular editors that operate directly on the command line.
 
 **You should have already installed a text editor in Jump Start, but if not, please install [Atom](https://atom.io/) now.**
+
+## Git
+Git is an open source distributed version control system. We will talk about Git in significant detail later. The short version is that we will use Git to version and share our code with others.
+
+We install Git with Brew: `$ brew install git`.
+
+#### Configuring Git
+We need to do some configuration so Git knows who we are, and so that it gives us colorful feedback. After Brew finishes the install, run these commands:
+
+```bash
+$ git config --global user.name "Your Actual Name"
+$ git config --global user.email "The Email Associated with Your Github Account"
+$ git config --global color.diff auto
+$ git config --global color.status auto
+$ git config --global color.branch auto
+```
+
+### Trust but Verify
+- `$ git config --get user.name` Should show your name
+- `$ git config --get user.email` Should show your email
+
+We now need to verify that github is set up properly.  
+
+**Exercise** 
+- [Complete the Github-Git Verification Exercise](exercises/github-verification.md) 
 
 ## It's All About Communication!
 
