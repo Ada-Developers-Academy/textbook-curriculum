@@ -5,10 +5,6 @@
 + Introduction to Queues
 + Circular buffer
 
-## Required
-Go through what you've already learned:
-+ Revise classroom session on [Stacks and Queues](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/ADTs-Stacks-Queues.md)
-
 ## Additional Resources 
 + Kal academy's material on [Stacks and Queues](https://drive.google.com/open?id=0BxHords9odw3a2V5cVpkNTl2amc)
 + Read about [Method Call Stack](https://drive.google.com/open?id=0BxHords9odw3cG9WM1Y2S0FQWVE)
