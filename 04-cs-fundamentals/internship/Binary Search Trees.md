@@ -11,10 +11,10 @@ Get familiar with Binary Search Trees and the following algorithms related to it
 We'll be covering BSTs in two parts. In the first session, we'll cover the recursive approach. In a later session, we'll cover the iterative approach.
 
 ## Required
-Go through what you've already learned in the CS Fundamentals classroom curriculum:
-+ [Introduction to Recursion](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Intro-to-Recursion.md)
-+ [Trees](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Trees.md)
-+ Before going through iterative approaches to BST algorithms, revise [Stacks and Queues](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/ADTs-Stacks-Queues.md)
+Revise what you've already learned in the CS Fundamentals classroom curriculum:
++ [Understanding function calls](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Understanding%20function%20calls.md) and [Introduction to Recursion](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Introduction%20to%20Recursion.md)
++ Revise or author exercises related to recursion. See [Assignments and Additional Resources for Recursion](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Introduction%20to%20Recursion.md#assignments)
++ Before going through iterative approaches to BST algorithms, revise [Stacks and Queues](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/internship/Stacks%20and%20Queues.md)
 
 ## Exercises
 Design a recursive algorithm, deduce the space and time complexity and then, author functions to do the following. For each of the problems below, assume you are given a Binary Search Tree where each node contains an integer data and links to the left and right children nodes.
@@ -28,9 +28,6 @@ Design a recursive algorithm, deduce the space and time complexity and then, aut
   8. Delete a given value from the Binary Search Tree.
 
 Design an iterative algorithm for the first seven exercises above, deduce the space and time complexity and author the functions to implement them. You may use additional data structures.
-
-## Assignment
-Direct slack message to Shruti a gist or PR link for the two files: one containing the recursive approach and the other containing the iterative approach.
 
 ## Additional Resources
 + Recursion
