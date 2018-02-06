@@ -79,7 +79,7 @@ def add_with_return(num_one, num_two)
   return num_one + num_two
 end
 
-result = add(2, 2)
+result = add_with_return(2, 2)
 puts result
 # => 4
 ```
@@ -90,7 +90,7 @@ def add_with_puts(num_one, num_two)
   puts num_one + num_two
 end
 
-result = add(2, 2)
+result = add_with_puts(2, 2)
 puts result
 # => nil
 ```
