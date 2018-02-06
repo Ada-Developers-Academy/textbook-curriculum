@@ -1,211 +1,349 @@
-# Arrays and Hashes in combination
-You've dealt with variables holding a single value and you've been introduced to the concept of collections as well, but here we'll go into greater depth.  
+# Intro to Data Structures: Arrays and Hashes
+
+<!--
+Instructor notes: May want to assign the first half
+of this as flipped classroom pre-reading, since it's
+mostly review of what they've seen in JSL.
+-->
 
 ## Learning Goals
-The objectives of this unit are to make you comfortable with:
-* Explaining what an Array & Hash are and the differences.
-* Declaring an Array & Hash
-* Write code to access and change the values inside an Array & Hash.
-* Iterate (loop) through an Array & Hash
+By the end of this lesson, students should be able to...
 
-## Variables and Data Types
-We use variables to store information that we want to access and/or change later, and they can hold different "types" of data.  Right now we know about:
-* Strings
-* Symbols
-* Integers
-* Float
+- Store collections of values using arrays and hashes
+- Use loops to iterate through an array or hash
+- Decide whether an array or a hash is appropriate for a given problem
+- Combine arrays and hashes into more complex data structures
 
-And you've probably seen some others as well.  Each "*Data Type*" can hold a certain kind or *type* of information.  
+## Review: Collections
 
-So for example:
-```ruby
-name = gets.chomp    # puts a string into name
-age = 38             # puts a number into age
-pi = 3.14159		 # stores 3.14159 into pi
-```
-
-However these variables can only hold one piece of information each.  That's limiting.  Often we want to store a list or group of data and perform work on it.
-
-## Arrays and Hashes
-
-Thus enter the *collection* types of Arrays & Hashes.  These data types can store an arbitrary list of data in a single variable.  
+We've seen arrays and hashes before: they're _collections_, variables that hold other variables. This is a super important idea, and almost every programming language contains these basic constructs. Today we'll dive a little deeper into what you can do with arrays and hashes, but first we'll review some of the vocabulary and key concepts around them.
 
 ### Arrays
 
-An array is a list of data and each item in the list can be accessed or *indexed* by a number.  The first element of any Array is index number 0.  You can always access the size of the Array with the length method.  
+Here are some facts about arrays.
+
+#### Creation
+
+- Arrays are created by putting square brackets `[]` around a list of things
+  - The list can be empty
+- Since an array is an object, we can store it in a variable
+- You can get the length of the array by calling `my_array.length`
+- The elements in an array are _ordered_ - you get them out in the order you put them in
 
 ```ruby
-# declaring an Array
-my_list = [ "Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon", "Charizard", "Squirtle", "Wartortle" ]
+students = ['Ada', 'Katherine']
 
-# Accessing the first element
-puts my_list[0]
+puts "#{students}"
+# => ['Ada', 'Katherine']
 
-# check the length of the array
-puts "My list has #{ my_list.length } elements"
+puts students.length
+# => 2
 ```
 
-**Question**: How can you find the last element of the Array?
+**Question:** Why do we interpolate when printing the whole array? What is the difference between `puts students` and `puts "#{students}"`?
+- Open up `irb` and find out!
 
-You can loop through an array like this:
+#### Indices and Elements
+
+- Each element in the array is assigned a number called its _index_
+  - Indices always start from 0
+  - The index of the last element is always `my_array.length - 1` (why?)
+  - Negative indices count backwards from the end, starting at `-1` for the last element
+- Any object can be an element in an array
+- You can add a new element to the array with the `my_array.push` method or with `<<`
+- You can read elements using square brackets `[]` and the index
+- Changing the value of an element is done in the same way
+- Trying to read with an index that is not in the array will result in `nil`
+
 ```ruby
-deposits = [300, 250, 128, 64, 3016]
+# Read the element at index 0
+puts students[0]
+# => Ada
 
-total = 0
-# in this loop n becomes each element of the array
-deposits.each do |n|
-	total += n
+# Read the last element
+puts students[-1]
+# => Katherine
+
+# Add elements
+students.push('Grace')
+students << 'Edith'
+puts "#{students}"
+# => ['Ada', 'Katherine', 'Grace', 'Edith']
+
+puts students[2]
+# => 'Grace'
+
+# Change the element at index 2
+students[2] = 'Anita'
+puts students[2]
+# => 'Anita'
+
+puts "#{students}"
+# => ['Ada', 'Katherine', 'Anita', 'Edith']
+
+# Read an element not in the array
+puts students[10]
+# => nil
+
+puts students[4]
+# => nil
+# Why? Aren't there 4 elements?
+```
+
+#### Iteration
+
+- Iteration is the process of doing something to each element in the collection
+- To iterate using indices, you can use a `times` loop on the length of the array
+- There is an `my_array.each` method, which is more readable
+
+```ruby
+# Print every student to the command line
+students.length.times do |i|
+  puts "#{students[i]}: an excellent student"
+end
+
+# Simpler syntax for doing the same thing
+# Note that our iteration variable is the
+# element itself, not the index
+students.each do |student|
+  puts "#{student}: a grand student"
 end
 ```
-| Loop #  |   n   |   total   |
-|---------|-------|-----------|
-| 1       |  300  |    300    |
-| 2       |  250  |    550    |
-| 3       |  128  |    678    |
-| 4       |  64   |    742    |
-| 5       |  3016 |    3758   |
 
+#### Questions
 
-This loop does the same thing with slightly different syntax.  
-
-```ruby
-deposits = [300, 250, 128, 64, 3016]
-
-total = 0
-# in this loop n becomes 0 to 4 (inclusive) and is used as the "index" of the array.
-(0..4).each do |n|
-	total += deposits[n]
-end
-```
-| Loop #  |   n   | deposits[n] |   total   |
-|---------|-------|-----------|--------------
-| 1       |  0    |    300    |   300       |
-| 2       |  1    |    250    |   550       |
-| 3       |  2    |    128    |   678       |
-| 4       |  3    |    64     |   742       |
-| 5       |  4    |    3016   |   3758      |
-
-
-**Question**: How could you write it with the `times` type of loop?
+1. What different ways are there to access the last element in an array?
+1. Given an array with the age of each person in the class,
+    - How would you find the average age?
+    - How would you find the biggest or smallest age?
 
 ### Hashes
 
-A Hash is similar to an array in that it's a collection of data.  However to access an individual element in an Array you always use a number as a key to get to that element.
+Here are some facts about hashes.
 
-So for this list of Pokemon:
-```ruby
-my_list = [ "Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon", "Charizard", "Squirtle", "Wartortle" ]
-```
-The Array has the following index/value pairs.
+#### Creation
 
-| Index | Value     |
-|-----|-----------|
-|  0  | Bulbasaur |
-|  1  | Ivysaur   |
-|  2  | Venusaur  |
-|  3  | Charmander|
-|  4  | Charmeleon|
-|  5  | Charizard |
-|  6  | Squirtle  |
-|  7  | Wartortle |
-
-However sometimes you want to access values with something other than a number.  That's where a Hash comes in.  A Hash is a way to *index* a list with keys that aren't necessarily numbers.
-
-You can declare a Hash like this:
+- Hashes are created by putting curly braces `{}` around a list of `key: value` pairs
+  - The list can be empty
+- Since a hash is an object, we can store it in a variable
+- You can get the number of key/value pairs with `my_hash.length`
+- The hash does **not** keep track of the order of its key/value pairs*
 
 ```ruby
-my_hash = { "Venusaur" => "Water", "Charmander" => "Fire", "Charmeleon" => "Fire", "Charizard" => "Fire", "Squirtle" => "Water", "Wartortle" => "Water" }
-```
-
-One thing to remember is that the keys must be unique.  For example in the Hash above, you couldn't use "Squirtle" to refer to another value.
-
-You access elements in a Hash just like an array, but you need to use the keys to access it.
-```ruby
-puts my_hash["Charizard"]
-```
-
-will output:
-
-```
-Fire
-```
-
-### Collections of Collections!
-
-Where it can get interesting is when you have a collection of collections like the one below.
-
-```ruby
-pokemon_types = {
-  "Fire"    => ["Charmander", "Charmeleon", "Vulpix", "Ninetales", "Growlithe", "Arcanine"],
-  "Water"   => ["Squirtle", "Wartortle", "Blastoise", "Psyduck", "Golduck", "Poliwag"],
-  "Bug"     => ["Caterpie", "Metapod", "Pinsir"],
-  "Grass"   => ["Tangela", "Bayleef"]
-}
-```
-
-And running:
-```ruby
-puts pokemon_types["Fire"]
-```
-
-Will output:
-
-```
-Charmander
-Charmeleon
-Vulpix
-Ninetales
-Growlithe
-Arcanine
-```
-
-And you could access "Bayleef" by doing this:
-```ruby
-pokemon_types["Grass"][1]
-```
-
-**Question**: How could you look through printing each of the elements of the `pokemon_types` Hash?
-
-### Looping through Hashes
-
-Similar to an array, you can loop through a Hash like this:
-
-```ruby
-pokemon_types = {
-  "Fire"    => ["Charmander", "Charmeleon", "Vulpix", "Ninetales", "Growlithe", "Arcanine"],
-  "Water"   => ["Squirtle", "Wartortle", "Blastoise", "Psyduck", "Golduck", "Poliwag"],
-  "Bug"     => ["Caterpie", "Metapod", "Pinsir"],
-  "Grass"   => ["Tangela", "Bayleef"]
+fruit_prices = {
+  apple: 2.15,
+  pear: 3.02
 }
 
-pokemon_types.each do |key, value|
-	puts "The " + key.to_s + " type includes " + value.to_s
+puts "#{fruit_prices}"
+# => { apple: 2.15, pear: 3.02 }
+
+puts fruit_prices.length
+# => 2
+```
+
+#### Keys and Values
+
+- Any `"string"` or `:symbol` is a valid key
+- Any object can be a value in a hash
+- You can add a new key/value pair to the hash by setting the value of a key that's not in the hash
+- Values can be read using square brackets `[]` an the corresponding key
+- You can set values using the same notation
+- Trying to read the value for a key not in the hash will result in `nil`
+- Calling `my_hash.keys` will give you a list of all the keys for this hash
+
+```ruby
+# Read a value using its key
+puts fruit_prices[:apple]
+# => 2.15
+
+# Set a value using its key
+fruit_prices[:pear] = 2.85
+puts "#{fruit_prices}"
+# => { apple: 2.15, pear: 2.85}
+
+# Add a new key/value pair
+fruit_prices[:orange] = 1.45
+puts fruit_prices[:orange]
+# => 1.45
+
+puts "#{fruit_prices.keys}"
+# => [:apple, :pear, :orange]
+
+# Look up a key that's not in the hash
+puts fruit_prices[:blueberry]
+# => nil
+
+puts fruit_prices["orange"]
+# => nil
+# Why?
+```
+
+#### Iteration
+
+- Like an array, you can iterate through the key/value pairs in a hash
+  - Unlike an array, the order is not guaranteed*
+- `my_hash.each` provides two iteration variables, the key and the value
+
+```ruby
+fruit_prices.each |fruit, price| do
+  puts "#{fruit} costs $#{price}"
 end
+```
+&ast;For more on hash ordering, see the footnote below.
 
+#### Questions
+
+1. Does it make sense to access the "last" key/value pair in a hash?
+1. What data type do you get back from `my_hash.keys`?
+1. How would you get a list of fruits costing less than $3.00?
+
+## Comparing Arrays and Hashes
+
+Arrays and hashes are very similar. Both store a collection of elements, and they have similar syntax. However the vocabulary is a little different, and each solves a different sort of programming problem.
+
+Array                                     | Hash
+---                                       | ---
+Created with square brackets `[]`         | Created with curly braces `{}`
+Uses integers for indices                 | Uses strings or symbols for keys
+Indices start from 0 and count up         | Any string or symbol is OK
+Any object can be an element              | Any object can be a value
+Access elements with square brackets `[]` | Access values with square brackets `[]`
+Add an element with `.push()` or `<<`     | Add a key/value pair with `[]`
+Access via an index that doesn't exist returns `nil` | Access via a key that doesn't exist returns `nil`
+Elements are ordered                      | Keys/values are unordered
+
+### Exercise: Hash or Array?
+
+Determine whether you would use an array or a hash to store each of these collections and why.
+
+1. The types of tea you have in your cupboard
+1. Information about a customer
+1. An address
+1. The names of the first 150 pokemon, in order
+1. All the meals you serve in your restaurant
+1. Details about a meal served by your restaurant, such as name, price, and allergy info
+1. Details about all the meals your restaurant serves
+
+## Arrays and Hashes Together
+
+As the last question above demonstrates, sometimes an array or a hash by itself does not solve a problem. Very often we will need to combine these two data structures to produce something a little more nuanced.
+
+### Creation
+
+Fortunately for us, Ruby was designed to be flexible in just this way. The elements in an array or the values in a hash can be _any object_, even another array or hash! So, to keep track of details of all the meals in our restaurant, we might devise something like this.
+
+```ruby
+menu = [
+  {
+    name: 'beet salad',
+    price: 6.75,
+    allergens: ['nuts']
+  },
+  {
+    name: 'quiche',
+    price: 10.00,
+    allergens: ['gluten', 'dairy']
+  },
+  {
+    name: 'molten chocolate cake',
+    price: 8.50,
+    allergens: []
+  }
+]
 ```
 
-Will output
+There's a lot of text and braces flying around here but the big idea is the same as before: we use _literals_ to define an object and then assign it to a variable. We've created an array called `menu` with three elements, each of which is a hash.
 
+This technique where we type the data directly into our program is sometimes called _hard-coding_ the data. There are several other ways to get data, like reading it from a file or downloading it from the internet - this is something we'll talk about later. For now all of our data will be hard-coded.
+
+### Accessing Data
+
+We can use these nested structures just like any other variable in Ruby:
+
+```ruby
+# The first element in the "menu" array is a hash
+puts menu[0]
+# => {:name=>"beet salad", :price=>6.75, :allergens=>["nuts"]}
+
+# Since "menu[0]" is a hash, we can apply more square brackets to it
+puts menu[0][:name]
+# => beet salad
+
+# We can also assign it to a variable
+salad = menu[0]
+puts salad[:name]
+# => beet salad
+
+# "salad" and "menu[0]" are now just different names for the same
+# object! Changes to one will be seen through the other.
+# More on this idea later.
+salad[:price] = 7.25
+puts menu[0]
+# => 7.25
+
+# Array inside a hash inside an array - woah!
+puts menu[0][:allergens][0]
+# => nuts
 ```
-The Fire type includes ["Charmander", "Charmeleon", "Vulpix", "Ninetales", "Growlithe", "Arcanine"]
-The Water type includes ["Squirtle", "Wartortle", "Blastoise", "Psyduck", "Golduck", "Poliwag"]
-The Bug type includes ["Caterpie", "Metapod", "Pinsir"]
-The Grass type includes ["Tangela", "Bayleef"]
+
+The allergy information for each meal is an array inside a hash inside an array! This may seem a little complex, but this data structure fits our data well. Getting comfortable with this sort of nested structure is one of the big hurdles a novice programmer faces.
+
+### Iteration
+
+Iteration uses the same techniques we discussed above:
+
+```ruby
+# Print the name and price of each item on the menu
+menu.each do |item|
+  puts "#{item[:name]} - $#{item[:price]}"
+end
 ```
 
-## Let's Try It Out!
-Exercise: Let's modify the example above
+### Exercises
 
-1. Switch the `string` keys to Symbols
-1. Update the values to be Arrays filled with Hashes instead of an Arrays filled with Strings. Use the name as one key-value pair and add two new characteristics.
-1. Print out the new data (update the loop)
+Copy the above data into a file, then write code to address the following prompts.
 
-## Reference
+1. Add two more meals to our menu, including name, price and allergy information
+1. Write a loop to find the average price of a meal on our menu
+1. Write code to produce a list of all the allergens in the menu
+    - How would you make sure there aren't duplicates?
+1. Write code that asks the user for the name of a meal and prints out the price
+    - What should your code do if the meal isn't found?
 
-Operation              | Array                             |  Hash
----                    | ---                               | ---
-Initialize empty       | `arr = []`                        | `hash = {}`
-Initialize with values | `arr = ["Pikachu", "Rattata"]`    | `hash = { "Pikachu" => "Electric", "Rattata" => "Normal" }`
-Read a value           | `arr[0]`                          | `hash["Pikachu"]`
-Set a value            | `arr[1] = "Geodude"`              | `hash["Geodude"] = "Rock"`
-Iterate                | `arr.each \|element\| do ... end` | `hash.each \|key, value\| do ... end`
+## Footnote: On the Order of Key/Value Pairs
+
+This isn't something you need to worry about right now, but if you want to nerd out a little over language design than read on.
+
+Hash ordering is a tricky subject in Ruby. According to the Ruby language definition the order of keys and values in a hash is not guaranteed. To understand what this means, consider the following program.
+
+```ruby
+test_hash = {
+  a: 'one',
+  b: 'two'
+}
+puts "#{test_hash}"
+```
+
+According to the spec, for this program both `{a: 'one', b: 'two'}` and `{b: 'two', a: 'one'}` are valid outputs, and the two permutations of the hash are considered equivalent.
+
+However, in the standard implementation of Ruby that we're using hash ordering _is_ preserved. When iterating through a hash, you'll always get key/value pairs out in the order they were inserted. That means that _in our version of ruby_ we can predict the following results:
+
+```ruby
+h1 = {:a=>"one", :b=>"two"}
+h2 = {:b=>"two", :a=>"one"}
+
+# Iteration (and printing) is in FIFO order
+puts "#{h1}"
+# => {:a=>"one", :b=>"two"}
+puts "#{h2}"
+# => {:b=>"two", :a=>"one"}
+
+# Even though they print differently, the two are considered equal
+puts h1 == h2
+# => true
+```
+
+This behavior does **not** appear in other programming languages like [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in#Description) or [Python](https://docs.python.org/3/tutorial/datastructures.html#dictionaries), or even in [other implementations of Ruby](https://stackoverflow.com/questions/31418673/is-order-of-a-ruby-hash-literal-guaranteed). Moreover, unlike an array you cannot change the order of a hash; a hash cannot be sorted.
+
+For these reasons **you should not rely on hash ordering** - it's a bad habit that will produce subtle bugs when you change languages.
