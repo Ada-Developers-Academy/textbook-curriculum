@@ -28,7 +28,7 @@ Here are some facts about arrays.
   - The list can be empty
 - Since an array is an object, we can store it in a variable
 - You can get the length of the array by calling `my_array.length`
-- The elements in an array are _ordered_ - you get them out in the order you put them in
+- The elements in an array are _ordered by index_ - the order you put them in determines the index they get
 
 ```ruby
 students = ['Ada', 'Katherine']
@@ -211,7 +211,7 @@ Any object can be an element              | Any object can be a value
 Access elements with square brackets `[]` | Access values with square brackets `[]`
 Add an element with `.push()` or `<<`     | Add a key/value pair with `[]`
 Access via an index that doesn't exist returns `nil` | Access via a key that doesn't exist returns `nil`
-Elements are ordered                      | Keys/values are unordered
+Elements are given their index in order (sequentially) | Keys/values do not have an index, and order is not guaranteed
 
 ### Exercise: Hash or Array?
 
