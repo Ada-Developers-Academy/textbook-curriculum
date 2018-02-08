@@ -12,12 +12,14 @@ By the end of this lesson you should:
 
 ## Introduction
 Gems are what other languages call a library. They are packaged code that can be shared and distributed. Most gems are distributed using [RubyGems.org](https://rubygems.org/). A Gem will contain one or more
-Ruby Classes, just like the ones you've been creating. Let's look at a couple gems to get an idea of what would be packaged and why:
+Ruby Classes, just like the ones you've been creating. We will look at a few gems in particular
 
-- [Rails](https://rubygems.org/gems/rails)
 - [Awesome Print](https://rubygems.org/gems/awesome_print/versions/1.8.0)
 - [Colorize](https://rubygems.org/gems/colorize)
 - [Pry](https://rubygems.org/gems/pry/versions/0.11.3)
+- [Faker](https://rubygems.org/gems/faker/versions/1.8.7)
+
+The pages linked above are the rubygems sites for the gems, and you can sometimes find useful documentation here, but more often the updated documentation is on their github pages.  
 
 ## Installing Gems
 Installing gems is super easy! We do it right from the Terminal. To install the gem `awesome_print`, do `$ gem install awesome_print`. You can see all the gems currently installed using `$ gem list`.
