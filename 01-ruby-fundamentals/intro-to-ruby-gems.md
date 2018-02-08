@@ -116,7 +116,7 @@ puts "This is blue text on red".blue.on_red.blink
 puts "This is uncolorized".blue.on_red.uncolorize
 ```
 
-Relatively straight-forward, but neat!
+Neat!  Adding `.colorize` to a string in a `puts` statement styles the output.  
 
 ## Pry
 
