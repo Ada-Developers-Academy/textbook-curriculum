@@ -1,4 +1,16 @@
 # An Introduction to Ruby Gems
+
+## Learning Goals
+By the end of this lesson you should:
+- Be able to add a gem to your computer.
+- `require` a gem and use it in your projects
+- Have a basic grasp of how to use:
+  - Awesome Print
+  - Colorize
+  - Pry
+  - Faker
+
+## Introduction
 Gems are what other languages call a library. They are packaged code that can be shared and distributed. Most gems are distributed using [RubyGems.org](https://rubygems.org/). A Gem will contain one or more
 Ruby Classes, just like the ones you've been creating. Let's look at a couple gems to get an idea of what would be packaged and why:
 
@@ -74,10 +86,11 @@ puts my_city
 
 ap "Awesome print with Options!", color: {string: :purpleish}
 ```
+![Awsome Print in Action!](images/awesome_print.png)
 
 **Exercise** Try to add an option to an `ap` statement.  Check the [github page](https://github.com/awesome-print/awesome_print)  for instructions
 
-### Example: Using Colorize
+## Colorize
 Next let's take a quick look at the colorize gem
 
 ```bash
@@ -99,6 +112,68 @@ puts "This is blue text on red".blue.on_red.blink
 puts "This is uncolorized".blue.on_red.uncolorize
 ```
 
+## Pry
+
+Pry is an amazing gem which serves a couple of purposes.
+
+1.  It can replace irb to serve as a REPL.  This is advantageous because it formats code nicely.
+2. It can be used in debugging to halt your program and let you interact with it in a REPL.  
+
+To install `pry`
+```bash
+gem install pry
+```
+
+You can use `pry` to halt your program and open up a REPL to explore your running program with the command `binding.pry`
+
+```ruby
+# test_pry.rb
+require "pry"
+
+num = 0
+while num >= 0
+  num += 1
+  binding.pry
+end
+```
+
+Now running your program with `ruby test_pry.rb` will result in this:
+```bash
+ruby test_pry.rb
+
+From: /Users/chris/ada/ruby/test_pry.rb @ line 6 :
+
+    1: require "pry"
+    2:
+    3: num = 0
+    4: while num >= 0
+    5:   num += 1
+ => 6:   binding.pry
+    7: end
+
+[1] pry(main)>
+```
+
+You can then enter irb-like commands like: `num` to get the current value of the variable in the program.  You can enter `exit` to exit the current binding and the program will halt again the next time it encounters  `binding.pry`.  When you finish you can exit the entire program with `exit-program`.  We will go further into `pry` at a later date and you are welcome to [research](http://pryrepl.org/) the gem.
+
+### Replacing irb
+
+You can have Pry replace irb by editing your bash profile with `atom ~/.profile` and adding
+
+```bash
+alias irb='pry'
+```
+to the end of the file.  Now the next time you open the terminal typing `irb` will instead invoke `pry`!
+
+## Faker
+Quite often as you are building a program you will need demo/fake data.  This could be names, addresses, numbers, etc.  For this we often turn toward `faker`.  This gem is designed to generate a variety of sample information.  To learn more, check out it's [github page](https://github.com/stympy/faker).
+
+You can install `faker`
+```bash
+gem install faker
+```
+
+**Exercise** After having seen us use `pry`, `colorize` and `awesome_print`, write a small program with your seatsquad that will store 10 fake names in an array and print them to the terminal using the gem to get random names.  Refer to the Github page's README for how.  
 
 ## Other Great Gems!
 - [Money](http://rubymoney.github.io/money/)
