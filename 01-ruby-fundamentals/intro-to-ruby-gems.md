@@ -163,7 +163,7 @@ From: /Users/chris/ada/ruby/test_pry.rb @ line 6 :
 [1] pry(main)>
 ```
 
-Pry has halted the program mid-execution and put you into an interactive environment where you can interact with the program.  You can then enter irb-like commands like: `num` to get the current value of the variable in the program, or call methods etc.  
+Pry has halted the program mid-execution and put you into an environment where you can interact with the program live.  You can then enter irb-like commands like: `num` to get the current value of the variable in the program, or call methods etc.  
 
 You can enter `exit` to exit the current binding and the program will halt again the next time it encounters  `binding.pry`, which in this case is the next iteration of the loop.  When you finish you can exit the entire program with `exit-program`.  We will go further into `pry` at a later date and you are welcome to [research](http://pryrepl.org/) the gem.
 
