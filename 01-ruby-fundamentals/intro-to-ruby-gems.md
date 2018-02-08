@@ -22,10 +22,41 @@ Ruby Classes, just like the ones you've been creating. We will look at a few gem
 The pages linked above are the rubygems sites for the gems, and you can sometimes find useful documentation here, but more often the updated documentation is on their github pages.  
 
 ## Installing Gems
-Installing gems is super easy! We do it right from the Terminal. To install the gem `awesome_print`, do `$ gem install awesome_print`. You can see all the gems currently installed using `$ gem list`.
+Installing gems is super easy! We do it right from the Terminal. To install the gem `colorize`, do `$ gem install colorize`. You can see all the gems currently installed using `$ gem list`.
 
 ## Requiring Gems
 Since gems are external Ruby libraries, they are not included in core Ruby. To use the code provided by the gem, we `require` it in our code base. This can be done at the top of any Ruby script, file, or in `irb`:
+
+
+## Colorize
+Next let's take a quick look at the colorize gem.
+
+```bash
+gem install colorize
+```
+
+Look at the [usage section](https://github.com/fazibear/colorize) of the github page.
+
+```ruby
+require "colorize"
+
+puts "This is blue".colorize(:blue)
+puts "This is light blue".colorize(:light_blue)
+puts "This is also blue".colorize(:color => :blue)
+puts "This is light blue with red background".colorize(:color => :light_blue, :background => :red)
+puts "This is light blue with red background".colorize(:light_blue ).colorize( :background => :red)
+puts "This is blue text on red".blue.on_red
+puts "This is red on blue".colorize(:red).on_blue
+puts "This is red on blue and underline".colorize(:red).on_blue.underline
+puts "This is blue text on red".blue.on_red.blink
+puts "This is uncolorized".blue.on_red.uncolorize
+```
+
+Neat!  Adding `.colorize` to a string in a `puts` statement styles the output.  
+
+## Awesome Print
+
+Awesome Print is... truly awesome!  It highlights syntax and gives you formatting options on console output.
 
 ```ruby
 require "awesome_print"
@@ -92,31 +123,6 @@ ap "Awesome print with Options!", color: {string: :purpleish}
 
 **Exercise** Try to add an option to an `ap` statement.  Check the [github page](https://github.com/awesome-print/awesome_print)  for instructions
 
-## Colorize
-Next let's take a quick look at the colorize gem.
-
-```bash
-gem install colorize
-```
-
-Look at the [usage section](https://github.com/fazibear/colorize) of the github page.
-
-```ruby
-require "colorize"
-
-puts "This is blue".colorize(:blue)
-puts "This is light blue".colorize(:light_blue)
-puts "This is also blue".colorize(:color => :blue)
-puts "This is light blue with red background".colorize(:color => :light_blue, :background => :red)
-puts "This is light blue with red background".colorize(:light_blue ).colorize( :background => :red)
-puts "This is blue text on red".blue.on_red
-puts "This is red on blue".colorize(:red).on_blue
-puts "This is red on blue and underline".colorize(:red).on_blue.underline
-puts "This is blue text on red".blue.on_red.blink
-puts "This is uncolorized".blue.on_red.uncolorize
-```
-
-Neat!  Adding `.colorize` to a string in a `puts` statement styles the output.  
 
 ## Pry
 
