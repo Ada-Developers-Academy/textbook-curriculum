@@ -188,11 +188,9 @@ You are welcome to use gems in your projects.  However no gem will be required, 
 
 ## Other Great Gems!
 - [Money](http://rubymoney.github.io/money/)
-- [Awesome Print](https://github.com/awesome-print/awesome_print)
 - [lolcat](https://github.com/busyloop/lolcat) & [table_flipper](https://github.com/iridakos/table_flipper)
-- [pry](https://github.com/pry/pry)
 - [Chronic](https://github.com/mojombo/chronic)
 - [Geocoder](http://www.rubygeocoder.com/)
-- [Faker](https://github.com/stympy/faker)
 - [Terminal Table](https://github.com/tj/terminal-table)
 - [Gist](https://github.com/defunkt/gist)
+- [Rails](https://github.com/rails/rails)
