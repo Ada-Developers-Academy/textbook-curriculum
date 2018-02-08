@@ -86,7 +86,7 @@ puts my_city
 
 ap "Awesome print with Options!", color: {string: :purpleish}
 ```
-![Awsome Print in Action!](images/awesome_print.png)
+![Awsome Print in Action!](images/awesome_print2.png)
 
 **Exercise** Try to add an option to an `ap` statement.  Check the [github page](https://github.com/awesome-print/awesome_print)  for instructions
 
