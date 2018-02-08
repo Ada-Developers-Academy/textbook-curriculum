@@ -91,15 +91,17 @@ ap "Awesome print with Options!", color: {string: :purpleish}
 **Exercise** Try to add an option to an `ap` statement.  Check the [github page](https://github.com/awesome-print/awesome_print)  for instructions
 
 ## Colorize
-Next let's take a quick look at the colorize gem
+Next let's take a quick look at the colorize gem.
 
 ```bash
 gem install colorize
 ```
 
-Look at the [usage section](https://github.com/fazibear/colorize) of the github page
+Look at the [usage section](https://github.com/fazibear/colorize) of the github page.
 
 ```ruby
+require "colorize"
+
 puts "This is blue".colorize(:blue)
 puts "This is light blue".colorize(:light_blue)
 puts "This is also blue".colorize(:color => :blue)
@@ -111,6 +113,8 @@ puts "This is red on blue and underline".colorize(:red).on_blue.underline
 puts "This is blue text on red".blue.on_red.blink
 puts "This is uncolorized".blue.on_red.uncolorize
 ```
+
+Relatively straight-forward, but neat!
 
 ## Pry
 
@@ -135,10 +139,11 @@ while num >= 0
   num += 1
   binding.pry
 end
+
 ```
 
 Now running your program with `ruby test_pry.rb` will result in this:
-```bash
+```
 ruby test_pry.rb
 
 From: /Users/chris/ada/ruby/test_pry.rb @ line 6 :
@@ -174,6 +179,10 @@ gem install faker
 ```
 
 **Exercise** After having seen us use `pry`, `colorize` and `awesome_print`, write a small program with your seatsquad that will store 10 fake names in an array and print them to the terminal using the gem to get random names.  Refer to the Github page's README for how.  
+
+## Using Gems in your projects
+
+You are welcome to use gems in your projects.  However no gem will be required, unless specified in the project.  Make the names fun if you can!
 
 ## Other Great Gems!
 - [Money](http://rubymoney.github.io/money/)
