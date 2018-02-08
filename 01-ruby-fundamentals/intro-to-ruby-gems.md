@@ -165,12 +165,13 @@ You can then enter irb-like commands like: `num` to get the current value of the
 
 ### Replacing irb
 
-You can have Pry replace irb by editing your bash profile with `atom ~/.profile` and adding
+You can have Pry replace irb by editing your bash profile with `atom ~/.profile` and adding the following line to the end of the file.  
 
 ```bash
 alias irb='pry'
 ```
-to the end of the file.  Now the next time you open the terminal typing `irb` will instead invoke `pry`!
+
+Now the next time you open the terminal typing `irb` will instead invoke `pry`!
 
 ## Faker
 Quite often as you are building a program you will need demo/fake data.  This could be names, addresses, numbers, etc.  For this we often turn toward `faker`.  This gem is designed to generate a variety of sample information.  To learn more, check out it's [github page](https://github.com/stympy/faker).
@@ -180,7 +181,7 @@ You can install `faker`
 gem install faker
 ```
 
-**Exercise** After having seen us use `pry`, `colorize` and `awesome_print`, write a small program with your seatsquad that will store 10 fake names in an array and print them to the terminal using the gem to get random names.  Refer to the Github page's README for how. Make the names fun if you can! 
+**Exercise** After having seen us use `pry`, `colorize` and `awesome_print`, write a small program with your seatsquad that will store 10 fake names in an array and print them to the terminal using the gem to get random names.  Refer to the Github page's README for how. Make the names fun if you can!
 
 ## Using Gems in your projects
 
