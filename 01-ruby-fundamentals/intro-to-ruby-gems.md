@@ -132,19 +132,21 @@ gem install pry
 
 You can use `pry` to halt your program and open up a REPL to explore your running program with the command `binding.pry`
 
+For example:
+
 ```ruby
 # test_pry.rb
 require "pry"
 
 num = 0
-while num >= 0
+while num < 10
   num += 1
   binding.pry
 end
 
 ```
 
-Now running your program with `ruby test_pry.rb` will result in this:
+Running the program above with `ruby test_pry.rb` will result in this:
 ```
 ruby test_pry.rb
 
@@ -153,7 +155,7 @@ From: /Users/chris/ada/ruby/test_pry.rb @ line 6 :
     1: require "pry"
     2:
     3: num = 0
-    4: while num >= 0
+    4: while num < 10
     5:   num += 1
  => 6:   binding.pry
     7: end
@@ -161,7 +163,9 @@ From: /Users/chris/ada/ruby/test_pry.rb @ line 6 :
 [1] pry(main)>
 ```
 
-You can then enter irb-like commands like: `num` to get the current value of the variable in the program.  You can enter `exit` to exit the current binding and the program will halt again the next time it encounters  `binding.pry`.  When you finish you can exit the entire program with `exit-program`.  We will go further into `pry` at a later date and you are welcome to [research](http://pryrepl.org/) the gem.
+Pry has halted the program mid-execution and put you into an interactive environment where you can interact with the program.  You can then enter irb-like commands like: `num` to get the current value of the variable in the program, or call methods etc.  
+
+You can enter `exit` to exit the current binding and the program will halt again the next time it encounters  `binding.pry`, which in this case is the next iteration of the loop.  When you finish you can exit the entire program with `exit-program`.  We will go further into `pry` at a later date and you are welcome to [research](http://pryrepl.org/) the gem.
 
 ### Replacing irb
 
