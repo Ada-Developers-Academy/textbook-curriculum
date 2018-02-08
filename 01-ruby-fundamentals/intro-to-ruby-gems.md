@@ -180,11 +180,11 @@ You can install `faker`
 gem install faker
 ```
 
-**Exercise** After having seen us use `pry`, `colorize` and `awesome_print`, write a small program with your seatsquad that will store 10 fake names in an array and print them to the terminal using the gem to get random names.  Refer to the Github page's README for how.  
+**Exercise** After having seen us use `pry`, `colorize` and `awesome_print`, write a small program with your seatsquad that will store 10 fake names in an array and print them to the terminal using the gem to get random names.  Refer to the Github page's README for how. Make the names fun if you can! 
 
 ## Using Gems in your projects
 
-You are welcome to use gems in your projects.  However no gem will be required, unless specified in the project.  Make the names fun if you can!
+You are welcome to use gems in your projects.  However no gem will be required, unless specified in the project.  
 
 ## Other Great Gems!
 - [Money](http://rubymoney.github.io/money/)
