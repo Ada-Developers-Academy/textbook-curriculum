@@ -190,3 +190,6 @@ Commits, ideally, should be _atomic_. That is, any single commit should include 
 - you write code that necessitates two or more lines of comments to explain
 - you make a change to one file that necessitates a change in another
 - you change the _method signature_ of a method that's already in Git
+
+## Resources
+- [More in-depth article on Git](https://codeburst.io/git-good-part-a-e0d826286a2a)
