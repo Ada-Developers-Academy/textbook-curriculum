@@ -1,53 +1,81 @@
 # An Introduction to Ruby Gems
 Gems are what other languages call a library. They are packaged code that can be shared and distributed. Most gems are distributed using [RubyGems.org](https://rubygems.org/). A Gem will contain one or more
-Ruby Classes, just like the ones you've been creating this week. Let's look at a couple gems to get an idea of what would be packaged and why:
+Ruby Classes, just like the ones you've been creating. Let's look at a couple gems to get an idea of what would be packaged and why:
 
 - [Rails](https://rubygems.org/gems/rails)
-- [Sinatra](https://rubygems.org/gems/sinatra)
+- [Awesome Print](https://rubygems.org/gems/awesome_print/versions/1.8.0)
 - [Colorize](https://rubygems.org/gems/colorize)
+- [Pry](https://rubygems.org/gems/pry/versions/0.11.3)
 
 ## Installing Gems
-Installing gems is super easy! We do it right from the Terminal. To install the gem `Money`, do `$ gem install money`. You can see all the gems currently installed using `$ gem list`.
+Installing gems is super easy! We do it right from the Terminal. To install the gem `awesome_print`, do `$ gem install awesome_print`. You can see all the gems currently installed using `$ gem list`.
 
 ## Requiring Gems
 Since gems are external Ruby libraries, they are not included in core Ruby. To use the code provided by the gem, we `require` it in our code base. This can be done at the top of any Ruby script, file, or in `irb`:
 
 ```ruby
-require "money"
+require "awesome_print"
 ```
 
-### Example: Using the `money` gem.
-Generally the github page for a gem is the best place to go to get started. Let's check out the [money gems page](https://github.com/RubyMoney/money). Under _usage_ we see some common examples of how to use this gem.
+### Example: Using the `awesome_print` gem.
+Generally the github page for a gem is the best place to go to get started. Let's check out the [awesome_print gems' page](https://github.com/awesome-print/awesome_print). Under _usage_ we see some common examples of how to use this gem.
+
+In general `awesome_print` is a a great tool for printing debugging messages to the console because of it's syntax highlighting and how it provides information beyound `puts`.  
 
 ```ruby
-require 'money'
+require 'awesome_print'
 
-# We're not going to use internationalization features for this example.
-# To learn more about internationalization in this gem, visit https://github.com/RubyMoney/money
-Money.use_i18n = false
+# Awesome_print has Waaay too many features to demonstrate in one example.  
+# We will stick to the basics.
 
-# 10.00 USD
-money = Money.new(1000, "USD")
-money.cents     #=> 1000
-money.currency  #=> Currency.new("USD")
+# Comparing ap to puts
 
-# Comparisons
-Money.new(1000, "USD") == Money.new(1000, "USD")   #=> true
-Money.new(1000, "USD") == Money.new(100, "USD")    #=> false
-Money.new(1000, "USD") == Money.new(1000, "EUR")   #=> false
-Money.new(1000, "USD") != Money.new(1000, "EUR")   #=> true
+sample_array = ["Mercury", "Venus", "Earth", "Mars"]
+ap "Awesome Print with an Array"
+ap sample_array
+puts "Puts with an Array"
+puts sample_array
 
-# Arithmetic
-Money.new(1000, "USD") + Money.new(500, "USD") == Money.new(1500, "USD")
-Money.new(1000, "USD") - Money.new(200, "USD") == Money.new(800, "USD")
-Money.new(1000, "USD") / 5                     == Money.new(200, "USD")
-Money.new(1000, "USD") * 5                     == Money.new(5000, "USD")
 
-# Currency conversions
-Money.add_rate("USD", "CAD", 1.24515)
-Money.add_rate("CAD", "USD", 0.803115)
-puts Money.new(1000, "USD").exchange_to("CAD").format
+nested_structure = {
+  points: [
+    {
+      name: "Great Pyramid of Giza",
+      location: [32.5, 15.2]
+    },
+    {
+      name: "Temple of Artemis",
+      location: [47.8, 13.4]
+    },
+    {
+      name: "Lighthouse of Alexandria",
+      location: [32.6, 15.7]
+    }
+  ]
+}
+
+ap "Awesome Print with a nested structure"
+ap nested_structure
+puts "puts with a nested structure"
+puts nested_structure
+
+ap "Awesome print with an object"
+class City
+  def initialize(name)
+    @name = name
+  end
+end
+
+my_city = City.new("Seattle")
+ap "Awesome Print with an Instance"
+ap my_city
+ap "Puts with an instance"
+puts my_city
+
+ap "Awesome print with Options!", color: {string: :purpleish}
 ```
+
+**Exercise** Try to add an option to an `ap` statement.  Check the [github page](https://github.com/awesome-print/awesome_print)  for instructions
 
 ### Example: Using Colorize
 Next let's take a quick look at the colorize gem
@@ -71,9 +99,8 @@ puts "This is blue text on red".blue.on_red.blink
 puts "This is uncolorized".blue.on_red.uncolorize
 ```
 
-## Activity: Divide & Conquer Ruby Gems
-In pods, research the usage of one of the following gems and create a small example showing at least one of the features of the gem.
 
+## Other Great Gems!
 - [Money](http://rubymoney.github.io/money/)
 - [Awesome Print](https://github.com/awesome-print/awesome_print)
 - [lolcat](https://github.com/busyloop/lolcat) & [table_flipper](https://github.com/iridakos/table_flipper)
