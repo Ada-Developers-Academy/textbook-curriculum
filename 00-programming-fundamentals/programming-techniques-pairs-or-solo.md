@@ -39,7 +39,7 @@ Watches for typos, logical errors
 
 #### Team
 - Increases knowledge sharing
-- Increases “bus factor”
+- Mitigates the "Lottery Factor" AKA the “bus factor”
 
 ## Steps for Successful Pairing
 
