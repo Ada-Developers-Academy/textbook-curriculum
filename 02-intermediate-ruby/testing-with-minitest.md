@@ -37,6 +37,8 @@ To start with we'll add some code to `bill_spec.rb`.  We will also require `mini
 require 'minitest/autorun'
 require 'minitest/reporters'
 require_relative 'bill'
+
+Minitest::Reporters.use!
 ```
 
 Note that `bill.rb` which will hold our class is currently empty.
@@ -77,6 +79,8 @@ require 'minitest/autorun'
 require 'minitest/reporters'
 require_relative 'bill'
 
+Minitest::Reporters.use!
+
 describe "Bill" do
 
 end
@@ -95,6 +99,9 @@ Now we'll create an `it` block which is a test-case.  Each `describe` block can 
 require 'minitest/autorun'
 require 'minitest/reporters'
 require_relative 'bill'
+
+Minitest::Reporters.use!
+
 
 describe "Bill" do
   it "Can be created" do
@@ -116,6 +123,8 @@ So lets write our expectation
 require 'minitest/autorun'
 require 'minitest/reporters'
 require_relative 'bill'
+
+Minitest::Reporters.use!
 
 describe "Bill" do
   it "Can be created" do
@@ -218,6 +227,8 @@ We are going to require that Bill must be instantiated with a list (array) of pr
 require 'minitest/autorun'
 require 'minitest/reporters'
 require_relative 'bill'
+
+Minitest::Reporters.use!
 
 describe "bill" do
   it "can be created" do
