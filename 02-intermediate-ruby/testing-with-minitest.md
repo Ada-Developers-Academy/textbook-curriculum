@@ -253,7 +253,7 @@ end
 That's easy!  It **already** passes!  
 
 #### Question
-What could we do for invalid arguments to `initialize`?
+What else could we do for invalid arguments to `initialize`?
 
 ### Practice Exercise
 
