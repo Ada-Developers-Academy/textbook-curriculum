@@ -119,6 +119,8 @@ As a general rule, `super` will often be the first line in a subclass' `initiali
 
 ![Super in initialize ](images/inheritance-super.png)
 
+**Exercise**  With your seatmates create an `EBook` class.  An `Ebook` will have the same barcode as a `Book` but with an "E" in front.  It will also have a method which returns the format of the book (kindle, epub, pdf etc).  Then create an instance of the `Ebook`
+
 ## Summary
 
 Inheritance allows one class to gain or "inherit" the methods and attributes from another class.  This is a key concept in Object Oriented Programming.  Inheritance can be extremely powerful, but it is also easy to misuse.  
