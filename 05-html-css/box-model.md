@@ -81,6 +81,9 @@ Percentages can be used in measurements that will be a percentage relative to an
 #### `em` or `rem`
 This is a relative measurement based on the heigh of a font. One `em` unit is equivalent to the size of a given font.
 
+#### `vw`, `vh`, and more
+There are more relative CSS units such as `vw` and `vh`. At this time, the community hasn't determined best practices for how to effectively use them, so we won't go into this deeply, but feel free to (read more about it!)[https://www.w3schools.com/cssref/css_units.asp]
+
 ### It all Adds Up!
 
 According to the box model, the total width of an element can be calculated using the following formula:
