@@ -123,7 +123,7 @@ As a general rule, `super` will often be the first line in a subclass' `initiali
 
 Inheritance allows one class to gain or "inherit" the methods and attributes from another class.  This is a key concept in Object Oriented Programming.  Inheritance can be extremely powerful, but it is also easy to misuse.  
 
-Inheritance is good to use where one class is clearly an extension or variation of the parent class.  If you are unsure, bias your choices toward composition over inheritance.  
+Inheritance is good to use where one class is clearly an extension or variation of the parent class, so the class gaining methods and attributes "is-a" specialized version of the parent class.  Be very selective in your use of inheritance as composition is more often the most effective strategy.  
 
 ## Resources
 - [Understanding Inheritance in Ruby](http://culttt.com/2015/06/24/understanding-inheritance-in-ruby/)
