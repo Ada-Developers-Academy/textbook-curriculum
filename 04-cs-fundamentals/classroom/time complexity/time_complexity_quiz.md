@@ -20,9 +20,9 @@ Explain your answer.
 
 2.
 ```ruby
-  def multiply_by_four(value)
-    (4-1).times do
-      value += value
+  def method_repeat_four(value)
+    4.times do
+      puts "The value is #{value}."
     end
     return value
   end
@@ -30,11 +30,9 @@ Explain your answer.
 
 3.
 ```ruby
-  def multiply_by_multiple(value, multiple)
-    return value if multiple <= 1
-  
-    (multiple-1).times do
-      value += value
+  def method_repeat_multiple(value, multiple)
+    multiple.times do
+      puts "The value is #{value}."
     end
     return value
   end
@@ -150,5 +148,5 @@ What will be the time complexity for a brute force solution to break the passwor
 
 12. Problem statement: A traveling salesperson wants to visit _n_ cities. They can start the journey at any city and must visit each city once. How many different possibilities exist of the order in which they could visit all the _n_ cities?
 
-
+Compare your answers to the [solutions](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/time%20complexity/time_complexity_quiz_solutions.md). Slack any questions or comments to your CS Fundamentals' instructor.
 
