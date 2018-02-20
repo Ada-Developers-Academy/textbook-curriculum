@@ -4,15 +4,14 @@
 At the end of this you should be able to:
 
 - Explain how exception handling works
-- Create rescue blocks to "catch" exceptions
-- Define custom exceptions
+- Create `rescue` blocks to `catch` exceptions
 - Evaluate when to use exceptions
 
 ## The Story So Far
 
 With any program there are things that can go wrong. Maybe a file you are planning to read doesn't exist, your database server is unavailable, or you try to divide something by zero. In these cases, Ruby programs use _exceptions_ to indicate that something has gone wrong.
 
-We've seen exceptions before. If you try and access an undefined variable, Ruby will raise a `NameError`, and we've even raise our own `ArgumentError` exceptions in our projects.
+We've seen exceptions before. If you try to access an undefined variable, Ruby will raise a `NameError`, and we've probably seen `ArgumentError` exceptions in our projects.
 
 ### Producing Exceptions
 
@@ -48,42 +47,28 @@ When an exception is raised, it immediately stops the current method, just like 
 
 A stack trace contains a ton of useful information, including a list of methods and blocks that Ruby was inside when the exception was raised. Being able to quickly read a complex stack trace is a super useful skill, so let's examine one now.
 
-```ruby
-# breakfast.rb
-def make_toast(slices)
-  if slices < 1
-    raise ArgumentError.new("Can't make less than 1 slice of toast (asked for #{slices})")
-  end
-  # ...probably do some other stuff...
-end
+First, take a look at the following stack trace that came from running some of the tests within the grocery store project.
 
-def make_breakfast(type)
-  if type == "eggs and toast"
-    make_toast(-1)
-    make_eggs
-  end
-end
+![test stack trace](images/test-stack-trace.png)
 
-def make_breakfast_banquet
-  10.times do
-    make_breakfast("eggs and toast")
-  end
-end
 
-make_breakfast_banquet
-```
+**Activity**: Now, with your pair, spend a few minutes looking at this error in detail. We know you don't have access to the code, but try anyway to answer the following questions:
+1. What file has the code that was _originally called_ to create the error?
+2. What file has the code where the _error is located_? (Is this different than your answer to the question above?)
+3. Without seeing the code but using the error details, what do you think the code in question could look like?
 
-```
-$ ruby breakfast.rb
-breakfast.rb:4:in `make_toast': Can't make less than 1 slice of toast (asked for -1) (ArgumentError)
-    from breakfast.rb:11:in `make_breakfast'
-    from breakfast.rb:18:in `block in make_breakfast_banquet'
-    from breakfast.rb:17:in `times'
-    from breakfast.rb:17:in `make_breakfast_banquet'
-    from breakfast.rb:22:in `<main>'
-```
+**Review**: While you don't have the code, an error message with a stack trace gives you a lot more information than you might be expecting!
 
-![stack trace](images/stack-trace-terminal-telemarked.png)
+First, we'll identify each piece of the provided error to see how we'd answer each of the questions above.
+
+![test stack trace identified](images/test-stack-trace-markup.png)
+
+With this information, now we can more confidently answer our questions above:
+1. `online_order_spec.rb` - line 65 specifically
+2.  `order.rb` - line 20 specifically within the `add_product` method
+3. Trying to use the `[]` Array syntax to access an element on a variable that does not have an Array value
+
+The questions that we've asked you to answer about this error message are not arbitrary. Whenever you get an error, you should be overjoyed! It provides you with this extremely useful information and should never be ignored. 
 
 ## What Are Exceptions?
 
@@ -223,32 +208,6 @@ it "Raises an ArgumentError when given an invalid word" do
 end
 ```
 
-## Creating Custom Exceptions
-
-Sometimes you run into a situation where the built in Ruby exceptions don't quite describe what went wrong. For example, imagine you have a program for processing credit card transactions. Here are two types of thing that could go wrong:
-
-- The credit card number is the wrong type - maybe we expected a `String` of digits, but got a `Boolean`. This implies a programming error, and should be fixed by the engineer.
-- The credit card number is [invalid](https://en.wikipedia.org/wiki/Luhn_algorithm) - there are too many or too few digits, or it doesn't match some other check. This implies the user has given us bad data, and should be asked politely to try again.
-
-The two problems need to be handled in different ways, and the easiest way to do this is with different types of exception. In the first case an `ArgumentError` seems like the correct choice, but Ruby doesn't provide an exception for an invalid card number. Lucky for us, Ruby allows you to define custom exceptions!
-
-As we discussed above, exceptions are just classes that inherit from `Exception` or one of its subclasses, so making your own is as simple as defining a new class. You'll usually want to inherit from `StandardError`, so that your exception can be handled with `rescue`.
-
-```ruby
-class InvalidCardNumberError < StandardError
-end
-
-def process_transaction(card_number, amount)
-  # card_is_valid? is defined elsewhere
-  unless card_is_valid?(card_number)
-    raise InvalidCardNumberError.new("Invalid credit card number #{card_number}")
-  end
-  # ... process the transaction ...
-end
-```
-
-This gives us the same functionality as `StandardError`, but with a different name. You can rescue it by name with `rescue InvalidCardNumberError`. Nine times out of ten that's all you need.
-
 ## When to Use Exceptions
 
 Exceptions aren't the only way to indicate that something has gone wrong. For example, a common pattern is to return `nil` if a searched element isn't found.
@@ -270,7 +229,7 @@ Here are some examples of when and when not to raise an exception. Each of the f
 
 **Raise an Exception When:**
 - A method is given invalid arguments
-  - Negative price 
+  - Negative price
 - Some prerequisite condition isn't true
   - An order without any products
 - Some required resource can't be found or is invalid
@@ -310,7 +269,6 @@ In general, an exception indicates that either there was a programming error, or
 - Used `rescue` to handle exceptions
 - `rescue <ExceptionType>` to handle a specific type of exception
 - `rescue <ExceptionType> => exception` to store the exception in a local variable
-- Created our own custom exceptions
 - Discussed when to use exceptions
 
 ## Additional Resources
