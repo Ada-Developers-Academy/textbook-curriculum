@@ -77,7 +77,7 @@ Reviewing code can seem daunting, so here are some suggested readings on giving 
 The entire guide is good, concise, effective, and accurate. [Read all of it, and read it here](https://github.com/thoughtbot/guides/tree/master/code-review).
 
 Here are some notable tips from the guide:
-> - Accept that many programming decisions are opinions. Discuss tradeoffs, which you prefer, and reach a resolution quickly.
+- Accept that many programming decisions are opinions. Discuss tradeoffs, which you prefer, and reach a resolution quickly.
 - Good questions avoid judgment and avoid assumptions about the author's perspective.
 - Avoid selective ownership of code. ("mine", "not mine", "yours")
 - Avoid using terms that could be seen as referring to personal traits. ("dumb", "stupid"). Assume everyone is intelligent and well-meaning.
