@@ -4,18 +4,33 @@
 At the end of this you should be able to:
 
 - Explain how exception handling works
-- Create `rescue` blocks to `catch` exceptions
+- Create `begin-rescue` blocks to "catch" exceptions
 - Evaluate when to use exceptions
 
 ## The Story So Far
 
 With any program there are things that can go wrong. Maybe a file you are planning to read doesn't exist, your database server is unavailable, or you try to divide something by zero. In these cases, Ruby programs use _exceptions_ to indicate that something has gone wrong.
 
-We've seen exceptions before. If you try to access an undefined variable, Ruby will raise a `NameError`, and we've probably seen `ArgumentError` exceptions in our projects.
+We've seen exceptions before. If you try to access an undefined variable, Ruby will raise a `NameError`, if you use a method that doesn't exist, you'll get a `NoMethodError` and we've also seen `ArgumentError` exceptions in our projects.
+
+## What Are Exceptions?
+
+**Question:** We know that raising an `ArgumentError` requires a call to `ArgumentError.new`. What does this tell us about what `ArgumentError` is, and what sort of a thing we're raising?
+
+`ArgumentError` is a class, and the thing that we're raising is an _instance_ of `ArgumentError`. There's a whole bunch of built-in Ruby magic around the `raise` keyword, but the exceptions themselves are just objects like any other, binding together data and behavior.
+
+**Question:** What data might an exception keep track of? What behavior does it provide? How would you find out for sure?
+
+All exceptions are children of the `Exception` class, inheriting its core functionality.
+
+[![exceptions](images/exceptions.png)](http://findnerd.com/list/view/Exception-Handling-in-Rails-using-begin-rescue/21677/)
+
+The Ruby docs have a [full list of built in Ruby exceptions](https://ruby-doc.org/core-2.4.0/Exception.html).
+
 
 ### Producing Exceptions
 
-For a quick reminder of what an exception looks like, save the following code as `divide_by_zero.rb`
+For a quick reminder of what another exception looks like, save the following code as `divide_by_zero.rb`
 
 ```ruby
 # divide_by_zero.rb
@@ -41,48 +56,6 @@ def make_toast(slices)
 end
 ```
 
-### Stack Traces
-
-When an exception is raised, it immediately stops the current method, just like `return`. It will then bubble its way up through the program, method by method. If it makes it all the way to the top, Ruby will print out a summary of the exception and a description of what the program was doing when the exception happened, also known as a **stack trace**.
-
-A stack trace contains a ton of useful information, including a list of methods and blocks that Ruby was inside when the exception was raised. Being able to quickly read a complex stack trace is a super useful skill, so let's examine one now.
-
-First, take a look at the following stack trace that came from running some of the tests within the grocery store project.
-
-![test stack trace](images/test-stack-trace.png)
-
-
-**Activity**: Now, with your pair, spend a few minutes looking at this error in detail. We know you don't have access to the code, but try anyway to answer the following questions:
-1. What file has the code that was _originally called_ to create the error?
-2. What file has the code where the _error is located_? (Is this different than your answer to the question above?)
-3. Without seeing the code but using the error details, what do you think the code in question could look like?
-
-**Review**: While you don't have the code, an error message with a stack trace gives you a lot more information than you might be expecting!
-
-First, we'll identify each piece of the provided error to see how we'd answer each of the questions above.
-
-![test stack trace identified](images/test-stack-trace-markup.png)
-
-With this information, now we can more confidently answer our questions above:
-1. `online_order_spec.rb` - line 65 specifically
-2.  `order.rb` - line 20 specifically within the `add_product` method
-3. Trying to use the `[]` Array syntax to access an element on a variable that does not have an Array value
-
-The questions that we've asked you to answer about this error message are not arbitrary. Whenever you get an error, you should be overjoyed! It provides you with this extremely useful information and should never be ignored. 
-
-## What Are Exceptions?
-
-**Question:** We know that raising an `ArgumentError` requires a call to `ArgumentError.new`. What does this tell us about what `ArgumentError` is, and what sort of a thing we're raising?
-
-`ArgumentError` is a class, and the thing that we're raising is an _instance_ of `ArgumentError`. There's a whole bunch of built-in Ruby magic around the `raise` keyword, but the exceptions themselves are just objects like any other, binding together data and behavior.
-
-**Question:** What data might an exception keep track of? What behavior does it provide? How would you find out for sure?
-
-All exceptions are children of the `Exception` class, inheriting its core functionality.
-
-[![exceptions](images/exceptions.png)](http://findnerd.com/list/view/Exception-Handling-in-Rails-using-begin-rescue/21677/)
-
-The Ruby docs have a [full list of built in Ruby exceptions](https://ruby-doc.org/core-2.4.0/Exception.html).
 
 ## Handling Exceptions
 
@@ -123,7 +96,7 @@ The output would be:
 ```
 $  ruby sample_exception.rb
 sample_exception.rb:4:in `/': divided by 0 (ZeroDivisionError)
-  from basic_exception_without_rescue.rb:4:in `<main>'
+  from sample_exception.rb:4:in `<main>'
 ```
 
 **Vocabulary note:** In many languages, `raise` and `rescue` are called `throw` and `catch`, and you will often hear people talking about "throwing" or "catching" an exception.
@@ -147,16 +120,16 @@ rescue ZeroDivisionError
   # Code to recover from a ZeroDivisionError
 
 rescue
-  # other exceptions handled here
+  # any other exceptions handled here
 
 end
 ```
 
-If you specify a type of exception, Ruby will rescue that exception as well as any of its subclasses. That means that `rescue Exception` will rescue all exceptions, since all exceptions are subclasses of `Exception`.
+If you specify a type of exception, Ruby will rescue that exception as well as any of its subclasses. That means that `rescue Exception` will rescue all exceptions, since all exceptions are subclasses of `Exception` (and is therefore not a very useful approach).
 
 Most recoverable errors inherit from `StandardError`, and without any arguments `rescue` will only rescue `StandardError` and its subclasses.
 
-It is almost always worth your time to figure out exactly what type of exception you're expecting, and rescue only that. Otherwise you're setting yourself up to ignore the valuable information Ruby is giving you about why your program failed. A bare `rescue` with no exception type specified is a classic example of sloppy programming.
+It is almost always worth your time to figure out exactly what type of exception you're expecting, and rescue **only that**. Otherwise you're setting yourself up to ignore the valuable information Ruby is giving you about why your program failed. A bare `rescue` with no exception type specified is a classic example of sloppy programming.
 
 ### Accessing a Rescued Exception
 
@@ -172,7 +145,12 @@ end
 
 Like method or block parameters, the rescued exception is a local variable and may be called anything you please.
 
-### Example: `csv_printer.rb`
+### Exercise
+Setup:
+1. Create a new file called `csv_printer.rb` in your working directory.
+2. Copy the following code into that file.
+3. Review what the code is doing with your seat squad.
+4. Run the code a few times to exercise each code branch.
 
 ```ruby
 # csv_printer.rb
@@ -190,6 +168,24 @@ while true
   rescue SystemCallError => exception
     puts "Could not open file: #{exception.message}"
   end
+
+  puts "Would you like to go again?"
+  break if gets.chomp != "yes"
+end
+```
+
+
+**Comprehension Questions:**
+
+Answer the comprehension prior to changing and executing the code to test your understanding.
+
+1. What happens if you remove the `=> exception` code?
+2. What happens if you change the `=> exception` code to `=> my_exception`?
+3. What happens if the `rescue` block is modified to include the code at the end of this loop?
+```ruby
+...
+rescue SystemCallError => exception
+  puts "Could not open file: #{exception.message}"
 
   puts "Would you like to go again?"
   break if gets.chomp != "yes"
