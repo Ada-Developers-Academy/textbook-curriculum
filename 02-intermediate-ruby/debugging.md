@@ -1,6 +1,7 @@
 # Debugging
 
 ## Learning Goals
+- Read and analyze a stack trace
 - Understand how to use `pry` for debugging in Ruby code
 - Better understand the scope of variables and instances in an application when testing
 
@@ -42,15 +43,62 @@ You've already been introduced to pry in our discussion about gems, but now we'r
 
 In that introduction, we briefly mentioned that `pry` has a tool you can use: `binding.pry`. Go back now and [re-read those notes](../../01-ruby-fundamentals/intro-to-ruby-gems.md#pry) if you don't remember what it was all about!
 
-### Exercise
+With code that we've already written in a file, we can use a Pry command to pause our code and more closely inspect. We can use Pry instead of using a bunch of `puts` commands in a program.
 
-Setup: Clone [this repository]() to get started.
+### How to get started
 
-The code you've been given contains two primary interesting things: (1) tests and (2) many errors.
+1. You should already have the gem installed, but if you don't, you can run `gem install pry`.
+1. Require the gem at the top of the file you'd like to debug: `require pry`.
+1. In your code, write `binding.pry` anywhere you want to pause the code that's being run. Doing so will allow you to evaluate what code is doing up to that point, like checking what what a variable equals while being changed in a loop.
 
+### Test it out
+
+Because programs are read from top to bottom, any code that is after a `binding.pry` command will not be read. Run the code in the exercise below, as you would normally. To exit, type 'exit'.
+
+```ruby
+require 'pry'
+def useful_method
+    first_variable = "Something useful"
+    puts first_variable
+    binding.pry
+    another_variable = "Where am I!?"
+    puts another_variable
+    first_variable = "Time for change"
+end
+```
+Your terminal should open in interactive environment that looks something like this:
+![binding.pry in terminal](./images/pry.png)
+
+
+### Debug Code
+The following code is not coming out as expected. I am expecting the method to return 55 when I pass 50, but am getting 5. Oh bugger! Let's use pry to dig into what is causing the problem!
+
+``` Ruby
+def add_5_years(age)
+  5.times do
+    age + 1
+  end
+end
+
+puts add_5_years(50)
+```
+
+### What else can Pry do!?
+I'm so glad you asked!
+
+Pry also has the following handy commands that let you see what objects are currently available in your program to focus on and interact directly with.
+
+- ``ls``,  shows you the local variables defined in the current context, and any public methods or instance variables defined on the current object.
+- ``cd``, command is used to move into a new object (or scope) inside a Pry session. When inside the new scope it becomes the self for the session and all commands and methods will operate on this new self.
+
+
+### Try it out!
+Open your scrabble or Bank Account project and inspect functionality of your code using PRY! Practice using the ls and cd commands.
 
 ## Key Takeaway
 Debugging your code is a critical skill to establish in your programming career. Using error messages and `pry` in your test-driven development process will help you pinpoint the cause of errors more efficiently.
 
 ## Additional Resources
 - [Debugging with Pry](https://learn.co/lessons/debugging-with-pry)
+- Dig into [Pry's documentation](http://pryrepl.org/) (with screencasts) to learn even more
+- Here's a handy list of more [Pry commands](https://github.com/pry/pry/wiki/State-navigation#Ls)!
