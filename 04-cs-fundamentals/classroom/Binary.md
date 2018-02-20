@@ -33,6 +33,8 @@ Fork, clone and complete the assignments below.
 ## Additional Resources:
 Videos and additional reading material for furthering your learning for curiosity on topics related to what we covered in class:
    + [Video: Binary and Hexadecimal number systems by Khan Academy](https://www.khanacademy.org/math/algebra-home/alg-intro-to-algebra/algebra-alternate-number-bases/v/number-systems-introduction)
+   + [Boston University slide deck on Binary Numbers](http://www.cs.bu.edu/courses/cs101/old/2013spring/slides/CS101.03.BinaryNumbers.ppt.pdf)
+   + Blog post by Vaidehi Joshi on [Bits, Bytes, Building with Binary](https://medium.com/basecs/bits-bytes-building-with-binary-13cb4289aafa)
    + [Why do array indexes start with zero - Quora discussion](https://www.quora.com/Why-do-array-indexes-start-with-0-zero-in-many-programming-languages)
    + [Original paper on when we started counting with 0: Why numbering should start at zero? - by E. W. Dijkstra](https://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html)
    + [Does *bit rate* matter? - a blog on online-convert](http://blog.online-convert.com/does-bit-rate-matter-test-yourself-audio-examples/)
