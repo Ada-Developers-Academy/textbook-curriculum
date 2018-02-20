@@ -9,14 +9,10 @@
   + How data is stored in memory
   + High level computer organization: CPU, Main memory & Bus
 
-## Notes
-+ There's no homework due before we meet for class. We'll chat about homework due after class during class time.
-+ For most CS Fundamentals sessions, we'll observe a closed laptop policy. Please bring along a notebook/papers and pen/pencil to every class. 
-
-## Essential Reading:
-Here's some good follow up reading/viewing for after we meet in class:
+## Essential Reading and viewing:
+Essential reading for before and after this class:
   + [Computer Data Basics](https://docs.google.com/document/d/1g-Dxn1rVTChBs9ZZSOgmohjP_RoWNyPJTE-m_n35aZ0/edit)
-  + [Video: Understand how memory addressing works](https://www.youtube.com/watch?v=F0Ri2TpRBBg)
+  + [Video: Understand how memory addressing works](https://www.youtube.com/watch?v=F0Ri2TpRBBg) by Prof. Abelardo Pardo, University of Sydney
 
 ## Exercises
 Here's the exercises we'll cover in class
