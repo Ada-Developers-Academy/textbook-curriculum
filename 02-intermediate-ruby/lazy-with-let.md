@@ -27,7 +27,7 @@ describe Player do
   end
 
   it "must respond to name" do
-    @dplauer.must_respond_to :name
+    @dplayer.must_respond_to :name
   end
   ...
 end
