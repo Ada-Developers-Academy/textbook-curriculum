@@ -9,7 +9,7 @@
   + How data is stored in memory
   + High level computer organization: CPU, Main memory & Bus
 
-## Essential Reading and viewing:
+## Pre-work: Essential Reading and Viewing:
 Essential reading for before and after this class:
   + [Computer Data Basics](https://docs.google.com/document/d/1g-Dxn1rVTChBs9ZZSOgmohjP_RoWNyPJTE-m_n35aZ0/edit)
   + [Video: Understand how memory addressing works](https://www.youtube.com/watch?v=F0Ri2TpRBBg) by Prof. Abelardo Pardo, University of Sydney
@@ -25,6 +25,7 @@ Assignments are expected to be worked on after the class discussion and due befo
 Fork, clone and complete the assignments below.
 1. Author a method based on the binary to decimal algorithm you devised in class. Read further on [Ada-C9/BinaryAndDecimal](https://github.com/Ada-C9/BinaryAndDecimal)
 2. Determines if the two input integer arrays are equal. The two arrays will be considered equal if they both have the exact same count of elements in the exact same order. Do this without using Ruby methods (except retrieving the value at an index in the Array, comparing two values at a particular index and a method to determine the length of the Array.) Read further on [Ada-C9/array_equals](https://github.com/Ada-C9/array_equals)
+3. [Optional] Write a program to print all possible values that can be represented using 4 bits. e.g. 0000, 0001, 0010, 0011, 0100 ... and so on.
 
 ## Additional Resources:
 Videos and additional reading material for furthering your learning for curiosity on topics related to what we covered in class:
