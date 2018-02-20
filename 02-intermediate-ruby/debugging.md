@@ -57,14 +57,18 @@ Because programs are read from top to bottom, any code that is after a `binding.
 
 ```ruby
 require 'pry'
+
 def useful_method
-    first_variable = "Something useful"
-    puts first_variable
-    binding.pry
-    another_variable = "Where am I!?"
-    puts another_variable
-    first_variable = "Time for change"
+  first_variable = "Something useful"
+  puts first_variable
+  binding.pry
+  another_variable = "Where am I!?"
+  puts another_variable
+  first_variable = "Time for change"
 end
+
+# call them method!
+useful_method
 ```
 Your terminal should open in interactive environment that looks something like this:
 ![binding.pry in terminal](./images/pry.png)
