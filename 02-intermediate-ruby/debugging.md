@@ -21,9 +21,13 @@ First, take a look at the following stack trace that came from running some of t
 
 **Review**: While you don't have the code, an error message with a stack trace gives you a lot more information than you might be expecting!
 
-First, we'll identify each piece of the provided error to see how we'd answer each of the questions above.
+First, let's look at each piece of the provided error.
 
-![test stack trace identified](images/test-stack-trace-markup.png)
+![test stack trace errors](images/test-stack-trace-markup-p1.png)
+
+Next, we'll take a look at all of the details of the stack trace itself.
+
+![test stack trace details](images/test-stack-trace-markup-p2.png)
 
 With this information, now we can more confidently answer our questions above:
 1. `online_order_spec.rb` - line 65 specifically
@@ -43,7 +47,6 @@ In that introduction, we briefly mentioned that `pry` has a tool you can use: `b
 Setup: Clone [this repository]() to get started.
 
 The code you've been given contains two primary interesting things: (1) tests and (2) many errors.
-
 
 
 ## Key Takeaway
