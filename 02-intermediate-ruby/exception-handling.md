@@ -181,7 +181,7 @@ Answer the comprehension prior to changing and executing the code to test your u
 
 1. What happens if you remove the `=> exception` code?
 2. What happens if you change the `=> exception` code to `=> my_exception`?
-3. What happens if the `rescue` block is modified to include the code at the end of this loop?
+3. What happens if the `rescue` block is modified to look like the code below?
 ```ruby
 ...
 rescue SystemCallError => exception
