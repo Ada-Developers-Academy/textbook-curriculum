@@ -5,6 +5,8 @@
 - Understand how to use `pry` for debugging in Ruby code
 - Better understand the scope of variables and instances in an application when testing
 
+Debugging your code is a skill that you will use throughout your career. Over time you will get better at figuring out what the issues are with your code and addressing them more efficiently. The skills addressed in this lecture are intended to be a starting for your practice of debugging and we imagine you'll continue bulding these over the years.
+
 ### Reading Errors via Stack Traces
 
 When an exception is raised, it immediately stops the current method, just like `return`. It will then bubble its way up through the program, method by method. If it makes it all the way to the top, Ruby will print out a summary of the exception and a description of what the program was doing when the exception happened, also known as a **stack trace**.
@@ -97,7 +99,7 @@ Pry also has the following handy commands that let you see what objects are curr
 
 
 ### Try it out!
-Open your scrabble or Bank Account project and inspect functionality of your code using PRY! Practice using the ls and cd commands.
+Open your scrabble or Grocery Store project and inspect functionality of your code using PRY! Practice using the ls and cd commands.
 
 ## Key Takeaway
 Debugging your code is a critical skill to establish in your programming career. Using error messages and `pry` in your test-driven development process will help you pinpoint the cause of errors more efficiently.
