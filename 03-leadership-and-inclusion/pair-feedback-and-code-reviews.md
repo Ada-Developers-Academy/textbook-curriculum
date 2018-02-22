@@ -68,7 +68,7 @@ Topics to cover are:
 
 Code reviews are one of the best ways to provide feedback on someone's work. There are a lot of tools to assist with making code reviews, such as the review/comment system on pull requests on GitHub.
 
-It is not part of the curriculum at Ada to give code reviews. Even so, we want to prepare everyone to be able to contribute to giving feedback on someone else's code.
+It is not part of the curriculum at Ada for students to give code reviews (to each other). Even so, we want to prepare everyone to be able to contribute to giving feedback on someone else's code.
 
 Reviewing code can seem daunting, so here are some suggested readings on giving good code review comments.
 
