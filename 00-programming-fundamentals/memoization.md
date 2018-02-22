@@ -11,7 +11,7 @@ In computing, __memoization__ is an optimization technique used primarily to spe
 In this sense, we are trading _time complexity_ (hard things takes lots of time) for _space complexity_ (storing the results of an expensive operation so we don't have to do it again). So storing the result of an expensive operation so it can be referenced later is referred to as _memoizing_ the operation. Most real-world, problem-solving algorithms/processes try to balance these two concerns.
 
 ## Let's do something hard.
-The Fibonacci Sequence is one of those observations of the natural world that pops up all over the place: nature, art, science, programmer whiteboarding invterviews, and recurion examples.
+The Fibonacci Sequence is one of those observations of the natural world that pops up all over the place: nature, art, science, programmer whiteboarding invterviews, and recursion examples.
 
 Math nerds tell me that to find the *n*th place in the Fibonacci sequnce, you have to add the two preceeding numbers together. So Fibonacci looks like this:
 
