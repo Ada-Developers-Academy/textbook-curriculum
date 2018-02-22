@@ -32,7 +32,7 @@ Flexbox solves the following problem: **How do I define rules for aligning many 
 
 1. The "one larger container element" is called **the flex container**. We designate it as the flex container by giving it the CSS rule `display: flex;`
 1. The "many small elements" that we are trying to align are called the flex items. The flex items **must** be and will only be the **direct children** of the flex container
-  - these flex items may have children inside of them, but will not be affected by this flex container
+    - these flex items may have children inside of them, but will not be affected by this flex container
 1. The "rules" we want to define for aligning the flex items will be additional properties on the flex container
 
 Note: The flex items of a specific flex container do not have to be all the same kind of element.
