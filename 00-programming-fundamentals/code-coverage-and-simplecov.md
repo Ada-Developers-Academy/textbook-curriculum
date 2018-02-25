@@ -102,7 +102,7 @@ Some teams require a certain percentage of code coverage and it's likely you wil
 
 ### Exercise
 
-Add code coverage to your Robot Name Weekend-Warrior exercise.      
+Add code coverage to your Deck & Card TDD Exercise.      
 
 
 ## Spec Helpers
