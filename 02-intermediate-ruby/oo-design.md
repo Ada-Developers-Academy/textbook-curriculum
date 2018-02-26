@@ -30,7 +30,7 @@ also be noted.
 
 Some of the highlighted items will be entities and some will be the attributes that describe that entity. This is part of the decision-making process that you'll need to decide. You could go as far as every noun in the problem being an entity, but most likely that will be overkill as a starting point. You should also notice which common entities are all people!
 
-![entity diagram](images/oo-design.png)
+![entity diagram](images/OO-Design.png)
 
 ### Diagram details
 
@@ -38,11 +38,11 @@ This diagram is a [UML](https://en.wikipedia.org/wiki/Unified_Modeling_Language)
 
 The line with the regular black arrow shows an association between a "container" and a class that is "contained".
 
-![container diagram](images/oo-design-container.png)
+![container diagram](images/OO-Design-container.png)
 
 The line the with solid arrowhead signifies an inheritance relationship.
 
-![inheritance diagram](images/oo-design-inheritance.png)
+![inheritance diagram](images/OO-Design-inheritance.png)
 
 ### Adding Actions
 
@@ -57,7 +57,7 @@ also be noted.
 
 Then we can add these actions to our design diagrams.
 
-![add the methods diagram](images/oo-design-full.png)
+![add the methods diagram](images/OO-Design-full.png)
 
 It is important to remember that the diagram above and those like it are used for initial planning. When
 you start actually trying to complete the project code-wise, you may discover that you actually need
