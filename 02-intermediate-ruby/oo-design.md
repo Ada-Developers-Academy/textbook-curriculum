@@ -32,6 +32,10 @@ Some of the highlighted items will be entities and some will be the attributes t
 
 ![entity diagram](images/OO-Design.png)
 
+<!--
+All diagrams located here https://www.draw.io/#G1ZwIIgnSG8xJq_NRLrTVsgu3nStGljIy0
+-->
+
 ### Diagram details
 
 This diagram is a [UML](https://en.wikipedia.org/wiki/Unified_Modeling_Language) representation of a system design. UML is used regularly in designing programming systems. Here we'll highlight the two relationships in the above diagram.
