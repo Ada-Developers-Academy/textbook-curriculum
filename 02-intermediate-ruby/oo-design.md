@@ -1,7 +1,8 @@
 # Object-Oriented Design: Breaking Down the Problem
 
 ## Learning Goals
-- sample
+- Break down a problem into a UML diagram
+- Identify two types of relationships in UML diagrams
 
 ### Getting Started
 
