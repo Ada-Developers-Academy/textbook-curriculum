@@ -46,17 +46,17 @@ Here's some good follow up reading after we meet in class:
 
 ## Exercises
 Here's the exercises we'll cover in class.
-Given an array data structure holding integer values, device an algorithm for the following exercises.
+Given an array data structure holding only integer values, device an algorithm for the following exercises.
 1. Compute the length of the array, given that the array is terminated by `nil` i.e. `array[length] = nil`.
 2. Return the value at index k, such that 0 <= k < length.
-3. <strong>Linear Search</strong> Search for a given integer value in the unsorted array. Return true if the value if found in the array. Return false otherwise.
+3. <strong>Linear Search</strong> Search for a given integer value in the unsorted array. Return true if the value is found in the array. Return false otherwise.
 4. Return the maximum (or minimum) integer value in the unsorted array.
 5. Return the maximum (or minimum) integer value in a sorted array.
-6. <strong>Binary Search</strong> Search for a given integer value in a sorted array. Return true if the value if found in the array. Return false otherwise.
+6. <strong>Binary Search</strong> Search for a given integer value in a sorted array. Return true if the value is found in the array. Return false otherwise.
 7. Reverse the elements in the array in place.
 
 ## Assignments
-Assignments are expected to be worked on after the class discussion and due before the next class.
+Assignments are expected to be worked on after the class discussion.
 1. Fork, clone and complete the methods in using_restricted_array.rb on [Ada-C9/Restricted-Arrays-Part1](https://github.com/Ada-C9/Restricted-Arrays-Part1). See the readme file for details.
 2. Watch this [Video: Big O Notation](https://www.youtube.com/watch?v=v4cd1O4zkGw) by Gale Laakmann McDowell
 3. Solve this [quiz](https://www.khanacademy.org/computing/computer-science/algorithms/asymptotic-notation/e/quiz--comparing-function-growth) by Khan Academy.
