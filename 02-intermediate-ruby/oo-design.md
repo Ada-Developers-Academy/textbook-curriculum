@@ -12,7 +12,7 @@ Breaking down a programming problem is hard! Oftentimes you get a problem and yo
 
 Consider the following project description:
 
-> A part-time babysitter wants you to help their implement some way of organizing and managing
+> A part-time babysitter wants you to help them implement some way of organizing and managing
 their employers’ information where it would be easy to add and remove new employers. Each
 employer is a person with a name, an address, a phone number and at least one child. Each
 employer also provides a person, an emergency contact, with a name, phone number and
@@ -21,7 +21,7 @@ also be noted.
 
 How can we use this description to help us figure out what our entities (or classes) should be? One way is to go through the description and make a note of all of the **nouns**.
 
-> A part-time babysitter wants you to help their implement some way of organizing and managing
+> A part-time babysitter wants you to help them implement some way of organizing and managing
 their employers’ information where it would be easy to add and remove new employers. Each
 **employer** is a **person** with a **name**, an **address**, a **phone number** and at least one **child**. Each
 **employer** also provides a **person**, an **emergency contact**, with a **name**, **phone number** and
@@ -52,7 +52,7 @@ The line the with solid arrowhead signifies an inheritance relationship.
 
 The initial diagram we came up with contains the entities and attributes that we pulled out from the initial problem description. Next, we'll want to go back to our problem description to highlight the verbs that may be associated with the entities.
 
-> A part-time babysitter wants you to help their implement some way of organizing and managing
+> A part-time babysitter wants you to help them implement some way of organizing and managing
 their employers’ information where it would be easy to **add** and **remove** new employers. Each
 employer is a person with a name, an address, a phone number and at least one child. Each
 employer also provides a person, an emergency contact, with a name, phone number and
@@ -73,7 +73,7 @@ Now, let's try it out ourselves.
 Pick on of the following project descriptions and determine the classes you need to write, what methods and
 variables the classes will contain and how the classes relate to one another. Draw a diagram if
 necessary.
-1. A teacher wants you to help their write a program that will randomly assign each of her students
+1. A teacher wants you to help them write a program that will randomly assign each of her students
 to an activity at the various activity tables available in her classroom. Each activity table knows
 its activity, the materials needed for the activity, the students at the table and how many chairs
 are left. The activity tables available are the math table, the art table, the reading table and the
