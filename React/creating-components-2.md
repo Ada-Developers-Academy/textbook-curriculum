@@ -31,6 +31,25 @@ Prop names can be any variable you want them to be. In this particular case, we 
 
 Once the prop names are **passed in** to the component, we can then use them within the component. That's where `this.props` comes in!
 
+## Setup to manage list of data
+One student is great and all, but ideally, we'd really be able to manage our whole list of students that we might need.
+
+We'll create a new component called `StudentCollection` that will live between the existing  `App` and `Student` components. This new component will manage the full list of students and then render the data for each student.
+
+Spend a few minutes now going back to the [creating components](creating-components.md) notes to create the new component file with the basic class, imports and exports you need.
+
+Move the code that renders `Student` from `App` to `StudentCollection`. Note: You also need to move and update the `import` statement.
+
+Import and render `StudentCollection` now from the `App` component instead.
+
+[The code](https://github.com/AdaGold/react-hello-world/tree/part-4/src)
+
+
+## Use `state` for data
+
+Set up a constructor in the `StudentCollection` component which will use a variable to create a state-managed collection of student information. 
+
+
 ## Key Takeaway
 
 
