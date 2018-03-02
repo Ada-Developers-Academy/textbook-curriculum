@@ -11,7 +11,7 @@ The React developers have created a nice tool to help you get started with creat
 Let's install the package we'll use to create our new React application:
 `npm install -g create-react-app`
 
-Although not the same, we'll use `create-react-app` in a similar way to the way we used `rails new`.
+Although it is not the same, we'll use `create-react-app` in a similar way to the way we used `rails new`.
 
 ```bash
 create-react-app hello-world
@@ -54,8 +54,6 @@ render() {
   }
 ```
 
-
-
 Here are some important things to note about this function:
 - The pieces that look like HTML are **JSX**
 - Every component has a `render` function
@@ -67,19 +65,21 @@ JSX is a pre-processor (similar to ERB in Rails) that adds XML syntax to JavaScr
 
 **Adding Classes**
 
-Since JSX is within our JavaScript code, we cannot use the `class` keyword the way we would directly in our HTML. Instead, we must use `className` to avoid the reserved word. You'll notice this in many lines of the `render` function that we were examining above.
+Since JSX is within our JavaScript code, we cannot use the `class` keyword the way we would directly in our HTML. Instead, we must use `className` to avoid the reserved word. You'll notice this in several lines of the `render` function that we were examining above.
 
 **Making it Dynamic**
 
-Take a look at the code above and see if you can identify a location within the `render` function that is rendered dynamically. You'll notice it because the syntax looks a bit different.
+Take a look at the code above and see if you can identify a location within the `render` function that is rendered dynamically. HINT: You'll be able to identify it because the syntax looks a bit different.
 
 In ERB, we were familiar with using the `<%` and `<%=` elements to dynamically generate content for our views. In JSX, we utilize `{}` to pass in code that we'll use to dynamically generate view data.
 
-**Other Notes**
+**Important Notes**
 
 - JSX cannot contain if-statements. If you need to include logic within your render function, you can do so _before_ the return statement.
 - The `render` function must return a **single element**. This does not mean that there can't be more complicated JSX in the `return`, but it does mean that all elements must be contained within **one** outermost element.
 
+## Key Takeaway
+We can use `create-react-app` to create a new boilerplate React application. JSX is the pre-processor associated with React that we will utilize to generate dynamic HTML. 
 
 ## Additional Resources
 - [`create-react-app`](https://github.com/facebookincubator/create-react-app)
