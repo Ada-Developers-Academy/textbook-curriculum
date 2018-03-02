@@ -4,6 +4,8 @@
 - What is React?
 - Why do we learn React?
 - Who is using React?
+- Intro to the Virtual DOM
+- Intro to Components
 
 ## What is React?
 ReactJS is an [open-source](https://github.com/facebook/react) JavaScript library for building user interfaces. It encompasses only the **V** in the MVC Pattern.
@@ -20,6 +22,14 @@ Here at Ada, we teach React because it equips our JavaScript developers with the
 
 ## Who is using React?
 React was originally developed by Facebook so they're the first one to mention. Also sites like Airbnb, Dropbox, Instagram and Netflix use React. You can read even more companies in the [Additional Resources](#additional-resources) below.
+
+[This chart](http://bit.ly/2oLgGxF) is also a great indicator of how much more popular React has become over the past few years.
+
+## Virtual DOM
+One of the most enticing things about using React is the Virtual DOM. React provides a managed copy of our DOM to allow us to make quick changes to our DOM. It allows us to dynamically update our pages by doing a quick comparison between the Virtual DOM that React provides and the real DOM. Then, only the updates that are necessary are made.
+
+## Components
+React is made up of **Components** that work together. A very basic component can render some formatted HTML within your application. A more complex series of components can pull data in from a database or API, populate that into formatted HTML and render other components. 
 
 ## Key Takeaway
 React is extremely popular right now and is growing in popularity. The Virtual DOM makes React a desirable solution for web applications where performance and modular are in consideration.
