@@ -79,7 +79,9 @@ In ERB, we were familiar with using the `<%` and `<%=` elements to dynamically g
 - The `render` function must return a **single element**. This does not mean that there can't be more complicated JSX in the `return`, but it does mean that all elements must be contained within **one** outermost element.
 
 ## Key Takeaway
-We can use `create-react-app` to create a new boilerplate React application. JSX is the pre-processor associated with React that we will utilize to generate dynamic HTML. 
+- We can use `create-react-app` to create a new boilerplate React application.
+- Once our React application is created, we can run `npm start` in the terminal to start it up.
+- JSX is the pre-processor associated with React that we will utilize to generate dynamic HTML. 
 
 ## Additional Resources
 - [`create-react-app`](https://github.com/facebookincubator/create-react-app)
