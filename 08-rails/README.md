@@ -29,4 +29,3 @@
 1. [Unit Testing Models](./test-models.md)  
 1. [The Test Database](./test-the-test-database.md)
 1. [Unit Testing Controllers](./test-controllers.md)
-1. [Installing Foundation Gem](./installing-foundation.md)
