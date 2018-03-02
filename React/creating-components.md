@@ -42,7 +42,7 @@ We are going to start small, and our first component will be used to display a s
     export default Student;
     ```
 
-1. **QUICK BREAK!** Check in with your seat squad to verify that they are at the same place in setting up their component file. Look at [the code](code/student_1.js) if you need to copy/paste to catch up.
+1. **QUICK BREAK!** Check in with your seat squad to verify that they are at the same place in setting up their component file. Look at [the code](https://github.com/AdaGold/react-hello-world/blob/part-1/src/components/student.js) if you need to copy/paste to catch up.
 
 ### Customize our Component
 
@@ -60,13 +60,15 @@ For now, we should have filled in a render function and run `npm start` to verif
 
 1. Verify! Run `npm start` to take a look at your application running in the browser and ensure that you see the elements you added to your student component.
 
+If you need to, take a look at this final version of [the code](https://github.com/AdaGold/react-hello-world/tree/part-2/src) to verify your work.
+
 ** What have we accomplished so far?**
 
 We used the existing index.js code to render the `App` component that was provided to use by the boilerplate React application. Then, we created a new component and added it to the `App` component's render function to be able to see it within our application.
 
 ![basic component setup](images/basic-components.png)
 
-In the next phase of this application, we are going to extend our application to support multiple students and swtich from hard-coded to dynamic data.
+In the next phase of this application, we are going to extend our application to support multiple students and switch from hard-coded to dynamic data.
 
 ## Key Takeaway
 Nesting components within one another is the most powerful construct of React. You will structure much of your applications using this paradigm, applying additional patterns and skills to it as you learn.
