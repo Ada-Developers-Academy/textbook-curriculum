@@ -28,10 +28,10 @@ Other solutions to layout include:
 
   1. There is one large container for these elements, and it is called **the grid container**. We designate it as the grid container by giving it the CSS rule `display: grid;`
   1. The "many elements" that we are trying to put in a layout are called the grid items. The grid items **must** be and will only be the **direct children** of the grid container
-    - these grid items may have children inside of them, but will not be affected by this grid container
+      - these grid items may have children inside of them, but will not be affected by this grid container
   1. We can define the "rules" for the grid system in many ways
-    - The grid container may have CSS that determine a "template" for how all the grid items span across rows and columns
-    - The grid item may have CSS applied to it that determines how it specifically spans across rows and columns
+      - The grid container may have CSS that determine a "template" for how all the grid items span across rows and columns
+      - The grid item may have CSS applied to it that determines how it specifically spans across rows and columns
 
   Note: The grid items of a specific grid container do not have to be all the same kind of element.
 
