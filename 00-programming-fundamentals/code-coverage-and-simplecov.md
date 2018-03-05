@@ -25,6 +25,14 @@ require 'simplecov'
 SimpleCov.start
 ```
 
+Finally, add the `coverage` directory to your `.gitignore` file:
+
+```
+$ touch .gitignore
+$ echo "coverage" >> .gitignore
+$ git add .gitignore
+$ git commit -m "Add coverage directory to .gitignore file"
+```
 
 ## Code Coverage Reports
 
@@ -95,7 +103,7 @@ It can:
 
 So code coverage is a tool that's a useful indicator of the test quality, but having high code coverage doesn't guarantee that your testing is perfect.  It can be especially useful if you don't write tests first, as it can be easy to forget to test some functionality and code coverage reports can help you identify areas without testing.  
 
-While it's not a pancea code coverage is helpful as one indicator of quality in your tests, just don't assume if you have high coverage you'll have perfect code.  
+While it's not a panacea code coverage is helpful as one indicator of quality in your tests, just don't assume if you have high coverage you'll have perfect code.  
 
 Some teams require a certain percentage of code coverage and it's likely you will encounter coverage requirements in your career.  
 
@@ -111,12 +119,13 @@ You may have noticed that you have a lot of repeated require statements at the t
 
 ```ruby
 # any_spec.rb
+require 'simplecov'
+SimpleCov.start
+
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/pride'
-
-require 'simplecov'
 ...
 ```
 
@@ -124,13 +133,13 @@ We can simplify this down a bit by creating a `specs/spec_helper.rb`.  So now al
 
 ```ruby
 # specs/spec_helper.rb
+require 'simplecov'
+SimpleCov.start
+
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/pride'
-
-require 'simplecov'
-SimpleCov.start
 
 # Require any classes 
 # ex require_relative 'lib/foo.rb'
