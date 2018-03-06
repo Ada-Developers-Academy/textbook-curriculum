@@ -136,7 +136,7 @@ So `/a(ab)*a/` would match the strings:  "aaba", "aa", "aababa" because it requi
 
 Similarly, `/\$(\d)+\.(\d){2}` would match us currency, like you were asked to deduce above requiring a dollar sign followed by one or more digits, followed by a period and ending with 2 digits.  
 
-
+If you want between a specific amount of matching characters you can place a comma inside the `{ }`.  So `/a{2, 3}/` would match 2 to 3 "a"'s.
 
 ### Practice
 
