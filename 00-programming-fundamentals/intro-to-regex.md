@@ -105,7 +105,7 @@ Some examples include:
 | `\S`  |  Any non-whitespace character |
 | `\d`  |  Any digit |
 | `\D`  |  Any non-digit |
-| `\\.`, `\\+`, `\\*`  | The literal character following the backslash, for example `\\` searches the String for a backslash, while `\.` looks for a period.  |
+| `\.`, `\+`, `\*`  | The literal character following the backslash, for example `\\` searches the String for a backslash, while `\.` looks for a period.  |
 
 Practical Example:
 
