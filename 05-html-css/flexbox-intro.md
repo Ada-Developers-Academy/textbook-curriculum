@@ -9,16 +9,16 @@
 
 ## History
 
-Historically, _aligning_ items while working with page flow using CSS has been difficult. To align an item within along one dimension (vertically or horizontally), CSS had a lot of attributes and values that weren't great solutions.
+Historically, _aligning_ items while working with page flow using CSS has been difficult. CSS has never had a great way to align an item within along one dimension (vertically or horizontally).
 
 By default, every HTML tag comes with a `display` property value of `inline` or `block`, which determine how they flow on the page but was typically only left to right, top to bottom. Also, by default every element aligns the baseline of itself with the baseline of the parent element. Vertical alignment in CSS is notoriously complex.
 
-In comes _flexbox_ (stylistically lowercase, sometimes "flex-box", short for Flexible Box Module).
+In comes _flexbox_ (stylistically lowercase, sometimes "flex-box", short for Flexible Box Module)!
 
 Flexbox has the following advantages:
-1. Easier, more intuitive attributes
+1. More intuitive attributes for aligning compared to older CSS solutions (like vertical alignment)
 1. More relevant solutions to modern web layouts
-1. Bui- `lt for responsive design`
+1. Built for responsive design
 1. Promotes thinking about alignment on websites agnostic of language direction
 
 If you choose to not use flexbox as your main way of aligning elements along one dimension, Ada has archived lectures on other ways to do layouts in CSS:
@@ -32,7 +32,7 @@ Flexbox solves the following problem: **How do I define rules for aligning many 
 
 1. The "one larger container element" is called **the flex container**. We designate it as the flex container by giving it the CSS rule `display: flex;`
 1. The "many small elements" that we are trying to align are called the flex items. The flex items **must** be and will only be the **direct children** of the flex container
-  - these flex items may have children inside of them, but will not be affected by this flex container
+  - these flex items may have children inside of them. Note: the rules of a flex container do not apply to the children of flex items
 1. The "rules" we want to define for aligning the flex items will be additional properties on the flex container
 
 Note: The flex items of a specific flex container do not have to be all the same kind of element.
@@ -41,7 +41,7 @@ Note: The flex items of a specific flex container do not have to be all the same
 
 Let's say we've received this wireframe for a website to create. What are the flex items? What is the flex container?
 
-Let's take a look at one way we'd likely make write this HTML, and its accompanying CSS to set it up to use flexbox.
+Let's take a look at one way we'd likely write this HTML, and its accompanying CSS to set it up to use flexbox.
 
 We've set up flexbox, but we don't see it in work yet.
 

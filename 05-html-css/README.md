@@ -14,6 +14,7 @@
 1. [Dev Tools](dev-tools-into-default-styles.md)
 
 ### Layout
+1. [Box Model](box-model.md)
 1. [Intro to Alignment and Positioning with Flexbox](flexbox-intro.md)
 1. [Intro to Layout with CSS Grid](css-grid-intro.md)
 
