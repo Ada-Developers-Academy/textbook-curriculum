@@ -21,7 +21,7 @@ The simplest way to deal with a merge conflict is to not get into one in the fir
 - **Pull often**: Consider this scenario: you have been working all day to refactor the `cool_stuff` method, but when you go to push it you find that in the mean time someone updated it to do five more things and renamed it to `extra_cool_stuff`. Certainly Sandy Metz would have a lot to say about those changes, but in the present moment you're faced with an unfortunate reality -- your refactor is no longer relevant to the code as it now exists.
 
   Fundamentally a merge conflict is a result of you or another team member working on an outdated version of the code. However if your team is following the above suggestions and pushing their changes frequently, and you're pulling from GitHub frequently, the window during which you're working on an outdated version of the code shrinks.
-  
+
   Even though pulling might trigger a merge conflict that you need to resolve it's better to deal with it sooner rather than later. It's very rare that a conflict becomes smaller and easier to resolve just by waiting.
 
 ### Resolving conflicts
@@ -42,6 +42,8 @@ Git's built-in approach for manually resolving conflicts does not require any sp
 
 Here is the same file being merged, but with Git's conflict markers and the two versions it shows by default:
 
+In plain text:
+
 ```
 This is the content from
 <<<<<<< HEAD
@@ -50,8 +52,13 @@ our version
 their version
 >>>>>>> c157db99220f47abfcb63547bfb8765ba571e19d
 ```
+With Atom highlighting:
+![atom merge conflict](images/merge-conflict1.png)
+
 
 The conflict markers are the lines that start with `<<<<<<<`, `=======`, or `>>>>>>>`. All of the lines between the left-pointing brackets and the equals signs are the **ours** version, and all of the lines between the equals signs and the right-facing brackets are the **theirs** version.
+
+Atom provides buttons to select the version you want to keep and this can be useful, but often you will need to edit the text manually and remove the git markers (>>>>, ==== and <<<<) manually.
 
 When manually resolving a merge conflict you need to figure out which version of each _conflict section_ should be used, or create a new version that mixes the two together. Determining which of these options to go with requires understanding the context of the code being changed, and the intention behind each of the changes. If you are unsure of how to resolve a conflict you should **discuss the situation with your teammate who made the other change**.
 
