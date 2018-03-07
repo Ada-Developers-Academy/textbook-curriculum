@@ -55,6 +55,9 @@ Because each member of your group now has a different version of the recipe file
     - How could this process have been made easier?
     - Write up a set of steps to follow when dealing with merge conflicts.
 
+##### Activity Workflow
+![activity workflow](images/mergeConflictDiagram.png)
+
 #### Collaboration strategies
 There are a number of ways that a group of developers can collaborate to handle merging their changes together into a final, correct result. Each strategy has pros and cons. For example if a particular strategy is good for minimizing the number of complex merge conflicts, it probably requires a slower development process in which developers are often waiting on their peers to merge in changes before they can start working.
 
