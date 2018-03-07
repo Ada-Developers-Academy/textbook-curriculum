@@ -7,16 +7,26 @@
 - Change how elements align on the page using CSS's `display: flex` property
 - Know browser compatibility for flexbox
 
+## Before We Begin: Review Display
+
+When rendering, the browser _flows_ from left to right, placing things in a single line. The line is as tall as the tallest element, and all the things are lined up with its bottom. If a thing would go off the edge of the screen, the browser wraps around and starts a new line, completely below the current one.
+
+By default, every HTML tag comes with a `display` property value of `inline` or `block`. The `display` property determines how elements flow on the page. As a general rule, flow has only be left to right, and top to bottom.
+
+Elements that are by `inline` elements align themselves left-to-right as many items that can fit into the container. Examples of these elements are `a`, `span`, and `img`.
+
+Elements that are `block` elements interrupt flow and start and end with a line break. Examples of these elements are `div`, `p`, and `h1`.
+
+Also, by default every element aligns the baseline of itself to the other baselines of surrounding elements.
+
 ## History
 
-Historically, _aligning_ items while working with page flow using CSS has been difficult. CSS has never had a great way to align an item within along one dimension (vertically or horizontally).
-
-By default, every HTML tag comes with a `display` property value of `inline` or `block`, which determine how they flow on the page but was typically only left to right, top to bottom. Also, by default every element aligns the baseline of itself with the baseline of the parent element. Vertical alignment in CSS is notoriously complex.
+Historically, _aligning_ items while working with page flow using CSS has been difficult. CSS has never had a great way to align an item within along one dimension (vertically or horizontally). Vertical alignment in CSS is notoriously complex.
 
 In comes _flexbox_ (stylistically lowercase, sometimes "flex-box", short for Flexible Box Module)!
 
 Flexbox has the following advantages:
-1. More intuitive attributes for aligning compared to older CSS solutions (like vertical alignment)
+1. More intuitive attributes for aligning compared to older CSS solutions (like vertical alignment or evenly spacing elements inside of a container)
 1. More relevant solutions to modern web layouts
 1. Built for responsive design
 1. Promotes thinking about alignment on websites agnostic of language direction
@@ -25,6 +35,8 @@ If you choose to not use flexbox as your main way of aligning elements along one
 1. [Layouts using Display](archived/layout-display.md)
 1. [Layouts using Floats](archived/layout-floats.md)
 1. [Layouts using Positioning](archived/layout-positioning.md)
+
+**Note:** Flexbox is fairly new, and adoption for using flexbox isn't widespread. A lot of information and advice on the Internet uses CSS that does not use flexbox, even if flexbox may be a better solution for that problem.
 
 ## Rules for Setting Up Flexbox
 
@@ -92,8 +104,6 @@ Because flex items must be the direct children of the flex container, it is temp
 flexbox was introduced only in the past few years. *Every modern browser supports flexbox*, but that didn't happen until 2015.
 
 Internet Explorer 10 requires specifying the browser prefix `-ms-display: flex;`.
-
-A lot of information and advice on the Internet uses CSS that does not use flexbox, even if flexbox may be a better solution for that problem.
 
 ## Conclusion
 
