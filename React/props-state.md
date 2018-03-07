@@ -91,11 +91,6 @@ Here is a helpful chart to assist you in determining whether data belongs in `pr
 | Can set initial value for a child component? | Yes | Yes |
 | Can change in a child component? | Yes | No |
 
-## Vocabulary
-| Term     | Definition     |
-| :------------- | :------------- |
-| Item One       | Item Two       |
-
 ## Key Takeaway
 - sample
 
