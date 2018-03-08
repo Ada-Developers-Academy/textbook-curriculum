@@ -98,6 +98,7 @@ Verify that you now see the data from the constructor in your browser. If you ne
 Now let's revisit the diagram that we created in our last component creation lecture, we'll now see an updated version as below.
 
 ![nested components](images/nested-components.png)
+<!-- https://drive.google.com/open?id=1xq5jaCrI7FGp6PG1gr-bYE1ZTvPb5PxZ -->
 
 ## Some CSS
 We want our page to look great! Let's add some simple CSS
@@ -115,7 +116,7 @@ Now that you have a class to add some padding, work with the person sitting next
 
 
 ## Key Takeaway
-Nesting components within one another gives us infinite possibilities in React. 
+Nesting components within one another gives us infinite possibilities in React.
 
 ## Additional Resources
 - [How to write your first React component](https://medium.freecodecamp.org/how-to-write-your-first-react-js-component-d728d759cabc)
