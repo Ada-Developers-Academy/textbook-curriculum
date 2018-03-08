@@ -117,9 +117,15 @@ Flexbox defines some specific vocabulary that applies to flow.
 
 In flexbox, there is a **main axis**. This axis runs **along** the direction that inline items flow.
 
+![Main Axis: row](./imgs/flexbox-axis-main-row.png)
+
+![Main Axis: column](./imgs/flexbox-axis-main-column.png)
+
 There is also the **cross axis**. This axis runs **perpendicular** to the main axis.
 
-<!-- Insert image of main axis and cross axis -->
+![Cross Axis: row](./imgs/flexbox-axis-cross-row.png)
+
+![Cross Axis: column](./imgs/flexbox-axis-cross-column.png)
 
 You can determine the direction of the main axis with the property `flex-direction`.
 
