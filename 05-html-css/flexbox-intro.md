@@ -51,19 +51,77 @@ Note: The flex items of a specific flex container do not have to be all the same
 
 ### Observe
 
-Let's say we've received this wireframe for a website to create. What are the flex items? What is the flex container?
+Let's say we've received this wireframe for a website to create.
 
-Let's take a look at one way we'd likely write this HTML, and its accompanying CSS to set it up to use flexbox.
+![Flexbox Example](./imgs/flexbox-example.png)
 
-We've set up flexbox, but we don't see it in work yet.
+Take some time to answer the following questions about that wireframe:
+- What is the flex container?
+- What are the flex items?
+- The elements are ordered alphabetically in the HTML. How are they ordered by appearance?
+- What do you think is the rule about the spacing around the lettered elements?
+
+This is the HTML for the above image:
+
+```html
+<!-- opening html tag, head -->
+<body>
+  <h1>Title</h1>
+  <div class="container">
+    <div> a </div>
+    <div> b </div>
+    <div> c </div>
+    <div> d </div>
+    <div> e </div>
+    <div> f </div>
+    <div> g </div>
+    <div> h </div>
+    <div> i </div>
+    <div> j </div>
+    <div> k </div>
+    <div> l </div>
+    <div> m </div>
+    <div> n </div>
+    <div> o </div>
+    <div> p </div>
+  </div>
+</body>
+<!-- ... -->
+```
+
+Does anything about this surprise you? What parts did you expect?
+
+For the rest of the lecture, we want to continuously ask and observe how flex items:
+
+- align themselves against other items
+- what happens when there are more flex items than can fit in one direction of the flex container? Does it "overflow" into the next space? What is "the next space"?
+
+## Example
+
+Take a moment to read through [this example on Codepen](https://codepen.io/adadev/pen/jzNQmV?editors=1100) that we'll use for the rest of the lecture.
+
+What's in there? What is it currently doing? Why are the elements that size?
+
+Now add the `display: flex;` rule to the `.container` rule:
+```css
+.container {
+  display: flex;
+}
+```
+
+Our elements used to take up the whole width of their parent container because by default, `div`s take their size from their default `display: block;`. However, once the elements became _flex items_ (due to being direct children of a flex container with `display: flex;`), each element stopped taking up an entire "row."
 
 ## Controlling Flow
 
-To best observe controlling flow with flexbox, it's best to set up an example where there is a large flex container, and flex items are small enough that many of them will fit on one "row" in the flex container, and flex items are numerous enough that it will "overflow" onto the next "row."
-
 Flexbox defines some specific vocabulary that applies to flow.
 
-In flexbox, there is a **main axis**. This axis runs **along** the direction that inline items flow. You can determine the direction of the main axis with the property `flex-direction`.
+In flexbox, there is a **main axis**. This axis runs **along** the direction that inline items flow.
+
+There is also the **cross axis**. This axis runs **perpendicular** to the main axis.
+
+<!-- Insert image of main axis and cross axis -->
+
+You can determine the direction of the main axis with the property `flex-direction`.
 
 `flex-direction` has the following properties:
 - `row` (default)
@@ -71,9 +129,33 @@ In flexbox, there is a **main axis**. This axis runs **along** the direction tha
 - `column`
 - `column-reverse`
 
-There is also the **cross axis**. This axis runs **perpendicular** to the main axis.
+**Practice:** Pair up with someone around you and make a prediction for what each of these will do. Then, add the property `flex-direction` to [the Codepen](https://codepen.io/adadev/pen/jzNQmV?editors=1100) and change the values and observe the differences.
+
+## Determining Wrapping Behavior
+
+We can see in our example right now that our flex items extend beyond the flex container. Let's change that: we can determine the behavior for what our flex items should do if it fills the flex container along the main axis using `flex-wrap` on the flex container:
+
+```css
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+```
+
+The available values for `flex-wrap` are:
+- `nowrap`
+- `wrap`
+- `wrap-reverse`
+
+**Practice:** Using [the same Codepen](https://codepen.io/adadev/pen/jzNQmV?editors=1100), add the property `flex-wrap` and each of the values to observe the differences.
 
 ## Controlling Alignment
+
+Let's look at a modification of the example we've been following. [Look at this Codepen](https://codepen.io/adadev/pen/ZxzVLq?editors=1100); it's nearly identical, but we've added some stuff that essentially shows a more realistic case where every flex item is not identical in width or height. This will help us see empty space between flex items better.
+
+![Varied Width and Height Items, unaligned](./imgs/flexbox-alignment-example-1.png)
+
+How are the flex items aligned against each other right now? Where is there empty space/negative space? Why is it there? What kind of alignment would be more pleasant to look at/be a better experience for a website?
 
 To control alignment of flex items within the flex container, we have two main properties: `justify-content` and `align-items`.
 
@@ -92,12 +174,26 @@ To control alignment of flex items within the flex container, we have two main p
 - `flex-end`
 - `center`
 
-## Activity: Check for Responsive Design
+Take the time to see each value of both properties in action.
 
+**Optional:** What properties work best to achieve the following look?
+
+![Varied Width and Height Items, aligned](./imgs/flexbox-alignment-example-2.png)
+
+
+### Experiment: Check for Responsive Design
+
+We'll spend time talking about responsive design later. For now, let's spend some time asking ourselves the question: "does this _work_ with different browser sizes?" By _work_, we can ask "does this look good?" but we must always ask "is the site still functional?"
+
+Using flexbox happens to be very compatible with thinking and practicing responsive design on web design.
+
+For every flexbox example we've looked at today, change the `.container`'s width to `50vw` instead of `500px`, then resizes the browser and observe how the flex items behave. _Why does that work?_
 
 ## Some Tips
 
-Because flex items must be the direct children of the flex container, it is tempting to make alter your HTML so it employs semantic HTML less. Resist that urge!
+Because flex items must be the direct children of the flex container, it is tempting to make alter your HTML to make CSS easier, ignoring semantic HTML. Resist that urge!
+
+Flexbox makes it easy to change the direction of flow, like changing `flex-direction` to reverse. It might be fun to take a list of items, put them in HTML in reverse, and then use CSS to reverse them again into the correct order. Even though that would create the same visual experience for an able-bodied user, it would ruin the experience for someone who relies on accurate HTML.
 
 ## About Browser Compatibility
 
