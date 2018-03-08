@@ -58,7 +58,7 @@ With Atom highlighting:
 
 The conflict markers are the lines that start with `<<<<<<<`, `=======`, or `>>>>>>>`. All of the lines between the left-pointing brackets and the equals signs are the **ours** version, and all of the lines between the equals signs and the right-facing brackets are the **theirs** version.
 
-Atom provides buttons to select the version you want to keep and this can be useful, but often you will need to edit the text manually and remove the git markers (>>>>, ==== and <<<<) manually.
+Atom provides buttons to select the version you want to keep and this can be useful, but often you will need to edit the text and remove the git markers (>>>>, ==== and <<<<) manually.
 
 When manually resolving a merge conflict you need to figure out which version of each _conflict section_ should be used, or create a new version that mixes the two together. Determining which of these options to go with requires understanding the context of the code being changed, and the intention behind each of the changes. If you are unsure of how to resolve a conflict you should **discuss the situation with your teammate who made the other change**.
 
