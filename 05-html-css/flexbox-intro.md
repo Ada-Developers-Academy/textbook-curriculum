@@ -195,9 +195,18 @@ Because flex items must be the direct children of the flex container, it is temp
 
 Flexbox makes it easy to change the direction of flow, like changing `flex-direction` to reverse. It might be fun to take a list of items, put them in HTML in reverse, and then use CSS to reverse them again into the correct order. Even though that would create the same visual experience for an able-bodied user, it would ruin the experience for someone who relies on accurate HTML.
 
+## Subjects Not Covered In This Lecture
+
+- Relative sizing/space distribution of flex items (`flex-grow`, `flex-shrink`, etc)
+- Ordering a specific flex item with `order`
+- Aligning a specific flex item
+- `place-content`, a shortcut for `align-content` and `justify-content`
+
+Flexbox has a lot of depth, and you're free to continue your research into it!
+
 ## About Browser Compatibility
 
-flexbox was introduced only in the past few years. *Every modern browser supports flexbox*, but that didn't happen until 2015.
+Flexbox was introduced only in the past few years. *Every modern browser supports flexbox*, but that didn't happen until 2015.
 
 Internet Explorer 10 requires specifying the browser prefix `-ms-display: flex;`.
 
