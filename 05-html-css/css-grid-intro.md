@@ -91,5 +91,5 @@ A lot of information and advice on the Internet uses CSS that does not use CSS G
 ...
 
 ## Resources
-
+[W3 Schools (source of the grid image)](https://www.w3schools.com/css/css_grid.asp)
 ...
