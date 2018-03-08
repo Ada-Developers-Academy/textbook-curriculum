@@ -39,7 +39,7 @@ Other solutions to layout include:
 
 CSS Grid does not begin with index 0, and instead count starting at 1.
 
-...
+![Grid Image](./imgs/grid_lines.png)
 
 ### Observe
 
