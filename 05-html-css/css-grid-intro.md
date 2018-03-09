@@ -45,9 +45,9 @@ CSS Grid does not begin with index 0, and instead counts starting at 1.
 
 Let's look at a slightly abstract example to practice counting columns and rows and thinking in a grid.
 
-Each rectangular block of color represents one grid item. Answer the following questions:
-
 ![Abstract CSS Grid Layout](./imgs/css-grid-abstract-example.png)
+
+Each rectangular block of color represents one grid item. Answer the following questions:
 
 - How many columns are there in the layout? How many are defined on the _grid container_?
   - Are all columns equally sized? In CSS Grid, not every column needs to be the same width
@@ -79,7 +79,7 @@ Let's take a look at one way we'd likely write this HTML, and its accompanying C
 <!-- index.html -->
 <!-- stuff like the opening html tag, head tag, link to stylesheet, opening body tag -->
 
-<div class="container">
+<main class="container">
   <header class="header">
 
   </header>
@@ -92,7 +92,7 @@ Let's take a look at one way we'd likely write this HTML, and its accompanying C
   <footer class="footer">
 
   </footer>
-</div>
+</main>
 
 <!-- close body tag and html tag -->
 ```
@@ -214,7 +214,7 @@ We can define on a grid item which column line number the item starts at using `
 }
 ```
 
-Don't forget that CSS Grid's line numbers do not start at "index zero."
+Remember that CSS Grid's line numbers do not start at "index zero."
 
 We define on a grid item the column line the item ends at using `grid-column-end`:
 
@@ -238,7 +238,7 @@ We define the start line and end line of an item's row using `grid-row-start` an
 
 ### A shortcut: grid-column and grid-row
 
-You guessed it: there's a shortcut for defining start and end on one line! `grid-column` and `grid-row` can take in both the start value and end value in one line, separated by a slash.
+Similar to how `grid-template-rows` and `grid-template-columns` have `grid-template` as a shortcut, there's a shortcut for defining start and end on one line! `grid-column` and `grid-row` can take in both the start value and end value in one line, separated by a slash.
 
 ```css
 .item {
@@ -277,13 +277,15 @@ Instead of giving an integer for the line number an item ends at, you can give `
 - When used to define `grid-template` sizes, it can mean "automatically fill up as much as possible," but it doesn't play well with `fr` units
 - When used to define `start` or `end` columns or rows for a grid item, it can mean "the browser should make the best decision on where it should automatically flow next"
 
-## Observe, Conclusion
+## Observe, Returned
 
 Now that we have all of these tools at our disposal, let us return to our realistic example from above. Remember, we're referencing this wireframe:
 
 ![Realistic CSS Grid Layout](./imgs/css-grid-realistic-example.png)
 
-Let's try it out!
+**Practice:** recreate this wireframe with the HTML we provided above.
+
+After you've tried this out on your own, let's look at one solution to this:
 
 ```css
 /* style.css */
