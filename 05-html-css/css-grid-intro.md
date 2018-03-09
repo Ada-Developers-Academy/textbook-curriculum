@@ -37,7 +37,7 @@ Other solutions to layout include:
 
 ### Counting on CSS Grid
 
-CSS Grid does not begin with index 0, and instead count starting at 1.
+CSS Grid does not begin with index 0, and instead counts starting at 1.
 
 ![Grid Image](./imgs/grid_lines.png)
 
@@ -49,9 +49,9 @@ Each rectangular block of color represents one grid item. Answer the following q
 
 ![Abstract CSS Grid Layout](./imgs/css-grid-abstract-example.png)
 
-- How many columns are in the layout total? How many are defined on the _grid container_?
+- How many columns are there in the layout? How many are defined on the _grid container_?
   - Are all columns equally sized? In CSS Grid, not every column needs to be the same width
-- Are the rows are in the layout total? How many are defined on the _grid container_?
+- How many rows are there in the layout? How many are defined on the _grid container_?
   - Are all rows equally sized? In CSS Grid, not every row needs to be the same height
 - For three different grid items, answer the following:
   - What column line # does this grid item start at?
@@ -63,11 +63,17 @@ Each rectangular block of color represents one grid item. Answer the following q
 
 ### Observe
 
-Let's look at a more realistic example. Let's say we've received this wireframe for a website to create. What is the grid container? What are the rows? What are the columns? Are all columns equally sized? Are all rows equally sized? What is each grid item, and how many rows and columns do each one span?
+Let's look at a more realistic example. Let's say we've received this wireframe for a website to create. As you look at the wireframe, answer the following questions:
+- What is the grid container?
+- What are the rows?
+- What are the columns?
+- Are all columns equally sized?
+- Are all rows equally sized?
+- What is each grid item, and how many rows and columns does each one span?
 
 ![Realistic CSS Grid Layout](./imgs/css-grid-realistic-example.png)
 
-Let's take a look at one way we'd likely make write this HTML, and its accompanying CSS to set it up to use CSS Grid.
+Let's take a look at one way we'd likely write this HTML, and its accompanying CSS to set it up to use CSS Grid.
 
 ```html
 <!-- index.html -->
