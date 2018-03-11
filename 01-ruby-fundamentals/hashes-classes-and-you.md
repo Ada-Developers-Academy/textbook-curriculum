@@ -83,6 +83,7 @@ Classes  | Hashes
 Use _instance variables_ to store data | Use _key/value_ pairs to store data
 Stored data can be of any type, including other objects and hashes | Stored data can be of any type, including other objects and hashes
 Have methods | Do not have methods
+Retrieve data with dot notation (`person.last_name`) | Retrieve data with square brackets (`person[:last_name]`)
 Make copies with `.new` | Make copies by duplicating all keys / values
 Require a pre-written class definition | Can be created on the fly
 
