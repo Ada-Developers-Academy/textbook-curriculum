@@ -9,7 +9,7 @@
 
 ## Before We Begin: Review Display
 
-When rendering, the browser _flows_ from left to right, placing things in a single line. The line is as tall as the tallest element, and all the things are lined up with its bottom. If a thing would go off the edge of the screen, the browser wraps around and starts a new line, completely below the current one.
+[Refer to our Display lecture that we read for homework.](archived/layout-display.md) When rendering, the browser _flows_ from left to right, placing things in a single line. The line is as tall as the tallest element, and all the things are lined up with its bottom. If a thing would go off the edge of the screen, the browser wraps around and starts a new line, completely below the current one.
 
 By default, every HTML tag comes with a `display` property value of `inline` or `block`. The `display` property determines how elements flow on the page. As a general rule, flow has only be left to right, and top to bottom.
 
@@ -40,7 +40,7 @@ If you choose to not use flexbox as your main way of aligning elements along one
 
 ## Rules for Setting Up Flexbox
 
-Flexbox solves the following problem: **How do I define rules for aligning many small elements in one larger container element?** Therefore, to use flexbox, we set up our flexbox with these rules:
+Flexbox solves the following problem: **How do I define rules for aligning many small elements in one larger container element?** Therefore, to use flexbox, we set up our site with these rules:
 
 1. The "one larger container element" is called **the flex container**. We designate it as the flex container by giving it the CSS rule `display: flex;`
 1. The "many small elements" that we are trying to align are called the flex items. The flex items **must** be and will only be the **direct children** of the flex container
@@ -93,8 +93,10 @@ Does anything about this surprise you? What parts did you expect?
 
 For the rest of the lecture, we want to continuously ask and observe how flex items:
 
-- align themselves against other items
-- what happens when there are more flex items than can fit in one direction of the flex container? Does it "overflow" into the next space? What is "the next space"?
+- Align themselves against other items
+- Behave when there are more flex items than can fit in one direction
+  - How does it overflow into the next space?
+  - What is "the next space"?
 
 ## Example
 
@@ -161,7 +163,11 @@ Let's look at a modification of the example we've been following. [Look at this 
 
 ![Varied Width and Height Items, unaligned](./imgs/flexbox-alignment-example-1.png)
 
-How are the flex items aligned against each other right now? Where is there empty space/negative space? Why is it there? What kind of alignment would be more pleasant to look at/be a better experience for a website?
+**Questions:**
+- How are the flex items currently aligned?
+- Where is there empty space / negative space?
+  - Where did the negative space come from?
+- What kind of an alignment would be more pleasant to look at/be a better experience for a website?
 
 To control alignment of flex items within the flex container, we have two main properties: `justify-content` and `align-items`.
 
@@ -182,22 +188,24 @@ To control alignment of flex items within the flex container, we have two main p
 
 Take the time to see each value of both properties in action.
 
-**Optional:** What properties work best to achieve the following look?
+**Practice:** What properties work best to achieve the following look?
 
 ![Varied Width and Height Items, aligned](./imgs/flexbox-alignment-example-2.png)
 
 
 ### Experiment: Check for Responsive Design
 
-We'll spend time talking about responsive design later. For now, let's spend some time asking ourselves the question: "does this _work_ with different browser sizes?" By _work_, we can ask "does this look good?" but we must always ask "is the site still functional?"
+**Responsive design** is all about answering the question, "does this website _work_ with different browser sizes and devices?" By _work_, we can ask "does this look good?" but we must always ask "is the site still functional?"
 
 Using flexbox happens to be very compatible with thinking and practicing responsive design on web design.
 
-For every flexbox example we've looked at today, change the `.container`'s width to `50vw` instead of `500px`, then resizes the browser and observe how the flex items behave. _Why does that work?_
+For every flexbox example we've looked at today, change the `.container`'s width to `50vw` instead of `500px`, then resize the browser and observe how the flex items behave. _Why does that work?_
+
+Because of the increasing necessity of mobile browsing in recent years, responsive design is an increasingly important part of modern web development. We will return to it in more depth in a future lesson.
 
 ## Some Tips
 
-Because flex items must be the direct children of the flex container, it is tempting to make alter your HTML to make CSS easier, ignoring semantic HTML. Resist that urge!
+Because flex items must be the direct children of the flex container, it is tempting to alter your HTML to make CSS easier, ignoring semantic HTML. Resist that urge!
 
 Flexbox makes it easy to change the direction of flow, like changing `flex-direction` to reverse. It might be fun to take a list of items, put them in HTML in reverse, and then use CSS to reverse them again into the correct order. Even though that would create the same visual experience for an able-bodied user, it would ruin the experience for someone who relies on accurate HTML.
 
