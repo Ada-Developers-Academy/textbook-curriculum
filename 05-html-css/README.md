@@ -10,7 +10,7 @@
 1. [Attributes, Classes & IDs](attributes-classes-ids.md)
 1. [CSS Selectors](css-selectors.md)
 1. [Cascade & Inheritance](cascade-inheritance.md)
-  - [Worksheet: Specificity](exercises/specificity-practice.md)
+    - [Worksheet: Specificity](exercises/specificity-practice.md)
 1. [Dev Tools](dev-tools-into-default-styles.md)
 
 ### Layout
