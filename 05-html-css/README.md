@@ -15,10 +15,15 @@
 
 ### Layout
 1. [Box Model](box-model.md)
-1. [Display](layout-display.md)
-1. [Floats](layout-floats.md)
-1. [Positioning](layout-positioning.md)
+1. [Intro to Alignment and Positioning with Flexbox](flexbox-intro.md)
+1. [Intro to Layout with CSS Grid](css-grid-intro.md)
 
 ### Other
 1. [Semantics: Best Practices](semantics-best-practices.md)
 1. [Alt Text](alt-text.md)
+1. [Vision Accessibility & Using Screen Readers](vision-accessibility.md)
+
+### Archived
+1. [Layouts using Display](archived/layout-display.md) (Replaced with Flexbox and CSS Grid)
+1. [Layouts using Floats](archived/layout-floats.md) (Replaced with Flexbox and CSS Grid)
+1. [Layouts using Positioning](archived/layout-positioning.md) (Replaced with Flexbox and CSS Grid)
