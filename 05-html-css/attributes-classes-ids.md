@@ -21,7 +21,7 @@ An element can have none, one or many attributes.
 A real-life example, the 'src' and 'alt' attributes inside of the `img` tag:
 
 ```html
-<img src="http://www.fillmurray.com/1000/500" alt="Bill Murray">
+<img src="https://picsum.photos/300/?image=475" alt="Some Lovely Mountains">
 ```
 
 There are many different attributes that exist, some are specific to certain HTML elements. Do not worry about knowing them all now. You will pick them up as your learn new tags.
