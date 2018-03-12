@@ -54,25 +54,26 @@ Some selectors are more specific than others. For example, the class and ID sele
 
 Every selector has its place in the specificity hierarchy. There are four distinct categories which define the specificity level of a given selector:
 
-- **Inline styles** (Presence of style in document). An inline style lives within your HTML document. It is attached directly to the element to be styled. We have seen that we generally do not do this.
-- **IDs** (# of ID selectors). ID is a unique identifier for HTML elements, such as `#home-section`.
-- **Classes, attributes and pseudo-classes** (# of class selectors). This group includes .classes, [attributes] and pseudo-classes such as `:hover`, `:focus` etc.
-- **Elements and pseudo-elements** (# of Element (type) selectors).
+1. **Inline styles** (Presence of style in document). An inline style lives within your HTML document. It is attached directly to the element to be styled. We have seen that we generally do not do this. This has the highest specificity.
+1. **IDs** (# of ID selectors). ID is a unique identifier for HTML elements, such as `#home-section`. This has the second highest specificity.
+1. **Classes, attributes and pseudo-classes** (# of class selectors). This group includes .classes, [attributes] and pseudo-classes such as `:hover`, `:focus` etc.
+1. **Elements and pseudo-elements** (# of Element selectors).
 Including for instance `:before` and `:after`.
 
+There _is_ a specificity calculator which evaluates the "points of specificity" given a set of selectors. The selectors with the higher number of specificity wins over others.
 
 ## Continue Learning
 Understanding CSS selector's specificity can be one of the most difficult parts of utilizing CSS. It is something that will take practice! Fortunately for us, there are great articles that breakdown this complex topic, such as Smashing Magazine's [*CSS Specificity: Things You Should Know*](https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/) Article.
 
-And for you visual learners and/or Star Wars fans, there is [this](https://stuffandnonsense.co.uk/archives/images/css-specificity-wars.png).
+And for you visual learners and/or Star Wars fans, there is [this](https://stuffandnonsense.co.uk/archives/css_specificity_wars.html).
 
 
 ## Best Practices
 - **Never** use inline styling. It ranks high on the specificity scale and override anything in your CSS. Since it's mixed in with HTML, it it much more difficult to maintain.
 
 ## Vocab ✅
-  - cascade
-  - specificity
+- cascade
+- specificity
 
 ## 🔑 Key Takeaway
 The way in which CSS is applied to your HTML elements can sometimes seem straightforward. The concepts highlighted in this lecture become more and more important when we create more expansive styles. This requires more care and caution to be taken to ensure that styles are being applied in the way you expect.
