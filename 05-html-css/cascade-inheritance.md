@@ -64,7 +64,7 @@ Including for instance `:before` and `:after`.
 ## Continue Learning
 Understanding CSS selector's specificity can be one of the most difficult parts of utilizing CSS. It is something that will take practice! Fortunately for us, there are great articles that breakdown this complex topic, such as Smashing Magazine's [*CSS Specificity: Things You Should Know*](https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/) Article.
 
-And for you visual learners and/or Star Wars fans, there is [this](https://stuffandnonsense.co.uk/archives/images/specificitywars-05v2.jpg).
+And for you visual learners and/or Star Wars fans, there is [this](https://stuffandnonsense.co.uk/archives/images/css-specificity-wars.png).
 
 
 ## Best Practices

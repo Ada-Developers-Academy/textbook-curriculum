@@ -66,7 +66,7 @@ To give an element an ID, go inside of it's opening tag, add `id=` and, in quote
 <h1 id="home-page-title">Hello World!</h1>
 ```
 
-In your CSS, use a **hashtag** in front of the ID name as a selector for your rule-set, like so:
+In your CSS, use an **octothorpe (#)** in front of the ID name as a selector for your rule-set, like so:
 
 ```css
 #home-page-title {
