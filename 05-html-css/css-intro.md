@@ -116,3 +116,4 @@ Use CSS to define styles for your documents. CSS declarations should always be k
 
 ### Additional Resources
 [MDN CSS Syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax)
+[MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference)
