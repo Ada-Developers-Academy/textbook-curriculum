@@ -115,5 +115,5 @@ For example, I want to change my font to be larger. I could google 'css change f
 Use CSS to define styles for your documents. CSS declarations should always be kept in a separate file. In future discussions, we will explore how we can use CSS for layout modification.
 
 ### Additional Resources
-[MDN CSS Syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax)
+[MDN CSS Syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax)  
 [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference)
