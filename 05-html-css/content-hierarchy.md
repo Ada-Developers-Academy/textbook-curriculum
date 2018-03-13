@@ -29,6 +29,8 @@ Below are tags that group elements together.
   <header></header>
 
   <footer></footer>
+
+  <main></main>
 ```
 **Think, Pair, Share**
 Take some time to research how to use each of the above tags. Then discuss with your chair pair. And then high five each other.

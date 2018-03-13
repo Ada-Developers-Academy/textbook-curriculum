@@ -41,7 +41,7 @@ def random_image(width, height)
   url = ""
   case number
   when 0
-    url = "http://www.fillmurray.com/"
+    url = "https://picsum.photos/"
   when 1
     url = "http://www.placecage.com/"
   when 2

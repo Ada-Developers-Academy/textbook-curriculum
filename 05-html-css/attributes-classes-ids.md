@@ -21,7 +21,7 @@ An element can have none, one or many attributes.
 A real-life example, the 'src' and 'alt' attributes inside of the `img` tag:
 
 ```html
-<img src="http://www.fillmurray.com/1000/500" alt="Bill Murray">
+<img src="https://picsum.photos/300/?image=475" alt="Some Lovely Mountains">
 ```
 
 There are many different attributes that exist, some are specific to certain HTML elements. Do not worry about knowing them all now. You will pick them up as your learn new tags.
@@ -66,7 +66,7 @@ To give an element an ID, go inside of it's opening tag, add `id=` and, in quote
 <h1 id="home-page-title">Hello World!</h1>
 ```
 
-In your CSS, use a **hashtag** in front of the ID name as a selector for your rule-set, like so:
+In your CSS, use an **octothorpe (#)** in front of the ID name as a selector for your rule-set, like so:
 
 ```css
 #home-page-title {
