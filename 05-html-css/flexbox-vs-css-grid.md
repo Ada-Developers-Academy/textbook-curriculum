@@ -72,7 +72,7 @@ header {
 img {
   margin: .5em;
 }
-body {
+* {
   background-color: black;
 }
 ```
