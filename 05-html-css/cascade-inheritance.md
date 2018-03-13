@@ -58,7 +58,7 @@ Every selector has its place in the specificity hierarchy. There are four distin
 1. **IDs** (# of ID selectors). ID is a unique identifier for HTML elements, such as `#home-section`. This has the second highest specificity.
 1. **Classes, attributes and pseudo-classes** (# of class selectors). This group includes .classes, [attributes] and pseudo-classes such as `:hover`, `:focus` etc.
 1. **Elements and pseudo-elements** (# of Element selectors).
-Including for instance `:before` and `:after`.
+Including for instance `::before` and `::after`.
 
 There _is_ a specificity calculator which evaluates the "points of specificity" given a set of selectors. The selectors with the higher number of specificity wins over others.
 
