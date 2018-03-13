@@ -46,19 +46,21 @@ img {
   margin: .5em;
 }
 ```
-Flexbox causes the images will line up in the available space left-to-right.  When the screen runs out of space elements will flow to the next line.   
+Flexbox causes the images will line up in the available space left-to-right.  When the screen runs out of space elements will flow to the next line.   In this way Flexbox is _responsive_, the items wrap as needed to fit the available space.  
 
 On a wide screen:
+
 ![wide-screen flexbox example](imgs/flexbox-large-width.png)
 
 On a narrower screen:
+
 ![narrower-screen flexbox example](imgs/flexbox-small-width.png)
 
 You can of course cause Flexbox to lay content out in any direction, left-to-right, right-to-left, top-to-bottom, or bottom-to-top by changing the `flex-direction`.
 
-**However** you cannot align the content in 2-Dimensions.  Flexbox is 1-Dimensional.  Content only flows along one axis, wrapping as needed.   
+**However** you cannot align the content in 2-Dimensions.  **Flexbox is 1-Dimensional**.  Content only flows along one axis, wrapping as needed.   
 
-## Grid Lays Content Out In A... Grid
+### Grid Lays Content Out In A... Grid
 
 Using CSS Grid we can lay the same HTML in two dimensions this way:
 
@@ -87,7 +89,13 @@ Because Flexbox adjusts to the content the layout will respond automatically if 
 
 By contrast, Grid example above will always maintain 3 columns.  There are ways to adjust the number of columns for smaller screens, by using something like: `grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));` which will generate as many columns as needed with a minimum size of 200 pixels and a maximum of 1 fraction of the row.  
 
-**Exercise**: Try to update the [Codepen](TODO) of the Grid layout to make it responsive for smaller screens.  
+So Flexbox always responds to smaller screen sizes, while Grid can be configured in a responsive manner.   
+
+# TODO Replace Codepen
+**Exercise**: Try to update the [Codepen](https://codepen.io/CheezItMan/pen/pLjKEp?editors=1100) of the Grid layout to make it responsive for smaller screens.  
+
+# TODO Replace Codepen
+You can find a solution [here](https://codepen.io/CheezItMan/pen/ZxbRom).
 
 ## Grid and Flexbox Work Well **Together**
 
@@ -95,22 +103,22 @@ Consider the following site:
 
 ![Sample website using Grid and flexbox](imgs/css-grid-layout.jpg)
 
-How would you lay out this content?  Typically you would lay out the larger page with a grid, and then lay out smaller items with Flexbox.
+How would you lay out this content?  One common approach is to lay out the larger page with a grid, and then lay out smaller sections with Flexbox.
 
 The grid could look like this:
 
 ![sample Grid layout (img from: https://drive.google.com/file/d/1dHjtl_XcMCJN1KaDAvsI5EwdLqUIzcpU/view?usp=sharing )](imgs/grid-layout.png)
 
+# TODO Replace Codepens
+**Exercise:** Take a look at the above grid and try to recreate the basic grid design with a header at the top aside on the left and main on the right with a footer crossing the bottom in [this codepen](https://codepen.io/CheezItMan/pen/vRNjbq?editors=1100).  Only the container elements are listed with and background colors are added to make the elements easier to see.
+
+You can find a solution [here](https://codepen.io/CheezItMan/pen/yKYjjM?editors=1100).
+
 Then Flexbox could lay out individual elements like:
 
 ![Header](imgs/header-flexbox.png)
 
-and
-
-![main content](imgs/main-flexbox.png)
-
-
-Of course you could also lay out the subregions of the site with Grid as well, but if content is only along one axis, Flexbox is usually simpler.  
+Of course you could also lay out the subregions of the site with Grid as well, but if content is only along one axis, Flexbox usually requires less work.  
 
 **Question** How could you lay out the header with Flexbox so the button is on the right?
 
@@ -121,20 +129,25 @@ Ask yourself a couple of questions:
   - Use Flexbox
 - Do I need to control layout with both row **and** column?
   - Use Grid
-- Are you using flexbox but finding yourself limiting it's flexibility to make things line up?
-  - Use Grid instead
+- Is it important that items "line up" with each other?
+  - Use Grid
 
-## Conclusion
+## Browser Support
+
+It should be said that CSS Grid is newer than Flexbox and has less support.  However as of March 12, 2018 [88% of web traffic supports Grid](https://caniuse.com/#feat=css-grid).  This means if you need to support older browsers, you will need to consider alternatives to Grid.  There are strategies to create fallback styles to handle older browsers which we will not cover here, but you should know they exist.  At Ada we will use the modern Chrome browser as our standard and Chrome fully supports Grid.  
+
+## Conclusions
 
 1.  CSS Grids are great for defining the larger picture and organizing the whole page or section layout.
 1.  Flexbox is good for aligning elements within containers.  Use flex for smaller elements of design.
 1.  CSS Grid is great for 2D layouts with rows & columns.
 1.  Flexbox is for 1-Dimensional layouts (vertical or horizontal).
+1.  Grid is newer and is not supported universally.  
 1.  They work very well **together**.
 
 # Resources
 - [MDN Grid & Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Relationship_of_Grid_Layout)
-- [Flexbox vs CSS Grid - Hackernoon](https://hackernoon.com/the-ultimate-css-battle-grid-vs-flexbox-d40da0449faf)
+- [The ultimate CSS battle: Grid vs Flexbox](https://hackernoon.com/the-ultimate-css-battle-grid-vs-flexbox-d40da0449faf)
 - [Does CSS Grid Replace Flexbox?](https://css-tricks.com/css-grid-replace-flexbox/)
 - [Should I use Grid or Flexbox?](https://rachelandrew.co.uk/archives/2016/03/30/should-i-use-grid-or-flexbox/)
 - [Layout Land:  Flexbox vs CSS Grid - Video](https://www.youtube.com/watch?v=hs3piaN4b5I)
