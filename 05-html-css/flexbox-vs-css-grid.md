@@ -89,6 +89,21 @@ Because Flexbox adjusts to the content the layout will respond automatically if 
 
 By contrast, Grid example above will always maintain 3 columns.  There are ways to adjust the number of columns for smaller screens, by using something like: `grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));` which will generate as many columns as needed with a minimum size of 200 pixels and a maximum of 1 fraction of the row.  
 
+```css
+header {
+  display: grid;
+  grid-template-columns: repeat(autofill, minmax(200px, 1fr));
+}
+img {
+  margin: .5em;
+}
+* {
+  background-color: black;
+}
+```
+
+This example makes as many columns as will both fit and required with a minimum size for a column of `200px` and a maximum column size of `1fr`.
+
 So Flexbox always responds to smaller screen sizes, while Grid can be configured in a responsive manner.   
 
 # TODO Replace Codepen
