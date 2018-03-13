@@ -147,17 +147,12 @@ Ask yourself a couple of questions:
 - Is it important that items "line up" with each other?
   - Use Grid
 
-## Browser Support
-
-It should be said that CSS Grid is newer than Flexbox and has less support.  However as of March 12, 2018 [88% of web traffic supports Grid](https://caniuse.com/#feat=css-grid).  This means if you need to support older browsers, you will need to consider alternatives to Grid.  There are strategies to create fallback styles to handle older browsers which we will not cover here, but you can [read about them](https://rachelandrew.co.uk/css/cheatsheets/grid-fallbacks).  At Ada we will use the modern Chrome browser as our standard and Chrome fully supports Grid.  
-
 ## Conclusions
 
 1.  CSS Grids are great for defining the larger picture and organizing the whole page or section layout.
 1.  Flexbox is good for aligning elements within containers.  Use flex for smaller elements of design.
 1.  CSS Grid is great for 2D layouts with rows & columns.
 1.  Flexbox is for 1-Dimensional layouts (vertical or horizontal).
-1.  Grid is newer and is not supported universally.  
 1.  They work very well **together**.
 
 # Resources
