@@ -34,7 +34,7 @@ Every piece of website content is 'wrapped' in an HTML element. Elements consist
 ```
 Here is a real-life example of a heading for my social media site for cats. It is wrapped with an [h1 header](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements) element:
 ```html
-<h1>Startly</h1>
+<h1>Startrly</h1>
 ```
 
 ### Nested Elements
@@ -42,7 +42,7 @@ Sometimes tags will be nested inside of other tags. To maintain readable code, t
 
 ```html
 <nav>
-  <h1>Startly</h1>
+  <h1>Startrly</h1>
 </nav>
 ```
 Start to be mindful of the relationship between nested elements. It will become important as we progress in the week. In the example above, I wanted my site's heading to belong to, or be inside of, my nav (navigation) element.
@@ -56,7 +56,7 @@ Some elements are self closing. These elements do not 'wrap' around any content.
 To comment within HTML, use `<!-- -->`. Example:  
 ```html
 <!-- Your comment here -->
-<h1>Startly</h1>
+<h1>Startrly</h1>
 ```
 ## Setup an HTML Document
 
