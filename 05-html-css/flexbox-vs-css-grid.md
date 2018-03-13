@@ -134,7 +134,7 @@ Ask yourself a couple of questions:
 
 ## Browser Support
 
-It should be said that CSS Grid is newer than Flexbox and has less support.  However as of March 12, 2018 [88% of web traffic supports Grid](https://caniuse.com/#feat=css-grid).  This means if you need to support older browsers, you will need to consider alternatives to Grid.  There are strategies to create fallback styles to handle older browsers which we will not cover here, but you should know they exist.  At Ada we will use the modern Chrome browser as our standard and Chrome fully supports Grid.  
+It should be said that CSS Grid is newer than Flexbox and has less support.  However as of March 12, 2018 [88% of web traffic supports Grid](https://caniuse.com/#feat=css-grid).  This means if you need to support older browsers, you will need to consider alternatives to Grid.  There are strategies to create fallback styles to handle older browsers which we will not cover here, but you can [read about them](https://rachelandrew.co.uk/css/cheatsheets/grid-fallbacks).  At Ada we will use the modern Chrome browser as our standard and Chrome fully supports Grid.  
 
 ## Conclusions
 
