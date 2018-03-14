@@ -27,7 +27,7 @@ Other solutions to layout include:
   CSS Grid solves the following problem: **How do I define rules for the layout of many elements, specifically across rows and columns?** Therefore, to use CSS Grid, we set up our CSS Grid with these rules:
 
   1. There is one large container for these elements, and it is called **the grid container**. We designate it as the grid container by giving it the CSS rule `display: grid;`
-  1. The "many elements" that we are trying to put in a layout are called the grid items. The grid items **must** be and will only be the **direct children** of the grid container
+  1. The "many elements" that we are trying to put in a layout are called **the grid items**. The grid items **must** be and will only be the **direct children** of the grid container
       - these grid items may have children inside of them, but will not be affected by this grid container
   1. We can define the "rules" for the grid system in many ways
       - The grid container may have CSS that determine a "template" for how all the grid items span across rows and columns
