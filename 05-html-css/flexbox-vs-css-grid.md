@@ -102,17 +102,15 @@ img {
 }
 ```
 
-You can see a working solution [here]()
+You can see a working solution [here](https://codepen.io/adadev/pen/oqbqpY?editors=1100)
 
 This example makes as many columns as will both fit and required with a minimum size for a column of `200px` and a maximum column size of `1fr`.
 
 So Flexbox always responds to smaller screen sizes, while Grid can be configured in a responsive manner.   
 
-# TODO Replace Codepen
-**Exercise**: Try to update the [Codepen](https://codepen.io/CheezItMan/pen/pLjKEp?editors=1100) of the Grid layout to make it responsive for smaller screens.  
+**Exercise**: Try to update the [Codepen](https://codepen.io/adadev/pen/QmymaJ?editors=1100) of the Grid layout to make it responsive for smaller screens.  
 
-# TODO Replace Codepen
-You can find a solution [here](https://codepen.io/CheezItMan/pen/ZxbRom).
+You can find a solution [here](https://codepen.io/adadev/pen/VXeXQp).
 
 ## Grid and Flexbox Work Well **Together**
 
@@ -126,10 +124,9 @@ The grid could look like this:
 
 ![sample Grid layout (img from: https://drive.google.com/file/d/1dHjtl_XcMCJN1KaDAvsI5EwdLqUIzcpU/view?usp=sharing )](imgs/grid-layout.png)
 
-# TODO Replace Codepens
-**Exercise:** Take a look at the above grid and try to recreate the basic grid design with a header at the top aside on the left and main on the right with a footer crossing the bottom in [this codepen](https://codepen.io/CheezItMan/pen/vRNjbq?editors=1100).  Only the container elements are listed with and background colors are added to make the elements easier to see.
+**Exercise:** Take a look at the above grid and try to recreate the basic grid design with a header at the top aside on the left and main on the right with a footer crossing the bottom in [this codepen](https://codepen.io/adadev/pen/MVKVQd?editors=1100).  Only the container elements are listed with and background colors are added to make the elements easier to see.
 
-You can find a solution [here](https://codepen.io/CheezItMan/pen/yKYjjM?editors=1100).
+You can find a solution [here](https://codepen.io/adadev/pen/XEXEEJ?editors=1100).
 
 Then Flexbox could lay out individual elements like:
 
