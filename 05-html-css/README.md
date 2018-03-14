@@ -17,6 +17,7 @@
 1. [Box Model](box-model.md)
 1. [Intro to Alignment and Positioning with Flexbox](flexbox-intro.md)
 1. [Intro to Layout with CSS Grid](css-grid-intro.md)
+2. [Flexbox vs Grid](flexbox-vs-css-grid.md)
 
 ### Other
 1. [Semantics: Best Practices](semantics-best-practices.md)
