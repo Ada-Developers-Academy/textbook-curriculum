@@ -21,16 +21,16 @@ Consider the following HTML & CSS:
     <img src="http://via.placeholder.com/100x100" alt="placeholder">
   </div>
   <div>
-    <img src="http://via.placeholder.com/200x100" alt>
+    <img src="http://via.placeholder.com/200x100" alt="placeholder">
   </div>
   <div>
-    <img src="http://via.placeholder.com/300x200" alt>
+    <img src="http://via.placeholder.com/300x200" alt="placeholder">
   </div>
   <div>
-    <img src="http://via.placeholder.com/100x200" alt>
+    <img src="http://via.placeholder.com/100x200"  alt="placeholder">
   </div>
   <div>
-    <img src="http://via.placeholder.com/400x300" alt>
+    <img src="http://via.placeholder.com/250x300" alt="placeholder">
   </div>
 </header>
 ```  
@@ -87,12 +87,12 @@ With Flexbox the layout responds to the content, whereas with Grid the content r
 
 Because Flexbox adjusts to the content the layout will respond automatically if you narrow the browser window adjusting the number of items in each row to allow them to fit.  
 
-By contrast, Grid example above will always maintain 3 columns.  There are ways to adjust the number of columns for smaller screens, by using something like: `grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));` which will generate as many columns as needed with a minimum size of 200 pixels and a maximum of 1 fraction of the row.  
+By contrast, Grid example above will always maintain 3 columns.  There are ways to adjust the number of columns for smaller screens, by using something like: `repeat(auto-fill, minmax(400px, 1fr));` which will generate as many columns as needed with a minimum size of 400 pixels and a maximum of 1 fraction of the row.  
 
 ```css
 header {
   display: grid;
-  grid-template-columns: repeat(autofill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 }
 img {
   margin: .5em;
@@ -101,6 +101,8 @@ img {
   background-color: black;
 }
 ```
+
+You can see a working solution [here]()
 
 This example makes as many columns as will both fit and required with a minimum size for a column of `200px` and a maximum column size of `1fr`.
 
@@ -144,7 +146,7 @@ Ask yourself a couple of questions:
   - Use Flexbox
 - Do I need to control layout with both row **and** column?
   - Use Grid
-- Is it important that items "line up" with each other?
+- Is it important that items "line up" in neat rows & columns with each other?
   - Use Grid
 
 ## Conclusions
