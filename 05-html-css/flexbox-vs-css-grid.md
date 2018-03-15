@@ -134,7 +134,7 @@ Then Flexbox could lay out individual elements like:
 
 Of course you could also lay out the subregions of the site with Grid as well, but if content is only along one axis, Flexbox usually requires less work.  
 
-**Question** How could you lay out the header with Flexbox so the button is on the right?
+**Question** How could you lay out the header with Flexbox so the button is on the right?  You can practice with a codepen [here](https://codepen.io/adadev/pen/aYZdYp).
 
 ## So do I use Flexbox or Grid?
 
