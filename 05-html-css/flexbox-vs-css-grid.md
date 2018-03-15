@@ -143,7 +143,7 @@ Ask yourself a couple of questions:
   - Use Flexbox
 - Do I need to control layout with both row **and** column?
   - Use Grid
-- Is it important that items "line up" in neat rows & columns with each other?
+- Is it important that items "line up" horizontally and vertically with each other?
   - Use Grid
 
 ## Conclusions
