@@ -6,6 +6,8 @@ You'll start by reviewing the one of our key object-oriented design principles, 
 
 Then you'll address the Hotel project directly, and refactor your implementation to reflect this better understanding.
 
+You will need to have **Wave 2** completed to complete this activity.
+
 ## Single Responsibility
 
 The single responsibility principle helps answer the questions "What classes should I have?" and "Where should this logic live?" The big idea is that that each class in your program should be in charge of exactly one thing, no more, no less.
