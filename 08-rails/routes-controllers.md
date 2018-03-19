@@ -53,17 +53,15 @@ A `routes.rb` file which lists all the CRUD operations would look like this:
 # config/routes.rb
 Rails.application.routes.draw do
 
+  # Routes that operate on the book collection
+  get '/books', to: 'books#index'
   get '/books/new', to: 'books#new', as: 'new_book'
   post '/books', to: 'books#create', as: 'books'
 
-  get '/books/:id/edit', to: 'books#edit', as: 'edit_book'
-
+  # Routes that operate on individual books
   get '/books/:id', to: 'books#show', as: 'book'
-
+  get '/books/:id/edit', to: 'books#edit', as: 'edit_book'
   patch '/books/:id', to: 'books#update'
-
-  get '/books', to: 'books#index'
-
   delete '/books/:id', to: 'books#destroy'
 end
 ```
@@ -77,12 +75,12 @@ You can always view the routes in your application by typing `rails routes` in t
 ```bash
 $ rails routes
         Prefix Verb   URI Pattern               Controller#Action
+         books GET    /books(.:format)          books#index
       new_book GET    /books/new(.:format)      books#new
-         books POST   /books(.:format)          books#create
-     edit_book GET    /books/:id/edit(.:format) books#edit
-               PATCH    /books/:id(.:format)    books#update
-               GET    /books(.:format)          books#index
+               POST   /books(.:format)          books#create
           book GET    /books/:id(.:format)      books#show
+     edit_book GET    /books/:id/edit(.:format) books#edit
+               PATCH  /books/:id(.:format)      books#update
    delete_book DELETE /books/:id(.:format)      books#destroy
 ```
 
@@ -109,15 +107,15 @@ patch '/user/:user_id/books/:id', to: 'books#mark_read', as: 'mark_read'
 
 Below is a table with example routes, prefixes and paths.
 
-|   Route	|   Prefix	|   Path Helper	|	Example  |
-|---	|---	|---	|---	|
-|   `get '/books/new', to: 'books#new', as: 'new_book'`	|   `new_book`	|   `new_book_path`	|	`<%= link_to "New book", new_book_path %>`
-|   `get '/books/:id/edit', to: 'books#edit', as: 'edit_book'`	|   `edit_book`	|   `edit_book_path`	|  `<%= button_to "Edit #{book.title}", edit_book_path(book.id) %>`	|
-|   `post '/books', to: 'books#create'`, as: 'books'	|   `books`	|   `books_path`	| `<%= form_for @book, action: books_path, method: :post %>`	|
-|   `get '/books', to: 'books#index'`	|   `books`	|   `books_path`	| `<%= link_to "All Books", books_path %>`  |
-|	`get '/books/:id', to: 'books#show', as: 'book'` | 	`book`  |	`book_path`  |	`<%= link_to "View #{book.title}", book_path(book.id) %>`	|
-|	`patch '/books/:id', to: 'books#update'` | 	`book`  |	`book_path`  |	`<%= form_for @book, action: book_path(@book.id), method: :patch %>`  |
-|	`delete '/books/:id', to: 'books#destroy'` | 	`book`  |	`book_path`  |	`<%= link_to "Delete", book_path(book.id) %>`  |
+Route | Prefix | Path Helper | Example
+---   | ---    | ---         | ---
+`get '/books', to: 'books#index'`	|   `books`	|   `books_path`	| `<%= link_to "All Books", books_path %>`
+`get '/books/new', to: 'books#new', as: 'new_book'`	|   `new_book`	|   `new_book_path`	|	`<%= link_to "New book", new_book_path %>`
+`post '/books', to: 'books#create'`, as: 'books'	|   `books`	|   `books_path`	| `<%= form_for @book, action: books_path, method: :post %>`
+`get '/books/:id', to: 'books#show', as: 'book'` | 	`book`  |	`book_path`  |	`<%= link_to "View #{book.title}", book_path(book.id) %>`
+`get '/books/:id/edit', to: 'books#edit', as: 'edit_book'`	|   `edit_book`	|   `edit_book_path`	|  `<%= button_to "Edit #{book.title}", edit_book_path(book.id) %>`
+`patch '/books/:id', to: 'books#update'` | 	`book`  |	`book_path`  |	`<%= form_for @book, action: book_path(@book.id), method: :patch %>`
+`delete '/books/:id', to: 'books#destroy'` | 	`book`  |	`book_path`  |	`<%= link_to "Delete", book_path(book.id) %>`
 
 
 Notice that the `update`, `show` & `destroy` actions both use the `book_path`.  The path helpers are identical because the routes all include `/books/:id`.
@@ -159,9 +157,11 @@ In the following notes we will look at layouts and views and look at how to rend
 
 ```ruby
   def index
-    @books = [{ title: "Hidden Figures", author: "Margot Lee Shetterly"},
-              { title: "Practical Object-Oriented Design in Ruby", author: "Sandi Metz"},
-              { title: "Kindred", author: "Octavia E. Butler"}]
+    @books = [
+      { title: "Hidden Figures", author: "Margot Lee Shetterly"},
+      { title: "Practical Object-Oriented Design in Ruby", author: "Sandi Metz"},
+      { title: "Kindred", author: "Octavia E. Butler"}
+    ]
   end
 ```
 
