@@ -54,15 +54,15 @@ __Assumption__: We've got a resource called `book` that can be recalled/manipula
 
 We can extrapolate the entire RESTful suite of actions from this basic pattern. It'd look something like...
 
-| Verb | URI Pattern     | Controller#Action |
-| :------------- | :------------- | :------------- |
-| GET       | `/books`       | `books#index` |
-| GET       | `/books/:id`       | `books#show` |
-| GET       | `/books/new`       | `books#new` |
-| POST      | `/books`       | `books#create` |
-| GET       | `/books/:id/edit`       | `books#edit` |
-| PATCH     | `/books/:id`       | `books#update` |
-| DELETE    | `/books/:id`       | `books#destroy` |
+Verb   | URI Pattern       | Controller#Action | Description
+---    | ---               | ---               | ---
+GET    | `/books`          | `books#index`     | List of all books
+GET    | `/books/new`      | `books#new`       | Form to add a new book
+POST   | `/books`          | `books#create`    | Send form data to the server and save a new book
+GET    | `/books/:id`      | `books#show`      | Show details for one book
+GET    | `/books/:id/edit` | `books#edit`      | Form to edit details for an existing book
+PATCH  | `/books/:id`      | `books#update`    | Send form data to the server to update an existing book
+DELETE | `/books/:id`      | `books#destroy`   | Destroy an existing book
 
 The combination of __VERB__ and __URL__ tell our web server (Rails, in this example) everything it needs to know to formulate an action and response. The methods we're calling on the `books` object follows a convention common to the Ruby community.
 
