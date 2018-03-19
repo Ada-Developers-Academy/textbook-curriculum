@@ -165,3 +165,31 @@ In the following notes we will look at layouts and views and look at how to rend
               { title: "Kindred", author: "Octavia E. Butler"}]
   end
 ```
+
+## Summary
+
+**Routes**
+
+- The Rails Router is responsible for _dispatching_ (figuring out what to do with) a new HTTP request
+  - It uses the _verb_ and the _path_ to select a controller action
+- Routes are defined in `config/routes.rb`
+  - `verb '/url/path', to: 'controller#action', as: 'route_name'`
+  - `get '/books/:id', to: 'books#show', as: 'book'`
+  - `:id` in a URL will match anything at all! This lets the browser specify which book they want
+  - The order of routes matters
+
+**Controllers**
+
+- A Rails Controller is responsible for handling a request and sending back a response
+- Each controller is a class, and each action is a method
+  - Controller class names are usually pluralized, and always end in `Controller`, like `BooksController`
+  - The `controller#action` pair in `config/routes.rb` must match the name of your controller class and action method _exactly_
+    - `books#show` would look for `BooksController` and `def show`
+  - A controller `BooksController` will be defined in the file `app/controllers/books_controller.rb`
+- To generate a controller run `$ rails generate controller books`
+- Controllers use _instance variables_ to communicate with views
+
+## Additional Resources
+
+- [TutorialsPoint on Controllers](https://www.tutorialspoint.com/ruby-on-rails/rails-controllers.htm) - quick summary with examples
+- [Rails Guides on Controllers](http://guides.rubyonrails.org/action_controller_overview.html) - exhaustive, a little dry, but lots of good info
