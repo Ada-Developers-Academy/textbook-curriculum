@@ -21,10 +21,8 @@ The two most important parts of this request are:
 
 In a Rails app when a request comes in for a specific _path_ the Rails router	matches it with a controller and passes the request to the appropriate method in that controller.
 
-
-
-
 ## Anatomy of `routes.rb`
+
 The combination of _request method_ and _path_ comprise the first half of a Rails _route_. The second half is the route _action_, the Ruby class and method that will handle the incoming request.
 
 _Routes_ are analogous to an old-timey telephone switch board. When Rails receives a new HTTP request, the _routes_ connect the request data to the correct _controller action_.
@@ -34,7 +32,7 @@ We define routes in our `config/routes.rb` file, which is generated when we run 
 ```ruby
 Rails.application.routes.draw do
   # method path => action
-  get "/books", to: "books#index"
+  get '/books', to: 'books#index'
 end
 ```
 
@@ -43,8 +41,9 @@ Let's break down this code:
 - `Rails.application.routes.draw do`: This method's responsibility is knowing about all the _routes_ to which the application can respond.
 - The **route definition**:
   - **request method**: `get` in this example
-  - **path**: what will be matched with the URL in the HTTP request, `"/books"` in this example
-  - **controller and action**: defining the controller and action, split by the `#`. `"books#index"` in this case this would point to the `index` method in the `BooksController` class.
+  - **path**: what will be matched with the URL in the HTTP request, `'/books'` in this example
+  - **controller and action**: defining the controller and action, split by the `#`. `'books#index'` in this case this would point to the `index` method in the `BooksController` class.
+- We use single quotes `'` because the controller/action are separated by an octothorp `#`. If we used double quotes Atom would try to auto-complete curly braces after each one, and it would get really annoying!
 
 ### Naming Routes
 
@@ -54,18 +53,18 @@ A `routes.rb` file which lists all the CRUD operations would look like this:
 # config/routes.rb
 Rails.application.routes.draw do
 
-  get "/books/new", to: "books#new", as: "new_book"
-  post "/books", to: "books#create", as: "books"
+  get '/books/new', to: 'books#new', as: 'new_book'
+  post '/books', to: 'books#create', as: 'books'
 
-  get '/books/:id/edit', to: 'books#edit', as: "edit_book"
+  get '/books/:id/edit', to: 'books#edit', as: 'edit_book'
 
-  get "/books/:id", to: "books#show", as: "book"
+  get '/books/:id', to: 'books#show', as: 'book'
 
   patch '/books/:id', to: 'books#update'
 
-  get "/books", to: "books#index"
+  get '/books', to: 'books#index'
 
-  delete "/books/:id", to: "books#destroy"
+  delete '/books/:id', to: 'books#destroy'
 end
 ```
 
@@ -92,11 +91,11 @@ Notice that the name of each route is listed in the `Prefix` column.  Using the 
 
 ### Custom Path Names
 
-We can use anything for a path name.  We could for example use:  `get "/books/:id", to: "books#show", as: "banana"`, if we wanted to have a path named `banana`.  That would not be a good name for a path, but it would function.  Rails convention suggests we name such a path `book`, but nothing stops us from using another name.
+We can use anything for a path name.  We could for example use:  `get '/books/:id', to: 'books#show', as: 'banana'`, if we wanted to have a path named `banana`.  That would not be a good name for a path, but it would function.  Rails convention suggests we name such a path `book`, but nothing stops us from using another name.
 
 So for example for:
 
--  route:  `get "/books/:id", to: "books#show", as: "banana"`
+-  route:  `get '/books/:id', to: 'books#show', as: 'banana'`
 	-  Prefix: `banana`
 	-  Path Helper: `banana_path`.
 
@@ -112,20 +111,20 @@ Below is a table with example routes, prefixes and paths.
 
 |   Route	|   Prefix	|   Path Helper	|	Example  |
 |---	|---	|---	|---	|
-|   `get "/books/new", to: "books#new", as: "new_book"`	|   `new_book`	|   `new_book_path`	|	`<%= link_to "New book", new_book_path %>`
-|   `get "/books/:id/edit", to: "books#edit", as: "edit_book"`	|   `edit_book`	|   `edit_book_path`	|  `<%= button_to "Edit #{book.title}", edit_book_path(book.id) %>`	|
-|   `post "/books", to: "books#create"`, as: 'books'	|   `books`	|   `books_path`	| `<%= form_for @book, action: books_path, method: :post %>`	|
-|   `get "/books", to: "books#index"`	|   `books`	|   `books_path`	| `<%= link_to "All Books", books_path %>`  |
-|	`get "/books/:id", to: "books#show", as: "book"` | 	`book`  |	`book_path`  |	`<%= link_to "View #{book.title}", book_path(book.id) %>`	|
-|	`patch "/books/:id", to: "books#update"` | 	`book`  |	`book_path`  |	`<%= form_for @book, action: book_path(@book.id), method: :patch %>`  |
-|	`delete "/books/:id", to: "books#destroy"` | 	`book`  |	`book_path`  |	`<%= link_to "Delete", book_path(book.id) %>`  |
+|   `get '/books/new', to: 'books#new', as: 'new_book'`	|   `new_book`	|   `new_book_path`	|	`<%= link_to 'New book', new_book_path %>`
+|   `get '/books/:id/edit', to: 'books#edit', as: 'edit_book'`	|   `edit_book`	|   `edit_book_path`	|  `<%= button_to 'Edit #{book.title}', edit_book_path(book.id) %>`	|
+|   `post '/books', to: 'books#create'`, as: 'books'	|   `books`	|   `books_path`	| `<%= form_for @book, action: books_path, method: :post %>`	|
+|   `get '/books', to: 'books#index'`	|   `books`	|   `books_path`	| `<%= link_to 'All Books', books_path %>`  |
+|	`get '/books/:id', to: 'books#show', as: 'book'` | 	`book`  |	`book_path`  |	`<%= link_to 'View #{book.title}', book_path(book.id) %>`	|
+|	`patch '/books/:id', to: 'books#update'` | 	`book`  |	`book_path`  |	`<%= form_for @book, action: book_path(@book.id), method: :patch %>`  |
+|	`delete '/books/:id', to: 'books#destroy'` | 	`book`  |	`book_path`  |	`<%= link_to 'Delete', book_path(book.id) %>`  |
 
 
 Notice that the `update`, `show` & `destroy` actions both use the `book_path`.  The path helpers are identical because the routes all include `/books/:id`.
 
 ### Order Matters
 
-It's also important to note that the Router selects the first route that matches the request.  So if you swapped `get "/books/new", to: "books#new", as: "new_book"` with `get "/books/:id", to: "books#show", as: "book"` then when a GET request came in for `/books/new` the router would match it to the `books#show` action because the `:id` placeholder can match any value, not just an ID number.
+It's also important to note that the Router selects the first route that matches the request.  So if you swapped `get '/books/new', to: 'books#new', as: 'new_book'` with `get '/books/:id', to: 'books#show', as: 'book'` then when a GET request came in for `/books/new` the router would match it to the `books#show` action because the `:id` placeholder can match any value, not just an ID number.
 
 Because of this it's important to list your routes from most specific to least specific.
 
