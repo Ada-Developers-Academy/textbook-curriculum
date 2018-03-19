@@ -19,7 +19,7 @@ The two most important parts of this request are:
 - `GET`, which is the _request method_. As we have seen, the most common request methods are `get`, `post`, `put`, `patch`, and `delete`.
 - `/books`, which is the _path_.
 
-In a Rails app when a request comes in for a specific _path_ the Rails router	matches it with a controller and passes the request to the appropriate method in that controller.   
+In a Rails app when a request comes in for a specific _path_ the Rails router	matches it with a controller and passes the request to the appropriate method in that controller.
 
 
 
@@ -69,7 +69,7 @@ Rails.application.routes.draw do
 end
 ```
 
-You may be saying, "Wait what's that `as: <STUFF>` part?"  This allows us to name a path.  It's very helpful to give each path for a resource, like books, a name.  The name can then be used later in your code to link actions together without having to give a hardcoded path like `'/books/new'` each time.  That way if we change a path, we only have to edit the `routes.rb` file instead of each line in our code where we use the route.  So `edit_book` is the name of the `/books/:id/edit` path.  
+You may be saying, "Wait what's that `as: <STUFF>` part?"  This allows us to name a path.  It's very helpful to give each path for a resource, like books, a name.  The name can then be used later in your code to link actions together without having to give a hardcoded path like `'/books/new'` each time.  That way if we change a path, we only have to edit the `routes.rb` file instead of each line in our code where we use the route.  So `edit_book` is the name of the `/books/:id/edit` path.
 
 You will see how these named paths are used when we delve into view helpers.
 
@@ -87,20 +87,20 @@ $ rails routes
    delete_book DELETE /books/:id(.:format)      books#destroy
 ```
 
-Notice that the name of each route is listed in the `Prefix` column.  Using the `rails routes` command allows you to quickly verify your routes and check the `routes.rb` file for errors.  
+Notice that the name of each route is listed in the `Prefix` column.  Using the `rails routes` command allows you to quickly verify your routes and check the `routes.rb` file for errors.
 
 
 ### Custom Path Names
 
-We can use anything for a path name.  We could for example use:  `get "/books/:id", to: "books#show", as: "banana"`, if we wanted to have a path named `banana`.  That would not be a good name for a path, but it would function.  Rails convention suggests we name such a path `book`, but nothing stops us from using another name.  
+We can use anything for a path name.  We could for example use:  `get "/books/:id", to: "books#show", as: "banana"`, if we wanted to have a path named `banana`.  That would not be a good name for a path, but it would function.  Rails convention suggests we name such a path `book`, but nothing stops us from using another name.
 
 So for example for:
 
 -  route:  `get "/books/:id", to: "books#show", as: "banana"`
 	-  Prefix: `banana`
-	-  Path Helper: `banana_path`.  
+	-  Path Helper: `banana_path`.
 
-Additionally any route beyond the standard set of CRUD routes should be named descriptively.  
+Additionally any route beyond the standard set of CRUD routes should be named descriptively.
 
 For example a path to mark a book as read could be:
 
@@ -108,7 +108,7 @@ For example a path to mark a book as read could be:
 patch '/user/:user_id/books/:id', to: 'books#mark_read', as: 'mark_read'
 ```
 
-Below is a table with example routes, prefixes and paths.  
+Below is a table with example routes, prefixes and paths.
 
 |   Route	|   Prefix	|   Path Helper	|	Example  |
 |---	|---	|---	|---	|
@@ -121,11 +121,11 @@ Below is a table with example routes, prefixes and paths.
 |	`delete "/books/:id", to: "books#destroy"` | 	`book`  |	`book_path`  |	`<%= link_to "Delete", book_path(book.id) %>`  |
 
 
-Notice that the `update`, `show` & `destroy` actions both use the `book_path`.  The path helpers are identical because the routes all include `/books/:id`.  
+Notice that the `update`, `show` & `destroy` actions both use the `book_path`.  The path helpers are identical because the routes all include `/books/:id`.
 
 ### Order Matters
 
-It's also important to note that the Router selects the first route that matches the request.  So if you swapped `get "/books/new", to: "books#new", as: "new_book"` with `get "/books/:id", to: "books#show", as: "book"` then when a GET request came in for `/books/new` the router would match it to the `books#show` action because the `:id` placeholder can match any value, not just an ID number.  
+It's also important to note that the Router selects the first route that matches the request.  So if you swapped `get "/books/new", to: "books#new", as: "new_book"` with `get "/books/:id", to: "books#show", as: "book"` then when a GET request came in for `/books/new` the router would match it to the `books#show` action because the `:id` placeholder can match any value, not just an ID number.
 
 Because of this it's important to list your routes from most specific to least specific.
 
@@ -138,7 +138,7 @@ Rails can go ahead and create a Controller and View for us with the following co
 bin/rails generate controller Books index
 ```
 
-This command has Rails generate a Controller and Views for the /books path, so when you bring up http://localhost:3000/books you will get the following HTML file.  
+This command has Rails generate a Controller and Views for the /books path, so when you bring up http://localhost:3000/books you will get the following HTML file.
 
 ![view in browser](images/index.html.erb.png)
 
@@ -154,7 +154,7 @@ class BooksController < ApplicationController
   end
 end
 ```
-Notice that the `BooksController` class inherits from the `ApplicationController` class in the Rails library.  For the `books/index` path we can handle it with the index method in the controller.  After the logic is finished in the controller method control is passed to a layout and view for rendering the content back to the user.  
+Notice that the `BooksController` class inherits from the `ApplicationController` class in the Rails library.  For the `books/index` path we can handle it with the index method in the controller.  After the logic is finished in the controller method control is passed to a layout and view for rendering the content back to the user.
 
 In the following notes we will look at layouts and views and look at how to render our content in the browser.  For now lets modify the `index` method to add an instance variable for use in the view.
 
