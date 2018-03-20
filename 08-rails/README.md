@@ -13,6 +13,7 @@
 1. [Active Record Migrations](./active-record-migrations.md)  
 1. [Active Record Models](./active-record-models.md)  
 1. [Rails Forms](./rails-forms.md)  
+1. [Rails Forms: Strong Params](./forms-strong-params.md)
 1. [View Partials](./partial-views.md)  
 
 ## Part 2
