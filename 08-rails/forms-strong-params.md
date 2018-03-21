@@ -50,10 +50,7 @@ Now that we have an idea of _why_ we need strong params, let's see how to implem
       # code here
     end
     ```
-1. We'll use two special controller methods here which will allow us to define exactly which parameters (coming from the form) we want to allow. Those methods are `require` and `permit`.
-
-  We use `require` to identify the highest-level param which contains all others and that we cannot live without. We then use `permit` to list the params within that overall one which we want to allow.
-
+1. We'll use two special controller methods here which will allow us to define exactly which parameters (coming from the form) we want to allow. Those methods are `require` and `permit`.  We use `require` to identify the highest-level param which contains all others and that we cannot live without. We then use `permit` to list the params within that overall one which we want to allow.
     ```ruby
     private
 
