@@ -101,3 +101,6 @@ end
 # app/controllers/books_controller.rb
 book = Book.new(title: params[:book][:title], author: params[:book][:author])
 ```
+## Resources
+- [MDN Input Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
+- [MDN Form Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
