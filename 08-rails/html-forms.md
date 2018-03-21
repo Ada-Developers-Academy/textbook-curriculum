@@ -86,7 +86,14 @@ Let's make our form a little bit smarter. We can submit nested data by manipulat
   <input type="text" name="book[author]" value="" id="author">
 ```
 
-In Rails this is the way we _model_ data objects. We will expand upon this idea once we learn about Active Record, but until then, imagine a `Book` class where the initialize method is written to assign attributes from a hash. We would then pass the inner hash to the `new` method and all of our attributes would be assigned.
+In Rails this is the way we _model_ data objects. Once we have our form set up in this way, then we can pass this data from the form to the controller action that should be handling the form submission.
+
+### `params`
+Once we have the form we set up to send the submission to the appropriate route, then we need to modify the corresponding controller action. 
+
+We have seen Rails using the special variable called `params` before when we were writing the definition for our `show` action. `params` will also store each piece of data that we've specified in our form!
+
+<!-- We will expand upon this idea once we learn about Active Record, but until then, imagine a `Book` class where the initialize method is written to assign attributes from a hash. We would then pass the inner hash to the `new` method and all of our attributes would be assigned.
 
 ```ruby
 # app/models/book.rb
@@ -97,6 +104,8 @@ class Book
   end
 end
 ```
+-->
+
 ```ruby
 # app/controllers/books_controller.rb
 book = Book.new(title: params[:book][:title], author: params[:book][:author])
