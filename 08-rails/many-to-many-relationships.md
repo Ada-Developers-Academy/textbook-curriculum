@@ -30,7 +30,7 @@ $ rails db:migrate
 
 If we had an instance of `Genre`, we might imagine getting a list of books with `genre.books`; similarly with an instance of `Book` we ought be able to call `book.genres`. How might we keep track of this information?
 
-### Join Table
+### Join Tables
 
 Databases do not have an "array" data type, so we can't put a list of genres on each book. Instead we will use an intermediate table, referred to as a _join table_, where each row specifies one book-genre pair.
 
@@ -71,6 +71,31 @@ An ERD for this setup might look like this
 # TODO
 
 ![Many to many ERD](./images/many-to-many-erd.file)
+
+### Building the Join Table
+
+A join table is something that should appear at the database level only - ideally, the rest of our app won't even know it's there. With that in mind we will _not_ build an ActiveRecord model for our new table. Instead of `rails generate model`, we'll say `rails generate migration`:
+
+```
+$ rails g migration CreateBooksGenresJoin
+```
+
+```ruby
+# new migration file
+class CreateBooksGenresJoin < ActiveRecord::Migration[5.1]
+  create_table :books_genres do |t|
+    t.belongs_to :book, index: true
+    t.belongs_to :genre, index: true
+    t.timestamps
+  end
+end
+```
+
+Note the `belongs_to` data type. This tells the database that this column is a foreign key, and which sets up some extra restrictions on what can be in this table. This will help prevent us linking a book to a genre that doesn't exist.
+
+The name of the table (`books_genres`) is important - this is the name ActiveRecord will be looking for later. We could call it something else, but that wouldn't be the Rails Way&trade;.
+
+### The Relation in the Model Layer
 
 ## Many-to-Many in the Model
 
