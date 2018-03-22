@@ -19,7 +19,7 @@ Two Rails models can be related to each other through an identifier field (what 
 |id | title                             | description | price | author_id |
 |:-:|:--------------------------------:|:---------:|:---------:|:---------:|
 | 1 | Practical Object-Oriented Design in Ruby |    A great book on object-oriented design| 19.99     | 1
-| 2 | 99 Bottles of OOP        | An even more in-depth great book on object-oriented design| 24.99|    1     |
+| 2 | 99 Bottles of OOP        | An even more in-depth book on object-oriented design| 24.99|    1     |
 | 3 | Hidden Figures                | Good book that came before the movie| 14.99 |    2    |
 
 We would call this a __one-to-many__ association. We would say that Author *has_many* Books, and each Book *belongs_to* an Author. The `author_id` column for a Book corresponds to the `id` of an Author record.
@@ -79,4 +79,4 @@ And, for the table-oriented among you:
 | `author.books.create(book_hash)` | Book object | Yes | **Does** set `book.author_id` |
 
 ### Try it out!
-Now let's try it out for ourselves. We're going to run through the steps to update our book app to have this relationship using [these notes](active-record-relationships-exercise.md).
+Now let's try it out for ourselves. We're going to run through the steps to update our book app to have this relationship using [these notes](exercises/active-record-relationships-exercise.md).
