@@ -4,33 +4,7 @@
 - Explore _why_ we would want to use nested routes
 - Explore _how_ to set up nested routes manually
 - See how to use nested routes with `resources`
-- Explore the `has_and_belongs_to_many` relationship to utilize a "join table"
 
-## Context
-Let's use an example in our book application to classify books under certain genres. As an example,  let's use two books:
-1. **Bad Feminist** by _Roxane Gay_
-  - Genres: Nonfiction, Feminism, Writing: Essays, Autobiography: Memoir
-
-1. **Hidden Figures** by _Margot Lee Shetterly_
-  - Genres: Nonfiction, History, Science, Biography, Historical
-
-
-To implement this feature we'll want to:
-1. Add a genre resource & all CRUD functionality (controller, model, views, routes)
-  ```bash
-  rails g controller genres
-  rails g model genre
-  ```
-
-  ```ruby
-  create_table :genres do |t|
-    t.string :name
-
-    t.timestamps
-  end
-  ```
-1. When books are created, allow them to be associated one to many genres
-1. Have a view to see all books in a particular genre
 
 ## Nested Routes
 Oftentimes we create nested routes when we have resources which are _children_ of other resources. In this case, we will have a _genre_ resource which will contain books. Ideally, we can configure routes to be _nested_ within one another to provide additional context about the request we are making. For example, if we want to retrieve the list of books associated with the genre "nonfiction" (where genre "nonfiction" has an ID of 1 in our database), then we would want a route like `/genres/1/books`. This example demonstrates **nested routes**. We utilize RESTful routes for `books` inside the `genres` RESTful routes.
