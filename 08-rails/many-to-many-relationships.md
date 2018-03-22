@@ -83,10 +83,12 @@ $ rails g migration CreateBooksGenresJoin
 ```ruby
 # new migration file
 class CreateBooksGenresJoin < ActiveRecord::Migration[5.1]
-  create_table :books_genres do |t|
-    t.belongs_to :book, index: true
-    t.belongs_to :genre, index: true
-    t.timestamps
+  def change
+    create_table :books_genres do |t|
+      t.belongs_to :book, index: true
+      t.belongs_to :genre, index: true
+      t.timestamps
+    end
   end
 end
 ```
@@ -95,31 +97,47 @@ Note the `belongs_to` data type. This tells the database that this column is a f
 
 The name of the table (`books_genres`) is important - this is the name ActiveRecord will be looking for later. We could call it something else, but that wouldn't be the Rails Way&trade;.
 
+Remember to `rails db:migrate` again.
+
 ### The Relation in the Model Layer
+
+ActiveRecord has built-in support for many-to-many relationships using the join table pattern. Our last step is to set up our models to take advantage of this.
+
+```ruby
+# app/models/book.rb
+class Book < ApplicationRecord
+  has_and_belongs_to_many :genres
+
+  # ... the rest of the class ...
+end
+```
+
+```ruby
+# app/models/genre.rb
+class Genre < ApplicationRecord
+  has_and_belongs_to_many :books
+end
+```
+
+Just like the `has_many` and `belongs_to` lines we added when we related books and authors, `has_and_belongs_to_many` will give us a bunch of methods to manipulate our new relation.
 
 ## Many-to-Many in the Model
 
+The syntax ActiveRecord provides for manipulating many-to-many relations is similar to that for one-to-many relations. Pull open the rails console, and do the following tasks:
+
+1. Make sure your database contains the two books above: _Bad Feminist_ by Roxane Gay, and _Hidden Figures_ by Margot Lee Shetterly
+1. Add three genres to your database: _Nonfiction_, _Feminism_, and _History_
+1. Load the record for _Bad Feminist_ into a local variable `bad_feminist`, and the record for _Nonfiction_ into a local variable `nonfiction`
+1. Set up a relation between the book and the genre
+    - You can approach this from either the book side or the genre side. That is, either of these will work:
+        - `bad_feminist.genres << nonfiction`
+        - `nonfiction.books << bad_feminist`
+    - Read the resulting SQL queries. What happened at the database level?
+1. Add the other three relations from the tables above
+1. Load the list of the genres for _Hidden Figures_
+1. Challenge problem: load the list of _Nonfiction_ books, sorted alphabetically by author name
+
 ## Building UI Elements
-
-Let's use an example in our book application to classify books under certain genres.
-
-
-To implement this feature we'll want to:
-1. Add a genre resource & all CRUD functionality (controller, model, views, routes)
-  ```bash
-  rails g controller genres
-  rails g model genre
-  ```
-
-  ```ruby
-  create_table :genres do |t|
-    t.string :name
-
-    t.timestamps
-  end
-  ```
-1. When books are created, allow them to be associated one to many genres
-1. Have a view to see all books in a particular genre
 
 ## Summary
 

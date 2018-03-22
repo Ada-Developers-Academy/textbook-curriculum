@@ -60,17 +60,7 @@ end
 ```
 
 Then we establish the relationship on the affected model objects.
-```ruby
-# models/book.rb
-...
-has_and_belongs_to_many :genres
-```
 
-```ruby
-# models/genre.rb
-...
-has_and_belongs_to_many :books
-```
 
 ## Putting it together
 
