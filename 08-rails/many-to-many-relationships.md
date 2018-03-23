@@ -28,7 +28,9 @@ $ rails generate model genre name:string
 $ rails db:migrate
 ```
 
-If we had an instance of `Genre`, we might imagine getting a list of books with `genre.books`; similarly with an instance of `Book` we ought be able to call `book.genres`. How might we keep track of this information?
+If we had an instance of `Genre`, we might imagine getting a list of books with `genre.books`; similarly with an instance of `Book` we ought be able to call `book.genres`.
+
+**Question:** How might we keep track of this information?
 
 ### Join Tables
 
@@ -135,7 +137,40 @@ The syntax ActiveRecord provides for manipulating many-to-many relations is simi
     - Read the resulting SQL queries. What happened at the database level?
 1. Add the other three relations from the tables above
 1. Load the list of the genres for _Hidden Figures_
-1. Challenge problem: load the list of _Nonfiction_ books, sorted alphabetically by author name
+1. Load the list of _Nonfiction_ books
+
+Challenge problems:
+1. Load the list of _Nonfiction_ books, sorted alphabetically by author name
+    - For extra extra challenge, do the sorting in the database (i.e. using `.order`, not `.sort` or `.sort_by`)
+1. Produce a list of the genres for a given author
+
+Since these last two are complex pieces of business logic, they would make excellent model methods. For example, we might write this code in `author.rb`:
+
+# TODO: why not `has_many through:`?
+
+```ruby
+# app/models/author.rb
+class Author < ApplicationRecord
+  has_many :books
+
+  def genres
+    genre_list = []
+    self.books.each do |book|
+      genre_list += book.genres
+    end
+    # Remove duplicates
+    return genre_list.uniq
+  end
+end
+```
+
+Now we can say something like:
+
+```ruby
+roxane = Author.find_by(name: "Roxane Gay")
+roxane.genres
+# => [Nonfiction, Feminism]
+```
 
 ## Building UI Elements
 
