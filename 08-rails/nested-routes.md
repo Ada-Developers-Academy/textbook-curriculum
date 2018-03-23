@@ -30,36 +30,6 @@ resources :books
 
 What did we gain here? We've created an additional books index route which will also contain an additional `param` value `:genre_id`. Since we are using a nested route, Rails uses a more specific parameter name rather than `:id` which we are used to.
 
-## Has and Belongs to Many Relationship
-We can see the need for a new type of relationship based on the example books we described at the beginning of notes. Each book needs to have many genres and a genre does not only apply to a single book.
-
-We have discussed this scenario a few times when working through ERDs and each time we've said "we'll talk about that later"! Now is the time!
-
-We are going to use a **join table** to establish this relationship. This portion of our ERD will look like this:
-![join table ERD](./images/join-table-erd.png)
-
-- Each book has zero or more genres (through the books_genres table)
-- Each genre has zero or more books (through the books_genres table)
-
-**Important Notes about Join Tables**
-- Rails is expecting the join table to be named according to the two resources we want to create the association for.
-- We don't use a separate model for the join table. We access the data we configure through the join table with our existing models, `Book` and `Genre`.
-  - Therefore when setting up the join table we want to `rails generate migration` rather than `rails generate model`
-
-```bash
-rails g migration CreateBooksGenresJoin
-```
-
-```ruby
-# new migration file
-create_table :books_genres do |t|
-  t.belongs_to :book, index: true
-  t.belongs_to :genre, index: true
-  t.timestamps
-end
-```
-
-Then we establish the relationship on the affected model objects.
 
 
 ## Putting it together
@@ -102,4 +72,3 @@ end
 
 ## Additional Resources
 - [Ruby on Rails: Nested Routes](http://guides.rubyonrails.org/routing.html#nested-resources)
-- [Ruby on Rails: Has and Belongs to Many](http://guides.rubyonrails.org/association_basics.html#the-has-and-belongs-to-many-association)
