@@ -3,7 +3,7 @@ gem 'jquery-turbolinks'
 
 gem 'jquery-rails'
 
-gem 'foundation-rails', '6.4.1.2'
+gem 'foundation-rails'
 
 gem_group :development, :test do
   # Use pry for rails console, enable binding.pry
@@ -28,6 +28,13 @@ end
 gsub_file 'Gemfile', /^gem \'coffee-rails\'/ do
   "\# gem 'coffee-rails'"
 end
+  # Add jquery to application.js to work with foundation-rails
+  inject_into_file 'app/assets/javascripts/application.js', after: '// about supported directives.' do
+    <<-'RUBY'
+
+//= require jquery
+    RUBY
+  end
 
 # Mess with generators to get the behavior we expect around new files
 # For these injections, indentation matters!
