@@ -174,6 +174,105 @@ roxane.genres
 
 ## Building UI Elements
 
+Many-to-many relationships take some work at the database level, but they also present an interesting design challenge. How can we build UI elements that present this information in a way that is easy to work with?
+
+**Activity:** Spend some time brainstorming how we might represent the relation between books and genres in our library webapp. Consider the following questions:
+- How might a user view the genres for a book, or the books for a genre?
+- How would you add a relation? Should it be from the book side, the genre side, or both? What might this look like visually? Draw a picture!
+
+### Viewing Relations
+
+For our application, we could imagine exposing the books-genres relation in several places:
+
+1. The details page for each book will contain its list of genres
+1. The index page for genres will display a count of books for that genre
+1. The details page for each genre will display a list of titles of books in that genre
+1. The details page for each author will display a list of genres for that author, using the `Author#genres` method we defined above
+
+For the first one, we'll need to edit the `show` view template for our books:
+
+```html
+<p>Genres:</p>
+<ul>
+  <% @book.genres.each do |genre| %>
+    <li>
+      <%= genre.name %>
+    </li>
+  <% end %>
+</ul>
+```
+
+The remainder are left as an exercise to the reader.
+
+### Modifying Relations
+
+A typical library application will have many more books than genres. Since there will be less options to choose from, it probably makes sense to add book-genre relations through the book rather than through the genre. We will allow a user to pick from a list of genres whenever the create or edit a book.
+
+#### Checkboxes
+
+There are many ways we could enable this feature, but one of the most straightforward ways in Rails is to use checkboxes. We will add a bunch of checkboxes to our book form, one for each genre. Any checked box applies to the book, and any unchecked box does not. The end result will look something like this:
+
+![Checkboxes for books-genres](./images/books-genres-ui.png)
+
+This would be tricky to build by hand, but Rails provides a view helper to do exactly what we want. We can achieve the above result by adding the following code to the `_form` view partial, inside the `form_for` block:
+
+```html
+<!-- app/views/books/_form.html.erb -->
+<div>
+  <%= f.label :genres %>
+  <%= collection_check_boxes(:book, :genre_ids, Genre.all, :id, :name) %>
+</div>
+```
+
+The first line is a label; we have seen these before. The second is a little more complex - this view helper has five arguments! Let's dive into them a little.
+
+- The first two (`:books` and `:genre_ids`) indicate where in the `POST` request the array of selected values should be stored
+    - We've indicated it should live in `params[:book][:genre_ids]`
+- The third (`Genre.all`) is a collection of models to use for the checkboxes
+    - We are using the full list of `Genre`s
+- The fourth (`:id`) indicates what value should be sent with the `POST` data
+    - We will send the ID of the genre
+- The fifth (`:name`) indicates what value should be displayed to the user
+    - We will display the genre's name
+
+**Question:** If we click _Nonfiction_ and _Feminism_ and submit the form, what will `params` look like in the controller? How can you check your answer?
+
+With the above addition to our form, `params` might end up looking like the following:
+
+```ruby
+{
+  "utf8"=>"✓",
+  "authenticity_token"=>"u0FW4FA...",
+  "book"=>{
+    "title"=>"Bad Feminist",
+    "author"=>"Roxane Gay",
+    "genre_ids"=>["1", "2"],
+    # ... other form fields
+  },
+  "commit"=>"Shelve it!",
+  "id"=>"4"
+}
+```
+
+#### Strong Params
+
+There's one last thing we need to do in the `BooksController`: update the strong params. All the fields we've permitted so far have been individual values, but `genre_ids` is an array, so things will look a little different.
+
+```ruby
+# app/controllers/books_controller.rb
+class BooksController < ApplicationController
+  # ... actions, etc
+  private
+  def book_params
+    # Your list of fields may be slightly longer
+    return params.require(:book).permit(:author, :title, genre_ids: [])
+  end
+end
+```
+
 ## Summary
 
 ## Additional Resources
+
+- [Rails Guides on `has_and_belongs_to_many`](http://guides.rubyonrails.org/association_basics.html#the-has-and-belongs-to-many-association)
+- [Documentation for `collection_check_boxes`](http://edgeapi.rubyonrails.org/classes/ActionView/Helpers/FormOptionsHelper.html#method-i-collection_check_boxes)
