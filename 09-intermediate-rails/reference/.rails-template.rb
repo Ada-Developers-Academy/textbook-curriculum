@@ -1,18 +1,20 @@
-# Make $(document).ready work as expected, despite turbolinks weirdness
+ # Make $(document).ready work as expected, despite turbolinks weirdness
+gem 'jquery-turbolinks'
+#  Add Foundation for rails
+gem 'foundation-rails'
+
+# for menus in Foundation
+gem 'jquery-rails'
 gem 'jquery-turbolinks'
 
-gem 'jquery-rails'
-
-gem 'foundation-rails', '6.4.1.2'
-
-gem_group :development, :test do
-  # Use pry for rails console, enable binding.pry
-  gem 'pry-rails'
-end
+gem 'awesome_print'
 
 gem_group :development do
   # Improve the error message you get in the browser
   gem 'better_errors'
+
+  # Use pry for rails console
+  gem 'pry-rails'
 
   # Nice interactive terminal when an exception happens
   gem 'binding_of_caller'
@@ -47,13 +49,28 @@ end
 after_bundle do
   # Run rails generate minitest:install
   generate "minitest:install", "--force"
-
-  # Run rails generate foundation:install
   generate "foundation:install", "--force"
 
-  # Add minitest reporters support. This must be run after
-  # rails generate minitest:install, because that command
-  # changes test/test_helper.rb
+  inject_into_file 'app/assets/stylesheets/foundation_and_overrides.scss', after: '// @include motion-ui-animations;' do
+    <<-'RUBY'
+
+@import 'motion-ui/motion-ui';
+@include motion-ui-transitions;
+@include motion-ui-animations;
+    RUBY
+  end
+
+    # Add jquery to application.js to work with foundation-rails
+    inject_into_file 'app/assets/javascripts/application.js', after: '// about supported directives.' do
+      <<-'RUBY'
+
+//= require jquery
+      RUBY
+    end
+
+    # Add minitest reporters support. This must be run after
+    # rails generate minitest:install, because that command
+    # changes test/test_helper.rb
   inject_into_file 'test/test_helper.rb', after: 'require "minitest/rails"' do
     <<-'RUBY'
 
@@ -61,24 +78,10 @@ require "minitest/reporters"  # for Colorized output
 
 #  For colorful output!
 Minitest::Reporters.use!(
-  Minitest::Reporters::SpecReporter.new,
-  ENV,
-  Minitest.backtrace_filter
+Minitest::Reporters::SpecReporter.new,
+ENV,
+Minitest.backtrace_filter
 )
-    RUBY
-  end
-end
-
-  # Add Foundation Javascript with Motion-ui this must be run after
-  # rails generate foundation:install, because that command
-  # adds foundation_and_overrides.scss
-  inject_into_file 'app/assets/stylesheets/foundation_and_overrides.scss', after: '// @include motion-ui-animations;' do
-    <<-'RUBY'
-
-@import 'motion-ui/motion-ui';
-@include motion-ui-transitions;
-@include motion-ui-animations;
-
     RUBY
   end
 end
