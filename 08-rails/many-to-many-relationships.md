@@ -142,33 +142,7 @@ Challenge problems:
     - For extra extra challenge, do the sorting in the database (i.e. using `.order`, not `.sort` or `.sort_by`)
 1. Produce a list of the genres for a given author
 
-Since these last two are complex pieces of business logic, they would make excellent model methods. For example, we might write this code in `author.rb`:
-
-# TODO: why not `has_many through:`?
-
-```ruby
-# app/models/author.rb
-class Author < ApplicationRecord
-  has_many :books
-
-  def genres
-    genre_list = []
-    self.books.each do |book|
-      genre_list += book.genres
-    end
-    # Remove duplicates
-    return genre_list.uniq
-  end
-end
-```
-
-Now we can say something like:
-
-```ruby
-roxane = Author.find_by(name: "Roxane Gay")
-roxane.genres
-# => [Nonfiction, Feminism]
-```
+Since these last two are complex pieces of business logic, they would make excellent model methods!
 
 ## Building UI Elements
 
@@ -180,16 +154,10 @@ Many-to-many relationships take some work at the database level, but they also p
 
 ### Viewing Relations
 
-For our application, we could imagine exposing the books-genres relation in several places:
-
-1. The details page for each book will contain its list of genres
-1. The index page for genres will display a count of books for that genre
-1. The details page for each genre will display a list of titles of books in that genre
-1. The details page for each author will display a list of genres for that author, using the `Author#genres` method we defined above
-
-For the first one, we'll need to edit the `show` view template for our books:
+For our application, the details page for each book will contain its list of genres. We'll need to edit the `show` view template for our books:
 
 ```html
+<!-- app/views/books/show.html.erb -->
 <p>Genres:</p>
 <ul>
   <% @book.genres.each do |genre| %>
@@ -200,11 +168,9 @@ For the first one, we'll need to edit the `show` view template for our books:
 </ul>
 ```
 
-The remainder are left as an exercise to the reader.
-
 ### Modifying Relations
 
-A typical library application will have many more books than genres. Since there will be less options to choose from, it probably makes sense to add book-genre relations through the book rather than through the genre. We will allow a user to pick from a list of genres whenever the create or edit a book.
+A typical library application will have many more books than genres. Since there will be less options to choose from, it probably makes sense to specify book-genre relations through the book rather than through the genre. We will allow a user to pick from a list of genres whenever the create or edit a book.
 
 #### Checkboxes
 
