@@ -36,7 +36,11 @@ If we had an instance of `Genre`, we might imagine getting a list of books with 
 
 Databases do not have an "array" data type, so we can't put a list of genres on each book. Instead we will use an intermediate table, referred to as a _join table_, where each row specifies one book-genre pair.
 
-This means we'll need not two but _three_ tables: `books`, `genres` and `books_genres`. Here's how they might look:
+This means we'll need not two but _three_ tables: `books`, `genres` and `books_genres`. The tables will be related in this way:
+
+![Many to many ERD](./images/books-genres-ERD.png)
+
+And the tables themselves, with data:
 
 **books**
 
@@ -67,12 +71,6 @@ These tables indicate 4 relations between books and genres:
 - Book 2 (Hidden Figures) and genre 1 (Nonfiction)
 - Book 1 (Bad Feminist) and genre 2 (Feminism)
 - Book 2 (Hidden Figures) and genre 3 (History)
-
-An ERD for this setup might look like this
-
-# TODO
-
-![Many to many ERD](./images/many-to-many-erd.file)
 
 ### Building the Join Table
 
