@@ -7,9 +7,17 @@ We've seen how to connect different database tables using a many-to-one relation
 
 ## Learning Goals
 
-- Explore _why_ we would want to use nested routes
-- Explore _how_ to set up nested routes manually
-- See how to use nested routes with `resources`
+- Use **nested routes** to make our webapp reflect the structure of our data
+- Modify our controllers to take advantage of nested routes
+- Build UI elements that interact with nested routes
+
+## Workflow
+
+Our new `Author` model and its relation to `Book` require a few changes to our application's user experience. Here are some user stories to consider:
+- A user should be able to select an author when creating a new book
+- When viewing the details page for an author a user should see a link to add a book for that author
+
+
 
 ## Nested Routes
 Oftentimes we create nested routes when we have resources which are _children_ of other resources. In this case, we will have a _genre_ resource which will contain books. Ideally, we can configure routes to be _nested_ within one another to provide additional context about the request we are making. For example, if we want to retrieve the list of books associated with the genre "nonfiction" (where genre "nonfiction" has an ID of 1 in our database), then we would want a route like `/genres/1/books`. This example demonstrates **nested routes**. We utilize RESTful routes for `books` inside the `genres` RESTful routes.

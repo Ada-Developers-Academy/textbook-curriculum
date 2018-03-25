@@ -1,8 +1,19 @@
 # Active Record Relationships
+
 ## Learning Goals
 - Move beyond single-model, single-table applications
 - Learn the Rails vernacular for describing _model relationships_
 - Explore the __awesome__ functionality provided by *belongs_to* and *has_many*
+
+## Intro
+
+It's 9:00 AM on Monday, and our CTO has just called an all-hands meeting. Our customers love the library application we built last week, and are delighted to be able to keep track of their books. In fact, they're so impressed that they're asking for more functionality. The customer wants to be able to:
+
+- See a list of authors
+- Keep track of details for a given author, like when they were born, their nationality and a short bio
+- See the list of books written by a particular authors
+
+With the tools we've seen so far, keeping track of authors by themselves would be straightforward. However, we need to keep track not just of authors but of how they relate to books. Managing these relations calls for a new set of techniques.
 
 ## *has_many* & *belongs_to*
 Two Rails models can be related to each other through an identifier field (what we call a _foreign key_ in SQL). Take a look at the these two tables:
