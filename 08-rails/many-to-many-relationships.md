@@ -236,6 +236,8 @@ class BooksController < ApplicationController
 end
 ```
 
+**Question:** In an earlier lesson we learned about _nested routes_. Why aren't we using them here?
+
 ## Summary
 
 - The relationship between books and genres is an example of a _many-to-many_ relation
