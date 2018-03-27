@@ -12,35 +12,53 @@ Currently our library webapp does not reflect the new relation between `Author` 
 
 Here are some user stories to consider:
 - As a librarian, I want to view the list of books for a specific author
-- As a librarian, when viewing the details page for an author a user should see a link to add a book for that author
+- As a librarian, I want to see a link to add a book for a specific author on the details page for that author
 
-Both these user stories break up the collection of books. They require us to consider the books written by _Octavia Butler_ separately from those written by _Ursula K. Le Guin_.
-
-One way to address this problem is by using **nested routes**.
+Both these user stories break up the collection of books. They require us to consider the books written by _Octavia Butler_ separately from those written by _Ursula K. Le Guin_. One way to address this problem is by using **nested routes**.
 
 ## Nested Routes
-Oftentimes we create nested routes when we have resources which are _children_ of other resources. In this case, we will have a _genre_ resource which will contain books. Ideally, we can configure routes to be _nested_ within one another to provide additional context about the request we are making. For example, if we want to retrieve the list of books associated with the genre "nonfiction" (where genre "nonfiction" has an ID of 1 in our database), then we would want a route like `/genres/1/books`. This example demonstrates **nested routes**. We utilize RESTful routes for `books` inside the `genres` RESTful routes.
 
-**Question**: Do we want _all_ `books` routes to be nested inside `genres`? If not, which would we want to be nested and which wouldn't?
+The big idea behind nested routes is that we ought to be able to access our collection of books two ways: all the books, and only the books for one author.
 
-Let's take a look at our standard RESTful routes:
+Verb | Path                   | Description
+---  | ---                    | ---
+GET  | `/books`               | Show a list of all books
+GET  | `/authors/7/books`     | Show books for author 7
+GET  | `/books/new`           | Form to add a new book (needs author dropdown)
+GET  | `/authors/7/books/new` | Form to add a new book for author 7 (no dropdown)
+
+To nest routes in Rails, add a block to the `resources` in the route file. Note that we're only nesting the `index` and `new` actions.
+
 ```ruby
-resources :genres
-resources :books
-```
-
-Now, let's take a look at how to configure the nested routes we decided on above:
-```ruby
-resources :genres do
-  get '/books', to: 'books#index'
-  # resources :books, only: [:index]
-  # two ways to get the same nested route
+# config/routes.rb
+resources :authors do
+  resources :books, only: [:index, :new]
 end
 
+# We still want to be able to access the full collection,
+# so books needs resources too
 resources :books
 ```
 
-What did we gain here? We've created an additional books index route which will also contain an additional `param` value `:genre_id`. Since we are using a nested route, Rails uses a more specific parameter name rather than `:id` which we are used to.
+**Activity:** Use `rails routes` to look at the route table. What do you notice about the new nested routes?
+
+When we inspect our route table, we can see two new routes have been added.
+
+```
+$ rails routes
+         Prefix Verb   URI Pattern                             Controller#Action
+   author_books GET    /authors/:author_id/books(.:format)     books#index
+new_author_book GET    /authors/:author_id/books/new(.:format) books#new
+[... other routes ...]
+```
+
+We can make a few observations about these new routes:
+- The URI pattern matches what we had in the table above
+    - The parameter is called `:author_id`, not `:id`
+- Since these routes have prefixes, we can use path helpers (`author_books_path`, `new_author_book_path`)
+- These routes point to the same controller actions we were using before. This will help keep things DRY.
+
+**Question:** So far we have only nested the `index` and `new` actions. Should we nest the other 5 RESTful routes? Why or why not?
 
 
 
