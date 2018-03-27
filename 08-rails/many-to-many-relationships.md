@@ -150,7 +150,9 @@ Many-to-many relationships take some work at the database level, but they also p
 
 **Activity:** Spend some time brainstorming how we might represent the relation between books and genres in our library webapp. Consider the following questions:
 - How might a user view the genres for a book, or the books for a genre?
-- How would you add a relation? Should it be from the book side, the genre side, or both? What might this look like visually? Draw a picture!
+- How would a user specify that a book belongs to a genre?
+    - Should it be from the book side, the genre side, or both?
+    - What might this look like visually? Draw a picture!
 
 ### Viewing Relations
 
@@ -235,6 +237,14 @@ end
 ```
 
 ## Summary
+
+- The relationship between books and genres is an example of a _many-to-many_ relation
+    - Books have many genres, genres have many books
+- At the database level, a many-to-many relation requires a _join table_
+    - Each row in the join table specifies one book-genre relation
+- At the model level, use ActiveRecord's `has_and_belongs_to_many` to specify a many-to-many relation
+    - This gives us many of our familiar AR methods
+- Complex relations require careful UX design
 
 ## Additional Resources
 
