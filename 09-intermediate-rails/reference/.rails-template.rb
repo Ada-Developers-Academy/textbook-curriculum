@@ -5,6 +5,9 @@ gem 'jquery-rails'
 
 gem 'foundation-rails'
 
+# Add normalize.css
+gem 'normalize-rails'
+
 gem_group :development, :test do
   # Use pry for rails console, enable binding.pry
   gem 'pry-rails'
@@ -35,6 +38,15 @@ end
 //= require jquery
     RUBY
   end
+
+  # Add jquery to application.js to work with foundation-rails
+  inject_into_file 'app/assets/stylesheets/application.css', after: ' * It is generally better to create a new file per style scope.' do
+    <<-'RUBY'
+
+ *= require normalize-rails
+    RUBY
+  end
+
 
 # Mess with generators to get the behavior we expect around new files
 # For these injections, indentation matters!
@@ -76,16 +88,15 @@ Minitest::Reporters.use!(
   end
 end
 
-  # Add Foundation Javascript with Motion-ui this must be run after
-  # rails generate foundation:install, because that command
-  # adds foundation_and_overrides.scss
-  inject_into_file 'app/assets/stylesheets/foundation_and_overrides.scss', after: '// @include motion-ui-animations;' do
-    <<-'RUBY'
+   # Add Foundation Javascript with Motion-ui this must be run after
+   # rails generate foundation:install, because that command
+   # adds foundation_and_overrides.scss
+ inject_into_file 'app/assets/stylesheets/foundation_and_overrides.scss', after: '// @include motion-ui-animations;' do
+   <<-'RUBY'
 
-@import 'motion-ui/motion-ui';
-@include motion-ui-transitions;
-@include motion-ui-animations;
+ @import 'motion-ui/motion-ui';
+ @include motion-ui-transitions;
+ @include motion-ui-animations;
 
-    RUBY
-  end
-end
+   RUBY
+ end
