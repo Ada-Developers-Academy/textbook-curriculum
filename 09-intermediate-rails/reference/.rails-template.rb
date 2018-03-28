@@ -86,7 +86,6 @@ Minitest::Reporters.use!(
 )
     RUBY
   end
-end
 
    # Add Foundation Javascript with Motion-ui this must be run after
    # rails generate foundation:install, because that command
@@ -100,3 +99,4 @@ end
 
    RUBY
  end
+end
