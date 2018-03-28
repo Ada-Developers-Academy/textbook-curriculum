@@ -94,9 +94,9 @@ end
  inject_into_file 'app/assets/stylesheets/foundation_and_overrides.scss', after: '// @include motion-ui-animations;' do
    <<-'RUBY'
 
- @import 'motion-ui/motion-ui';
- @include motion-ui-transitions;
- @include motion-ui-animations;
+@import 'motion-ui/motion-ui';
+@include motion-ui-transitions;
+@include motion-ui-animations;
 
    RUBY
  end
