@@ -120,5 +120,25 @@ Now if we go to `/authors/2/books/new`, we should see that the dropdown menu sta
 
 **Question:** Can we omit the dropdown entirely when the author is already filled in? How will this affect editing a book?
 
+## Over-nesting
+
+A common mistake is to use nested routes when they aren't required. For an example of why this is problematic, consider a nested version of the route to show a book, `/authors/:author_id/books/:id`.
+
+What should our `BooksController` do with the `author_id` parameter? Looking up a book requires the book ID, so we don't need it for that. Moreover, what if the `author_id` we loaded from the database doesn't match what was typed in the URL? Is this an error?
+
+The central issue here is that the `author_id` parameter is _redundant_. We could already figure out the author given the book. Asking the user to send it to us again only creates an opportunity for confusion.
+
+The same is true of the create route. What if we get a `POST /authors/7/books`, but the form data indicates the `author_id` should be 13? Is this an error? If not, which one should we trust? Again, the information is _redundant_.
+
+**In general, only the `index` and `new` routes need to be nested.**
+
+## Summary
+
+- Nested routes are a tool to reflect model relations in the user's experience
+- Nested routes are created by adding a block to the call to `resources` of the parent route
+- Our controller actions need to be aware of nested routes, but we can usually re-use view code
+- Be careful not to over-nest routes
+    - Usually only `index` and `new` should be nested
+
 ## Additional Resources
 - [Ruby on Rails: Nested Routes](http://guides.rubyonrails.org/routing.html#nested-resources)
