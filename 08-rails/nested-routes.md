@@ -96,43 +96,5 @@ end
 
 
 
-## Putting it together
-
-Now that we have established the relationship we are expecting and the route that will associate the two resources together, let's see how to get started on our controller implementation.
-
-```ruby
-# books_controller.rb
-...
-def index
-  if params[:genre_id]
-    # we are in the nested route
-    # retrieve books based on the genre
-  else
-    # we are in our 'regular' route
-    @books = Book.all
-  end
-end
-```
-
-Since we are retrieving the books based off of the genre, the query now gets a bit more complex. Since we don't have a `genre_id` directly on the book table, we have to look up the genre first and use that to find associated books.
-
-```ruby
-# books_controller.rb
-...
-def index
-  if params[:genre_id]
-    # we are in the nested route
-    # retrieve books based on the genre
-    genre = Genre.find_by(id: params[:genre_id])
-    @books = genre.books
-  else
-    # we are in our 'regular' route
-    @books = Book.all
-  end
-end
-```
-
-**Question:** What should our controller do if the user supplied a `genre_id` that doesn't match a genre?
-
 ## Additional Resources
 - [Ruby on Rails: Nested Routes](http://guides.rubyonrails.org/routing.html#nested-resources)
