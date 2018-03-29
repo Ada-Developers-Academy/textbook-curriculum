@@ -49,16 +49,50 @@ $ rails routes
          Prefix Verb   URI Pattern                             Controller#Action
    author_books GET    /authors/:author_id/books(.:format)     books#index
 new_author_book GET    /authors/:author_id/books/new(.:format) books#new
-[... other routes ...]
+[... author routes ...]
+          books GET    /books(.:format)                        books#index
+                POST   /books(.:format)                        books#create
+       new_book GET    /books/new(.:format)                    books#new
+[... other book routes ...]
 ```
 
 We can make a few observations about these new routes:
 - The URI pattern matches what we had in the table above
     - The parameter is called `:author_id`, not `:id`
 - Since these routes have prefixes, we can use path helpers (`author_books_path`, `new_author_book_path`)
+- The original routes (`/books` and `/books/new`) are still there
 - These routes point to the same controller actions we were using before. This will help keep things DRY.
 
 **Question:** So far we have only nested the `index` and `new` actions. Should we nest the other 5 RESTful routes? Why or why not?
+
+## Controllers and Views
+
+### Index
+
+Because our routes are more complex, we now need to make our controllers and views a little more intelligent. A request for the book list may now come in with or without an author ID; we need to handle both cases.
+
+```ruby
+# app/controllers/books_controller.rb
+class BooksController < ApplicationController
+  # ...
+  def index
+    if params[:author_id]
+      # This is the nested route, /author/:author_id/books
+      author = Author.find_by(id: author_id)
+      @books = author.books
+
+    else
+      # This is the 'regular' route, /books
+      @books = Book.all
+    end
+  end
+  # ...
+end
+```
+
+**Question:** Do we need to make any changes to the `books#index` view template? Why or why not?
+
+**Question:** What should our code do if the author is not found, that is, if the user goes to `/authors/789012/books` or `/authors/toaster/books`?
 
 
 
