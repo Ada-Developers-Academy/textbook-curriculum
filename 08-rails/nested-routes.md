@@ -4,7 +4,6 @@
 
 - Use **nested routes** to make our webapp reflect the structure of our data
 - Modify our controllers to take advantage of nested routes
-- Build UI elements that interact with nested routes
 
 ## Introduction
 
@@ -94,7 +93,32 @@ end
 
 **Question:** What should our code do if the author is not found, that is, if the user goes to `/authors/789012/books` or `/authors/toaster/books`?
 
+### New
 
+The `new` action will be very similar. In the past we've seen that the `form_for` view helper will automatically insert any attributes on the model into the form. We will take advantage of this functionality by filling in the `author` on the new model.
+
+```ruby
+# app/controllers/books_controller.rb
+class BooksController < ApplicationController
+  # ...
+  def new
+    if params[:author_id]
+      # This is the nested route, /author/:author_id/books/new
+      author = Author.find_by(id: author_id)
+      @books = author.books.new
+
+    else
+      # This is the 'regular' route, /books/new
+      @books = Book.new
+    end
+  end
+  # ...
+end
+```
+
+Now if we go to `/authors/2/books/new`, we should see that the dropdown menu starts with the second author selected.
+
+**Question:** Can we omit the dropdown entirely when the author is already filled in? How will this affect editing a book?
 
 ## Additional Resources
 - [Ruby on Rails: Nested Routes](http://guides.rubyonrails.org/routing.html#nested-resources)
