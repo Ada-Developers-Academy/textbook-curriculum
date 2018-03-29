@@ -134,4 +134,18 @@ Since we have updated the way that the data is retrieved within our books applic
 1. Locate the view where the new book form is located. Switch the form from using a `text_field` for the author to using a `select`. You can read more about the different types of select tags Rails provides [here](http://guides.rubyonrails.org/form_helpers.html#making-select-boxes-with-ease).
 
     Within a `form_for` you can use:
-    `<%= f.select :author_id, Author.all.map{ |auth| auth.name, auth.id } %>`
+    `<%= f.select :author_id, Author.all.map{ |auth| [auth.name, auth.id] } %>`
+
+1. Since we're now sending the `author_id` instead of the author's name, we'll need to update the strong params in our `BooksController`.
+
+    ```ruby
+    # app/controllers/books_controller.rb
+    class BooksController < ApplicationController
+      # ... all the actions ...
+      private
+      def book_params
+        # Fill in other field names as appropriate
+        return params.require(:book).permit(:title, :author_id)
+      end
+    end
+    ```
