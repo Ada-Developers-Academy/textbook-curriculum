@@ -10,7 +10,7 @@ Let's update our books application from our previous lectures to have this struc
 1. Set up the model relationship
 1. Set up some test data
 1. Test it out!
-1. Update the views (we are going to skip this part in class)
+1. Update the controllers and views
 
 ## Step One
 
@@ -149,3 +149,13 @@ Since we have updated the way that the data is retrieved within our books applic
       end
     end
     ```
+
+## Conclusion
+
+ActiveRecord provides powerful tools for building relations between different models. Taking advantage of these tools has three main steps:
+
+- Use migrations to set up the database
+- Add the relations to the model classes
+- Use the relations in your controllers and views
+
+Relations are a key part of what makes databases great - they're the **R** in RDB. The skills and techniques we learn for managing them will apply in many settings. Being able to use relations effectively is an essential part of working with Rails, and we will continue to practice them over the coming weeks. 
