@@ -4,11 +4,14 @@
 
 We are setting up an application to allow people to share their homes to tourists online like AirBnb.  So our initial user stories would be:
 
-- As a user I can add a home to be listed for rentals, along with a price, so I can rent the home out and make money.
-- As a user I can choose when a home of mine is available for rentals so I can pick when I can have guests.
-- As a user I can can select a home to rent for a vacation on a specific set of dates.
-- As a user I can see all the money I have spent.
-- As a user with rentals I can see all the money I have made from clients renting my homes.
+- For Hosts
+  - As a user I can add a home to be listed for rent, along with a price.
+  - As a user I can choose when a home of mine is available for rentals so I can pick when I can have guests.
+  - As a user with rentals I can see all the money I have made from clients renting my homes.
+- As a guest
+  - As a user I can can select a home to rent for a vacation on a specific set of dates.
+  - As a user I can see all the money I have spent.
+
 
 ## Exercise
 
