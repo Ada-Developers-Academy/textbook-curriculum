@@ -19,7 +19,7 @@ One key observation is that these tasks are all independent of context. You coul
 
 As an example of business logic for our library app, we'll be writing a method to answer the following question: in what year was an author first published?
 
-**Question:** How would you compute this value? Don't worry about _where_ to put this logic yet, only on how it might work.
+**Question:** How would you compute this value? Don't worry about _where_ to put this logic yet, only how it might work.
 
 ## Model Methods
 
