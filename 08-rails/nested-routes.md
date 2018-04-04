@@ -128,7 +128,7 @@ What should our `BooksController` do with the `author_id` parameter? Looking up 
 
 The central issue here is that the `author_id` parameter is _redundant_. We could already figure out the author given the book. Asking the user to send it to us again only creates an opportunity for confusion.
 
-**In general, you should never nest routes corresponding to individual resources.**
+**In general, if your route specifies a resource by ID (e.g. `/books/:id`), it probably should not be nested.**
 
 ### Create
 
