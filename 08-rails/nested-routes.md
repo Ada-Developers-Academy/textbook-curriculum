@@ -77,7 +77,7 @@ class BooksController < ApplicationController
   def index
     if params[:author_id]
       # This is the nested route, /author/:author_id/books
-      author = Author.find_by(id: author_id)
+      author = Author.find_by(id: params[:author_id])
       @books = author.books
 
     else
@@ -104,7 +104,7 @@ class BooksController < ApplicationController
   def new
     if params[:author_id]
       # This is the nested route, /author/:author_id/books/new
-      author = Author.find_by(id: author_id)
+      author = Author.find_by(id: params[:author_id])
       @books = author.books.new
 
     else
@@ -124,13 +124,19 @@ Now if we go to `/authors/2/books/new`, we should see that the dropdown menu sta
 
 A common mistake is to use nested routes when they aren't required. For an example of why this is problematic, consider a nested version of the route to show a book, `/authors/:author_id/books/:id`.
 
-What should our `BooksController` do with the `author_id` parameter? Looking up a book requires the book ID, so we don't need it for that. Moreover, what if the `author_id` we loaded from the database doesn't match what was typed in the URL? Is this an error?
+What should our `BooksController` do with the `author_id` parameter? Looking up a book requires the book ID, so we don't need it for that. Moreover, what if the `author_id` we loaded from the database doesn't match what was typed in the URL? Is this an error? The same questions come up with the `edit`, `update` and `destroy` paths.
 
 The central issue here is that the `author_id` parameter is _redundant_. We could already figure out the author given the book. Asking the user to send it to us again only creates an opportunity for confusion.
 
-The same is true of the create route. What if we get a `POST /authors/7/books`, but the form data indicates the `author_id` should be 13? Is this an error? If not, which one should we trust? Again, the information is _redundant_.
+**In general, you should never nest routes corresponding to individual resources.**
 
-**In general, only the `index` and `new` routes need to be nested.**
+### Create
+
+The decision on whether to nest the `create` route is a little more nuanced.
+
+In our library example we have the author ID in the form data, so including the author ID in the `create` URL would introduce redundancy. This is similar to what we say above for the individual routes. What if we get a `POST /authors/7/books`, but the form data indicates the `author_id` should be 13? Is this an error? If not, which one should we trust?
+
+However, sometimes you need to do a `POST` without using a form, or the form doesn't have the information you need. In this case, nesting the `create` route might be the right way to go.
 
 ## Summary
 
@@ -138,7 +144,7 @@ The same is true of the create route. What if we get a `POST /authors/7/books`, 
 - Nested routes are created by adding a block to the call to `resources` of the parent route
 - Our controller actions need to be aware of nested routes, but we can usually re-use view code
 - Be careful not to over-nest routes
-    - Usually only `index` and `new` should be nested
+    - Only `index`, `new` and sometimes `create` should be nested
 
 ## Additional Resources
 - [Ruby on Rails: Nested Routes](http://guides.rubyonrails.org/routing.html#nested-resources)
