@@ -1,11 +1,35 @@
 # Testing Fundamentals
 ## Goals
 + Why should we care about testing?
-+ Test classifications
-+ Functional testing practice
++ Test classification and terminologies
+
+## Testing terminologies
+**Functional testing** focuses on ensuring that the software meets and provides all the required functionality. The specifications and requirements provided at the beginning of the software development cycle form the starting point for validating that the software provides all the needed functionality.
+
+<!--
+- equivalence class
+- edge cases
+-->
+
+**Black box testing** is a method of software testing that examines the functionality of an application, or function without peering into its internal structures or workings. Often, this approach is used to test public APIs and user interfaces. Black box testing may be performed by *manual* or *automated* tests.
+**White box testing** (clear box testing, glass box testing) focuses on testing with complete knowledge of internal structure and code. Often, this approach is used to validate internal flow and interactions within the software. White box testing requires internal knowledge of the software being tested and programming skills.
+With black box testing, one is aware of *what* the software is supposed to do but is not aware of *how* it does it. 
+-**Black box testing** tests the interface
+-**White box testing** tests the implementation details
+
+
+
+**Code coverage** is a measure used to describe the degree to which the source code of a program is executed when a particular test suite runs. 
+
+A program with high code coverage, measured as a percentage, has had more of its source code executed during testing which *suggests* it has a lower chance of containing undetected software bugs compared to a program with low code coverage. Note that higher code coverage doesn't always mean that all the code covered was validated.
+
+
+
+
 
 ## Optional: Find the reading material that helps you learn further from the links below:
 + [What Is a Good Test Case? (Cem Kaner, J.D., Ph.D.)](http://www.kaner.com/pdfs/GoodTest.pdf)
++ [Black box vs. white box testing](https://technologyconversations.com/2013/12/11/black-box-vs-white-box-testing/)
 + TechTarget.com on [Unit Testing](http://searchsoftwarequality.techtarget.com/definition/unit-testing)
 + TechTarget.com on [Integration Testing](http://searchsoftwarequality.techtarget.com/definition/integration-testing)
 + TutorialsPoint on [End-to-end Testing](https://www.tutorialspoint.com/software_testing_dictionary/end_to_end_testing.htm)
