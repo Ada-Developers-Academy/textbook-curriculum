@@ -99,7 +99,7 @@ What is a _template_? For now, just think of it as a way to add some more comple
 
 ### Instructions
 
-1. Download [this template file](https://gist.github.com/droberts-ada/26a3bff1510b0b45fa5dd764a833483c), and save it as `~/.rails-template.rb`
+1. Download [this template file](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/09-intermediate-rails/reference/.rails-template.rb), and save it as `~/.rails-template.rb`
 1. Run the following command in your terminal
     ```bash
     echo "-m ~/.rails-template.rb" >> ~/.railsrc
