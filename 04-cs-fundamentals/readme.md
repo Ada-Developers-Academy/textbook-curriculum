@@ -9,15 +9,17 @@ Mar 01  | [Arrays and algorithmic efficiency](https://github.com/Ada-Developers-
 Mar 15  | [Arrays continued](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Arrays.md), [Introduction to Data Structures](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Introduction%20to%20Data%20Structures.md)
 Mar 22  | [Introduction to Data Structures](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Introduction%20to%20Data%20Structures.md)
 Apr 05  | [Linked Lists](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Introduction%20to%20Linked%20Lists.md)
-Apr 12  | [Understanding function calls, Introduction to Recursion](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Introduction%20to%20Recursion.md)
+Apr 12  | [Linked Lists continued](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Introduction%20to%20Linked%20Lists.md), [Understanding function calls](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Introduction%20to%20Recursion.md)
 Apr 26  | Solving problems [using Hash tables](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Using%20Hash%20Tables.md)
 May 03  | Mock Interview practice, [Whiteboarding tips](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Whiteboarding-Tips.md)
 **Week of May 07** | **Mock interviews**
-May 17  | [Recursion continued, Merge sort](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Introduction%20to%20Recursion.md)
-May 24  | [Sorting](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Sorting.md)
+May 17  | [Recursion](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Introduction%20to%20Recursion.md)
+May 24  | [Recursion continued, Merge sort](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Introduction%20to%20Recursion.md)
 May 31  | Mock interview practice
 **Week of June 04** | **Internship placement interviews**
 Jun 21  | [Introduction to software design](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Software%20Design.md)
+
+Left for self-reading and learning: [Sorting](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Sorting.md)
 
 ## Internship - Cohort 8
 Date    | Topics
