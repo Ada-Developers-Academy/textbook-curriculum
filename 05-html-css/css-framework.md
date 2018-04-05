@@ -1,7 +1,10 @@
 # CSS Framework: Zurb Foundation
 
 ## 📚 Learning Goals 📚
-- Create a Responsive Grid-based Layout using Foundation
+By the end of this lesson you should be able to:
+- Explain the use of a CSS framework like Foundation
+- Use Foundation to apply standard styles to common HTML elements
+- Use Foundation to apply styling and validation to HTML form elements
 
 
 ## What is a Front-end Framework?
