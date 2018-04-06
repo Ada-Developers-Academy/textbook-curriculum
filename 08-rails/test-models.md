@@ -1,43 +1,53 @@
 # Unit Testing Models
 
 ## Learning Goals
-- Write some unit tests using the Rails testing DSL
-- Be comforted knowing it's Minitest under the hood, and we know how to Minitest
-- Talk about how to test Active Record models
-- Get some basic strategies for where to start with testing
+
+By the end of this lesson, students should be able to...
+
+- Write unit tests for Rails Models
+- Understand how model tests are typically organized
+- Decide what parts of a model need to be tested, and how
 
 ## Testing Active Record Models
 
 ### What Should You Test?
 
-Figuring out what to test is a bit of an art. You'll develop a sense of what needs tested as you gain experience and exposure, but we can at least set you up with guidelines:
+Since models are quite similar to the code we were writing before Rails, our tests will look similar to the tests we've written so far. Here are some guidelines for what to test:
 
+- Write at least one test for each _relation_ on a model
+- Write at least one test for each _validation_ on a model
+  - Each model also needs one test where all the validations pass
 - Write at least one test for each _custom method_ on a model
-- Write at least one test for each _model relationship_ on a model
-- Write at least two tests for each _validation_ on a model
-- Write at least two tests for each _scope_ on a model (we'll talk about scopes next week)
 
-Why at least two tests for a validation? Because validations have two possible behaviors: success and failure! To truly exercise the validation, you need both _positive_ and _negative_ test cases, as well as cases that walk the line between the two.
-
-For example, a Book's price should never be negative, so test instances where it's positive, negative and zero.  
+It's important to note that we do _not_ need to verify all the behavior that validations and relations give us. These pieces are implemented by Rails itself, and their tests are very comprehensive! Instead, our job is to make sure we've hooked into their behavior correctly. Essentially we're double checking we've spelled things right.
 
 ### The Model
 
-Let's say our model looks like this:
+Let's apply these guidelines to the `Book` model from our library app:
 
 ```ruby
 # app/models/book.rb
 class Book < ActiveRecord::Base
   belongs_to :author
   validates :title, presence: true, uniqueness: true
+
+  # How many years old is this book?
+  def age
+    return Time.now.year - self.publication_year
+  end
 end
 ```
 
-Just in this small bit of code, we see three or four things to test. First are the validations. Writing a _positive_ and _negative_ test case for each validation is four or so tests.
+**Question:** based on the guidelines above, what test cases will we need to write for this model?
 
-Then there's the `belongs_to` relationship. We should test that too, if only to make sure we've spelled everything right! We need to make sure that if an `author_id` is set on a book, we can access `book.author`.
+We will need to write tests that ask the following questions:
+- If you create an instance of the model with all fields, do validations pass?
+- Do validations fail when the `title` field is missing?
+- Do validations fail when the book has the same `title` as another book in the database?
+- Can you access the book's `author` property?
+- Does the `age` method return the correct value?
 
-#### Generated Test Code
+## Test Files
 
 **Question:** When we generated our `Book` model, Rails generated some tests as well. Where do they live?
 
@@ -58,9 +68,11 @@ end
 
 If you have something about `class`es and `ActiveSupport::TestCase` instead, just replace it with the above code.
 
-### Testing The `presence` Validation
+## Testing Validations
 
-Let's look at validations first, particularly the `presence` validation. We can follow the pattern shown in the generated file to write our first test.
+### All Passing
+
+From the list we developed above, our first task is to test that, if all fields are present on the `Book`, the validations will pass. We can follow the pattern shown in the generated file to write our first test.
 
 ```ruby
 # test/models/book_test.rb
@@ -68,30 +80,65 @@ require 'test_helper'
 
 describe Book do
   describe 'validations' do
-    it 'is invalid without a name' do
-      book = Book.new
-      result = book.valid?
-      result.must_equal false
+    before do
+      # Arrange
+      author = Author.new(name: 'test author')
+      @book = Book.new(title: 'test book', author: author)
+    end
+
+    it 'is valid when all fields are present' do
+      # Act
+      result = @book.valid?
+
+      # Assert
+      result.must_equal true
     end
   end
 end
 ```
 
-To see it in action, run `rails test test/models` from the project root.
+Notice that we follow the same _Arrange_, _Act_, _Assert_ pattern we used before Rails.
 
-**Question:** Is the test above a _positive_ or _negative_ test? What would the other test look like?
+The _Arrange_ step for this test is all in the `before` block. Here we call `Book.new`, creating an actual book to test against. By storing it in an instance variable, we make it available in our tests.
 
-There's a couple things to note in the above example. First and foremost is that we are invoking our model directly with `Book.new`, and then calling `.valid?` on the created instance.
+Like before, the _Act_ step is always to call the method we're testing. Because these tests are for our validations, that means we must call `.valid?`.
 
-Also check our _expectations_. They look like Minitest _expectations_ because they are. [There's a bunch of available _expectations_](http://ruby-doc.org/stdlib-trunk/libdoc/minitest/spec/rdoc/MiniTest/Expectations.html), but I get most of my testing done with just a small set:
+Finally, in the _Assert_ step we verify that `.valid?` returned true. You'll have the same set of minitest expectation available to you here as you did before Rails.
 
-- `must_be(expression, fail_message)`
-- `wont_be(expression, fail_message)`
-- `must_equal(expr2, fail_message)`
-- `must_include(object, fail_message)`
-- `wont_be_nil(fail_message)`
+#### Running the Test
 
-The last thing to note is the use of a nested `describe` block. While not strictly necessary, this is a very useful organizational tool, especially when test files start to get very large.
+From the project root, run
+
+```
+$ rails test test/models
+```
+
+This test should pass without us having to do anything.
+
+### Testing the `presence` Validation
+
+Next, we'll test that our validations fail when the book doesn't have a title. We can build on our previous work by adding another `it` block that references `@book`.
+
+```ruby
+# test/models/book_test.rb
+# inside the same describe 'validations' block:
+it 'is invalid without a title' do
+  # Arrange
+  @book.title = nil
+
+  # Act
+  result = @book.valid?
+
+  # Assert
+  result.must_equal false
+end
+```
+
+In the _Arrange_ step, we take our previously valid book and modify it so that the validation we're interested in will fail. Remember that the `before` block is run before _every_ test, so this won't affect our previous test, even if they're run out of order.
+
+Run the tests again - this one should also pass, because we're doing our testing after the fact.
+
+**Question:** How could we modify our model to make the test fail?
 
 #### Checking Which Validation Failed
 
@@ -101,31 +148,29 @@ An ActiveRecord model might have many different validations, and if any one of t
 
 ```ruby
 # test/models/book_test.rb
-require 'test_helper'
+it 'is invalid without a title' do
+  # Arrange
+  @book.title = nil
 
-describe Book do
-  describe 'validations' do
-    it 'is invalid without a name' do
-      book = Book.new
-      result = book.valid?
-      result.must_equal false
+  # Act
+  result = @book.valid?
 
-      book.errors.messages.must_include :title
-    end
-  end
+  # Assert
+  result.must_equal false
+  @book.errors.messages.must_include :title
 end
 ```
 
 ### Exercise: Testing the `uniqueness` Validation
 
 Take a few minutes and write a test for the `uniqueness` validation on the `Book` model. Questions to consider:
-- What positive, negative and edge cases might be interesting?
+- How will you make the validation fail?
 - How will this test be similar to the `presence` validation?
 - How will this test differ from the `presence` validation?
 
-### Testing Relations
+## Testing Relations
 
-We've thoroughly covered our model validations, and can now be reasonably certain there's no way invalid models can make their way into our database. There's a second bit of functionality on the `Book` model that we still haven't covered though: it's relation to `Author`.
+We've thoroughly covered our model validations, and can now be reasonably certain there's no way invalid models can make their way into our database. There's another bit of functionality on the `Book` model that we still haven't covered though: it's relation to `Author`.
 
 How should we think about these tests? First, think of what we can say about a `Book` and it's relation to `Author`.
 
