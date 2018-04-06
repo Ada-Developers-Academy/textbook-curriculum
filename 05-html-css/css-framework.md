@@ -64,11 +64,16 @@ The updated template adds the following content:
 
 ```ruby
 ...
+
 gem 'foundation-rails'
+
 ...
+
 # Run rails generate foundation:install
   generate "foundation:install", "--force"
+
 ...
+
 # Add Foundation Javascript with Motion-ui this must be run after
 # rails generate foundation:install, because that command
 # adds foundation_and_overrides.scss
@@ -83,18 +88,65 @@ RUBY
 end
 ```
 
-The template first adds the `foundation-rails` gem to the gemfile.  Then it runs a command to generate a bunch of CSS and JavaScript files.  Lastly it adds some code to `foundation_and_overrides.scss` in the stylesheets folder to include some libraries for animated menus and transitions.
+These foundation template changes will cause Rails to:
+1. Add the `foundation-rails` gem to the gemfile.  
+2. Run a generator command to work with the gem to generate a bunch of CSS and JavaScript files.  
+3. Lastly add some code to `foundation_and_overrides.scss` in the stylesheets folder to include some libraries for animated menus and transitions.
 
----
-We will be taking a version of Foundation from the web and installing in into a Rails application.
+Now when you create a new Rails project you will see the following stylesheets.
 
-1.  We can [download this specific version](https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.css) on this site. Note that the text loaded here is the CSS we will need so go ahead and select it all and copy it. Foundation made some breaking changes to a later version of Foundation, and so we'll be using an earlier version to ensure our usage of the grid layout is good.
+![Foundation Gem Stylesheets](imgs/foundation_stylesheets.png)
 
-1. Create a new CSS file in your Rails application under `app/assets/stylesheets`. Call this file `foundation.css`. Copy the contents of the copied file in step 1 into this file.
+You can change foundation settings by editing the `_settings.scss` file and turn off and on Foundation features by changing the `foundation_and_overrides.scss` file.  You can also override foundation styles, by defining css rules of your own in the `applicaiton.css` file.  
 
-1. Reload a page in your browser in your Rails application and verify that it looks different! Foundation should modify some default styles and fonts so you should be able to tell right away.
+## Using Foundation Typography
 
-That's it!
+You should first notice that foundation changes the default styling of all the header and paragraph text styling
+
+### Before Foundation:
+![before-foundation-typography](imgs/before-foundation.png)
+
+### After Foundation:
+![after-foundation-typography](imgs/after-foundation.png)
+
+So foundation provides you an attractive set of default fonts and styles for the basic elements.  It also provides styling for lists, abbreviations, quotations and accessibility.  You can see them [here](https://foundation.zurb.com/sites/docs/typography-base.html).
+
+## Built-in Foundation Classes
+
+Foundation provides a number pre-created stylings for class names you can add to common HTML elements for common styling purposes.  
+
+For example, Foundation also provides a variety of ways to create buttons on your site either using anchor or button elements.  You can experiment with foundation buttons [here](https://codepen.io/adadev/pen/WzYvyo?editors=1000).
+
+```html
+<a class="button tiny" href="#">So Tiny</a>
+<a class="button small" href="#">So Small</a>
+<button class="button" href="#">So Basic</button>
+<a class="button alert" href="#">So Basic with alert</a>
+<a class="button success" href="#">So Basic with success</a>
+<button class="button secondary" href="#">So Basic with secondary</button>
+<a class="button warning" href="#">So Basic with warning</a>
+<a class="button large" href="#">So Large and success</a>
+<a class="button expanded" href="#">Such Expand</a>
+<a class="button small expanded" href="#">Wow, Small Expand</a>
+```
+
+![button example](imgs/foundation-buttons.png)
+
+
+Another example of this are the styling classes to create alert panels calling a user's attention for notifications or error messages.  In Rails this could be used effectively for flash notices or validation errors on forms.
+
+```html
+<div class="alert callout">
+  <h5>This is an alert callout</h5>
+  <p>It has an easy to override visual style, and is appropriately subdued.</p>
+  <a href="#">It's dangerous to go alone, take this.</a>
+</div>
+```
+
+![alert callout screenshot](imgs/alert-callout.png)
+
+You can experiment with callouts [here](https://codepen.io/adadev/pen/dmQodr?editors=1000).
+
 
 ## Best Practices
 - NEVER change any CSS in Foundation's documents
