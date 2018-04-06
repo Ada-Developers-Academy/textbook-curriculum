@@ -231,7 +231,7 @@ class BooksController < ApplicationController
   private
   def book_params
     # Your list of fields may be slightly longer
-    return params.require(:book).permit(:author, :title, genre_ids: [])
+    return params.require(:book).permit(:author_id, :title, genre_ids: [])
   end
 end
 ```
@@ -247,6 +247,7 @@ end
 - At the model level, use ActiveRecord's `has_and_belongs_to_many` to specify a many-to-many relation
     - This gives us many of our familiar AR methods
 - Complex relations require careful UX design
+- Remember to update your strong params
 
 ## Additional Resources
 
