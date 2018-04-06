@@ -30,11 +30,6 @@ Let's apply these guidelines to the `Book` model from our library app:
 class Book < ActiveRecord::Base
   belongs_to :author
   validates :title, presence: true, uniqueness: true
-
-  # How many years old is this book?
-  def age
-    return Time.now.year - self.publication_year
-  end
 end
 ```
 
@@ -45,7 +40,6 @@ We will need to write tests that ask the following questions:
 - Do validations fail when the `title` field is missing?
 - Do validations fail when the book has the same `title` as another book in the database?
 - Can you access the book's `author` property?
-- Does the `age` method return the correct value?
 
 ## Test Files
 
