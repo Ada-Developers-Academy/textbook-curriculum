@@ -192,7 +192,7 @@ This would be tricky to build by hand, but Rails provides a view helper to do ex
 
 The first line is a label; we have seen these before. The second is a little more complex - this view helper has five arguments! Let's dive into them a little.
 
-- The first two (`:books` and `:genre_ids`) indicate where in the `POST` request the array of selected values should be stored
+- The first two (`:book` and `:genre_ids`) indicate where in the `POST` request the array of selected values should be stored
     - We've indicated it should live in `params[:book][:genre_ids]`
 - The third (`Genre.all`) is a collection of models to use for the checkboxes
     - We are using the full list of `Genre`s
