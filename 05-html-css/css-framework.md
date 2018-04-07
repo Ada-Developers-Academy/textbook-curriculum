@@ -109,7 +109,7 @@ You should first notice that foundation changes the default styling of all the h
 ### After Foundation:
 ![after-foundation-typography](imgs/after-foundation.png)
 
-As you can see above Foundation provides an well-tested set of default fonts and styles for the basic elements.  It also provides styling for lists, abbreviations, quotations and accessibility.  You can read about Foundation's typography [here](https://foundation.zurb.com/sites/docs/typography-base.html).
+As you can see above Foundation provides an set of default fonts and styles for the basic elements.  It also provides styling for lists, abbreviations, quotations and accessibility.  You can read about Foundation's typography [here](https://foundation.zurb.com/sites/docs/typography-base.html).
 
 ## Built-in Foundation Classes
 
@@ -130,7 +130,7 @@ For example, Foundation also provides a variety of ways to create buttons on you
 <a class="button small expanded" href="#">Wow, Small Expand</a>
 ```
 
-**Experiment:** Try creating a large warning `button` element in Codepen.
+**Experiment:** Try creating a large warning `button` element in Codepen.  Then try adding CSS to make `secondary` buttons dark green.
 
 ![button example](imgs/foundation-buttons.png)
 
@@ -148,7 +148,7 @@ Another set of pre-defined classes are used to create alert panels calling a use
 
 You can experiment with callouts [here](https://codepen.io/adadev/pen/dmQodr?editors=1000).
 
-**Experiment**:  Make your own callout in CodePen using Foundation.
+**Experiment**:  Change the color of the callout background.
 
 ## Form Validations
 
