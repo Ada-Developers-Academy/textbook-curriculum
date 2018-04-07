@@ -192,7 +192,7 @@ This would be tricky to build by hand, but Rails provides a view helper to do ex
 
 The first line is a label; we have seen these before. The second is a little more complex - this view helper has five arguments! Let's dive into them a little.
 
-- The first two (`:books` and `:genre_ids`) indicate where in the `POST` request the array of selected values should be stored
+- The first two (`:book` and `:genre_ids`) indicate where in the `POST` request the array of selected values should be stored
     - We've indicated it should live in `params[:book][:genre_ids]`
 - The third (`Genre.all`) is a collection of models to use for the checkboxes
     - We are using the full list of `Genre`s
@@ -231,7 +231,7 @@ class BooksController < ApplicationController
   private
   def book_params
     # Your list of fields may be slightly longer
-    return params.require(:book).permit(:author, :title, genre_ids: [])
+    return params.require(:book).permit(:author_id, :title, genre_ids: [])
   end
 end
 ```
@@ -247,6 +247,7 @@ end
 - At the model level, use ActiveRecord's `has_and_belongs_to_many` to specify a many-to-many relation
     - This gives us many of our familiar AR methods
 - Complex relations require careful UX design
+- Remember to update your strong params
 
 ## Additional Resources
 
