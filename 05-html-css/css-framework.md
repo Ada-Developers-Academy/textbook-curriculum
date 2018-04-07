@@ -109,11 +109,11 @@ You should first notice that foundation changes the default styling of all the h
 ### After Foundation:
 ![after-foundation-typography](imgs/after-foundation.png)
 
-So foundation provides you an attractive set of default fonts and styles for the basic elements.  It also provides styling for lists, abbreviations, quotations and accessibility.  You can see them [here](https://foundation.zurb.com/sites/docs/typography-base.html).
+As you can see above Foundation provides an well-tested set of default fonts and styles for the basic elements.  It also provides styling for lists, abbreviations, quotations and accessibility.  You can read about Foundation's typography [here](https://foundation.zurb.com/sites/docs/typography-base.html).
 
 ## Built-in Foundation Classes
 
-Foundation provides a number pre-created stylings for class names you can add to common HTML elements for common styling purposes.  
+Foundation also provides a number pre-created stylings for class names you can add to common HTML elements and take advantage of ready-made stylings.  
 
 For example, Foundation also provides a variety of ways to create buttons on your site either using anchor or button elements.  You can experiment with foundation buttons [here](https://codepen.io/adadev/pen/WzYvyo?editors=1000).
 
@@ -130,27 +130,57 @@ For example, Foundation also provides a variety of ways to create buttons on you
 <a class="button small expanded" href="#">Wow, Small Expand</a>
 ```
 
+**Experiment:** Try creating a large warning `button` element in Codepen.
+
 ![button example](imgs/foundation-buttons.png)
 
-
-Another example of this are the styling classes to create alert panels calling a user's attention for notifications or error messages.  In Rails this could be used effectively for flash notices or validation errors on forms.
+Another set of pre-defined classes are used to create alert panels calling a user's attention to notifications or error messages.   This is commonly used for flash notices or validation errors on forms.
 
 ```html
-<div class="alert callout">
+<section class="alert callout">
   <h5>This is an alert callout</h5>
   <p>It has an easy to override visual style, and is appropriately subdued.</p>
-  <a href="#">It's dangerous to go alone, take this.</a>
-</div>
+  <a href="#">There is an error here!</a>
+</section>
 ```
 
-![alert callout screenshot](imgs/alert-callout.png)
+![alert callout screenshot](imgs/alert-calloutv2.png)
 
 You can experiment with callouts [here](https://codepen.io/adadev/pen/dmQodr?editors=1000).
 
+**Experiment**:  Make your own callout in CodePen using Foundation.
+
+## Form Validations
+
+Foundation also has a library named [**Abide**](https://foundation.zurb.com/sites/docs/abide.html) which can be used to go beyond the built-in HTML5 form validation available to us.  To use Abide over HTML5 validations, add `novalidate` and `data-abide` attributes to the form element.  
+
+Elements can have a number of validations which ensure input matches common patterns like `alpha` (only letters), `alpha_numeric`, `color`, `cvv` (the three numbers on the back of a credit card), `date`, `datetime`, `day_month_year`, `domain`, `email`, `integer`, `month_day_year`, `number`, `time`, and `url`.  A pattern can be specified by adding a pattern attribute-value to the form field.  For example `<input type="text" pattern="email" >`.  Then when the user attempts to submit the form, Abide will check to ensure the field matches the given pattern.  
+
+Developers can also add an attribute `required` to any form field which is required to have a value.  
+
+Abide can also use a `form-error` field to display an error message to the user when a field fails to validate.  To use a `form-error`, group labels, inputs and a span or other text field with the class `form-error` together in a container.  The text with the class `form-error` will display in red if and only if the form is submitted with invalid data in the accompanying field.  You can experiment with a code example [here](https://codepen.io/adadev/pen/vRQKoZ?editors=1100).
+
+```html
+<form data-abide novalidate>
+  <p>This example shows input validation using Abide.</p>
+  <div>
+      <input type="text" required>
+       <span class="form-error">Please enter amount.</span>
+  </div>
+  <div>
+      <input type="text" placeholder="www.somesite.com" required pattern="url">
+      <span class="form-error">Please enter a website URL.</span>  
+  </div>    
+
+  <button type="submit" class="button" value="Submit">Submit to see Errors</button>
+</form>
+```
+
+**Question:** If I have validations in my HTML with Foundation, do I need model validations on the back-end?
 
 ## Best Practices
 - NEVER change any CSS in Foundation's documents
-  - It's _okay_ to override them, if necessary, but do so in your own CSS documents.
+  - It's _okay_ to override them, if necessary, in your css files or the `_settings.scss` file.
 - Comment your HTML & CSS by sections to stay organized
 - Keep Validating your HTML Code!
 
@@ -158,12 +188,14 @@ You can experiment with callouts [here](https://codepen.io/adadev/pen/dmQodr?edi
 - Mobile First
 - Grid Layout
 - Viewport
+- Validation
 
 
 ## 🔑 Key Takeaway
-Using a front-end framework like Foundation or Bootstrap will allow you to more rapidly develop a structured visual layout that responsively changes across varied screen sizes.
+Using a front-end framework like Foundation or Bootstrap will allow you to more rapidly develop with styles and typography created in advance and add common validations to your site front-end.  
 
 ### Additional Resources
 - [Foundation XY Grid Video](https://www.youtube.com/watch?v=Xl5DjEzKn1g&t=3s)
 - [Media Queries Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries
 )
+- [Foundation Form Validations](https://www.youtube.com/watch?v=4bN0qr5pxjs)
