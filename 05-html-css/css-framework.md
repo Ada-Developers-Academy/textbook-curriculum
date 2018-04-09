@@ -58,9 +58,9 @@ At Ada we will continue to use CSS Grid & Flexbox for layout, but it's important
 
 We will take the expedient of using the Gem, and placing it into our [`.rails-template.rb`](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/09-intermediate-rails/reference/.rails-template.rb) file.  
 
-Open your `rails-template.rb` file and copy the content of [this file](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/09-intermediate-rails/reference/.rails-template.rb) and use it to **replace** all the content of the template file.
+In our [`rails-template.rb`](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/09-intermediate-rails/reference/.rails-template.rb) file we added code to automatically install the Foundation 6 framework.
 
-The updated template adds the following content:
+The template adds the following content:
 
 ```ruby
 ...
