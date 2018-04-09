@@ -180,7 +180,7 @@ Abide can also use a `form-error` field to display an error message to the user 
 
 ## Best Practices
 - NEVER change any CSS in Foundation's documents
-  - It's _okay_ to override them, if necessary, in your css files or the `_settings.scss` file.
+  - It's _okay_ to override them, if necessary, in your css files or the `_settings.scss` file.  You can use the `foundation_and_overrides.scss` file to turn off or on sections of the Foundation library.
 - Comment your HTML & CSS by sections to stay organized
 - Keep Validating your HTML Code!
 
