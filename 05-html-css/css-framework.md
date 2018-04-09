@@ -154,7 +154,9 @@ You can experiment with callouts [here](https://codepen.io/adadev/pen/dmQodr?edi
 
 Foundation also has a library named [**Abide**](https://foundation.zurb.com/sites/docs/abide.html) which can be used to go beyond the built-in HTML5 form validation available to us.  To use Abide over HTML5 validations, add `novalidate` and `data-abide` attributes to the form element.  
 
-Elements can have a number of validations which ensure input matches common patterns like `alpha` (only letters), `alpha_numeric`, `color`, `cvv` (the three numbers on the back of a credit card), `date`, `datetime`, `day_month_year`, `domain`, `email`, `integer`, `month_day_year`, `number`, `time`, and `url`.  A pattern can be specified by adding a pattern attribute-value to the form field.  For example `<input type="text" pattern="email" >`.  Then when the user attempts to submit the form, Abide will check to ensure the field matches the given pattern.  
+Elements can have a number of validations which ensure input matches common patterns like `alpha` (only letters), `alpha_numeric`, `color`, `cvv` (the three numbers on the back of a credit card), `date`, `datetime`, `day_month_year`, `domain`, `email`, `integer`, `month_day_year`, `number`, `time`, and `url`.  
+
+A pattern can be specified by adding a pattern attribute-value to the form field.  For example `<input type="text" pattern="email" >`.  Then when the user attempts to submit the form, Abide will check to ensure the field matches the given pattern.  
 
 Developers can also add an attribute `required` to any form field which is required to have a value.  
 
