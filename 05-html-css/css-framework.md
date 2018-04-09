@@ -97,7 +97,7 @@ Now when you create a new Rails project you will see the following stylesheets.
 
 ![Foundation Gem Stylesheets](imgs/foundation_stylesheets.png)
 
-You can change foundation settings by editing the `_settings.scss` file and turn off and on Foundation features by changing the `foundation_and_overrides.scss` file.  You can also override foundation styles, by defining css rules of your own in the `applicaiton.css` file.  
+You can change foundation settings by editing the `_settings.scss` file and turn off and on Foundation features by changing the `foundation_and_overrides.scss` file.  You can also override foundation styles, by defining css rules of your own in the `application.css` file.  
 
 ## Using Foundation Typography
 
