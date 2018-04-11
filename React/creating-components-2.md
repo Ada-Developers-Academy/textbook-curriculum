@@ -10,7 +10,7 @@ Next we are going to extend our application to support multiple students. Additi
 
 First, we want to use the Student component we already created, but we want to allow this to load data dynamically.
 
-To do this, we will pass in the data from the App component to the Student component. Within the Student component, we will  use the code tags to pull in the data that was passed in.
+To do this, we will pass in the data from the `App` component to the `Student` component. Within the `Student` component, we will  use the code tags to pull in the data that was passed in.
 
 1. Locate the spot where the `Student` component is rendered from the `App` component.
 
@@ -19,9 +19,9 @@ To do this, we will pass in the data from the App component to the Student compo
     - This shouldn't change anything yet in our application, so save the file and refresh the browser to verify that the data still looks like the original hard-coded data.
 
 1. Update the `render` function in the `Student` component to replace the hard-coded values with code tags `{ }` which contains the `prop` that came in from the parent component.  
-  - It should now contain `{ this.props.name }` and `{ this.props.email }`
-  - Verify that the content displayed is now coming from the values in the `App` component.
-  - If you need to verify, take a look at [the code](https://github.com/AdaGold/react-hello-world/tree/part-3/src) so far.
+    - It should now contain `{ this.props.name }` and `{ this.props.email }`
+    - Verify that the content displayed is now coming from the values in the `App` component.
+    - If you need to verify, take a look at [the code](https://github.com/AdaGold/react-hello-world/tree/part-3/src) so far.
 
 
 If we identify each individual piece of the component rendered, we'll see:
@@ -36,9 +36,9 @@ One student is great and all, but ideally, we'd really be able to manage our who
 
 We'll create a new component called `StudentCollection` that will live between the existing  `App` and `Student` components. This new component will manage the full list of students and then render the data for each student.
 
-Spend a few minutes now going back to the [creating components](creating-components.md) notes to create the new component file with the basic class, imports and exports you need.
+Spend a few minutes now going back to the [creating components](creating-components.md) notes to see how to create the new component file with the basic class, imports and exports you need.
 
-Move the code that renders `Student` from `App` to `StudentCollection`. Note: You also need to move and update the `import` statement.
+Move the code that renders `Student` from `App` to `StudentCollection`. Note: You will also need to move and update the `import` statement.
 
 Import and render `StudentCollection` now from the `App` component instead.
 
@@ -68,7 +68,7 @@ constructor() {
   }
 ```
 
-Next, we'll use a loop in our `render` to iterate through each item in our state object and render a `Student` component for each piece of data. Remember that the `render` function needs to return a single element.
+Next, we'll use a loop in our `render` function to iterate through each item in our state object and render a `Student` component for each piece of data. Remember that the `render` function needs to return a single element.
 
 ```javascript
 render() {
@@ -92,16 +92,16 @@ Verify that you now see the data from the constructor in your browser. If you ne
 **Dive In:** Unpack the line with `return <Student...` with the person sitting next to you. Identify each piece of code on this line. Some questions to think about as you go through this activity:
 - What do you think the `studentComponents` variable looks like after this code executes?
 - How are `props` used within this code?
-- How does this code related to the code within the `Student` component?
+- How does this code relate to the code within the `Student` component?
 - What would happen to the HTML rendered if you remove either `name` or `email`?
 
-Now let's revisit the diagram that we created in our last component creation lecture, we'll now see an updated version as below.
+Now let's take a look at an updated version of the diagram that we created in our last component creation lecture:
 
 ![nested components](images/nested-components.png)
 <!-- https://drive.google.com/open?id=1xq5jaCrI7FGp6PG1gr-bYE1ZTvPb5PxZ -->
 
 ## Some CSS
-We want our page to look great! Let's add some simple CSS
+We want our page to have a nice look & feel! Let's add some simple CSS.
 
 We can make use of the existing css file that comes from within our boilerplate React application. Let's add a new class with the `App.css` for the student.
 
@@ -111,9 +111,7 @@ We can make use of the existing css file that comes from within our boilerplate 
 }
 ```
 
-Now that you have a class to add some padding, work with the person sitting next to you to figure out where you should add this class. Should it be on a component rendering? Should it be within a `render` function?
-
-
+Now that you have a class to add some padding, work with the person sitting next to you to figure out where you should add this class in the HTML. Should it be within a `render` function? Should it be added when a component is rendered from another component?
 
 ## Key Takeaway
 Nesting components within one another gives us infinite possibilities in React.

@@ -89,10 +89,11 @@ Can get initial value from parent component?       | Yes   | Yes
 Can be changed by parent component? | Yes | No
 Can change inside component? | No | Yes
 Can set initial value for a child component? | Yes | Yes
-Can change in a child component? | Yes | No 
+Can change in a child component? | Yes | No
 
 ## Key Takeaway
 - sample
 
 ## Additional Resources
-- [sample]()
+- [React Docs: Components and props](https://reactjs.org/docs/components-and-props.html)
+- [React Docs: State and lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
