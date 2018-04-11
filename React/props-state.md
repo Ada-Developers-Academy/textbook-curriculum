@@ -83,7 +83,7 @@ Then, within the child component, access that value using `this.props.myVariable
 ## Changing `props` and `state`
 Here is a helpful chart to assist you in determining whether data belongs in `props` or `state`. For any line item that has "Yes" for both, it means you need to make that decision based on the context of the problem you are trying to solve.
 
- -     | props     | state
+ ?     | props     | state
  :------------- | :------------- |:-------------
 Can get initial value from parent component?       | Yes   | Yes
 Can be changed by parent component? | Yes | No
