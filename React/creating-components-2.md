@@ -103,7 +103,7 @@ Now let's take a look at an updated version of the diagram that we created in ou
 ## Some CSS
 We want our page to have a nice look & feel! Let's add some simple CSS.
 
-We can make use of the existing css file that comes from within our boilerplate React application. Let's add a new class with the `App.css` for the student.
+We can make use of the existing css file that comes from within our boilerplate React application. Let's add a new class in the `App.css` file for the student.
 
 ```css
 .student {
@@ -111,7 +111,25 @@ We can make use of the existing css file that comes from within our boilerplate 
 }
 ```
 
+**Try It!**
+
 Now that you have a class to add some padding, work with the person sitting next to you to figure out where you should add this class in the HTML. Should it be within a `render` function? Should it be added when a component is rendered from another component?
+
+
+**Result**
+```javascript
+// components/student.js
+render() {
+  return (
+    <div className="student">
+    ...
+  );
+}
+```
+
+We don't want to add the class name onto each **component** that is rendered from the `StudentCollection` because that wouldn't go directly to the HTML. We should instead add it directly to the HTML **within** the component.
+
+You can see the final version of the code [here](https://github.com/AdaGold/react-hello-world/blob/part-6/src).)
 
 ## Key Takeaway
 Nesting components within one another gives us infinite possibilities in React.
