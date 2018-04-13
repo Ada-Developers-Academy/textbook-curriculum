@@ -24,6 +24,48 @@ The above diagram shows how each lifecycle method exists in flow with one anothe
 ![Lifecycle Phase Diagram](images/lifecycle-phase-diagram.png)
 <!-- https://drive.google.com/file/d/1hcuLdozEUkJY6mc5cB-xzCqEDIar_SfV/view?usp=sharing -->
 
+### `componentDidMount`
+This is one of the most commonly used lifecycle methods in React, so we are going to explicitly try this out. We  use this method to load in any external data from an API that we might need.
+
+Though we aren't yet integrating with any APIs, let's add this method and some corresponding data retrieval within our student management application.
+
+First, let's ask ourselves, **where is the data populated in our application?**
+
+We'll find the initial state set in the `constructor` of our `StudentCollection` component. Let's remove this data, and instead use the `componentDidMount` lifecycle method to load in our data.
+
+```javascript
+// student_collection.js
+...
+
+constructor() {
+  super();
+
+  // now just set to default empty array
+  this.state = { students: [] }
+}
+
+componentDidMount() {
+  this.setState({ students: fetchStudents() }));
+}
+
+...
+
+// this is just a placeholder for a real request
+// make sure to put this OUTSIDE the component definition
+const fetchStudents = () =>
+  ([
+    { name: "A Student", email: "4321@ada.org" },
+    { name: "B Student", email: "1234@ada.org" }
+  ]);
+
+```
+
+**Key Question**: Why do you think we use `componentDidMount` to load the data rather than `componentWillMount`? How is this working?
+
+While this might not seem super useful yet, we'll see when we get to using APIs how we'll leverage the lifecycle to ensure we are loading our app and it's data efficiently.
+
+You can see the final version of this code [here](https://github.com/AdaGold/react-hello-world/blob/part-7/src/components/student_collection.js).
+
 ## Vocabulary
 | Term     | Definition     |
 | :------------- | :------------- |
