@@ -24,14 +24,17 @@ Exactly what's worth testing depends on your site, but here are some general gui
 
 That's not an exhaustive list, but it's a good starting point.
 
-In general, controller tests should operate at a higher level than Model tests. For example, while in Model testing you need 2 or more test cases for every validation.  When testing the corresponding Controller you only need to test the case where all validations pass, and the case where one or more fail, since those are the two different behaviors your Controller action can exhibit. You do, however, need to test those cases for both the `create` and `update` actions.
+In general, controller tests should operate at a higher level than Model tests. For example, in Model testing you need 2 or more test cases for every validation.  When testing the corresponding Controller you only need to test the case where all validations pass, and the case where one or more fail, since those are the two different behaviors your Controller action can exhibit. You do, however, need to test those cases for both the `create` and `update` actions.
 
 ## So that's what I test, now how do I write them?
 
 ### Expectations
-In controller tests, you have several new expectations to use.
+In controller tests, you have several new expectations to use:
+1. Testing for a correct HTTP status code in response
+1. Testing that a controller redirects correctly
+1. Testing that a model is updated
 
-First, is a matcher used to check the response of the controller.  Each of these response types correspond to an HTTP status code.
+First, we have a matcher used to check the response of the controller.  Each of these response types correspond to an HTTP status code.
 
 ```ruby
 must_respond_with :success
@@ -40,7 +43,7 @@ must_respond_with :missing
 must_respond_with :error
 ```
 
-Next, we have a redirect matcher. This indicates that a controller action should be redirecting the browser to another location. 
+Next, we have a redirect matcher. This indicates that a controller action should be redirecting the browser to another location.
 
 
 ```ruby
@@ -52,7 +55,7 @@ must_redirect_to controller: 'post', action: 'index'
 **Question:**  What is one example of a controller action that commonly redirects the user?
 
 
-Last is a way to ensure that the controller action appropriately changes the related model.  We'll see how to use the `must_change` matcher with some examples later on.
+Lastly, we have a way to ensure that the controller action appropriately changes the related model.  We'll see how to use the `must_change` matcher with some examples later on.
 
 ```ruby
 proc {
@@ -90,7 +93,7 @@ describe PostController do
 end
 ```
 
-**Exercise:** Now you try it! Try setting up the next test for the `new` action on your last project.
+**Exercise:** Now you try it! Try setting up the next test for the `new` action on your last project and run the tests to validate.
 
 ### Test Setup with Params
 When we create the controller actions, oftentimes they contain information that comes from the `params` hash, with data populated from the routes or forms. In order to appropriately test controllers, we must "mock" this information.
@@ -102,7 +105,7 @@ def show
 end
 ```
 
-In this case, we need to provide an `id` to the path helper method. 
+In this case, we need to provide an `id` to the path helper method.
 
 
 ```ruby
@@ -118,8 +121,8 @@ Then, we added the expectation to ensure the show view is loaded successfully wi
 The problem with the test above is that it is using a hard-coded value for the `id`. We used fixtures with our model testing to ensure that we aren't relying on any specific data in the database. We can do the same for our controller tests.
 
 Let's assume that we have some fixture data set up.
-```ruby
-one:
+```
+post_a:
   title: This is a post on something
   body: La la la la
 ```
@@ -127,16 +130,18 @@ one:
 We can now utilize this fixture data within our test to ensure the data is valid.
 ```ruby
 it "should get show" do
-  get post_path(post(:one).id)
+  get post_path(posts(:post_a).id)
   must_respond_with :success
 end
 ```
 
-Using `post(:one).id` lets us use data in our fixtures in our test, rather than hard-coding id numbers.  **Exercise:** Write a test for the `edit` action and write it to use fixtures.  Then run `rails test` to make sure it runs properly.  
+Using `posts(:post_a).id` lets us use data in our fixtures in our test, rather than hard-coding id numbers.
+
+**Exercise:** Write a test for the `edit` action and write it to use fixtures.  Then run `rails test` to make sure it runs properly.
 
 ### Test the Difference
 
-We have model tests to ensure that models act the way we anticipate. Oftentimes controllers create, and delete model objects, so we can check these types of changes in controller tests.
+We have model tests to ensure that models act the way we anticipate. Oftentimes controllers create and delete model objects, so we can check these types of changes in controller tests.
 
 What is a type of controller action that would affect the number of Model objects? **Create!**
 
@@ -153,8 +158,8 @@ We must have appropriate parameters that would match up with parameters that wou
 The successful create action should redirect to the index view, so we should update our test to assert that:
 ```ruby
 it "should be able to create a post" do
-  post post_index_path, params: { post: {title: "Some post", body: "la la la"} } 
-  
+  post post_index_path, params: { post: {title: "Some post", body: "la la la"} }
+
   must_respond_with :redirect
   must_redirect_to post_index_path
 end
@@ -169,7 +174,7 @@ it "should be able to create a post" do
   proc   {
     post post_index_path, params: { post: {title: "Some post", body: "la la la"}  }
   }.must_change 'Post.count', 1
-  
+
   must_respond_with :redirect
   must_redirect_to post_index_path
 end
@@ -186,7 +191,7 @@ We start by creating a test for a put request on a post_path.
 
 ```ruby
   it "should update a post" do
-    put post_path(posts(:one).id), params: {post: {title: "Some title goes here", description: "la la la"} }
+    put post_path(posts(:post_a).id), params: {post: {title: "Some title goes here", description: "la la la"} }
   end
 ```
 
@@ -196,13 +201,13 @@ Next we can then verify that the post in the database is changed.
 
 ```ruby
 it "should update a post" do
-  put post_path(posts(:one).id), params: {post: {title: "Some title goes here", description: "la la la"} }
-    
+  put post_path(posts(:post_a).id), params: {post: {title: "Some title goes here", description: "la la la"} }
+
   # find the post with that ID in the database
-  post = Post.find(posts(:one).id)
+  post = Post.find(posts(:post_a).id)
 
 
-     # verify the post was changed properly
+  # verify the post was changed properly
   post.title.must_equal "Some title goes here"
   post.description.must_equal "la la la"
 
@@ -216,7 +221,7 @@ end
 |---	|---	|
 |   `must_respond_with`	|   `must_respond_with :success`	|
 |   `must_redirect_to`	|   `must_redirect_to root_path`	|
-|   `must_change`	|   `proc {delete post_path(posts(:one).id) }.must_change 'Post.count', -1`	|
+|   `must_change`	|   `proc {delete post_path(posts(:post_a).id) }.must_change 'Post.count', -1`	|
 
 
 ## Resources
