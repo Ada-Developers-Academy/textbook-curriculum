@@ -4,7 +4,11 @@ Complete this worksheet with your seat squad. Some items are questions, some ite
 
 ## Test your Knowledge
 
-1. Why is the following react render function invalid?
+1. What is the purpose of `create-react-app`?
+
+1. How do you start up your development server for your React application?
+
+1. Why is the following react render function invalid? **Why?**
 ```JavaScript
 render() {
     return (
@@ -18,7 +22,7 @@ render() {
   }
 ```
 
-2. Which of the two JSX code options should you choose? **Why?**
+1. Which of the two JSX code options should you choose? **Why?**
 
     a.
     ```javascript
