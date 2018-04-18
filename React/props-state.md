@@ -92,7 +92,7 @@ Can set initial value for a child component? | Yes | Yes
 Can change in a child component? | Yes | No
 
 ## Key Takeaway
-- sample
+Using `props` and `state` within your React application are two necessary ways to manage and share data. They each have their own purpose, but they can be used together to provide the most dynamic applications. 
 
 ## Additional Resources
 - [React Docs: Components and props](https://reactjs.org/docs/components-and-props.html)

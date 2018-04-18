@@ -17,7 +17,7 @@ The powerful thing about React is that **any component can render any other comp
 As we continue using this application, we are going to be creating a React application that manages our list of Ada students! We are going to use different components to handle different portions of our student listing.
 
 ### Create a new Component
-React does not have a nice CLI interface like Rails to create new components for us. We will be creating these manually by creating new files, importing the necessary libraries, and adding the necessary component code.
+React does not have a nice CLI interface like Rails to create new components for us. We will be creating these manually by creating new files, importing the necessary libraries, and adding the necessary component code. We'll use the `Component` class provided by React and create a class that extends this class in order to leverage this functionality.
 
 We are going to start small, and our first component will be used to display a single student's information.
 
@@ -37,7 +37,7 @@ We are going to start small, and our first component will be used to display a s
     }
     ```
 
-1. Export the class at the bottom of the file. Note that whatever is exported here needs to match the name of the class created in the step above.
+1. Export the class at the bottom of the file. Note that whatever is exported here needs to match the name of the class created in the step above. This will allow us to import this component to use in other files.
     ```JavaScript
     export default Student;
     ```
