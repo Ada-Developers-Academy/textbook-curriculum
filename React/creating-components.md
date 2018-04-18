@@ -4,7 +4,9 @@
 - Create our own component
 - Link and render a component from an existing component
 
-Now that we've gotten started with a basic React application, we want to be able to extend it with our own components. We create new components within our applications to encapsulate logic and HTML related to a specific concept or portion of our site.
+Now that we've gotten started with a basic React application, we want to be able to extend it with our own components. We create new components within our applications to encapsulate logic and HTML related to a specific concept or portion of our site. Note that up until this point, we have had very clear lines between HTML, CSS and JavaScript because they're usually in separate files. With React components, these lines can get a little bit blurry since we will potentially have all of these things in a single component file.
+
+Each component will be a small, reusable piece of code that manages their own **content, presentation and behavior**. 
 
 ### Overview
 It is important to understand what is happening currently within the React application so we can model the same pattern with a custom component. Right now, our React application renders the `App` component from the `index.js` file and puts it in the DOM element where the ID is "root". Normally, this is only done **once** in a React application, so we are going to leave this code alone as we build on.
