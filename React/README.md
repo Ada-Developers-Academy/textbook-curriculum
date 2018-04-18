@@ -7,4 +7,10 @@
 1. [`props` & `state`](props-state.md)
 1. [Creating Components Part 2](creating-components-2.md)
 1. [Lifecycle Methods](lifecycle-methods.md)
+1. [Event Handling](events.md)
+
+1. [Router](router.md)
 1. [Component Design](component-design.md)
+1. [APIs](apis.md)
+1. [Forms](forms.md)
+1. [Styling](styling.md)
