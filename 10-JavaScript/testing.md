@@ -37,9 +37,12 @@ As an aside, Selenium is a *really* cool technology, we just don't have the time
 ### Setup
 We will start writing tests for sample whiteboarding functions.  
 
-1. Clone this repo: `https://github.com/AdaGold/scrabble-jasmine-baseline`
+1. Clone this repo: `https://github.com/AdaGold/weekend-warrior-js`
 1. `npm install`
 1. `npm start`
+
+
+# TODO Finish below
 
 Spend some time playing with the site. What models, collections and views do you think there might be? What functionality is still missing?
 
@@ -156,10 +159,6 @@ Follow the same TDD workflow to test and implement `WordList.highestScoringWord(
 
 ## Additional Resources
 
-- [Jasmine documentation](https://jasmine.github.io/api/2.8/global)
-- [Jasmine Examples v2.8](https://jasmine.github.io/2.8/introduction) (full of good examples)
+- [Jest documentation](https://facebook.github.io/jest/docs/en/getting-started.html)
 - [Selenium](http://www.seleniumhq.org/)
-- [Testing Backbone models with Jasmine](https://tinnedfruit.com/articles/testing-backbone-apps-with-jasmine-sinon-2.html)
-- [Backbone model validations](http://beletsky.net/2012/11/baby-steps-to-backbonejs-model.html) (the next post on this blog is about testing them!)
-- [Sinonjs a way to mock things like API calls](http://sinonjs.org/)
-- [Karma a way to test your code in browsers automatically](https://karma-runner.github.io/1.0/index.html)
+- [Testing React Apps](https://facebook.github.io/jest/docs/en/tutorial-react.html)
