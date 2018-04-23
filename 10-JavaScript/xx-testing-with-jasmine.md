@@ -1,12 +1,13 @@
-# JavaScript Unit Testing with Jest
+# JavaScript Testing with Jasmine
 
 ## Learning Goals
 By the end of this lesson, students should be able to...
 
 - Describe what makes testing JavaScript web apps complex
 - Discuss strategies for mitigating this complexity
-- Run Jest tests from the command line
-- Enumerate the parts of a Jest test file
+- Run Jasmine tests from the command line
+- Enumerate the parts of a Jasmine test file
+- Write tests in Jasmine for models and business logic methods
 
 ## Testing in JavaScript
 
@@ -22,20 +23,20 @@ In short, most interesting JavaScript code is full of *external dependencies*. M
 
 ### Testing Strategy
 
-We'll be using a test suite called [Jest](https://facebook.github.io/jest/docs/en/getting-started.html) (maintained by Facebook). Jest is available as an npm package and comes built-in with `create-react-app`.
+We'll be using a test suite called [Jasmine](https://jasmine.github.io/index.html) (maintained by Pivotal Labs, part of the Ada network). Jasmine is available as an npm package, and it is included in our standard Ada webpack setup.
 
-Jest tests are run from the command line using `npm test` (more on this later). While this is fast and convenient, it also means that our tests are being run without support from the browser, and anything that relies on the browser (like manipulating the DOM or waiting for user events) will break.
+Jasmine tests are run from the command line using `npm test` (more on this later). While this is fast and convenient, it also means that our tests are being run without support from the browser, and anything that relies on the browser (like manipulating the DOM or waiting for user events) will break.
 
 To get around this, there are basically two strategies to follow:
 - Use a technology like [Selenium](http://www.seleniumhq.org/) to *mock* the DOM
 - Build your application so that as much of the business logic as possible can run without the DOM
 
-We'll start testing using the second technique. It will be very reminiscent of model testing in Rails, and in fact we will focus our JavaScript testing on business logic methods. The testing techniques we learn here will also transfer directly to any command-line JavaScript programs you write, including something like a Node-Express server.
+Since our remaining time together is short, we'll use the second technique. It will be very reminiscent of model testing in Rails, and in fact we will focus our JavaScript testing on models. The testing techniques we learn here will also transfer directly to any command-line JavaScript programs you write, including something like a Node-Express server.
 
 As an aside, Selenium is a *really* cool technology, we just don't have the time to do it justice. Maybe it would make a good piece of a capstone project...?
 
 ### Setup
-We will start writing tests for sample whiteboarding functions.  
+We will utilize the same basic application structure that we have used for our Backbone applications. In fact, the project we'll be working with is a complete Backbone SPA. To let us focus on the process of writing tests with Jasmine rather than implementing some bit of complex logic, we'll be using a Backbonified version of our good old Scrabble game.
 
 1. Clone this repo: `https://github.com/AdaGold/scrabble-jasmine-baseline`
 1. `npm install`
