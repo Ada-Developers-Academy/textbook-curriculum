@@ -41,8 +41,6 @@ We will start writing tests with a sample whiteboarding problem.
 1. `npm install`
 1. `npm start`
 
-# TODO Finish below
-
 Examine the README.  
 
 **Question**: In testing a Pangram, what edge-cases would you have?  
