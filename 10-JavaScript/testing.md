@@ -49,8 +49,6 @@ Now look through the code in the `pangram.spec.js` file, and see if the tests de
 
 Similar to Rails, the `spec` directory has the same structure as the `src` directory. Each file `src/dir/name.js` may have a corresponding `spec/dir/name.spec.js`.
 
-Because we're running tests via `npm`, our tests have access to all our WebPack infrastructure, and `import` and `export` statements will work about as you'd expect.
-
 ### Anatomy of a Test
 
 There are already some tests written for the `isPangram` method, so let's begin there. Open up `spec/pangram.spec.js`.
