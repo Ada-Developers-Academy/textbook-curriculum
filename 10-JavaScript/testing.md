@@ -35,7 +35,7 @@ We'll start testing using the second technique. It will be very reminiscent of m
 As an aside, Selenium is a *really* cool technology, we just don't have the time to do it justice. Maybe it would make a good piece of a capstone project...?
 
 ### Setup
-We will start writing tests for sample whiteboarding functions.  
+We will start writing tests with a sample whiteboarding problem.  
 
 1. Clone this repo: `https://github.com/AdaGold/jest-testing`
 1. `npm install`
