@@ -37,7 +37,7 @@ As an aside, Selenium is a *really* cool technology, we just don't have the time
 ### Setup
 We will start writing tests with a sample whiteboarding problem.  
 
-1. Clone this repo: `https://github.com/AdaGold/jest-testing`
+1. Clone this repo: `https://github.com/AdaGold/pangram`
 1. `npm install`
 1. `npm start`
 
