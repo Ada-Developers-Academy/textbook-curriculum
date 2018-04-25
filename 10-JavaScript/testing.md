@@ -176,3 +176,4 @@ Now write your own test in the section provided.
 - [Jest documentation](https://facebook.github.io/jest/docs/en/getting-started.html)
 - [Selenium](http://www.seleniumhq.org/)
 - [Testing React Apps](https://facebook.github.io/jest/docs/en/tutorial-react.html)
+- [Jest Examples Folder](https://github.com/facebook/jest/tree/master/examples)
