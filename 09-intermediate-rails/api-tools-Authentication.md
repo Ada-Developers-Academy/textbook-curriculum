@@ -16,14 +16,14 @@ We will set up a sample request to see the repositories of the Ada-Gold organiza
 	- The Authorization Callback URL:  [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback)
 	- By doing this we will create an OAuth token for Postman to log into Github without using our username/password.  
 
-  ![Github Authentication Screen](images/postman0.png)  
+    ![Github Authentication Screen](images/postman0.png)  
 
 1.  Then in Postman go to Authorization (under the URL line) and select OAuth 2.0.  
 
 
-   ![Postman Authorization](images/postman5.png)  
+    ![Postman Authorization](images/postman5.png)  
 1.  Click on `Get New Access Token`   
-  ![Get new Access Token](images/postman6.png)    
+    ![Get new Access Token](images/postman6.png)    
 1.  Then fill in the form with:
 	- Auth URL:  **https://github.com/login/oauth/authorize**
 	- Access Token URL:  **https://github.com/login/oauth/access_token**
