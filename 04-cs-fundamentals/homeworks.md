@@ -22,7 +22,7 @@ Apr 26   | Submit PR for [Ada-C9/matrix_convert_to_zero](https://github.com/Ada-
 Apr 26   | Submit PR for [Ada-C9/matrix_check_sum](https://github.com/Ada-C9/matrix_check_sum)
 Apr 16   | Read and understand [Sorting algorithms](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Sorting.md)
 Apr 23   | Understand the code and predict what you should see in the console output. Try it out to confirm. [Understanding Function Calls](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Understanding%20function%20calls.md#assignments)
-May 31   | Define terms, practice tracing and deduce the time and space complexities for some *recurive* problems. [Ada-C9/recursion-tracing](https://github.com/Ada-C9/recursion-tracing). Answer key for reference can be found [here](https://github.com/Ada-C9/recursion-tracing/tree/solutions)
+May 31   | Define terms, practice tracing and deduce the time and space complexities for some **recursive** problems. [Ada-C9/recursion-tracing](https://github.com/Ada-C9/recursion-tracing). Answer key for reference can be found [here](https://github.com/Ada-C9/recursion-tracing/tree/solutions)
 
 ## Optional Homeworks
 ### Binary & Decimal
