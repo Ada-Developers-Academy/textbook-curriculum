@@ -1,5 +1,5 @@
 # CS Fundamentals rough schedule
-Below is the rough outline of what we will be covering in CS Fundamentals. Some conversations may spill into the next CS Fundamentals' session.
+Below is the rough outline of what we will be covering in CS Fundamentals. Some conversations may spill into the next CS Fundamentals' session. A comprehensive list of essential homework assignments may be found [here](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/homeworks.md).
 
 ## Classroom - Cohort 9
 Date    | Topics
