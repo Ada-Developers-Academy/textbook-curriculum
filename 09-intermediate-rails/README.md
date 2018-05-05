@@ -17,5 +17,3 @@
 1. [Testing The lib folder](./testing-lib-classes.md)
 1. [VCR Testing](./vcr-testing.md)  
 1. [Creating an API](./creating-apis.md)
-1. [Active Model Serializers](./ar-serializers.md)
-1. [Factory Girls](./factory-girl.md)  
