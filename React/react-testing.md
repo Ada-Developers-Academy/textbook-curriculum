@@ -4,7 +4,7 @@ Create React App is designed with testing in mind.  It comes bundled with Jest c
 
 ## The Structuring of Test Files
 
-There are a **lot** of opinions out there about where to put your test files and how to structure testing.  
+There are a **lot** of opinions out there about where to put your test files and how to structure testing.  You can see some opinions [here](https://medium.freecodecamp.org/the-right-way-to-test-react-components-548a4736ab22) and [here](https://hackernoon.com/the-100-correct-way-to-structure-a-react-app-or-why-theres-no-such-thing-3ede534ef1ed).
 
 ## Snapshot Testing
 
