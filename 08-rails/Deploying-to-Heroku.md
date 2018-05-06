@@ -66,7 +66,7 @@ The output contains the link for your app. In this case, it's `http://adies-app.
 Now everything is ready to deploy your app.  You can use git push to push the current state of the master branch to Heroku:
 
 ```bash
-~/path/to/my_rails_app $ git push heroku
+~/path/to/my_rails_app $ git push heroku master
 Initializing repository, done.
 ...
 ```
