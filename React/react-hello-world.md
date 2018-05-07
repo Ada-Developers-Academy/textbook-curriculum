@@ -2,7 +2,7 @@
 
 ## Learning Goals
 - Create a new React application
-- Create a basic React component
+- Read through a basic React component
 - Introduction to JSX & CSS in React
 
 ### Setup
@@ -32,7 +32,7 @@ Next, take a look at the `App.js` file that was created. Some questions for you 
 
 Now that we've examined the code that was generated for us, we can go ahead and run our web server for this application by running `npm start` from our terminal. This command is set up to start our application and then open the browser where the server is running.
 
-**Question**: With your neighbor, figure out where the HTML that is displayed on the web page is coming from?
+**Question**: Where is the HTML that is displayed on the web page coming from? Figure out with your neighbor.
 
 #### Component's `render` function
 The `App.js` file contains our first (auto-generated) component. How exciting!
@@ -56,12 +56,15 @@ render() {
 
 Here are some important things to note about this function:
 - The pieces that look like HTML are **JSX**
+- Every component is a class, and gets its own file
 - Every component has a `render` function
 - The `render` function must return a *single* element
   - In this case, it is the outermost `div`. Every other element in the function is contained within that outermost `div`.
 
+**Try It!** Change something about the `render` function above and see how it immediately affects the page.
+
 #### What is JSX?
-JSX is a pre-processor (similar to ERB in Rails) that adds XML syntax to JavaScript. JSX can be used with or without React, but oftentimes it is used with React as together it creates a more elegant solution. JSX looks a lot like HTML though there are a few important differences.
+JSX is a pre-processor (similar to ERB in Rails) that adds XML syntax to JavaScript. JSX and React can technically be used independently, but you almost always see them together. JSX looks a lot like HTML though there are a few important differences.
 
 **Adding Classes**
 
@@ -81,7 +84,7 @@ In ERB, we were familiar with using the `<%` and `<%=` elements to dynamically g
 ## Key Takeaway
 - We can use `create-react-app` to create a new boilerplate React application.
 - Once our React application is created, we can run `npm start` in the terminal to start it up.
-- JSX is the pre-processor associated with React that we will utilize to generate dynamic HTML. 
+- JSX is the pre-processor associated with React that we will utilize to generate dynamic HTML.
 
 ## Additional Resources
 - [`create-react-app`](https://github.com/facebookincubator/create-react-app)
