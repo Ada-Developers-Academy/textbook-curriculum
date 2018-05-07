@@ -1,6 +1,12 @@
 # Testing In React
 
-Create React App is designed with testing in mind.  It comes bundled with Jest configured to automatically run files ending with, `.spec.js`, `.test.js` or files in a `__test__` directory.  
+Create React App is designed with testing in mind.  It comes bundled with Jest configured to automatically run files ending with, `.spec.js`, `.test.js` or files in a `__test__` directory.
+
+## Some Tools
+
+"enzyme": "^3.3.0",
+"enzyme-adapter-react-16": "^1.1.1"
+
 
 ## The Structuring of Test Files
 
@@ -21,7 +27,7 @@ To get started with Enzyme you need to install it with npm.
 npm install --save enzyme enzyme-adapter-react-16 react-test-renderer
 ```
 
-And create a `src/setupTests.js` file to import Enzyme and it's React 16 adapter.  Like `test_helper.rb` from Rails this file will be run before Jest runs your tests.   
+And create a `src/setupTests.js` file to import Enzyme and it's React 16 adapter.  Like `test_helper.rb` from Rails this file will be run before Jest runs your tests.
 
 ```javascript
 import { configure } from 'enzyme';
