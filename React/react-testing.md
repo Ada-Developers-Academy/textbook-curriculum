@@ -14,6 +14,12 @@ There are a **lot** of opinions out there about where to put your test files and
 
 ## Snapshot Testing
 
+--Notes from Video
+toMatchSnapshot
+  - snapshots
+    - Keep a recorded history to your component and when the application changes the snapshot updates and makes sure previous snapshots match your new component.  What if a change changes a previous component's rendering.  
+    - When unit testing a component we don't have to test each piece individually, we test the rendered JSX as a whole contained in the entire snapshot.
+
 You may remember that one reason that JavaScript is more complicated to test involves how JavaScript manipulates the DOM.  Because React centers around creating user interfaces it is important to test and verify that the components are rendered correctly.  Create React App uses an approximation of the browser DOM in a Node environment and a technique called snapshoting to handle these complications. Jest to create images or **snapshots** of the resulting DOM element which it uses as references to verify that the component has not changed.  This has the advantages that it's faster to test components as everything is run in Node
 
 If you want to learn how to run tests in specific browser environments
