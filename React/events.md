@@ -14,7 +14,7 @@ For this exercise, we'll start with a basic component definition: https://codepe
 
 We're going to add the functionality to the button so that when it is clicked, it will add a new SPLAT graphic.
 
-### Event Handler
+### Event Handler Setup
 Let's start with a common event, `onClick`. This should look familiar since we've used a similar event in jQuery. We will add this event directly to the HTML element in the `render` function. Note that this is one of many places where we might overlap HTML with JavaScript in a component.
 
 ```html
@@ -41,10 +41,31 @@ How should we then link the event handler function with the button's `onClick` e
 </details>
 
 
-
 **Verify!** Open the developer console in the browser (we'd recommend on the right hand side of the screen when using CodePen) and verify that you see the console message.
 
-### Event Handler Functions
+### Event Handler Functionality
+
+So let's think about what we want our button event handler to do. We'd like to keep track of **how many** splats we've requested with our button clicks. What are the strategies that we've explored so far that would allow us to store data? Which of these would we want to use to manage the **number of splats** our component has?
+
+**STATE!**
+
+When we set up state within an application, we want to start by initializing the value in the constructor.
+
+```javascript
+this.state = {
+  count: 0
+};
+```
+
+Once we have the initial state, then we can modify the state in the event handler function to **add one** when the button is pressed. Note that we use the value of the existing state's `count` variable to determine the new value.
+
+```javascript
+handleAdd(){
+  this.setState({ count: (this.state.count + 1) })
+}
+```
+
+Let's set up our `render` to 
 
 ### Exercise
 
