@@ -35,15 +35,16 @@ We'll start testing using the second technique. It will be very reminiscent of m
 As an aside, Selenium is a *really* cool technology, we just don't have the time to do it justice. Maybe it would make a good piece of a capstone project...?
 
 ### Setup
-We will start writing tests with a sample whiteboarding problem.  
+We will start writing tests with a sample whiteboarding problem.
 
+1. Install the Jest Command-line Interface `npm install -g jest-cli`
 1. Clone this repo: `https://github.com/AdaGold/pangram`
 1. `npm install`
 1. `npm start`
 
-Examine the README.  
+Examine the README.
 
-**Question**: In testing a Pangram, what edge-cases would you have?  
+**Question**: In testing a Pangram, what edge-cases would you have?
 
 Now look through the code in the `pangram.spec.js` file, and see if the tests described match your predictions. To run the tests, type `npm test` at the console.
 
@@ -156,7 +157,7 @@ Now use a test-driven development workflow to implement the `Pangram.isPangram()
 
 ### Going Further
 
-Now write your own test in the section provided.  
+Now write your own test in the section provided.
 
 ## What Have We Accomplished?
 
