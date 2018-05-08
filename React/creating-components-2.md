@@ -6,6 +6,11 @@
 
 Next we are going to extend our application to support multiple students. Additionally, we are going to support components dynamically loading data.
 
+**This diagram will drive our overall approach for accomplishing this goal:**
+![nested components](images/nested-components.png)
+<!-- https://drive.google.com/open?id=1xq5jaCrI7FGp6PG1gr-bYE1ZTvPb5PxZ -->
+
+
 ## Load data from `props`
 
 First, we want to use the Student component we already created, but we want to allow this to load data dynamically.
@@ -50,6 +55,7 @@ Import and render `StudentCollection` now from the `App` component instead.
 Set up a constructor in the `StudentCollection` component which will use a variable to create a state-managed collection of student information. Don't forget your call to `super();` which is always required in a component constructor!
 
 ```javascript
+// src/components/StudentCollection.js
 constructor() {
     super();
 
@@ -60,8 +66,8 @@ constructor() {
           email: "state-ada@ada.co"
         },
         {
-          name: "Cool",
-          email: "cool@ada.co"
+          name: "Grade Ada",
+          email: "grace@ada.co"
         }
       ]
     };
@@ -71,6 +77,7 @@ constructor() {
 Next, we'll use a loop in our `render` function to iterate through each item in our state object and render a `Student` component for each piece of data. Remember that the `render` function needs to return a single element.
 
 ```javascript
+// src/components/StudentCollection.js
 render() {
     let studentComponents = this.state.students.map(function(student) {
       return <Student name={ student.name } email={ student.email }/>
@@ -79,7 +86,9 @@ render() {
     return (
       <div>
         <h3>Students</h3>
-        { studentComponents }
+        <section>
+          { studentComponents }
+        </section>
       </div>
     )
   }
@@ -94,6 +103,7 @@ Verify that you now see the data from the constructor in your browser. If you ne
 - How are `props` used within this code?
 - How does this code relate to the code within the `Student` component?
 - What would happen to the HTML rendered if you remove either `name` or `email`?
+- What is being `return`ed and where is it going?
 
 Now let's take a look at an updated version of the diagram that we created in our last component creation lecture:
 
@@ -106,14 +116,25 @@ We want our page to have a nice look & feel! Let's add some simple CSS.
 We can make use of the existing css file that comes from within our boilerplate React application. Let's add a new class in the `App.css` file for the student.
 
 ```css
+/* App.css */
 .student {
-  padding: 10px;
+  width: 15em;
+  border: 1px solid black;
+  background-color: hsl(189, 100%, 89%);
+  padding: 1em;
+  margin: 1em;
+}
+
+.student-list {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 ```
 
 **Try It!**
 
-Now that you have a class to add some padding, work with the person sitting next to you to figure out where you should add this class in the HTML. Should it be within a `render` function? Should it be added when a component is rendered from another component?
+Now that you have two classes to add some styling, work with the person sitting next to you to figure out where you should add these classes in the HTML. Should they be within a `render` function? Should they be added when a component is rendered from another component? Should they be added in the same place, or a different place?
 
 
 **Result**
@@ -129,7 +150,7 @@ render() {
 
 We don't want to add the class name onto each **component** that is rendered from the `StudentCollection` because that wouldn't go directly to the HTML. We should instead add it directly to the HTML **within** the component.
 
-You can see the final version of the code [here](https://github.com/AdaGold/react-hello-world/blob/part-6/src).)
+You can see the final version of the code [here](https://github.com/AdaGold/react-hello-world/blob/part-6/src).
 
 ## Key Takeaway
 Nesting components within one another gives us infinite possibilities in React.
