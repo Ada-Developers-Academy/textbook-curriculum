@@ -4,13 +4,13 @@
 - Examine how React allow components to manage data
 - Use `props` between components
 - Use `state` within a component
-- Impacts of both to component rendering
+- Examine how `props` and `state` effect component rendering
 
 ## Overview
 Props & State are the two ways that React components manage and share their data.
 
 ## `props`
-Props are **passed from the outside of the component** into the component itself. Props are accessible using `this.props` within a component. Props cannot be changed from within the component who received the prop values.
+Props are **passed from the outside of the component** into the component itself. Props are accessible using `this.props` within a component. Props cannot be changed from within the component. The closest parallel that we can see for `props` is constructor method parameters - props act like parameters being sent into Components when they are created.
 
 #### Overview
 - Can be assigned to any variable name you want
@@ -26,7 +26,7 @@ From within Component B, you can now access this data using the `this.props.varN
 
 **More Complex**
 
-To add code to the value of the variable, use the JSX syntax for including code with the `{}`.
+To add code to the value of the variable, use the JSX syntax for including code with `{}`.
 
 A fairly common thing to do is to utilize `props` to pass an event handler from a parent component to a child component. In the parent component, we could pass this function within a prop as follows:
 `<ComponentB onChange={this.handleChange}`.
@@ -92,7 +92,7 @@ Can set initial value for a child component? | Yes | Yes
 Can change in a child component? | Yes | No
 
 ## Key Takeaway
-Using `props` and `state` within your React application are two necessary ways to manage and share data. They each have their own purpose, but they can be used together to provide the most dynamic applications. 
+Using `props` and `state` within your React application are two necessary ways to manage and share data. They each have their own purpose, but they can be used together to provide the most dynamic applications.
 
 ## Additional Resources
 - [React Docs: Components and props](https://reactjs.org/docs/components-and-props.html)
