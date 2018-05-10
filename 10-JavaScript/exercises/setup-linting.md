@@ -5,7 +5,7 @@ This walkthrough will help you set up Atom's `eslint` linter to use the ESLint r
 ## Learning Goals:
 
 After this walkthrough you should be able to:
-- Explain what a coding style guide is
+- Explain what a code style guide is
 - Write JavaScript in Atom with a JavaScript linter highlighting errors and warnings
 
 ![coding standards](images/coding-standards.png)
@@ -25,7 +25,7 @@ We will use the linting setting [ESLint Recommended](https://eslint.org/docs/rul
 
 ## Install Node Modules
 
-First we will install some node modules eslint, our linter will use to enforce our coding standard.
+First we will install eslint, which is the linter will use to enforce our coding standard.  There are several node modules here, which are all context-specific linters for the eslint style.
 
 ```bash
 $ npm install -g eslint eslint-plugin-react jest jest-cli babel-eslint eslint-plugin-jasmine jasmine eslint-plugin-import eslint-plugin-jsx-a11y
@@ -33,7 +33,7 @@ $ npm install -g eslint eslint-plugin-react jest jest-cli babel-eslint eslint-pl
 
 ## A Global Linter Configuration File
 
-Our linter `eslint` will naturally look for a `.eslintrc` file in our projects to know what coding standards to enforce.  We will create one in our home folders which will be the default, if the file does not exist in our local project.  You can always override this file by providing one of your own in your project's root directory.
+Our linter `eslint` will naturally look for a `.eslintrc` file in our projects to know what coding standards to enforce.  We will create one in our home folders which will be the default, if the file does not exist in our local project to define a project-specific standard.  You can always override this file by providing one of your own in your project's root directory.
 
 Add this file `~/.eslintrc`
 
@@ -59,7 +59,7 @@ Add this file `~/.eslintrc`
 
 Back to Atom!  Now we can install Atom's linter and get it set up.
 
-In atom go to preferences-->install and install `linter-eslint`.
+In Atom go to preferences-->install and install `linter-eslint`.
 
 Preferences:
 
@@ -95,7 +95,7 @@ Now open a new .js file and type:
 var dont_user_var = "A poorly made variable";
 ```
 
-You should get a warning (Unexpected console statement) about not including `console.log` in production code (for the most part it's just used for debugging).
+You should get a warning (Unexpected console statement) about not including `console.log` in production code (for the most part, `console.log` is just used for debugging).
 
 ![no-console](images/verify-linting.png)
 
