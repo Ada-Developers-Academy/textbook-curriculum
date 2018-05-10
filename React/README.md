@@ -9,8 +9,7 @@
 1. [Lifecycle Methods](lifecycle-methods.md)
 1. [Event Handling](events.md)
 
-1. [Router](router.md)
 1. [Component Design](component-design.md)
-1. [APIs](apis.md)
+1. [Events](events.md)
 1. [Forms](forms.md)
 1. [Styling](styling.md)
