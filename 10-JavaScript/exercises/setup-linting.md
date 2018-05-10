@@ -1,6 +1,6 @@
-# Set Up Atom for Linting According to the AirBNB JS Standards
+# Set Up Atom for Linting
 
-This walkthrough will help you set up Atom's `eslint` linter to use the ESLint recommended settings globally and help you write cleaner JavaScript.
+This walkthrough will help you set up Atom's `eslint` linter to use the ESLint recommended settings globally and help you write cleaner JavaScript.  Many developers use specific linter configurations to enforce coding style guides.
 
 ## Learning Goals:
 
@@ -10,13 +10,18 @@ After this walkthrough you should be able to:
 
 ![coding standards](images/coding-standards.png)
 
-__Why do this?__  Without a good style guide that all parties adhere to, inevitably ugly, inconsistent code creeps in.  Agreeing on a coding standard helps keep the codebase readable, and encourage best practices.  You can read more on it [here](https://medium.freecodecamp.org/adding-some-air-to-the-airbnb-style-guide-3df40e31c57a).  Using a Linter is one way of enforcing a coding standard, the text editor reminds you when you veer off the road.
+## A Note On Style Guides
 
-- [ESLint Recommended](https://eslint.org/docs/rules/) is a rather minimal set of linting rules to highlight common JavaScript problems.  There are others including:
-  - [AirBNB](https://github.com/airbnb/javascript) has a well documented coding standard that is very popular.
-  - [Google](https://google.github.io/styleguide/jsguide.html) also has a popular coding style guide.
+Many software teams adhere to a set of rules which serve as guidelines for how to write and organize code.  Linters can be an integral part of a team's style conventions.
 
-We are going to use the ESLint Recommended and React JavaScript linting rules at Ada to enforce a good consistent style.
+__Why use a style guide?__  Without a good style guide that all parties adhere to, inevitably ugly, inconsistent code creeps in.  Agreeing on a coding standard helps keep the codebase readable, and encourage best practices.  You can read more on it [here](https://medium.freecodecamp.org/adding-some-air-to-the-airbnb-style-guide-3df40e31c57a).  Using a Linter is one way of enforcing a coding standard, the text editor reminds you when you veer off the road.
+
+
+- [AirBNB](https://github.com/airbnb/javascript) has a well documented coding standard that is very popular.
+- [Google](https://google.github.io/styleguide/jsguide.html) also has a popular coding style guide.
+
+We will use the linting setting [ESLint Recommended](https://eslint.org/docs/rules/) and [ESLint-react](https://github.com/yannickcr/eslint-plugin-react) which have a rather minimal set of linting rules to highlight common JavaScript problems.
+
 
 ## Install Node Modules
 
