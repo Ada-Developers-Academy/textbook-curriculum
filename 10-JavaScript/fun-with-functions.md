@@ -65,13 +65,27 @@ Like any other variable, you can include a function as member of an object. Othe
 const animal = {
   species: 'dog',
   sound: 'woof',
-  describe: function() {
+  describe() {
     console.log(`A ${this.species} goes ${this.sound}`);
-  },
+  }
 };
 
 animal.describe(); // "A dog goes woof"
 ```
+
+As with much of JavaScript, there's two versions of the syntax to define a function inside an object. Here is the old (pre-2015) syntax:
+
+```javascript
+// Old syntax for defining a function inside an object 
+const animal = {
+  // ...
+  describe: function() {
+    console.log(`A ${this.species} goes ${this.sound}`);
+  }
+};
+```
+
+It's just different enough to trip you up if you see it on Stack Overflow. In this course we'll be using the new-style syntax (the first example).
 
 Be aware that JavaScript's `this` keyword has some strange behavior. Many times it won't refer to quite what you'd expect. This can be one of the most frustrating things about JavaScript, especially for a beginner, and we'll have more to say about it later. For now, just know that it's a thing that might come up.
 
