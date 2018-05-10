@@ -124,7 +124,7 @@ Tests can be skipped by changing `test(...` to `test.skip(...`.  Go ahead and ch
 to:
 
 ```javascript
-test.skip('isPangram() is defined', () => {
+    test.skip('isPangram() is defined', () => {
 ```
 
 ### Matchers
