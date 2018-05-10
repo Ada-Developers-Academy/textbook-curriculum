@@ -47,7 +47,8 @@ Add this file `~/.eslintrc`
     "browser": true,
     "jest/globals": true
   }
-}```
+}
+```
 
 ## Install `Linter-Eslint`
 
