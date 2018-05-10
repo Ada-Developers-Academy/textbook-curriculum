@@ -127,8 +127,6 @@ to:
 test.skip('isPangram() is defined', () => {
 ```
 
-If you choose to use `it` blocks instead of `test`, you can skip a test with `xit` in place of `it`.
-
 ### Matchers
 Just like in testing with Ruby and Rails, Jest has a number of **matchers** that allow us to construct our tests. Below are the most common:
 
