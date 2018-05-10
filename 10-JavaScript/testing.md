@@ -22,7 +22,7 @@ In short, most interesting JavaScript code is full of *external dependencies*. M
 
 ### Testing Strategy
 
-We'll be using a test suite called [Jest](https://facebook.github.io/jest/docs/en/getting-started.html) (maintained by Facebook). Jest is available as an npm package and comes built-in with `create-react-app`.
+We'll be using a test suite called [Jest](https://facebook.github.io/jest/docs/en/getting-started.html) (maintained by Facebook). Jest is available as an npm package and commonly used in testing React & pure JavaScript applications.
 
 Jest tests are run from the command line using `npm test` (more on this later). While this is fast and convenient, it also means that our tests are being run without support from the browser, and anything that relies on the browser (like manipulating the DOM or waiting for user events) will break.
 
@@ -39,10 +39,7 @@ We will start writing tests with a sample whiteboarding problem.
 
 1. Install the Jest Command-line Interface `npm install -g jest-cli`
 1. Clone this repo: [`https://github.com/AdaGold/pangram`](https://github.com/AdaGold/pangram)
-1. `npm install`
-1. `npm start`
-
-Examine the README.
+1.  Examine the README and follow the instructions to install the Jest command-line tools and node modules needed to run the app.
 
 **Question**: In testing a Pangram, what edge-cases would you have?
 
