@@ -111,7 +111,7 @@ describe('Pangram class',  () =>  {
 });
 ```
 
-And that's all a test is. Go ahead and add another one to the spec file, but this time make sure it will fail (e.g. `expect(false).toEqual(true);`). Then re-run the tests, just to see what a failure looks like. Fix the test and run it again. Not too different from Minitest, right?
+And that's all a test is. Go ahead and add another expect statement to the spec file, but this time make sure it will fail (e.g. `expect(false).toEqual(true);`). Then re-run the tests, just to see what a failure looks like. Fix the test and run it again. Not too different from Minitest, right?
 
 ## Skipping Tests
 
