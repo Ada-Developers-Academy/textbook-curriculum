@@ -38,7 +38,7 @@ As an aside, Selenium is a *really* cool technology, we just don't have the time
 We will start writing tests with a sample whiteboarding problem.
 
 1. Install the Jest Command-line Interface `npm install -g jest-cli`
-1. Clone this repo: `https://github.com/AdaGold/pangram`
+1. Clone this repo: [`https://github.com/AdaGold/pangram`](https://github.com/AdaGold/pangram)
 1. `npm install`
 1. `npm start`
 
@@ -46,7 +46,7 @@ Examine the README.
 
 **Question**: In testing a Pangram, what edge-cases would you have?
 
-Now look through the code in the `pangram.spec.js` file, and see if the tests described match your predictions. To run the tests, type `npm test` at the console.
+Now look through the code in the `src/pangram.spec.js` file, and see if the tests described match your predictions. To run the tests, type `npm test` at the console.
 
 Similar to Rails, the `spec` directory has the same structure as the `src` directory. Each file `src/dir/name.js` may have a corresponding `spec/dir/name.spec.js`.
 
@@ -97,7 +97,7 @@ Similar to what you have in Minitest you can use `it`, in place of `test` if `it
 
 Expectations should be the "meat and potatoes" of your tests, inside of your `it` blocks. Each test has at least one `expect` statement to ensure the behavior is as expected.
 
-The syntax of `describe` and `test` is pretty similar to Minitest (at least as similar as Ruby and JS can be), but `expect` is somewhat different. `expect` takes an argument and returns an object with a number of methods called __expectations__.  These methods like `toBeDefined` function like the matchers in Minitest.  They define the condition your test is looking to ensure.  `toBeDefined` is used to ensure that the argument to `expect` is not `undefined`.  You can find a table of expectations below.  
+The syntax of `describe` and `test` is pretty similar to Minitest (at least as similar as Ruby and JS can be), but `expect` is somewhat different. `expect` takes an argument and returns an object with a number of methods called __expectations__.  These methods like `toBeDefined` function like the matchers in Minitest.  They define the condition your test is looking to ensure.  `toBeDefined` is used to ensure that the argument to `expect` is not `undefined`.  You can find a table of expectations below.
 
 ```javascript
 describe('Pangram class',  () =>  {
