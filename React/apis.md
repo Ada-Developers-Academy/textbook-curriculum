@@ -1,8 +1,10 @@
+# Integrating with an API in React
 
-AJAX best practices
-https://www.andrewhfarmer.com/react-ajax-best-practices/
+## Learning Goals
+- Revisit `fetch` from a few weeks ago
+- Integrate API request in react lifecycle method
 
-Axios? (+ series of building a react app incrementally!!!)
-https://medium.com/@harinilabs/day-5-making-server-request-in-react-with-axios-8e85549caf62
 
-https://www.youtube.com/watch?v=vmLaZafaw9E
+## Additional Resources
+- [Using `fetch` in React](https://facebook.github.io/react-native/docs/network.html)
+- [Mozilla `fetch` docs](https://developer.mozilla.org/en-US/docs/Web/API/Request)
