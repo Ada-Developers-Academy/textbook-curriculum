@@ -97,7 +97,7 @@ Similar to what you have in Minitest you can use `it`, in place of `test` if `it
 
 Expectations should be the "meat and potatoes" of your tests, inside of your `it` blocks. Each test has at least one `expect` statement to ensure the behavior is as expected.
 
-The syntax of `describe` and `test` is pretty similar to Minitest (at least as similar as Ruby and JS can be), but `expect` is somewhat different. Note that there are actually two functions being called, the `expect` and the matcher (`toBeDefined` in this case).
+The syntax of `describe` and `test` is pretty similar to Minitest (at least as similar as Ruby and JS can be), but `expect` is somewhat different. `expect` takes an argument and returns an object with a number of methods called __expectations__.  These methods like `toBeDefined` function like the matchers in Minitest.  They define the condition your test is looking to ensure.  `toBeDefined` is used to ensure that the argument to `expect` is not `undefined`.  You can find a table of expectations below.  
 
 ```javascript
 describe('Pangram class',  () =>  {
