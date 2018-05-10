@@ -153,7 +153,7 @@ The Jest docs also have some great examples of how to use the different matchers
 
 Read through the couple of implemented tests in `pangram.spec.js` and the stubbed out tests.
 
-Now use a test-driven development workflow to implement the `Pangram.isPangram()` method and complete the stubbed-out tests. Remember: the TDD cycle: pseudocode-red-green-refactor!
+Now use a test-driven development workflow to implement the `Pangram.isPangram()` method and complete the stubbed-out tests. Remember the TDD cycle: pseudocode-red-green-refactor!
 
 ### Going Further
 
