@@ -77,9 +77,10 @@ animal.describe(); // "A dog goes woof"
 
 <details>
 
-  <summary>As with much of JavaScript, there's two versions of the syntax to define a function inside an object. **Click here to expand and view the old (pre-2015) syntax.**</summary>
+  <summary>
+    As with much of JavaScript, there's two versions of the syntax to define a function inside an object. Click here to expand and view the old (pre-2015) syntax.
+  </summary>
 
-  <p>
   ```javascript
   // Old syntax for defining a function inside an object
   const animal = {
@@ -89,12 +90,11 @@ animal.describe(); // "A dog goes woof"
     }
   };
   ```
-  </p>
 
-  <p>It's just different enough to trip you up if you see it on Stack Overflow. In this course we'll be using the new-style syntax (the first example).</p>
+  It's just different enough to trip you up if you see it on Stack Overflow. In this course we'll be using the new-style syntax (the first example).
 
 </details>
-
+<br/>
 
 While reviewing the first syntax, **ask yourself:** What is the value of the variable `animal`? What properties does it have? What is the value of those properties? In the code snippet `A ${this.species} goes ${this.sound}`, what is the value of `this.species` and the value of `this.sound`?
 
