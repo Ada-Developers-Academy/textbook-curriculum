@@ -44,7 +44,8 @@ Add this file `~/.eslintrc`
   "rules": {
     "max-len": [1, 120, 2, {ignoreComments: true}],
     "no-console": 0,
-    "no-var": 1
+    "no-var": 1,
+    "jsx-a11y/href-no-hash": [0]
   },
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "env": {
@@ -95,7 +96,7 @@ Now open a new .js file and type:
 var dont_user_var = "A poorly made variable";
 ```
 
-You should get a warning (Unexpected console statement) about not including `console.log` in production code (for the most part, `console.log` is just used for debugging).
+You should get a warning (Unexpected console statement) about declaring a variable with var, that's ok as we want the warning to verify that linting is working.  
 
 ![no-console](images/verify-linting.png)
 
