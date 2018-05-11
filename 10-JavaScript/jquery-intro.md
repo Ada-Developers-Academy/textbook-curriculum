@@ -11,11 +11,11 @@
 - Utilize jQuery selectors to manipulate the DOM
 
 ## What Is jQuery?
-jQuery is a JavaScript library for DOM (web page) manipulation and cross-browser script compatibility. jQuery does most of it's magic through a global function that it defines in the '$' variable.
+jQuery is a JavaScript library for DOM (web page) manipulation and cross-browser script compatibility. jQuery does most of it's magic through a global function that it defines in the `$` variable.
 
 ### Selectors
 
-You can use the jQuery function ($) to grab and manipulate elements of your web page. jQuery uses CSS selectors to find the elements on the page.
+You can use the jQuery function (`$`) to grab and manipulate elements of your web page. jQuery uses CSS selectors to find the elements on the page.
 
 ```javascript
 $('body');     // returns the body element
