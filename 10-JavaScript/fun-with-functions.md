@@ -67,15 +67,36 @@ Within an object itself, other members (such as properties) can be accessed thro
 const animal = {
   species: 'dog',
   sound: 'woof',
-  describe: function() {
+  describe() {
     console.log(`A ${this.species} goes ${this.sound}`);
-  },
+  }
 };
 
 animal.describe(); // "A dog goes woof"
 ```
 
-**Ask yourself:** What is the value of the variable `animal`? What properties does it have? What is the value of those properties? In the code snippet `A ${this.species} goes ${this.sound}`, what is the value of `this.species` and the value of `this.sound`?
+<details>
+
+  <summary>As with much of JavaScript, there's two versions of the syntax to define a function inside an object. **Click here to expand and view the old (pre-2015) syntax.**</summary>
+
+  <p>
+  ```javascript
+  // Old syntax for defining a function inside an object
+  const animal = {
+    // ...
+    describe: function() {
+      console.log(`A ${this.species} goes ${this.sound}`);
+    }
+  };
+  ```
+  </p>
+
+  <p>It's just different enough to trip you up if you see it on Stack Overflow. In this course we'll be using the new-style syntax (the first example).</p>
+
+</details>
+
+
+While reviewing the first syntax, **ask yourself:** What is the value of the variable `animal`? What properties does it have? What is the value of those properties? In the code snippet `A ${this.species} goes ${this.sound}`, what is the value of `this.species` and the value of `this.sound`?
 
 Be aware that JavaScript's `this` keyword has some strange behavior. Many times it won't refer to quite what you'd expect. This can be one of the most frustrating things about JavaScript, especially for a beginner, and we'll have more to say about it later. For now, just know that it's a thing that might come up.
 
