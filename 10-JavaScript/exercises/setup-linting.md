@@ -96,9 +96,9 @@ Now open a new .js file and type:
 var dont_user_var = "A poorly made variable";
 ```
 
-You should get a warning (Unexpected console statement) about declaring a variable with var, that's ok as we want the warning to verify that linting is working.  
+You should get a warning (Unexpected var) about declaring a variable with var, that's ok as we want the warning to verify that linting is working.  
 
-![no-console](images/verify-linting.png)
+![no-var](images/verify-linting.png)
 
 Notice the link on the right-side of the message.  That will take you to an eslint page about the rule.  If you get this message, it worked!
 
