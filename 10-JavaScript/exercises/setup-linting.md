@@ -104,7 +104,7 @@ Notice the link on the right-side of the message.  That will take you to an esli
 
 ## Summary
 
-In this exercise we set up Atom to use the AirBNB coding standards by default in any JavaScript file we create (ending with .js).  To do so we had to install some node modules (like Ruby Gems) and install the `eslint` package in Atom.
+In this exercise we set up Atom to use the ESLint recommended coding standards by default in any JavaScript file we create (ending with .js).  To do so we had to install some node modules (like Ruby Gems) and install the `linter-eslint` package in Atom.
 
 ## Resources
 - [AirBNB JavaScript Style Guide](https://github.com/airbnb/javascript)
