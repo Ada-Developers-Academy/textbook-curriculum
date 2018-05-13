@@ -176,3 +176,4 @@ The Jest docs also have some great examples of how to use the different matchers
 - [Selenium](http://www.seleniumhq.org/)
 - [Testing React Apps](https://facebook.github.io/jest/docs/en/tutorial-react.html)
 - [Jest Examples Folder](https://github.com/facebook/jest/tree/master/examples)
+- [Karma a way to run tests through the browser](https://karma-runner.github.io/2.0/index.html)
