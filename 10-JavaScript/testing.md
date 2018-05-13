@@ -78,7 +78,7 @@ describe('TextBlock class',  () =>  {
 
 ```javascript
 describe('TextBlock class',  () =>  {
-  test('Pangram is defined', function() {
+  test('TextBlock is defined', function() {
 
   }
 
@@ -92,7 +92,7 @@ Similar to what you have in Minitest you can use `it`, in place of `test` if `it
 
 #### `expect` Statements
 
-Expectations should be the "meat and potatoes" of your tests, inside of your `it` blocks. Each test has at least one `expect` statement to ensure the behavior is as expected.
+Expectations should be the "meat and potatoes" of your tests, inside of your `test` blocks. Each test has at least one `expect` statement to ensure the behavior is as expected.
 
 The syntax of `describe` and `test` is pretty similar to Minitest (at least as similar as Ruby and JS can be), but `expect` is somewhat different. `expect` takes an argument and returns an object with a number of methods called __expectations__.  These methods like `toBeDefined` function like the matchers in Minitest.  They define the condition your test is looking to ensure.  `toBeDefined` is used to ensure that the argument to `expect` is not `undefined`.  You can find a table of expectations below.
 
@@ -124,9 +124,17 @@ to:
     test.skip('isPangram() is defined', () => {
 ```
 
-## Going Further
+## Exercise With A Seatsquad Partner
 
-As a further exercise write methods for a `isPalindrome` method.  Then write code to solve the problem.  A palindrome is a word or phrase spelled backwards the same as forwards.  
+Read through the couple of implemented tests in `textblock.spec.js` and the stubbed out tests.
+
+Now use a test-driven development workflow to implement the `TextBlock.isPangram()` method and complete the stubbed-out tests. Remember the TDD cycle: pseudocode-red-green-refactor!
+
+### Going Further
+
+Now write your own test in the section provided.
+
+If this isn't enough practice, create tests for an `isPalindrome` method.  Then write code to solve the problem.  A palindrome is a word or phrase spelled backwards the same as forwards and is further described in the README.
 
 ### Matchers
 Just like in testing with Ruby and Rails, Jest has a number of **matchers** that allow us to construct our tests. Below are the most common:
@@ -148,15 +156,6 @@ Just like in testing with Ruby and Rails, Jest has a number of **matchers** that
 The Jest docs also have some great examples of how to use the different matchers.
 [https://facebook.github.io/jest/docs/en/expect.html](https://facebook.github.io/jest/docs/en/expect.html)
 
-## Exercise With A Seatsquad Partner
-
-Read through the couple of implemented tests in `textblock.spec.js` and the stubbed out tests.
-
-Now use a test-driven development workflow to implement the `TextBlock.isPangram()` method and complete the stubbed-out tests. Remember the TDD cycle: pseudocode-red-green-refactor!
-
-### Going Further
-
-Now write your own test in the section provided.
 
 ## What Have We Accomplished?
 
