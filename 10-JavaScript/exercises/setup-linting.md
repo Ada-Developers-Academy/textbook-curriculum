@@ -9,6 +9,7 @@ After this walkthrough you should be able to:
 - Write JavaScript in Atom with a JavaScript linter highlighting errors and warnings
 
 ![coding standards](images/coding-standards.png)
+[Source](https://xkcd.com/927/)
 
 ## A Note On Style Guides
 
