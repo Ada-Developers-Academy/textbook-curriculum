@@ -130,9 +130,11 @@ Read through the couple of implemented tests in `textblock.spec.js` and the stub
 
 Now use a test-driven development workflow to implement the `TextBlock.isPangram()` method and complete the stubbed-out tests. Remember the TDD cycle: pseudocode-red-green-refactor!
 
-### Going Further
+### Going Further 
 
 Now write your own test in the section provided.
+
+**Optional Exercise**
 
 If this isn't enough practice, create tests for an `isPalindrome` method.  Then write code to solve the problem.  A palindrome is a word or phrase spelled backwards the same as forwards and is further described in the README.
 
