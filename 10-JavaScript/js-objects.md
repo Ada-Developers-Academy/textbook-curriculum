@@ -135,9 +135,9 @@ Cat.prototype.purr = function purr() {
   console.log('Prrrrr');
 };
 
-const garfield = new Cat('Octo', 13);
-console.log(garfield.info()); // Meet Garfield who is 13 years old
-garfield.purr(); // Prrrrr
+const heathcliff = new Cat('Heathcliff', 13);
+console.log(heathcliff.info()); // Meet Heathcliff who is 13 years old
+heathcliff.purr(); // Prrrrr
 ```
 
 So how does this prototype thing work?  When the `new` operator is used, JavaScript looks at the constructor's prototype and links the new instance to the constructor's prototype.  The constructor Cat constructor's prototype also links back to it's "parent", which in this case is Object.  So `heathcliff` has access to methods in both the `Cat` prototype and `Object`.
