@@ -52,6 +52,9 @@ Add this file `~/.eslintrc`
   "env": {
     "node": true,
     "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "jquery": true,
     "jest/globals": true
   }
 }
