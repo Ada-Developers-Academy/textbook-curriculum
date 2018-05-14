@@ -12,14 +12,14 @@ For Part 2, follow the directions for each problem.
   end
   ```
 
-1. &nbsp;
+2. &nbsp;
   ```ruby
   def say_num(number)
     puts 'Your number is #{number}.'
   end
   ```
 
-1. &nbsp;
+3. &nbsp;
   ```ruby
   def larger_num(first, second)
     if first >= second
@@ -30,10 +30,9 @@ For Part 2, follow the directions for each problem.
   end
   ```
 
-1. &nbsp;
-Re-write #3: If you used a function expression, now write using a declaration, or vice versa.
+4. Re-write #3: If you used a function expression, now write using a declaration, or vice versa.
 
-1. &nbsp;
+5. &nbsp;
   ```ruby
   def output(items)
     items.each do |item|
@@ -62,14 +61,14 @@ Follow the directions for each problem.
   let my_calculator = new Calculator();
   ``` -->
 
-1. What does the following code print to the console?
+2. What does the following code print to the console?
   ```javascript
   console.log(function () {
     return "Hey hey hey";
   }());
   ```
 
-1. What does the following code print to the console?
+3. What does the following code print to the console?
   ```javascript
   const blabbermouth = function() { };
   console.log(blabbermouth.name);
