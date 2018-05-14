@@ -42,7 +42,7 @@ puts my_book.to_s   # Instance method
 
 When you create a new book instance the `initialize` method runs and sets the instance variables to starting values.  
 
-Below is this Book class written in JavaScript.  It has a title, and author attributes and a `toString` method which outputs the object as a String.  Notice that everything in a class falls between the curly braces without any commas to separate each item.  
+Below is this Book class written in JavaScript.  It has title and author attributes and a `toString` method which outputs the object as a String.  Notice that everything in a class falls between the curly braces **without any commas to separate each item.**
 
 ```javascript
 class Book {
@@ -95,7 +95,7 @@ let poodr = new Book('Practical Object Oriented Programming in Ruby', 'Metz');
 
 ### Instance Methods
 
-Instance methods are created like a constructors with their own names.  
+Instance methods are created like constructors with their own names.
 
 ```javascript
 const SALESTAX = 0.08;
@@ -158,7 +158,7 @@ Notice that the properties are all named __\_propertyName__.  This is a common n
 
 **Question**:  Why would naming the property the same as the getter or setter method result in infinite recursion?
 
-At Ada we will not use getter and setter functions and not use the  __\_propertyName__ convention, but it is a convention you will likely encounter.  Instead we will use regular functions to access and change variables as per [AirBNB's style guide](https://github.com/airbnb/javascript#accessors--no-getters-setters).  This is because they can cause unexpected side-effects because we're treating functions like they are instance variables.
+At Ada we will not use getter and setter functions and not use the  __\_propertyName__ convention, but it is a convention you will likely encounter.  Instead we will create regular functions to access and change variables as per [AirBNB's style guide](https://github.com/airbnb/javascript#accessors--no-getters-setters).  This is because they can cause unexpected side-effects because we're treating functions like they are instance variables.
 
 For example if I wrote:
 ```javascript
