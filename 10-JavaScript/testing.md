@@ -1,13 +1,12 @@
-# JavaScript Testing with Jasmine
+# JavaScript Unit Testing with Jest
 
 ## Learning Goals
 By the end of this lesson, students should be able to...
 
 - Describe what makes testing JavaScript web apps complex
 - Discuss strategies for mitigating this complexity
-- Run Jasmine tests from the command line
-- Enumerate the parts of a Jasmine test file
-- Write tests in Jasmine for models and business logic methods
+- Run Jest tests from the command line
+- Enumerate the parts of a Jest test file
 
 ## Testing in JavaScript
 
@@ -23,96 +22,129 @@ In short, most interesting JavaScript code is full of *external dependencies*. M
 
 ### Testing Strategy
 
-We'll be using a test suite called [Jasmine](https://jasmine.github.io/index.html) (maintained by Pivotal Labs, part of the Ada network). Jasmine is available as an npm package, and it is included in our standard Ada webpack setup.
+We'll be using a test suite called [Jest](https://facebook.github.io/jest/docs/en/getting-started.html) (maintained by Facebook). Jest is available as an npm package and commonly used in testing React & pure JavaScript applications.
 
-Jasmine tests are run from the command line using `npm test` (more on this later). While this is fast and convenient, it also means that our tests are being run without support from the browser, and anything that relies on the browser (like manipulating the DOM or waiting for user events) will break.
+Jest tests are run from the command line using `npm test` (more on this later). While this is fast and convenient, it also means that our tests are being run without support from the browser, and anything that relies on the browser (like manipulating the DOM or waiting for user events) will break.
 
 To get around this, there are basically two strategies to follow:
 - Use a technology like [Selenium](http://www.seleniumhq.org/) to *mock* the DOM
 - Build your application so that as much of the business logic as possible can run without the DOM
 
-Since our remaining time together is short, we'll use the second technique. It will be very reminiscent of model testing in Rails, and in fact we will focus our JavaScript testing on models. The testing techniques we learn here will also transfer directly to any command-line JavaScript programs you write, including something like a Node-Express server.
+We'll start testing using the second technique. It will be very reminiscent of model testing in Rails, and in fact we will focus our JavaScript testing on business logic methods. The testing techniques we learn here will also transfer directly to any command-line JavaScript programs you write, including something like a Node-Express server.
 
 As an aside, Selenium is a *really* cool technology, we just don't have the time to do it justice. Maybe it would make a good piece of a capstone project...?
 
 ### Setup
-We will utilize the same basic application structure that we have used for our Backbone applications. In fact, the project we'll be working with is a complete Backbone SPA. To let us focus on the process of writing tests with Jasmine rather than implementing some bit of complex logic, we'll be using a Backbonified version of our good old Scrabble game.
+We will start writing tests with a sample whiteboarding problem.
 
-1. Clone this repo: `https://github.com/AdaGold/scrabble-jasmine-baseline`
-1. `npm install`
-1. `npm start`
+1. Install the Jest Command-line Interface `npm install -g jest-cli`
+1. Clone this repo: [`https://github.com/AdaGold/TextBlock`](https://github.com/AdaGold/TextBlock)
+1.  Examine the README and follow the instructions to install the Jest command-line tools and node modules needed to run the app.
 
-Spend some time playing with the site. What models, collections and views do you think there might be? What functionality is still missing?
+**Question**: In testing a `isPangram`, what edge-cases would you have?
 
-Now look through the code, and confirm or rebuke your suspicions. Pay close attention to the `spec` directory, which is where the tests live - we'll dive into it a little later. To run the tests, type `npm test` at the console.
+Now look through the code in the `src/textblock.spec.js` file, and see if the tests described match your predictions. To run the tests, type `npm test` at the console.
 
 Similar to Rails, the `spec` directory has the same structure as the `src` directory. Each file `src/dir/name.js` may have a corresponding `spec/dir/name.spec.js`.
 
-Because we're running tests via `npm`, our tests have access to all our WebPack infrastructure, and `import` and `export` statements will work about as you'd expect.
-
 ### Anatomy of a Test
 
-There are already some tests written for the `Word` model, so let's begin there. Open up `spec/models/word.spec.js`.
+There are already some tests written for the `isPangram` method, so let's begin there. Open up `spec/textblock.spec.js`.
 
-Because Jasmine is a behavior-driven testing language, testing using Jasmine for JavaScript is fairly similar to what we saw using Minitest for Ruby and Rails. As always, there are some specific differences.
+Because Jest is a behavior-driven testing language, testing using Jest for JavaScript is fairly similar to what we saw using Minitest for Ruby and Rails. As always, there are some specific differences.
 
 Each test should have these components to describe the test behavior.
 
 #### `describe` Blocks
-Describe blocks should create test groupings based on _objects_ and _functions_.
+Describe blocks should create test groupings based on _objects_ and _functions_.  They are optional, but provide some readability and organization.  Like Minitest you can also nest `describe` blocks.
 
-We should use one `describe` block for our overall `Word` model, and another nested one for each method or set of behavior we want to test. `Word` has one for the constructor, another for validations and a third for the `score()` method.
+We will use one `describe` block for our overall `TextBlock` class, and another nested one for the `isPangram` method.
 
 Each `describe` function has two parameters. The first is the description of the `describe` block and the second is the function which contains the actions/logic. Note that we add a `;` at the end of each `describe` block.
 
 ```javascript
-describe('Word', () => {
-  describe('constructor', () => {
+describe('TextBlock class',  () =>  {
+
+
+  describe('isPangram()', () => {
 
   });
 });
 ```
 
-#### `it` Blocks
+#### `test` Blocks
 
-`it` blocks should define one distinct test. The description that goes along with the `it` block should describe the specific scenario that you are testing.
+`test` blocks should define one distinct test. The description that goes along with the `test` block should describe the specific scenario that you are testing.
 
 ```javascript
-describe('Word', () => {
-  describe('constructor', () => {
-    it ('Converts text to lowercase', () => {
+describe('TextBlock class',  () =>  {
+  test('TextBlock is defined', function() {
 
-    });
+  }
+
+  describe('isPangram()', () => {
+
   });
 });
 ```
+
+Similar to what you have in Minitest you can use `it`, in place of `test` if `it` (hic) makes you feel more comfortable, but the Jest documentation uses `test`, and so Ada's examples will as well.
 
 #### `expect` Statements
 
-Expectations should be the "meat and potatoes" of your tests, inside of your `it` blocks. Each test has at least one `expect` statement to ensure the behavior is as expected.
+Expectations should be the "meat and potatoes" of your tests, inside of your `test` blocks. Each test has at least one `expect` statement to ensure the behavior is as expected.
 
-The syntax of `describe` and `it` is pretty similar to Minitest (at least as similar as Ruby and JS can be), but `expect` is somewhat different. Note that there are actually two functions being called, the `expect` and the matcher (`toEqual` in this case), each taking one argument.
+The syntax of `describe` and `test` is pretty similar to Minitest (at least as similar as Ruby and JS can be), but `expect` is somewhat different. `expect` takes an argument and returns an object with a number of methods called __expectations__.  These methods like `toBeDefined` function like the matchers in Minitest.  They define the condition your test is looking to ensure.  `toBeDefined` is used to ensure that the argument to `expect` is not `undefined`.  You can find a table of expectations below.
 
 ```javascript
-describe('Word', () => {
-  describe('constructor', () => {
-    it ('Converts text to lowercase', () => {
-      const word = new Word({ text: 'TeSt' });
-      expect(word.get('text')).toEqual('test');
-    });
+describe('TextBlock class',  () =>  {
+  test('TextBlock is defined', function() {
+    expect(TextBlock).toBeDefined();
+  });
+
+  describe('isPangram()', () => {
+
   });
 });
 ```
 
-And that's all a test is. Go ahead and add another one to the spec file, but this time make sure it will fail (e.g. `expect(false).toEqual(true);`). Then re-run the tests, just to see what a failure looks like. Fix the test and run it again. Not too different from Minitest, right?
+And that's all a test is. Go ahead and add another expect statement to the spec file, but this time make sure it will fail (e.g. `expect(false).toEqual(true);`). Then re-run the tests, just to see what a failure looks like. Fix the test and run it again. Not too different from Minitest, right?
+
+## Skipping Tests
+
+Tests can be skipped by changing `test(...` to `test.skip(...`.  Go ahead and change
+
+```javascript
+    test('isPangram() is defined', () => {
+```
+
+to:
+
+```javascript
+    test.skip('isPangram() is defined', () => {
+```
+
+## Exercise With A Seatsquad Partner
+
+Read through the couple of implemented tests in `textblock.spec.js` and the stubbed out tests.
+
+Now use a test-driven development workflow to implement the `TextBlock.isPangram()` method and complete the stubbed-out tests. Remember the TDD cycle: pseudocode-red-green-refactor!
+
+### Going Further 
+
+Now write your own test in the section provided.
+
+**Optional Exercise**
+
+If this isn't enough practice, create tests for an `isPalindrome` method.  Then write code to solve the problem.  A palindrome is a word or phrase spelled backwards the same as forwards and is further described in the README.
 
 ### Matchers
-Just like in testing with Ruby and Rails, Jasmine has a number of **matchers** that allow us to construct our tests. Below are the most common:
+Just like in testing with Ruby and Rails, Jest has a number of **matchers** that allow us to construct our tests. Below are the most common:
 
 | Code | Meaning     |
 | :------------- | :------------- |
 | `expect(x).toEqual(y);` | Compares objects `x` and `y` and passes if they are equivalent  |
-| `expect(x).toBe(y);` | Compares objects `x` and `y` and passes if they are the same object |
+| `expect(x).toBe(y);` | Compares objects `x` and `y` and passes if they are the same object, do **not** use this to test two objects or arrays for equality. |
 | `expect(x).toMatch(pattern);` | Compares `x` to string or regular expression pattern and passes if they match |
 | `expect(x).toBeDefined();` | Passes if `x` is **not** undefined |
 | `expect(x).toBeNull();` | Passes if `x` is null |
@@ -123,24 +155,9 @@ Just like in testing with Ruby and Rails, Jasmine has a number of **matchers** t
 | `expect(x).toBeGreaterThan(y);` | Passes if `x` is greater than `y` |
 | `expect(fn).toThrow(e);` | Passes if a function, `fn`, throws exception `e` when executed |
 
-The Jasmine docs also have some great examples of how to use the different matchers.
-[https://jasmine.github.io/edge/introduction#section-Included_Matchers](https://jasmine.github.io/edge/introduction#section-Included_Matchers)
+The Jest docs also have some great examples of how to use the different matchers.
+[https://facebook.github.io/jest/docs/en/expect.html](https://facebook.github.io/jest/docs/en/expect.html)
 
-## Exercise
-
-### Wave 1: `word.spec.js`
-
-Read through the rest of the implemented tests in `word.spec.js`. Many of them cover model validations, which we covered in week 1. Is there anything in the tests that surprised you?
-
-Now use a test-driven development workflow to implement the `Word.score()` method. Remember: the TDD cycle: pseudocode-red-green-refactor!
-
-Feel free to borrow production (non-test) code from either of the previous times we've implemented scrabble - the learning objective is to practice Jasmine testing syntax, not to build the Scrabble logic for the third time.
-
-Once we've spent some time here, we'll come back as a class and compare results.
-
-### Wave 2: `word_list.spec.js`
-
-Follow the same TDD workflow to test and implement `WordList.highestScoringWord()` and `.totalScore()`. Note that `.totalScore()` does not contain test stubs, so you'll have to come up with your own tests.
 
 ## What Have We Accomplished?
 
@@ -149,18 +166,16 @@ Follow the same TDD workflow to test and implement `WordList.highestScoringWord(
 - Evaluate strategies for dealing with these challenges
   - *Mock* the DOM
   - Separate business logic from display logic and test it in isolation
-- Examine Jasmine's BDD DSL
+- Examine Jest's BDD DSL
   - `describe` blocks for suites
-  - `it` blocks for individual tests
+  - `test` blocks for individual tests
   - `expect` statements (with matchers) to verify particular conditions
-- Practice writing tests with Jasmine
+- Practice writing tests with Jest
 
 ## Additional Resources
 
-- [Jasmine documentation](https://jasmine.github.io/api/2.8/global)
-- [Jasmine Examples v2.8](https://jasmine.github.io/2.8/introduction) (full of good examples)
+- [Jest documentation](https://facebook.github.io/jest/docs/en/getting-started.html)
 - [Selenium](http://www.seleniumhq.org/)
-- [Testing Backbone models with Jasmine](https://tinnedfruit.com/articles/testing-backbone-apps-with-jasmine-sinon-2.html)
-- [Backbone model validations](http://beletsky.net/2012/11/baby-steps-to-backbonejs-model.html) (the next post on this blog is about testing them!)
-- [Sinonjs a way to mock things like API calls](http://sinonjs.org/)
-- [Karma a way to test your code in browsers automatically](https://karma-runner.github.io/1.0/index.html)
+- [Testing React Apps](https://facebook.github.io/jest/docs/en/tutorial-react.html)
+- [Jest Examples Folder](https://github.com/facebook/jest/tree/master/examples)
+- [Karma a way to run tests through the browser](https://karma-runner.github.io/2.0/index.html)
