@@ -1,4 +1,4 @@
-## Arrow Functions
+# Arrow Functions
 
 Now that you know how to use regular functions, let's talk about a function shortcut called the **arrow function**.
 
