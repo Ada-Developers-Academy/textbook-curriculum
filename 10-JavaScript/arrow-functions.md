@@ -40,16 +40,9 @@ So what have we done?  We've gotten rid of the `function` keyword and placed a '
 
 **Note**:  The arrow must be on the same line as the parentheses.  If they are on separate lines, it will generate a syntax error.
 
-Because our function has only a **one** line return, we can remove the return keyword and make it smaller.
+Because our function has only a **one** line return, we can remove the return keyword and the curly braces around the function body.
 
-```javascript
-const foo = () => { 'bar'; }
-
-console.log(foo());  
->  bar
-```
-
-Since `'bar'` is the only line in the function, it's considered an _implicit return_.  In other words, JavaScript assumes the function will return that value.  That's a lot less code, but we can reduce it further.  Since this is a 1-line function we can remove the curly braces and make them implicit as well.
+Since `'bar'` is the only line in the function, it's considered an _implicit return_.  In other words, JavaScript assumes the function will return that value.  Taking out the curly braces and return statement makes them implicit and reduces the amount of code we need to write.  
 
 ```javascript
 const foo = () => 'bar';
