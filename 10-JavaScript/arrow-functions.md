@@ -156,57 +156,57 @@ There are additional benefits to using arrow functions beyond minimized syntax.
 Lets look at a more complex example:
 
 ```javascript
-const obj = {
-  thing: 0,
+const numberHaver = {
+  value: 0,
   increment() {
     [1,2,3].forEach(function(num) {
-      this.thing += num;
+      this.value += num;
     });
   }
 }
 
-console.log(obj.thing); // 0
-obj.increment();
-console.log(obj.thing); // Expected 6, but prints 0
+console.log(numberHaver.value); // 0
+numberHaver.increment();
+console.log(numberHaver.value); // Expected 6, but prints 0
 ```
 
-The code above is **supposed** to add each element of the array and store the result in `thing`, but... because the anonymous function has it's own instance of `this`, it tries to add each number to the wrong... `thing`.
+The code above is **supposed** to add each element of the array and store the result in `value`, but... because the anonymous function has it's own instance of `this`, it tries to add each number to the wrong `value`.
 
 The traditional work-around to this situation is to save the context (`this`) into another variable and use that variable instead of `this`.
 
 ```javascript
-const obj = {
-  thing: 0,
+const numberHaver = {
+  value: 0,
   increment() {
     const that = this;
     [1,2,3].forEach(function(num) {
-      that.thing += num;
+      that.value += num;
     });
   }
 }
 
-console.log(obj.thing); // 0
-obj.increment();
-console.log(obj.thing); // Expected 6, and prints 6
+console.log(numberHaver.value); // 0
+numberHaver.increment();
+console.log(numberHaver.value); // Expected 6, and prints 6
 ```
 
-Notice the line `let that = this;`  saving the current context in `that` allows the anonymous function to access `thing` without the confusion surrounding `this`. Whew!  What a work-around!
+Notice the line `let that = this;`  saving the current context in `that` allows the anonymous function to access `value` without the confusion surrounding `this`. Whew!  What a work-around!
 
 **Arrow functions do not have their own `this` context**, instead they inherit `this` from the surrounding block.  So using an arrow function makes the resulting code less confusing and error-prone.
 
 ```javascript
-const obj = {
-  thing: 0,
+const numberHaver = {
+  value: 0,
   increment() {
     [1, 2, 3].forEach((num) => {
-      this.thing += num;
+      this.value += num;
     });
   },
 };
 
-console.log(obj.thing); // 0
-obj.increment();
-console.log(obj.thing); // Expected 6, and prints 6
+console.log(numberHaver.value); // 0
+numberHaver.increment();
+console.log(numberHaver.value); // Expected 6, and prints 6
 ```
 
 Because arrow functions do not have their own context (`this`), they make excellent anonymous callback functions.  
