@@ -66,7 +66,7 @@ Here is an example for defining a function with no parameters which returns a st
 
 ```javascript
 const hello = function hello() {
-  return 'hello world'
+  return 'hello world';
 };
 ```
 
@@ -74,7 +74,7 @@ const hello = function hello() {
 
 ```javascript
 const squarer = (number) => {
-  return number * number
+  return number * number;
 }
 ```
 This arrow function takes a single number and returns that number squared.  Like normal functions arrow functions have their parameters listed in the parentheses.  
