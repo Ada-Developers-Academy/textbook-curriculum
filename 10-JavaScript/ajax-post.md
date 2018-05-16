@@ -1,11 +1,82 @@
 # JavaScript: AJAX Post
 
 ## Learning Goals
-- Use jQuery to make AJAX POST requests
+- Use axios to make AJAX POST requests
+- Use JavaScript to read form data
+- Handle API errors gracefully in a JavaScript SPA
 
-Just like we used AJAX to send GET requests, we can also use it to send POST requests. Based on our knowledge of POST requests, what would you say is the main thing we would add to a POST request that we did not include in a GET request? YES! Data!
+## Introduction
 
-### POST request
+Just like we used axios and AJAX to send GET requests, we can also use it to send POST requests.
+
+**Question:** Thinking back to our previous work with APIs in Ruby, what are the big differences between POST and GET?
+
+## Making a POST request
+
+Let's get right to it! We will make a POST request to add a pet to the list. Read through the [API documentation on GitHub](https://github.com/AdaGold/pets_api/blob/master/README.md), and answer the following questions:
+
+- What endpoint should we use?
+- What information can we send?
+- What information **must** we send?
+- How do we need to structure the data we send?
+
+### The POST itself
+
+We'll start out with hard-coded data, and later on we'll expand our code to read values from a form.
+
+First, a button to click:
+
+```html
+<!-- Inside the <body> of index.html -->
+<button id="send-pet-data">Send it!</button>
+```
+
+Next, some jQuery to make the button do something.
+
+```javascript
+// Inside $(document).ready() in index.js
+$('#send-pet-data').click(createPet);
+```
+
+And finally, the `createPet` method.
+
+```javascript
+// Above $(document).ready() in index.js
+const createPet = () {
+  const petData = {
+    name: 'Socks',
+    age: 7,
+    owner: 'Bill'
+  };
+
+  reportStatus('Sending pet data...');
+
+  axios.post(URL, petData)
+    .then(() => {
+      reportStatus('Successfully added a pet!');
+    })
+    .catch((error) => {
+      console.log(error.response);
+      reportStatus(`Encountered an error: ${error.message}`);
+    });
+};
+```
+
+There are a few things to pay attention to here:
+- The `post` method looks very similar to the `get` we saw previously
+  - It's still got `URL`, `.then` and `.catch`
+  - The only difference is we've added `petData`
+- axios is automatically translating our JavaScript object `petData` into JSON to send on the wire
+- We reuse the `reportStatus` method we defined in the last lesson
+  - Letting the user (or yourself) know what's going on is always important!
+
+To test it, open up the developer tools and switch to the `Network` tab, then click the button. You should see a request going out, and the status section of our page should be updated. If you were to reload the list of pets, you would see ours at the bottom. Good work!
+
+### Error Handling
+
+
+
+
 POST requests are set up very similar to GET requests.
 ```javascript
 const url = 'https://petdibs.herokuapp.com/pets';
