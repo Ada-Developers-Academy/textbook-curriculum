@@ -221,94 +221,24 @@ $(document).ready(() => {
 
 ### Reading the Form
 
-
-
-# TODO REMOVE
-
-POST requests are set up very similar to GET requests.
-```javascript
-const url = 'https://petdibs.herokuapp.com/pets';
-const data = {
-  name: 'Chestnut',
-  age: 17,
-};
-const callback = function callback() {
-  console.log('success!');
-};
-
-$.post(url, data, callback);
-```
-
-As we saw previously, `$.get` is a shorthand version of `$.ajax` and `$.post` is also a shorthand version of `$.ajax`. (If you would like a reminder on the $.ajax syntax, visit [here](http://api.jquery.com/jquery.ajax/))
-
-The main difference here is that along with a POST request, we want to pass some sort of data. In addition, the response should look different than with our GET request, since most likely we'll just be looking for success rather than any specific data returned.
-
-We can also see the alternate syntax of providing all of the `$.post` parameters in one single function call:
-```javascript
-$.post('https://petdibs.herokuapp.com/pets',
-  {
-    name: 'Chestnut',
-    age: 17,
-  }, (response) => {
-    console.log('success!');
-  }
-);
-```
-### POST Request with Form Data
-Most of the time, the request data is not hard-coded like the example above. Usually, we would want to take data from a form and include that in our POST request.
-
-```html
-<div id="message"></div>
-<form action="https://petdibs.herokuapp.com/pets" method="post">
-  <section>
-    <label>Name</label>
-    <input type="text" id="name" name="name"></input>
-  </section>
-  <section>
-    <label>Age</label>
-    <input type="text" id="age" name="age"></input>
-  </section>
-
-  <section class="button">
-    <button type="submit">Add Pet</button>
-  </section>
-</form>
-```
+The last thing we need to do is implement the `readFormData` method. It should get the value of each of the form fields, and return them in an object that looks like this:
 
 ```javascript
-$('form').submit( function(e) {
-  // By default, the form will attempt to do it's own
-  // local POST so we want to prevent that default
-  // behavior
-  e.preventDefault();
-
-  const url = $(this).attr('action'); // Retrieve the action from the form
-  const formData = $(this).serialize();
-
-  $.post(url, formData, (response) => {
-    $('#message').html('<p> Pet added! </p>');
-    // What do we get in the response?
-    console.log(response);
-  });
-});
+{
+  name: 'Socks',
+  age: 7,
+  human: 'Bill'
+}
 ```
 
-But wait, this code doesn't handle any errors! How can we make sure our users know when something didn't respond successfully?
+This is your job! The following questions might help you think about this problem:
+- How do we select one of the form inputs with jQuery?
+- How do we get the current value of a form input?
+- What should we do if the input is empty?
+- How can we DRY up this process?
+- Do we need to clear the form inputs once we've read them?
 
-### Add Callbacks
-We have the same status callbacks that we had for the `$.get` requests that we saw previously.
-
-Let's update our previous example to add a callback to handle the failure scenario. We've condensed our example above to highlight only the `$.post` section that needs to be modified.
-```javascript
-$.post(url, formData, (response) => {
-  $('#message').html('<p> Pet added! </p>');
-
-  // What do we get in the response?
-  console.log(response);
-}).fail(() => {
-  $('#message').html('<p>Adding Pet Failed</p>');
-});
-```
+Once you've got a solution you're happy with, you can see ours [here](reference/axios/index.js).
 
 ## Key Takeaway
 Once we understand the general way to use the jQuery AJAX functionality, we can apply it to any request/response we'd like to handle. We should be beginning to see how to expand upon the SPA concept that we discussed previously using only GETS. In addition, we should see how we can take all of our knowledge of HTTP Requests/Responses that we learned in Rails a step further using this jQuery functionality.
