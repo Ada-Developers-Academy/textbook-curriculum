@@ -20,27 +20,22 @@ Let's get right to it! We will make a POST request to add a pet to the list. Rea
 - What information **must** we send?
 - How do we need to structure the data we send?
 
-We'll start out with hard-coded data, and later on we'll expand our code to read values from a form.
 
-First, a button to click:
+This lesson will continue to use the [HTML in the reference section](reference/axios/index.html). Notice the `<form>`. When the user submits that form, we'll want to read all the data and send a POST request to the API.
 
-```html
-<!-- Inside the <body> of index.html -->
-<button id="send-pet-data">Send it!</button>
-```
-
-Next, some jQuery to make the button do something.
+Let's start with some jQuery to make that connection.
 
 ```javascript
 // Inside $(document).ready() in index.js
-$('#send-pet-data').click(createPet);
+$('#pet-form').submit(createPet);
 ```
 
-And finally, the `createPet` method.
+Next, we need to build the `createPet` method. We'll start out with hard-coded data, and later on we'll expand our code to read values from a form.
 
 ```javascript
 // Above $(document).ready() in index.js
 const createPet = () {
+  // Later we'll read these values from a form
   const petData = {
     name: 'Socks',
     age: 7,
@@ -141,6 +136,7 @@ And then use it in our error handling code:
 
 The steps we've followed here are:
 1. Send a bad request and use the console to find out what the server sends back
+    - We could also have used Postman for this
 1. Add code to detect and parse the server's error response
 1. Write a helpful error message to the screen
 
@@ -150,78 +146,7 @@ The details of error handling will be different for every API we work with. Figu
 
 While hard-coded data is great for prototyping, we should really give the user a way to specify what data to send. To do so, we'll use an HTML form.
 
-### Infrastructure
-
-First, the form itself. We'll add it to the `<body>` of our HTML document, along with some semantic HTML to keep things organized:
-
-```html
-<!-- index.html, inside the <body> tag -->
-<section id="status-message"></section>
-
-<main>
-  <section class="current-pets">
-    <h1>List-o-Pets</h1>
-    <button id="load">Get pets!</button>
-    <ul id="pet-list"></ul>
-  </section>
-
-  <section class="new-pet">
-    <h1>Add a new pet</h1>
-    <form id="pet-form">
-      <div>
-        <label for="name">Name</label>
-        <input type="text" name="name" />
-      </div>
-
-      <div>
-        <label for="age">Age</label>
-        <input type="number" name="age" />
-      </div>
-
-      <div>
-        <label for="owner">Owner</label>
-        <input type="text" name="owner" />
-      </div>
-
-      <input type="submit" name="add-pet" value="Add Pet" />
-    </form>
-  </section>
-</main>
-```
-
-Next, modify the `createPet` function to call a function instead of using hard-coded data. We'll also adjust our jQuery glue code to listen for a `submit` event on the form.
-
-```javascript
-// index.js
-const readFormData = () => {
-  // TODO: read the form, return results as an object
-};
-
-const createPet = (event) => {
-  // Note that createPet is now a handler for a `submit`
-  // event, which means we need to call `preventDefault`
-  // to avoid a page reload
-  event.preventDefault();
-
-  const petData = readFormData();
-  console.log(petData);
-
-  // The rest of this is the same as before
-  reportStatus('Sending pet data...');
-
-  axios.post(URL, petData)
-    // .then, .catch are the same
-};
-
-$(document).ready(() => {
-  $('#load').click(loadPets);
-  $('#pet-form').submit(createPet);
-});
-```
-
-### Reading the Form
-
-The last thing we need to do is implement the `readFormData` method. It should get the value of each of the form fields, and return them in an object that looks like this:
+Our strategy will be to implement a function called `readFormData()`. We will call this function from our `createPet()` function and save the results as `petData`, instead of using an object literal. `readFormData()` should get the value of each of the form fields, and return them in an object that looks like this:
 
 ```javascript
 {
