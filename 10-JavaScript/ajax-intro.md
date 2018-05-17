@@ -166,6 +166,7 @@ Update this code to load only pets belonging to the user. You might want to read
 - Use Arrow functions where their brevity and lack of `this` context makes them useful.
 
 ## Vocab
+
 - Asynchronous
 - Callback Function
 - Single Page Application

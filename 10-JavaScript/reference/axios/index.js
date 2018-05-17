@@ -43,7 +43,7 @@ const loadPets = () => {
 //
 // Creating Pets
 //
-const FORM_FIELDS = ['name', 'age', 'human'];
+const FORM_FIELDS = ['name', 'age', 'owner'];
 const inputField = name => $(`#pet-form input[name="${name}"]`);
 
 const readFormData = () => {

@@ -20,8 +20,6 @@ Let's get right to it! We will make a POST request to add a pet to the list. Rea
 - What information **must** we send?
 - How do we need to structure the data we send?
 
-### The POST itself
-
 We'll start out with hard-coded data, and later on we'll expand our code to read values from a form.
 
 First, a button to click:
@@ -84,7 +82,7 @@ axios.post(URL, petData)
   // ... .catch ...
 ```
 
-### Error Handling
+## Error Handling
 
 We've tried out the success case and it seems to work well. Now let's try the error case and see if it results in a good user experience.
 
@@ -116,6 +114,8 @@ const reportError = (message, errors) => {
   reportStatus(content);
 };
 ```
+
+Note how similar this looks to our error handling code from Rails. The errors take the same form, so the way we process them is the same.
 
 And then use it in our error handling code:
 
@@ -179,8 +179,8 @@ First, the form itself. We'll add it to the `<body>` of our HTML document, along
       </div>
 
       <div>
-        <label for="human">Human</label>
-        <input type="text" name="human" />
+        <label for="owner">Owner</label>
+        <input type="text" name="owner" />
       </div>
 
       <input type="submit" name="add-pet" value="Add Pet" />
@@ -227,7 +227,7 @@ The last thing we need to do is implement the `readFormData` method. It should g
 {
   name: 'Socks',
   age: 7,
-  human: 'Bill'
+  owner: 'Bill'
 }
 ```
 
@@ -240,9 +240,21 @@ This is your job! The following questions might help you think about this proble
 
 Once you've got a solution you're happy with, you can see ours [here](reference/axios/index.js).
 
-## Key Takeaway
-Once we understand the general way to use the jQuery AJAX functionality, we can apply it to any request/response we'd like to handle. We should be beginning to see how to expand upon the SPA concept that we discussed previously using only GETS. In addition, we should see how we can take all of our knowledge of HTTP Requests/Responses that we learned in Rails a step further using this jQuery functionality.
+## Summary
+
+As in Ruby, the difficult part of working with an API in JavaScript is not so much making the request, as figuring out what request to make, and what to do after. Though the setting is different, our work will follow a similar pattern:
+
+1. Explore the API using the documentation, Postman, and other tools
+    - How do you need to format your data
+    - How does the API respond
+    - What does an error response look like?
+1. Write code to interact with the API
+    - Hard-coded data for input
+    - Logging to the console as output
+1. Put together a user experience
+    - Read a form to get data
+    - Report progress and errors politely to the user via HTML
 
 ## Additional Resources
-- [jQuery AJAX POST Documentation](https://api.jquery.com/jquery.post/)
-- [jQuery AJAX Documentation](http://api.jquery.com/jquery.ajax/)
+- [axios documentation](https://github.com/axios/axios)
+- See resources from previous lesson
