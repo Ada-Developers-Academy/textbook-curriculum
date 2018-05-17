@@ -6,7 +6,7 @@
 - Examine how `props` impact component rendering
 
 ## Overview
-Props is one of the two ways that React components manage and share their data.
+Props is one of the two ways that React components manage and share their data. `props` is short for _properties_.
 
 ## `props`
 Props are **passed from the outside of the component** into the component itself. Props are accessible using `this.props` within a component. Props cannot be changed from within the component. The closest parallel that we can see for `props` is constructor method parameters - props act like parameters being sent into Components when they are created.
@@ -41,7 +41,7 @@ class ComponentB extends React.Component {
   render() {
     return (
       <div>
-        The data from props is: { this.props.vaName }
+        The data from props is: { this.props.varName }
       </div>
     );
   }
@@ -51,6 +51,11 @@ class ComponentB extends React.Component {
 **More Complex**
 
 A fairly common thing to do is to utilize `props` to pass an event handler from a parent component to a child component. We'll see this in later examples.
+
+## Try it!
+Create a `Link` component which is passed two `prop` variables, `text` and `url`. This component will create an `a` tag in the `render` function which links to the given URL.
+
+Use another component (such as App) to render multiple `Link` components.
 
 ## Key Takeaway
 Using `props` within your React application is one necessary ways to manage and share data.

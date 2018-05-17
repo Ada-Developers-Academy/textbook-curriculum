@@ -1,7 +1,7 @@
 # Managing data using `state`
 
 ## Learning Goals
-- Examine how React allow components to manage data
+- Examine how React allows components to manage data
 - Use `props` between components
 - Use `state` within a component
 - Examine how `props` and `state` effect component rendering
@@ -24,10 +24,10 @@ A really important aspect of state is that whenever the state of a component is 
 Commonly, initial state is set in a component's constructor function. This is set using variable assignment (the equals sign).
 
 ```javascript
-// NameComponent.js
+// NameDisplay.js
 import React, { Component } from 'React';
 
-class NameComponent extends React.Component {
+class NameDisplay extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -41,10 +41,10 @@ class NameComponent extends React.Component {
 Once we know that the initial state is set, we can use this value within our component class. In this example, we'll use the combination of two state variables to determine whether or not to display a specific property value in our render function.
 
 ```javascript
-// NameComponent.js
+// NameDisplay.js
 import React, { Component } from 'React';
 
-class NameComponent extends React.Component {
+class NameDisplay extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -72,15 +72,16 @@ Once the initial state is set, we can then make changes using the `setState` fun
 First, let's add an button that will toggle the display of the name variable that we are storing within state.
 
 ```javascript
-// NameComponent.js
+// NameDisplay.js
 import React, { Component } from 'React';
 
-class NameComponent extends React.Component {
+class NameDisplay extends React.Component {
   constructor() {
     super();
     this.state = {
       name: 'Ada',
       displayName: true
+    };
   }
 
   render() {
@@ -147,7 +148,7 @@ You can see the final version of this [code here](https://codepen.io/adadev/pen/
 
 
 ## Changing `props` and `state`
-Now that we have learned about both `props` and `state`, we'll need to consider which concept to use for which scnearios.
+Now that we have learned about both `props` and `state`, we'll need to consider which concept to use for which scenarios.
 Here is a helpful chart to assist you in determining whether data belongs in `props` or `state`. For any line item that has "Yes" for both, it means you need to make that decision based on the context of the problem you are trying to solve.
 
  ?     | props     | state
