@@ -155,6 +155,7 @@ While hard-coded data is great for prototyping, we should really give the user a
 First, the form itself. We'll add it to the `<body>` of our HTML document, along with some semantic HTML to keep things organized:
 
 ```html
+<!-- index.html, inside the <body> tag -->
 <section id="status-message"></section>
 
 <main>
@@ -188,14 +189,7 @@ First, the form itself. We'll add it to the `<body>` of our HTML document, along
 </main>
 ```
 
-Some jQuery glue:
-
-```javascript
-// index.js, Add this to $(document).ready()
-$('#pet-form').submit(createPet);
-```
-
-And finally, modify the `createPet` function to call a function instead of using hard-coded data:
+Next, modify the `createPet` function to call a function instead of using hard-coded data. We'll also adjust our jQuery glue code to listen for a `submit` event on the form.
 
 ```javascript
 // index.js
@@ -218,6 +212,11 @@ const createPet = (event) => {
   axios.post(URL, petData)
     // .then, .catch are the same
 };
+
+$(document).ready(() => {
+  $('#load').click(loadPets);
+  $('#pet-form').submit(createPet);
+});
 ```
 
 ### Reading the Form
