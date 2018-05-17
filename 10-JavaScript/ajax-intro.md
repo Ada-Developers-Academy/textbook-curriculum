@@ -46,7 +46,9 @@ The `fetch` function was added to the core JavaScript language in the last few y
 
 ## AJAX with axios
 
-Read through the following code, and see if you can figure out what's going on. Specific questions to answer:
+All of the JavaScript we write in this lesson and the next will reference the HTML and CSS files in the [reference/axios](reference/axios) folder. If you want to follow along, you should go ahead and copy that code now.
+
+With that HTML in mind, read through the following code and see if you can figure out what's going on. Specific questions to answer:
 
 - Program Structure:
   - When does our code make the GET request? What would we need to change if we wanted it to happen as soon as the page loads?
@@ -65,26 +67,6 @@ Read through the following code, and see if you can figure out what's going on. 
   - What might count as an error?
   - What does our application do if there's an error talking to the API?
   - How could we improve this user experience?
-
-```html
-<!-- index.html -->
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Pets with axios</title>
-    <script
-    src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script type="text/javascript" src="index.js"></script>
-  </head>
-  <body>
-    <h1>List-o-Pets</h1>
-    <button id="load">Get pets!</button>
-    <ul id="pet-list"></ul>
-  </body>
-</html>
-```
 
 ```javascript
 // index.js
@@ -114,7 +96,7 @@ $(document).ready(() => {
 
 ### Status Messages
 
-Let's improve our user experience a bit. Instead of logging to the console when there's an error (which most users don't even know exists), we should place a visible status messages on the screen when our app is doing something. Add the following HTML underneath the `<h1>` tag in the `<body>`:
+Let's improve our user experience a bit. Instead of logging to the console when there's an error (which most users don't even know exists), we should place a visible status messages on the screen when our app is doing something. Notice the `status-messages` section at the top of the `<body>`:
 
 ```html
 <section id="status-messages"></section>
