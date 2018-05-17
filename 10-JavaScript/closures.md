@@ -87,7 +87,7 @@ Every time we call `powerer()`, a new closure is created. The `mather` function 
 
 ![closure diagram](./images/closure-diagram.png)
 
-The above diagram illustrates the `mather` function's scope.  It has access to local variables, variables declared inside the containing function `powerer` and the external global scope.
+The above diagram illustrates the `mather` function's scope.  It has access to local variable `num`, variable `p` declared inside the containing function `powerer` and any variable declared the external global scope.
 
 ## Closure SeatSquad Exercises
 
@@ -102,7 +102,7 @@ With your SeatSquad, walk through the code and be able to identify in each examp
 2. What does the code do?
 3. How does the closure take advantage of the outer function's variables?
 
-### Creating `makeAccumulator`
+### Building a Closure Creating `makeAccumulator`
 
 Define a function named `makeAccumulator` that takes no arguments. It should create and return a function that takes __one__ argument and __returns a running total of all the arguments it has seen__. _E.g_ if `f` is the function returned by `makeAccumulator`, the first time you call `f(3)` it should return _3_, then if you call `f(2)`, it should return _5_. If you called `f(1000)` after that, it should return _1005_. Like this:
 
