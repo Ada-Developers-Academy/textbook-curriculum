@@ -94,6 +94,10 @@ $(document).ready(() => {
 });
 ```
 
+It might be hard to see split onto multiple lines, but `.then()` is being called on the _return value_ of `axios.get()`. And then `.catch()` is being called on the return value of `.then()`! This is called _call chaining_ (sometimes just _chaining_), and is a common pattern in JavaScript.
+
+`axios.get()` returns something called a _promise_. We won't be studying these in depth, but if you want to do some digging on your own they're very interesting. Just know that `.then` will do work when the call succeeds, and `.catch` will do work when it fails.
+
 ### Status Messages
 
 Let's improve our user experience a bit. Instead of logging to the console when there's an error (which most users don't even know exists), we should place a visible status messages on the screen when our app is doing something. Notice the `status-messages` section at the top of the `<body>`:
@@ -102,7 +106,7 @@ Let's improve our user experience a bit. Instead of logging to the console when 
 <section id="status-messages"></section>
 ```
 
-Add the following function at the of `index.js`, just under the URL:
+Add the following function at the top of `index.js`, just under the URL:
 
 ```javascript
 const reportStatus = (message) => {
@@ -137,24 +141,18 @@ const loadPets = () => {
 
 Now our application keeps the user informed about what's going on. Neat!
 
-### Activity
+## Summary
 
-Update this code to load only pets belonging to the user. You might want to read through [the API documentation](https://github.com/AdaGold/pets_api). Think about how your status reporting might have to change!
-
-## Best Practices
-
-- Keep your JavaScript organized and easy to read. If one block is doing too much, split into functions.
-- Code should be within `$(document).ready(function() { };`
-- Use Arrow functions where their brevity and lack of `this` context makes them useful.
-
-## Vocab
-
-- Asynchronous
-- Callback Function
-- Single Page Application
-
-## Key Takeaway
-Now that we are comfortable making web applications, we can focus on making them more efficient. By only loading what is needed, our client does not need to make as many requests or process as many responses. This results is much faster and more responsive applications our users can more seamlessly use... and procrastinate with.
+- axios is a JavaScript library that handles interacting with an API
+    - It builds on a (hard to use) built-in interface
+    - There are many ways to send requests, but axios is the most straightforward for our purposes
+- We can call `axios.get(URL)` to make a HTTP GET request
+    - Call `.then(callback)` to do something with the response
+    - Call `.catch(callback)` to do something when the response fails
+- There are many questions to answer regarding API calls and user experience
+    - When do you make the call (page load, button click)?
+    - How do you let the user know what's going on?
+    - What do you do with the results?
 
 ## Additional Resources
 - [axios documentation](https://github.com/axios/axios)
