@@ -42,7 +42,7 @@ JavaScript programs have been able to make HTTP requests since Microsoft added t
 
 The original XHR interface is clunky and difficult to use, so people built wrapper libraries around them to make common tasks easier. Two examples of this are jQuery's `$.ajax` function and the standalone axios library (which we're about to learn). You can still make old-fashioned XHR requests without a library, but almost no one does.
 
-The `fetch` function was added to the core JavaScript language in the last few years as a replacement for XHR. `fetch` modern syntax and functionality without loading an external library. However, `fetch` provides a much lower-level view of HTTP requests than we need, and ends up being somewhat complex to use.
+The `fetch` function was added to the core JavaScript language in the last few years as a replacement for XHR. `fetch` uses modern syntax and functionality without loading an external library. However, `fetch` provides a much lower-level view of HTTP requests than we need, and ends up being somewhat complex to use.
 
 **In this course, we will be making AJAX requests using the axios library.**
 

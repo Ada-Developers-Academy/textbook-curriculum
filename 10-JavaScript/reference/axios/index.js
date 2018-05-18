@@ -67,7 +67,7 @@ const clearForm = () => {
 }
 
 const createPet = (event) => {
-  // Note that createPet is now a handler for a `submit`
+  // Note that createPet is a handler for a `submit`
   // event, which means we need to call `preventDefault`
   // to avoid a page reload
   event.preventDefault();

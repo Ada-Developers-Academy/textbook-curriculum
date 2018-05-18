@@ -34,7 +34,12 @@ Next, we need to build the `createPet` method. We'll start out with hard-coded d
 
 ```javascript
 // Above $(document).ready() in index.js
-const createPet = () {
+const createPet = (event) => {
+  // Note that createPet is a handler for a `submit`
+  // event, which means we need to call `preventDefault`
+  // to avoid a page reload
+  event.preventDefault();
+
   // Later we'll read these values from a form
   const petData = {
     name: 'Socks',
@@ -55,6 +60,8 @@ const createPet = () {
     });
 };
 ```
+
+**Question:** What would happen if we didn't have that call to `event.preventDefault()`?
 
 There are a few things to pay attention to here:
 - The `post` method looks very similar to the `get` we saw previously
@@ -182,4 +189,5 @@ As in Ruby, the difficult part of working with an API in JavaScript is not so mu
 
 ## Additional Resources
 - [axios documentation](https://github.com/axios/axios)
-- See resources from previous lesson
+- [jQuery `.submit()` event](https://api.jquery.com/submit/)
+- See resources from [previous lesson](ajax-intro.md)
