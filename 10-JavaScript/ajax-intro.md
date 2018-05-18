@@ -1,7 +1,7 @@
 # Intro to axios
 
 ## Learning Goals
-- Request data from a sever to render client-side using JavaScript
+- Request data from an API to render client-side using JavaScript
 - Render data from server without reloading a page
 - Use axios to make HTTP GET requests
 
