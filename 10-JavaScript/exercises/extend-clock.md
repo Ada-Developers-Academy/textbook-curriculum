@@ -9,3 +9,7 @@ Add 3 buttons with text showing the names of colors.  Add an `onClick` event to 
 ## 24-hour vs 12-hour clocks
 
 Next add a 12-hour button which changes the clock to display in 12-hour time like 5:05:45pm, and a 24-hour button which changes the clock to display in 24-hour mode like 17:05:45.
+
+## Optional Enhancement
+
+As an optional enhancement create only **one** button that toggles the clock between 24-hour and 12-hour time.
