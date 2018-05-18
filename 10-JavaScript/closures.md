@@ -1,7 +1,10 @@
 # JavaScript 104: Closures
 
 ## Learning Goals
-- What's a _closure_ and why's it important?
+By the end of this lesson you should be able to:
+
+- Explain, "What's a _closure_ and why's it important?"
+- Identify closures when they occur in code.
 
 A closure is an inner function that has access to the outer (enclosing) function’s variables. The closure has three scope chains: it has access to its own scope (variables defined between its curly brackets), it has access to the outer function’s variables, and it has access to the global variables. __A _closure_ is created when an inner function refers to an outer function's variables.__
 
@@ -82,7 +85,25 @@ niner(cuber(sqrer(2)));
 
 Every time we call `powerer()`, a new closure is created. The `mather` function is returned and assigned to a variable (like `cuber`). Invoking `cuber(3)` executes the `mather` function, which references `power`, which will has the value assigned to it when the closure was created.
 
-### Closure Chair-Pair Exercise
+![closure diagram](./images/closure-diagram.png)
+
+The above diagram illustrates the `mather` function's scope.  It has access to local variable `num`, variable `p` declared inside the containing function `powerer` and any variable declared the external global scope.
+
+## Closure SeatSquad Exercises
+
+Take a look at the following codepens, make sure to open your Dev Tools to see the console.
+
+- [Example 1](https://codepen.io/adadev/pen/gXXadg?editors=0010)
+- [Example 2](https://codepen.io/adadev/pen/gXXaQm?editors=0010)
+- [Example 3](https://codepen.io/anon/pen/wjQyEy?editors=1010)
+
+With your SeatSquad, walk through the code and be able to identify in each example:
+1. Where is the closure?
+2. What does the code do?
+3. How does the closure take advantage of the outer function's variables?
+
+### Building a Closure Creating `makeAccumulator`
+
 Define a function named `makeAccumulator` that takes no arguments. It should create and return a function that takes __one__ argument and __returns a running total of all the arguments it has seen__. _E.g_ if `f` is the function returned by `makeAccumulator`, the first time you call `f(3)` it should return _3_, then if you call `f(2)`, it should return _5_. If you called `f(1000)` after that, it should return _1005_. Like this:
 
 ```javascript
@@ -102,5 +123,6 @@ console.log(f(300)); // 310
 Any of the various ways that functions can be passed around as __values__, and invoked in other locations, are all examples of observing/exercising closure.
 
 ### Additional Resources
-[Closures](http://javascriptissexy.com/understand-javascript-closures-with-ease/)
-[MDN on Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
+- [Closures](http://javascriptissexy.com/understand-javascript-closures-with-ease/)
+- [MDN on Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
+- [Diagram Link](https://www.lucidchart.com/invitations/accept/21e6a308-154a-47ef-980b-99a1917ce6af)
