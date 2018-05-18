@@ -20,6 +20,8 @@ When you want to upvote a post on HackerNews or StackOverflow, and the number ch
 
 Let's procrastinate a bit and hop on Pinterest. While browsing, if we open the Chrome developer tools and switch to the `Network` tab, we can SEE REQUESTS HAPPENING!
 
+![chrome network tab](images/chrome-network-tab.png)
+
 ### How It Works
 ![ajax](https://cms-assets.tutsplus.com/uploads%2Fusers%2F30%2Fposts%2F25099%2Fimage-1453383492163.png)
 
