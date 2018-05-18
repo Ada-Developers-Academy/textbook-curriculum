@@ -1,7 +1,7 @@
 # JavaScript 104: Closures
 
 ## Learning Goals
-By the end of this less you should be able to:
+By the end of this lesson you should be able to:
 
 - Explain, "What's a _closure_ and why's it important?"
 - Identify closures when they occur in code.
