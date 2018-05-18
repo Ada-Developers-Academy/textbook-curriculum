@@ -8,4 +8,7 @@ We will be using Twitter as our example web application.
 ## Assignment
 -   Use paper to draw out the parts of the page and identify the visual "components" the website is composed of.
 -   Draw out a outline illustrating which components are nested inside containers.
--   Identify components which are used multiple times in the app?
+-   Identify types of components which have multiple instances in the app.
+
+
+d
