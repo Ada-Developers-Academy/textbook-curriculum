@@ -1,217 +1,166 @@
-# Intro to AJAX
+# Intro to axios
 
 ## Learning Goals
-- Request data from a sever to render client-side using JavaScript
+- Request data from an API to render client-side using JavaScript
 - Render data from server without reloading a page
-- Use jQuery to make AJAX requests
-- Can use GET method with AJAX
+- Use axios to make HTTP GET requests
 
+## Introduction
 
-Single page applications (SPA) have gained popularity in recent years for many reasons, one being that they require less *things* to load at once.
+Single page applications (SPAs) have gained popularity in recent years for many reasons, one being that they can load data _dynamically_, rather than having to do it all up front.
 
-Learning AJAX is a stepping stone to understand how the dynamic, single page web applications we know today work.
+Learning to make HTTP requests with JavaScript is a stepping stone to understand how the dynamic, single page web applications we know today work.
 
-### You have used AJAX before
+### You have made requests from the browser before
 Like, a lot.  
 
-When you scroll through Facebook, Instagram or Pinterest and you see the page loading more content as you continue to endless scroll and procrastinate. That's AJAX.
+When you scroll through Facebook, Instagram or Pinterest and you see the page loading more content as you continue to endless scroll and procrastinate, that's a request.
 
-When you want to upvote a post on reddit or StackOverflow. That's AJAX.
+When you want to upvote a post on HackerNews or StackOverflow, and the number changes without you refreshing the page, that's a request.
 
-Let's procrastinate a bit and hop on Pinterest. While browsing, if we open our consoles in Chrome, and right-click to select 'Log XMLHTTPRequests', we can SEE AJAX HAPPENING!
+Let's procrastinate a bit and hop on Pinterest. While browsing, if we open the Chrome developer tools and switch to the `Network` tab, we can SEE REQUESTS HAPPENING!
 
+![chrome network tab](images/chrome-network-tab.png)
 
-So this is cool, right?! But now let's make our own magic happen!
-
-## So How does it work?
-
-Back in '95, Microsoft first implement AJAX into Internet Explorer. So it's been around. It originally went by the name of XMLHTTPRequest Object, or XHR.  
-
-**AJAX** stands for **'Asynchronous JavaScript And XML'**
-  - **Asynchronous** means that you can do many things at once. With AJAX, that means you can still interact with a web page while waiting for a request/response. Your page won't freeze and with for the response to come back. Even better, you can send multiple AJAX requests at a time!
-  - JavaScript is the programming language that is used to make AJAX do it's thing.
-  - XML was originally the format responses were preferred to be sent in. However, nowadays, JSON has taken over as the preferred response format.
-
+### How It Works
 ![ajax](https://cms-assets.tutsplus.com/uploads%2Fusers%2F30%2Fposts%2F25099%2Fimage-1453383492163.png)
 
-A request is made to the server. The server processes that request and sends a response back to the client. Nothing new there. However, with AJAX, we use **JavaScript** to change the parts of a page that need to be changed, instead of reloading a whole new page.
+A request is made to the server. The server processes that request and sends a response back to the client. Nothing new there. However we use **JavaScript** to change the parts of a page that need to be changed, instead of reloading a whole new page.
 
 When we make a request with AJAX, we are not asking for the entire pages's content. Instead our request is only asking for the relevant parts which we want to update.
 
+### History
 
-## Let's Make an AJAX call!
+(there's more than one way to do it)
 
-Note that in order for AJAX to work, we must make requests to a running server. It can be local or online, however we cannot make requests to a file on our computer.
+JavaScript programs have been able to make HTTP requests since Microsoft added the functionality to Internet Explorer in 1995. It originally went by the name of XMLHttpRequest, or XHR, sometimes also called AJAX.
 
+**AJAX** stands for **'Asynchronous JavaScript And XML'**
+  - **Asynchronous** means that you can do many things at once. With AJAX, that means you can still interact with a web page while waiting for a request/response. Your page won't freeze and with for the response to come back. Even better, you can send multiple AJAX requests at a time!
+  - **JavaScript** is the programming language that is used to make AJAX do it's thing.
+  - **XML** was originally the format responses were preferred to be sent in. However, nowadays, JSON has taken over as the preferred response format.
 
-This is how to do it using vanilla JavaScript:
+The original XHR interface is clunky and difficult to use, so people built wrapper libraries around them to make common tasks easier. Two examples of this are jQuery's `$.ajax` function and the standalone axios library (which we're about to learn). You can still make old-fashioned XHR requests without a library, but almost no one does.
+
+The `fetch` function was added to the core JavaScript language in the last few years as a replacement for XHR. `fetch` uses modern syntax and functionality without loading an external library. However, `fetch` provides a much lower-level view of HTTP requests than we need, and ends up being somewhat complex to use.
+
+**In this course, we will be making AJAX requests using the axios library.**
+
+## AJAX with axios
+
+All of the JavaScript we write in this lesson and the next will reference the HTML and CSS files in the [reference/axios](reference/axios) folder. If you want to follow along, you should go ahead and copy that code now.
+
+With that HTML in mind, read through the following code and see if you can figure out what's going on. Specific questions to answer:
+
+- Program Structure:
+  - When does our code make the GET request? What would we need to change if we wanted it to happen as soon as the page loads?
+  - Why is the click handler added in `$(document).ready`? What would happen if we moved it out to the top level?
+  - Where on the page does our program put the list of pets? How does it know to do that?
+  - Would this code behave differently if we had used old-style functions instead of arrow functions?
+- axios:
+  - Where does the variable `axios` come from in our program?
+  - What is (are) the argument(s) to `axios.get`?
+  - What is `.then` and `.catch` being called on?
+  - How does axios know what to do when the response comes back from the server?
+  - How does axios let us know if something went wrong?
+  - What do you imagine axios is doing behind the scenes?
+  - How does making a request with axios compare to using HTTParty?
+- Error handling:
+  - What might count as an error?
+  - What does our application do if there's an error talking to the API?
+  - How could we improve this user experience?
+
+```javascript
+// index.js
+const URL = 'https://petdibs.herokuapp.com/pets';
+
+const loadPets = () => {
+  // Prep work
+  const petList = $('#pet-list');
+  petList.empty();
+
+  // Actually load the pets
+  axios.get(URL)
+    .then((response) => {
+      response.data.forEach((pet) => {
+        petList.append(`<li>${pet.name}</li>`);
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+$(document).ready(() => {
+  $('#load').click(loadPets);
+});
+```
+
+It might be hard to see split onto multiple lines, but `.then()` is being called on the _return value_ of `axios.get()`. And then `.catch()` is being called on the return value of `.then()`! This is called _call chaining_ (sometimes just _chaining_), and is a common pattern in JavaScript.
+
+`axios.get()` returns something called a _promise_. We won't be studying these in depth, but if you want to do some digging on your own they're very interesting. Just know that `.then` will do work when the call succeeds, and `.catch` will do work when it fails.
+
+### Status Messages
+
+Let's improve our user experience a bit. Instead of logging to the console when there's an error (which most users don't even know exists), we should place a visible status messages on the screen when our app is doing something. Notice the `status-messages` section at the top of the `<body>`:
 
 ```html
-<button id="load"> Fetch! </button>
-<div id="pets"></div>
+<section id="status-messages"></section>
 ```
 
+Add the following function at the top of `index.js`, just under the URL:
+
 ```javascript
-// Setting up AJAX request (create a new one for each request)
-
-let request = new XMLHttpRequest();
-
-// Create a callback function, with event handler
-request.onreadystatechange =  () => {
-if (request.readyState === 4) {
-  if (request.status === 200) {
-    let pets = JSON.parse(request.responseText);
-    let petsHTML = '';
-    for (let i = 0; i < pets.length; i += 1){
-      petsHTML += '<h3>' + pets[i].name + '</h3>'
-    }
-    document.getElementById('pets').innerHTML = petsHTML;
-  } else if (request.status == 404) {
-      // display message for user if file not found
-  } else if (request.status == 500) {
-      // display message for user if Server had a problem
-  }
-}
+const reportStatus = (message) => {
+  $('#status-message').html(message);
 };
-// Prepare the request with the HTTP METHOD (GET and POST most common) and
-request.open('GET', 'https://petdibs.herokuapp.com/pets');
-
-// Create a function to send the request, in response to an event (button onClick)
-function getPets(){
-request.send();
-};
-
-let loadItem = document.getElementById("load");
-loadItem.onclick = getPets();
-```
-Let's have a look at all of the moving parts.
-
-
-The Callback Function:
-In AJAX a callback function is used when you send your request, the browser knows not to execute the code that is in a callback until a response from the server has arrived. This allows a user to still interact with the webpage and use other JavaScript features until that response has come back.
-
-Writing this in plain JS is rather tedious.
-
-## AJAX with jQuery
-
-When it comes to AJAX, jQuery _really_ likes to make our lives easier.
-
-### `get`
-```javascript
-// Which URL do we want to 'get'?
-let url = 'https://petdibs.herokuapp.com/pets';
-
-// What do we want to happen when we get our response?
-let successCallback =  (response) => {
-  console.log('success!');
-};
-
-
-$.get(url, successCallback);
 ```
 
-Oftentimes, you'll see the above collapsed into one function call:
-```javascript
-$.get('https://petdibs.herokuapp.com/pets',
-  (response) => {
-    console.log('success!');
-  });
-```
-
-Notice our use of arrow functions here.  Because of their compact syntax and the fact that an arrow function gets `this` from it's outside container, they often make great callback functions.  Below includes a more complicated example adding pets to a person.  Because it uses arrow functions it can continue to use `this` and refer to the current instance of `Person`'s name and pets list.
+And finally, adjust the `loadPets` function to use our new status reporter:
 
 ```javascript
-class Person {
-  constructor(name) {
-    this.name = name;
-    this.pets = [];
+const loadPets = () => {
+  reportStatus('Loading pets...');
 
-    $.get('https://petdibs.herokuapp.com/pets',
-      (response) => {
-        console.log('success!');
-        // add all this person's pets to the array
-        response.forEach((pet) => {
-          console.log(pet);
-          if(pet.owner == this.name) {
-            this.pets.push(pet);
-            console.log(pet.name);
-          }
-        });
-    });
-  }
-}
+  // Prep work
+  const petList = $('#pet-list');
+  petList.empty();
 
-let kar = new Person("Kari");  // Create a person and get Kari's list of pets
-```
-
-### Other Tools
-A similar way we can do the same thing (in this context) is by using the `$.getJSON` functionality. See more about that [here](http://api.jquery.com/jquery.getjson/).
-
-In addition, `$.get` is just a simplification of the overall `$.ajax` that jQuery provides for all HTTP verbs. See more about that [here](http://api.jquery.com/jquery.ajax/).
-
-### Callback functions
-As we have learned as experienced programmers, things don't always go according to plan. jQuery has provided us with  some callbacks on our AJAX calls to ensure we have appropriate places to handle these situations.
-
-- `.success`  
-  This is the function that we are implicitly including in the example above. If we do not specify any other function explicitly, success is the one that is provided. Will be called upon receiving 200 - Success code.
-
-- `.done`  
-  When provided along with `.success` this acts as a _second_ success function.
-
-- `.fail`  
-  Allows you to handle unexpected or expected errors.
-
-- `.always`  
-  Will always execute, whether success or failure has occurred.
-
-jQuery handles the response and the callback function(s) will run when the request is complete and one of the corresponding success or error scenarios have occurred.
-
-#### Let's add callbacks to our `get` example above
-The syntax gets a bit weird, so let's see how it looks. We add the callbacks as _chained functions_ after the initial `$.get` function.
-```javascript
-$.get('https://petdibs.herokuapp.com/pets',
-  response => {
-    console.log('success!');
-    console.log(response);
-  })
-    .fail(function(){
-      console.log('failure');
+  // Actually load the pets
+  axios.get(URL)
+    .then((response) => {
+      reportStatus(`Successfully loaded ${response.data.length} pets`);
+      response.data.forEach((pet) => {
+        petList.append(`<li>${pet.name}</li>`);
+      });
     })
-    .always(function(){
-      console.log('always even if we have success or failure');
-    }); // Note that this is where the semi-colon ends up
+    .catch((error) => {
+      reportStatus(`Encountered an error while loading pets: ${error.message}`);
+      console.log(error);
+    });
+};
 ```
 
-### Exercise: Let's Finish This Off
-Let's complete our Pet's SPA!
+Now our application keeps the user informed about what's going on. Neat!
 
-With the person sitting near you:  
-- Update your `success` function to iterate through the response and create new DOM elements to display each pet's name, breed and age.
+## Summary
 
-- Update your `fail` function to create a new DOM element that shows the user that an error has occurred.
-
-- Leave the `always` function as-is since we don't have a good context for updating this right now
-
-- Add the **"show"** action for each individual pet. Each "show" action should send a new AJAX request.
-
-
-## Best Practices
-- Keep your JavaScript organized and easy to read. If one block is doing too much, split into functions.
-- Code should be within `$(document).ready(function() { };`
-- Use Arrow functions where their brevity and lack of `this` context makes them useful.
-
-
-## Vocab
-- Asynchronous
-- Callback Function
-- Single Page Application
-
-## Key Takeaway
-Now that we are comfortable making web applications, we can focus on making them more efficient. By only loading what is needed, our client does not need to make as many requests or process as many responses. This results is much faster and more responsive applications our users can more seamlessly use... and procrastinate with.
-
+- axios is a JavaScript library that handles interacting with an API
+    - It builds on a (hard to use) built-in interface
+    - There are many ways to send requests, but axios is the most straightforward for our purposes
+- We can call `axios.get(URL)` to make a HTTP GET request
+    - Call `.then(callback)` to do something with the response
+    - Call `.catch(callback)` to do something when the response fails
+- There are many questions to answer regarding API calls and user experience
+    - When do you make the call (page load, button click)?
+    - How do you let the user know what's going on?
+    - What do you do with the results?
 
 ## Additional Resources
-- [AJAX for Front-End Designers](https://webdesign.tutsplus.com/series/ajax-for-front-end-designers--cms-967)
-- [MDN AJAX Guide](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started)
-- [jQuery AJAX GET Documentation]()
-- [jQuery AJAX Documentation](http://api.jquery.com/jquery.ajax/)
+- [axios documentation](https://github.com/axios/axios)
+- [Google Developers on Promises](https://developers.google.com/web/fundamentals/primers/promises)
+  - Most excellent reading! Promises are where the `.then` / `.catch` pattern comes from.
+- [Why I won’t be using Fetch API in my apps](https://medium.com/@shahata/why-i-wont-be-using-fetch-api-in-my-apps-6900e6c6fe78)
+  - Why aren't we teaching the shiny new thing called `fetch`?
+- [MDN: Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+  - In case you don't trust us.
