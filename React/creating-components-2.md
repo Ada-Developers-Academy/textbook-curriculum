@@ -47,7 +47,7 @@ Move the code that renders `Student` from `App` to `StudentCollection`. Note: Yo
 
 Import and render `StudentCollection` now from the `App` component instead.
 
-[The code](https://github.com/AdaGold/react-hello-world/tree/part-4/src)
+See the code [here](https://github.com/AdaGold/react-hello-world/tree/part-4/src)!
 
 
 ## Use `state` for data
