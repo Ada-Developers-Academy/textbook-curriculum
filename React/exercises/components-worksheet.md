@@ -25,11 +25,6 @@ In this worksheet the nested components are built using the basic components -- 
     Example (the badge is the part with the 88 or 888):
 
     ![Badge component example](./images/example-component-badge.png)
-1. Create a **Meter** component, which takes a percentage (a floating point number between 0.0 and 1.0, with 1.0 meaning 100%) and displays an “empty” horizontal bar of a fixed width, and on top of that an additional “filled” horizontal bar the length of which is based on the percentage.
-    
-    Example:
-
-    ![Meter component example](./images/example-component-meter.png)
 1. Create a **Product** component, which takes a name, a product photo URL, a standard price, and a discount price. If the discounted price is less than the standard price then the component should display the discounted price with some visual indicator (e.g. the price text is red).
     
     Example:
