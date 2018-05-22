@@ -25,8 +25,7 @@ To do this, we will pass in the data from the `App` component to the `Student` c
 
 1. Update the `render` function in the `Student` component to replace the hard-coded values with code tags `{ }` which contains the `prop` that came in from the parent component.  
     - It should now contain `{ this.props.name }` and `{ this.props.email }`
-    - Verify that the content displayed is now coming from the values in the `App` component.
-    - If you need to verify, take a look at [the code](https://github.com/AdaGold/react-hello-world/tree/part-3/src) so far.
+    - Verify that the content displayed is now coming from the values in the `App` component
 
 
 If we identify each individual piece of the component rendered, we'll see:
@@ -46,9 +45,6 @@ Spend a few minutes now going back to the [creating components](creating-compone
 Move the code that renders `Student` from `App` to `StudentCollection`. Note: You will also need to move and update the `import` statement.
 
 Import and render `StudentCollection` now from the `App` component instead.
-
-See the code [here](https://github.com/AdaGold/react-hello-world/tree/part-4/src)!
-
 
 ## Use `state` for data
 
@@ -96,7 +92,7 @@ render() {
 
 Note that there are a few different ways to accomplish this same result. The approach we've taken here is to create a new variable _outside_ the `return` to construct the individual components. Then, within the return, we wrap the variable from above in a single `div` since we can only return one high-level element.
 
-Verify that you now see the data from the constructor in your browser. If you need to see what has gone wrong, take a look at [the code](https://github.com/AdaGold/react-hello-world/blob/part-5/src/components/student_collection.js).
+Verify that you now see the data from the constructor in your browser.
 
 **Dive In:** Unpack the line with `return <Student...` with the person sitting next to you. Identify each piece of code on this line. Some questions to think about as you go through this activity:
 - What do you think the `studentComponents` variable looks like after this code executes?
@@ -149,8 +145,6 @@ render() {
 ```
 
 We don't want to add the class name onto each **component** that is rendered from the `StudentCollection` because that wouldn't go directly to the HTML. We should instead add it directly to the HTML **within** the component.
-
-You can see the final version of the code [here](https://github.com/AdaGold/react-hello-world/blob/part-6/src).
 
 ## Key Takeaway
 Nesting components within one another gives us infinite possibilities in React.

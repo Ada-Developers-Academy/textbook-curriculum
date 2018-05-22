@@ -62,13 +62,13 @@ We are going to start small, and our first component will be used to display a s
     export default Student;
     ```
 
-1. **QUICK BREAK!** Check in with your seat squad to verify that they are at the same place in setting up their component file. Look at [the code](https://github.com/AdaGold/react-hello-world/blob/part-1/src/components/student.js) if you need to copy/paste to catch up.
+1. **QUICK BREAK!** Check in with your seat squad to verify that they are at the same place in setting up their component file.
 
 ### Customize our Component
 
 With your seat squad, add some JSX elements to a `render()` function that you add to this new component. These elements should represent student data, like name, cohort and class, and birthday. Feel free to hard-code some student data and HTML that you think might be relevant.
 
-You can't fully test it out quite yet, but you can make sure that your React application compiles (check out the terminal where you ran `npm start`) and does not show you any errors in the browser as confirmation of success. 
+You can't fully test it out quite yet, but you can make sure that your React application compiles (check out the terminal where you ran `npm start`) and does not show you any errors in the browser as confirmation of success.
 
 ### Loading a Component into Another
 For now, we should have filled in a render function and run `npm start` to verify that our application doesn't have lots of errors. We haven't been able to see the results of our component within our app yet. Let's connect it!
@@ -81,8 +81,6 @@ For now, we should have filled in a render function and run `npm start` to verif
 1. Now we can render our `Student` component within our App component. Add `<Student />` to the existing render function in the App component. Note that the render function can only return one outermost element, so the new component must be **nested within** that outermost element.
 
 1. Verify! Run `npm start` to take a look at your application running in the browser and ensure that you see the elements you added to your student component.
-
-If you need to, take a look at this final version of [the code](https://github.com/AdaGold/react-hello-world/tree/part-2/src) to verify your work.
 
 **What have we accomplished so far?**
 
