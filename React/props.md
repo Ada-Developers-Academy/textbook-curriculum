@@ -1,7 +1,7 @@
 # Passing data using `props`
 
 ## Learning Goals
-- Examine how React allow components to manage data
+- Examine how React allows components to manage data
 - Use `props` between components
 - Examine how `props` impact component rendering
 
