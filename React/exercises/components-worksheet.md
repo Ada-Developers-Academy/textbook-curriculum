@@ -1,6 +1,20 @@
-# React Components Worksheet
+# React Components Practice Worksheet
+This worksheet contains prompts for several stateless React components. Practice building components that display information based on the `props` they are given, as well as building components that have other components nested within them.
 
-## Part 1
+## Instructions
+For this worksheet practice, you should create a new React project with `create-react-app`. There is no need to setup a GitHub repo, as this will not be submitted to Ada.
+
+Once the project has been created, make a new directory within the project called `src/components`. This is where you will create each new component's JavaScript and CSS files. It's totally fine to put all of these components into the same React project, even though they don't all interact with each other.
+
+There are two kinds of components in this practice worksheet: **basic** and **nested**:
+* Basic components receive `props` and their `render()` function returns pure HTML that will be part of the page.
+* Nested components are very similar, except part of their `render()` function includes other React components.
+
+In this worksheet the nested components are built using the basic components -- for example the **ProductList** component is built with a list of **Product** components. As a result, you should work through all of the basic components first, and then tackle the nested components.
+
+**NOTE**: The examples listed below are from real-world projects, and designers have worked on their visuals. You are **not** required to spend time on CSS to make your components look like the examples. The focus of this practice is entirely on building a React component which displays the data provided by `props` -- minimize the time you spend on CSS code that is not directly related to the functionality of a component's `render()` function.
+
+## Basic Components
 
 1. Create an **Avatar** component which takes an image URL and presents that image with a border.
     
@@ -22,7 +36,7 @@
 
     ![Product component example](./images/example-component-product.png)
 
-## Part 2
+## Nested Components
 
 1. Create a **UserCard** component which takes a user object. The user object has properties for:
     - User name
