@@ -1,4 +1,4 @@
-# React Components Practice Worksheet
+# Worksheet: Building Basic and Nested Components
 This worksheet contains prompts for several stateless React components. Practice building components that display information based on the `props` they are given, as well as building components that have other components nested within them.
 
 ## Instructions
