@@ -2,7 +2,7 @@
 
 ## Learning Goals
 - Implement a form in a component
-- Dynamically provide user feedback as they complete a form
+- Dynamically provide user feedback as they complete a form with validations
 - Handle the event of a form submission in a component
 
 ### Overview
