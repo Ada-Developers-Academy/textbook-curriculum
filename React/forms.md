@@ -35,8 +35,8 @@ import  './new_student_form.css';
 class NewStudentForm extends Component {
   constructor(props) {
     super(props);
-}
-render() {
+  }
+  render() {
     return (
       <div>
         <form className="new-student-form">
@@ -78,7 +78,7 @@ The `NewStudentForm` component will track the `name` and `email` as part of it's
 
 We can then manage the input components by setting the value of the form component to match the `NewStudentForm`'s state and adding an event handler to respond to changes in the input value.
 
-To turn the `name` input into a controlled component we first add an event handler:
+To link changes in the input field to the `NewStudentForm`'s state we can add an event handler.  So when the input field is edited by the user the event handler function is called which updates the state.
 
 ```javascript
   //  new_student_form.js
