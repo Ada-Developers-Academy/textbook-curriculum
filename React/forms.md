@@ -33,8 +33,8 @@ import React, { Component } from 'react';
 import  './new_student_form.css';
 
 class NewStudentForm extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
   }
   render() {
     return (
@@ -66,7 +66,9 @@ We can do this by adding `name` and `email` to the `NewStudentForm`'s state in t
 ```javascript
 //  new_student_form.js
 ...
-constructor(props) {
+constructor() {
+  super();
+  
   this.state = {
     name: '',
     email: '',
