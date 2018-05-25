@@ -42,8 +42,7 @@ class NewStudentForm extends Component {
         <form className="new-student-form">
           <div>
             <label htmlFor="name">Name:</label>
-            <input
-              name="name" />
+            <input name="name" />
           </div>
           <div>
             <label htmlFor="email">Email:</label>
@@ -68,7 +67,7 @@ We can do this by adding `name` and `email` to the `NewStudentForm`'s state in t
 ...
 constructor() {
   super();
-  
+
   this.state = {
     name: '',
     email: '',
