@@ -77,7 +77,7 @@ constructor() {
 
 The `NewStudentForm` component will track the `name` and `email` as part of it's state.
 
-We can then manage the input components by setting the value of the form component to match the `NewStudentForm`'s state and adding an event handler to respond to changes in the input value.
+We can then manage the input fields by setting their value to match the `NewStudentForm`'s state and adding an event handler to respond to changes in the input value.
 
 To link changes in the input field to the `NewStudentForm`'s state we can add an event handler.  So when the input field is edited by the user the event handler function is called which updates the state.
 
@@ -174,7 +174,9 @@ handleFormSubmit = (event) => {
 }
 ```
 
-And in `render` we add an event handler for the submit action to the `form`.
+**Question**:  With your SeatSquat partner answer the following.  Why do we have the call to `this.setState` in our event handler?  Why would we need this?
+
+We can cause our `handleFormSubmit` function to be called whenever the form submits by updatting the `render` function by adding an `onSubmit` attribute to the `form` element.
 
 ```javascript
 // new_student_form.js
@@ -183,7 +185,7 @@ And in `render` we add an event handler for the submit action to the `form`.
 ...
 ```
 
-So we have a way to detect submit events on the form, but no way to get data to the rest of the application.  To solve this we will modify the `StudentCollection` component to pass a function as a prop to the `NewStudentForm` so it can pass the student data back.
+Now we have a way to detect submit events on the form, but no way to get data to the rest of the application.  To solve this we will modify the `StudentCollection` component to pass a function as a prop to the `NewStudentForm` so it can pass the student data back.
 
 ![passing a callback through props](./images/passing-callback.png)
 
@@ -243,7 +245,7 @@ Now if we test the app we should now be able to add students to the list.  Howev
 1.  We can add students with no names
 2.  We can add students with invalid email addresses
 
-**Exercise**  Update the app to prevent form submission if the name is blank, or the email field is invalid.
+**Exercise**  Update the app to prevent form submission if the name is blank, or the email field is invalid.  Think about this as a jQuery application, what HTML element would you attach an event listener to in order to respond to submissions of the form?
 
 ## Final Note: Prop Validation
 
