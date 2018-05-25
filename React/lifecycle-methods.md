@@ -64,8 +64,6 @@ const fetchStudents = () =>
 
 While this might not seem super useful yet, we'll see when we get to using APIs how we'll leverage the lifecycle to ensure we are loading our app and it's data efficiently.
 
-You can see the final version of this code [here](https://github.com/AdaGold/react-hello-world/blob/part-7/src/components/student_collection.js).
-
 ## Vocabulary
 | Term     | Definition     |
 | :------------- | :------------- |
