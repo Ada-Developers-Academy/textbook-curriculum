@@ -15,7 +15,7 @@ Next we are going to extend our application to support multiple students. Additi
 
 First, we want to use the Student component we already created, but we want to allow this to load data dynamically.
 
-To do this, we will pass in the data from the `App` component to the `Student` component. Within the `Student` component, we will  use the code tags to pull in the data that was passed in.
+To do this, we will pass in the data from the `App` component to the `Student` component. Within the `Student` component, we will use the code tags to pull in the data that was passed in.
 
 1. Locate the spot where the `Student` component is rendered from the `App` component.
 
