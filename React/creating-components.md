@@ -15,7 +15,7 @@ It is important to understand what is happening currently within the React appli
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
-Next, our `App` component contains a render function will which render a `header` and a `p` using JSX.
+Next, our `App` component contains a render function which will render a `header` and a `p` using JSX.
 
 ```javascript
 render() {
@@ -75,7 +75,7 @@ For now, we should have filled in a render function and run `npm start` to verif
 
 1. In our `app.js` file, we first need to load in the code for our new component. Add the file `import` to the top.
     ```JavaScript
-    import Student from './components/student';
+    import Student from './components/Student';
     ```
 
 1. Now we can render our `Student` component within our App component. Add `<Student />` to the existing render function in the App component. Note that the render function can only return one outermost element, so the new component must be **nested within** that outermost element.
