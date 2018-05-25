@@ -257,7 +257,8 @@ Now if we test the app we should now be able to add students to the list.  Howev
 
 
 ## Key Takeaway
-Forms in a React application can either be controlled or uncontrolled.  Controlled components provide a number of capabilities beyound regular HTML forms.  Uncontrolled components can be easier to migrate from a non-react application.  Forms can be used to collect data and pass it back to containers via callback functions in the component's props.
+
+Forms in a React component can be bound to a component's state which allows it to respond dynamically to changes in the form fields.  React components can also be passed functions as props, which can allow a component to pass information up to it's container.  
 
 
 ## Additional Resources
