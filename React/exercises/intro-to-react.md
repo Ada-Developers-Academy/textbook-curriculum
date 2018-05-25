@@ -35,6 +35,6 @@ Complete this worksheet with your seat squad. Some items are questions, some ite
     </header>
     ```
 
-1. Add another `img` tag to your `render` function to an image of your choice.
+1. Add another `img` tag to your `render` function to an image of your choice. The image source should be an absolute URL from an image already uploaded on the internet.
 
 1. **Challenge**: Create a local variable in your `render` function equal to your name. Update the `render` function to display the value associated with this local variable.
