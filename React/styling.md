@@ -3,7 +3,7 @@
 ## Learning Goals
 - See options for how to include CSS in React components
 - Show how to use `const`s and `style` directly in component files to store CSS data
-- Use and load external css files to store CSS data
+- Use and load external CSS files to store CSS data
 
 
 ## How to include CSS
@@ -63,7 +63,7 @@ At Ada, we recommend using CSS defined in external stylesheets, particularly in 
 - Create a new `.css` file per Component
 - This file should be named the name of the Component (case-sensitive)
 - This file should be in the same directory as the Component's `.js` file
-- You should `import` the css file within the Component's `.js` file (case-sensitive)
+- You should `import` the CSS file within the Component's `.js` file (case-sensitive)
 - Styles should be set using the attribute `className`
 
 Following the first three steps, we should make a new file `Link.css` in the same directory as `Link.js`, and its contents should be the following:
@@ -93,7 +93,7 @@ class Link extends React.Component {
 ```
 
 We made the following changes:
-- We used the line `import '.Link.css'` as the relative path to our css file
+- We used the line `import './Link.css'` as the relative path to our CSS file
 - Instead of using the `style` attr, we use the `className` attr to provide a class. This class will be used for CSS class selection as we know it
 - We removed the unnecessary `const` var `linkStyle` that had our inline styles
 
