@@ -258,9 +258,10 @@ Now if we test the app we should now be able to add students to the list.  Howev
 
 ## Key Takeaway
 
-Forms in a React component can be bound to a component's state which allows it to respond dynamically to changes in the form fields.  React components can also be passed functions as props, which can allow a component to pass information up to it's container.  
+Forms in a React component can be bound to a component's state which allows it to respond dynamically to changes in the form fields.  React components can also be passed functions as props, which can allow a component to pass information up to it's container.
 
 
 ## Additional Resources
 - [React Docs: Forms](https://reactjs.org/docs/forms.html)
 - [An Imperative Guide to Forms in React](https://blog.logrocket.com/an-imperative-guide-to-forms-in-react-927d9670170a)
+- [Controlled & Uncontrolled form inputs](https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/)
