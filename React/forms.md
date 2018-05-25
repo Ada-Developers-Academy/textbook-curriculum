@@ -247,26 +247,7 @@ Now if we test the app we should now be able to add students to the list.  Howev
 
 **Exercise**  Update the app to prevent form submission if the name is blank, or the email field is invalid.  Think about this as a jQuery application, what HTML element would you attach an event listener to in order to respond to submissions of the form?
 
-## Final Note: Prop Validation
 
-Your linter may complain about the `addStudent` prop in `new_student_form.js` due to, "Prevent missing props validation in a React component definition (react/prop-types)".  It is asking you to add some validation of the props `NewStudentForm` requires.
-
-You can add this code to the `NewStudent` class.
-
-```javascript
-// new_student_form.js
-import PropTypes from 'prop-types';
-
-...
-class NewStudentForm extends Component {
-
-  static propTypes = {
-    addStudent: PropTypes.func.isRequired,
-  }
-...
-```
-
-This will prevent the `NewStudentForm` component from being used without the `addStudent` function as a prop.
 
 ## Vocabulary
 | Term     | Definition     |
