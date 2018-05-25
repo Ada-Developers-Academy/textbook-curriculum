@@ -59,9 +59,9 @@ render() {
 export default NewStudentForm;
 ```
 
-Now we have a React component to render the form.  It functions just like the HTML form, but can be imported into other React containers.  We term the name and email input fields _Uncontrolled components_ because the DOM is managing the values in the fields.  However now that we have them in a React component we can modify the form controls to have React monitor the input fields and handling the form submission.  To do so we will turn the inputs for name and email into _controlled components_.
+Now we have a React component to render the form.  It functions just like the HTML form, but can be imported into larger React Components.  Right now the DOM is still maintaining the values of the `name` and `email` fields.  However now that we have them in a React component we can modify the form controls to have React monitor the input fields and handling the form submission.
 
-We can add this to the constructor:
+We can do this by adding `name` and `email` to the `NewStudentForm`'s state in the constructor.
 
 ```javascript
 //  new_student_form.js
