@@ -7,11 +7,10 @@
     - [Worksheet: Building Basic and Nested Components](exercises/components-worksheet.md)
 1. [`props`](props.md)
 1. [`state`](state.md)
-1. [Creating Components Part 2](creating-components-2.md)
-1. [Lifecycle Methods](lifecycle-methods.md)
 1. [Event Handling](events.md)
-
+1. [Creating Components Part 2](creating-components-2.md)
 1. [Component Design](component-design.md)
 1. [Events](events.md)
 1. [Forms](forms.md)
 1. [Styling](styling.md)
+1. [Lifecycle Methods](lifecycle-methods.md)
