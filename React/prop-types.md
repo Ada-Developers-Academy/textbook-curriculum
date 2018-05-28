@@ -10,7 +10,7 @@ You may have noticed this message from your JavaScript linter.  "____ is missing
 
 ![prop types error](images/prop-types.png)
 
-In this lesson we will define `propTypes` in our React components which will provide some type-checking and documentation of our React components. 
+In this lesson we will define `propTypes` in our React components which will provide some type-checking and documentation of our React component props. 
 
 ## Student Component Example
 
