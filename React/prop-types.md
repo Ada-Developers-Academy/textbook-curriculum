@@ -10,6 +10,8 @@ You may have noticed this message from your JavaScript linter.  "____ is missing
 
 ![prop types error](images/prop-types.png)
 
+In this lesson we will define `propTypes` in our React components which will provide some type-checking and documentation of our React components. 
+
 ## Student Component Example
 
 Our Student component takes a name & an e-mail as props.  We can define the properties our `Student` component takes by adding a `static` `propTypes` attribute.
@@ -56,7 +58,7 @@ By adding `propTypes` to your React component classes you gain two things.  Firs
 You can also create a custom validator which you can look up along with more examples of using `PropTypes` on the [prop-types github page](https://github.com/facebook/prop-types).
 
 ## Key Takeaway
-`propTypes` is a static attribute you can define in a React component class which lists the props the component can take along with their types.  Mismatches or missing props will generate error messages in the browser console.  PropTypes help you document the props a component can take and help prevent the wrong types of props being passed accidentally.  
+`propTypes` is a static attribute you can define in a React component class which lists the props the component can take along with their types.  Mismatches or missing props will generate error messages in the browser console.  PropTypes help you document the props a component can take and help prevent the wrong types of props being passed accidentally.
 
 ## Resources
 - [Why you should use PropTypes in React Native (works for React in general)](https://codeburst.io/why-you-should-use-proptypes-in-react-native-e6f5ef78e7dd)
