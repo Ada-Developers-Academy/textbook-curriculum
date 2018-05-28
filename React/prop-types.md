@@ -10,13 +10,16 @@ You may have noticed this message from your JavaScript linter.  "____ is missing
 
 ![prop types error](images/prop-types.png)
 
-In this lesson we will define `propTypes` in our React components which will provide some type-checking and documentation of our React component props. 
+In this lesson we will define `propTypes` in our React components which will provide some type-checking and documentation of our React component props.
 
 ## Student Component Example
 
 Our Student component takes a name & an e-mail as props.  We can define the properties our `Student` component takes by adding a `static` `propTypes` attribute.
 
+First you need to `import PropTypes from 'prop-types';` to import the package.  Then add a static `propTypes` attribute to your class like below.
+
 ```javascript
+
 static propTypes = {
   name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
@@ -36,6 +39,19 @@ If a component has optional props you can simply leave off the `isRequired` attr
 ## Advantages of PropTypes
 
 By adding `propTypes` to your React component classes you gain two things.  First you document the props that your component can and must take.  This makes it much easier for another developer to use your component in another application.  Second `propTypes` helps React engage in type-checking, making sure the proper props are passed to a component along with their correct types.  If a component is missing a prop or the wrong type is passed, React will generate a helpful error message.
+
+## Default Prop Values
+
+You can also set default values for props with a `defaultProps` static attribute.
+
+```javascript
+static defaultProps = {
+  name: 'Hermine Granger',
+  email: 'placeholder@notarealemail.com',
+}
+```
+
+A `defaultProp` attribute like above ensures that every time the given props have values, even if they are not provided.
 
 ## List of PropTypes
 
