@@ -163,10 +163,10 @@ JavaScript does not have symbols, and uses strings wherever Ruby would use symbo
 ```javascript
 let arr = [1, 2, 3, 4];
 arr.length;  // 4 - access the length property
-             // Note this *cannot* be accessed like a method with parenthesis
+             // Note this *cannot* be accessed like a method with parentheses
 arr[0];      // 1
 arr.pop()    // 4 - call the pop() function
-             // Note this method *cannot* be used without the parenthesis
+             // Note this method *cannot* be used without the parentheses
 arr;         // [1, 2, 3]; pop() mutates the array
 ```
 
@@ -257,7 +257,6 @@ The `for...in` loop iterates over the keys of a collection. This is most useful 
 let pets = {
   kari: 'Kylo',
   dan: 'Gecky',
-  jamie: 'Octo and Amper',
   dee: 'Samson',
 };
 
@@ -267,7 +266,6 @@ for (let human in pets) {
 
 // kari's pets: Kylo
 // dan's pets: Gecky
-// jamie's pets: Octo and Amper
 // dee's pets: Samson
 ```
 
