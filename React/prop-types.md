@@ -19,10 +19,12 @@ Our Student component takes a name & an e-mail as props.  We can define the prop
 First you need to `import PropTypes from 'prop-types';` to import the package.  Then add a static `propTypes` attribute to your class like below.
 
 ```javascript
-
-static propTypes = {
-  name: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
+class Student {
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+  }
+  ...
 }
 ```
 
