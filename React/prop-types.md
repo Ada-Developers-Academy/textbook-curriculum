@@ -23,7 +23,7 @@ class Student {
   static propTypes = {
     name: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
-    present: PropTypes.boolean,
+    present: PropTypes.bool,
   }
   ...
 }
