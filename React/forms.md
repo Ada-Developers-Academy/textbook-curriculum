@@ -257,7 +257,7 @@ handleFormSubmit = (event) => {
     email: '',
   });
 
-  this.props.addStudent(student);
+  this.props.addStudent(newStudent);
 }
 ```
 
