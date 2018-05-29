@@ -48,7 +48,11 @@ class NewStudentForm extends Component {
             <label htmlFor="email">Email:</label>
             <input name="email" />
           </div>
-          <input className="button success" type="submit" value="Add Student" />
+          <input
+            className="button success"
+            type="submit"
+            value="Add Student"
+          />
         </form>
       </div>
     );
@@ -203,16 +207,20 @@ First adding a callback function to `StudentCollection` and passing that functio
 // callback function to add students to the list
 addStudent = (student) => {
     const students = this.state.students;
-
     students.push(student);
-    this.setState({
-      students
-    });
+
+    this.setState({ students });
   }
 
 render() {
-  let studentComponents = this.state.students.map(function(student) {
-    return <Student key={student.name} name={student.name} email={student.email}/>
+  const studentComponents = this.state.students.map(student => {
+    return (
+      <Student
+        key={student.name}
+        name={student.name}
+        email={student.email}
+      />
+    );
   });
 
   return (
