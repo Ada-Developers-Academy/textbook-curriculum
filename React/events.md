@@ -88,3 +88,4 @@ We tie events to HTML elements in our JSX to handle changes in the state of our 
 ## Additional Resources
 - [React Docs: Handling Events](https://reactjs.org/docs/handling-events.html)
 - [Advanced Docs: Supported Events](https://reactjs.org/docs/events.html#supported-events)
+- [React Armory: When should I use Arrow Functions?](https://reactarmory.com/answers/when-to-use-arrow-functions)

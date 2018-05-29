@@ -24,7 +24,7 @@ Commonly, initial state is set in a component's constructor function. This is se
 
 ```javascript
 // NameDisplay.js
-import React, { Component } from 'React';
+import React from 'react';
 
 class NameDisplay extends React.Component {
   constructor() {
@@ -35,13 +35,15 @@ class NameDisplay extends React.Component {
     };
   }
 }
+
+export default NameDisplay;
 ```
 
 Once we know that the initial state is set, we can use this value within our component class. In this example, we'll use the combination of two state variables to determine whether or not to display a specific property value in our render function.
 
 ```javascript
 // NameDisplay.js
-import React, { Component } from 'React';
+import React from 'react';
 
 class NameDisplay extends React.Component {
   constructor() {
@@ -64,6 +66,8 @@ class NameDisplay extends React.Component {
     );
   }
 }
+
+export default NameDisplay;
 ```
 
 Once the initial state is set, we can then make changes using the `setState` function. (**Note:** `setState` will work even if that state variable was not included in the initial `state` object.) This function will merge this object with the existing state object, overriding any existing values on the same variables. `setState` function calls are very often triggered by events that our users can trigger.
