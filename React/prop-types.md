@@ -62,7 +62,7 @@ You can also set default values for props with a `defaultProps` static attribute
 
 ```javascript
 static defaultProps = {
-  name: 'Hermine Granger',
+  name: 'Hermione Granger',
   email: 'placeholder@notarealemail.com',
 }
 ```
