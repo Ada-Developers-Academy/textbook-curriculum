@@ -11,4 +11,9 @@
 1. [Event Handling](events.md)
 1. [Creating Components Part 2](creating-components-2.md)
 1. [Forms](forms.md)
+<<<<<<< HEAD
 1. [Component Design](component-design.md)
+=======
+1. [Styling](styling.md)
+1. [Prop-Types](prop-types.md)
+>>>>>>> master
