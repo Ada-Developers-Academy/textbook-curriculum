@@ -16,7 +16,7 @@ In this lesson we will define `propTypes` in our React components which will pro
 
 Our Student component takes a name & an e-mail as props.  We can define the properties our `Student` component takes by adding a `static` `propTypes` attribute.
 
-First you need to `import PropTypes from 'prop-types';` to import the package.  Then add a static `propTypes` attribute to your class like below.
+First you need to `import PropTypes from 'prop-types';` to import the package.  Then add a static `propTypes` attribute to your class inside the class' curly braces.
 
 ```javascript
 class Student {
