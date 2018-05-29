@@ -95,8 +95,8 @@ Then add `onChange` and `value` fields to the `input` in `render`.
 
 ```javascript
 <input
-  onChange={ this.onNameChange }
-  value={ this.state.name }
+  onChange={this.onNameChange}
+  value={this.state.name}
   name="name"
 />
 ```
@@ -126,9 +126,9 @@ And give the user feedback on validation with:
 
 ```javascript
 <input
-  onChange={ this.handleEmailChange }
-  value={ this.state.email }
-  className={ this.emailValid() ? "valid": "invalid" }
+  onChange={this.handleEmailChange}
+  value={this.state.email}
+  className={this.emailValid() ? "valid": "invalid"}
   name="email"
 />
 ```
@@ -208,13 +208,13 @@ addStudent = (student) => {
 
 render() {
   let studentComponents = this.state.students.map(function(student) {
-    return <Student key={ student.name } name={ student.name } email={ student.email }/>
+    return <Student key={student.name} name={student.name} email={student.email}/>
   });
 
   return (
     <div>
       <h3>Students</h3>
-      { studentComponents }
+      {studentComponents}
       <NewStudentForm addStudent={this.addStudent} />
     </div>
   )
