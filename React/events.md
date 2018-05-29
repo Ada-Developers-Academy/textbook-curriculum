@@ -8,7 +8,7 @@
 React supplies support on many different events. We'll focus on a few of the common events, keyboard and click, but just know that you should reference the [full list](https://reactjs.org/docs/events.html#supported-events) if you want more information.
 
 ### Context
-In this lecture, we are going to expand upon the `DisplayName` component that we created in the [state lecture](state.md). This was a great component that we created that was storing a name and a boolean in the state. We used the boolean in the render function to determine what to display.
+In this lecture, we are going to expand upon the `NameDisplay` component that we created in the [state lecture](state.md). This was a great component that we created that was storing a name and a boolean in the state. We used the boolean in the render function to determine what to display.
 
 ### Adding More Meaning
 #### Toggle our Boolean
