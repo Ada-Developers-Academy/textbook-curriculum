@@ -23,12 +23,13 @@ class Student {
   static propTypes = {
     name: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
+    present: PropTypes.boolean,
   }
   ...
 }
 ```
 
-The above block defines two props.  They both must be Strings and are required to use a `Student` component.  If you try to use the `Student` component without a `name` prop you will get this error message:
+The above block defines two props.  They both must be Strings and are required to use a `Student` component.  The attribute `present` however is an optional boolean prop.  If you try to use the `Student` component without a `name` prop you will get this error message:
 
 ![Error Msg](images/missing-prop.png)
 
@@ -47,6 +48,7 @@ You may also see `propTypes` declared in an alternative syntax outside the class
 MyComponent.propTypes = {
   name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
+  present: PropTypes.boolean,
 }
 ```
 
