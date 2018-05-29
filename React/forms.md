@@ -30,7 +30,7 @@ First we will build a React component to manage creating new students.
 
 ```javascript
 import React, { Component } from 'react';
-import  './new_student_form.css';
+import  './NewStudentForm.css';
 
 class NewStudentForm extends Component {
   constructor() {
@@ -63,7 +63,7 @@ Now we have a React component to render the form.  It functions just like the HT
 We can do this by adding `name` and `email` to the `NewStudentForm`'s state in the constructor.
 
 ```javascript
-//  new_student_form.js
+//  NewStudentForm.js
 ...
 constructor() {
   super();
@@ -82,18 +82,19 @@ We can then manage the input fields by setting their value to match the `NewStud
 To link changes in the input field to the `NewStudentForm`'s state we can add an event handler.  So when the input field is edited by the user the event handler function is called which updates the state.
 
 ```javascript
-  //  new_student_form.js
   onNameChange = (event) => {
     console.log(`Name Field updated ${event.target.value}`)
     this.setState({
       name: event.target.value,
     });
   }
+//  NewStudentForm.js
 ```
 
 Then add `onChange` and `value` fields to the `input` in `render`.
 
 ```javascript
+// NewStudentForm.js
 <input
   onChange={this.onNameChange}
   value={this.state.name}
@@ -117,6 +118,7 @@ By allowing the `NewStudentForm` component track the status of the form fields t
 We can perform a validation on the email field with a function like this:
 
 ```javascript
+// NewStudentForm.js
 emailValid = () => {
   return this.state.email.match(/\S+@\S+/);
 }
@@ -125,6 +127,7 @@ emailValid = () => {
 And give the user feedback on validation with:
 
 ```javascript
+// NewStudentForm.js
 <input
   onChange={this.handleEmailChange}
   value={this.state.email}
@@ -158,10 +161,11 @@ So with our form we can track input into the fields and provide real-time valida
 Now we want to handle when the user submits the form.  We can add a function as an event handler.
 
 ```javascript
-// new_student_form.js
+// NewStudentForm.js
 ...
 handleFormSubmit = (event) => {
   event.preventDefault();
+
   const newStudent = {
     name: this.state.name,
     email: this.state.email,
@@ -181,7 +185,7 @@ handleFormSubmit = (event) => {
 We can cause our `handleFormSubmit` function to be called whenever the form submits by updatting the `render` function by adding an `onSubmit` attribute to the `form` element.
 
 ```javascript
-// new_student_form.js
+// NewStudentForm.js
 ...
 <form className="new-student-form" onSubmit={this.handleFormSubmit}>
 ...
