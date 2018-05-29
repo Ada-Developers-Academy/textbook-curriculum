@@ -15,3 +15,5 @@
 1. [Styling](styling.md)
 1. [Events](events.md)
 1. [Forms](forms.md)
+1. [Styling](styling.md)
+1. [Prop-Types](prop-types.md)
