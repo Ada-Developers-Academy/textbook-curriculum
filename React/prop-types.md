@@ -6,7 +6,7 @@ By the end of this lesson you should be able to:
 - Explain the use of `PropTypes`
 - Use `PropTypes` to define and document the props a component can take
 
-You may have noticed this message from your JavaScript linter.  "____ is missing from props validation (react/prop-types)."  The linter is encouraging you to use a feature of React called Prop-types in which you list the props a component takes and their types.
+You may have noticed this message from your JavaScript linter.  "____ is missing from props validation (react/prop-types)."  The linter is encouraging you to use a feature of React called PropTypes in which you list the props a component takes and their types.
 
 ![prop types error](images/prop-types.png)
 
@@ -35,6 +35,18 @@ If a component has optional props you can simply leave off the `isRequired` attr
 **Exercise** Add another prop to the `Student` component called `age`.  This component should be _optional_.  Update the `Student` class' `propTypes`.
 
 **Question**:  Why encourage developers to list the props the component takes like this?
+
+## Alternative Syntax
+
+You may also see `propTypes` declared in an alternative syntax outside the class curly braces like this:
+
+
+```javascript
+MyComponent.propTypes = {
+  name: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+}
+```
 
 ## Advantages of PropTypes
 
@@ -71,7 +83,7 @@ A `defaultProp` attribute like above ensures that every time the given props hav
 |  `objectOf` | An object with fields who's values can only be a specific type:  for Example: `courses: PropTypes.objectOf(PropTypes.string),`
 |  `shape` |  An object with specific fields and types, for example: `student: PropTypes.shape({name: PropTypes.string, age: PropTypes.number})`
 
-You can also create a custom validator which you can look up along with more examples of using `PropTypes` on the [prop-types github page](https://github.com/facebook/prop-types).
+You can also create a custom validator which you can look up along with more examples of using `PropTypes` on the [PropTypes github page](https://github.com/facebook/prop-types).
 
 ## Key Takeaway
 `propTypes` is a static attribute you can define in a React component class which lists the props the component can take along with their types.  Mismatches or missing props will generate error messages in the browser console.  PropTypes help you document the props a component can take and help prevent the wrong types of props being passed accidentally.
