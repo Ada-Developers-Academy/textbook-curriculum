@@ -86,19 +86,22 @@ We can then manage the input fields by setting their value to match the `NewStud
 To link changes in the input field to the `NewStudentForm`'s state we can add an event handler.  So when the input field is edited by the user the event handler function is called which updates the state.
 
 ```javascript
-  onNameChange = (event) => {
-    console.log(`Name Field updated ${event.target.value}`)
-    this.setState({
-      name: event.target.value,
-    });
-  }
 //  NewStudentForm.js
+...
+onNameChange = (event) => {
+  console.log(`Name Field updated ${event.target.value}`);
+  this.setState({
+    name: event.target.value,
+  });
+}
 ```
 
 Then add `onChange` and `value` fields to the `input` in `render`.
 
 ```javascript
 // NewStudentForm.js
+...
+// In the render method...
 <input
   onChange={this.onNameChange}
   value={this.state.name}
@@ -123,6 +126,7 @@ We can perform a validation on the email field with a function like this:
 
 ```javascript
 // NewStudentForm.js
+...
 emailValid = () => {
   return this.state.email.match(/\S+@\S+/);
 }
@@ -132,12 +136,14 @@ And give the user feedback on validation with:
 
 ```javascript
 // NewStudentForm.js
+...
 <input
   onChange={this.handleEmailChange}
   value={this.state.email}
   className={this.emailValid() ? "valid": "invalid"}
   name="email"
 />
+...
 ```
 
 **Question:**  What does this line with `className=` do?
