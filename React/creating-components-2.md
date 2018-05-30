@@ -165,7 +165,7 @@ Now, in the `Student` component, we can call this callback function within our e
 
 onPresentButtonClick = () => {
   console.log(this);
-  this.props.onStudentPresentChange(this.index);
+  this.props.onStudentPresentChange(this.props.index);
 }
 ```
 
