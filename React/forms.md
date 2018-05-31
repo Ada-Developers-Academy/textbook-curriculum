@@ -208,7 +208,7 @@ Now we have a way to detect submit events on the form, but no way to get data to
 First adding a callback function to `StudentCollection` and passing that function to `NewStudentForm` as a prop.
 
 ```javascript
-// student_collection.js
+// StudentCollection.js
 ...
 // callback function to add students to the list
 addStudent = (student) => {
@@ -243,7 +243,7 @@ render() {
 Then we can update the `handleFormSubmit` function.
 
 ```javascript
-// new_student_form.js
+// NewStudentForm.js
 ...
 handleFormSubmit = (event) => {
   event.preventDefault();
