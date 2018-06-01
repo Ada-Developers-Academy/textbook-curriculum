@@ -282,7 +282,7 @@ onNameChange = (event) => {
 }
 
 onEmailChange = (event) => {
-  console.log(`Name Field updated ${event.target.value}`);
+  console.log(`Email Field updated ${event.target.value}`);
   this.setState({
     email: event.target.value,
   });
@@ -312,7 +312,7 @@ Then we can change the `onClick` handlers to be an arrow function like this:
 />
 ```
 
-In this way we can DRY our code a bit and have one function to update any field in the `NewStudentForm`'s state.  
+In this way we can DRY our code a bit and have one function to update any field in the `NewStudentForm`'s state.
 
 
 ## Vocabulary
