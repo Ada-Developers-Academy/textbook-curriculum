@@ -4,7 +4,7 @@ Interview week is a long week where you are free to manage your time however you
 
 - Review and refresh your personal portfolio site!
 - Make a zine around a programming/development process you like or want to practice explaining and getting to know more deeply (see [Julia Evans's "What is a zine?" and zines for inspiration](https://jvns.ca/zines/))
-- Remake TaskList in Ruby on Rails
+- Remake TaskList (our first Rails project) in React
 - Revisit your code journal. Did you write about any actionable items that you didn't get around to before?
 - Run through exercises in Ruby or JavaScript in [exercism.io](http://exercism.io/)
 - Write a blog post explaining one concept. Start with an idea, then a draft, then find somewhere to post it. Maybe your personal portfolio site?
