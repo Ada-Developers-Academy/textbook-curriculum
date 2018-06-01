@@ -150,7 +150,7 @@ And give the user feedback on validation with:
 
 The form is rerendered every time the state of the component changes, and this code will run `this.emailValid()` and if the email field is valid the input will have a class of `valid`, and if not it will have the class of `invalid`.  With a little CSS we can give the user valuable feedback as to the status of a form field.
 
-**Wait!** You just used a ternary!  Remember from [react hello world](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/React/react-hello-world.md#what-is-jsx) we said you can't put an if-statement in a `{}` block?  You can put a 1-line ternary.  However a full multiline `if` statement will not work.  
+**Wait!** You just used a ternary!  Remember from [react hello world](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/React/react-hello-world.md#what-is-jsx) we said you can't put an if-statement in a `{}` block?  You can put a 1-line ternary.  However a full multiline `if` statement will not work.
 
 ```css
 .valid {
@@ -267,6 +267,52 @@ Now if we test the app we should now be able to add students to the list.  Howev
 
 **Exercise**  Update the app to prevent form submission if the name is blank, or the email field is invalid.  Think about this as a jQuery application, what HTML element would you attach an event listener to in order to respond to submissions of the form?
 
+## Refactor of Event Handlers
+
+You may notice the event handlers for the name and input fields are very similar:
+
+```javascript
+//  NewStudentForm.js
+...
+onNameChange = (event) => {
+  console.log(`Name Field updated ${event.target.value}`);
+  this.setState({
+    name: event.target.value,
+  });
+}
+
+onEmailChange = (event) => {
+  console.log(`Name Field updated ${event.target.value}`);
+  this.setState({
+    email: event.target.value,
+  });
+}
+```
+
+We can refactor this into a single function that can update any field, based on a parameter.
+
+```javascript
+//  NewStudentForm.js
+...
+updateState = (key, value) => {
+  const updatedState = {}
+  updatedState[key] = value;
+
+  this.setState(updatedState);
+}
+```
+
+Then we can change the `onClick` handlers to be an arrow function like this:
+
+```jsx
+<input
+  name="name"
+  onChange={(event) => { this.updateState('name', event.target.value) }}
+  value={this.state.name}
+/>
+```
+
+In this way we can DRY our code a bit and have one function to update any field in the `NewStudentForm`'s state.  
 
 
 ## Vocabulary
