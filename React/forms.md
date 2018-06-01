@@ -294,10 +294,13 @@ We can refactor this into a single function that can update any field, based on 
 ```javascript
 //  NewStudentForm.js
 ...
-updateState = (key, value) => {
-  const updatedState = {}
-  updatedState[key] = value;
+updateState = (event) => {
+  const updatedState = {};
 
+  const field = event.target.name;
+  const value = event.target.value;
+
+  updatedState[field] = value;
   this.setState(updatedState);
 }
 ```
@@ -307,7 +310,7 @@ Then we can change the `onClick` handlers to be an arrow function like this:
 ```jsx
 <input
   name="name"
-  onChange={(event) => { this.updateState('name', event.target.value) }}
+  onChange={this.updateState}
   value={this.state.name}
 />
 ```
