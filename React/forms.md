@@ -30,7 +30,7 @@ First we will build a React component to manage creating new students.
 
 ```javascript
 import React, { Component } from 'react';
-import  './new_student_form.css';
+import  './NewStudentForm.css';
 
 class NewStudentForm extends Component {
   constructor() {
@@ -48,7 +48,11 @@ class NewStudentForm extends Component {
             <label htmlFor="email">Email:</label>
             <input name="email" />
           </div>
-          <input className="button success" type="submit" value="Add Student" />
+          <input
+            className="button success"
+            type="submit"
+            value="Add Student"
+          />
         </form>
       </div>
     );
@@ -63,7 +67,7 @@ Now we have a React component to render the form.  It functions just like the HT
 We can do this by adding `name` and `email` to the `NewStudentForm`'s state in the constructor.
 
 ```javascript
-//  new_student_form.js
+//  NewStudentForm.js
 ...
 constructor() {
   super();
@@ -82,21 +86,25 @@ We can then manage the input fields by setting their value to match the `NewStud
 To link changes in the input field to the `NewStudentForm`'s state we can add an event handler.  So when the input field is edited by the user the event handler function is called which updates the state.
 
 ```javascript
-  //  new_student_form.js
-  onNameChange = (event) => {
-    console.log(`Name Field updated ${event.target.value}`)
-    this.setState({
-      name: event.target.value,
-    });
-  }
+//  NewStudentForm.js
+...
+onNameChange = (event) => {
+  console.log(`Name Field updated ${event.target.value}`);
+  this.setState({
+    name: event.target.value,
+  });
+}
 ```
 
 Then add `onChange` and `value` fields to the `input` in `render`.
 
 ```javascript
+// NewStudentForm.js
+...
+// In the render method...
 <input
-  onChange={ this.onNameChange }
-  value={ this.state.name }
+  onChange={this.onNameChange}
+  value={this.state.name}
   name="name"
 />
 ```
@@ -117,6 +125,8 @@ By allowing the `NewStudentForm` component track the status of the form fields t
 We can perform a validation on the email field with a function like this:
 
 ```javascript
+// NewStudentForm.js
+...
 emailValid = () => {
   return this.state.email.match(/\S+@\S+/);
 }
@@ -125,19 +135,22 @@ emailValid = () => {
 And give the user feedback on validation with:
 
 ```javascript
+// NewStudentForm.js
+...
 <input
-  onChange={ this.handleEmailChange }
-  value={ this.state.email }
-  className={ this.emailValid() ? "valid": "invalid" }
+  onChange={this.handleEmailChange}
+  value={this.state.email}
+  className={this.emailValid() ? "valid": "invalid"}
   name="email"
 />
+...
 ```
 
 **Question:**  What does this line with `className=` do?
 
 The form is rerendered every time the state of the component changes, and this code will run `this.emailValid()` and if the email field is valid the input will have a class of `valid`, and if not it will have the class of `invalid`.  With a little CSS we can give the user valuable feedback as to the status of a form field.
 
-**Wait!** You just used a ternary!  Remember from [react hello world](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/React/react-hello-world.md#what-is-jsx) we said you can't put an if-statement in a `{}` block?  You can put a 1-line ternary.  However a full multiline `if` statement will not work.  
+**Wait!** You just used a ternary!  Remember from [react hello world](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/React/react-hello-world.md#what-is-jsx) we said you can't put an if-statement in a `{}` block?  You can put a 1-line ternary.  However a full multiline `if` statement will not work.
 
 ```css
 .valid {
@@ -158,10 +171,11 @@ So with our form we can track input into the fields and provide real-time valida
 Now we want to handle when the user submits the form.  We can add a function as an event handler.
 
 ```javascript
-// new_student_form.js
+// NewStudentForm.js
 ...
 handleFormSubmit = (event) => {
   event.preventDefault();
+
   const newStudent = {
     name: this.state.name,
     email: this.state.email,
@@ -181,7 +195,7 @@ handleFormSubmit = (event) => {
 We can cause our `handleFormSubmit` function to be called whenever the form submits by updatting the `render` function by adding an `onSubmit` attribute to the `form` element.
 
 ```javascript
-// new_student_form.js
+// NewStudentForm.js
 ...
 <form className="new-student-form" onSubmit={this.handleFormSubmit}>
 ...
@@ -194,27 +208,31 @@ Now we have a way to detect submit events on the form, but no way to get data to
 First adding a callback function to `StudentCollection` and passing that function to `NewStudentForm` as a prop.
 
 ```javascript
-// student_collection.js
+// StudentCollection.js
 ...
 // callback function to add students to the list
 addStudent = (student) => {
     const students = this.state.students;
-
     students.push(student);
-    this.setState({
-      students
-    });
+
+    this.setState({ students });
   }
 
 render() {
-  let studentComponents = this.state.students.map(function(student) {
-    return <Student key={ student.name } name={ student.name } email={ student.email }/>
+  const studentComponents = this.state.students.map(student => {
+    return (
+      <Student
+        key={student.name}
+        name={student.name}
+        email={student.email}
+      />
+    );
   });
 
   return (
     <div>
       <h3>Students</h3>
-      { studentComponents }
+      {studentComponents}
       <NewStudentForm addStudent={this.addStudent} />
     </div>
   )
@@ -225,7 +243,7 @@ render() {
 Then we can update the `handleFormSubmit` function.
 
 ```javascript
-// new_student_form.js
+// NewStudentForm.js
 ...
 handleFormSubmit = (event) => {
   event.preventDefault();
@@ -239,7 +257,7 @@ handleFormSubmit = (event) => {
     email: '',
   });
 
-  this.props.addStudent(student);
+  this.props.addStudent(newStudent);
 }
 ```
 
@@ -249,6 +267,55 @@ Now if we test the app we should now be able to add students to the list.  Howev
 
 **Exercise**  Update the app to prevent form submission if the name is blank, or the email field is invalid.  Think about this as a jQuery application, what HTML element would you attach an event listener to in order to respond to submissions of the form?
 
+## Refactor of Event Handlers
+
+You may notice the event handlers for the name and input fields are very similar:
+
+```javascript
+//  NewStudentForm.js
+...
+onNameChange = (event) => {
+  console.log(`Name Field updated ${event.target.value}`);
+  this.setState({
+    name: event.target.value,
+  });
+}
+
+onEmailChange = (event) => {
+  console.log(`Email Field updated ${event.target.value}`);
+  this.setState({
+    email: event.target.value,
+  });
+}
+```
+
+We can refactor this into a single function that can update any field, based on a parameter.
+
+```javascript
+//  NewStudentForm.js
+...
+updateState = (event) => {
+  const updatedState = {};
+
+  const field = event.target.name;
+  const value = event.target.value;
+
+  updatedState[field] = value;
+  this.setState(updatedState);
+}
+```
+
+Then we can change the `onClick` handlers to be an arrow function like this:
+
+```jsx
+<input
+  name="name"
+  onChange={this.updateState}
+  value={this.state.name}
+/>
+```
+
+In this way we can DRY our code a bit and have one function to update any field in the `NewStudentForm`'s state.
 
 
 ## Vocabulary

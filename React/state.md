@@ -2,7 +2,6 @@
 
 ## Learning Goals
 - Examine how React allows components to manage data
-- Use `props` between components
 - Use `state` within a component
 - Examine how `props` and `state` effect component rendering
 
@@ -25,7 +24,7 @@ Commonly, initial state is set in a component's constructor function. This is se
 
 ```javascript
 // NameDisplay.js
-import React, { Component } from 'React';
+import React from 'react';
 
 class NameDisplay extends React.Component {
   constructor() {
@@ -36,13 +35,15 @@ class NameDisplay extends React.Component {
     };
   }
 }
+
+export default NameDisplay;
 ```
 
 Once we know that the initial state is set, we can use this value within our component class. In this example, we'll use the combination of two state variables to determine whether or not to display a specific property value in our render function.
 
 ```javascript
 // NameDisplay.js
-import React, { Component } from 'React';
+import React from 'react';
 
 class NameDisplay extends React.Component {
   constructor() {
@@ -65,87 +66,13 @@ class NameDisplay extends React.Component {
     );
   }
 }
+
+export default NameDisplay;
 ```
 
 Once the initial state is set, we can then make changes using the `setState` function. (**Note:** `setState` will work even if that state variable was not included in the initial `state` object.) This function will merge this object with the existing state object, overriding any existing values on the same variables. `setState` function calls are very often triggered by events that our users can trigger.
 
-First, let's add an button that will toggle the display of the name variable that we are storing within state.
-
-```javascript
-// NameDisplay.js
-import React, { Component } from 'React';
-
-class NameDisplay extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      name: 'Ada',
-      displayName: true
-    };
-  }
-
-  render() {
-    let display = 'Sorry, I don\'t know your name.';
-    if (this.state.displayName) {
-      display = `Hello, ${ this.state.name}.`;
-    }
-    return (
-      <section>
-        <p>{ display }</p>
-        <div>
-          <button onClick={ this.onToggleButton }>Toggle Display</button>
-        </div>
-      </section>
-    );
-  }
-}
-```
-
-
-Next, we'll need to add the event handler function that our code will call when the button is clicked.  
-
-```javascript
-// between constructor and render
-onToggleButton = () => {
-  this.setState({ displayName: !this.state.displayName });
-}
-```
-
-Next, let's add an input box that will allow us to change the name that our component displays.
-
-```javascript
-render() {
-  let display = 'Sorry, I don\'t know your name.';
-  if (this.state.displayName) {
-    display = `Hello, ${ this.state.name}.`;
-  }
-  return (
-    <section>
-      <p>{ display }</p>
-      <div>
-        <button onClick={ this.onToggleButton }>Toggle Display</button>
-        <br />
-        Change your name: <input onChange={ this.onNameChange }></input>
-      </div>
-    </section>
-  );
-}
-```
-
-Next, we'll need to add the event handler function that our code will call when the button is clicked.  
-
-```javascript
-// somewhere between constructor and render
-onNameChange = (event) => {
-  // Write your code here!!
-}
-```
-
-**Exercise** Take a few minutes with your seat squad to figure out how to access the input box's value (from `event`) and use `setState` to update the name accordingly.
-
-
-You can see the final version of this [code here](https://codepen.io/adadev/pen/ELpvyM?editors=0011).
-
+We are going to use this in conjunction with **events** later, but for now we're just going to start with setting the defaults in state and then accessing them using `this.state`.
 
 ## Changing `props` and `state`
 Now that we have learned about both `props` and `state`, we'll need to consider which concept to use for which scenarios.

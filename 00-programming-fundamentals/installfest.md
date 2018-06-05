@@ -63,6 +63,7 @@ We need to do some configuration so Git knows who we are, and so that it gives u
 $ git config --global user.name "Your Actual Name"
 $ git config --global user.email "The Email Associated with Your Github Account"
 $ git config --global core.editor "atom -w"
+$ git config --global core.ignorecase false
 $ git config --global color.diff auto
 $ git config --global color.status auto
 $ git config --global color.branch auto
