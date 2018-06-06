@@ -9,6 +9,10 @@ By the end of this lesson you should be able to:
 - Explain the terms _Snapshot Test_ and _Mocking_
 - Write a test to verify component actions perform as expected
 
+## Overview
+
+
+
 
 
 ## Snapshot Testing
@@ -37,6 +41,24 @@ configure({ adapter: new Adapter() });
 ```
 
 This file is run when you start testing with create-react-app and allows us to tell enzyme which adapter to use.
+
+### Shallow Rendering
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
+import App from './App';
+
+describe('<App />', () => {
+  test('that it renders App', () => {
+    const wrapper = shallow(<App />);
+    console.log(wrapper.debug());
+  })
+});
+```
+
+## Testing For Child Elements
 
 ## Testing User Interaction
 
