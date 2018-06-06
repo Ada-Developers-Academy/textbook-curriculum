@@ -39,9 +39,13 @@ In React, we'll be building our controlled form as a component. Looking at the s
 - An event handler that fires whenever one of the inputs _changes_, to update the state
 - An event handler for when the form is _submitted_, to do something with the final data
 
-## A Regular HTML Form
+Let's get to it!
 
-A normal HTML form to add a student to a list might look like this:
+## Building a Controlled Form
+
+### Start with an Uncontrolled Form
+
+We'll start by building an _uncontrolled_ form as a React component, then convert it to a _controlled_ form later. A normal HTML form to add a student to a list might look like this:
 
 ```html
 <form id="new-student" >
@@ -53,9 +57,7 @@ A normal HTML form to add a student to a list might look like this:
 </form>
 ```
 
-When a user enters text in the form controls the DOM stores the values of the form fields.  However we can do a lot more combining it with React.
-
-First we will build a React component to manage creating new students.
+Let's wrap it in a React component.
 
 ```javascript
 import React, { Component } from 'react';
@@ -78,7 +80,6 @@ class NewStudentForm extends Component {
             <input name="email" />
           </div>
           <input
-            className="button success"
             type="submit"
             value="Add Student"
           />
@@ -91,9 +92,11 @@ class NewStudentForm extends Component {
 export default NewStudentForm;
 ```
 
-Now we have a React component to render the form.  It functions just like the HTML form, but can be imported into larger React Components.  Right now the DOM is still maintaining the values of the `fullName` and `email` fields.  However now that we have them in a React component we can modify the form controls to have React monitor the input fields and handling the form submission.
+This is still an uncontrolled form - it just happens to be a React component. It functions just like the HTML form, with the DOM is maintaining the values of the `fullName` and `email` fields.
 
-We can do this by adding `fullName` and `email` to the `NewStudentForm`'s state in the constructor.
+### Making it Controlled
+
+Now that our form is in a React component we can convert it to a controlled form. Our first step is to add `fullName` and `email` to the `NewStudentForm`'s state in the constructor.
 
 ```javascript
 //  NewStudentForm.js
@@ -125,6 +128,8 @@ onNameChange = (event) => {
 }
 ```
 
+**Question:** What sort of thing is `event`? What is `event.target`? What about `event.target.value`?
+
 Then add `onChange` and `value` fields to the `input` in `render`.
 
 ```javascript
@@ -140,7 +145,9 @@ Then add `onChange` and `value` fields to the `input` in `render`.
 
 Now every time the user types into the name input field the `NewStudentForm`'s state is updated.
 
-**Practice**:  Update the e-mail field to have the `NewStudentForm` component manage it's state as well.
+![Controlled form input](images/controlled-form-input.png)
+
+**Practice**:  Update the email field to have the `NewStudentForm` component manage it's state as well.
 
 **Question** Why would it be useful to track the state of a form field?
 
