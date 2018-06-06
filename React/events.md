@@ -21,7 +21,7 @@ Let's add a button that we will use to toggle the display of the name variable. 
   render() {
     return (
       ...
-      <button onClick={ this.onToggleButton }>Toggle Display</button>
+      <button onClick={ this.onButtonClick }>Toggle Display</button>
     );
   }
 ```
@@ -34,16 +34,17 @@ Let's add a button that we will use to toggle the display of the name variable. 
 
 When we set up events in jQuery, recall that we would tie a function to the event, but we would never **call it**.
 
- `$(li).click(myFunction)`
+```javascript
+$(li).click(myFunction)
+```
 
 That is because it is a _callback function_ that won't be executed until the event occurs. This is the same as our events defined here in our React components.
-
 
 Within our component (usually after the `constructor` and before the `render`), we'll add the event handler function that our code will call when the button is clicked.  
 
 ```javascript
 // between constructor and render
-onToggleButton = () => {
+onButtonClick = () => {
   this.setState({ displayName: !this.state.displayName });
 }
 ```
@@ -67,6 +68,10 @@ render() {
   );
 }
 ```
+
+Pay attention to the way we've named this callback. Starting event handler names with `on` is a standard convention, and lets other programmers know your intent. The name also gives information about:
+- What event happened (`change`)
+- Which DOM element was the target of the event (the name input)
 
 Next, we'll need to add the event handler function that our code will call when the button is clicked. Again, make note of the arrow function syntax.
 
