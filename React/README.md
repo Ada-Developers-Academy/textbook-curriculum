@@ -25,6 +25,6 @@ Component files | Each component gets its own file. The file should have the sam
 Styles          | The top-level element in the component gets a class that matches the component name. All styles for that component should reference that class | `<div className="student-collection">`
 CSS files       | Each component gets a separate stylesheet, in the same directory as the component, with the `.css` extension | `components/StudentCollection.css`
 Test files      | Each component gets a separate test file, in the same directory as the component, with the `.test.js` extension | `components/StudentCollection.test.js`
-Function to modify state | Instance method (arrow function), named based on the business logic it performs | `addStudent`, `markStudentPresent`
-Callback passed into props | Same name as the original with `Callback` appended | `addStudentCallback`, `markStudentPresentCallback`
+Function to modify state | Instance method (arrow function), named based on the business logic it performs | `addStudent`, `markPresent`
+Callback passed into props | Same name as the original with `Callback` appended | `addStudentCallback`, `markPresentCallback`
 Handler for a DOM event | Instance method (arrow function) on the corresponding component, with a name that indicates DOM element and event name | `onFormSubmit`, `onPresentButtonClick`
