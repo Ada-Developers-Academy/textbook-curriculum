@@ -24,6 +24,10 @@ A normal HTML form to add a student to a list might look like this:
 </form>
 ```
 
+**Question:** Check out the `name="name"` piece on the first `<input>` element. What does that mean? Which `name` is which?
+
+As we go through this lesson, to avoid confusion we will focus on the `email` field as our example.
+
 When a user enters text in the form controls the DOM stores the values of the form fields.  However we can do a lot more combining it with React.
 
 First we will build a React component to manage creating new students.

@@ -48,12 +48,12 @@ constructor() {
   this.state = {
     students: [
         {
-          name: "Katherine Ada",
+          fullName: "Katherine Ada",
           email: "katherine-ada@ada.co",
           isPresent: false
         },
         {
-          name: "Grade Ada",
+          fullName: "Grade Ada",
           email: "grace@ada.co",
           isPresent: false
         }
@@ -70,7 +70,7 @@ Next, we'll use a `map` in our `render` function to iterate through each item in
 render() {
     const studentComponents = this.state.students.map((student, i) => {
       return <Student key={ i }
-        index={ i } name={ student.name } email={ student.email } isPresent={ student.isPresent }/>
+        index={ i } fullName={ student.fullName } email={ student.email } isPresent={ student.isPresent }/>
     });
 
     return (
@@ -159,7 +159,7 @@ Update the `render` function in the `StudentCollection` component to pass in a n
 // StudentCollection.js
 this.state.students.map((student, index) => {
   return <Student key={ index }
-    index={ index } name={ student.name } email={ student.email }
+    index={ index } fullName={ student.fullName } email={ student.email }
     markPresentCallback={ this.markPresent }/>
 });
 ```
@@ -204,7 +204,7 @@ Wow, that was kind of complex. Let's look at a diagram of what's going on.
 - `StudentCollection` gives `Student`:
   - Its position in the array (`index`)
   - A callback function to invoke when it is marked present (`markPresentCallback`)
-  - Some info about itself (`name`, `email`, `isPresent`)
+  - Some info about itself (`fullName`, `email`, `isPresent`)
 - `Student` gives its `<button>` a callback function to invoke when the button is clicked
 
 **On the right in blue** is the sequence that happens when the `<button>` is clicked.

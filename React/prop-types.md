@@ -21,7 +21,7 @@ First you need to `import PropTypes from 'prop-types';` to import the package.  
 ```javascript
 class Student {
   static propTypes = {
-    name: PropTypes.string.isRequired,
+    fullName: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     present: PropTypes.bool,
   }
@@ -29,7 +29,7 @@ class Student {
 }
 ```
 
-The above block defines two props.  They both must be Strings and are required to use a `Student` component.  The attribute `present` however is an optional boolean prop.  If you try to use the `Student` component without a `name` prop you will get this error message:
+The above block defines two props.  They both must be Strings and are required to use a `Student` component.  The attribute `present` however is an optional boolean prop.  If you try to use the `Student` component without a `fullName` prop you will get this error message:
 
 ![Error Msg](images/missing-prop.png)
 
@@ -46,7 +46,7 @@ You may also see `propTypes` declared in an alternative syntax outside the class
 
 ```javascript
 MyComponent.propTypes = {
-  name: PropTypes.string.isRequired,
+  fullName: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   present: PropTypes.boolean,
 }
@@ -62,7 +62,7 @@ You can also set default values for props with a `defaultProps` static attribute
 
 ```javascript
 static defaultProps = {
-  name: 'Hermione Granger',
+  fullName: 'Hermione Granger',
   email: 'placeholder@notarealemail.com',
 }
 ```
@@ -81,11 +81,11 @@ A `defaultProp` attribute like above ensures that every time the given props hav
 |  `node` | Anything that can be directly rendered on the screen, numbers, strings, React elements or an array containing these types.
 |  `element` | A React element like `<img />`
 |  `instanceOf`  | An instance of a given class.  So `person: PropTypes.instanceOf(Student)` would define a prop as an instance of the `Student` class.
-|  `oneOf` |  Ensures that the prop is one of a list of specific values.  For example `name: PropTypes.oneOf(['Harry', 'Ron', 'Hermine'])` ensures that the name prop can only be one of the given values.
-|  `oneOfType` |  Ensures that the prop is one of a list of specific types.  For example `name: PropTypes.oneOfType([PropTypes.string, PropTypes.number)` ensures that the name prop can only be a string or number.
+|  `oneOf` |  Ensures that the prop is one of a list of specific values.  For example `fullName: PropTypes.oneOf(['Harry', 'Ron', 'Hermine'])` ensures that the fullName prop can only be one of the given values.
+|  `oneOfType` |  Ensures that the prop is one of a list of specific types.  For example `fullName: PropTypes.oneOfType([PropTypes.string, PropTypes.number)` ensures that the fullName prop can only be a string or number.
 |  `arrayOf` | An array of a specific type, for example:  `ages: PropTypes.arrayOf(PropTypes.number)` would only accept an array of numbers.
 |  `objectOf` | An object with fields who's values can only be a specific type:  for Example: `courses: PropTypes.objectOf(PropTypes.string),`
-|  `shape` |  An object with specific fields and types, for example: `student: PropTypes.shape({name: PropTypes.string, age: PropTypes.number})`
+|  `shape` |  An object with specific fields and types, for example: `student: PropTypes.shape({fullName: PropTypes.string, age: PropTypes.number})`
 
 You can also create a custom validator which you can look up along with more examples of using `PropTypes` on the [PropTypes github page](https://github.com/facebook/prop-types).
 

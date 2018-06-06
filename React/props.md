@@ -62,18 +62,18 @@ To do this, we will pass in the data from the `App` component to the `Student` c
 1. Locate the spot where the `Student` component is rendered from the `App` component.
 
 1. Update the component rendering to include two new parameters by adding them in like this:  
-    - `<Student name="Improved Ada" email="improved-ada@ada.co" />`
+    - `<Student fullName="Improved Ada" email="improved-ada@ada.co" />`
     - This shouldn't change anything yet in our application, so save the file and refresh the browser to verify that the data still looks like the original hard-coded data.
 
 1. Update the `render` function in the `Student` component to replace the hard-coded values with code tags `{ }` which contains the `prop` that came in from the parent component.  
-    - It should now contain `{ this.props.name }` and `{ this.props.email }`
+    - It should now contain `{ this.props.fullName }` and `{ this.props.email }`
     - Verify that the content displayed is now coming from the values in the `App` component
 
 
 If we identify each individual piece of the component rendered, we'll see:
 ![component prop breakdown](images/component-prop-breakdown.png)
 
-Prop names can be any variable you want them to be. In this particular case, we chose `name` and `email` to store our values.
+Prop names can be any variable you want them to be. In this particular case, we chose `fullName` and `email` to store our values.
 
 Once the prop names are **passed in** to the component, we can then use them within the component. That's where `this.props` comes in!
 
@@ -87,11 +87,11 @@ In our `App` component, we'll start with an array of student data like this:
 render() {
   const students = [
       {
-        name: 'Ada',
+        fullName: 'Ada Lovelace',
         email: 'ada@ada.co'
       },
       {
-        name: 'Grace',
+        fullName: 'Grace',
         email: 'grace@ada.co'
       }
     ];
@@ -103,7 +103,7 @@ Then we are going to use the JavaScript `map` function to create a new component
 
 ```javascript
 const studentComponents = students.map((student, i) => {
-  return <Student key={ i } name={ student.name } email={ student.email } />
+  return <Student key={ i } fullName={ student.fullName } email={ student.email } />
 });
 ```
 
@@ -113,7 +113,7 @@ One thing to watch out for: we've given our `Student` a new prop, `key`. This is
 
 Lastly, we must put this new collection of `Student` components in our `render` function in order to see the results.
 
-Replace `<Student name="Improved Ada" email="improved-ada@ada.co" />` with the variable `studentComponents` and examine the result.
+Replace `<Student fullName="Improved Ada" email="improved-ada@ada.co" />` with the variable `studentComponents` and examine the result.
 
 ## Key Takeaway
 Using `props` within your React application is one necessary ways to manage and share data.
