@@ -103,8 +103,8 @@ Then we are going to use the JavaScript `map` function to create a new component
 
 ```javascript
 const studentComponents = students.map((student) => {
-      return <Student name={ student.name } email={ student.email } />
-    });
+  return <Student name={ student.name } email={ student.email } />
+});
 ```
 
 **Take a moment** to review this code with your neighbor to understand what it is doing.
