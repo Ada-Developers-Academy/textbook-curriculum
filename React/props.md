@@ -102,12 +102,14 @@ render() {
 Then we are going to use the JavaScript `map` function to create a new component for each element within the array. Note: This is not a React-specific thing, you can use `map` in any JS code you want!
 
 ```javascript
-const studentComponents = students.map((student) => {
-  return <Student name={ student.name } email={ student.email } />
+const studentComponents = students.map((student, index) => {
+  return <Student key={ index } name={ student.name } email={ student.email } />
 });
 ```
 
 **Take a moment** to review this code with your neighbor to understand what it is doing.
+
+One thing to watch out for: we've given our `Student` a new prop, `key`. This is a React thing: whenever you have an array of several components like this, you need to give each a unique key. The `key` prop is not visible in our child component; React eats it. For now the index in the array will work fine.
 
 Lastly, we must put this new collection of `Student` components in our `render` function in order to see the results.
 
