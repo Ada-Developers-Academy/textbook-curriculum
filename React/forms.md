@@ -10,6 +10,34 @@ Since we've already learn how event handling works in React, we should be able t
 
 Additionally, one of the most powerful aspects of using any JavaScript framework is to provide some dynamic user interaction. We'll see here how to integrate ongoing user feedback, so the user does not have to wait until the form is submitted to know that they might have issues with the data.
 
+### Controlled Forms
+
+The way React handles forms is a little different than the way they're handled in vanilla JavaScript. To understand how it's different, let's remember how forms work so far. Here is the pattern for an **uncontrolled** form:
+
+1. User types at the keyboard
+1. Browser notices the typing, updates the value of the `<input>` element
+1. When the form is submitted, a JavaScript event handler reads the `<input>` elements and does something with the data
+
+We let the browser do its thing until the form is submitted - that's why it's called uncontrolled. In contrast, in a React form the JavaScript comes in a little earlier. We say that React forms are **controlled** because our JavaScript program controls what data is in the form.
+
+1. User types at the keyboard
+1. A JavaScript event handler updates our program's state
+1. Our program re-renders the `<input>` element with the updated value
+
+To summarize, in a controlled form our JavaScript has the data and gives it to the DOM, whereas in an uncontrolled form the DOM has the data and our JavaScript has to ask for it. We say that our program is the _source of truth_ about what's in the form. If you needed to find out what the form said, you would ask our program rather than looking at the DOM.
+
+Uncontrolled Form          | Controlled Form
+---                        | ---
+Vanilla JS / jQuery        | React
+DOM is the source of truth | Component state is the source of truth
+input -> DOM -> JS         | input -> JS -> DOM
+
+One interesting question is, _why bother?_ Well, when the data is stored in your program instead of the DOM, you can do things to it before it appears on the screen. "Do things" might mean validating user input and changing the color of the `<input>`, or only accepting the characters `a` and `d`, or converting everything the user types to CAPITAL LETTERS. The possibilities are endless!
+
+In React, we'll be building our controlled form as a component. Looking at the steps above, our component will need:
+- A piece of `state` to store the _value_ of each `<input>` element
+- An event handler that fires whenever one of the inputs _changes_, to update the state
+- An event handler for when the form is _submitted_, to do something with the final data
 
 ## A Regular HTML Form
 
