@@ -215,6 +215,8 @@ Wow, that was kind of complex. Let's look at a diagram of what's going on.
 - Updating state causes `StudentCollection` to re-render
 - When `StudentCollection` re-renders, it will pass the new value for `isPresent` to the `Student`, causing that `Student` to re-render
 
+This style of event handling is very common in React - it comes up whenever an event on a child component needs to update state stored in a parent component. Having a good handle on how the pieces fit together will be especially helpful once we talk about forms later.
+
 ## Key Takeaway
 Once we have a grasp on how to use `props` and `state` within our React application, the possibilities are endless. Using these concepts to manage the data and our understand of how to nest components, we can create rich and interactive applications.
 
