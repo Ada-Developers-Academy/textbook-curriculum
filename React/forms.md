@@ -5,10 +5,11 @@
 - Dynamically provide user feedback as they complete a form with validations
 - Handle the event of a form submission in a component
 
-### Overview
+## Overview
 Since we've already learn how event handling works in React, we should be able to take the application of this knowledge one step further to allow us to submit a set of form data. Forms work a bit different than other HTML elements because they maintain some of their own state.
 
 Additionally, one of the most powerful aspects of using any JavaScript framework is to provide some dynamic user interaction. We'll see here how to integrate ongoing user feedback, so the user does not have to wait until the form is submitted to know that they might have issues with the data.
+
 
 ## A Regular HTML Form
 
@@ -16,17 +17,13 @@ A normal HTML form to add a student to a list might look like this:
 
 ```html
 <form id="new-student" >
-  <label for="name">Student Name</label>
-  <input name="name" type="text">
+  <label for="fullName">Student Name</label>
+  <input name="fullName" type="text">
   <label for="email">Student Email</label>
   <input name="email" type="text">
   <input type="submit" value="Add Student">
 </form>
 ```
-
-**Question:** Check out the `name="name"` piece on the first `<input>` element. What does that mean? Which `name` is which?
-
-As we go through this lesson, to avoid confusion we will focus on the `email` field as our example.
 
 When a user enters text in the form controls the DOM stores the values of the form fields.  However we can do a lot more combining it with React.
 
@@ -45,8 +42,8 @@ class NewStudentForm extends Component {
       <div>
         <form className="new-student-form">
           <div>
-            <label htmlFor="name">Name:</label>
-            <input name="name" />
+            <label htmlFor="fullName">Name:</label>
+            <input name="fullName" />
           </div>
           <div>
             <label htmlFor="email">Email:</label>
@@ -66,9 +63,9 @@ class NewStudentForm extends Component {
 export default NewStudentForm;
 ```
 
-Now we have a React component to render the form.  It functions just like the HTML form, but can be imported into larger React Components.  Right now the DOM is still maintaining the values of the `name` and `email` fields.  However now that we have them in a React component we can modify the form controls to have React monitor the input fields and handling the form submission.
+Now we have a React component to render the form.  It functions just like the HTML form, but can be imported into larger React Components.  Right now the DOM is still maintaining the values of the `fullName` and `email` fields.  However now that we have them in a React component we can modify the form controls to have React monitor the input fields and handling the form submission.
 
-We can do this by adding `name` and `email` to the `NewStudentForm`'s state in the constructor.
+We can do this by adding `fullName` and `email` to the `NewStudentForm`'s state in the constructor.
 
 ```javascript
 //  NewStudentForm.js
@@ -77,13 +74,13 @@ constructor() {
   super();
 
   this.state = {
-    name: '',
+    fullName: '',
     email: '',
   }
 }
 ```
 
-The `NewStudentForm` component will track the `name` and `email` as part of it's state.
+The `NewStudentForm` component will track the `fullName` and `email` as part of it's state.
 
 We can then manage the input fields by setting their value to match the `NewStudentForm`'s state and adding an event handler to respond to changes in the input value.
 
@@ -95,7 +92,7 @@ To link changes in the input field to the `NewStudentForm`'s state we can add an
 onNameChange = (event) => {
   console.log(`Name Field updated ${event.target.value}`);
   this.setState({
-    name: event.target.value,
+    fullName: event.target.value,
   });
 }
 ```
@@ -108,8 +105,8 @@ Then add `onChange` and `value` fields to the `input` in `render`.
 // In the render method...
 <input
   onChange={this.onNameChange}
-  value={this.state.name}
-  name="name"
+  value={this.state.fullName}
+  name="fullName"
 />
 ```
 
@@ -181,12 +178,12 @@ handleFormSubmit = (event) => {
   event.preventDefault();
 
   const newStudent = {
-    name: this.state.name,
+    fullName: this.state.fullName,
     email: this.state.email,
   };
 
   this.setState({
-    name: '',
+    fullName: '',
     email: '',
   });
 
@@ -226,8 +223,8 @@ render() {
   const studentComponents = this.state.students.map(student => {
     return (
       <Student
-        key={student.name}
-        name={student.name}
+        key={student.fullName}
+        name={student.fullName}
         email={student.email}
       />
     );
@@ -252,12 +249,12 @@ Then we can update the `handleFormSubmit` function.
 handleFormSubmit = (event) => {
   event.preventDefault();
   const newStudent = {
-    name: this.state.name,
+    fullName: this.state.fullName,
     email: this.state.email,
   };
 
   this.setState({
-    name: '',
+    fullName: '',
     email: '',
   });
 
@@ -281,7 +278,7 @@ You may notice the event handlers for the name and input fields are very similar
 onNameChange = (event) => {
   console.log(`Name Field updated ${event.target.value}`);
   this.setState({
-    name: event.target.value,
+    fullName: event.target.value,
   });
 }
 
@@ -313,9 +310,9 @@ Then we can change the `onClick` handlers to be an arrow function like this:
 
 ```jsx
 <input
-  name="name"
+  name="fullName"
   onChange={this.updateState}
-  value={this.state.name}
+  value={this.state.fullName}
 />
 ```
 
