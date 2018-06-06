@@ -198,6 +198,8 @@ Wow, that was kind of complex. Let's look at a diagram of what's going on.
 
 ![State management with callbacks](images/state-management-with-callbacks.png)
 
+<!-- https://drive.google.com/open?id=1byKvDyUP5HUwQojmg2cpL4eNO9keFYpD -->
+
 **On the left in orange** is the setup. Information is passed from parent components to child components at `render` time using `props`.
 - `StudentCollection` gives `Student`:
   - Its position in the array (`index`)
