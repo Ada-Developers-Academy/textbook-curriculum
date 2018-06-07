@@ -147,6 +147,8 @@ Now every time the user types into the name input field the `NewStudentForm`'s s
 
 ![Controlled form input](images/controlled-form-input.png)
 
+<!-- https://drive.google.com/open?id=13TsICZwAWRk9865PrwQ61uPw1X48Ep0v -->
+
 **Practice**:  Update the email field to have the `NewStudentForm` component manage it's state as well.
 
 **Question** Why would it be useful to track the state of a form field?
@@ -202,6 +204,8 @@ Now we have a way to detect submit events on the form, but no way to get data to
 When we're done, our event handling structure will look like this:
 
 ![form submission with callbacks](./images/form-submission-callback.png)
+
+<!-- https://drive.google.com/open?id=1IblXJsKU3EuPJZ9Z9Pjej9UGgxEO4UPL -->
 
 Does this diagram look familiar? It should!
 
