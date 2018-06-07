@@ -140,7 +140,7 @@ Then add `onChange` and `value` fields to the `input` in `render`.
   onChange={this.onNameChange}
   value={this.state.fullName}
   name="fullName"
-/>
+  />
 ```
 
 Now every time the user types into the name input field the `NewStudentForm`'s state is updated.
@@ -151,58 +151,9 @@ Now every time the user types into the name input field the `NewStudentForm`'s s
 
 **Question** Why would it be useful to track the state of a form field?
 
-
-## Form Validation
-
-By allowing the `NewStudentForm` component track the status of the form fields this will allow us to:
-- Validate form fields on the fly
-- More easily access the form fields when the form is submitted.
-
-We can perform a validation on the email field with a function like this:
-
-```javascript
-// NewStudentForm.js
-...
-emailValid = () => {
-  return this.state.email.match(/\S+@\S+/);
-}
-```
-
-And give the user feedback on validation with:
-
-```javascript
-// NewStudentForm.js
-...
-<input
-  onChange={this.handleEmailChange}
-  value={this.state.email}
-  className={this.emailValid() ? "valid": "invalid"}
-  name="email"
-/>
-...
-```
-
-**Question:**  What does this line with `className=` do?
-
-The form is rerendered every time the state of the component changes, and this code will run `this.emailValid()` and if the email field is valid the input will have a class of `valid`, and if not it will have the class of `invalid`.  With a little CSS we can give the user valuable feedback as to the status of a form field.
-
-**Wait!** You just used a ternary!  Remember from [react hello world](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/React/react-hello-world.md#what-is-jsx) we said you can't put an if-statement in a `{}` block?  You can put a 1-line ternary.  However a full multiline `if` statement will not work.
-
-```css
-.valid {
-  background: lightgreen;
-}
-
-.invalid {
-  background: pink;
-}
-```
-
-So with our form we can track input into the fields and provide real-time validation feedback.  Next we want to actually **do** something with the data, but our `NewStudentForm` component doesn't, and shouldn't need to care what happens with the submitted data.
-
-**Question**:  Looking at our Ada student list app to date, what component would be managing the student data?
-
 ## Handling Submissions
+
+### Event Handler
 
 Now we want to handle when the user submits the form.  We can add a function as an event handler.
 
@@ -226,7 +177,11 @@ onFormSubmit = (event) => {
 }
 ```
 
-**Question**:  With your SeatSquat partner answer the following.  Why do we have the call to `this.setState` in our event handler?  Why would we need this?
+Notice that we don't need any wacky jQuery here to read the form. That's the whole point of a controlled component: we will _never_ read the DOM directly. Instead we look to the component's `state` for the data.
+
+**Question:** What happens if we omit the call to `event.preventDefault()`?
+
+**Question:** What does the call to `this.setState` in our event handler do? Why did we include it?
 
 We can cause our `onFormSubmit` function to be called whenever the form submits by updatting the `render` function by adding an `onSubmit` attribute to the `form` element.
 
@@ -237,41 +192,41 @@ We can cause our `onFormSubmit` function to be called whenever the form submits 
 ...
 ```
 
-Now we have a way to detect submit events on the form, but no way to get data to the rest of the application.  To solve this we will modify the `StudentCollection` component to pass a function as a prop to the `NewStudentForm` so it can pass the student data back.
+### Callback Function
 
-![passing a callback through props](./images/passing-callback.png)
+Now we have a way to detect submit events on the form, but no way to get data to the rest of the application. To solve this we will follow the same strategy we used for event handling previously:
+- Add a function to `StudentCollection` that modifies state (this time by creating a new student)
+- Pass that function as a prop to the `NewStudentForm`
+- Call the function when the form is submitted
 
-First adding a callback function to `StudentCollection` and passing that function to `NewStudentForm` as a prop.
+When we're done, our event handling structure will look like this:
+
+![form submission with callbacks](./images/form-submission-callback.png)
+
+Does this diagram look familiar? It should!
+
+Our first step is to add a callback function to `StudentCollection` and pass that function to `NewStudentForm` as a prop.
 
 ```javascript
 // StudentCollection.js
 ...
 // callback function to add students to the list
 addStudent = (student) => {
-    const students = this.state.students;
-    students.push(student);
+  const students = this.state.students;
+  students.push(student);
 
-    this.setState({ students });
-  }
+  this.setState({ students });
+}
 
 render() {
-  const studentComponents = this.state.students.map(student => {
-    return (
-      <Student
-        key={student.fullName}
-        name={student.fullName}
-        email={student.email}
-      />
-    );
-  });
-
+  const studentComponents = // ...
   return (
     <div>
       <h3>Students</h3>
       {studentComponents}
-      <NewStudentForm addStudent={this.addStudent} />
+      <NewStudentForm addStudentCallback={this.addStudent} />
     </div>
-  )
+  );
 }
 ...
 ```
@@ -283,6 +238,7 @@ Then we can update the `onFormSubmit` function.
 ...
 onFormSubmit = (event) => {
   event.preventDefault();
+
   const newStudent = {
     fullName: this.state.fullName,
     email: this.state.email,
@@ -293,73 +249,15 @@ onFormSubmit = (event) => {
     email: '',
   });
 
-  this.props.addStudent(newStudent);
+  this.props.addStudentCallback(newStudent);
 }
 ```
 
-Now if we test the app we should now be able to add students to the list.  However there are some issues.
-1.  We can add students with no names
-2.  We can add students with invalid email addresses
+Now when we submit the form, we should see students being added to the list. Good work!
 
-**Exercise**  Update the app to prevent form submission if the name is blank, or the email field is invalid.  Think about this as a jQuery application, what HTML element would you attach an event listener to in order to respond to submissions of the form?
+**Question:** How does this compare to the event handling we did earlier in the week?
 
-## Refactor of Event Handlers
-
-You may notice the event handlers for the name and input fields are very similar:
-
-```javascript
-//  NewStudentForm.js
-...
-onNameChange = (event) => {
-  console.log(`Name Field updated ${event.target.value}`);
-  this.setState({
-    fullName: event.target.value,
-  });
-}
-
-onEmailChange = (event) => {
-  console.log(`Email Field updated ${event.target.value}`);
-  this.setState({
-    email: event.target.value,
-  });
-}
-```
-
-We can refactor this into a single function that can update any field, based on a parameter.
-
-```javascript
-//  NewStudentForm.js
-...
-onInputChange = (event) => {
-  const updatedState = {};
-
-  const field = event.target.name;
-  const value = event.target.value;
-
-  updatedState[field] = value;
-  this.setState(updatedState);
-}
-```
-
-Then we can change the `onClick` handlers to be an arrow function like this:
-
-```jsx
-<input
-  name="fullName"
-  onChange={this.onInputChange}
-  value={this.state.fullName}
-/>
-```
-
-In this way we can DRY our code a bit and have one function to update any field in the `NewStudentForm`'s state.
-
-
-## Vocabulary
-| Term     | Definition     |
-| :------------- | :------------- |
-| **Controlled Components**       | Components whos state is managed by a React component.       |
-| **Uncontrolled Components**   |  Components who have their state stored in the DOM. |
-
+**Exercise:** Right now, we can add a new student with bogus data, for example a blank name. We'll talk about form validation more in a future lesson, but for now, how would you stop the student from being added without a name?
 
 ## Key Takeaway
 
