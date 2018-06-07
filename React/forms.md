@@ -1,9 +1,9 @@
 # React Forms
 
 ## Learning Goals
-- Implement a form in a component
-- Dynamically provide user feedback as they complete a form with validations
-- Handle the event of a form submission in a component
+- Differentiate between _controlled_ and _uncontrolled_ forms
+- Implement a controlled form as a React component
+- Handle the event of a form submission
 
 ## Overview
 Since we've already learn how event handling works in React, we should be able to take the application of this knowledge one step further to allow us to submit a set of form data. Forms work a bit different than other HTML elements because they maintain some of their own state.
@@ -262,7 +262,6 @@ Now when we submit the form, we should see students being added to the list. Goo
 ## Key Takeaway
 
 Forms in a React component can be bound to a component's state which allows it to respond dynamically to changes in the form fields.  React components can also be passed functions as props, which can allow a component to pass information up to it's container.
-
 
 ## Additional Resources
 - [React Docs: Forms](https://reactjs.org/docs/forms.html)

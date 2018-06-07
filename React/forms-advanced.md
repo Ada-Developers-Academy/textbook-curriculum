@@ -1,3 +1,11 @@
+# Advanced Forms
+
+In a previous lesson we talked about the idea of a controlled form, and built one as a React component. In this lesson we'll update the code to be a little DRYer, and to provide a better user experience.
+
+## Learning Goals
+- Use our JavaScript knowledge to DRY up our controlled form
+- Dynamically provide user feedback as they complete a form with validations
+
 ## Refactor of Event Handlers
 
 You may notice the event handlers for the name and input fields are very similar:
@@ -36,7 +44,11 @@ onInputChange = (event) => {
 }
 ```
 
-Then we can change the `onClick` handlers to be an arrow function like this:
+**Question:** What is stored in the `field` variable?
+
+**Question:** Why do we need to use subscript notation (square brackets) to update the state? In the past we used dot notation, which was more concise. What has changed?
+
+Then we can change the `onClick` handlers to use our new consolidated function:
 
 ```jsx
 <input
@@ -50,9 +62,7 @@ In this way we can DRY our code a bit and have one function to update any field 
 
 ## Form Validation
 
-By allowing the `NewStudentForm` component track the status of the form fields this will allow us to:
-- Validate form fields on the fly
-- More easily access the form fields when the form is submitted.
+Now that our `NewStudentForm` component track the status of the form fields in its state, we have an opportunity to provide a better user experience. Let's validate form fields on the fly, and let the user know whether what they've typed so far is OK.
 
 We can perform a validation on the email field with a function like this:
 
@@ -70,7 +80,7 @@ And give the user feedback on validation with:
 // NewStudentForm.js
 ...
 <input
-  onChange={this.handleEmailChange}
+  onChange={this.onInputChange}
   value={this.state.email}
   className={this.emailValid() ? "valid": "invalid"}
   name="email"
@@ -80,20 +90,26 @@ And give the user feedback on validation with:
 
 **Question:**  What does this line with `className=` do?
 
-The form is rerendered every time the state of the component changes, and this code will run `this.emailValid()` and if the email field is valid the input will have a class of `valid`, and if not it will have the class of `invalid`.  With a little CSS we can give the user valuable feedback as to the status of a form field.
+The form is re-rendered every time the state of the component changes, and this code will run `this.emailValid()` and if the email field is valid the input will have a class of `valid`, and if not it will have the class of `invalid`.  With a little CSS we can give the user valuable feedback as to the status of a form field.
 
 **Wait!** You just used a ternary!  Remember from [react hello world](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/React/react-hello-world.md#what-is-jsx) we said you can't put an if-statement in a `{}` block?  You can put a 1-line ternary.  However a full multiline `if` statement will not work.
 
 ```css
-.valid {
+input.valid {
   background: lightgreen;
 }
 
-.invalid {
+input.invalid {
   background: pink;
 }
 ```
 
-So with our form we can track input into the fields and provide real-time validation feedback.  Next we want to actually **do** something with the data, but our `NewStudentForm` component doesn't, and shouldn't need to care what happens with the submitted data.
+Now the form fields will change color based on whether the input is OK!
 
-**Question**:  Looking at our Ada student list app to date, what component would be managing the student data?
+## Key Takeaway
+
+Controlled forms give us programatic access to what the user's typing, as they type it. That opens up a whole world of opportunities for improving the user experience.
+
+## Additional Resources
+
+- [Instant Form Field Validation with React](https://medium.freecodecamp.org/how-to-use-reacts-controlled-inputs-for-instant-form-field-validation-b1c7b033527e)
