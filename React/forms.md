@@ -209,7 +209,7 @@ Now we want to handle when the user submits the form.  We can add a function as 
 ```javascript
 // NewStudentForm.js
 ...
-handleFormSubmit = (event) => {
+onFormSubmit = (event) => {
   event.preventDefault();
 
   const newStudent = {
@@ -228,12 +228,12 @@ handleFormSubmit = (event) => {
 
 **Question**:  With your SeatSquat partner answer the following.  Why do we have the call to `this.setState` in our event handler?  Why would we need this?
 
-We can cause our `handleFormSubmit` function to be called whenever the form submits by updatting the `render` function by adding an `onSubmit` attribute to the `form` element.
+We can cause our `onFormSubmit` function to be called whenever the form submits by updatting the `render` function by adding an `onSubmit` attribute to the `form` element.
 
 ```javascript
 // NewStudentForm.js
 ...
-<form className="new-student-form" onSubmit={this.handleFormSubmit}>
+<form className="new-student-form" onSubmit={this.onFormSubmit}>
 ...
 ```
 
@@ -276,12 +276,12 @@ render() {
 ...
 ```
 
-Then we can update the `handleFormSubmit` function.
+Then we can update the `onFormSubmit` function.
 
 ```javascript
 // NewStudentForm.js
 ...
-handleFormSubmit = (event) => {
+onFormSubmit = (event) => {
   event.preventDefault();
   const newStudent = {
     fullName: this.state.fullName,
@@ -330,7 +330,7 @@ We can refactor this into a single function that can update any field, based on 
 ```javascript
 //  NewStudentForm.js
 ...
-updateState = (event) => {
+onInputChange = (event) => {
   const updatedState = {};
 
   const field = event.target.name;
@@ -346,7 +346,7 @@ Then we can change the `onClick` handlers to be an arrow function like this:
 ```jsx
 <input
   name="fullName"
-  onChange={this.updateState}
+  onChange={this.onInputChange}
   value={this.state.fullName}
 />
 ```
