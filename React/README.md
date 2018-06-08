@@ -13,3 +13,6 @@
 1. [Forms](forms.md)
 1. [Styling](styling.md)
 1. [Prop-Types](prop-types.md)
+
+1. [APIs: Get](apis-get.md)
+1. [APIs: Post](apis-post.md)
