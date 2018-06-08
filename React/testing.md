@@ -176,7 +176,7 @@ To keep snapshot files smaller we can engage in **shallow rendering**.
 
 ### Shallow Rendering
 
-Enzyme has a function called `shallow` which will render a component with placeholders for subcomponents.  So if we shallowly rendered `App`, it would render `<NewPetForm />` in place of the fully rendered html it generates.  Using this technique you can limit snapshot changes to the component you are testing.
+Enzyme has a function called `shallow` which will render a component with placeholders for subcomponents.  So if we shallowly rendered `App`, it would render `<NewPetForm />` in place of the fully rendered html the `NewPetForm` component generates.  Using this technique you can limit snapshot changes to the component you are testing.
 
 The following two tests show deep and shallow rendering in snapshot tests.
 
@@ -207,10 +207,10 @@ describe('<App />', () => {
 
 **So why would you ever use `mount`?**
 
-Use `mount` when you need to test the interaction between a container and child component.  Otherwise for unit testing use `shallow` almost exclusively.
+Use `mount` when you need to test the interaction between a container and child component.  Otherwise for unit testing use `shallow` almost exclusively.  You should **avoid** using `mount` for snapshot testing.
 
 | Enzyme Function | Used for |  Description |
-| ------ | ------ |-----: |
+| ------ | ------ | ----- |
 |  mount  |  Deep Rendering | Renders the entire component and subcomponent to test their interactions  |
 |  shallow  |  shallow rendering  | Used for tests on a single component in isolation.
 
@@ -248,11 +248,11 @@ test('when the user enters a name in the text field, the field is updated', () =
 
 The Above test first shallowly renders the form, and then finds the input for the `name` field.  With the `find` method you can select elements just like using jQuery.  It returns a [`ShallowWrapper`](http://airbnb.io/enzyme/docs/api/shallow.html) object to enclose the input and then we trigger a `change` event on the field with  the `simulate` function.
 
-Because `setState` is asynchronous Enzyme provides an `update` function to force the component to update its state, and then we can test the new value of the `name` input field.
+Because `setState` is asynchronous, Enzyme provides an `update` function to force the component to update its state, and then we can test the new value of the `name` input field.
 
-**Exercise** Add tests to verify the `change` events for the other input fields.  There are two ways to do this, either add 3 separate tests, or create a loop to iterate through the fields.  You can see that solution [here](https://github.com/AdaGold/react-pets/blob/testing/src/components/NewPetForm.test.js).
+**Exercise** Add tests to verify the `change` events for the other input fields.  There are two ways to do this, either add 3 separate tests, or create a loop to iterate through the fields.  You can see the second solution [here](https://github.com/AdaGold/react-pets/blob/testing/src/components/NewPetForm.test.js).
 
-### Testing Submit Action
+### Testing Submit Actions and Callbacks
 
 When the user submits the NewPetForm we expect it to call the `addPetCallback` prop.  To test this we can use a feature of Jest called a [Mock Function](https://facebook.github.io/jest/docs/en/mock-functions.html).
 
