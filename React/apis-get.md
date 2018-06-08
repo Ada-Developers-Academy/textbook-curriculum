@@ -38,6 +38,7 @@ We are going to use this same structure in our React applications within the `co
 First, let's create the `componentDidMount` function without any content.
 
 ```javascript
+// PetCollection.js
 componentDidMount() {
   // API get request here
 }
@@ -50,6 +51,7 @@ Next, let's consider how we want our axios request to be structured within this 
 1. What do you think should happen in the `catch` block when there is an error?
 
 ```javascript
+// PetCollection.js
 componentDidMount() {
   axios.get('')
     .then((response) => {
@@ -66,6 +68,7 @@ componentDidMount() {
 Next, we'll fill in the URL as well as the logic in the success callback to update the state of our application to store the data from the API. By using the `setState` function, we will be able to update our component once the data is sent back from the API.
 
 ```javascript
+// PetCollection.js
 componentDidMount() {
   axios.get('https://petdibs.herokuapp.com/pets')
     .then((response) => {
@@ -84,6 +87,7 @@ componentDidMount() {
 Next, we need to figure out what we want to do when an error occurs. We can utilize the `error` object returned which contains a property called `message`. We can store this in our state to display an error message.
 
 ```javascript
+// PetCollection.js
 componentDidMount() {
   axios.get('https://petdibs.herokuapp.com/pets')
     .then((response) => {
@@ -100,7 +104,7 @@ componentDidMount() {
 Now that we have some error handling updating `state`, we should use this in the rendering of our component. With your seat squad, figure out how you can conditionally display this error data if it exists in the `render` function.
 
 ## Key Takeaway
-Using axios within our React application is very similar to the usage in our jQuery application. We use the `componentDidMount` function to load the API data within the component lifecycle and `state` to manage the retrieval and ultimately the display of the API data. 
+Using axios within our React application is very similar to the usage in our jQuery application. We use the `componentDidMount` function to load the API data within the component lifecycle and `state` to manage the retrieval and ultimately the display of the API data.
 
 ## Additional Resources
 - [Using axios with React](https://alligator.io/react/axios-react/)
