@@ -63,7 +63,7 @@ componentDidMount() {
 }
 ```
 
-** Successful Response**
+**Successful Response**
 
 Next, we'll fill in the URL as well as the logic in the success callback to update the state of our application to store the data from the API. By using the `setState` function, we will be able to update our component once the data is sent back from the API.
 
