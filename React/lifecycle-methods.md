@@ -19,12 +19,10 @@ Mount | Initial component creation
 Update | After a component is created, these methods will be called when React believes a component will be updated
 Unmount | When your application no longer needs the component
 
-The above diagram shows how the common lifecycle methods and how they flow with one another, but let's see another diagram that will describe the current lifecycle methods as of June 2018.
+The above diagram shows how the common lifecycle methods and how they flow with one another, but let's see another diagram that will describe the current lifecycle methods as of April 2018.
 
 ![Lifecycle Phase Diagram](images/lifecycle-phase-diagram-06-2018-full.png)
 [Source: Interactive Documentation + Diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
-
-<!-- https://drive.google.com/file/d/1hcuLdozEUkJY6mc5cB-xzCqEDIar_SfV/view?usp=sharing -->
 
 ### `componentDidMount`
 This is one of the most commonly used lifecycle methods in React, so we are going to explicitly try this out. We  use this method to load in any external data from an API that we might need.
@@ -75,6 +73,12 @@ While this might not seem super useful yet, we'll see when we get to using APIs 
 ## Key Takeaway
 - To further manage data within your components, you should utilize lifecycle methods in React to tie into the important events for a given component.
 
+## A Note About React Development
+As React evolves, changes to the lifecycle methods come and go. For example, a major update was made to the React component lifecycle between the first draft of this lesson and its current draft!
+
+Older documentation, tutorials, diagrams, resources, and advice on the internet may reference lifecycle methods that are now deprecated. It's the developer's responsibility to stay current with their tools. A good way to do that is to always and frequently visit [the official blog](https://reactjs.org/blog) and check against [the official documentation](https://reactjs.org/docs/react-component.html).
+
 ## Additional Resources
 - [React Lifecycle Methods and When to Use Them](https://engineering.musefind.com/react-lifecycle-methods-how-and-when-to-use-them-2111a1b692b1)
 - [React Docs: State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
+- [Official React Blog: Changes to lifecycle in v16.3.0](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html)
