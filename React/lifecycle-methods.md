@@ -8,8 +8,8 @@
 ### Overview
 React provides us with methods tied into the lifecycle of each component we use. We can use these to fully control what happens when each small portion of our application renders, before the component renders, after the component renders and once it has disappeared altogether.   
 
-![Lifecycle Diagram](images/lifecycle-diagram.png)
-[**Source**: Article Linked in Additional Resources Below]
+![Lifecycle Phase Diagram](images/lifecycle-phase-diagram-06-2018-simplified.png)
+[Source: Interactive Documentation + Diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 
 ### Methods within each phase
 
@@ -19,9 +19,11 @@ Mount | Initial component creation
 Update | After a component is created, these methods will be called when React believes a component will be updated
 Unmount | When your application no longer needs the component
 
-The above diagram shows how each lifecycle method exists in flow with one another, but let's see another diagram that will map to the overall phase and show us how `render` also fits in.
+The above diagram shows how the common lifecycle methods and how they flow with one another, but let's see another diagram that will describe the current lifecycle methods as of June 2018.
 
-![Lifecycle Phase Diagram](images/lifecycle-phase-diagram.png)
+![Lifecycle Phase Diagram](images/lifecycle-phase-diagram-06-2018-full.png)
+[Source: Interactive Documentation + Diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
+
 <!-- https://drive.google.com/file/d/1hcuLdozEUkJY6mc5cB-xzCqEDIar_SfV/view?usp=sharing -->
 
 ### `componentDidMount`
