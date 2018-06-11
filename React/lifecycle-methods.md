@@ -60,8 +60,6 @@ const fetchStudents = () =>
 
 ```
 
-**Key Question**: Why do you think we use `componentDidMount` to load the data rather than `componentWillMount`? How is this working?
-
 While this might not seem super useful yet, we'll see when we get to using APIs how we'll leverage the lifecycle to ensure we are loading our app and it's data efficiently.
 
 ## Vocabulary
