@@ -25,7 +25,7 @@ The above diagram shows how each lifecycle method exists in flow with one anothe
 <!-- https://drive.google.com/file/d/1hcuLdozEUkJY6mc5cB-xzCqEDIar_SfV/view?usp=sharing -->
 
 ### `componentDidMount`
-This is one of the most commonly used lifecycle methods in React, so we are going to explicitly try this out. We  use this method to load in any external data from an API that we might need.
+This is one of the most commonly used lifecycle methods in React, so we are going to explicitly try this out. We use this method to load in any external data from an API that we might need.
 
 Though we aren't yet integrating with any APIs, let's add this method and some corresponding data retrieval within our student management application.
 
