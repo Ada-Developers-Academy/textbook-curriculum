@@ -19,7 +19,7 @@ Mount | Initial component creation
 Update | After a component is created, these methods will be called when React believes a component will be updated
 Unmount | When your application no longer needs the component
 
-The above diagram shows how the common lifecycle methods and how they flow with one another, but let's see another diagram that will describe the current lifecycle methods as of April 2018.
+The above diagram shows the common lifecycle methods and how they flow with one another, but let's see another diagram that will describe the current lifecycle methods as of April 2018.
 
 ![Lifecycle Phase Diagram](images/lifecycle-phase-diagram-06-2018-full.png)
 [Source: Interactive Documentation + Diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
@@ -66,9 +66,9 @@ While this might not seem super useful yet, we'll see when we get to using APIs 
 Here are brief definitions of other lifecycle methods that React provides.
 
 #### `constructor`
-The constructor for a React component is called before it is mounted. Typically, in React constructors are only used for two purposes:
+We've already used this one! The constructor for a React component is called before it is mounted. Typically, in React constructors are only used for two purposes:
 
-- Initializing local state by assigning an object to this.state
+- Initializing local state by assigning an object to `this.state`
 - Binding event handler methods to an instance
 
 #### `componentDidUpdate`
