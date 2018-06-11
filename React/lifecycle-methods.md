@@ -62,6 +62,38 @@ const fetchStudents = () =>
 
 While this might not seem super useful yet, we'll see when we get to using APIs how we'll leverage the lifecycle to ensure we are loading our app and it's data efficiently.
 
+### Other Methods
+Here are brief definitions of other lifecycle methods that React provides.
+
+#### `constructor`
+The constructor for a React component is called before it is mounted. Typically, in React constructors are only used for two purposes:
+
+- Initializing local state by assigning an object to this.state
+- Binding event handler methods to an instance
+
+#### `componentDidUpdate`
+`componentDidUpdate` is invoked immediately after updating occurs. This method is not called for the initial render.
+
+Use this as an opportunity to operate on the DOM when the component has been updated.
+
+#### `componentWillUnmount`
+`componentWillUnmount` is invoked immediately before a component is unmounted and destroyed. You should do cleanup in this method, such as cancelling network requests. Once a component instance is unmounted, it will never be mounted again.
+
+---
+### Other, Rarer Lifecycle Methods
+
+#### `shouldComponentUpdate`
+`shouldComponentUpdate` is invoked before rendering when new props or state are being received. You can override this by hand if you _really need_ to add conditional logic for if a component's output is affected by the current change in state or props. _In most cases_ you will not need to override this, and you can rely on its default behavior.
+
+#### `getDerivedStateFromProps`
+`getDerivedStateFromProps` is invoked right before calling the render method, both on the initial mount and on subsequent updates. It enables a component to update its internal state as the result of changes in props.
+
+#### `getSnapshotBeforeUpdate`
+`getSnapshotBeforeUpdate` is invoked right before the most recently rendered output is committed to e.g. the DOM. It enables your component to capture some information from the DOM (e.g. scroll position) before it is potentially changed. Any value returned by this lifecycle will be passed as a parameter to componentDidUpdate().
+
+---
+
+
 ## Vocabulary
 | Term     | Definition     |
 | :------------- | :------------- |
