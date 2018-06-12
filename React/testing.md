@@ -111,7 +111,7 @@ With React we often want to ensure that a component is rendering properly.  For 
 3.  Ensure there is a submit button
 4.  and more and more and more...
 
-However these tests are pretty fragile, easy to break when you make minor changes to the form and tedius to update for UI refactoring.
+However these tests are pretty fragile, easy to break when you make minor changes to the form and tedious to update for UI refactoring.
 
 Instead we can:
 1.  Convert the rendered html of the component into JSON with the JSON holding the most significant features of the component.
