@@ -216,7 +216,7 @@ Use `mount` when you need to test the interaction between a container and child 
 
 ## Testing User Interaction
 
-With snapshot testing we have tested how React components **render** to the DOM.  Next we need to test how the componets respond to user interaction.
+With snapshot testing we have tested how React components **render** to the DOM.  Next we need to test how the components respond to user interaction.
 
 ```javascript
 // src/components/NewPetForm.test.js
