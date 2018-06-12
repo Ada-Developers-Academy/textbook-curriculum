@@ -83,12 +83,22 @@ Enzyme is a handy library which will make it easier to manipulate, traverse and 
 To install enzyme for testing your application, execute from the terminal:
 
 ```bash
-npm i --save-dev enzyme enzyme-adapter-react-16
+npm i --save-dev enzyme enzyme-adapter-react-16 enzyme-to-json
 ```
 
 **Note** This will install enzyme and an adapter or version 16 of React.  You can expect a new adapter for later versions of React.
 
-Next tell Jest how to configure enzyme and use the adapter.  Create the file `src/setupTests.js` and add the following content.
+Next we need to tell Jest how to serialize enzyme data. Open up `package.json` and add the following object:
+
+```json
+{
+  "jest": {
+    "snapshotSerializers": ["enzyme-to-json/serializer"]
+  }
+}
+```
+
+Finally, tell Jest how to configure enzyme and use the adapter.  Create the file `src/setupTests.js` and add the following content.
 
 ```javascript
 // src/setupTests.js
