@@ -181,9 +181,7 @@ To keep snapshot files smaller we can engage in **shallow rendering**.
 
 ### Shallow Rendering
 
-Enzyme has a function called `shallow` which will render a component with placeholders for subcomponents.  So if we shallowly rendered `App`, it would render `<NewPetForm />` in place of the fully rendered html the `NewPetForm` component generates.  Using this technique you can limit snapshot changes to the component you are testing.
-
-The following two tests show deep and shallow rendering in snapshot tests.
+Enzyme has two methods of rendering a component for testing.  Add the following two tests and look at the resulting Snapshot files.
 
 ```javascript
 // src/App.js
@@ -207,6 +205,12 @@ describe('<App />', () => {
 ```
 
 **Question** Run the above two tests.  What do you notice about the differences in the two Snapshots?
+
+The `mount` function, as we have seen fully mounts a component and all subcomponents in the DOM.  Enzyme has another function called `shallow` which will render a component with placeholders for subcomponents.
+
+So if we shallowly rendered `App`, it would render `<NewPetForm />` in place of the fully rendered html the `NewPetForm` component generates.  Using this technique you can limit snapshot changes to the component you are testing.
+
+The following two tests show deep and shallow rendering in snapshot tests.
 
 **Question** If we have a shallow snapshot of `App`, how do we get alerted when `Pet` changes?
 
