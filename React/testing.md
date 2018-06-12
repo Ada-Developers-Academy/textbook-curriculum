@@ -250,6 +250,8 @@ The Above test first shallowly renders the form, and then finds the input for th
 
 Because `setState` is asynchronous, Enzyme provides an `update` function to force the component to update its state, and then we can test the new value of the `name` input field.
 
+You may also notice that we have `nameField.getElement().props.value` to get the value of the HTML element.  In this case Enzyme can return the HTML properties.  Enzyme shallow copies treat all properties both among HTML elements or React components.  
+
 **Exercise** Add tests to verify the `change` events for the other input fields.  There are two ways to do this, either add 3 separate tests, or create a loop to iterate through the fields.  You can see the second solution [here](https://github.com/AdaGold/react-pets/blob/testing/src/components/NewPetForm.test.js).
 
 ### Testing Submit Actions and Callbacks
