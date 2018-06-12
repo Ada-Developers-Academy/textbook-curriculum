@@ -250,7 +250,7 @@ The Above test first shallowly renders the form, and then finds the input for th
 
 Because `setState` is asynchronous, Enzyme provides an `update` function to force the component to update its state, and then we can test the new value of the `name` input field.
 
-You may also notice that we have `nameField.getElement().props.value` to get the value of the HTML element.  In this case Enzyme can return the HTML properties.  Enzyme shallow copies treat all properties both among HTML elements or React components.  
+You may also notice that we have `nameField.getElement().props.value` to get the value of the HTML element.  In this case Enzyme can return the HTML properties.  Enzyme shallow copies treat all properties both among HTML elements or React components.
 
 **Exercise** Add tests to verify the `change` events for the other input fields.  There are two ways to do this, either add 3 separate tests, or create a loop to iterate through the fields.  You can see the second solution [here](https://github.com/AdaGold/react-pets/blob/testing/src/components/NewPetForm.test.js).
 
@@ -289,6 +289,21 @@ Using this technique we can test a component and verify that a callback function
 We can verify the function was called with the expectation `toHaveBeenCalled`.
 
 We can also verify the arguments sent to the callback function with: `mockAddPetCallback.mock.calls`.  `mockAddPetCallback.mock.calls` returns a 2-dimensional array of calls against the function and arguments sent to it.  So `mockAddPetCallback.mock.calls[0][0]` returns the first argument sent to the function the first time it was called.  `mockAddPetCallback.mock.calls[1][2]` meanwhile would indicate the 3rd argument sent to the function the second time it was called.
+
+## Unit Testing User Interation - What To Test
+
+We have looked at what to test.  _What_ should you test?  In general if a Component has state that changes with user interaction, you should test to verify that it responds as expected.
+
+When testing the `NewPetForm`, the Component should respond to two kinds of user interaction.
+
+1.  When the user types in a field, the state should be updated and the field's value should be updated.
+2.  When the form is submitted, it should call the function passed into the `addPetCallback` prop with the proper parameters.
+
+### Going Further
+
+Another test we could write would enable us to test what happens to the `PetsCollection` when the user submits the form?
+
+**Question**:  Could you do this with a shallow render of the form?  How would you write this test?
 
 ## Summary
 
