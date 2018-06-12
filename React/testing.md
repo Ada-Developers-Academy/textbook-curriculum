@@ -74,7 +74,7 @@ Add a `  console.log(div.innerHTML);` after the `ReactDOM.render` command and lo
 
 The default test in `App.test.js` first creates a `div` element which is **not** embedded in any webpage and then embeds an instance of the App component inside the `div`.  In this way it tests that the component can be rendered at all.  Lastly `ReactDOM.unmountComponentAtNode` destroys the instance to save memory.
 
-This test doesn't actually make any assertions, there are no `expect(div).toBe(y)` commands, but it ensure that the component will show up on the screen without crashing React.
+This test doesn't actually make any assertions, there are no `expect(div).toBe(y)` commands, but it ensures that the component will show up on the screen without crashing React.
 
 ### Installing Enzyme & React Test Renderer
 
