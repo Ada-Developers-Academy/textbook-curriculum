@@ -12,11 +12,13 @@ The second form of debugging is something that you will likely begin to experien
 In some organizations this work is the purview of dedicated customer support and/or QA team members, but in smaller companies the responsibility often falls on developers as well. In either case it is important to get this experience to be able to work effectively with the groups that support the live/production deployment of the system or application.
 
 ## Creating Repro Steps
-We need to create these repro steps because users of our application generally do not have any understanding of how it actually works. They only see the user interface and so their explanation of what went wrong is usually framed in terms of how things are presented in the UI.
+We need to create these repro steps because users only see the interface. As a result their explanation of what went wrong is usually framed in terms of how things are presented in the UI. Sometimes this is exactly what we need, but other times starting from that perspective can lead you in the exact wrong direction because systems are often connected in ways that are not visible through the interface.
 
 For example, they might make a purchase from your store and see that it does not show up in their purchases list. They might then report this to you as a bug with the purchase list. But upon investigation you might find that the issue was actually due to the payment gateway system returning an error code that your application did not expect, resulting in the purchase being dropped from the database.
 
 Once you have a set of repro steps for a specific bug you can follow them in your local development environment and see the full error message and details (which are generally hidden from users in production deployments). At this point you can follow the same debugging process as when you encounter an error yourself.
+
+The goal with any set of repro steps is **reliability**. The debugging process often requires triggering the buggy behavior several times so that further investigation can be done (and later again to verify that a fix is working). If the repro steps available to a developer only trigger the bug 5% of the time debugging is going to be a very tedious process. It might even indicate that the repro steps could be improved, because they potentially are only linked to the buggy behavior incidentally.
 
 ## Example
 Here's an example of the kind of user report that you might receive, and the resulting repro steps we could generate. For this example imagine that you are working on an e-commerce website that has a shopping cart feature.
