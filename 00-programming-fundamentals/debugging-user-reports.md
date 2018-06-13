@@ -51,3 +51,10 @@ As you can see above the repro steps for this example bug are much more detailed
 
   While you can sometimes generalize the repro steps, it's not always obvious when that is possible or not. In those cases err on the side of caution and re-use the details from the initial report -- they might be critical to diagnosing the underlying bug.
 * The repro steps should conclude with an observation. Generally the final part of any set of repro steps is to observe the unexpected behavior, this makes it clear specifically how the bug is manifesting (at a user level) in the final context of the repro steps.
+
+### Definitions
+| Term | Definition |
+|:-----|:-----------|
+| User report | Also referred to as a bug report, this is a piece of feedback received from a user that describes one or more situations in which the user encountered a bug when using the software. Often times this feedback needs to be translated into the more specific terminology used by developers in order to isolate the cause and implement a fix. |
+| Reproduction steps | Often shortened to "repro steps", this refers to a set of linear step-by-step instructions for how to interact with a piece of software in order to trigger certain behavior, usually a bug. These steps are generally what is produced either by reviewing and exploring the feedback from a user report, or by a [QA worker](https://en.wikipedia.org/wiki/Quality_assurance) who encounters a bug as part of their testing process.
+| Observation | The final part of any repro steps for triggering a bug. The steps preceding the observation are intended to setup the necessary preconditions for the buggy behavior to manifest. The observation then is the instruction for exactly what a developer should be looking for in order to actually notice the bug's effect. For example: "Observe that the price for the item is now a negative number". |
