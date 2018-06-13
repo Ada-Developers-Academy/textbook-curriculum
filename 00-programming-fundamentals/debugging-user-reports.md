@@ -25,7 +25,7 @@ Here's an example of the kind of user report that you might receive, and the res
 > I added the Silver Tails Dog Infrared Massager. But I added two somehow. When I tried to remove one from my cart it went away entirely!
 
 ### Repro Steps
-1. Open the website in Chrome.
+1. Open the website in Chrome version 67.0.3396.79.
 1. Sign up for a new account using the standard sign up procedure.
 1. Use the product search bar to search for "silver tails dog infrared massager"
 1. Click on the result labeled "Silver Tails Dog Infrared Massager with 2-Heated Heads."
@@ -36,6 +36,10 @@ Here's an example of the kind of user report that you might receive, and the res
 1. Open the quantity drop-down for the item and select "1".
 1. Click the "Update item" button next to the drop-down.
 1. Observe that the item "Silver Tails Dog Infrared Massager with 2-Heated Heads." is no longer listed in the cart.
+
+**Expected behavior**: The item "Silver Tails Dog Infrared Massager with 2-Heated Heads." is listed in the shopping cart with a quantity of 1.
+
+**Observed behavior**: The item is not listed in the cart at all.
 
 ### Important Considerations
 As you can see above the repro steps for this example bug are much more detailed and thorough than what the user presented. This additional detail will be instrumental in helping a developer (possibly you) pin-point the exact code that was involved when the bug was triggered. There are some additional things to take note of:
