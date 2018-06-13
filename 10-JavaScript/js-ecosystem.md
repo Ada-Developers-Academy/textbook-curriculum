@@ -11,7 +11,7 @@ The term "JavaScript ecosystem" is often used to refer to the array of different
 - Explore a complex build system setup by "ejecting" the build configuration from a `create-react-app` project
 
 ## What is a build system?
-A build system for a software project is set of one or more programs (generally referred to as tools) that are usually connected by "script" code (written in a general programming language or one specific to a particular build system) which directs those tools to transform the project's source code and data files into a complete, deployable "package" for end users.
+A build system for a software project is a set of one or more programs (generally referred to as tools) that are usually connected by "script" code (written in a general programming language or one specific to a particular build system) which directs those tools to transform the project's source code and data files into a complete, deployable "package" for end users.
 
 An example of one of these end-user packages is the [ZIP file](https://atom.io/download/mac) that you would download when installing Atom. Inside of that compressed archive was an `Atom.app` directory that represents the _built_ version of the Atom project. If you extract the archive and then right click on the Atom file it creates and select "Show Package Contents" you can explore what files are included and see that they are very different from what's in the [project's GitHub repo](https://github.com/atom/atom) (it is not important to understand the files, just be aware of the difference).
 
