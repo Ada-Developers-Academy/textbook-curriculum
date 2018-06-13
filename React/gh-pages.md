@@ -46,8 +46,6 @@ npm run deploy
 
 Notice that now you have a branch on your repository named `gh-pages` which holds the _built_  application code.
 
-
-
 ## Resources
 -  [Source of this resource](https://github.com/gitname/react-gh-pages)
 -  [Facebook's tutorial on deployment](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#github-pages)
