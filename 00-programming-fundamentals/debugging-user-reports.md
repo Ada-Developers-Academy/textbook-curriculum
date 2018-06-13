@@ -1,4 +1,10 @@
 # Debugging from User Reports
+## Learning Goals
+1. Understand how debugging during development is different from debugging from user feedback.
+1. Understand why "repro steps" are important when debugging.
+1. Understand the structure of a set of repro steps.
+
+## Overview
 Debugging any application usually takes one of two forms: either you encounter the bug yourself while developing the application, or a user encounters the bug and files a report. You've already seen the first form of debugging quite a lot here at Ada because it's a natural, necessary part of building software.
 
 The second form of debugging is something that you will likely begin to experience during your internship, and it has some unique aspects to it that inform the approach you'll need to take when debugging. Specifically, it is necessary to translate from the user's report into a set of "reproduction steps" (also called a "repro") which can be followed to trigger the bug.
