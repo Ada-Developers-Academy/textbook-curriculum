@@ -30,7 +30,7 @@ Next add two new attributes to the `"scripts"` object:
 
 ```json
 "scripts": {
-  //...
+  ...
   "predeploy": "npm run build",
   "deploy": "gh-pages -d build"
 }
