@@ -3,11 +3,7 @@ The term "JavaScript ecosystem" is often used to refer to the array of different
 
 ## Learning Goals
 - Understand the purpose of a build system for client-side JS projects
-- Understand the role of the following specific tools within a build system:
-    - [npm](https://npmjs.com/)
-    - [webpack](https://webpack.js.org/)
-    - [Babel](https://babeljs.io/)
-    - [webpack-dev-server](https://github.com/webpack/webpack-dev-server)
+- Understand the terms listed in the [definitions table](#definitions)
 - Explore a complex build system setup by "ejecting" the build configuration from a `create-react-app` project
 
 ## What is a build system?
@@ -132,6 +128,23 @@ If your project is using webpack 1 it's critical that the documentation or tutor
 Lastly, while the above webpack config from Create React App may have seemed really intense and unapproachable, rest assured that it is the result of many, many developers' efforts to build and maintain that config -- and to make it useful for as broad an audience as possible.
 
 In your personal projects, or your projects for work, it's very likely you can get away with a simpler configuration. And generally you will build that config piece-by-piece over time, adding in one new tool at a time when you end up needing it. Creating your build system in this incremental approach is vastly more approachable than starting with a huge one such as CRA's and trying to learn it all at once.
+
+## Definitions
+There's a lot of detail in the sections above, and while that can be helpful it's always good to have a quick reference. Consider the table below to be the core set of terms you should understand from this resource.
+
+| Term | Definition |
+|:-----|:-----------|
+| build | (Verb) The process of converting source code files and other input data used by developers into another form appropriate for deployment or distribution to end users. (Noun) The files or packages resulting from the build process. |
+| build system | An arrangement of usually multiple task-specific programs that actually perform the build process by modifying and/or converting source and other input data. |
+| build configuration | One or more data files (e.g. JSON or XML) and/or ["script" files](https://en.wikipedia.org/wiki/Scripting_language) that specify how the build system is arranged and which input files/directories to use. |
+| compiler | A program that reads source code in one language and produces **equivalent** code in another language (often [virtual machine bytecode](https://en.wikipedia.org/wiki/Bytecode) or a specific [machine language](https://en.wikipedia.org/wiki/Machine_code). |
+| transpiler | A kind of compiler that converts from one _version_ of a language to a different version of that same language. Sometimes this is for performance improvements, or to make newer code compatible on older systems. |
+| minifier | A kind of build system tool that is generally unique to JavaScript, this program takes JS source code as input and outputs equivalent JS source code with as few characters as possible. The effect is essentially that of compressing the file. |
+| module | In JavaScript and webpack terminology this is a single "atomic" unit of data (usually JS code, sometimes CSS or an image) that can be combined with other modules into a bundle. Most often this corresponds to a specific file in your project repo. |
+| bundle | In webpack, the resulting single JS file that contains all of the "bundled" modules' contents. Which modules are bundled together depends on the build configuration. |
+| [npm](https://npmjs.com/) | A build/development tool that is primarily used for creating, downloading, and specifying dependency relationships of _npm packages_. npm packages are source code repositories with JS code usually, and are stored in the npm registry. The simplest way to think about npm is that it's a combination of RubyGems and Bundler. |
+| [webpack](https://webpack.js.org/) | A build system tool for managing the entire build process, with the overall result of converting each _module_ in some way and eventually combining all modules into a _bundle_. This bundle, along with any static HTML files and other website elements (e.g. favicon) constitutes the total output of the build process. |
+| [Babel](https://babeljs.io/) | A _transpiler_ for JavaScript that is intended to convert newer JS syntax (ES6+) into traditional JS syntax (ES5) for better compatibility across all browsers. |
 
 ## Resources
 - Build systems are a key component in [build automation](https://en.wikipedia.org/wiki/Build_automation), which ties into DevOps concepts such as [continuous integration](https://en.wikipedia.org/wiki/Continuous_Integration) and [continuous delivery](https://en.wikipedia.org/wiki/Continuous_Delivery).
