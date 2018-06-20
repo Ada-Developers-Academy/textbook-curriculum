@@ -90,6 +90,8 @@ The main difference between the two is that Heroku hides many of the underlying 
 ### Get the application code
 Clone the repository from https://github.com/adagold/aws-eb-rails (there is no need to fork this).
 
+**Make sure to run `bundle install`**
+
 ### Setup the EB application
 1. Log into the [AWS Management Console](https://console.aws.amazon.com/).
 1. Go to the [Elastic Beanstalk Management Console](https://us-west-2.console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2#/getting_started) (we're using the Oregon datacenter aka us-west-2).
