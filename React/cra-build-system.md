@@ -15,7 +15,8 @@ First let's start by creating a new React project with CRA:
 $ create-react-app cra-ejected
 $ cd cra-ejected
 $ git init
-$ git commit -am "Initial React project"
+$ git add .
+$ git commit -m "Initial React project"
 ```
 
 Even though this is just a temporary project to be thrown away later, we're adding all of the files into Git so that we can more easily see exactly what has changed after ejecting the configuration.
