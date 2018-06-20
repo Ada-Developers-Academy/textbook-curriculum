@@ -20,7 +20,7 @@ $ git commit -am "Initial React project"
 
 Even though this is just a temporary project to be thrown away later, we're adding all of the files into Git so that we can more easily see exactly what has changed after ejecting the configuration.
 
-Speaking of, we can now run the command `npm eject` and make sure to say yes when it asks for confirmation. It will take a minute or two and spam your terminal with lots of details about exactly what it's doing. We can ignore that information for now.
+Speaking of, we can now run the command `npm run eject` and make sure to say yes when it asks for confirmation. It will take a minute or two and spam your terminal with lots of details about exactly what it's doing. We can ignore that information for now.
 
 Once the ejection process has finished we can examine what actually changed by running `git status`. You should see something like:
 ```
