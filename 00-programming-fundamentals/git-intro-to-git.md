@@ -1,4 +1,4 @@
-# ￼Intro to Git
+# Intro to Git
 ## Learning Goals
 - Learn the What, Why, and How of Version Control
 - Track changes to files with Git

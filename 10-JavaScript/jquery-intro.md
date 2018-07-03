@@ -11,11 +11,11 @@
 - Utilize jQuery selectors to manipulate the DOM
 
 ## What Is jQuery?
-jQuery is a JavaScript library for DOM (web page) manipulation and cross-browser script compatibility. jQuery does most of it's magic through a global function that it defines in the '$' variable.
+jQuery is a JavaScript library for DOM (web page) manipulation and cross-browser script compatibility. jQuery does most of it's magic through a global function that it defines in the `$` variable.
 
 ### Selectors
 
-You can use the jQuery function ($) to grab and manipulate elements of your web page. jQuery uses CSS selectors to find the elements on the page.
+You can use the jQuery function (`$`) to grab and manipulate elements of your web page. jQuery uses CSS selectors to find the elements on the page.
 
 ```javascript
 $('body');     // returns the body element
@@ -41,7 +41,7 @@ Let's walk through the JavaScript together. We see some sort of jQuery thing on 
 $(document).ready(function() { ... })
 ```
 
-This line waits for the HTML document to be completely loaded by the browser, then runs the function. This is important because if you start manipulating the DOM before it's finished loading, all sorts of crazy things might happen. You can do setup work outside of `$(document).ready`, but anything that touches the DOM needs to be in (or called by) that callback.
+This line waits for the HTML document to be completely loaded by the browser, then runs the function. This is important because if you start manipulating the DOM before it's finished loading, all sorts of wild things might happen. You can do setup work outside of `$(document).ready`, but anything that touches the DOM needs to be in (or called by) that callback.
 
 Next we've got a regular old JavaScript for loop. You already know all about those.
 

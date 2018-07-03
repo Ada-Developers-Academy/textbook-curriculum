@@ -1,8 +1,19 @@
 # Active Record Relationships
+
 ## Learning Goals
 - Move beyond single-model, single-table applications
 - Learn the Rails vernacular for describing _model relationships_
 - Explore the __awesome__ functionality provided by *belongs_to* and *has_many*
+
+## Intro
+
+It's 9:00 AM on Monday, and our CTO has just called an all-hands meeting. Our customers love the library application we built last week, and are delighted to be able to keep track of their books. In fact, they're so impressed that they're asking for more functionality. The customer wants to be able to:
+
+- See a list of authors
+- Keep track of details for a given author
+- See the list of books written by a particular authors
+
+With the tools we've seen so far, keeping track of authors by themselves would be straightforward. However, we need to keep track of not just a list of authors but of how they relate to books. Managing these relations calls for a new set of techniques.
 
 ## *has_many* & *belongs_to*
 Two Rails models can be related to each other through an identifier field (what we call a _foreign key_ in SQL). Take a look at the these two tables:
@@ -19,7 +30,7 @@ Two Rails models can be related to each other through an identifier field (what 
 |id | title                             | description | price | author_id |
 |:-:|:--------------------------------:|:---------:|:---------:|:---------:|
 | 1 | Practical Object-Oriented Design in Ruby |    A great book on object-oriented design| 19.99     | 1
-| 2 | 99 Bottles of OOP        | An even more in-depth great book on object-oriented design| 24.99|    1     |
+| 2 | 99 Bottles of OOP        | An even more in-depth book on object-oriented design| 24.99|    1     |
 | 3 | Hidden Figures                | Good book that came before the movie| 14.99 |    2    |
 
 We would call this a __one-to-many__ association. We would say that Author *has_many* Books, and each Book *belongs_to* an Author. The `author_id` column for a Book corresponds to the `id` of an Author record.
@@ -79,4 +90,4 @@ And, for the table-oriented among you:
 | `author.books.create(book_hash)` | Book object | Yes | **Does** set `book.author_id` |
 
 ### Try it out!
-Now let's try it out for ourselves. We're going to run through the steps to update our book app to have this relationship using [these notes](active-record-relationships-exercise.md).
+Now let's try it out for ourselves. We're going to run through the steps to update our book app to have this relationship using [these notes](exercises/active-record-relationships-exercise.md).

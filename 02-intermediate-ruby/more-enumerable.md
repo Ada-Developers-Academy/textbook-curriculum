@@ -34,7 +34,7 @@ With your seat squad, create a file called `enum-hash.rb`. Open it in your edito
 # enum-hash.rb
 scores = {
   jeremy: [10, 20, 34, 55, 86],
-  been:   [11, 27, 95, 45, 33],
+  taylor:   [11, 27, 95, 45, 33],
   raquel: [15, 54, 23, 22, 57],
   rosa:   [5, 3, 7, 77, 34]
 }

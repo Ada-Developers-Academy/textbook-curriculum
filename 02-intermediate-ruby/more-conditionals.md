@@ -22,7 +22,7 @@ end
 
 # same code using a ternary instead
 # condition ? eval_true : eval_false
-num == 10 ? puts "It's 10!" : puts "It's not 10!"
+puts num == 10 ? "It's 10!" : "It's not 10!"
 ```
 
 ```ruby

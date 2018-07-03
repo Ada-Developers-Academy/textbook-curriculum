@@ -2,12 +2,16 @@
 
 ## Introduction
 1. [Welcome to JS](welcome-to-js.md)
-    - [Worksheet: Ruby to JS](exercises/ruby-to-js-worksheet.md)
+    - [Worksheet: Ruby to JS Practice](exercises/ruby-to-js-worksheet.md)
+1. [Setup Linting](exercises/setup-linting.md)
 1. [Fun with Functions](fun-with-functions.md)
-    - [Worksheet: Functions](exercises/functions-worksheet.md)
-1. [JavaScript Objects](js-objects.md)
+    - [Worksheet: Functions Practice](exercises/functions-worksheet.md)
+    - [Exercise: JS Calculator](exercises/calculator.md)
+1. [Prototypical JS Objects](js-objects.md)
+  - [Worksheet: Classes Practice](exercises/objects-worksheet.md)
 1. [Classes](classes.md)
-    - [Worksheet: Objects](exercises/objects-worksheet.md)
+    - [Worksheet: Classes Practice](exercises/classes-worksheet.md)
+    - [Exercise: Fortune](exercises/fortune.md)
 1. [Arrow Functions](arrow-functions.md)
 
 ## In the Browser: jQuery

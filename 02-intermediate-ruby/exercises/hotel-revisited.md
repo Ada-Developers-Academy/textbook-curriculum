@@ -6,6 +6,8 @@ You'll start by reviewing the one of our key object-oriented design principles, 
 
 Then you'll address the Hotel project directly, and refactor your implementation to reflect this better understanding.
 
+You will need to have **Wave 2** completed to complete this activity.
+
 ## Single Responsibility
 
 The single responsibility principle helps answer the questions "What classes should I have?" and "Where should this logic live?" The big idea is that that each class in your program should be in charge of exactly one thing, no more, no less.
@@ -126,7 +128,7 @@ Now that we've got you thinking about design, spend some time to revisit the cod
 
 ### Activity
 
-Based on the answers to the above questions, identify one place in your Hotel project where a class takes on multiple roles, or directly modifies the attributes of another class. Describe in `design-activity.md` what changes you would need to make to improve this design, and how why the resulting design would be an improvement.
+Based on the answers to the above questions, identify one place in your Hotel project where a class takes on multiple roles, or directly modifies the attributes of another class. Describe in `design-activity.md` what changes you would need to make to improve this design, and how the resulting design would be an improvement.
 
 If you need inspiration, remember that the [reference implementation](https://github.com/droberts-ada/hotel/tree/dpr/solution) exists.
 

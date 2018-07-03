@@ -264,3 +264,4 @@ Lastly in our `/app/views/layouts/application.html.erb` file we can add links to
 [Rails Guides: Accessing the Session](http://guides.rubyonrails.org/action_controller_overview.html#accessing-the-session)
 *  [How to Set Environment Variables in Heroku](https://devcenter.heroku.com/articles/config-vars)
 *  [Logout Route delete or get?](https://stackoverflow.com/questions/26018471/routing-trouble-for-logout-link-delete-vs-get-action)
+*  [Stack Overflow: Create named routes for OmniAuth](https://stackoverflow.com/questions/4361994/create-named-routes-for-omniauth-in-rails-3?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa)

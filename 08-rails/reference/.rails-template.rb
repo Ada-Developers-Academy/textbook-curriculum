@@ -27,6 +27,15 @@ gsub_file 'Gemfile', /^gem \'coffee-rails\'/ do
   "\# gem 'coffee-rails'"
 end
 
+## Add some important things to our gitignore file
+inject_into_file '.gitignore', after: '.byebug_history' do
+  <<-'RUBY'
+
+/coverage
+.DS_Store
+  RUBY
+end
+
 # Mess with generators to get the behavior we expect around new files
 # For these injections, indentation matters!
 inject_into_file 'config/application.rb', after: "class Application < Rails::Application\n" do

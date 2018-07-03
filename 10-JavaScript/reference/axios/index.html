@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Pets with axios</title>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <section id="status-message"></section>
+
+  <main>
+    <section class="current-pets">
+      <h1>List-o-Pets</h1>
+      <button id="load">Get pets!</button>
+      <ul id="pet-list"></ul>
+    </section>
+
+    <section class="new-pet">
+      <h1>Add a new pet</h1>
+      <form id="pet-form">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" name="name" />
+        </div>
+
+        <div>
+          <label for="age">Age</label>
+          <input type="number" name="age" />
+        </div>
+
+        <div>
+          <label for="owner">Owner</label>
+          <input type="text" name="owner" />
+        </div>
+
+        <input type="submit" name="add-pet" value="Add Pet" />
+      </form>
+    </section>
+  </main>
+</body>
+</html>

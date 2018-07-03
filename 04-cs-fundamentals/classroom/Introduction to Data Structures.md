@@ -17,7 +17,12 @@ Here's the exercises we'll cover in class.
 2. Understand how delete and insert algorithms work on a static data structure like an array
 
 ## Assignments
-Complete the string manipulation practice questions on [Ada-C8/StringManipulationInterviewPractice](https://github.com/Ada-C8/StringManipulationInterviewPractice)
+Complete the string manipulation practice questions:
+- [Ada-C9/string_reverse](https://github.com/Ada-C9/string_reverse)
+- [Ada-C9/reverse_words](https://github.com/Ada-C9/reverse_words)
+- [Ada-C9/reverse_sentence](https://github.com/Ada-C9/reverse_sentence)
+- [Ada-C9/palindrome_check](https://github.com/Ada-C9/palindrome_check)
+- [Ada-C9/encode_repeating](https://github.com/Ada-C9/encode_repeating)
 
 ## Additional Resources:
 - Check if two strings are anagrams of each other: [anagram solved](http://www.geeksforgeeks.org/check-whether-two-strings-are-anagram-of-each-other/)

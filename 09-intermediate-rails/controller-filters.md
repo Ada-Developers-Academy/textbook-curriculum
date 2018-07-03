@@ -11,17 +11,13 @@ From the [rails docs](http://guides.rubyonrails.org/action_controller_overview.h
 `before_action` and `after_action` are the most common, though there is also `around_action`.
 
 ### DRY Up Your Controllers
-Another good way to use controller filters is to DRY up your code.
+You can use controller filters is to DRY up your code.
 
 Let's examine a typical controller:
 ```ruby
 class BooksController < ApplicationController
   def index
     @books = Book.all
-  end
-
-  def show
-    @book = Book.find_by_id(params[:id])
   end
 
   def new
@@ -35,6 +31,10 @@ class BooksController < ApplicationController
     else
       render :new
     end
+  end
+  
+  def show
+    @book = Book.find_by_id(params[:id])
   end
 
   def edit
@@ -88,8 +88,6 @@ class BooksController < ApplicationController
     @books = Book.all
   end
 
-  def show; end
-
   def new
     @book = Book.new
   end
@@ -102,6 +100,8 @@ class BooksController < ApplicationController
       render :new
     end
   end
+
+  def show; end
 
   def edit; end
 

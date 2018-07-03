@@ -64,7 +64,7 @@ Questions you'll want to ask with your controller tests include:
 - When I POST a new book, is that book actually added to the database?
 - What happens when I POST a book with invalid parameters?
 
-Rails has a set of custom assertions to aid you in asking these questions. We'll learn all about those when we study controller testing later this week.
+Controller testing involves testing the actions end-to-end simulating a full browser request.  Rails has a set of custom assertions to aid you in asking these questions.  We'll learn all about those when we study controller testing after model testing.  
 
 #### Views
 

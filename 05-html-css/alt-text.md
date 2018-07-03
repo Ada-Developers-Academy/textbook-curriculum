@@ -27,4 +27,4 @@ Let's do a few examples for funs, then we'll get into more detail:
 - There is no need to say 'link to...' or 'image of...'. The screen reader will announce this based on the tag.
 
 ## More examples, this time from the internets:
-[Examples from WebAIM]http://webaim.org/techniques/alttext/
+[Examples from WebAIM](http://webaim.org/techniques/alttext/)

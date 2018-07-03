@@ -208,7 +208,24 @@ Book.count #=> 6
 nope = Book.find_by(title: "Lorax") #=> nil
 ```
 
-**WARNING:** An AR model does also have a `delete` method and it will delete the instance from the database, but it does **[not](http://stackoverflow.com/questions/22757450/difference-between-destroy-and-delete)** do exactly the same thing.  We will discuss it a bit later when we introduce relationships.  For now, just avoid using it.    
+**WARNING:** An AR model does also have a `delete` method and it will delete the instance from the database, but it does **[not](http://stackoverflow.com/questions/22757450/difference-between-destroy-and-delete)** do exactly the same thing.  We will discuss it a bit later when we introduce relationships.  For now, just avoid using it.
+
+## Activity: Working with Models
+
+In the rails console:
+
+1. Create 3 different books and save them to the database. Two of them should have the same author.
+    - What are their IDs?
+1. Get all the books written by a certain author
+    - What do you get if you misspell the author's name?
+1. Get the last book created
+    - What does ActiveRecord use to decide what's "last"?
+1. Find book 2
+    - What do you get if you try to find book 23456?
+1. Change book 3 to have a different author
+1. Destroy the second book
+1. Create another book
+    - What is the new book's ID? Does ActiveRecord reuse IDs?
 
 ## Summary Tables
 For any call that takes a hash, the argument will be of form `attribute: value` or `attribute: [list, of, possible, values]`. To check multiple attributes, add them to the hash: `author: 'test author', title: 'test title'`. You can also pass a hash object to any of these.

@@ -41,7 +41,7 @@ def random_image(width, height)
   url = ""
   case number
   when 0
-    url = "http://www.fillmurray.com/"
+    url = "https://picsum.photos/"
   when 1
     url = "http://www.placecage.com/"
   when 2
@@ -68,4 +68,4 @@ We've learned about a whole bunch of places to put code: the Controller, the Mod
 | Rendering a big, complicated piece of a webpage | Partial View            | Table of media items, form to create or edit a post |
 
 ## Resources
--  [html_safe](http://apidock.com/rails/v4.2.1/String/html_safe)
+-  [html_safe](http://apidock.com/rails/String/html_safe)

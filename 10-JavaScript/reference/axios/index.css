@@ -1,0 +1,8 @@
+body {
+  font-family: sans-serif;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

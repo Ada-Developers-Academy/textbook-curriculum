@@ -1,4 +1,4 @@
-## Arrow Functions
+# Arrow Functions
 
 Now that you know how to use regular functions, let's talk about a function shortcut called the **arrow function**.
 
@@ -40,16 +40,9 @@ So what have we done?  We've gotten rid of the `function` keyword and placed a '
 
 **Note**:  The arrow must be on the same line as the parentheses.  If they are on separate lines, it will generate a syntax error.
 
-Because our function has only a **one** line return, we can remove the return keyword and make it smaller.
+Because our function has only a **one** line return, we can remove the return keyword and the curly braces around the function body.
 
-```javascript
-const foo = () => {  'bar'; }
-
-console.log(foo());  
->  bar
-```
-
-Since `'bar'` is the only line in the function, it's considered an _implicit return_.  In other words, JavaScript assumes the function will return that value.  That's a lot less code, but we can reduce it further.  Since this is a 1-line function we can remove the curly braces and make them implicit as well.
+Since `'bar'` is the only line in the function, it's considered an _implicit return_.  In other words, JavaScript assumes the function will return that value.  Taking out the curly braces and return statement makes them implicit and reduces the amount of code we need to write.  
 
 ```javascript
 const foo = () => 'bar';
@@ -66,7 +59,7 @@ Here is an example for defining a function with no parameters which returns a st
 
 ```javascript
 const hello = function hello() {
-  return 'hello world'
+  return 'hello world';
 };
 ```
 
@@ -74,7 +67,7 @@ const hello = function hello() {
 
 ```javascript
 const squarer = (number) => {
-  return number * number
+  return number * number;
 }
 ```
 This arrow function takes a single number and returns that number squared.  Like normal functions arrow functions have their parameters listed in the parentheses.  
@@ -88,7 +81,7 @@ console.log(squarer(3)); // 9
 
 **Note**: This works **only** for functions with a single argument.  Zero parameters or more than one will require you to include the parentheses.  
 
-For example with two parameters
+For example, with two parameters:
 
 ```javascript
 const add = (x, y) => x + y;
@@ -102,11 +95,11 @@ squarer(3);
 > 9
 ```
 
-**Note**  This is **not** good style as it's hard to identify the code above as a function.  You should avoid writing an arrow function with no parentheses around the argument and no curly braces around the method body.  However you will see this style of function outside of Ada.
+**Note**:  This is **not** good style as it's hard to identify the code above as a function.  You should avoid writing an arrow function with no parentheses around the argument and no curly braces around the method body.  However you will see this style of function outside of Ada.
 
 ## Inline Arrow Functions Returning Objects
 
-If your arrow function returns a JavaScript object like this normal function.
+If your arrow function returns a JavaScript object like this normal function...
 
 ```javascript
 const makePerson = function(id, name) {
@@ -156,57 +149,57 @@ There are additional benefits to using arrow functions beyond minimized syntax.
 Lets look at a more complex example:
 
 ```javascript
-const obj = {
-  thing: 0,
+const numberHaver = {
+  value: 0,
   increment() {
     [1,2,3].forEach(function(num) {
-      this.thing += num;
+      this.value += num;
     });
   }
 }
 
-console.log(obj.thing); // 0
-obj.increment();
-console.log(obj.thing); // Expected 6, but prints 0
+console.log(numberHaver.value); // 0
+numberHaver.increment();
+console.log(numberHaver.value); // Expected 6, but prints 0
 ```
 
-The code above is **supposed** to add each element of the array and store the result in `thing`, but... because the anynomous function has it's own instance of `this` it tries to add each number to the wrong... `thing`.
+The code above is **supposed** to add each element of the array and store the result in `value`, but... because the anonymous function has it's own instance of `this`, it tries to add each number to the wrong `value`.
 
 The traditional work-around to this situation is to save the context (`this`) into another variable and use that variable instead of `this`.
 
 ```javascript
-const obj = {
-  thing: 0,
+const numberHaver = {
+  value: 0,
   increment() {
     const that = this;
     [1,2,3].forEach(function(num) {
-      that.thing += num;
+      that.value += num;
     });
   }
 }
 
-console.log(obj.thing); // 0
-obj.increment();
-console.log(obj.thing); // Expected 6, and prints 6
+console.log(numberHaver.value); // 0
+numberHaver.increment();
+console.log(numberHaver.value); // Expected 6, and prints 6
 ```
 
-Notice the line `let that = this;`  saving the current context in `that` allows the anonymous function to access `thing` without the confusion surrounding `this`. Whew!  What a work-around!
+Notice the line `let that = this;`  saving the current context in `that` allows the anonymous function to access `value` without the confusion surrounding `this`. Whew!  What a work-around!
 
 **Arrow functions do not have their own `this` context**, instead they inherit `this` from the surrounding block.  So using an arrow function makes the resulting code less confusing and error-prone.
 
 ```javascript
-const obj = {
-  thing: 0,
+const numberHaver = {
+  value: 0,
   increment() {
     [1, 2, 3].forEach((num) => {
-      this.thing += num;
+      this.value += num;
     });
   },
 };
 
-console.log(obj.thing); // 0
-obj.increment();
-console.log(obj.thing); // Expected 6, and prints 6
+console.log(numberHaver.value); // 0
+numberHaver.increment();
+console.log(numberHaver.value); // Expected 6, and prints 6
 ```
 
 Because arrow functions do not have their own context (`this`), they make excellent anonymous callback functions.  
@@ -229,7 +222,7 @@ const Dog = (name, age) => {
 let fido = new Dog('Fido', 3); // <-- TypeError!
 ```
 
-**Answer:** `this!` We know that arrow functions take the value of this from the context in which they are defined. Since our constructor is defined outside any other object, `this` doesn't make any sense, and our code does the wrong thing.  Further arrow functions do not have a **prototype** attribute, so `Dog.prototype` will generate an error.
+**Answer:** `this!` We know that arrow functions take the value of this from the context in which they are defined. Since our constructor is defined outside any other object, `this` doesn't make any sense, and our code does the wrong thing.  Further, arrow functions do not have a **prototype** attribute, so `Dog.prototype` will generate an error.
 
 ### As Methods
 
@@ -253,7 +246,7 @@ Arrow functions are a great way to minimize your JavaScript typing and make very
 
 However they lack a `this` context, making them useful as callback functions, but unsuitable for constructors or as object methods.  
 
-On older browsers newer features like Arrow Functions, template strings etc will not work requiring a tool to convert newer (ES6) code like Babel
+On older browsers, newer features like Arrow Functions, template strings, etc, will not work. Older browsers require a tool, like Babel, to convert newer (ES6) code to older JavaScript
 
 ## Additional Resources
 - [MDN Docs on Arrow Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)

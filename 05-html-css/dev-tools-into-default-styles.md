@@ -13,9 +13,10 @@ Other Browsers, such as Firefox and Safari, have their own debugging developer t
 
 
 ## Dive into Developer Tools!
-To open Devtools,
-- either right click on a page and click on 'inspect' from the menu
-- Use Ctrl+Shift+I (or Cmd+Opt+I on Mac) to open the DevTools.
+You can open Dev Tools in Chrome by any of the following:
+- right click on a page and click on 'inspect' from the menu
+- use Cmd+Opt+I on Mac to open the Developer Tools
+- in Google Chrome, on the top menu, do View > Developer > Developer Tools
 
 
 ![Elements Tab in Dev Tools](imgs/dev_tools_elements_tab.png)
@@ -35,7 +36,7 @@ The are various sources of CSS that are affecting that element.
 - DOM (Document Object Model)
 
 ## 🔑 Key Takeaway
-Using Chrome's Devtools should be a primary front-end debugging tool.
+Using Chrome's Dev tools should be a primary front-end debugging tool.
 
 ### Additional Resources
 [DevTools Documentation](https://developers.google.com/web/tools/chrome-devtools/iterate/inspect-styles/?utm_source=dcc&utm_medium=redirect&utm_campaign=2016q3)

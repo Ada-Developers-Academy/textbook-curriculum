@@ -9,14 +9,10 @@
   + How data is stored in memory
   + High level computer organization: CPU, Main memory & Bus
 
-## Notes
-+ There's no homework due before we meet for class. We'll chat about homework due after class during class time.
-+ For most CS Fundamentals sessions, we'll observe a closed laptop policy. Please bring along a notebook/papers and pen/pencil to every class. 
-
-## Essential Reading:
-Here's some good follow up reading after we meet in class:
+## Pre-work: Essential Reading and Viewing:
+Essential reading for before and after this class:
   + [Computer Data Basics](https://docs.google.com/document/d/1g-Dxn1rVTChBs9ZZSOgmohjP_RoWNyPJTE-m_n35aZ0/edit)
-  + [Video: Understand how memory addressing works](https://www.youtube.com/watch?v=F0Ri2TpRBBg)
+  + [Video: Understand how memory addressing works](https://www.youtube.com/watch?v=F0Ri2TpRBBg) by Prof. Abelardo Pardo, University of Sydney
 
 ## Exercises
 Here's the exercises we'll cover in class
@@ -26,17 +22,16 @@ Here's the exercises we'll cover in class
 
 ## Assignments
 Assignments are expected to be worked on after the class discussion and due before the next class.
-Fork, clone and complete the assignments on [Ada-C8/BinaryAndDecimal](https://github.com/Ada-C8/BinaryAndDecimal).
-1. Write a method named `binary_to_decimal` that creates an array of size 8. Fill the array randomly with 0’s and 1’s. Print out the array so that it appears as a binary number. Calculate the decimal value for this binary number using the algorithm you devised in class. Print out the decimal value.
-2. This question has two parts:
-   - <strong>Devise an algorithm</strong> Imagine you've been given two sets of integers. e.g. the first set is [30, 20, 10, 4] and the second set is [20, 10, 4]. Devise an algorithm that compares the two sets and returns true if the two sets have the same integers and in the same order, and returns false otherwise. e.g. In our example case, for [30, 20, 10, 4] and [20, 10, 4], the two sets do not have all the same integers (30 is the difference) and the order is only partially the same. So, the algorithm should return false.
-   - <strong>Author a method</strong> named `array_equals` that accepts two integer arrays as parameters (representative of the two sets). The method return `true` if the arrays contain the same elements in the same order, and returns `false` otherwise. 
-Note: Do not use Array class methods for comparing the whole array at once. You may use array indexing to retrieve one element at a time, compare individual elements with each other and you may retrieve the length of an array.
-
+Fork, clone and complete the assignments below.
+1. Author a method based on the binary to decimal algorithm you devised in class. Read further on [Ada-C9/BinaryAndDecimal](https://github.com/Ada-C9/BinaryAndDecimal)
+2. Determines if the two input integer arrays are equal. The two arrays will be considered equal if they both have the exact same count of elements in the exact same order. Do this without using Ruby methods (except retrieving the value at an index in the Array, comparing two values at a particular index and a method to determine the length of the Array.) Read further on [Ada-C9/array_equals](https://github.com/Ada-C9/array_equals)
+3. [Optional] Write a program to print all possible values that can be represented using 4 bits. e.g. 0000, 0001, 0010, 0011, 0100 ... and so on.
 
 ## Additional Resources:
 Videos and additional reading material for furthering your learning for curiosity on topics related to what we covered in class:
    + [Video: Binary and Hexadecimal number systems by Khan Academy](https://www.khanacademy.org/math/algebra-home/alg-intro-to-algebra/algebra-alternate-number-bases/v/number-systems-introduction)
+   + [Boston University slide deck on Binary Numbers](http://www.cs.bu.edu/courses/cs101/old/2013spring/slides/CS101.03.BinaryNumbers.ppt.pdf)
+   + Blog post by Vaidehi Joshi on [Bits, Bytes, Building with Binary](https://medium.com/basecs/bits-bytes-building-with-binary-13cb4289aafa)
    + [Why do array indexes start with zero - Quora discussion](https://www.quora.com/Why-do-array-indexes-start-with-0-zero-in-many-programming-languages)
    + [Original paper on when we started counting with 0: Why numbering should start at zero? - by E. W. Dijkstra](https://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html)
    + [Does *bit rate* matter? - a blog on online-convert](http://blog.online-convert.com/does-bit-rate-matter-test-yourself-audio-examples/)

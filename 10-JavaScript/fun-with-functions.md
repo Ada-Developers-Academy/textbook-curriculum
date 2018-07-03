@@ -59,24 +59,49 @@ sayItTwice('JS is wonderful');  // "JS is wonderful"
 ```
 
 #### Attaching Functions to Objects
-Like any other variable, you can include a function as member of an object. Other members can be accessed through the `this` keyword, similar to Ruby's `self`.
+Like any other variable, you can include a function as member of an object. Recall: [Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) are similar to Ruby hashes, but much more versatile. They are declared with braces(`{}`). You can access properties in an Object with bracket notation (like an array) or dot notation.
+
+Within an object itself, other members (such as properties) can be accessed through the `this` keyword, similar to Ruby's `self`.
 
 ```javascript
 const animal = {
   species: 'dog',
   sound: 'woof',
-  describe: function() {
+  describe() {
     console.log(`A ${this.species} goes ${this.sound}`);
-  },
+  }
 };
 
 animal.describe(); // "A dog goes woof"
 ```
 
+<details>
+
+  <summary>
+    As with much of JavaScript, there's two versions of the syntax to define a function inside an object. Click here to expand and view the old (pre-2015) syntax.
+  </summary>
+
+  ```javascript
+  // Old syntax for defining a function inside an object
+  const animal = {
+    // ...
+    describe: function() {
+      console.log(`A ${this.species} goes ${this.sound}`);
+    }
+  };
+  ```
+
+  It's just different enough to trip you up if you see it on Stack Overflow. In this course we'll be using the new-style syntax (the first example).
+
+</details>
+<br/>
+
+While reviewing the first syntax, **ask yourself:** What is the value of the variable `animal`? What properties does it have? What is the value of those properties? In the code snippet `A ${this.species} goes ${this.sound}`, what is the value of `this.species` and the value of `this.sound`?
+
 Be aware that JavaScript's `this` keyword has some strange behavior. Many times it won't refer to quite what you'd expect. This can be one of the most frustrating things about JavaScript, especially for a beginner, and we'll have more to say about it later. For now, just know that it's a thing that might come up.
 
 ### Passing Functions as Arguments
-One of the big differences between Ruby and JavaScript is that in JavaScript, functions are objects. That means you can pass functions as arguments to other functions. A function passed as an argument is often referred to as a _callback function_, or sometimes just a _callback_.
+One of the big differences between Ruby and JavaScript is that in JavaScript, functions are objects. That means **you can pass functions as arguments to other functions.** A function that is passed as an argument is often referred to as a _callback function_, or sometimes just a _callback_.
 
 ```javascript
 // Invoke the callback function on every number from 0 through 9,
@@ -141,7 +166,9 @@ Something that may come up in your exploration of JavaScript is the difference b
 
 ```javascript
 // functional expression - this is the right way
-const foo = function foo(bar) {};
+const foo = function foo(bar) {
+
+};
 ```
 
 A functional declaration looks like this. Note the lack of `const` and a semicolon, and the different word order.
@@ -153,7 +180,7 @@ function foo(bar) {}
 
 In many cases the differences are nominal, but every once in a while they'll bite you. The vast majority of the time, a functional expression is what you want. In other words, **always define your functions with the `const` keyword**. The declaration style (no `const`) should be avoided unless you have a good reason to use it.
 
-If you're interested in more details, [this StackOverflow answer](http://stackoverflow.com/questions/3887408/javascript-function-declaration-and-evaluation-order) is one of the best I've seen in describing the difference and when it matters. We don't expect you to be able to recite the nitty gritty details, but we do expect you to be able to identify the two types of function and tell us which is correct.
+If you're interested in more details, [this StackOverflow answer](http://stackoverflow.com/questions/3887408/javascript-function-declaration-and-evaluation-order) is one of the best we've seen in describing the difference and when it matters. We don't expect you to be able to recite the nitty gritty details, but we do expect you to be able to identify the two types of function and tell us which is correct.
 
 ## JavaScript Function Exercises
 ### Exercise #1: Create a ToDo object, with the following properties:
@@ -164,7 +191,7 @@ If you're interested in more details, [this StackOverflow answer](http://stackov
 
 ### Exercise #2: Find the biggest number in the array
 - Utilize the stub code below to complete the problem:
-- `getBiggest` should accept an array as a parameter and return a the largest number in the array
+- `getBiggest` should accept an array as a parameter and return the largest number in the array
 
 ```javascript
 let arrayOfNums = [2, 7, 7, 3, 9, 0, 1, 6, 8, 3, 8, 4, 7, 9];

@@ -1,141 +1,150 @@
-# Advanced Routing & Relationships
+# Nested Routes
 
 ## Learning Goals
-- Explore _why_ we would want to use nested routes
-- Explore _how_ to set up nested routes manually
-- See how to use nested routes with `resources`
-- Explore the `has_and_belongs_to_many` relationship to utilize a "join table"
 
-## Context
-Let's use an example in our book application to classify books under certain genres. As an example,  let's use two books:
-1. **Bad Feminist** by _Roxane Gay_
-  - Genres: Nonfiction, Feminism, Writing: Essays, Autobiography: Memoir
+- Use **nested routes** to make our webapp reflect the structure of our data
+- Modify our controllers to take advantage of nested routes
 
-1. **Hidden Figures** by _Margot Lee Shetterly_
-  - Genres: Nonfiction, History, Science, Biography, Historical
+## Introduction
 
+Currently our library webapp does not reflect the new relation between `Author` and `Book` very well. Selecting from a drop-down menu when you create or edit a book is fine, but we could imagine a much more fluid user experience.
 
-To implement this feature we'll want to:
-1. Add a genre resource & all CRUD functionality (controller, model, views, routes)
-  ```bash
-  rails g controller genres
-  rails g model genre
-  ```
+Here are some user stories to consider:
+- As a librarian, I want to view the list of books for a specific author
+- As a librarian, I want to see a link to add a book for a specific author on the details page for that author
 
-  ```ruby
-  create_table :genres do |t|
-    t.string :name
-
-    t.timestamps
-  end
-  ```
-1. When books are created, allow them to be associated one to many genres
-1. Have a view to see all books in a particular genre
+Both these user stories break up the collection of books. They require us to consider the books written by _Octavia Butler_ separately from those written by _Ursula K. Le Guin_. One way to address this problem is by using **nested routes**.
 
 ## Nested Routes
-Oftentimes we create nested routes when we have resources which are _children_ of other resources. In this case, we will have a _genre_ resource which will contain books. Ideally, we can configure routes to be _nested_ within one another to provide additional context about the request we are making. For example, if we want to retrieve the list of books associated with the genre "nonfiction" (where genre "nonfiction" has an ID of 1 in our database), then we would want a route like `/genres/1/books`. This example demonstrates **nested routes**. We utilize RESTful routes for `books` inside the `genres` RESTful routes.
 
-**Question**: Do we want _all_ `books` routes to be nested inside `genres`? If not, which would we want to be nested and which wouldn't?
+The big idea behind nested routes is that we ought to be able to access our collection of books two ways: all the books, and only the books for one author.
 
-Let's take a look at our standard RESTful routes:
+Verb | Path                   | Description
+---  | ---                    | ---
+GET  | `/books`               | Show a list of all books
+GET  | `/authors/7/books`     | Show books for author 7
+GET  | `/books/new`           | Form to add a new book (needs author dropdown)
+GET  | `/authors/7/books/new` | Form to add a new book for author 7 (no dropdown)
+
+To nest routes in Rails, add a block to the `resources` in the route file. Note that we're only nesting the `index` and `new` actions.
+
 ```ruby
-resources :genres
+# config/routes.rb
+resources :authors do
+  resources :books, only: [:index, :new]
+end
+
+# We still want to be able to access the full collection,
+# so books needs resources too
 resources :books
 ```
 
-Now, let's take a look at how to configure the nested routes we decided on above:
-```ruby
-resources :genres do
-  get '/books', to: 'books#index'
-  # resources :books, only: [:index]
-  # two ways to get the same nested route
-end
+**Activity:** Use `rails routes` to look at the route table. What do you notice about the new nested routes?
 
-resources :books
+When we inspect our route table, we can see two new routes have been added.
+
+```
+$ rails routes
+         Prefix Verb   URI Pattern                             Controller#Action
+   author_books GET    /authors/:author_id/books(.:format)     books#index
+new_author_book GET    /authors/:author_id/books/new(.:format) books#new
+[... author routes ...]
+          books GET    /books(.:format)                        books#index
+                POST   /books(.:format)                        books#create
+       new_book GET    /books/new(.:format)                    books#new
+[... other book routes ...]
 ```
 
-What did we gain here? We've created an additional books index route which will also contain an additional `param` value `:genre_id`. Since we are using a nested route, Rails uses a more specific parameter name rather than `:id` which we are used to.
+We can make a few observations about these new routes:
+- The URI pattern matches what we had in the table above
+    - The parameter is called `:author_id`, not `:id`
+- Since these routes have prefixes, we can use path helpers (`author_books_path`, `new_author_book_path`)
+- The original routes (`/books` and `/books/new`) are still there
+- These routes point to the same controller actions we were using before. This will help keep things DRY.
 
-## Has and Belongs to Many Relationship
-We can see the need for a new type of relationship based on the example books we described at the beginning of notes. Each book needs to have many genres and a genre does not only apply to a single book.
+**Question:** So far we have only nested the `index` and `new` actions. Should we nest the other 5 RESTful routes? Why or why not?
 
-We have discussed this scenario a few times when working through ERDs and each time we've said "we'll talk about that later"! Now is the time!
+## Controllers and Views
 
-We are going to use a **join table** to establish this relationship. This portion of our ERD will look like this:
-![join table ERD](./images/join-table-erd.png)
+### Index
 
-- Each book has zero or more genres (through the books_genres table)
-- Each genre has zero or more books (through the books_genres table)
-
-**Important Notes about Join Tables**
-- Rails is expecting the join table to be named according to the two resources we want to create the association for.
-- We don't use a separate model for the join table. We access the data we configure through the join table with our existing models, `Book` and `Genre`.
-  - Therefore when setting up the join table we want to `rails generate migration` rather than `rails generate model`
-
-```bash
-rails g migration CreateBooksGenresJoin
-```
+Because our routes are more complex, we now need to make our controllers and views a little more intelligent. A request for the book list may now come in with or without an author ID; we need to handle both cases.
 
 ```ruby
-# new migration file
-create_table :books_genres do |t|
-  t.belongs_to :book, index: true
-  t.belongs_to :genre, index: true
-  t.timestamps
-end
-```
+# app/controllers/books_controller.rb
+class BooksController < ApplicationController
+  # ...
+  def index
+    if params[:author_id]
+      # This is the nested route, /author/:author_id/books
+      author = Author.find_by(id: params[:author_id])
+      @books = author.books
 
-Then we establish the relationship on the affected model objects.
-```ruby
-# models/book.rb
-...
-has_and_belongs_to_many :genres
-```
-
-```ruby
-# models/genre.rb
-...
-has_and_belongs_to_many :books
-```
-
-## Putting it together
-
-Now that we have established the relationship we are expecting and the route that will associate the two resources together, let's see how to get started on our controller implementation.
-
-```ruby
-# books_controller.rb
-...
-def index
-  if params[:genre_id]
-    # we are in the nested route
-    # retrieve books based on the genre
-  else
-    # we are in our 'regular' route
-    @books = Book.all
+    else
+      # This is the 'regular' route, /books
+      @books = Book.all
+    end
   end
+  # ...
 end
 ```
 
-Since we are retrieving the books based off of the genre, the query now gets a bit more complex. Since we don't have a `genre_id` directly on the book table, we have to look up the genre first and use that to find associated books.
+**Question:** Do we need to make any changes to the `books#index` view template? Why or why not?
+
+**Question:** What should our code do if the author is not found, that is, if the user goes to `/authors/789012/books` or `/authors/toaster/books`?
+
+### New
+
+The `new` action will be very similar. In the past we've seen that the `form_for` view helper will automatically insert any attributes on the model into the form. We will take advantage of this functionality by filling in the `author` on the new model.
 
 ```ruby
-# books_controller.rb
-...
-def index
-  if params[:genre_id]
-    # we are in the nested route
-    # retrieve books based on the genre
-    genre = Genre.find_by(id: params[:genre_id])
-    @books = genre.books
-  else
-    # we are in our 'regular' route
-    @books = Book.all
+# app/controllers/books_controller.rb
+class BooksController < ApplicationController
+  # ...
+  def new
+    if params[:author_id]
+      # This is the nested route, /author/:author_id/books/new
+      author = Author.find_by(id: params[:author_id])
+      @books = author.books.new
+
+    else
+      # This is the 'regular' route, /books/new
+      @books = Book.new
+    end
   end
+  # ...
 end
 ```
 
-**Question:** What should our controller do if the user supplied a `genre_id` that doesn't match a genre?
+Now if we go to `/authors/2/books/new`, we should see that the dropdown menu starts with the second author selected.
+
+**Question:** Can we omit the dropdown entirely when the author is already filled in? How will this affect editing a book?
+
+## Over-nesting
+
+A common mistake is to use nested routes when they aren't required. For an example of why this is problematic, consider a nested version of the route to show a book, `/authors/:author_id/books/:id`.
+
+What should our `BooksController` do with the `author_id` parameter? Looking up a book requires the book ID, so we don't need it for that. Moreover, what if the `author_id` we loaded from the database doesn't match what was typed in the URL? Is this an error? The same questions come up with the `edit`, `update` and `destroy` paths.
+
+The central issue here is that the `author_id` parameter is _redundant_. We could already figure out the author given the book. Asking the user to send it to us again only creates an opportunity for confusion.
+
+**In general, if your route specifies a resource by ID (e.g. `/books/:id`), it probably should not be nested.**
+
+### Create
+
+The decision on whether to nest the `create` route is a little more nuanced.
+
+In our library example we have the author ID in the form data, so including the author ID in the `create` URL would introduce redundancy. This is similar to what we say above for the individual routes. What if we get a `POST /authors/7/books`, but the form data indicates the `author_id` should be 13? Is this an error? If not, which one should we trust?
+
+However, sometimes you need to do a `POST` without using a form, or the form doesn't have the information you need. In this case, nesting the `create` route might be the right way to go.
+
+## Summary
+
+- Nested routes are a tool to reflect model relations in the user's experience
+- Nested routes are created by adding a block to the call to `resources` of the parent route
+- Our controller actions need to be aware of nested routes, but we can usually re-use view code
+- Be careful not to over-nest routes
+    - Only `index`, `new` and sometimes `create` should be nested
 
 ## Additional Resources
 - [Ruby on Rails: Nested Routes](http://guides.rubyonrails.org/routing.html#nested-resources)
-- [Ruby on Rails: Has and Belongs to Many](http://guides.rubyonrails.org/association_basics.html#the-has-and-belongs-to-many-association)
