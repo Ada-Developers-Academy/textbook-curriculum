@@ -70,3 +70,4 @@ For more information, [this](https://medium.com/@julienetienne/pixels-are-dead-f
 
 # Read More
 - [Designing for accessibility is not that hard: Seven easy-to-implement guidelines to design a more accessible web ❤️](https://uxdesign.cc/designing-for-accessibility-is-not-that-hard-c04cc4779d94)
+- [Pixels vs. Ems: Users DO Change Font Size](https://medium.com/@vamptvo/pixels-vs-ems-users-do-change-font-size-5cfb20831773)
