@@ -13,7 +13,7 @@ Minitest is the default testing framework for Ruby.  We will learn and explore w
 
 As we work we will use the files located in this [repository](https://github.com/AdaGold/bill_calculator).  Fork & Clone the repository and follow along as you go.
 
-Our starter code has 2 files we will focus on.  
+Our starter code has 2 files we will focus on.
 - `bill.rb` a file we will build our class in to simulate a bill.
 - `bill_spec.rb` a file in which we will place tests to verify that our code meets expectations.
 
@@ -130,12 +130,12 @@ describe "Bill" do
   it "Can be created" do
     bill = Bill.new
     # the class of @bill should be Bill
-    bill.class.must_equal Bill
+    expect(bill.class).must_equal Bill
   end
 end
 ```
 
-Notice the line `bill.class.must_equal Bill`.  Minitest adds a bunch of expectations including the  `must_equal` method to all objects and most take one required argument.  If the required argument is equal to the object `must_equal` is being called on, the expectation passes, otherwise it fails.
+Notice the line `expect(bill.class).must_equal Bill`.  Minitest adds an `expect` method which returns an object with a bunch of expectations including the `must_equal` method.  Most expectations take one required argument.  If the required argument to `expect` is equal to the object `must_equal` is being called on, the expectation passes, otherwise it fails.
 
 When we run this with `ruby bill_spec.rb` we get:
 
@@ -208,12 +208,12 @@ Now we have our first **green/passing** test.
 
 There are a [number of expectations](http://mattsears.com/articles/2011/12/10/minitest-quick-reference/) in Minitest beyond the `must_equal` method.
 
-**Exercise** Look at the list of expectations above and revise the `bill.class.must_equal Bill` to use the `must_be_instance_of` expectation instead.
+**Exercise** Look at the list of expectations above and revise the `expect(bill.class).must_equal Bill` to use the `must_be_instance_of` expectation instead.
 
 
 #### A Word on Parentheses
 
-In the code above, we are calling `must_equal` without using parentheses `bill.class.must_equal Bill`.  Ruby doesn't FORCE you to put parentheses around a method's arguments but [the community-driven style guidelines](https://github.com/bbatsov/ruby-style-guide#method-invocation-parens) suggest that it's good coding style to put parentheses around method arguments **except** for methods which are part of an internal Domain Specific Language (DSL), or basically the syntax of some kind of framework like... Minitest.
+In the code above, we are calling `must_equal` without using parentheses `expect(bill.class).must_equal Bill`.  Ruby doesn't FORCE you to put parentheses around a method's arguments but [the community-driven style guidelines](https://github.com/bbatsov/ruby-style-guide#method-invocation-parens) suggest that it's good coding style to put parentheses around method arguments **except** for methods which are part of an internal Domain Specific Language (DSL), or basically the syntax of some kind of framework like... Minitest.
 
 So you shouldn't put parentheses around the arguments to `must` method arguments, but you **should** around your own methods.
 
@@ -234,7 +234,7 @@ describe "bill" do
   it "can be created" do
     bill = Bill.new([4.75, 8.75])
     # the class of @bill should be Bill
-    bill.class.must_equal Bill
+    expect(bill.class).must_equal Bill
   end
 end
 ```
@@ -247,7 +247,7 @@ You may remember from the [Introduction to Automated Testing](../00-programming-
 1. A `Bill` is constructed with a non-array argument
 1. Or Bill.new is called an empty list
 
-We will choose, for now, to ignore the case where someone creates a `Bill` without an argument or with an non-array.  We will come back to this on another day.  In the case of an empty array, the bill should be zero.  
+We will choose, for now, to ignore the case where someone creates a `Bill` without an argument or with an non-array.  We will come back to this on another day.  In the case of an empty array, the bill should be zero.
 
 So we will add another `it` block.
 
@@ -255,20 +255,20 @@ So we will add another `it` block.
 it "can be created with an empty array" do
   bill = Bill.new []
 
-  bill.must_be_instance_of Bill
+  expect(bill).must_be_instance_of Bill
 end
 ```
 
 #### How to make it pass?
 
-That's easy!  It **already** passes!  
+That's easy!  It **already** passes!
 
 #### Question
 What else could we do for invalid arguments to `initialize`?
 
 ### Practice Exercise
 
-Now we need make a method that calculates the bill subtotal.  Write a test (`it` block) that creates an instance of Bill, calls a `subtotal` method and ensure that it returns the correct answer (the sum of the prices).  You can use the `must_equal` matcher.  
+Now we need make a method that calculates the bill subtotal.  Write a test (`it` block) that creates an instance of Bill, calls a `subtotal` method and ensure that it returns the correct answer (the sum of the prices).  You can use the `must_equal` matcher.
 
 Then make the test pass by editing `bill.rb`
 
@@ -278,15 +278,15 @@ Check with your neighbor.  You can find a solution [here for the test](https://g
 
 ## Arrange-Act-Assert
 
-Notice our example followed a pattern from our earlier [introduction to automated tests](../00-programming-fundamentals/intro-to-automated-tests.md).  First we created a `Bill`, or **arranged** the situation.  Then by calling the `subtotal` method we **acted**, or performed the action we wanted to test.  Lastly we used the expectation to **assert** that the result of our action was correct.    This is a good example of the _Arrange-Act-Assert_ pattern discussed earlier.  
+Notice our example followed a pattern from our earlier [introduction to automated tests](../00-programming-fundamentals/intro-to-automated-tests.md).  First we created a `Bill`, or **arranged** the situation.  Then by calling the `subtotal` method we **acted**, or performed the action we wanted to test.  Lastly we used the expectation to **assert** that the result of our action was correct.    This is a good example of the _Arrange-Act-Assert_ pattern discussed earlier.
 
 ### Practice Exercise - Sales Tax
 
-Next we need to add functionality for our class to evaluate sales tax on the bill.  To start we will write a test for a method, `tax`, to calculate the taxes on a bill.  We will for now assume 8% sales tax.  
+Next we need to add functionality for our class to evaluate sales tax on the bill.  To start we will write a test for a method, `tax`, to calculate the taxes on a bill.  We will for now assume 8% sales tax.
 
 **First Write the Test**
 
-Add another `it` block inside the existing `describe` block, create an instance of `Bill`, and use a matcher to verify that `tax` returns the correct value.  Follow the same arrange-act-assert pattern as above.  
+Add another `it` block inside the existing `describe` block, create an instance of `Bill`, and use a matcher to verify that `tax` returns the correct value.  Follow the same arrange-act-assert pattern as above.
 
 Check your solution with a classmate and you can verify your answer [here](https://github.com/AdaGold/bill_calculator/commit/c9a7a2dd28c1f4edce4d9b65a0e9ef206a8ec41d)
 
@@ -311,7 +311,7 @@ describe "Bill" do
 
   it "can be created" do
     # the class of @bill should be Bill
-    @bill.must_be_instance_of Bill
+    expect(@bill).must_be_instance_of Bill
   end
 
   ...
@@ -382,7 +382,7 @@ After you finish you can check your work with a solution [here](https://github.c
 
 ## Testing Floats
 
-In this walkthrough we are testing floating point numbers for equality.  This [can be dangerous](https://books.google.com/books?id=oRqkBwAAQBAJ&pg=PA73&lpg=PA73&dq=ruby+float+comparison&source=bl&ots=8O2nV1Zjn0&sig=ckve5lVDtS-ff9hPMqhXJlNnaNM&hl=en&sa=X&ved=0ahUKEwiVvKvL6-zYAhUS-2MKHadID2YQ6AEIUjAE#v=onepage&q=ruby%20float%20comparison&f=false) because floating point numbers are inexact approximations of the real numbers.  In the real-world we would certainly round our floating point numbers to 2 decimals as it represents money and for other comparisons when you use floating point numbers you would use `must_be_within_delta` to ensure that a value is within a certain range of the target number.  For example:  `tax.must_be_within_delta @bill.subtotal * 0.08, 0.01`, which means it would be within 0.01 of the given value.
+In this walkthrough we are testing floating point numbers for equality.  This [can be dangerous](https://books.google.com/books?id=oRqkBwAAQBAJ&pg=PA73&lpg=PA73&dq=ruby+float+comparison&source=bl&ots=8O2nV1Zjn0&sig=ckve5lVDtS-ff9hPMqhXJlNnaNM&hl=en&sa=X&ved=0ahUKEwiVvKvL6-zYAhUS-2MKHadID2YQ6AEIUjAE#v=onepage&q=ruby%20float%20comparison&f=false) because floating point numbers are inexact approximations of the real numbers.  In the real-world we would certainly round our floating point numbers to 2 decimals as it represents money and for other comparisons when you use floating point numbers you would use `must_be_within_delta` to ensure that a value is within a certain range of the target number.  For example:  `expect(tax).must_be_within_delta @bill.subtotal * 0.08, 0.01`, which means it would be within 0.01 of the given value.
 
 The big take-away is to never compare floats for exact values.  Instead use `must_be_within_delta`, or round to a specific number of digits.
 
@@ -390,21 +390,21 @@ The big take-away is to never compare floats for exact values.  Instead use `mus
 
 |   Matcher	|   Example	|   What it does	|   	Negation |
 |---	|---	|---	|---	|
-|   `must_equal`	|   `obj1.must_equal obj2`	|   The test succeeds if the object equals the given object.  It fails otherwise.	|   	`wont_equal` |
-|   `must_be`	|   `num.must_be :>, 5`	|   It lets you compare the given object to another using a given operator.  In this example num must be greater than 5.	|  `wont_be`  |
-|   `must_be_empty`	|   `list.must_be_empty`	|   The test passes if the given collection is empty.	|  `wont_be_empty` |
-|   `must_be_instance_of`	|   `@bill.must_be_instance_of Bill`	|   The test passes if the object is an instance of the given class.	|  `wont_be_instance_of`  |
-|   `must_be_kind_of`	|   `list.must_be_kind_of Enumerable`	|   The test fails if the object is not a kind of the argument.	| `wont_be_kind_of`  |
-|   `must_be_nil`	|   `list.must_be_nil`	|   The test fails if the given object is not nil.	|  `wont_be_nil`   |
-|   `must_be_same_as`	|   `list.must_be_same_as another_list`	|   The test fails if the object is not the same as the given argument.	|    `wont_be_same_as`  |
-|   `must_be_silent`	|   `proc { obj1.do_something }.must_be_silent`	|   The test fails if the given block outputs something to the terminal (like using puts etc).  	|  `wont_be_silent`   |
-|   `must_be_within_delta`	|   	`(Math::PI, (22.0 / 7.0)).must_be_within_delta 0.01` |  In the documentation's example: `(Math::PI, (22.0 / 7.0)).must_be_within_delta 0.01`, this expectation will pass because 22.0/7 - Math::PI == 0.001264..., which is less than the allowed delta of 0.01.	|  `wont_be_within_delta`  |
-|   `must_include`	|   `list.must_include 31`	|   The test fails if the collection does not contain the given value.	|  `wont_include`  |
-|   `must_match`	|   `name.must_match /silly/`	|   The test fails if the object doesn't match the given regular expression.	|  `wont_match`  |
-|   `must_output`	|   `proc { obj.do_something }.must_output "something"	`|   The test fails if the given block does not output the given value.	|
-|   `must_respond_to`	|   `bill.must_respond_to :tax`	|   The test fails if the object does not respond to the given method name.  	|  `wont_respond_to`  |
-|   `must_raise`	|   `proc { obj1.do_something }.must_raise NoMethodError`	|   The test fails if the given block does not raise the given exception.	|    |
-|   `must_throw` |   	`proc { obj1.do_something }.must_throw Exception` |   	Similar to `must_raise`  You can probably safely ignore this, but you can see [here](http://stackoverflow.com/questions/51021/what-is-the-difference-between-raising-exceptions-vs-throwing-exceptions-in-ruby) for an explanation on the differences between raise and throw..  | `wont_throw`  |
+|   `must_equal`	|   `expect(obj1).must_equal obj2`	|   The test succeeds if the object equals the given object.  It fails otherwise.	|   	`wont_equal` |
+|   `must_be`	|   `expect(num).must_be :>, 5`	|   It lets you compare the given object to another using a given operator.  In this example num must be greater than 5.	|  `wont_be`  |
+|   `must_be_empty`	|   `expect(list).must_be_empty`	|   The test passes if the given collection is empty.	|  `wont_be_empty` |
+|   `must_be_instance_of`	|   `expect(@bill).must_be_instance_of Bill`	|   The test passes if the object is an instance of the given class.	|  `wont_be_instance_of`  |
+|   `must_be_kind_of`	|   `expect(list).must_be_kind_of Enumerable`	|   The test fails if the object is not a kind of the argument.	| `wont_be_kind_of`  |
+|   `must_be_nil`	|   `expect(list).must_be_nil`	|   The test fails if the given object is not nil.	|  `wont_be_nil`   |
+|   `must_be_same_as`	|   `expect(list).must_be_same_as another_list`	|   The test fails if the object is not the same as the given argument.	|    `wont_be_same_as`  |
+|   `must_be_silent`	|   `expect { obj1.do_something }.must_be_silent`	|   The test fails if the given block outputs something to the terminal (like using puts etc).  	|  `wont_be_silent`   |
+|   `must_be_within_delta`	|   	`expect(Math::PI, (22.0 / 7.0)).must_be_within_delta 0.01` |  In the documentation's example: `expect(Math::PI, (22.0 / 7.0)).must_be_within_delta 0.01`, this expectation will pass because 22.0/7 - Math::PI == 0.001264..., which is less than the allowed delta of 0.01.	|  `wont_be_within_delta`  |
+|   `must_include`	|   `expect(list).must_include 31`	|   The test fails if the collection does not contain the given value.	|  `wont_include`  |
+|   `must_match`	|   `expect(name).must_match /silly/`	|   The test fails if the object doesn't match the given regular expression.	|  `wont_match`  |
+|   `must_output`	|   `expect { obj.do_something }.must_output "something"	`|   The test fails if the given block does not output the given value.	|
+|   `must_respond_to`	|   `expect(bill).must_respond_to :tax`	|   The test fails if the object does not respond to the given method name.  	|  `wont_respond_to`  |
+|   `must_raise`	|   `expect { obj1.do_something }.must_raise NoMethodError`	|   The test fails if the given block does not raise the given exception.	|    |
+|   `must_throw` |   	`expect { obj1.do_something }.must_throw Exception` |   	Similar to `must_raise`  You can probably safely ignore this, but you can see [here](http://stackoverflow.com/questions/51021/what-is-the-difference-between-raising-exceptions-vs-throwing-exceptions-in-ruby) for an explanation on the differences between raise and throw..  | `wont_throw`  |
 
 
 ## Resources
