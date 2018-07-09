@@ -78,12 +78,12 @@ describe "Pet" do
 
   describe "initialize method" do
     it "New Pets initialize with a name" do
-      @pet.must_respond_to :name
-      @pet.name.must_equal "Ada Lovelace"
+      expect(@pet).must_respond_to :name
+      expect(@pet.name).must_equal "Ada Lovelace"
     end
 
     it "Throws an ArgumentError if created without a name" do
-      proc {
+      expect {
         AdaPets::Pet.new
       }.must_raise ArgumentError
     end
@@ -123,12 +123,12 @@ describe "Pet" do
 
     describe "initialize method" do
         it "New Pets initialize with a name" do
-            pet.must_respond_to :name
-            pet.name.must_equal "Ada Lovelace"
+            expect(pet).must_respond_to :name
+            expect(pet).name.must_equal "Ada Lovelace"
         end
 
         it "Throws an ArgumentError if created without a name" do
-          proc {
+          expect {
             AdaPets::Pet.new
           }.must_raise ArgumentError
         end
@@ -167,13 +167,13 @@ describe "Pet & Person" do
 
     it "sets the pet's person" do
      pet.set_person(person)
-     pet.person.must_be_instance_of AdaPets::Person
-     pet.person.name.must_be_instance_of String
+     expect(pet.person).must_be_instance_of AdaPets::Person
+     expect(pet.person.name).must_be_instance_of String
     end
 
     it "won't fill the array beyond 7 letters" do
       pet.set_person(person)
-      pet.person.name.must_equal "Ada Lovelace"
+      expect(pet.person.name).must_equal "Ada Lovelace"
     end
 
   end
