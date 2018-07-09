@@ -274,7 +274,7 @@ Then make the test pass by editing `bill.rb`
 
 #### Check & Verify
 
-Check with your neighbor.  You can find a solution [here for the test](https://github.com/AdaGold/bill_calculator/commit/e5bbfe7cd0235e93408e6fae81abf5f2c8624437) [and here for `bill.rb`](https://github.com/AdaGold/bill_calculator/commit/c67fec9271b50fe1d2fd28cf93db343b2dee4f06)
+Check with your neighbor.  You can find a solution [here for the test](https://github.com/AdaGold/bill_calculator/commit/931b9e78c1aeeda03251715b3e774c3e897af8c5) [and here for `bill.rb`](https://github.com/AdaGold/bill_calculator/commit/c67fec9271b50fe1d2fd28cf93db343b2dee4f06)
 
 ## Arrange-Act-Assert
 
