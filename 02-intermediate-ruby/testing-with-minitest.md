@@ -288,7 +288,7 @@ Next we need to add functionality for our class to evaluate sales tax on the bil
 
 Add another `it` block inside the existing `describe` block, create an instance of `Bill`, and use a matcher to verify that `tax` returns the correct value.  Follow the same arrange-act-assert pattern as above.
 
-Check your solution with a classmate and you can verify your answer [here](https://github.com/AdaGold/bill_calculator/commit/c9a7a2dd28c1f4edce4d9b65a0e9ef206a8ec41d)
+Check your solution with a classmate and you can verify your answer [here](https://github.com/AdaGold/bill_calculator/commit/fc38832b0643df4e0c11e362d56be17d6172f250)
 
 **Next Make It Pass**
 
