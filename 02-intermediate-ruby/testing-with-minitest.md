@@ -372,13 +372,15 @@ Finished in 0.001215s, 2469.1358 runs/s, 3292.1811 assertions/s.
 ```
 Now you can have as many spec files as you want and run all the tests with a single `rake` command.
 
-## Final Exercise
+## More Practice
 
 #### Exercise Testing `total` Method
 
 Now write a test for and implement the `Bill#total` method which should return the sum of the subtotal and tax.
 
 After you finish you can check your work with a solution [here](https://github.com/AdaGold/bill_calculator/tree/0e9911c482033bf00cb949407025e96c5afd4dc8).
+
+
 
 ## Testing Floats
 
