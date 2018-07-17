@@ -8,125 +8,127 @@
 ## Object Inheritance: _is-a_
 _Inheritance_ is used to model the behaviors of one class after another. We would want to do this when two objects have a clear relationship. Often the parent class, or _base class_, is more general while the child, or _subclass_, is more specific.
 
-For example, we could have a `Product` class that describes the general behaviors of items in an online store. This is a _base class_ or _superclass_. We could create `Book` and `Video` classes that model more specific behaviors and additional information. A `Book` is very different than a `Video`, but they are both products in the store. It would make sense then, to declare them _subclasses_ of `Product`.
+For example, we could have a `Property` class that describes the general behaviors of properties which could be used in a real estate listing site like Redfin or Zillow. This is a _base class_ or _superclass_. We could create `Apartment` and `Condo` classes that model more specific behaviors and additional information. An `Apartment` is very different than a `Condo` or a `House`, but they are all properties which can be listed. It could make sense then, to declare them _subclasses_ of `Property`.
 
-A way to describe this is by using the _is-a_ phrase: a `Book` _is-a_ `Product`. `Video` _is-a_ `Product`. In Ruby, we use the `<` symbol to denote that the class on the left of the `<` symbol is inheriting behaviors from the class on the right side of the `<` symbol:
+A way to describe this is by using the _is-a_ phrase: an `Apartment` _is-a_ `Property`.  In Ruby, we use the `<` symbol to denote that the class on the left of the `<` symbol is inheriting behaviors from the class on the right side of the `<` symbol:
 
 ```ruby
-class Product
-  attr_reader :id, :name
+class Property
+  attr_reader :id, :address
 
-  def initialize
-    @id = 12345
-    @name = "Generic Product"
+  def initialize(id, address)
+    @id = id
+    @address = address
   end
 
   def about
-    return "#{id}:  #{name}"
+    return "#{id}:  #{address}"
   end
 end
 
-# Book is-a Product
-# Book inherits from Product
-class Book < Product
+# Apartment is-a Property
+# Apartment inherits from Property
+class Apartment < Property
+  def initialize(id, address)
+    super(id, address)
+  end
 end
 ```
 
-The code above creates an is-a relationship between `Product` and `Book`.  The relationship diagramed below gives any instance of `Book` both `id`,  name and about methods.
+The code above creates an is-a relationship between `Apartment` and `Property`.  The relationship diagramed below gives any instance of `Apartment` both `id`, name and about methods.
 
-![Inheritance Diagram](images/basicInheritance.png)
+![Inheritance Diagram](images/inheritance-basic.png)
 
 ## Inheriting Methods
-So what do we get when we inherit? We get __methods__ and instance variables from the parent class. The  `Product` class has an instance method called `about`. Since all items in the store have an `about` method, our _subclasses_ will _inherit_ this method. So now our `Book` instances will have the `about` method.
+So what do we get when we inherit? We get __methods__ and instance variables from the parent class. The  `Property` class has an instance method called `about` which returns a string giving details about the property. Since all properties have an `about` method, our _subclasses_ will _inherit_ this method. So now our `Apartment` instances will have the `about` method.
 
 ```ruby
-generic_item = Product.new
-generic_item.about #=> "12345: Generic Product"
+generic_property = Property.new(12345, 'Some property')
+generic_property.about #=> "12345: Some property"
 
-poodr = Book.new
-poodr.about #=> "12345: Generic Product"
+fun_place = Apartment.new(56789, 'My fun place!')
+fun_place.about #=> "56789: My fun place!"
 ```
 
-This is known as _implicit inheritance_ because when we put functionality in the _base class_ (`Product`), then all _subclasses_ (`Book`) will automatically get those behaviors.
+This is known as _implicit inheritance_ because when we put functionality in the _base class_ (`Property`), then all _subclasses_ (`Apartment`) will automatically get those behaviors.
 
 ## Overriding Methods
 What happens when our classes have different functionality for the same idea? We can _override_ methods from _base classes_ in their _subclasses_.
 
 ```ruby
-class Book < Product
+class Apartment < Product
   def about
-    return "#{id}: Book"
+    return "Apartment #{id} at #{address}"
   end
 end
 
-generic_item = Product.new
-generic_item.about #=> "12345: Generic Product"
+generic_property = Property.new(12345, '123 St Charles Place')
+generic_property.about #=> "12345: 123 St Charles Place"
 
-poodr = Book.new
-poodr.about # => "12345: Book"
+fun_place = Apartment.new(56789, '111 Boardwalk')
+fun_place.about #=> "Apartment 56789 at 111 Boardwalk"
 ```
 
-In this case, we override the functionality that the _base class_ (`Product`) provides with more specific functionality in the _subclass_ (`Book`).
+In this case, we override the functionality that the _base class_ (`Property`) provides with more specific functionality in the _subclass_ (`Apartment`).
 
 ### Using `super` to invoke behavior in _base classes_.
 
 It's also possible to use the behavior defined in the _base class_ alongside specialized behavior in the _child class_. By using the keyword `super`, we can invoke the code in the _base class_ at any point in the _overriding_ method __and__ still be capable of using overriding code.  In other words the overriding method can do the same action as the parent class **and** more.
 
 ```ruby
-class AudioBook < Book
+class Condo < Apartment
   def about
-    # super invokes the `about` method on the _base class_ (Book)
-    return super + "-Audio"
+    # super invokes the `about` method on the _base class_ (Apartment)
+    return "Condominum #{super}"
   end
 end
 
-generic_item = Product.new
-generic_item.about # => "12345"
+generic_property = Property.new(12345, '123 St Charles Place')
+generic_property.about #=> "12345: 123 St Charles Place"
 
-audiobook = AudioBook.new
-audiobook.about # => "12345: Book-Audio"
+my_condo = Condo.new(56789, '555 Kentucky Ave')
+my_condo.about #=> "Condominum Apartment 56789 at 555 Kentucky Ave"
 ```
 
-In this case, we utilize the behavior that the _base class_ (`Book`) provides but augment it with behavior specific to the _subclass_ (`AudioBook`).
+In this case, we utilize the behavior that the _base class_ (`Apartment`) provides but augment it with behavior specific to the _subclass_ (`Condo`).
 
 ![super in method calls](images/super.png)
 
 ## Super & Initialize
 
-We've seen how methods by themselves work with methods, what about instance variables?  Instance variables are inherited as well, for example:
+We have seen how inheritance allows a subclass to "inherit" the methods, in this case `about`, from it's superclass.  We can also create an `initialize` method in the subclass and
 
 ```ruby
-class Product
-  def initialize(id, name)
+class Property
+  def initialize(id, address)
     @id = id
-    @name = name
+    @address = address
   end
 
   def about
-    return "#{id}: #{name}"
+    return "#{id}: #{address}"
   end
 end
 
-class Book < Product
-  attr_reader :author, :isbn
+class Apartment < Property
+  attr_reader :unit
 
-  def initialize(id, title, author, isbn)
+  def initialize(id, address, unit)
     super(id, title)
-    @author = author
-    @isbn = isbn
+    @unit = unit
   end
 end
 ```
 
-In the above example notice the `super` keyword in the 1st line of the `Book` class' `initialize` method.
+In the above example notice the `super` keyword in the 1st line of the `Apartment` class' `initialize` method.
 
-In initialize, `super` calls the parent, or superclass' constructor.  So `Product`'s `initialize` method is called and `@id` and `@name` are set to the given parameter.
+In initialize, `super` calls the parent, or superclass' constructor.  So `Property`'s `initialize` method is called and `@id` and `@address` are set to the given parameter.
 
 `super` must be the first line in a subclass' `initialize` method.  If `super` is called without an argument, it will use the parameters from the subclass' `initialize` method.
 
 ![Super in initialize ](images/inheritance-super.png)
 
-**Exercise**  With your seatmates create an `Video` class.  A `Video` will have, in addition to an ID number and a name, a director and publisher.  It will also have a method which returns the format of the video (BlueRay, DVD, Streaming).  The `about` method should list the format of the video, the ID and the name. Then create an instance of the `Video` class.
+**Exercise**  With your seatmates create an `House` class.  A `House` will have, in addition to an ID number and an address, a property size field and internal squarefootage.  It will also have a method which returns the ratio of the internal squarefootage vs the property size.  The `about` method should list the property's size and ratio. Then create an instance of the `House` class and test the methods.
 
 ## Summary
 
