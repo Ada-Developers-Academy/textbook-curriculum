@@ -4,7 +4,7 @@
 - Describe objects in terms of _is-a_ relationships
 - Use _inheritance_ to indicate a hierarchy of ownership or lineage between classes
 - Explore overriding method definitions in _subclasses_
-- Use `super` to invoke the behavior of a _base class_ in a _subclass
+- Use `super` to invoke the behavior of a _base class_ in a _subclass_
 
 ## Object Inheritance: _is-a_
 _Inheritance_ is used to model the behaviors of one class after another. We would want to do this when two objects have a clear relationship. Often the parent class, or _base class_, is more general while the child, or _subclass_, is more specific.
