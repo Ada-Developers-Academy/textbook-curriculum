@@ -1,6 +1,6 @@
 # Testing With Minitest
 
-Minitest is the default testing framework for Ruby.  We will learn and explore writing tests by creating a class which simulates a bill with the ability to calculate, subtotal, tax and total.  We could use such a class in any number of e-commerce applications or even a Point of Sale (POS) system.  We are going to build the `Bill` class in a TDD fashion using Minitest, as our testing framework.  In doing so we will both learn the syntax of Minitest and practice writing code in a TDD fashion.
+Minitest is the default testing framework for Ruby.  We will learn and explore writing tests by writing a method which will take in hours, minutes, seconds and returns a string formatted human readable time.  In doing so we will both learn the syntax of Minitest and practice writing code in a TDD fashion.
 
 ## Learning Goals
 - Discover techniques to verify our code performs as expected using _automated tests_
@@ -11,11 +11,11 @@ Minitest is the default testing framework for Ruby.  We will learn and explore w
 
 ## Starter Files
 
-As we work we will use the files located in this [repository](https://github.com/AdaGold/bill_calculator).  Fork & Clone the repository and follow along as you go.
+As we work we will use the files located in this [repository](https://github.com/AdaGold/clock).  Fork & Clone the repository and follow along as you go.
 
 Our starter code has 2 files we will focus on.
-- `bill.rb` a file we will build our class in to simulate a bill.
-- `bill_spec.rb` a file in which we will place tests to verify that our code meets expectations.
+- `clock.rb` a file we will build our method in to return a string formatted as a time.
+- `clock_spec.rb` a file in which we will place tests to verify that our code meets expectations.
 
 ### Before We Get Started
 
@@ -29,29 +29,29 @@ $  gem install minitest-reporters
 
 ### How To Use Minitest?
 
-To start with we'll add some code to `bill_spec.rb`.  We will also require `minitest/autorun`
+To start with we'll add some code to `clock_spec.rb`.  We will also require `minitest/autorun`
 
 ```ruby
-# bill_spec.rb
+# clock_spec.rb
 
 require 'minitest/autorun'
 require 'minitest/reporters'
-require_relative 'bill'
+require_relative 'clock'
 
 Minitest::Reporters.use!
 ```
 
-Note that `bill.rb` which will hold our class is currently empty.
+Note that `clock.rb` which will hold our method is currently empty.
 
 ```ruby
-# bill.rb
+# clock.rb
 ```
 
 
-We can run the tests by typing:  `ruby bill_spec.rb` and get the following:
+We can run the tests by typing:  `ruby clock_spec.rb` and get the following:
 
 ```bash
-$ ruby bill_spec.rb
+$ ruby clock_spec.rb
 Run options: --seed 35264
 
 # Running:
@@ -74,14 +74,14 @@ To start we'll need to create a `description` block and place our tests inside t
 #### Step 1:  Create a `describe` block
 
 ```ruby
-# bill_spec.rb
+# clock_spec.rb
 require 'minitest/autorun'
 require 'minitest/reporters'
-require_relative 'bill'
+require_relative 'clock'
 
 Minitest::Reporters.use!
 
-describe "Bill" do
+describe "Clock" do
 
 end
 ```
@@ -94,18 +94,19 @@ Now we'll create an `it` block which is a test-case.  Each `describe` block can 
 
 
 ```ruby
-# bill_spec.rb
+# clock_spec.rb
 
 require 'minitest/autorun'
 require 'minitest/reporters'
-require_relative 'bill'
+require_relative 'clock'
 
 Minitest::Reporters.use!
 
 
-describe "Bill" do
-  it "Can be created" do
-    # Testing goes in here
+describe "Clock" do
+
+  it "will return a string" do
+
   end
 end
 ```
@@ -113,103 +114,77 @@ end
 #### Step 3:  Add an expectation
 
 
-So we have a test-case, but it's not actually checking anything yet.  So we can add an _expectation_ which is a method call that describes a condition it **expects** the given item to meet.  In this case we need to **expect** that if we create a bill, it's an instance of the Bill class.  Expectations typically start with `must_` or `wont_`.
+So we have a test-case, but it's not actually checking anything yet.  So we can add an _expectation_ which is a method call that describes a condition it **expects** the given item to meet.  In this case we need to **expect** that if we call clock, it will return a string.  Expectations typically start with `must_` or `wont_`.
 
 So lets write our expectation
 
 ```ruby
-# bill_spec.rb
+# clock_spec.rb
 
 require 'minitest/autorun'
 require 'minitest/reporters'
-require_relative 'bill'
+require_relative 'clock'
 
 Minitest::Reporters.use!
 
-describe "Bill" do
-  it "Can be created" do
-    bill = Bill.new
-    # the class of @bill should be Bill
-    expect(bill.class).must_equal Bill
+describe "Clock" do
+  it "will return a string" do
+    # the `clock` method must return a string
+    expect(clock() ).must_be_instance_of String
   end
 end
 ```
 
-Notice the line `expect(bill.class).must_equal Bill`.  Minitest adds an `expect` method which returns an object with a bunch of expectations including the `must_equal` method.  Most expectations take one required argument.  If the required argument to `expect` is equal to the object `must_equal` is being called on, the expectation passes, otherwise it fails.
+Notice the line `expect(clock() ).must_be_instance_of String`.  Minitest adds an `expect` method which returns an object with a bunch of expectations including the `must_be_instance_of` method.  Most expectations take one required argument.  If the required argument to `expect` is a string the expectation passes.
 
 When we run this with `ruby bill_spec.rb` we get:
 
 ```bash
-ruby bill_spec.rb
+ruby clock_spec.rb
 Run options: --seed 21626
 
 # Running:
 
-EE
+ERROR["test_0001_will return a string", "Clock", 0.0008059999672695994]
+ test_0001_will return a string#Clock (0.00s)
+NoMethodError:         NoMethodError: undefined method `clock' for #<#<Class:0x00007faa528a19d0>:0x00007faa528e1fa8>
+            clock_spec.rb:12:in `block (2 levels) in <main>'
 
-Error:
-bill#test_0001_can be created:
-NameError: uninitialized constant Bill
-    bill_spec.rb:9:in `block (2 levels) in <main>'
+  1/1: [] 100% Time: 00:00:00, Time: 00:00:00
 
-
-bin/rails test bill_spec.rb:8
-
-
-
-Finished in 0.003340s, 299.4012 runs/s, 0.0000 assertions/s.
-
-  1) Error:
-bill#test_0001_can be created:
-NameError: uninitialized constant Bill
-    bill_spec.rb:9:in `block (2 levels) in <main>'
-
-1 runs, 0 assertions, 0 failures, 1 errors, 0 skips
-
-
-
-Finished in 0.457662s, 2.1850 runs/s, 0.0000 assertions/s.
-1 runs, 0 assertions, 0 failures, 1 errors, 0 skips
+Finished in 0.00333s
+1 tests, 0 assertions, 0 failures, 1 errors, 0 skips
 ```
 
-**This is a good thing.**  We have our first **red** test.  There's an error because we haven't created the Bill class yet.
+**This is a good thing.**  We have our first **red** test.  There's an error because we haven't created the Clock method yet.
 
 ####  Step 4:  Write Code To Make It Pass
 
-Lets make the test pass by creating a Bill class.
+Lets make the test pass by creating a Clock method which returns a string.
 
 ```ruby
-# bill.rb
+# clock.rb
 
-class Bill
-
+def clock
+  return ''
 end
 ```
 
-Now `ruby bill_spec.rb` gets us:
+Now `ruby clock_spec.rb` gets us:
 
 ```bash
-Run options: --seed 32657
+$ ruby clock_spec.rb
+Started with run options --seed 23098
 
-# Running:
+  1/1: [] 100% Time: 00:00:00, Time: 00:00:00
 
-..
-
-Finished in 0.001089s, 918.2736 runs/s, 918.2736 assertions/s.
-
-1 runs, 1 assertions, 0 failures, 0 errors, 0 skips
-
-Finished in 0.454822s, 2.1987 runs/s, 2.1987 assertions/s.
-1 runs, 1 assertions, 0 failures, 0 errors, 0 skips
-
+Finished in 0.00116s
+1 tests, 1 assertions, 0 failures, 0 errors, 0 skips
 ```
 
 Now we have our first **green/passing** test.
 
-There are a [number of expectations](http://mattsears.com/articles/2011/12/10/minitest-quick-reference/) in Minitest beyond the `must_equal` method.
-
-**Exercise** Look at the list of expectations above and revise the `expect(bill.class).must_equal Bill` to use the `must_be_instance_of` expectation instead.
-
+There are a [number of expectations](http://mattsears.com/articles/2011/12/10/minitest-quick-reference/) in Minitest beyond the `must_be_instance_of` method.
 
 #### A Word on Parentheses
 
@@ -217,12 +192,12 @@ In the code above, we are calling `must_equal` without using parentheses `expect
 
 So you shouldn't put parentheses around the arguments to `must` method arguments, but you **should** around your own methods.
 
-### Adding Functionality
+### Testing Specific Values
 
-We are going to require that Bill must be instantiated with a list (array) of prices (integers).  Each item will have a name and price.  So we will revise the test to look like this:
+We are going to require that clock must be called with a set of arguments, hours, minutes, seconds.  So we will add another test.
 
 ```ruby
-# bill_spec.rb
+# clock_spec.rb
 
 require 'minitest/autorun'
 require 'minitest/reporters'
