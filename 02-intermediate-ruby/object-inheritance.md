@@ -127,7 +127,7 @@ In this case, we override the functionality that the _base class_ (`Property`) p
 
 ### Using `super` to invoke behavior in _base classes_.
 
-It's also possible to use the behavior defined in the _base class_ alongside specialized behavior in the _child class_. By using the keyword `super`, we can invoke the code in the _base class_ at any point in the _overriding_ method __and__ still be capable of using overriding code.  In other words the overriding method can do the same action as the parent class **and** more.  This can help us DRY up our code significantly.
+It's also possible to use the behavior defined in the _base class_ alongside specialized behavior in the _child class_. By using the keyword `super`, we can invoke the code in the _base class_ at any point in the _overriding_ method __and__ still be capable of using the overridden code.  In other words the overriding method can do the same action as the parent class **and** more.  This can help us DRY up our code significantly.
 
 ```ruby
 class Apartment < Property
