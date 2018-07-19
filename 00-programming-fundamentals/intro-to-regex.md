@@ -3,7 +3,7 @@
 Be able to answer the following questions:  
 - What is a regular expression?
 - How can I write a regular expression to match on a specific pattern?
-
+- How can I use regular expressions to speed up my development workflow?
 
 ## Introduction  
 
@@ -58,26 +58,27 @@ You can also adjust the character set to accept a range of characters.  For exam
 How could you match any alphanumeric digit like "a", "W", or "0"? [Click here to see a solution.](https://gist.github.com/CheezItMan/2d445458f7c25eee37f5fd5b212077f4)
 
 
-## The Wildcard and Special Characters
+## The Wildcard and Quantifiers
 
-Sometimes you will want to accept any character.  For that purpose you can use the wildcard character the period (.).  For example the regex `/ada./` will match ada followed by any single character.  Another common need is for characters that can repeat.  For this there are several helpful symbols to use.  These special characters indicate how often a pattern can appear in matching strings.  The plus (+) symbol indicates one or more instances, while the asterix (*) indicates zero or more instances and the question mark (?) indicates a the item before it, called the token, is optional in that it might appear once or not at all.
+Sometimes you will want to accept any character.  For that purpose you can use the _wildcard_ character, a period (`.`).
 
-| Special Character | Meaning |
-| --- | --- |
-|  .  |  Matches any character |
-|  *  |  Matches if the preceeding token occurs zero or more times.  For example `/[0-9]*/` matches zero or more digits so `""`,  `"123"`, and `"5"` would match. |  
-|  +  |  Matches if the preceeding token occurs one or more times.  For example `/[0-9]+/` matches one or more digits so both `"1"` and `"345"` would match.  |
-|  ?  |  Marks the preceeding token optional.  So `/example[0-9]?/` matches `"example"` followed by one or no digits, thus `"example"`, `"example1"` and `"example13"` all match.  |
+Another common need is for characters that are optional or can repeat. For this there are several helpful symbols called _quantifiers_: `*`, `+` and `?`.
 
+These characters are summarized in the following table.
 
-Examples:  
+Character | Meaning            | Example
+---       | ---                |
+`.`       | Any one character  | `/a.a/` matches `ada`, `ava`, and `a!a`
+`*`       | Preceding token may occur **zero** or more times | `/ad*a/` matches `aa`, `ada`, and `adddda`<br><br>`/[0-9]*/` matches `1`, `345`, and the empty string<br><br>`.*` matches any string
+`+`       | Preceding token may occur **one** or more times. | `/ad+a/` matches `ada` and `adddda` but **not** `aa`<br><br>`/[0-9]+/` matches `1` and `345` but **not** the empty string<br><br>`.+` matches any string **except for** the empty string
+`?`       | Preceding token is optional (may occur zero or one times) | `/ad?a/` matches `aa` and `ada`<br><br>`/[0-9]/` matches `2` and the empty string but not `27` or `356`<br><br>`.?` matches any one character or the empty string
 
-- `.+`  - Matches one or more of any characters.  
--  `/[0-9]+/` - Matches one or more digits
--  `/[A-Z]*/` - Matches zero or more capital letters.
--  `/[a-z_][A-Za-z0-9]*/`  - Matches a lower case letter or underscore followed by zero or more alphanumeric characters.  
+### Practice
 
-![regex diagram](images/regex2.png)
+Write a regular expression to match a valid email of form `name@domain.tld`
+- Matches `dee@adadev.org`, `adalovelace@gmail.com`, `magictavern@puppies.supplies`
+- Rejects `dan@adadev.`, `charles.com`, `@adadev.org`, `sarah@.org`
+- Use `\.` for a literal period (more on this later)
 
 ## The NOT `^` Character
 
@@ -93,7 +94,7 @@ How can you write a regex which would accept, `dog`, `sog`, and `hog`, but exclu
 
 ## Escape characters
 
-There are lots of characters that have special meanings in a Regex (such as the + or * characters).  Just like Strings you can use the backslash character to select the exact character in the text.  It can also be used as a shortcut for common classes of characters.
+There are lots of characters that have special meanings in a Regex (such as the `+` or `*` characters).  Just like Strings you can use the backslash character to select the exact character in the text.  It can also be used as a shortcut for common classes of characters.
 
 
 Some examples include:
@@ -121,7 +122,7 @@ Try to write a regex for any amount of US currency, for example it should match 
 
 ## Repetitions
 
-The * and + characters allow a token to be repeated, but often, such as for a zip code, you will want to limit a token to a specific number of repetitions.  For that you can use the curly braces ({}).  A number placed in the curly braces will indicate how many times the preceding token can be repeated.  So for example `/[abc]{3}/` will allow the letters a, b or c to be repeated three times, so "aaa" would match, as would "abc" as would "cab".
+The `*` and `+` characters allow a token to be repeated, but often, such as for a zip code, you will want to limit a token to a specific number of repetitions.  For that you can use the curly braces (`{}`).  A number placed in the curly braces will indicate how many times the preceding token can be repeated.  So for example `/[abc]{3}/` will allow the letters `a`, `b` or `c` to be repeated three times, so `"aaa"` would match, as would `"abc"` and `"cab"`.
 
 A range of repetitions can also be repeated by using two parameters in the curly braces.  For example `/[abc]{3, 5}/` would allow the characters to repeat between 3 and 5 times.
 
