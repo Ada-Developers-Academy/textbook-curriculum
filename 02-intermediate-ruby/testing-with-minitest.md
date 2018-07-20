@@ -216,7 +216,6 @@ Minitest::Reporters.use!
 
 describe "clock" do
   it "can be called with hours, minutes and seconds as arguments" do
-
     # Arrange
     hours = 8
     minutes = 14
@@ -231,16 +230,15 @@ describe "clock" do
   end
 
   it "will return a string formatted in hh:mm:ss format" do
+    # Arrange
+    hours = 8
+    minutes = 14
+    seconds = 27
 
-        # Arrange
-        hours = 8
-        minutes = 14
-        seconds = 27
+    # Act
+    time = clock(hours, minutes, seconds)
 
-        # Act
-        time = clock(hours, minutes, seconds)
-
-        # Assert
+    # Assert
     expect((time)).must_equal "08:14:27"
   end
 end
@@ -250,7 +248,7 @@ end
 
 ## Arrange-Act-Assert
 
-Notice our example followed a pattern from our earlier [introduction to automated tests](../00-programming-fundamentals/intro-to-automated-tests.md).  First we set values for hours, minutes and seconds, or **arranged** the situation.  Then by calling the `clock` method we **acted**, or performed the action we wanted to test.  Lastly we used the expectation to **assert** that the result of our action was correct.    This is a good example of the _Arrange-Act-Assert_ pattern discussed earlier.
+Notice our example followed a pattern from our earlier [introduction to automated tests](../00-programming-fundamentals/intro-to-automated-tests.md).  First we set values for hours, minutes and seconds, or **arranged** the situation.  Then by calling the `clock` method we **acted**, or performed the action we wanted to test.  Lastly we used the expectation to **assert** that the result of our action was correct.    This is a good example of the _Arrange-Act-Assert_ pattern discussed earlier.  Yes you can combine steps here and there's nothing wrong with that, but for clarity we are breaking the Arrange-Act-Assert pattern into discrete steps in our test.
 
 #### Edge Cases
 
@@ -261,7 +259,7 @@ You may remember from the [Introduction to Automated Testing](../00-programming-
 1. The seconds are greater than or equal to 60, should raise an error
 1. Any parameter is less than 0, should raise an error
 
-**Question** Are there other edge-cases we should test for?  Talk about it with your SeatSquad members.  If you are unsure check [here](https://gist.github.com/ada-instructor-1/27c2cb78b177a6139241860a6bc54712).
+**Question** Are there other edge-cases we should test for?  Do any other inputs cause different behaviors in the method?  Talk about it with your SeatSquad members.  If you are unsure check [here](https://gist.github.com/ada-instructor-1/27c2cb78b177a6139241860a6bc54712).
 
 We will choose to ignore for now cases where the user passes a non-integer in as a parameter.  In that case it should cause a runtime error.
 
@@ -344,8 +342,7 @@ end
 -  [test](https://github.com/AdaGold/clock/commit/68ae76cac9740bbfeabb63577022eb618b6371d5)
 -  [clock method](https://github.com/AdaGold/clock/commit/7b60fdf4ea449f8934ec8229960f5dcd1b0c4371).
 
-**Question**:  What additional edge cases should you cover?  Write tests for these cases and ensure they pass.
-
+**Question** How could you test the code if the arguments were optional?  What if `clock()` should return `00:00:00`?
 
 ## Organizing Code
 
