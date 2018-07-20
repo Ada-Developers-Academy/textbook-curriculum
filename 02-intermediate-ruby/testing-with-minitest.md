@@ -63,10 +63,10 @@ Finished in 0.000751s, 0.0000 runs/s, 0.0000 assertions/s.
 0 runs, 0 assertions, 0 failures, 0 errors, 0 skips
 ```
 
-Minitest is running (Yippie!), but we haven't actually written a test yet.
+The code we added to `clock_spec.rb` will automatically run any tests in the file.  When we execute `clock_spec.rb` it scans the file for any test cases and runs them giving us the above output.  Minitest is running (Yippie!), but we haven't actually written a test yet, so we get `0 runs, 0 assertions...`.
 
 
-#### Writing Your First Test
+### Writing Your First Test
 
 To start we'll need to create a `description` block and place our tests inside that block.
 
@@ -129,15 +129,24 @@ Minitest::Reporters.use!
 
 describe "Clock" do
   it "will return a string" do
+    # Arrange
+    hours = 8
+    minutes = 14
+    seconds = 27
+
+    # Act
+    time = clock(hours, minutes, seconds)
+
+    # Assert
     # the `clock` method must return a string
-    expect(clock() ).must_be_instance_of String
+    expect(time).must_be_instance_of String
   end
 end
 ```
 
-Notice the line `expect(clock() ).must_be_instance_of String`.  Minitest adds an `expect` method which returns an object with a bunch of expectations including the `must_be_instance_of` method.  Most expectations take one required argument.  If the required argument to `expect` is a string the expectation passes.
+Notice the line `expect(time).must_be_instance_of String`.  Minitest adds an `expect` method which returns an object with a bunch of expectations including the `must_be_instance_of` method.  Most expectations take one required argument.  If the required argument to `expect` is a string the expectation passes.
 
-When we run this with `ruby bill_spec.rb` we get:
+When we run this with `ruby clock_spec.rb` we get:
 
 ```bash
 ruby clock_spec.rb
@@ -160,12 +169,12 @@ Finished in 0.00333s
 
 ####  Step 4:  Write Code To Make It Pass
 
-Lets make the test pass by creating a Clock method which returns a string.
+Lets make the test pass by creating the clock method which returns a string.
 
 ```ruby
 # clock.rb
 
-def clock
+def clock(hours, minutes, seconds)
   return ''
 end
 ```
@@ -188,109 +197,155 @@ There are a [number of expectations](http://mattsears.com/articles/2011/12/10/mi
 
 #### A Word on Parentheses
 
-In the code above, we are calling `must_equal` without using parentheses `expect(bill.class).must_equal Bill`.  Ruby doesn't FORCE you to put parentheses around a method's arguments but [the community-driven style guidelines](https://github.com/bbatsov/ruby-style-guide#method-invocation-parens) suggest that it's good coding style to put parentheses around method arguments **except** for methods which are part of an internal Domain Specific Language (DSL), or basically the syntax of some kind of framework like... Minitest.
+In the code above, we are calling `must_be_instance_of` without using parentheses `expect(time).must_be_instance_of String`.  Ruby doesn't **force** you to put parentheses around a method's arguments, but [the community-driven style guidelines](https://github.com/bbatsov/ruby-style-guide#method-invocation-parens) suggest that it's good coding style to put parentheses around method arguments **except** for methods which are part of an internal Domain Specific Language (DSL), or basically the syntax of some kind of framework like... Minitest.
 
-So you shouldn't put parentheses around the arguments to `must` method arguments, but you **should** around your own methods.
+So you shouldn't put parentheses around the arguments to expectations like `must_equal`, but you **should** around your own methods.
 
 ### Testing Specific Values
 
-We are going to require that clock must be called with a set of arguments, hours, minutes, seconds.  So we will add another test.
+We are going to require that clock called with specific arguments returns a string formatted with the time properly.
 
 ```ruby
 # clock_spec.rb
 
 require 'minitest/autorun'
 require 'minitest/reporters'
-require_relative 'bill'
+require_relative 'clock'
 
 Minitest::Reporters.use!
 
-describe "bill" do
-  it "can be created" do
-    bill = Bill.new([4.75, 8.75])
-    # the class of @bill should be Bill
-    expect(bill.class).must_equal Bill
+describe "clock" do
+  it "can be called with hours, minutes and seconds as arguments" do
+
+    # Arrange
+    hours = 8
+    minutes = 14
+    seconds = 27
+
+    # Act
+    time = clock(hours, minutes, seconds)
+
+    # Assert
+    # the `clock` method must return a string
+    expect(time).must_be_instance_of String
+  end
+
+  it "will return a string formatted in hh:mm:ss format" do
+
+        # Arrange
+        hours = 8
+        minutes = 14
+        seconds = 27
+
+        # Act
+        time = clock(hours, minutes, seconds)
+
+        # Assert
+    expect((time)).must_equal "08:14:27"
   end
 end
 ```
 
-#### Our First Edge Cases
+**Exercise** Our new test is **red** or failing now.  Update the `clock` method to make the test pass.  You can see a solution [here](https://github.com/AdaGold/clock/commit/56259f91df17a3f6e18872fd661db8eddfc93786).
 
-You may remember from the [Introduction to Automated Testing](../00-programming-fundamentals/intro-to-automated-tests.md) that we also have an edge-case when the list is empty.  As designers we decide what to do when:
+## Arrange-Act-Assert
 
-1. A `Bill` is constructed without an argument
-1. A `Bill` is constructed with a non-array argument
-1. Or Bill.new is called an empty list
+Notice our example followed a pattern from our earlier [introduction to automated tests](../00-programming-fundamentals/intro-to-automated-tests.md).  First we set values for hours, minutes and seconds, or **arranged** the situation.  Then by calling the `clock` method we **acted**, or performed the action we wanted to test.  Lastly we used the expectation to **assert** that the result of our action was correct.    This is a good example of the _Arrange-Act-Assert_ pattern discussed earlier.
 
-We will choose, for now, to ignore the case where someone creates a `Bill` without an argument or with an non-array.  We will come back to this on another day.  In the case of an empty array, the bill should be zero.
+#### Edge Cases
+
+You may remember from the [Introduction to Automated Testing](../00-programming-fundamentals/intro-to-automated-tests.md) that it is important to test the boundaries of possible input values.  In this example we should test if:
+
+1. The hour is equal to or greater than 24, should raise an error
+1. The minutes are greater than or equal to 60, should raise an error
+1. The seconds are greater than or equal to 60, should raise an error
+1. Any parameter is less than 0, should raise an error
+
+**Question** Are there other edge-cases we should test for?  Talk about it with your SeatSquad members.  If you are unsure check [here](https://gist.github.com/ada-instructor-1/27c2cb78b177a6139241860a6bc54712).
+
+We will choose to ignore for now cases where the user passes a non-integer in as a parameter.  In that case it should cause a runtime error.
 
 So we will add another `it` block.
 
 ```ruby
-it "can be created with an empty array" do
-  bill = Bill.new []
+it "will display leading zeros for numbers smaller than 10" do
+  time = clock(11, 8, 14)
+  expect(time).must_equal "11:08:14"
 
-  expect(bill).must_be_instance_of Bill
+  time = clock(8, 11, 14);
+  expect(time).must_equal "08:11:14"
+
+  time = clock(11, 14, 8);
+  expect(time).must_equal "11:14:08"
 end
 ```
 
-#### How to make it pass?
+Notice that you **can** use multiple expectations per test.
 
-That's easy!  It **already** passes!
+#### Make it pass
 
-#### Question
-What else could we do for invalid arguments to `initialize`?
-
-### Practice Exercise
-
-Now we need make a method that calculates the bill subtotal.  Write a test (`it` block) that creates an instance of Bill, calls a `subtotal` method and ensure that it returns the correct answer (the sum of the prices).  You can use the `must_equal` matcher.
-
-Then make the test pass by editing `bill.rb`
-
-#### Check & Verify
-
-Check with your neighbor.  You can find a solution [here for the test](https://github.com/AdaGold/bill_calculator/commit/931b9e78c1aeeda03251715b3e774c3e897af8c5) [and here for `bill.rb`](https://github.com/AdaGold/bill_calculator/commit/c67fec9271b50fe1d2fd28cf93db343b2dee4f06)
-
-## Arrange-Act-Assert
-
-Notice our example followed a pattern from our earlier [introduction to automated tests](../00-programming-fundamentals/intro-to-automated-tests.md).  First we created a `Bill`, or **arranged** the situation.  Then by calling the `subtotal` method we **acted**, or performed the action we wanted to test.  Lastly we used the expectation to **assert** that the result of our action was correct.    This is a good example of the _Arrange-Act-Assert_ pattern discussed earlier.
-
-### Practice Exercise - Sales Tax
-
-Next we need to add functionality for our class to evaluate sales tax on the bill.  To start we will write a test for a method, `tax`, to calculate the taxes on a bill.  We will for now assume 8% sales tax.
-
-**First Write the Test**
-
-Add another `it` block inside the existing `describe` block, create an instance of `Bill`, and use a matcher to verify that `tax` returns the correct value.  Follow the same arrange-act-assert pattern as above.
-
-Check your solution with a classmate and you can verify your answer [here](https://github.com/AdaGold/bill_calculator/commit/fc38832b0643df4e0c11e362d56be17d6172f250)
-
-**Next Make It Pass**
-
-Then modify `Bill` to make the test pass.
-
-Check your solution with a classmate and you can verify your answer [here](https://github.com/AdaGold/bill_calculator/commit/b2917775a00b5ada7aec8073409dc9278a54582b)
+**Exercise** Now with your SeatSquad write code to make the test pass.  Remember to run `ruby clock_spec.rb` to verify that your `clock` method passes.  If you get stuck you can refer to [my sample solution](https://github.com/AdaGold/clock/commit/56259f91df17a3f6e18872fd661db8eddfc93786).
 
 
-**Question**:  What additional edge cases should you cover?
+### Testing for Errors
 
-## Drying Tests
-
-Notice that we are doing `bill = Bill.new ...` a lot!  We can DRY out our code by adding a `before` block inside our `describe`.  `before` blocks are executed **each time** before each `it` executes.  That lets us create an instance variable and use it rather than repeat our **arrange** steps for each test case.
+We often **want** our code to raise errors if given invalid arguments.  This is to prevent users of our methods from getting into trouble providing invalid data.  In our case we want the user to get an error if they try to provide an invalid hour, minute or second.
 
 ```ruby
-describe "Bill" do
-  before do
-    @bill = Bill.new [4.75, 8.75]
-  end
+it "will raise an error when given an invalid argument" do
+  expect {
+    clock(25, 14, 8)
+  }.must_raise ArgumentError
 
-  it "can be created" do
-    # the class of @bill should be Bill
-    expect(@bill).must_be_instance_of Bill
-  end
+  expect {
+    clock(11, 60, 8)
+  }.must_raise ArgumentError
 
-  ...
+  expect {
+    clock(11, 14, 60)
+  }.must_raise ArgumentError
+end
 ```
+
+The `must_raise` expectation takes in a block of code, and runs it checking to see if the given error was raised.
+
+We can then update our method to make the test pass with:
+
+```ruby
+# clock.rb
+
+def clock(hours, minutes, seconds)
+  time_fields = [hours, minutes, seconds]
+  max_values = [23, 59, 59]
+
+  time_fields.each_with_index do |field, index|
+    if field > max_values[index]
+      raise ArgumentError.new("#{field} is too large")
+    end
+  end
+
+  time_fields.map! do |field|
+    if field < 10
+      "0#{field}"
+    else
+      "#{field}"
+    end
+  end
+
+  return "#{time_fields[0]}:#{time_fields[1]}:#{time_fields[2]}"
+end
+```
+
+**What is this `raise` keyword?!!**
+
+`raise` is used to stop execution and leave the method immediately, and it's used to indicate an error to the user.  In this case it prevents the user from providing `clock` invalid arguments.
+
+**Exercise:** Now write a test to prevent too small inputs.  Then update `clock` to make the test pass.  Check with your neighbor.  If you get stuck you can verify your answer with the following links.
+-  [test](https://github.com/AdaGold/clock/commit/68ae76cac9740bbfeabb63577022eb618b6371d5)
+-  [clock method](https://github.com/AdaGold/clock/commit/7b60fdf4ea449f8934ec8229960f5dcd1b0c4371).
+
+**Question**:  What additional edge cases should you cover?  Write tests for these cases and ensure they pass.
+
 
 ## Organizing Code
 
@@ -347,21 +402,32 @@ Finished in 0.001215s, 2469.1358 runs/s, 3292.1811 assertions/s.
 ```
 Now you can have as many spec files as you want and run all the tests with a single `rake` command.
 
-## More Practice
-
-#### Exercise Testing `total` Method
-
-Now write a test for and implement the `Bill#total` method which should return the sum of the subtotal and tax.
-
-After you finish you can check your work with a solution [here](https://github.com/AdaGold/bill_calculator/tree/0e9911c482033bf00cb949407025e96c5afd4dc8).
-
-
 
 ## Testing Floats
 
-In this walkthrough we are testing floating point numbers for equality.  This [can be dangerous](https://books.google.com/books?id=oRqkBwAAQBAJ&pg=PA73&lpg=PA73&dq=ruby+float+comparison&source=bl&ots=8O2nV1Zjn0&sig=ckve5lVDtS-ff9hPMqhXJlNnaNM&hl=en&sa=X&ved=0ahUKEwiVvKvL6-zYAhUS-2MKHadID2YQ6AEIUjAE#v=onepage&q=ruby%20float%20comparison&f=false) because floating point numbers are inexact approximations of the real numbers.  In the real-world we would certainly round our floating point numbers to 2 decimals as it represents money and for other comparisons when you use floating point numbers you would use `must_be_within_delta` to ensure that a value is within a certain range of the target number.  For example:  `expect(tax).must_be_within_delta @bill.subtotal * 0.08, 0.01`, which means it would be within 0.01 of the given value.
+In future methods you may have methods which return floating point values, for example you could write a method which calculates an appropriate tip for a server.  You should **not** use `must_equal` to test a floating point value for equality.
 
-The big take-away is to never compare floats for exact values.  Instead use `must_be_within_delta`, or round to a specific number of digits.
+Why?
+
+Computers can only approximate floating point calculations.  Rounding errors can result in values which are _slightly_ off.  Instead you should use the `must_be_close_to` matcher.
+
+For example:
+
+```ruby
+describe "Example tip" do
+  it "calculates a 20% tip" do
+    # Arrange
+    bill = 37.50
+
+    # Act
+    tip = calculate_tip(37.5)
+
+    # Assert - the answer will be within 0.01 of 7.5
+    expect(tip).must_be_close_to 7.5, 0.01
+  end
+
+end
+```
 
 ## List of Minitest Matchers
 
@@ -375,7 +441,7 @@ The big take-away is to never compare floats for exact values.  Instead use `mus
 |   `must_be_nil`	|   `expect(list).must_be_nil`	|   The test fails if the given object is not nil.	|  `wont_be_nil`   |
 |   `must_be_same_as`	|   `expect(list).must_be_same_as another_list`	|   The test fails if the object is not the same as the given argument.	|    `wont_be_same_as`  |
 |   `must_be_silent`	|   `expect { obj1.do_something }.must_be_silent`	|   The test fails if the given block outputs something to the terminal (like using puts etc).  	|  `wont_be_silent`   |
-|   `must_be_within_delta`	|   	`expect(Math::PI, (22.0 / 7.0)).must_be_within_delta 0.01` |  In the documentation's example: `expect(Math::PI, (22.0 / 7.0)).must_be_within_delta 0.01`, this expectation will pass because 22.0/7 - Math::PI == 0.001264..., which is less than the allowed delta of 0.01.	|  `wont_be_within_delta`  |
+|   `must_be_close_to`	|   	`expect(Math::PI, (22.0 / 7.0)).must_be_close_to 0.01` |  In the documentation's example: `expect(Math::PI, (22.0 / 7.0)).must_be_within_delta 0.01`, this expectation will pass because 22.0/7 - Math::PI == 0.001264..., which is less than the allowed delta of 0.01.	|  `wont_be_close_to`  |
 |   `must_include`	|   `expect(list).must_include 31`	|   The test fails if the collection does not contain the given value.	|  `wont_include`  |
 |   `must_match`	|   `expect(name).must_match /silly/`	|   The test fails if the object doesn't match the given regular expression.	|  `wont_match`  |
 |   `must_output`	|   `expect { obj.do_something }.must_output "something"	`|   The test fails if the given block does not output the given value.	|
