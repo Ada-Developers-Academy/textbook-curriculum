@@ -73,10 +73,10 @@ $ git config --global color.branch auto
 - `$ git config --get user.name` Should show your name
 - `$ git config --get user.email` Should show your email
 
-We now need to verify that github is set up properly.  
+<!-- We now need to verify that github is set up properly.  
 
-**Exercise** 
-- [Complete the Github-Git Verification Exercise](exercises/github-verification.md) 
+**Exercise**
+- [Complete the Github-Git Verification Exercise](exercises/github-verification.md)  -->
 
 ## It's All About Communication!
 
