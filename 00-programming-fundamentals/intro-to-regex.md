@@ -55,8 +55,9 @@ You can also adjust the character set to accept a range of characters.  For exam
 
 ### Practice
 
-How could you match any alphanumeric digit like "a", "W", or "0"? [Click here to see a solution.](https://gist.github.com/CheezItMan/2d445458f7c25eee37f5fd5b212077f4)
+How could you match any alphanumeric digit like "a", "W", or "0"?
 
+[Check you answer here](solutions/regex.md#Character%20Sets)
 
 ## The Wildcard and Quantifiers
 
@@ -80,6 +81,8 @@ Write a regular expression to match a valid email of form `name@domain.tld`
 - Rejects `dan@adadev.`, `charles.com`, `@adadev.org`, `sarah@.org`
 - Use `\.` for a literal period (more on this later)
 
+[Check you answer here](solutions/regex.md#Wildcards%20and%20Quantifiers)
+
 ## The NOT `^` Character
 
 Sometimes you want to exclude a certain group of characters, or sometimes it's easier to exclude a type of character rather than list all the valid possibilities.  In that case you need the `^` character and the square brackets.  
@@ -90,12 +93,13 @@ Another example would be `/[^0-9]/` which would exclude any digit or `/Ada is nu
 
 ### Practice
 
-How can you write a regex which would accept `dog`, `sog`, and `hog`, but exclude `bog`?  Click [here](https://gist.github.com/CheezItMan/f06518f248df19b44febd1871a95fd92) to see one answer.
+How can you write a regex which would accept `dog`, `sog`, and `hog`, but exclude `bog`?
+
+[Check you answer here](solutions/regex.md#Not)
 
 ## Escape characters
 
 There are lots of characters that have special meanings in a Regex (such as the `+` or `*` characters).  Just like Strings you can use the backslash character to select the exact character in the text.  It can also be used as a shortcut for common classes of characters.
-
 
 Some examples include:
 
@@ -118,7 +122,9 @@ Practical Example:
 
 ### Practice
 
-Write a regex for any amount of US currency, for example it should match `$3.25`, `$102.73`, and `$0.25`.  You can see an answer [here](https://gist.github.com/CheezItMan/09f422c21e5c30ac69cc6d64bb16c3a0).
+Write a regex for any amount of US currency, for example it should match `$3.25`, `$102.73`, and `$0.25`.
+
+[Check you answer here](solutions/regex.md#Escape%20Characters)
 
 ## Repetitions
 
@@ -148,7 +154,7 @@ Write a regular expression for these patterns:
 1. A 5 digit number
 1. An IP address like 127.0.0.1, or 206.190.36.45, Only worry about the numbers being a max of 3 digits.
 
-[Sample Solutions](https://gist.github.com/CheezItMan/54e39aa4a355aa5a24bb281d5d360121)
+[Check you answer here](solutions/regex.md#Capture%20Groups)
 
 ## Search and Replace
 
@@ -213,6 +219,8 @@ end
     - What characters will you need to capture? How many groups do you need?
     - How will you use the captured data to fill in the final string?
 
+    [Check you answer here](solutions/regex.md#Phone%20Numbers)
+
 1. Remember back to the original RideShare project from the first week of class. We provided a [CSV file full of ride information](https://raw.githubusercontent.com/AdaGold/ride-share/master/rides.csv), and you had to manually build up a data structure of nested arrays and hashes to manage that data.
 
     Manually copying data is a tedious, error-prone process. It would be much better if we could use our tools to do this transformation automatically. Fortunately Atom's regex search-and-replace tool is perfectly suited to this task.
@@ -262,6 +270,8 @@ end
           # ... more hashes ...
         ]
         ```
+
+    [Check you answer here](solutions/regex.md#CSV%20to%20Hash)
 
 ## Conclusion
 
