@@ -110,7 +110,7 @@ Some examples include:
 | `\S`  |  Any non-whitespace character |
 | `\d`  |  Any digit |
 | `\D`  |  Any non-digit |
-| `\.`, `\+`, `\*`  | The literal character following the backslash, for example `\\` searches the String for a backslash, while `\.` looks for a period.  |
+| `\.`, `\+`, `\*`, etc.  | The literal character following the backslash, for example `\\` searches the String for a backslash, while `\.` looks for a period.  |
 
 Practical Example:
 
@@ -126,6 +126,24 @@ Write a regex for any amount of US currency, for example it should match `$3.25`
 
 [Check you answer here](solutions/regex.md#Escape%20Characters)
 
+## Start and End of a String
+
+By default a regex will match a string if any part of the string matches. Sometimes you want your regex to be at the very beginning or very end of a string, or to match the whole string with nothing left over. In this case you can use the special characters `^` and `$`.
+
+`^`, when placed at the beginning of a regex, will match the beginning of the string. If the string has characters before the match begins, it's not a match
+- `/^ada/` matches `ada` and `ada end` but not `start ada`
+
+`$`, when placed at the end of a regex, will match the end of the regex. If there are characters in the string after the match ends, it's not a match.
+- `/ada$/` matches `ada` and `start ada` but not `ada end`
+
+### Practice
+
+Write a regex that will match only strings without any leading whitespace.
+- `"ada"`, `"ada academy"` and `"ada "` all match
+- `"  ada"`, `"  ada "` and `" "` do not match
+
+[Check you answer here](solutions/regex.md#Start%20and%20End)
+
 ## Repetitions
 
 The `*` and `+` characters allow a token to be repeated, but often, such as for a zip code, you will want to limit a token to a specific number of repetitions.  For that you can use the curly braces (`{}`).  A number placed in the curly braces will indicate how many times the preceding token can be repeated.  So for example `/[abc]{3}/` will allow the letters `a`, `b` or `c` to be repeated three times, so `"aaa"` would match, as would `"abc"` and `"cab"`.
@@ -140,10 +158,10 @@ An example using repetitions in our phone number example would include:  `/\(\d{
 
 We can also construct groups of characters which can be combined with special characters using the parentheses.  For example `/(ada *)+/` would match one or more `"ada"` strings separated by 0 or more spaces.  So `"ada ada"`, `"ada"`, and `"ada ada   ada"` would all match.
 
-So `/a(ab)*a/` would match the strings:  `"aaba"`, `"aa"`, `"aababa"` because it requires an a followed by zero or more `"ab"` blocks and ending with an `"a"`.
+So `/a(ab)*a/` would match the strings:  `"aaba"`, `"aa"`, `"aababa"` because it requires an `"a"` followed by zero or more `"ab"` blocks and ending with an `"a"`.
 ![regex with capture groups](images/regex4.png)
 
-Similarly, `/\$(\d)+\.(\d){2}` would match us currency, like you were asked to deduce above requiring a dollar sign followed by one or more digits, followed by a period and ending with 2 digits.  
+Similarly, `/\$(\d)+\.(\d){2}` would match us currency, like you were asked to deduce above requiring a dollar sign followed by one or more digits, followed by a period and ending with 2 digits.
 
 If you want between a specific amount of matching characters you can place a comma inside the `{ }`.  So `/a{2, 3}/` would match 2 to 3 "a"'s.
 
@@ -151,8 +169,9 @@ If you want between a specific amount of matching characters you can place a com
 
 Write a regular expression for these patterns:
 
-1. A 5 digit number
 1. An IP address like 127.0.0.1, or 206.190.36.45, Only worry about the numbers being a max of 3 digits.
+1. "Ada", "Ada Academy" or "Ada Developers Academy", but not "Ada Developers" by itself. Should be case-insensitive (so both "Ada" and "ada" are OK).
+    - Note that capture groups can be nested
 
 [Check you answer here](solutions/regex.md#Capture%20Groups)
 
