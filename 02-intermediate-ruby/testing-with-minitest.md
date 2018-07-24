@@ -336,7 +336,7 @@ end
 
 **What is this `raise` keyword?!!**
 
-`raise` is used to stop execution and leave the method immediately, and it's used to indicate an error to the user.  In this case it prevents the user from providing `clock` invalid arguments.  We will discuss [raising errors](./custom-exceptions.md) later at Ada, but for now this is how you can raise ArgumentErrors to prevent users from providing invalid arguments to your methods.
+`raise` is used to stop execution and leave the method immediately, and it's used to indicate an error to the user.  In this case it prevents the user from providing `clock` invalid arguments.  We will discuss [raising errors](./exception-handling.md) later at Ada, but for now this is how you can raise ArgumentErrors to prevent users from providing invalid arguments to your methods.
 
 **Exercise:** Now write a test to prevent too small inputs.  Then update `clock` to make the test pass.  Check with your neighbor.  If you get stuck you can verify your answer with the following links.
 -  [test](https://github.com/AdaGold/clock/commit/68ae76cac9740bbfeabb63577022eb618b6371d5)
