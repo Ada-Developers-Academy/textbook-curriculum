@@ -152,7 +152,7 @@ A range of repetitions can also be repeated by using two parameters in the curly
 
 An example using repetitions in our phone number example would include:  `/\(\d{3}\) \d{3}\-\d{4}/`
 
-If you want to match a token a variable number of times you can place a comma inside the `{ }`.  So `/a{2, 3}/` would match 2 to 3 `"a"`'s.
+If you want to match a token a variable number of times you can place a comma inside the `{ }`. So `/a{2, 3}/` would match 2 to 3 `"a"`'s.
 
 ## Capture Groups
 
@@ -290,7 +290,11 @@ end
 
 ## Conclusion
 
-Regex is a powerful topic that works in almost all languages.  The same syntax, sometimes with minimal changes can work in JavaScript, Ruby, Python and more.  Because Regex is almost universal there are a **lot** of tools available to compose them and a variety of pre-made Regular Expressions.  Some tools are listed below.  You can also find lots of sample Regular Expressions, but it's important to know how to read them, so you can verify a sample regular expression performs as advertised and so you can tweak existing regular expressions to meet your needs.  
+Regular expressions are a powerful tool that works in almost all languages. The same syntax with minimal changes can work in JavaScript, Ruby, Python, Java, C++, shell scripts... you get the idea.
+
+Because Regex is almost universal there are a **lot** of tools available to compose them and a variety of pre-made Regular Expressions. Some tools are listed below.
+
+It is also common to find pre-made regular expressions online, for example on Stack Overflow. Having a strong understanding of regex fundamentals will allow you to combine these and tweak them to your needs.
 
 ### Regex Tools
 
@@ -321,8 +325,6 @@ There a number of tools you can use to compose regular expressions.
 |  < > 	|   Anchors	|   The smaller and greater signs are anchors that specify a left or right word boundary.	|
 |  - 	|   Minus	|   the minus indicates a range in a character class (when it is not at the first position after the "[" opening bracket or the last position before the "]" closing bracket. For example "[A-Z]" matches any uppercase character.	|
 | & | Ampersand | The and is the "substitute complete match" symbol. |
-
-
 
 ## Resources
 -  [Regex in Wikipedia](https://en.wikipedia.org/wiki/Regular_expression)
