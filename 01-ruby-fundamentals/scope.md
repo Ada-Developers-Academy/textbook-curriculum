@@ -156,3 +156,13 @@ Sometimes when we're coding, we're unsure of what the value of each variable is 
 Throughout Ada, we'll learn about ways to lessen that confusion with debugging techniques. The first debugging technique we will learn is using `puts` statements, just as we saw above.
 
 When you are reading through some code and you aren't sure what the value of a variable is at that moment, one thing you can do is `puts` the variable.
+
+## Conclusion
+
+The _scope_ of a variable is the collection of methods, blocks, and objects that know about that variable.
+
+Local variables are only available inside the block in which they were declared and any of that block's child blocks.
+
+When we think about needing the value of a variable outside of its scope, one thing we can think about is utilizing `return`.
+
+When we are unsure about what the value of something is, maybe because of misunderstanding its scope, we can use some strategies like `puts` to debug it.
