@@ -2,8 +2,8 @@
 
 
 ### Introductory
-1. [How To OSX](how-to-osx.md)
-1. [OSX Useful Apps](osx-useful-apps.md)
+1. [How To macOS](how-to-macOS.md)
+1. [Useful Apps for macOS](useful-apps-for-macOS.md)
 1. [Installfest](installfest.md)
 1. [Get to know your Text Editor](get-to-know-your-text-editor.md)
 
