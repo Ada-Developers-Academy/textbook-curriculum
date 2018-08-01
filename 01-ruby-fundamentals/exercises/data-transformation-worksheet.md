@@ -107,3 +107,4 @@ Is there a method from `Enumerable` you can use to solve #3 in "Transforming Arr
 1. What was challenging?
 1. Which problems were easier? Why?
 1. What strategies made the problems easier?
+1. What are some differences between arrays and hashes that you learned?
