@@ -114,12 +114,14 @@ puts "The value of dessert: #{dessert}"
 puts "Sounds like you're a big fan of #{dessert}!"
 ```
 
-1. What is the output for #1?
-2. Given the input `5`, `9`, `1`, what is the output for #2?
-3. Given the input `5`, `9`, `1`, what is the output for #3?
-4. Given the input `5`, `9`, `1`, what is the output for #4?
-5. Given the input `5`, `9`, `1`, what is the output for #5?
-6. Given the input `5`, `9`, `1`, what is the output for #6?
+1. Given the input `5`, `9`, `1`, what is the output for #1 or what happens when the code for #1 tries to execute?
+2. Given the input `5`, `9`, `1`, what is the output for #2 or what happens when the code for #2 tries to execute?
+3. ... for #3?
+4. ... for #4?
+5. ... for #5?
+6. ... for #6?
+
+**Hint:** Use a whiteboard, write out the code line by line, and mark and color-code the scope of each variable.
 
 **Bonus:** Make a loop table for this method.
 
