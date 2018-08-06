@@ -22,8 +22,8 @@ Read:
 + [How to become a programmer or the art of googling well](https://okepi.wordpress.com/2014/08/21/how-to-become-a-programmer-or-the-art-of-googling-well/)
 + [10000 hours of practice to achieve mastery](http://wisdomgroup.com/blog/10000-hours-of-practice/)
 
-#### HomeWork: Slack Shruti
-+ Reflections on Impostor Syndrome
+#### HomeWork:
++ Reflections on Impostor Syndrome. Think about the following and share with at least two students in your cohort:
 + (optional) 1+ of your fears of Ada
 + (optional) 1+ new coding-related learning you've made in the last month
 + (optional) 1+ thing that makes you a great addition to the Ada Family! \<3 (programming aside)
@@ -41,8 +41,6 @@ Read:
 + [Impostor Syndrome](https://drive.google.com/file/d/0B__DV26QHsH4LXQtenlnRWxRV2s/view?usp=sharing)
 
 ### Activities
-+ Rank the 5 "P"s in the order you value them and think of your reasons.
-  + share with small group
 + Share with small group at least one of the following:
   + fears
   + accomplishments
