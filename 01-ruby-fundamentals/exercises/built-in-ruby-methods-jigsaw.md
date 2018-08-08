@@ -26,9 +26,9 @@ You will want to start with the official Ruby docs for your given method. To fin
 
 ### Methods
 
-1. `String.include?` & `String.upcase` & `String.downcase` & `String.swapcase`
-1. `Array.first` & `Array.last` & `Array.rotate`
-1. `Array.empty?` & `Array.clear`
-1. `Hash.keys` & `Hash.key?`
-1. `Hash.values` & `Hash.value?`
-1. `Hash.invert`
+1. `String#include?` & `String#upcase` & `String#downcase` & `String#swapcase`
+1. `Array#first` & `Array#last` & `Array#rotate`
+1. `Array#empty?` & `Array#clear`
+1. `Hash#keys` & `Hash#key?`
+1. `Hash#values` & `Hash#value?`
+1. `Hash#invert`
