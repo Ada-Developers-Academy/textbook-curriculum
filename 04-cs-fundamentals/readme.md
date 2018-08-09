@@ -5,7 +5,7 @@ Below is the rough outline of what we will be covering in CS Fundamentals. Some 
 Date    | Topics
 --------|----------------
 Aug 16  | [Binary and Memory](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Binary.md)
-Aug 30  | [Arrays and algorithmic efficiency](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Arrays.md)
+Aug 23  | [Arrays and algorithmic efficiency](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Arrays.md)
 Sep 06  | [Arrays continued](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Arrays.md), [Introduction to Data Structures](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Introduction%20to%20Data%20Structures.md)
 Sep 13  | [Introduction to Data Structures](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Introduction%20to%20Data%20Structures.md)
 Sep 20  | [Understanding function calls](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Understanding%20function%20calls.md), [Linked Lists](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Introduction%20to%20Linked%20Lists.md)
