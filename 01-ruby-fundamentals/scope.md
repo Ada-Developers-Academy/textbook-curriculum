@@ -65,9 +65,18 @@ puts "Sounds like you're a big fan of #{dessert}!"
 #### Check for understanding
 
 1. What is the method name?
+1. When do we call the method?
 1. What are the method parameters?
 1. What is the method's return value? What is the data type of this return value?
 1. How do we print the final output?
+
+#### Determine the Scope
+
+Now that we have a grasp on our example code, let's talk through the scope of each variable. Again, the _scope_ of a variable is the collection of methods, blocks, and objects that know about that variable.
+
+When a piece of code tries to access a variable that is _out of scope_, the code will break. Most likely, the code will give you an error `undefined local variable or method`. Other likely things that may happen is that your code thinks you are working with a `nil` value, and cannot work with `nil`.
+
+![a diagram illustrating the scope of each variable in the above code](./images/scope.png)
 
 #### Exercise
 
@@ -114,12 +123,14 @@ puts "The value of dessert: #{dessert}"
 puts "Sounds like you're a big fan of #{dessert}!"
 ```
 
-1. What is the output for #1?
-2. Given the input `5`, `9`, `1`, what is the output for #2?
-3. Given the input `5`, `9`, `1`, what is the output for #3?
-4. Given the input `5`, `9`, `1`, what is the output for #4?
-5. Given the input `5`, `9`, `1`, what is the output for #5?
-6. Given the input `5`, `9`, `1`, what is the output for #6?
+1. Given the input `5`, `9`, `1`, what is the output for #1 or what happens when the code for #1 tries to execute?
+2. Given the input `5`, `9`, `1`, what is the output for #2 or what happens when the code for #2 tries to execute?
+3. ... for #3?
+4. ... for #4?
+5. ... for #5?
+6. ... for #6?
+
+**Hint:** Use a whiteboard, write out the code line by line, and mark and color-code the scope of each variable.
 
 **Bonus:** Make a loop table for this method.
 

@@ -1,6 +1,8 @@
 
 # Data Types Practice Worksheet
 
+Record the answers to this worksheet in any file or on a piece of paper. This worksheet will not be turned in, so it does not need to be in a specific format. This worksheet will be reviewed on its due date.
+
 
 ## Ruby Operations on Basic Data Types
 
