@@ -104,3 +104,34 @@ require 'awesome_print'
 array_of_planet_data = CSV.read("planet_data.csv")
 ap array_of_planet_data
 ```
+
+## Reading in a file with Headers
+It is also common for a CSV file with a 1st row containing column headers describing the contents. The `read` method accepts an optional parameter allowing you to indicate that the CSV file has a header row. Update the CSV file as follows:
+
+```csv
+id,name,mass,distance
+1,Mercury,0.055,0.4
+2,Venus,0.815,0.7
+3,Earth,1.0,1.0
+4,Mars,0.107,1.5
+5,Jupiter,318,5.2
+```
+
+Now you can read in the file with:
+
+```ruby
+require 'csv'
+require 'awesome_print'
+
+CSV.read('planet_data.csv', headers: true).each do |planet|
+  ap planet
+end
+```
+
+Notice that each time the loop iterates `planet` is a hash with the header values as keys with the cooresponding values.
+
+**Challenge** Write a method to find all the planets with a smaller mass than earth.
+
+# Resources
+-   [CSV Documentation](https://ruby-doc.org/stdlib-2.5.1/libdoc/csv/rdoc/CSV.html)
+-   [Sitepoint CSV Tutorial](https://www.sitepoint.com/guide-ruby-csv-library-part/)
