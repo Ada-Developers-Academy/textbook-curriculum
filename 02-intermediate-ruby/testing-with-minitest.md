@@ -81,7 +81,7 @@ require_relative 'clock'
 
 Minitest::Reporters.use!
 
-describe "Clock" do
+describe "clock" do
 
 end
 ```
@@ -103,7 +103,7 @@ require_relative 'clock'
 Minitest::Reporters.use!
 
 
-describe "Clock" do
+describe "clock" do
 
   it "will return a string" do
 
@@ -127,7 +127,7 @@ require_relative 'clock'
 
 Minitest::Reporters.use!
 
-describe "Clock" do
+describe "clock" do
   it "will return a string" do
     # Arrange
     hours = 8
