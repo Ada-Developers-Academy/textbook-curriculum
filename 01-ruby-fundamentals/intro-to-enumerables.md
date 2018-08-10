@@ -120,7 +120,7 @@ end
 1. What does `key` refer to? What does `value` refer to?
 1. If we wanted to refactor the names `key` and `value` to names with more meaning, what could we choose?
 
-#### Practice `map` on arrays
+#### Practice `map` on hashes
 
 Solve this first using an each loop, then refactoring it to use `map`.
 
