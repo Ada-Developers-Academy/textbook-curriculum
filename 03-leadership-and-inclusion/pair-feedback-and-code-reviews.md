@@ -21,6 +21,8 @@ Topics to cover are:
   - Affirmations for you and your pair/group
 - What could have gone better for you
 
+Also check out the [general guidelines to improve pair programming](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/00-programming-fundamentals/programming-techniques-pairs-or-solo.md). 
+
 
 ## How to Give a Code Review
 
