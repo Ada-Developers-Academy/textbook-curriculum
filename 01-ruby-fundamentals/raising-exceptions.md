@@ -76,7 +76,7 @@ One common type of Exception is `ArgumentError`.  This exception is used to aler
 
 ```ruby
 def divide_check(order_items, number_of_people)
-  unless order_items.class == Array && number_of_people.numeric?
+  unless order_items.class == Array && number_of_people.is_a? Numeric
     raise ArgumentError, 'You must provide an array and a numeric argument to this method.'
   end
 
@@ -102,7 +102,7 @@ This stack trace is more specific about the problem and prevents the application
 By checking the parameters of a method for valid values & types we prevent unexpected output.  We could add to our method by adding a check to make sure that `number_of_people` is 1 or more people.
 
 ```ruby
-unless order_items.class == Array && number_of_people.numeric? && number_of_people > 0
+unless order_items.class == Array && number_of_people.is_a? Numeric && number_of_people > 0
   raise ArgumentError, 'You must provide an array and a positive numeric argument to this method.'
 end
 ```
