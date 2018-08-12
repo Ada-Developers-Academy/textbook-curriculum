@@ -27,6 +27,6 @@ You will want to start [with the official Ruby docs for `Enumerable`](https://ru
 1. `reduce`
 1. `all?` & `any?`
 1. `select` & `reject`
-1. `uniq`
+1. `uniq` & `sum`
 1. `min`, `max`, `min_by`, & `max_by`
 1. `sort_by`

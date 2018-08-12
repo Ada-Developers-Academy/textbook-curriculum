@@ -40,6 +40,13 @@ E.g. Intersection of {23, 45, 78} and {42, 56, 23, 98, 45, 31} is {23, 45} </br>
 The union of A and B, denoted by A ∪ B, is the set of all things that are members of *either A or B*.</br>
 E.g. Union of {23, 42, 56} and {21, 56, 42, 89} is {21, 23, 42, 56, 89}
 
+# Decimal to Binary, Binary to Decimal
+Learn how to convert a decimal number to a binary number and vice versa, as well as [Computer Data Basics](https://docs.google.com/document/d/1g-Dxn1rVTChBs9ZZSOgmohjP_RoWNyPJTE-m_n35aZ0/edit). 
+## Exercises
+1. Calculate the decimal equivalent for these binary numbers: 453, 49, 234, 432
+1. Calculate the binary equivalent for these decimal numbers: 1101, 0101, 1001, 1010, 1111, 11000011
+Check your answer by using a calculator. Ensure you understand and can explain your algorithm for converting from binary to decimal and from decimal to binary numbers.
+
 <!-- TO DO:  Add the following
 Exponential
 
