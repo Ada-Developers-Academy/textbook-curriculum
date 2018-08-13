@@ -11,12 +11,12 @@ Some benefits you can expect: better code (simpler design, fewer bugs, more main
 
 Both programmers work on one computer throughout this process.
 
-**Driver:**  
-Controls the mouse/keyboard  
+**Driver:**
+Controls the mouse/keyboard
 Deals with the details
 
-**Navigator:**  
-Thinks higher level  
+**Navigator:**
+Thinks higher level
 Watches for typos, logical errors
 
 ## Guidelines
@@ -51,7 +51,51 @@ Watches for typos, logical errors
 6. Take a moment to celebrate as you complete tasks and overcome problems
 7. Switch roles often - at least every half hour
 
-Note: Borrowed from [Wiki How](http://www.wikihow.com/Pair-Program)  
+Note: Borrowed from [Wiki How](http://www.wikihow.com/Pair-Program)
+
+## Suggested Readings
+
+### How to Improve Pair Programming
+
+#### **Skill Imbalance**
+> Most of the time, what looks like a skill imbalance, isn’t. I’m going to argue here that the perception that you are “ahead of” or “behind” your partner is less accurate and less important than it may seem. ... A really important assumption to make is that each person has a lot of value to contribute to the work, regardless of experience or a perception of skill level. Assume that you and your partner are both amazing.
+> - [Lauren Mendoza, Humans’ Guide to Pair Programming](https://medium.com/@loorinm/pair-programming-b5fa56744a0f)
+
+#### Empathy for yourself and others
+
+> Radical self-acceptance is a skill like any other.
+> - [Lauren Mendoza, Humans’ Guide to Pair Programming](https://medium.com/@loorinm/pair-programming-b5fa56744a0f)
+
+#### Asking for and Receiving Feedback
+
+> Make eye contact, observe your partner’s body language, tone of voice, and stay silent while they are talking. Repeat their words in your head, and let them sink in. Nod or say “hm” to show that you are actively listening to their words. ...
+
+> It’s normal to feel defensive and to want to show that you haven’t done anything wrong, but realize that’s not needed here. Thank your partner for sharing what most likely was a difficult thing to say. Take some silent time to consider the feedback from a calm place before responding.
+> - [Lauren Mendoza, Humans’ Guide to Pair Programming](https://medium.com/@loorinm/pair-programming-b5fa56744a0f)
+
+#### Giving Feedback
+> Here’s a good format:
+
+>> During _____, when you did _____,I felt _____. In the future, I’d like to try _____.
+ Is that something you’d be willing to do?
+
+>Your partner’s answer might be “no”, and that’s totally ok! In that case, accept their answer, ask why, and keeping talking until you can agree on a course of action.
+> - [Lauren Mendoza, Humans’ Guide to Pair Programming](https://medium.com/@loorinm/pair-programming-b5fa56744a0f)
+
+### 10 Ways to Improve Your Pairing Experience
+1. Do not centralize driving
+1. Manage the focus together
+1. Avoid working alone
+1. Alternate moments of concentration and relaxation
+1. Celebrate your achievements!
+1. Synchronize with your partner
+1. Give context appropriately
+1. Learn to deal with disagreements
+1. Be ready to learn and to teach
+1. Give and receive feedback when you're done
+
+[Tarso Aires, 10 Ways to Improve Your Pairing Experience](https://www.thoughtworks.com/insights/blog/10-ways-improve-your-pairing-experience)
+
 
 # Solo Programming
 
