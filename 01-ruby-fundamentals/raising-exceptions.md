@@ -72,7 +72,7 @@ Notice that the Stack Trace indicates the line numbers and methods in which the 
 
 ## Raising Your First Exception
 
-One common type of Exception is `ArgumentError`.  This exception is used to alert the user that the provided argument to a method is invalid for some reason.  It could be the wrong type, it could be an invalid value.  In the example above the first argument **should** be an array and the second a number.  We can raise an ArgumentError to prevent someone from providing invalid types of data to our `divide_check` method.
+One common type of Exception is ArgumentError. This exception is used to alert the user that the provided argument to a method is invalid for some reason. For example, it doesn't make sense to call divide_check with a number_of_people that is less that one. If that does happen, it probably means the programmer who wrote the code that calls that method made a mistake. We can raise an ArgumentError to help them understand what they did wrong.
 
 ```ruby
 def divide_check(order_items, number_of_people)
