@@ -1,11 +1,12 @@
 
-# Object Data Types
-## Practice Worksheet
+# Data Types Practice Worksheet
+
+Record the answers to this worksheet in any file or on a piece of paper. This worksheet will not be turned in, so it does not need to be in a specific format. This worksheet will be reviewed on its due date.
 
 
-### Ruby Operations on Basic Object Types
+## Ruby Operations on Basic Data Types
 
-Without putting the code into Ruby or IRB predict the output and data-type of the following?
+Without putting the code into a Ruby script or IRB, predict the output and data type of the following:
 
 1.  Value __________   Data Type: _________  
 
@@ -185,7 +186,7 @@ Without putting the code into Ruby or IRB predict the output and data-type of th
     ```
 
 
-### Comprehension Questions
+## Comprehension Questions
 
 1. Given a variable `list` which is an array:
     * How would you print the last element of the array?   

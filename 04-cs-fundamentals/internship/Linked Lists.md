@@ -31,7 +31,7 @@ For each of the problems below: Assume you are given a singly linked list where 
 Do the same exercises for a doubly linked list where each node contains an integer data and two links: one to the previous node and one to the next node in the doubly linked list.
 
 ## Assignment
-Implement methods in a singly linked list, linked_list.rb in [Ada-C8/Linked-List](https://github.com/Ada-C8/Linked-List)
+Implement methods in a singly linked list, linked_list.rb in [Ada-C9/Linked-List](https://github.com/Ada-C9/Linked-List)
 
 ## Additional Resources
 + Kal academy's material on [Linear Data Structures](https://drive.google.com/open?id=0BxHords9odw3cDhCdGMxcWFVRms)

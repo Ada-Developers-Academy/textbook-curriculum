@@ -67,3 +67,7 @@ Play around with this [Codepen](https://codepen.io/adadev/pen/qoEjMK) and commen
 - do listen to font size needs given to the browser
 
 For more information, [this](https://medium.com/@julienetienne/pixels-are-dead-faa87cd8c8b9) is a pretty good and opinionated article on why not to use pixels
+
+# Read More
+- [Designing for accessibility is not that hard: Seven easy-to-implement guidelines to design a more accessible web ❤️](https://uxdesign.cc/designing-for-accessibility-is-not-that-hard-c04cc4779d94)
+- [Pixels vs. Ems: Users DO Change Font Size](https://medium.com/@vamptvo/pixels-vs-ems-users-do-change-font-size-5cfb20831773)

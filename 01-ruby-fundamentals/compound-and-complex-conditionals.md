@@ -21,6 +21,18 @@ false || true  # => false or true is true
 false || false # => false or false is false
 ```
 
+Another way to write this is:
+
+| **AND**    | **true**  | **false** |
+|-------|-------|-------|
+| **true**  | true  | false |
+| **false** | false | false |
+
+| **OR**    | **true**  | **false** |
+|-------|-------|-------|
+| **true**  | true  | true |
+| **false** | true | false |
+
 ## Evaluating Compound Conditions: Understanding _Precedence_
 Compound comparisons often involve a chain of expressions to be evaluated. Ruby follows strict rules when deciding the order in which expressions are evaluated. These rules can be expressed in terms of their _precedence_. __Operations with a higher _precedence_ are evaluated before operations with lower _precedence_.__ To change the order in which operations are evaluated, add parenthesis `()` around the operations you want evaluated first.
 
@@ -216,7 +228,7 @@ puts "Yay we did it!"
 ```
 
 ### Make it clearer by using `include?`
-The _Array method_ `include?` can be used to simplify a complex conditional. It returns `true` if the provided _parameter_ is equal to any of the parameters in the _Array_, otherwise, it returns `false`:
+The _Array method_ `include?` can be used to simplify a complex conditional. It returns `true` if the provided _parameter_ is equal to any of the elements in the _Array_, otherwise, it returns `false`:
 
 ```ruby
 command = gets.chomp

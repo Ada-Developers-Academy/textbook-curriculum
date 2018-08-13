@@ -1,10 +1,10 @@
 
 
-# OSX & Chrome Useful Apps
+# macOS & Chrome Useful Apps
 
-## OSX Apps
+## macOS Apps
 
-Below are some useful OSX apps for productivity as a developer.
+Below are some useful macOS apps for productivity as a developer.
 
 | App Name  | Description  |
 |---|---|
@@ -28,12 +28,12 @@ Below are some useful OSX apps for productivity as a developer.
 
 | Extension Name  | Description  |
 |---|---|
-| **Security and Privacy** | 
+| **Security and Privacy** |
 | [AdBlock](https://chrome.google.com/webstore/detail/adblock-for-youtube/cmedhionkhpnakcndndgjdbohmhepckk) | Ads aren't just annoying, they cause websites to load slower and are a common attack vector for hackers. This addon blocks them. It's your computer - only run the code you want!
 | [Privacy Badger](https://chrome.google.com/webstore/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp?hl=en-US) | Agressively prevents websites (and their advertisers) from tracking you.
 | [HTTPS Everywhere](https://chrome.google.com/webstore/detail/https-everywhere/gcbommkclmclpchllfjekcdonpmejbdp?hl=en) | Always use a secure connection, if the site you're connecting to supports it.
-| Password Manager ([LastPass](https://www.lastpass.com/) or many others) | Find yourself writing down passwords or reusing the same ones over and over? Use a password manager instead! Secure and simple. 
-| **Useful Tools** | 
+| Password Manager ([LastPass](https://www.lastpass.com/) or many others) | Find yourself writing down passwords or reusing the same ones over and over? Use a password manager instead! Secure and simple.
+| **Useful Tools** |
 | [Postman](https://chrome.google.com/webstore/detail/postman-interceptor/aicmkgpgakddgnaphhhpliifpcfhicfo)  |  A useful app later at Ada to test APIs.
 | [LucidChart](https://chrome.google.com/webstore/detail/lucidchart-diagrams-deskt/djejicklhojeokkfmdelnempiecmdomj) | This is a great service.  It lets you draw charts in the browser.  It connects to Google Apps and lets you save them there.  The free version is limited, but the paid version isn't too expensive at:  $5 per month.  
 | [Momentum](https://chrome.google.com/webstore/detail/momentum/laookkfknpbbblfpciffpaejjkokdgca) | A new daily image is shown on each new tab, and it lets you build a todo list.  
