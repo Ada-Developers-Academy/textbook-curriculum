@@ -130,7 +130,13 @@ end
 
 Notice that each time the loop iterates `planet` is a hash with the header values as keys with the cooresponding values.
 
-**Challenge** Write a method to find all the planets with a smaller mass than earth.
+So `CSV.read('planet_data.csv', headers: true)` is returning an array where each element of the array is a hash with keys matching the file's header and values matching the cooresponding row & column in the file.
+
+In our example:  `CSV.read('planet_data.csv', headers: true)[0]` is `{"id" => "1", "name" => "Mercury", "mass" => "0.055", "distance" => "0.4"}`.  
+
+**Queastion** What would `CSV.read('planet_data.csv', headers: true)[3]` be?
+
+**Challenge** Write a method to find all the planets with a smaller mass than earth (1.0).
 
 # Resources
 -   [CSV Documentation](https://ruby-doc.org/stdlib-2.5.1/libdoc/csv/rdoc/CSV.html)
