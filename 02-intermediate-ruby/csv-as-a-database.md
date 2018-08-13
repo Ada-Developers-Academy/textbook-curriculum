@@ -134,7 +134,9 @@ So `CSV.read('planet_data.csv', headers: true)` is returning an array where each
 
 In our example:  `CSV.read('planet_data.csv', headers: true)[0]` is `{"id" => "1", "name" => "Mercury", "mass" => "0.055", "distance" => "0.4"}`.  
 
-**Queastion** What would `CSV.read('planet_data.csv', headers: true)[3]` be?
+**Queastions** 
+-   Why is index 0 Mercury?  It's not the 1st line of the file.
+-   What would `CSV.read('planet_data.csv', headers: true)[3]` be?
 
 **Challenge** Write a method to find all the planets with a smaller mass than earth (1.0).
 
