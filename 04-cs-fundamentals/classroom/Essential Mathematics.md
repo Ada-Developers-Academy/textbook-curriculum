@@ -41,8 +41,108 @@ The union of A and B, denoted by A ∪ B, is the set of all things that are memb
 E.g. Union of {23, 42, 56} and {21, 56, 42, 89} is {21, 23, 42, 56, 89}
 
 # Decimal to Binary, Binary to Decimal
+## Everyday numbers / Natural numbers / Decimal numbers 
+The decimal numbering system are the numbers we use in everyday life. The decimal numbering system has ten distinct unique numbers.
+```
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+There is pattern in how we count…
+- Start with 0
+- Keep adding one to count up:
+```
+0 + 1 = 1
+1 + 1 = 2
+…
+8 + 1 = 9
+```
+- Until we reach the last digit. Then we reset the Least Significant Digit to 0, and change the digit to its left from 0 to 1. And then, continue the pattern of adding one.
+```
+9 + 1 = 10
+10 + 1 = 11
+11 + 1 = 12
+…
+```
+- The pattern continues with the next digit...
+```
+…
+19 + 1 = 20
+20 + 1 = 21
+…
+98 + 1 = 99
+99 + 1 = 100
+100 + 1 = 101
+…
+199 + 1 = 200
+…
+209 + 1 = 210
+210 + 1 = 211
+…
+299 + 1 = 300
+…
+```
+**Key Observations**
+- While counting in a numbering system with 10 possible digits, 
+- We start with the lowest value digit aka 0
+- We keep adding one to count and go through the list possible digits
+- Once we reach the highest value digit aka 9, we reset the lowest significant digit to 0 and increment the digit to its left by 1
+
+## Binary numbers
+Binary numbers  have two distinct Binary digits (or Bits for short)
+```
+[0, 1]
+```
+The pattern for counting is the same as with every day natural numbers. Only instead of 10 possible values for a digit in decimal numbers, we only have two possible values for a digit in binary.
+- Start with 0
+- Count to the maximum possible value i.e. 1
+- Then reset the least significant digit and increment the digit to its left.
+So, we have:
+```
+0
+1
+10
+11
+100
+101
+110
+111
+1000
+```
+Here's a table of binary number next to the it's equivalent and corresponding decimal number. Observe the patterns in the numbers
+
+Binary    | Decimal
+----------|----------------
+000**0**  | 0**0**
+000**1**  | 0**1**
+00**1**0  | 0**2**
+0011		  | 0**3**
+0**1**00	|	0**4**
+0101		  | 0**5**
+0110		  | 0**6**
+0111		  | 0**7**
+**1**000  | 0**8**
+1001		  | 0**9**
+1010		  | **1**0
+1011		  | 11
+1100		  | 12
+ …  		  | …
+
+## Converting from Binary to Decimal
+Before we look at how to convert a binary number like 1101<sub>2</sub> into it's decimal equivalent. Let's breakdown a decimal number that will help us see a pattern and determine an approach.
+Let’s consider: 453 in decimal i.e. 453<sub>10</sub>
+453<sub>10</sub> = 400 + 50 + 3
+                 = (**4** * 100) + (**5** * 10) + (**3** * 1)
+	         =    3 * (10<sup>0</sup>)
+	            + 5 * (10<sup>1</sup>)
+                    + 4 * (10<sup>2</sup>)
+
+
+
+
+
+## Further Reading exercise
 Learn how to convert a decimal number to a binary number and vice versa, as well as [Computer Data Basics](https://docs.google.com/document/d/1g-Dxn1rVTChBs9ZZSOgmohjP_RoWNyPJTE-m_n35aZ0/edit). 
 ## Exercises
+Based on the reading above complete the following exercises manually (i.e. using paper and pen)
 1. Calculate the decimal equivalent for these binary numbers: 453, 49, 234, 432
 1. Calculate the binary equivalent for these decimal numbers: 1101, 0101, 1001, 1010, 1111, 11000011
 Check your answer by using a calculator. Ensure you understand and can explain your algorithm for converting from binary to decimal and from decimal to binary numbers.
