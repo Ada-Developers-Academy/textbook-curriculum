@@ -1,5 +1,5 @@
 ## Exercises
-Convert the following decimal numbers to their binary equivalent number using the approach we learned:
+Convert the following decimal numbers to their binary equivalent number using the approach we learned [here](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Essential%20Mathematics.md#converting-from-decimal-to-binary).
 1. 49
 1. 234
 1. 432
