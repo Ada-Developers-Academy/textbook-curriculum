@@ -173,14 +173,145 @@ Convert the following binary numbers to their decimal equivalent number using th
 Check your answers by comparing with the [solutions](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/solutions/binary_to_decimal.md).
 
 ## Converting from Decimal to Binary
-Content to come
+To convert a decimal number to it's binary equivalent, you may find it useful to have the powers of 2 table handy.
+
+### Reference: Powers of 2
+2<sup>9</sup> | 2<sup>8</sup> | 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup>
+----|-----|-----|----|----|----|---|---|---|---
+512 | 256 | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1
+
+Given a decimal number, here's the steps we'll take to figure out its binary equivalent:
+1. Subtract the largest possible power of 2 that is less than the number.
+1. Keep subtracting the largest possible power of 2 from the remainder, keeping track of which power of 2 was subtracted and which was not.
+1. Continue doing so until there is nothing left to subtract (aka the value is 0)
+1. The tracking of powers of 2, which were subtracted and which were not will give us to the binary equivalent number.
+Let's illustrate this with an example. Let's consider **453**<sub>10</sub>. Now, find a value in the reference powers of 2 table that is less than 453. 512 is greater than 453. The next smaller power of two, 2<sup>8</sup>, 256 is less than 453. So, we subtract 256 from 453.</br>
+```
+  453
+ -256
+ -----
+= 197
+```
+2<sup>9</sup> | 2<sup>8</sup> | 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup>
+----|-----|-----|----|----|----|---|---|---|---
+512 | 256 | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1
+ 0  |  1  |   ? | ?  |  ? |  ? | ? | ? | ? | ?
+
+We repeat the process with the remainder, 197 and continue to keep track of the powers of 2. 2<sup>7</sup> i.e. 128 is less than 197. So, we subtract 128 from 197.</br>
+
+```
+  197
+ -128
+ -----
+= 69
+```
+2<sup>9</sup> | 2<sup>8</sup> | 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup>
+----|-----|-----|----|----|----|---|---|---|---
+512 | 256 | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1
+ 0  |  1  |   1 | ?  |  ? |  ? | ? | ? | ? | ?
+
+Next, the 2<sup>6</sup> i.e. 64 is less than the remainder 69, so we subtract 64 from 69 and continue tracking the powers of 2.</br>
+
+```
+  69
+ -64
+ -----
+= 5
+```
+2<sup>9</sup> | 2<sup>8</sup> | 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup>
+----|-----|-----|----|----|----|---|---|---|---
+512 | 256 | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1
+ 0  |  1  |   1 |  1 |  ? |  ? | ? | ? | ? | ?
+
+Continuing the consider the next power of 2, 2<sup>5</sup> i.e. 32 is greater than the remainder, 5. So, we skip it. Similarly, 2<sup>4</sup> and 2<sup>3</sup> i.e. 16 and 8 are greater than 5, so we skip them as well.</br>
+
+2<sup>9</sup> | 2<sup>8</sup> | 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup>
+----|-----|-----|----|----|----|---|---|---|---
+512 | 256 | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1
+ 0  |  1  |   1 |  1 |  0 |  0 | 0 | ? | ? | ?
+ 
+ 2<sup>2</sup> i.e. 4 is less than the remainder, 5. So, we subtract 4 from 5.</br>
+ 
+ ```
+  5
+ -4
+ -----
+= 1
+```
+
+2<sup>9</sup> | 2<sup>8</sup> | 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup>
+----|-----|-----|----|----|----|---|---|---|---
+512 | 256 | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1
+ 0  |  1  |   1 |  1 |  0 |  0 | 0 | 1 | ? | ?
+
+2<sup>1</sup> i.e. 2 is greater than the remainder, 1. So, we skip it and mark 0 against it's power of 2 consideration.</br>
+
+2<sup>9</sup> | 2<sup>8</sup> | 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup>
+----|-----|-----|----|----|----|---|---|---|---
+512 | 256 | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1
+ 0  |  1  |   1 |  1 |  0 |  0 | 0 | 1 | 0 | ?
+
+Finally, 2<sup>1</sup> is 1, which is the same as our remainder. We subtract it from the remainder to yield 0.</br>
+```
+  1
+ -1
+ -----
+= 0
+```
+2<sup>9</sup> | 2<sup>8</sup> | 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup>
+----|-----|-----|----|----|----|---|---|---|---
+512 | 256 | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1
+ 0  |  1  |   1 |  1 |  0 |  0 | 0 | 1 | 0 | 1
+
+The binary equivalent for **453**<sub>10</sub>, is the number we obtained by keeping track of the powers of 2. This is **0111000101**<sub>2</sub>. (Note: as with decimal numbers, we can get rid of preceeding 0s and simply write this as 111000101<sub>2</sub>.)
+ </br></br>
+Let's put this all together and convert **475**<sub>10</sub> to its binary equivalent. As before, let's leverage our powers of 2 table.</br>
+
+2<sup>9</sup> | 2<sup>8</sup> | 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup>
+----|-----|-----|----|----|----|---|---|---|---
+512 | 256 | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1
+ ?  |  ?  |   ? |  ? |  ? |  ? | ? | ? | ? | ?
+ 
+512 is greater than 475, so we mark 0 under its consideration and then subtract 256 from 475 yielding 219 as the remainder. 128 is less than 219. 219 minus 128 is 91. 91 minus 64 is 27. 32 is greater than 27. 27 minus 16 is 11. 11 minus 8 is 3. 4 is greater than 3. 3 minus 2 is 1. 1 minus 1 is 0. Here's what the subtractions and the resulting tracking of powers of 2 table will look like. </br>
+
+```
+  475
+ -256
+ -----
+  219
+ -128
+ -----
+   91
+  -64
+ -----
+   27
+  -16
+ -----
+   11
+  - 8
+ -----
+    3
+  - 2
+ -----
+    1
+  - 1
+ -----
+    0
+```
+
+2<sup>9</sup> | 2<sup>8</sup> | 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup>
+----|-----|-----|----|----|----|---|---|---|---
+512 | 256 | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1
+ 0  |  1  |   1 |  1 |  0 |  1 | 1 | 0 | 1 | 1
+ 
+The binary equivalent of 475<sub>10</sub> is **111011011**<sub>2</sub>.
 
 ### Exercises
 Convert the following decimal numbers to their binary equivalent number using the approach we learned above:
-1. 453
 1. 49
 1. 234
 1. 432
+Check your answers by comparing with the [solutions](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/solutions/decimal_to_binary.md).
 
 ## Further Reading exercise
 Learn how to convert a decimal number to a binary number and vice versa, as well as [Computer Data Basics](https://docs.google.com/document/d/1g-Dxn1rVTChBs9ZZSOgmohjP_RoWNyPJTE-m_n35aZ0/edit). 
