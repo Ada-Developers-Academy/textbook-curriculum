@@ -1,28 +1,33 @@
 # Intro to Git
 ## Learning Goals
 - Learn the What, Why, and How of Version Control
+- Make a local copy of a repository by _cloning_ it
 - Track changes to files with Git
 - Document our change in with a good commit message
 
-## Version Control
+## Introduction
+
+This lesson consists of three sections.
+
+- First we'll go over some high level concepts and vocabulary
+- Second we'll see how to copy files from GitHub to our computer by _cloning_ a repository
+- Third we'll use git to track the changes we make to our local copy of the repository
+
+### Version Control
 Git is a "distributed version control" system:
 
 - **Distributed**: used in opposition to Centralized. This means that there is no single "correct" computer for the source code to exist upon. Each person who uses or writes the code will have their own copy of the code and its history.
 - **Version**: This refers to the idea that source code files change over time. When you save a file, that is a single version of the file. When you add a new line of code and save it again, that is a new version of the file.
 - **Control**: The Git system is used to control or manage the process of creating new Versions of source code files, and the process of distributing those versions to other people.
 
-## But Why???
+### But Why???
 _Version Control_ is used in software development because we have multiple people working together to build a single project, and we need to coordinate that process of working together to ensure it is reliable and efficient. While most of our work until now has been individual, it's important to recognize that the "multiple people" in the above statement may also refer to you and yourself *in the future*.
 
 As an analogy, it might help to consider the case of a group of artists working on a gigantic mural. To ensure that the overall design and intention of the mural is achieved, the artists must coordinate amongst themselves to avoid painting over each others' work. A similar dynamic exists for multiple programmers working on a set of files for a programming project.
 
-## Lets Git Started!
-We are going to go through the Git workflow, step by step. We will use the image below as we reference each step in the process.
-[![Git Lifecycle](images/git-lifecycle.png)](https://git-scm.com/book/en/v2/Getting-Started-Git-Basics)
+## Cloning a GitHub Repository
 
-### Cloning a GitHub Repository
-
-This is the procedure you'll follow at the beginning of almost every project you work on. To practice, we'll be using the `git-clone-practice` repository. You should find a link to your cohort's version of this repo in the calendar.
+_Cloning_ in git means making a copy of a repository on your personal computer. This is the procedure you'll follow at the beginning of almost every project you work on. To practice, we'll be using the `git-clone-practice` repository. You should find a link to your cohort's version of this repo in the calendar.
 
 1. Fork the repository under your own GitHub account
     ![Git Fork Step](./images/git-intro-to-git/git-fork-step.png)
@@ -44,7 +49,18 @@ This is the procedure you'll follow at the beginning of almost every project you
 1. Proceed to work on your project
   ![Clone Workflow](./images/git-intro-to-git/git-clone-workflow.png)
 
-### Putting files into Git
+## Tracking Changes with Git
+
+Now that we've used git to download a repository, our next step is to use it to track the changes we make as we work. This image presents a high-level overview of how git works.
+[![Git Lifecycle](images/git-lifecycle.png)](https://git-scm.com/book/en/v2/Getting-Started-Git-Basics)
+
+On the far right is the `.git` directory. This is an actual directory in the repo - you can see it with `ls -a`. Git stores all the information about the history of this repo in this directory. Most of the time you don't need to worry about how that works.
+
+"Working Directory" on the far left refers to the files in the repo as they currently are on your computer. As you make changes with Atom, your files will get further and further away from what's in the history.
+
+Taking the changes we've made and adding them to git's history is what we're about to discuss. This is a two-step process: first you _stage_ the changes, and then you _commit_ them to the history. Let's see how it works in action.
+
+### Adding a new file
 
 We've cloned the repository and have all the starting files on our computer. Our next step is to create a file where we can work on the project. You could create this file through Atom, but we'll use the `touch` command.
 
@@ -126,8 +142,7 @@ nothing to commit, working tree clean
 
 Git tells us that there are no outstanding changes. It also tells us that we're ahead of something called `origin/master` by one commit. What might this mean?
 
-## A Little Historical Context
-### Viewing your history in Git
+### Viewing your History in Git
 Now that we've committed a change to Git we can take a look at the history of our repository, which shows all of the changes that have been committed, in reverse chronological order:
 
 ##### Log
@@ -155,7 +170,7 @@ Date:   Sat Aug 11 13:46:05 2018 -0700
 
 At the top we can see the commit we just made, where we added a new file. Below that is the full history of this repository, including all the work that's been done in the past. You can see the work that one of the instructors did setting up this project.
 
-## Tracking Changes with Git
+### Changing an Existing File
 So far, we've created a commit by adding a new file. What happens if we change a file instead? Open up the file in Atom and write the ruby code needed to complete the "project":
 
 ```ruby
