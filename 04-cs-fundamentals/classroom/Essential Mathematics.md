@@ -166,22 +166,25 @@ Let's walk through another conversion exercise together. Let's convert 0101<sub>
 
 ### Exercises
 Convert the following binary numbers to their decimal equivalent number using the approach we learned above:
-1.1001<sub>2</sub>
-1.1010<sub>2</sub>
-1.1111<sub>2</sub>
-1.11000011</sub>
-<!--to do add the following section and solutions to above exercises>
-## Converting from Decimal to Binary
-</>
+1. 1001<sub>2</sub>
+1. 1010<sub>2</sub>
+1. 1111<sub>2</sub>
+1. 11000011</sub>
+Check your answers by comparing with the [solutions](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/solutions/binary_to_decimal.md).
 
+## Converting from Decimal to Binary
+Content to come
+
+### Exercises
+Convert the following decimal numbers to their binary equivalent number using the approach we learned above:
+1. 453
+1. 49
+1. 234
+1. 432
 
 ## Further Reading exercise
 Learn how to convert a decimal number to a binary number and vice versa, as well as [Computer Data Basics](https://docs.google.com/document/d/1g-Dxn1rVTChBs9ZZSOgmohjP_RoWNyPJTE-m_n35aZ0/edit). 
-## Exercises
-Based on the reading above complete the following exercises manually (i.e. using paper and pen)
-1. Calculate the decimal equivalent for these binary numbers: 453, 49, 234, 432
-1. Calculate the binary equivalent for these decimal numbers: 1101, 0101, 1001, 1010, 1111, 11000011
-Check your answer by using a calculator. Ensure you understand and can explain your algorithm for converting from binary to decimal and from decimal to binary numbers.
+
 
 <!-- TO DO:  Add the following
 Exponential
