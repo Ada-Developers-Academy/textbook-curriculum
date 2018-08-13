@@ -76,8 +76,8 @@ One common type of Exception is ArgumentError. This exception is used to alert t
 
 ```ruby
 def divide_check(order_items, number_of_people)
-  unless order_items.method_defined? :sum && number_of_people > 0
-    raise ArgumentError, 'You must provide an array and a postive numeric argument to this method.'
+  unless number_of_people > 0
+    raise ArgumentError, 'You must provide a postive numeric argument to this method.'
   end
 
   total = order_items.sum
@@ -99,11 +99,11 @@ This stack trace is more specific about the problem and prevents the application
 
 ## Why Raise ArgumentError Exceptions?
 
-By checking the parameters of a method for valid values & types we prevent unexpected output.  We could add to our method by adding a check to make sure that `number_of_people` is 1 or more people.
+By checking the parameters of a method for valid values & types we prevent unexpected output.  We could add to our method by adding a check to make sure that `order_items` has a sum method.
 
 ```ruby
-unless order_items.class == Array && number_of_people.numeric? && number_of_people > 0
-  raise ArgumentError, 'You must provide an array and a positive numeric argument to this method.'
+unless order_items.method_defined? :sum && number_of_people > 0
+  raise ArgumentError, 'You must provide a collection and a positive numeric argument to this method.'
 end
 ```
 
