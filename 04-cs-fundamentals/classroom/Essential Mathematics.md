@@ -128,15 +128,51 @@ Binary    | Decimal
 
 ## Converting from Binary to Decimal
 Before we look at how to convert a binary number like 1101<sub>2</sub> into it's decimal equivalent. Let's breakdown a decimal number that will help us see a pattern and determine an approach.
-Let’s consider: 453 in decimal i.e. 453<sub>10</sub>
-453<sub>10</sub> = 400 + 50 + 3
-                 = (**4** * 100) + (**5** * 10) + (**3** * 1)
-	         =    3 * (10<sup>0</sup>)
-	            + 5 * (10<sup>1</sup>)
-                    + 4 * (10<sup>2</sup>)
+Let’s consider: 453 in decimal i.e. 453<sub>10</sub>. In everyday world, we assume that we are talking about base 10 numbers i.e. all numbers are assumed to have subscript 10 since we are talking decimal numbers. Here's one way of breaking down 453<sub>10</sub>:</br>
+ 453<sub>10</sub> = 400 + 50 + 3</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= (**4** * 100) + (**5** * 10) + (**3** * 1)</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=   3 * (10<sup>0</sup>)</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  + 5 * (10<sup>1</sup>)</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  + 4 * (10<sup>2</sup>)</br>
+Now let’s consider a binary number, let’s say: 1101<sub>2</sub>. Binary numbers have the base 2, i.e. subscript 2. With binary numbers (as compared to decimal), we use powers of 2 instead of powers of 10.</br>
+**1101**<sub>2</sub> = **1**000 + **1**00 + **0**0 + **1**</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =  1 * (2<sup>0</sup>)</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  + 0 * (2<sup>1</sup>)</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  + 1 * (2<sup>2</sup>)</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  + 1 * (2<sup>3</sup>)</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 1 + 0 + 4 + 8 = **13**<sub>10</sub></br>
+We just converted 1101<sub>2</sub> to its equivalent decimal number i.e. 13<sub>10</sub></br>
 
+As you noticed in the math above, anything raise to the power of 0 is 1 – independent of the numbering system in use.</br>
+0<sub>2</sub> = (0 * 2<sup>0</sup>) = 0<sub>10</sub></br>
+1<sub>2</sub> = (1 * 2<sup>0</sup>) = 1<sub>10</sub></br>
+10<sub>2</sub> = (0 * 2<sup>0</sup>) + (1 * 2<sup>1</sup>) = 2<sub>10</sub></br>
+</br>
+_Reminder_: Anything to the power 0 equals 1</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1<sup>0</sup> = 1</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2<sup>0</sup> = 1</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10<sup>0</sup> = 1</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_n_<sup>0</sup> = 1</br>
+</br>
+To recap, here's how we converted 1101<sub>2</sub> to its decimal equivalent:</br>
+1101<sub>2</sub> = (1 * 2<sup>0</sup>) + (0 * 2<sup>1</sup>) + (1 * 2<sup>2</sup>) + (1 * 2<sup>3</sup>)</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 1 + 0 + 4 + 8</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 13<sub>10</sub></br></br>
 
+Let's walk through another conversion exercise together. Let's convert 0101<sub>2</sub> to its decimal equivalent. Try this out on your own using the approach we used for 1101<sub>2</sub> above.</br>
+**0101**<sub>2</sub> = (1 * 2<sup>0</sup>) + (0 * 2<sup>1</sup>) + (1 * 2<sup>2</sup>) + (0 * 2<sup>3</sup>)</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 1 + 0 + 4 + 0</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 5<sub>10</sub></br></br>
 
+### Exercises
+Convert the following binary numbers to their decimal equivalent number using the approach we learned above:
+1.1001<sub>2</sub>
+1.1010<sub>2</sub>
+1.1111<sub>2</sub>
+1.11000011</sub>
+<!--to do add the following section and solutions to above exercises>
+## Converting from Decimal to Binary
+</>
 
 
 ## Further Reading exercise
