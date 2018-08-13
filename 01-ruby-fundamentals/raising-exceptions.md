@@ -76,8 +76,8 @@ One common type of Exception is `ArgumentError`.  This exception is used to aler
 
 ```ruby
 def divide_check(order_items, number_of_people)
-  unless order_items.class == Array && number_of_people.numeric?
-    raise ArgumentError, 'You must provide an array and a numeric argument to this method.'
+  unless order_items.method_defined? :sum && number_of_people > 0
+    raise ArgumentError, 'You must provide an array and a postive numeric argument to this method.'
   end
 
   total = order_items.sum
