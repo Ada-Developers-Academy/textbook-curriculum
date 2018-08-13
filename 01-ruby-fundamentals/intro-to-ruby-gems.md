@@ -12,9 +12,11 @@ By the end of this lesson you should:
 
 ## Introduction
 Gems are what other languages call a library. They are packaged code that can be shared and distributed. Most gems are distributed using [RubyGems.org](https://rubygems.org/). A Gem will contain one or more
-Ruby Classes, just like the ones you've been creating. 
+Ruby Classes, just like the ones you've been creating.
 
-The pages linked above are the rubygems sites for the gems, and you can sometimes find useful documentation here, but more often the updated documentation is on their github pages.  
+The pages linked above are the rubygems sites for the gems, and you can sometimes find useful documentation here, but more often the updated documentation is on their github pages.
+
+That said we do **NOT** expect all of these gems to be immediately useful.  The learning goal for this lesson is to be able to install, require and use Gems found on RubyGems and Github.  Further it is important to learn to research Gem documentation on Github and use it in your applications.  
 
 ## Installing Gems
 Installing gems is super easy! We do it right from the Terminal. To install the gem `colorize`, do `$ gem install colorize`. You can see all the gems currently installed using `$ gem list`.
@@ -28,7 +30,7 @@ Next let's take a quick look at the colorize gem.
 
 - [Colorize](https://rubygems.org/gems/colorize)
 
-Look first at the Gem's page on rubygems.org and then examine the project's [Github repository](https://github.com/fazibear/colorize).  
+Look first at the Gem's page on rubygems.org and then examine the project's [Github repository](https://github.com/fazibear/colorize).
 
 Lets answer a few questions:
 1.   What does the gem do?
@@ -56,7 +58,7 @@ puts "This is blue text on red".blue.on_red.blink
 puts "This is uncolorized".blue.on_red.uncolorize
 ```
 
-Neat!  Adding `.colorize` to a string in a `puts` statement styles the output.  
+Neat!  Adding `.colorize` to a string in a `puts` statement styles the output.
 
 ## Gems Jigsaw
 
@@ -97,12 +99,12 @@ require "awesome_print"
 **Example: Using the `awesome_print` gem.**
 Generally the github page for a gem is the best place to go to get started. Let's check out the [awesome_print gems' page](https://github.com/awesome-print/awesome_print). Under _usage_ we see some common examples of how to use this gem.
 
-In general `awesome_print` is a a great tool for printing debugging messages to the console because of it's syntax highlighting and how it provides information beyound `puts`.  
+In general `awesome_print` is a a great tool for printing debugging messages to the console because of it's syntax highlighting and how it provides information beyound `puts`.
 
 ```ruby
 require 'awesome_print'
 
-# Awesome_print has Waaay too many features to demonstrate in one example.  
+# Awesome_print has Waaay too many features to demonstrate in one example.
 # We will stick to the basics.
 
 # Comparing ap to puts
@@ -161,7 +163,7 @@ ap "Awesome print with Options!", color: {string: :purpleish}
 Pry is an amazing gem which serves a couple of purposes.
 
 1.  It can replace irb to serve as a REPL.  This is advantageous because it formats code nicely.
-2. It can be used in debugging to halt your program and let you interact with it in a REPL.  
+2. It can be used in debugging to halt your program and let you interact with it in a REPL.
 
 To install `pry`
 ```bash
@@ -201,13 +203,13 @@ From: /Users/chris/ada/ruby/test_pry.rb @ line 6 :
 [1] pry(main)>
 ```
 
-Pry has halted the program mid-execution and put you into an environment where you can interact with the program live.  You can then enter irb-like commands like: `num` to get the current value of the variable in the program, or call methods etc.  
+Pry has halted the program mid-execution and put you into an environment where you can interact with the program live.  You can then enter irb-like commands like: `num` to get the current value of the variable in the program, or call methods etc.
 
 You can enter `exit` to exit the current binding and the program will halt again the next time it encounters  `binding.pry`, which in this case is the next iteration of the loop.  When you finish you can exit the entire program with `exit-program`.  We will go further into `pry` at a later date and you are welcome to [research](http://pryrepl.org/) the gem.
 
 #### Replacing irb
 
-You can have Pry replace irb by editing your bash profile with `atom ~/.profile` and adding the following line to the end of the file.  
+You can have Pry replace irb by editing your bash profile with `atom ~/.profile` and adding the following line to the end of the file.
 
 ```bash
 alias irb='pry'
@@ -252,7 +254,7 @@ puts "Five hundred bucks is #{five_hundred_bucks.exchange_to('CAD')} Canadian"
 
 ### Terminal Table
 
-Terminal table helps you align text in a terminal application by setting up a grid.  Grids are very helpful in design.  
+Terminal table helps you align text in a terminal application by setting up a grid.  Grids are very helpful in design.
 
 To install Terminal Table:
 
@@ -285,7 +287,7 @@ puts table
 It has a number of options including table headers, alignment, different styles and widths for columns
 ## Using Gems in your projects
 
-You are welcome to use gems in your projects.  However no gem will be required, unless specified in the project.  
+You are welcome to use gems in your projects.  However no gem will be required, unless specified in the project.
 
 ## Other Great Gems!
 
