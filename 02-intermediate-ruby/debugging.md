@@ -99,7 +99,7 @@ Pry also has the following handy commands that let you see what objects are curr
 
 
 ### Try it out!
-Open your scrabble or Grocery Store project and inspect functionality of your code using PRY! Practice using the ls and cd commands.
+Open your current project and inspect functionality of your code using PRY! Practice using the ls and cd commands.
 
 ## Key Takeaway
 Debugging your code is a critical skill to establish in your programming career. Using error messages and `pry` in your test-driven development process will help you pinpoint the cause of errors more efficiently.
