@@ -10,7 +10,7 @@
 1. [Constants](constants.md)
 1. [Intro to `Enumerable`s](intro-to-enumerables.md)
     - [Activity: `Enumerable`s Jigsaw](./exercises/enumerables-jigsaw.md)
-1. [Keyword Arguments](keyword-arguments.md)
+1. [Keyword Arguments](keword-arguments.md)
 1. [Intro to Ruby Gems](intro-to-ruby-gems.md)
 
 ## Object-Oriented Programming
