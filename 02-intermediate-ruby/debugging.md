@@ -41,16 +41,16 @@ The questions that we've asked you to answer about this error message are not ar
 
 ### Using `pry`
 
-You've already been introduced to pry in our discussion about gems, but now we're going to ensure you see how to use it in all of your projects all the time!
+You've already been introduced to pry in our discussion about gems, but now we're going to ensure you see how to use it in all of your projects all the time! 
 
-In that introduction, we briefly mentioned that `pry` has a tool you can use: `binding.pry`. Go back now and [re-read those notes](../../01-ruby-fundamentals/intro-to-ruby-gems.md#pry) if you don't remember what it was all about!
+`pry` has a tool you can use: `binding.pry`
 
 With code that we've already written in a file, we can use a Pry command to pause our code and more closely inspect. We can use Pry instead of using a bunch of `puts` commands in a program.
 
 ### How to get started
 
 1. You should already have the gem installed, but if you don't, you can run `gem install pry`.
-1. Require the gem at the top of the file you'd like to debug: `require pry`.
+1. Require the gem at the top of the file you'd like to debug: `require 'pry'`.
 1. In your code, write `binding.pry` anywhere you want to pause the code that's being run. Doing so will allow you to evaluate what code is doing up to that point, like checking what what a variable equals while being changed in a loop.
 
 ### Test it out
