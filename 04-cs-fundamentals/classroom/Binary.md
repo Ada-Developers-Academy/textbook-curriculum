@@ -7,21 +7,22 @@ Before this first CS Fundamentals class, please read, view and complete the exer
 If you have any questions, please email or slack your instructor.
 
 ## Learning Goals
-+ Understand binary
-  + Convert from binary to decimal
-  + Convert from decimal to binary
-+ In the context of computer memory, understand
++ High level understanding of binary
++ Algorithm to convert from binary to decimal and vice versa
++ High level overview of memory organization on computers
   + Bits
   + Bytes
-  + How data is stored in memory
-  + High level computer organization: CPU, Main memory & Bus
+  + Computer organization: CPU-memory-buses
+  + Memory address
+
 
 ## Assignments
 Assignments are expected to be worked on after the class discussion and due before the next class.
 Fork, clone and complete the assignments below by submitting a pull request:
 1. Author a method based on the binary to decimal algorithm you devised in class. Read further on [Ada-C10/BinaryAndDecimal](https://github.com/Ada-C10/BinaryAndDecimal)
 2. Determines if the two input integer arrays are equal. The two arrays will be considered equal if they both have the exact same count of elements in the exact same order. Do this without using Ruby methods (except retrieving the value at an index in the Array, comparing two values at a particular index and a method to determine the length of the Array.) Read further on [Ada-C10/array_equals](https://github.com/Ada-C10/array_equals)
-3. [Optional] Write a program to print all possible values that can be represented using 4 bits. e.g. 0000, 0001, 0010, 0011, 0100 ... and so on.
+- [Optional] Write a program to print all possible values that can be represented using 4 bits. e.g. 0000, 0001, 0010, 0011, 0100 ... and so on.
+- [Optional] Understand pros and cons of organizing data in different structures. See assignment on [Ada-C10/array_or_hash](https://github.com/Ada-C10/array_or_hash).
 
 ## Additional Resources:
 Videos and additional reading material for furthering your learning for curiosity on topics related to what we covered in class:
@@ -35,6 +36,7 @@ Videos and additional reading material for furthering your learning for curiosit
    + Learn about how a CPU processes instructions, espcially when it comes to [branch prediction](https://danluu.com/branch-prediction/)
    + [Book: Hacker's Delight by Henry S. Warren](https://www.amazon.com/Hackers-Delight-2nd-Henry-Warren/dp/0321842685)
    + [Book: Code: The Hidden Language of Computer Hardware and Software by Charles Petzold](https://www.amazon.com/Code-Language-Computer-Hardware-Software/dp/0735611319)
+   + [Video: Crash Course in Computer Science with Carrie Anne Philbin, PBS](https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo)
 
 ## Slide Deck
 + Slide Deck used in class</br>
