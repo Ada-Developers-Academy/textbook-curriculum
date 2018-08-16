@@ -4,38 +4,39 @@ Here's the list of required and optional homeworks pertaining to CS Fundamentals
 ## Required Homeworks
 Due Date | Homework
 ---------|----------------
-Feb 26   | Submit PR for [Ada-C9/BinaryAndDecimal](https://github.com/Ada-C9/BinaryAndDecimal)
-Feb 28   | Submit PR for [Ada-C9/array_equals](https://github.com/Ada-C9/array_equals)
-Mar 21   | Submit PR for [Ada-C9/Restricted-Arrays-Part1](https://github.com/Ada-C9/Restricted-Arrays-Part1)
+Feb 26   | Submit PR for [Ada-C10/BinaryAndDecimal](https://github.com/Ada-C10/BinaryAndDecimal)
+Feb 28   | Submit PR for [Ada-C10/array_equals](https://github.com/Ada-C10/array_equals)
+Mar 21   | Submit PR for [Ada-C10/Restricted-Arrays-Part1](https://github.com/Ada-C10/Restricted-Arrays-Part1)
 Mar 05   | Watch this [Video: Big O Notation](https://www.youtube.com/watch?v=v4cd1O4zkGw) by Gale Laakmann McDowell
 Mar 05   | Solve this [quiz](https://www.khanacademy.org/computing/computer-science/algorithms/asymptotic-notation/e/quiz--comparing-function-growth) by Khan Academy.
 Mar 12   | Solve this [quiz](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/time%20complexity/time_complexity_quiz.md).
-Mar 16   | Submit PR for [Ada-C9/string_reverse](https://github.com/Ada-C9/string_reverse)
-Mar 21   | Submit PR for [Ada-C9/reverse_words](https://github.com/Ada-C9/reverse_words)
-Mar 26   | Submit PR for [Ada-C9/reverse_sentence](https://github.com/Ada-C9/reverse_sentence)
-Apr 02   | Submit PR for [Ada-C9/palindrome_check](https://github.com/Ada-C9/palindrome_check)
-Apr 02   | Submit PR for [Ada-C9/integer_palindrome_check](https://github.com/Ada-C9/integer_palindrome_check)
-Apr 02   | Submit PR for [Ada-C9/factorial](https://github.com/Ada-C9/factorial)
-Apr 09   | Submit PR for [Ada-C9/fibonacci](https://github.com/Ada-C9/fibonacci)
-Apr 09   | Submit PR for [Ada-C9/array_intersection](https://github.com/Ada-C9/array_intersection)
-Apr 26   | Submit PR for [Ada-C9/matrix_convert_to_zero](https://github.com/Ada-C9/matrix_convert_to_zero)
-Apr 26   | Submit PR for [Ada-C9/matrix_check_sum](https://github.com/Ada-C9/matrix_check_sum)
+Mar 16   | Submit PR for [Ada-C10/string_reverse](https://github.com/Ada-C10/string_reverse)
+Mar 21   | Submit PR for [Ada-C10/reverse_words](https://github.com/Ada-C10/reverse_words)
+Mar 26   | Submit PR for [Ada-C10/reverse_sentence](https://github.com/Ada-C10/reverse_sentence)
+Apr 02   | Submit PR for [Ada-C10/palindrome_check](https://github.com/Ada-C10/palindrome_check)
+Apr 02   | Submit PR for [Ada-C10/integer_palindrome_check](https://github.com/Ada-C10/integer_palindrome_check)
+Apr 02   | Submit PR for [Ada-C10/factorial](https://github.com/Ada-C10/factorial)
+Apr 09   | Submit PR for [Ada-C10/fibonacci](https://github.com/Ada-C10/fibonacci)
+Apr 09   | Submit PR for [Ada-C10/array_intersection](https://github.com/Ada-C10/array_intersection)
+Apr 26   | Submit PR for [Ada-C10/matrix_convert_to_zero](https://github.com/Ada-C10/matrix_convert_to_zero)
+Apr 26   | Submit PR for [Ada-C10/matrix_check_sum](https://github.com/Ada-C10/matrix_check_sum)
 Apr 16   | Read and understand [Sorting algorithms](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Sorting.md)
 Apr 23   | Understand the code and predict what you should see in the console output. Try it out to confirm. [Understanding Function Calls](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Understanding%20function%20calls.md#assignments)
-May 31   | Define terms, practice tracing and deduce the time and space complexities for some **recursive** problems. [Ada-C9/recursion-tracing](https://github.com/Ada-C9/recursion-tracing). Answer key for reference can be found [here](https://github.com/Ada-C9/recursion-tracing/tree/solutions)
+May 31   | Define terms, practice tracing and deduce the time and space complexities for some **recursive** problems. [Ada-C10/recursion-tracing](https://github.com/Ada-C10/recursion-tracing). Answer key for reference can be found [here](https://github.com/Ada-C9/recursion-tracing/tree/solutions)
 
 ## Optional Homeworks
 ### Binary & Decimal
 1. Code: Write a program to print all possible values that can be represented using 4 bits. e.g. 0000, 0001, 0010, 0011, 0100 ... and so on.
 2. Calculate the decimal equivalent for these binary numbers: 453, 49, 234, 432
 3. Calculate the binary equivalent for these decimal numbers: 1101, 0101, 1001, 1010, 1111, 11000011
+4. Understand pros and cons of organizing data in different structures. See assignment on [Ada-C10/array_or_hash](https://github.com/Ada-C10/array_or_hash).
 
 ### Linked Lists
 1. Create .rb file and define the Linked List and Node classes keeping object oriented principles in mind. Author methods to add a value, search for a value, count the number of entries and delete a value from the linked list, assuming that the values in each nodes are integers. Be mindful of when the linked list is empty (before adding the first node, after deleting the last node etc.) in your methods.</br>
 2. Do the above for a singly linked list and a separate file for a doubly linked list.
 
 ### Recursion
-1. Design and implement recursive algorithms and explain the time and space complexities of your solution for the problems in [Ada-C9/recursion-writing](https://github.com/Ada-C9/recursion-writing). One approach to implementing the solutions can be found [here](https://github.com/Ada-C9/recursion-writing/tree/solution)
+1. Design and implement recursive algorithms and explain the time and space complexities of your solution for the problems in [Ada-C10/recursion-writing](https://github.com/Ada-C10/recursion-writing). One approach to implementing the solutions can be found [here](https://github.com/Ada-C9/recursion-writing/tree/solution)
 2. [Set 1: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion/)
 3. [Set 2: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-2/)
 4. [Set 3: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-3/)
@@ -65,5 +66,5 @@ May 31   | Define terms, practice tracing and deduce the time and space complexi
 1. Create a Binary Search Tree class and define methods. Create one version with recursive methods. Create another version with iterative methods. Explain the time and space complexity of the methods.
 
 ### Interview practice problems
-1. Submit PR for [Ada-C9/encode_repeating](https://github.com/Ada-C9/encode_repeating)
-2. Submit PR for [Ada-C9/digit_match](https://github.com/Ada-C9/digit_match)
+1. Submit PR for [Ada-C10/encode_repeating](https://github.com/Ada-C10/encode_repeating)
+2. Submit PR for [Ada-C10/digit_match](https://github.com/Ada-C10/digit_match)
