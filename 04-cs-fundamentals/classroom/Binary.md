@@ -29,6 +29,8 @@ Videos and additional reading material for furthering your learning for curiosit
    + [Video: Binary and Hexadecimal number systems by Khan Academy](https://www.khanacademy.org/math/algebra-home/alg-intro-to-algebra/algebra-alternate-number-bases/v/number-systems-introduction)
    + [Boston University slide deck on Binary Numbers](http://www.cs.bu.edu/courses/cs101/old/2013spring/slides/CS101.03.BinaryNumbers.ppt.pdf)
    + Blog post by Vaidehi Joshi on [Bits, Bytes, Building with Binary](https://medium.com/basecs/bits-bytes-building-with-binary-13cb4289aafa)
+   + [Video: Crash Course in Computer Science with Carrie Anne Philbin, PBS](https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo)
+   + [Understanding Big and Little Endian Byte order - BetterExplained.com](https://betterexplained.com/articles/understanding-big-and-little-endian-byte-order/)
    + [Why do array indexes start with zero - Quora discussion](https://www.quora.com/Why-do-array-indexes-start-with-0-zero-in-many-programming-languages)
    + [Original paper on when we started counting with 0: Why numbering should start at zero? - by E. W. Dijkstra](https://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html)
    + [Does *bit rate* matter? - a blog on online-convert](http://blog.online-convert.com/does-bit-rate-matter-test-yourself-audio-examples/)
@@ -36,7 +38,6 @@ Videos and additional reading material for furthering your learning for curiosit
    + Learn about how a CPU processes instructions, espcially when it comes to [branch prediction](https://danluu.com/branch-prediction/)
    + [Book: Hacker's Delight by Henry S. Warren](https://www.amazon.com/Hackers-Delight-2nd-Henry-Warren/dp/0321842685)
    + [Book: Code: The Hidden Language of Computer Hardware and Software by Charles Petzold](https://www.amazon.com/Code-Language-Computer-Hardware-Software/dp/0735611319)
-   + [Video: Crash Course in Computer Science with Carrie Anne Philbin, PBS](https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo)
 
 ## Slide Deck
 + Slide Deck used in class</br>
