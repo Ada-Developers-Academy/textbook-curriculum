@@ -57,7 +57,7 @@ Given an array data structure holding only integer values, device an algorithm f
 
 ## Assignments
 Assignments are expected to be worked on after the class discussion.
-1. Fork, clone and complete the methods in using_restricted_array.rb on [Ada-C9/Restricted-Arrays-Part1](https://github.com/Ada-C9/Restricted-Arrays-Part1). See the readme file for details.
+1. Fork, clone and complete the methods in using_restricted_array.rb on [Ada-C10/Restricted-Arrays-Part1](https://github.com/Ada-C10/Restricted-Arrays-Part1). See the readme file for details.
 2. Watch this [Video: Big O Notation](https://www.youtube.com/watch?v=v4cd1O4zkGw) by Gale Laakmann McDowell
 3. Solve this [quiz](https://www.khanacademy.org/computing/computer-science/algorithms/asymptotic-notation/e/quiz--comparing-function-growth) by Khan Academy.
 4. Solve this [quiz](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/time%20complexity/time_complexity_quiz.md).
