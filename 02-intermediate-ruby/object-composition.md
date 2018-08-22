@@ -1,4 +1,42 @@
 # Object Composition
+
+Idea: exhibit different types of relation
+
+Domain: publishing house
+- 1-to-1
+  - Author - contract
+- 1-to-many
+  - Author - books
+- many-to-many?
+  - Author - retailers
+
+## Learning Goals
+By the end of this lesson, students should be able to...
+- Define _object composition_
+- Compare and contrast three different types of composition relations
+  - One-to-many
+  - One-to-one
+  - Many-to-many
+
+## Object Composition
+
+When building even a moderate sized program, it is unusual for objects to exist in a vacuum. Instead, objects tend to work together, each responsible for a single piece of a larger problem.
+
+For example, in the Solar System project we have two classes that work together. `Planet` is responsible for keeping track of the details of a single planet, and `SolarSystem` is responsible for keeping track of a collection of `Planet`s. By identifying and isolating these two responsibilities, we can build a complex system while keeping the individual pieces relatively simple.
+
+## TODO IMAGE (planets in a solar system)
+
+If we were to describe this relationship in English, we would use the term _has a_: "a solar system _has a_ collection of planets". In programming, we call the creation of these _has a_ relationships **object composition**.
+
+Today, we'll be discussing three different types of composition relationships:
+- One-to-many
+- One-to-one
+- Many-to-many
+
+### One-to-one
+
+
+
 ## Learning Goals
 - Put a name to something we've been doing: _Composition_
 - Learn how to describe relationships between objects in terms of _has-a_, and _is-a_
