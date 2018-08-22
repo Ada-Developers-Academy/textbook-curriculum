@@ -1,15 +1,5 @@
 # Object Composition
 
-Idea: exhibit different types of relation
-
-Domain: publishing house
-- 1-to-1
-  - Author - contract
-- 1-to-many
-  - Author - books
-- many-to-many?
-  - Author - retailers
-
 ## Learning Goals
 By the end of this lesson, students should be able to...
 - Define _object composition_
@@ -110,11 +100,8 @@ Work with your seat squad to answer the following questions:
 - How are the classes related? What types of composition do you see?
   - Draw a picture!
 
-
-## Resources
-
-## TODO: SAVE and UPDATE
+<!-- ## Resources
 
 - [Learn Ruby the Hard Way - Composition](https://learnrubythehardway.org/book/ex44.html#composition)
 - [Ruby : Composition over Inheritance because The Force is Strong with Composition](https://medium.com/aviabird/ruby-composition-over-inheritance-3ff786ad9e5d)
-- [Refactoring From Inheritance To Composition To Data](https://www.rubypigeon.com/posts/refactoring-inheritance-composition-data/)
+- [Refactoring From Inheritance To Composition To Data](https://www.rubypigeon.com/posts/refactoring-inheritance-composition-data/) -->
