@@ -4,12 +4,12 @@ Here's the list of required and optional homeworks pertaining to CS Fundamentals
 ## Required Homeworks
 Due Date | Homework
 ---------|----------------
-Feb 26   | Submit PR for [Ada-C10/BinaryAndDecimal](https://github.com/Ada-C10/BinaryAndDecimal)
-Feb 28   | Submit PR for [Ada-C10/array_equals](https://github.com/Ada-C10/array_equals)
-Mar 21   | Submit PR for [Ada-C10/Restricted-Arrays-Part1](https://github.com/Ada-C10/Restricted-Arrays-Part1)
-Mar 05   | Watch this [Video: Big O Notation](https://www.youtube.com/watch?v=v4cd1O4zkGw) by Gale Laakmann McDowell
-Mar 05   | Solve this [quiz](https://www.khanacademy.org/computing/computer-science/algorithms/asymptotic-notation/e/quiz--comparing-function-growth) by Khan Academy.
-Mar 12   | Solve this [quiz](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/time%20complexity/time_complexity_quiz.md).
+Aug 22   | Submit PR for [Ada-C10/BinaryAndDecimal](https://github.com/Ada-C10/BinaryAndDecimal)
+Aug 22   | Submit PR for [Ada-C10/array_equals](https://github.com/Ada-C10/array_equals)
+Sep 03   | Submit PR for [Ada-C10/Restricted-Arrays-Part1](https://github.com/Ada-C10/Restricted-Arrays-Part1)
+Aug 27   | Watch this [Video: Big O Notation](https://www.youtube.com/watch?v=v4cd1O4zkGw) by Gale Laakmann McDowell
+Aug 27   | Solve this [quiz](https://www.khanacademy.org/computing/computer-science/algorithms/asymptotic-notation/e/quiz--comparing-function-growth) by Khan Academy.
+Sep 03   | Solve this [quiz](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/time%20complexity/time_complexity_quiz.md).
 Mar 16   | Submit PR for [Ada-C10/string_reverse](https://github.com/Ada-C10/string_reverse)
 Mar 21   | Submit PR for [Ada-C10/reverse_words](https://github.com/Ada-C10/reverse_words)
 Mar 26   | Submit PR for [Ada-C10/reverse_sentence](https://github.com/Ada-C10/reverse_sentence)
