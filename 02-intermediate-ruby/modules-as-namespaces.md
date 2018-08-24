@@ -72,7 +72,7 @@ For example, imagine we're building an inventory management system for an arts a
 It's a similar idea to putting files into directories.  Files in the same directory cannot have the same name, but files in different directories may.
 
 ```ruby
-module Inventory
+module CraftStore
   class String
     def initialize(color, quantity)
       @color = color
@@ -81,16 +81,16 @@ module Inventory
   end
 end
 
-our_string = Inventory::String.new("green", 100)
+our_string = CraftStore::String.new("green", 100)
 ruby_string = String.new("ruby string")
 
 puts our_string.class
 puts ruby_string.class
 ```
 
-The two `String` classes can work alongside each other.  This is because we _namespaced_ our `String` class under the `Inventory` Module.
+The two `String` classes can work alongside each other.  This is because we _namespaced_ our `String` class under the `CraftSTore` Module.
 
-The `::` operator looks up objects and classes within a module, in this case we use it to look up the `Inventory` Module's `String` class.
+The `::` operator looks up objects and classes within a module, in this case we use it to look up the `CraftStore` Module's `String` class.
 
 Leaving off the module makes us extend the `String` class globally which could lead to side-effects if not every part of our program does not expect the new behavior.
 
