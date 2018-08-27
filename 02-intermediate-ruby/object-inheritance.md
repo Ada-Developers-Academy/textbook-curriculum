@@ -147,11 +147,11 @@ fun_place.mailing_address #=> "Unit: 212B"
                   # "New York, NY 12070"
 ```
 
-In this case, we utilize the behavior that the _base class_ (`Apartment`) provides but augment it with behavior specific to the _subclass_ (`Condo`).
+In this case, we utilize the behavior that the _base class_ (`Property`) provides but augment it with behavior specific to the _subclass_ (`Apartment`).
 
 ![super in method calls](images/inheritance-super-method.png)
 
-**Exercise**  With your seatmates create an `Condo` class.  A `Condo` will have, in addition to the same properties as `Apartment`, a Condo should also have `price` and `square_feet` properties and a `price_per_square_foot` method.
+**Exercise**  With your seatmates create an `Condo` class.  In addition to the same properties as `Apartment`, a Condo should also have `price` and `square_feet` properties and a `price_per_square_foot` method.
 
 ## Summary
 
