@@ -94,6 +94,8 @@ In initialize, `super` calls the parent, or superclass' constructor.  So `Proper
 
 `super` **must** be the first line in a subclass' `initialize` method.  If `super` is called without an argument, it will use the parameters from the subclass' `initialize` method.
 
+![inheritance initialize](images/inheritance-initialize.png)
+
 ## Overriding Methods
 
 What happens when our classes have different functionality for the same idea? We can _override_ methods from _base classes_ in their _subclasses_.  We want the mailing addresses of `Apartment` objects to include the unit number so we can override the `mailing_address` method.
@@ -122,8 +124,6 @@ fun_place.mailing_address #=> "Unit: 212B"
 ```
 
 In this case, we override the functionality that the _base class_ (`Property`) provides with more specific functionality in the _subclass_ (`Apartment`).
-
-![inheritance initialize](images/inheritance-initialize.png)
 
 ### Using `super` to invoke behavior in _base classes_.
 
