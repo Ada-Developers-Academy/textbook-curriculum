@@ -25,7 +25,7 @@ All exceptions are children of the `Exception` class, inheriting its core functi
 
 [![exceptions](images/exceptions.png)](http://findnerd.com/list/view/Exception-Handling-in-Rails-using-begin-rescue/21677/)
 
-The Ruby docs have a [full list of built in Ruby exceptions](https://ruby-doc.org/core-2.4.0/Exception.html).
+The Ruby docs have a [full list of built in Ruby exceptions](https://ruby-doc.org/core/Exception.html).
 
 
 ### Producing Exceptions
