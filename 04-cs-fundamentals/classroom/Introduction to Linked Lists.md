@@ -23,13 +23,13 @@ Here's the exercises we'll cover in class.
 
 ## Assignments
 1. Complete integers and arrays practice questions. See the slide deck linked below for hints and tips.
-- [Ada-C9/digit_match](https://github.com/Ada-C9/digit_match)
-- [Ada-C9/integer_palindrome_check](https://github.com/Ada-C9/integer_palindrome_check)
-- [Ada-C9/factorial](https://github.com/Ada-C9/factorial)
-- [Ada-C9/fibonacci](https://github.com/Ada-C9/fibonacci)
-- [Ada-C9/array_intersection](https://github.com/Ada-C9/array_intersection)
-- [Ada-C9/matrix_convert_to_zero](https://github.com/Ada-C9/matrix_convert_to_zero)
-- [Ada-C9/matrix_check_sum](https://github.com/Ada-C9/matrix_check_sum)
+- [Ada-C10/digit_match](https://github.com/Ada-C10/digit_match)
+- [Ada-C10/integer_palindrome_check](https://github.com/Ada-C10/integer_palindrome_check)
+- [Ada-C10/factorial](https://github.com/Ada-C10/factorial)
+- [Ada-C10/fibonacci](https://github.com/Ada-C10/fibonacci)
+- [Ada-C10/array_intersection](https://github.com/Ada-C10/array_intersection)
+- [Ada-C10/matrix_convert_to_zero](https://github.com/Ada-C10/matrix_convert_to_zero)
+- [Ada-C10/matrix_check_sum](https://github.com/Ada-C10/matrix_check_sum)
 
 2. *Optional*: Create .rb file and define the Linked List and Node classes keeping object oriented principles in mind. Author methods to add a value, search for a value, count the number of entries and delete a value from the linked list, assuming that the values in each nodes are integers. Be mindful of when the linked list is empty (before adding the first node, after deleting the last node etc.) in your methods.</br>
 Do the above for a singly linked list and a separate file for a doubly linked list.
