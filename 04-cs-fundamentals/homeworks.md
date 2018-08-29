@@ -10,19 +10,19 @@ Sep 03   | Submit PR for [Ada-C10/Restricted-Arrays-Part1](https://github.com/Ad
 Aug 27   | Watch this [Video: Big O Notation](https://www.youtube.com/watch?v=v4cd1O4zkGw) by Gale Laakmann McDowell
 Aug 27   | Solve this [quiz](https://www.khanacademy.org/computing/computer-science/algorithms/asymptotic-notation/e/quiz--comparing-function-growth) by Khan Academy.
 Sep 03   | Solve this [quiz](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/time%20complexity/time_complexity_quiz.md).
-Mar 16   | Submit PR for [Ada-C10/string_reverse](https://github.com/Ada-C10/string_reverse)
-Mar 21   | Submit PR for [Ada-C10/reverse_words](https://github.com/Ada-C10/reverse_words)
-Mar 26   | Submit PR for [Ada-C10/reverse_sentence](https://github.com/Ada-C10/reverse_sentence)
-Apr 02   | Submit PR for [Ada-C10/palindrome_check](https://github.com/Ada-C10/palindrome_check)
-Apr 02   | Submit PR for [Ada-C10/integer_palindrome_check](https://github.com/Ada-C10/integer_palindrome_check)
-Apr 02   | Submit PR for [Ada-C10/factorial](https://github.com/Ada-C10/factorial)
-Apr 09   | Submit PR for [Ada-C10/fibonacci](https://github.com/Ada-C10/fibonacci)
-Apr 09   | Submit PR for [Ada-C10/array_intersection](https://github.com/Ada-C10/array_intersection)
-Apr 26   | Submit PR for [Ada-C10/matrix_convert_to_zero](https://github.com/Ada-C10/matrix_convert_to_zero)
-Apr 26   | Submit PR for [Ada-C10/matrix_check_sum](https://github.com/Ada-C10/matrix_check_sum)
-Apr 16   | Read and understand [Sorting algorithms](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Sorting.md)
-Apr 23   | Understand the code and predict what you should see in the console output. Try it out to confirm. [Understanding Function Calls](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Understanding%20function%20calls.md#assignments)
-May 31   | Define terms, practice tracing and deduce the time and space complexities for some **recursive** problems. [Ada-C10/recursion-tracing](https://github.com/Ada-C10/recursion-tracing). Answer key for reference can be found [here](https://github.com/Ada-C9/recursion-tracing/tree/solutions)
+Sep 10   | Submit PR for [Ada-C10/string_reverse](https://github.com/Ada-C10/string_reverse)
+Sep 17   | Submit PR for [Ada-C10/reverse_words](https://github.com/Ada-C10/reverse_words)
+Sep 17   | Read and understand [Sorting algorithms](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Sorting.md)
+Sep 21   | Submit PR for [Ada-C10/reverse_sentence](https://github.com/Ada-C10/reverse_sentence)
+Oct 01   | Understand the code and predict what you should see in the console output. Try it out to confirm. [Understanding Function Calls](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Understanding%20function%20calls.md#assignments)
+Oct 01   | Submit PR for [Ada-C10/palindrome_check](https://github.com/Ada-C10/palindrome_check)
+Oct 01   | Submit PR for [Ada-C10/integer_palindrome_check](https://github.com/Ada-C10/integer_palindrome_check)
+Oct 01   | Submit PR for [Ada-C10/factorial](https://github.com/Ada-C10/factorial)
+Oct 08   | Submit PR for [Ada-C10/fibonacci](https://github.com/Ada-C10/fibonacci)
+Oct 08   | Submit PR for [Ada-C10/array_intersection](https://github.com/Ada-C10/array_intersection)
+Oct 29   | Submit PR for [Ada-C10/matrix_convert_to_zero](https://github.com/Ada-C10/matrix_convert_to_zero)
+Oct 29   | Submit PR for [Ada-C10/matrix_check_sum](https://github.com/Ada-C10/matrix_check_sum)
+Nov 28   | Define terms, practice tracing and deduce the time and space complexities for some **recursive** problems. [Ada-C10/recursion-tracing](https://github.com/Ada-C10/recursion-tracing). Answer key for reference can be found [here](https://github.com/Ada-C9/recursion-tracing/tree/solutions)
 
 ## Optional Homeworks
 ### Binary & Decimal
