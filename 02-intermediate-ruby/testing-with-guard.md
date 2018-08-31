@@ -12,11 +12,16 @@ We've already seen how to use Minitest to make spec files and write automated te
 
 **NOTE**: Guard will only notice that your file has changed when you _save_ it in your editor.
 
-## Install Guard
-<!-- TODO: Fill out instructions text -->
+## Install and start Guard
+Before we can use Guard to automatically run our tests while we work on projects, we will need to install it. This can be done by installing two Gems:
+
 ```bash
 $ gem install guard guard-minitest
 ```
+
+After we've got Guard installed, we can start it by running the `guard` command in a terminal. Leave this terminal window open while you work, and Guard will display the results of your tests whenever they are re-run automatically.
+
+_Important_: You need to run `guard` from the "root" directory for the project (the directory which has the `Guardfile`).
 
 ## More details
 ### How Guard works with Minitest
