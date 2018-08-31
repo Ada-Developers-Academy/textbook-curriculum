@@ -126,7 +126,7 @@ Now that we've got you thinking about design, spend some time to revisit the cod
 - Does this class take on any responsibility that should be delegated to "lower level" classes?
 - Is there code in other classes that directly manipulates this class's instance variables?
 
-You might recall writing a file called `refactor.txt`. Take a look at the refactors that you wrote, and consider the following:
+You might recall writing a file called `refactor.txt`. Take a look at the refactor plans that you wrote, and consider the following:
 - How easy is it to follow your own instructions?
 - Do these refactors improve the clarity of your code?
 - Do you still agree with your previous assesment, or could your refactor be further improved?
