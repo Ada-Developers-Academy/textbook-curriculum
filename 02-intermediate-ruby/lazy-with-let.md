@@ -44,14 +44,14 @@ Let is another way to DRY up your code.  With Let we create a block which can be
 # pet_spec.rb
 
 describe Pet do
-  let (:pet)  { 						 # <-- The name used
-  	AdaPets::Pet.new("Fido") # <-- The value returned by 'pet'
+  let (:pet)  {              # <-- The name used
+    AdaPets::Pet.new("Fido") # <-- The value returned by 'pet'
   }
 
 
-	it "has a name" do
-		expect(pet.name).must_equal "Fido"
-    end
+  it "has a name" do
+    expect(pet.name).must_equal "Fido"
+  end
 end
 ```
 
@@ -121,18 +121,18 @@ describe "Pet" do
   }
 
 
-    describe "initialize method" do
-        it "New Pets initialize with a name" do
-            expect(pet).must_respond_to :name
-            expect(pet).name.must_equal "Ada Lovelace"
-        end
-
-        it "Throws an ArgumentError if created without a name" do
-          expect {
-            AdaPets::Pet.new
-          }.must_raise ArgumentError
-        end
+  describe "initialize method" do
+    it "New Pets initialize with a name" do
+      expect(pet).must_respond_to :name
+      expect(pet).name.must_equal "Ada Lovelace"
     end
+
+    it "Throws an ArgumentError if created without a name" do
+      expect {
+        AdaPets::Pet.new
+      }.must_raise ArgumentError
+    end
+  end
 end
 ```
 
@@ -160,15 +160,15 @@ The below example creates 2 let statements for a pet and a person and uses them 
 
 ```ruby
 describe "Pet & Person" do
-  let (:pet)  { AdaPets::Pet.new("Fido")	 }
-  let (:person) { AdaPets::Person.new("Ada Lovelace")}
+  let (:pet) { AdaPets::Pet.new("Fido") }
+  let (:person) { AdaPets::Person.new("Ada Lovelace") }
 
   describe "person for Pet class" do
 
     it "sets the pet's person" do
-     pet.set_person(person)
-     expect(pet.person).must_be_instance_of AdaPets::Person
-     expect(pet.person.name).must_be_instance_of String
+      pet.set_person(person)
+      expect(pet.person).must_be_instance_of AdaPets::Person
+      expect(pet.person.name).must_be_instance_of String
     end
 
     it "won't fill the array beyond 7 letters" do
