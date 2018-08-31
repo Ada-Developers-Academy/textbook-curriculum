@@ -126,9 +126,14 @@ Now that we've got you thinking about design, spend some time to revisit the cod
 - Does this class take on any responsibility that should be delegated to "lower level" classes?
 - Is there code in other classes that directly manipulates this class's instance variables?
 
+You might recall writing a file called `refactor.txt`. Take a look at the refactor plans that you wrote, and consider the following:
+- How easy is it to follow your own instructions?
+- Do these refactors improve the clarity of your code?
+- Do you still agree with your previous assesment, or could your refactor be further improved?
+
 ### Activity
 
-Based on the answers to the above questions, identify one place in your Hotel project where a class takes on multiple roles, or directly modifies the attributes of another class. Describe in `design-activity.md` what changes you would need to make to improve this design, and how the resulting design would be an improvement.
+Based on the answers to each set of the above questions, identify one place in your Hotel project where a class takes on multiple roles, or directly modifies the attributes of another class. Describe in `design-activity.md` what changes you would need to make to improve this design, and how the resulting design would be an improvement.
 
 If you need inspiration, remember that the [reference implementation](https://github.com/droberts-ada/hotel/tree/dpr/solution) exists.
 
