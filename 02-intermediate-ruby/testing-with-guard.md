@@ -56,4 +56,16 @@ So that is the benefit for experienced developers using TDD -- they are running 
 ### How Guard can help us learn
 In addition to the productivity gains that Guard and get us if we're frequently running our tests, it can help to reinforce good development practices, and even make debugging easier!
 
-<!-- TODO: Finish explaining how Guard reinforces following TDD cycle, and how we can see that more frequently running tests means we catch and fix bugs faster, when they're simpler and easier to find. -->
+Guard helps to reinforce good development practices because we're always in the red-green-refactor cycle. Whenever we change some code and Guard runs my tests again we're either presented with one or more test failures (red) or we're presented with all tests passing (green or possibly refactor).
+
+However, if we don't use Guard and thus don't run our tests after making a change, then we're not at any stage in the TDD cycle. So using Guard can help us to always be practicing TDD, and reinforce the good habits of that process.
+
+Finally, Guard can help make debugging easier. It does not do this by helping us to understand our code better (and thus recognize bugs more readily). Instead, it helps us _find_ bugs earlier and easier. Sometimes finding the source of a bug is a major part of the debugging process, especially in larger codebases.
+
+But how does Guard actually help us find bugs? It helps us find bugs by showing us that we have a bug sooner than we might otherwise find out. Consider two possible development processes, both starting from the same scenario: The developer is given a specification or other document with instructions for a new feature that needs to be implemented. This would be similar to working on one wave from an Ada project.
+
+* Process A: The developer starts working on the feature and writes all of the code and tests for that feature. They then run their test suite and notice several tests are failing. The developer picks the first failing test and begins to work on debugging to fix their code and pass the test. In this situation they need to consider that the bug they need to fix could be in _any_ of the code they wrote for that feature. And in fact, there may be multiple bugs which interfere and build ontop of each other.
+
+* Process B: The developer starts working on the feature, and runs Guard in the background. When they write a line of code to implement some part of the feature, their tests are run by Guard. If that line included a bug, they would notice right away because one or more tests failed (assuming that they have tests for this new line of code). At that point, they know that the bug exists in the one line that they just wrote -- a major leg up in finding that bug. Additionally, if the developer takes the time to fix the bug right away they are preventing themselves from creating more bugs that compound with each other and make the debugging process that much harder.
+
+This principle -- the more frequently we run our code, the easier our debugging work will be -- is not specific to Guard, but the automation that it enables helps to reinforce this principle and to ensure you build it into your development practice.
