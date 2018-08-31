@@ -8,7 +8,7 @@ We've already seen how to use Minitest to make spec files and write automated te
     - Learn how Guard can increase the value of your automated tests
 
 ## What is Guard?
-[Guard](https://github.com/guard/guard) is a _task runner_ which means that it's primary role is to automatically perform a task, such as have Minitest run our full test suite, or possibly a subset of it. In particular, Guard is a kind of task runner that is based on file watching -- it "watches" the files in our project, and runs tasks when they are changed.
+[Guard](https://github.com/guard/guard) is a _task runner_ which means that it's primary role is to automatically perform a task, such as have Minitest run our full test suite, or possibly a subset of it. In particular, Guard is a kind of task runner that is based on file watching -- it "watches" the files in our project, and runs tasks when they are changed. For Ada's projects we have configured Guard to run your tests whenever a code or spec file is changed.
 
 **NOTE**: Guard will only notice that your file has changed when you _save_ it in your editor.
 
