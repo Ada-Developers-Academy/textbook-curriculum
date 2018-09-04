@@ -65,7 +65,7 @@ phone_numbers = [
   "+1 206 555 8888",
   "4255558872",
 ]
-phone_regex = /(\d{3}).*(\d{3}).*(\d{4})/
+phone_regex = /^.*(\d{3}).*(\d{3}).*(\d{4})$/
 
 phone_numbers.map! do |num|
   groups = num.match(phone_regex)

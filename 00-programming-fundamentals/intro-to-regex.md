@@ -68,7 +68,7 @@ Another common need is for characters that are optional or can repeat. For this 
 These characters are summarized in the following table.
 
 Character | Meaning            | Example
----       | ---                |
+---       | ---                | ---
 `.`       | Any one character  | `/a.a/` matches `ada`, `ava`, and `a!a`
 `*`       | Preceding token may occur **zero** or more times | `/ad*a/` matches `aa`, `ada`, and `adddda`<br><br>`/[0-9]*/` matches `1`, `345`, and the empty string<br><br>`.*` matches any string
 `+`       | Preceding token may occur **one** or more times. | `/ad+a/` matches `ada` and `adddda` but **not** `aa`<br><br>`/[0-9]+/` matches `1` and `345` but **not** the empty string<br><br>`.+` matches any string **except for** the empty string
@@ -136,6 +136,8 @@ By default a regex will match a string if any part of the string matches. Someti
 `$`, when placed at the end of a regex, will match the end of the regex. If there are characters in the string after the match ends, it's not a match.
 - `/ada$/` matches `ada` and `start ada` but not `ada end`
 
+It is common to combine `^` and `$` in order to match an entire string.
+
 ### Practice
 
 Write a regex that will match only strings without any leading whitespace.
@@ -156,9 +158,11 @@ If you want to match a token a variable number of times you can place a comma in
 
 ## Capture Groups
 
-We can also construct groups of characters which can be combined with special characters using the parentheses.  For example `/(ada *)+/` would match one or more `"ada"` strings separated by 0 or more spaces.  So `"ada ada"`, `"ada"`, and `"ada ada   ada"` would all match.
+A _capture group_ is a group of characters that we want to treat as a unit. Any quantifiers apply to the whole group, instead of individual characters.
 
-So `/a(ab)*a/` would match the strings:  `"aaba"`, `"aa"`, `"aababa"` because it requires an `"a"` followed by zero or more `"ab"` blocks and ending with an `"a"`.
+We construct capture groups using parentheses.  For example `/(ada *)+/` would match one or more `"ada"` strings separated by 0 or more spaces.  So `"ada ada"`, `"ada"`, and `"ada ada   ada"` would all match. However, you need to have the full `ada` in order to match, so `adada` does _not_ match.
+
+Another example: `/a(ab)*a/` would match the strings:  `"aaba"`, `"aa"`, `"aababa"` because it requires an `"a"` followed by zero or more `"ab"` blocks and ending with an `"a"`.
 ![regex with capture groups](images/regex4.png)
 
 ### Practice
@@ -173,9 +177,16 @@ Write a regular expression for these patterns:
 
 ## Search and Replace
 
+### In Ruby
+
 So far we've only used regex to check whether a string matches a pattern. While this is certainly useful, regex can also be used to transform strings. To do so, we will _capture_ part of the string using a capture group, and then use the captured data to create a new string.
 
-Let's use our email regex from a previous example to illustrate. We might imagine an application where we need to know all the different domains (like `adadev.org` in `dan@adadev.org`) where users have addresses. First we write a regex that will match an email and _capture_ the data we want:
+Let's use our email regex from a previous example to illustrate. We might imagine an application where we need to know all the different domains (like `adadev.org` in `dan@adadev.org`) where users have addresses.
+
+![Transforming emails to domains](images/regex_emails_to_domains.png)
+<!-- https://www.lucidchart.com/documents/edit/c08de5b5-36a9-47bd-a702-326196e81c5e/0?driveId=1Wzk-dUvh8MxvkyQKRQeEiGLa8TG5mSCJ -->
+
+First we write a regex that will match an email and _capture_ the data we want:
 
 ```ruby
 email_regex = /.+@(.+\..+)/
@@ -214,79 +225,105 @@ domain_counts.each do |domain, count|
 end
 ```
 
-### Practice
-1. Imagine that you have a long list of phone numbers typed by users, like the following:
+#### Practice
+Imagine that you have a long list of phone numbers typed by users, like the following:
 
+```ruby
+phone_numbers = [
+  "(206) 555-1234",
+  "425-555-9999",
+  "406.555.1818",
+  "+1 206 555 8888",
+  "4255558872",
+]
+```
+
+These phone numbers are formatted very differently: some have the `+1` country code, some have parentheses around the area code, some have dots instead of dashes, etc. Our job is to write some Ruby code to normalize these numbers, so that they all look like `(206) 555-1234`.
+
+**Questions:**
+- What regex will you need to match all these numbers?
+- What characters will you need to capture? How many groups do you need?
+- How will you use the captured data to fill in the final string?
+
+[Check you answer here](solutions/regex.md#Phone%20Numbers)
+
+### Search and Replace in Atom
+
+One of the most common ways to use regex search and replace is through your text editor. Here are a few examples of when this might be useful:
+- You need to change a variable name throughout your code base, without changing a similarly named method
+- Your mentor left you a comment on your code review that, according to the company's style guide, you need to change all your single-quoted strings to use double quotes
+- You have a big list of data that you copy-pasted from the internet, and you need to transform it into something usable in Ruby
+
+Atom allows you to use regexes and capture groups when you search and replace. Let's see how to use it. Imagine that we have a file full of differently formatted phone numbers:
+
+```
+# phone_numbers.txt
+(206) 555-1234
+425-555-9999
+406.555.1818
++1 206 555 8888
+4255558872
+```
+
+1. Open a new file in Atom and paste in the above list of numbers
+1. Press `cmd+f` to open Atom's search tool
+1. In the upper right corner of the search bar, click the `.*` button to enable regex search
+    ![Atom regex search](images/atom-regex-search.png)
+1. In the find bar, copy-paste the regex we used in the previous example: `^.*(\d{3}).*(\d{3}).*(\d{4})$`
+    - You should not include the `/` characters at the beginning and end
+1. In the replace bar, we have access to the capture groups using `$n`, where `n` is the group number (starting at 1). We can use `($1) $2-$3` to format the phone numbers the way we want.
+1. Click the `Replace All` button. Now all the phone numbers are beautifully formatted!
+
+#### Practice
+
+Remember back to the original RideShare project from the first week of class. We provided a [CSV file full of ride information](https://raw.githubusercontent.com/AdaGold/ride-share/master/rides.csv), and you had to manually build up a data structure of nested arrays and hashes to manage that data.
+
+Manually copying data is a tedious, error-prone process. It would be much better if we could use our tools to do this transformation automatically. Fortunately Atom's regex search-and-replace tool is perfectly suited to this task.
+
+We will build a regex search-and-replace pattern to transform CSV data like this
+
+```csv
+DR0004,3rd Feb 2016,5,RD0022,5
+```
+
+into a Ruby hashes like this
+
+```ruby
+{
+  driver_id: "DR0004",
+  date: "3rd Feb 2016",
+  cost: 5,
+  rider_id: "RD0022",
+  rating: 5,
+},
+```
+
+1. Create a new empty file called `ride_share_regex.rb`
+1. Paste in the CSV data from the file linked above
+1. Open up Atom's search-and-replace tool, and turn on regex mode
+1. In the search bar, build a regex to match the lines from the CSV file.
+    - What pieces of data will you need to capture?
+1. In the replace bar, build a template and fill it in with the capture groups from your regex.
+    - Remember that Atom stores captured data in variables named `$1`, `$2`, etc.
+    - You can use `\n` for a newline
+    - Which parts can be hard-coded in the template, and which come from the original CSV data?
+1. Click `Replace All` (or hit `cmd+enter`)
+1. Does the result look right? If not, study the output and figure out where you made a mistake. Make your edits to the regex and template string, then click back to the editor pane and use `cmd+z` to undo the transformation. Retry with your new regex. Repeat as needed.
+1. Once you've correctly transformed the data, add in a little Ruby boilerplate at the beginning and end to group the hashes into an array.
     ```ruby
-    phone_numbers = [
-      "(206) 555-1234",
-      "425-555-9999",
-      "406.555.1818",
-      "+1 206 555 8888",
-      "4255558872",
+    rideshare_data = [
+      {
+        driver_id: "DR0004",
+        date: "3rd Feb 2016",
+        cost: 5,
+        rider_id: "RD0022",
+        rating: 5,
+      },
+      # ... more hashes ...
     ]
     ```
 
-    These phone numbers are formatted very differently: some have the `+1` country code, some have parentheses around the area code, some have dots instead of dashes, etc. Our job is to write some Ruby code to normalize these numbers, so that they all look like `(206) 555-1234`.
-
-    **Questions:**
-    - What regex will you need to match all these numbers?
-    - What characters will you need to capture? How many groups do you need?
-    - How will you use the captured data to fill in the final string?
-
-    [Check you answer here](solutions/regex.md#Phone%20Numbers)
-
-1. Remember back to the original RideShare project from the first week of class. We provided a [CSV file full of ride information](https://raw.githubusercontent.com/AdaGold/ride-share/master/rides.csv), and you had to manually build up a data structure of nested arrays and hashes to manage that data.
-
-    Manually copying data is a tedious, error-prone process. It would be much better if we could use our tools to do this transformation automatically. Fortunately Atom's regex search-and-replace tool is perfectly suited to this task.
-
-    We will build a regex search-and-replace pattern to transform CSV data like this
-
-    ```csv
-    DR0004,3rd Feb 2016,5,RD0022,5
-    ```
-
-    into a Ruby hashes like this
-
-    ```ruby
-    {
-      driver_id: "DR0004",
-      date: "3rd Feb 2016",
-      cost: 5,
-      rider_id: "RD0022",
-      rating: 5,
-    },
-    ```
-
-    1. Create a new empty file called `ride_share_regex.rb`
-    1. Open the file in Atom
-    1. Paste in the CSV data from the file linked above
-    1. Press `cmd+f` to open Atom's search tool
-    1. In the upper right corner of the search bar, click the `.*` button to enable regex search
-        ![Atom regex search](images/atom-regex-search.png)
-    1. In the search bar, build a regex to match the lines from the CSV file.
-        - What pieces of data will you need to capture?
-    1. In the replace bar, build a template and fill it in with the capture groups from your regex.
-        - Atom stores captured data in variables named `$1`, `$2`, etc.
-        - You can use `\n` for a newline
-        - Which parts can be hard-coded in the template, and which ones come from the original CSV data?
-    1. Click `Replace All` (or hit `cmd+enter`)
-    1. Does the result look right? If not, study the output and figure out where you made a mistake. Make your edits to the regex and template string, then click back to the editor pane and use `cmd+z` to undo the transformation. Retry with your new regex. Repeat as needed.
-    1. Once you've correctly transformed the data, add in a little Ruby boilerplate at the beginning and end to group the hashes into an array.
-        ```ruby
-        rideshare_data = [
-          {
-            driver_id: "DR0004",
-            date: "3rd Feb 2016",
-            cost: 5,
-            rider_id: "RD0022",
-            rating: 5,
-          },
-          # ... more hashes ...
-        ]
-        ```
-
-    [Check you answer here](solutions/regex.md#CSV%20to%20Hash)
+[Check you answer here](solutions/regex.md#CSV%20to%20Hash)
 
 ## Conclusion
 
