@@ -29,7 +29,7 @@ Now that we know the purpose of the Guard tool, how can we use it to run our tes
 
 ```ruby
 guard :minitest, bundler: false, autorun: true, rubygems: false do
-  # With Minitest Spec
+  # With Minitest Reporters
   watch(%r{^spec/(.*)_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})         { |m| "spec/#{m[1]}_spec.rb" }
   watch(%r{^spec/spec_helper\.rb$}) { 'spec' }
