@@ -28,8 +28,8 @@ _Important_: You need to run `guard` from the "root" directory for the project (
 Now that we know the purpose of the Guard tool, how can we use it to run our tests? Much like Rake, we have a configuration file to tell Guard what tasks to run, and what files to watch. Here's an example `Guardfile` that we use in Ada projects:
 
 ```ruby
-guard :minitest do
-  # with Minitest::Spec
+guard :minitest, bundler: false, autorun: true, rubygems: false do
+  # With Minitest Reporters
   watch(%r{^spec/(.*)_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})         { |m| "spec/#{m[1]}_spec.rb" }
   watch(%r{^spec/spec_helper\.rb$}) { 'spec' }
@@ -41,6 +41,20 @@ While it's not important to understand all of this code (it's written using a Gu
 In particular, we have a line that says `guard :minitest`. This is how we indicate to Guard that one of its tasks is to run Minitest. The lines inside of the `do ... end` block attached to the Minitest line are how we tell Guard what files to watch.
 
 The above example tells Guard to watch the `spec/` and `lib/` folders, and to only run _relevant_ tests whenever a file is changed. Additionally, we tell Guard to run _all_ tests whenever the `spec_helper.rb` file is changed.
+
+An example of a useful `spec/spec_helper.rb` file would be:
+
+```ruby
+# spec/spec_helper.rb
+require 'minitest/reporters'
+require 'minitest/autorun'
+
+Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
+
+# Place `require_relative` commands for loading application code
+#   Example:  require_relative '../lib/customer'
+# ...
+```
 
 Again, it is not necessary to understand the code snippet above. Ada will provide an appropriate Guardfile as needed for any projects we assign.
 
