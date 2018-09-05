@@ -57,7 +57,7 @@ You can also adjust the character set to accept a range of characters.  For exam
 
 How could you match any alphanumeric digit like "a", "W", or "0"?
 
-[Check you answer here](solutions/regex.md#Character%20Sets)
+[Check your answer here](solutions/regex.md#Character%20Sets)
 
 ## The Wildcard and Quantifiers
 
@@ -81,7 +81,7 @@ Write a regular expression to match a valid email of form `name@domain.tld`
 - Rejects `dan@adadev.`, `charles.com`, `@adadev.org`, `sarah@.org`
 - Use `\.` for a literal period (more on this later)
 
-[Check you answer here](solutions/regex.md#Wildcards%20and%20Quantifiers)
+[Check your answer here](solutions/regex.md#Wildcards%20and%20Quantifiers)
 
 ## The NOT `^` Character
 
@@ -95,7 +95,7 @@ Another example would be `/[^0-9]/` which would exclude any digit or `/Ada is nu
 
 How can you write a regex which would accept `dog`, `sog`, and `hog`, but exclude `bog`?
 
-[Check you answer here](solutions/regex.md#Not)
+[Check your answer here](solutions/regex.md#Not)
 
 ## Escape characters
 
@@ -124,7 +124,7 @@ Practical Example:
 
 Write a regex for any amount of US currency, for example it should match `$3.25`, `$102.73`, and `$0.25`.
 
-[Check you answer here](solutions/regex.md#Escape%20Characters)
+[Check your answer here](solutions/regex.md#Escape%20Characters)
 
 ## Start and End of a String
 
@@ -144,7 +144,7 @@ Write a regex that will match only strings without any leading whitespace.
 - `"ada"`, `"ada academy"` and `"ada "` all match
 - `"  ada"`, `"  ada "` and `" "` do not match
 
-[Check you answer here](solutions/regex.md#Start%20and%20End)
+[Check your answer here](solutions/regex.md#Start%20and%20End)
 
 ## Repetitions
 
@@ -173,7 +173,7 @@ Write a regular expression for these patterns:
 1. "Ada", "Ada Academy" or "Ada Developers Academy", but not "Ada Developers" by itself. Should be case-insensitive (so both "Ada" and "ada" are OK).
     - Note that capture groups can be nested
 
-[Check you answer here](solutions/regex.md#Capture%20Groups)
+[Check your answer here](solutions/regex.md#Capture%20Groups)
 
 ## Search and Replace
 
@@ -245,7 +245,7 @@ These phone numbers are formatted very differently: some have the `+1` country c
 - What characters will you need to capture? How many groups do you need?
 - How will you use the captured data to fill in the final string?
 
-[Check you answer here](solutions/regex.md#Phone%20Numbers)
+[Check your answer here](solutions/regex.md#Phone%20Numbers)
 
 ### Search and Replace in Atom
 
@@ -323,7 +323,7 @@ into a Ruby hashes like this
     ]
     ```
 
-[Check you answer here](solutions/regex.md#CSV%20to%20Hash)
+[Check your answer here](solutions/regex.md#CSV%20to%20Hash)
 
 ## Conclusion
 
