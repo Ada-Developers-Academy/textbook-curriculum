@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Prismatic Paintbrushes | Contact Us</title>
+  <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+  <h1>How are we doing?</h1>
+  <p>If you have questions, comments or concerns about our paintbrushes, please let us know.</p>
+  <form action="index.html" method="post">
+
+    <label for="brush-size">Brush Size</label>
+    <select name="brush-size">
+      <option value="#3 Fan Blender">#3 Fan Blender</option>
+      <option value="#6 Fan Blender">#6 Fan Blender</option>
+      <option value="Half Size Round">Half Size Round</option>
+      <option value="1&quot; Round Foliage Brush">1" Round Foliage Brush</option>
+      <option value="#5 Detail Knife">#5 Detail Knife</option>
+      <option value="#10 Painting Knife">#10 Painting Knife</option>
+      <option value="2&quot; Blender">2" Blender</option>
+      <option value="#2 Script Liner">#2 Script Liner</option>
+      <option value="#6 Filbert">#6 Filbert</option>
+      <option value="2&quot; Background">2" Background</option>
+      <option value="1&quot; Oval Bristle">1" Oval Bristle</option>
+      <option value="1&quot; Landscape">1" Landscape</option>
+    </select>
+
+    <label for="material">Product Material</label>
+    <div>
+      <input name="material" type="radio" value="horsehair">Natural Horsehair</input>
+      <input name="material" type="radio" value="nylon">Synthetic Nylon</input>
+      <input name="material" type="radio" value="polyester">Synthetic Polyester</input>
+      <input name="material" type="radio" value="n-a">N/A</input>
+    </div>
+
+    <label class="double-wide" for="feedback">What would you like to tell us?</label>
+    <textarea class="double-wide" name="feedback" rows="8" placeholder ="How can we help?"></textarea>
+
+    <label for="customer-name">Your Name</label>
+    <input name="customer-name" type="text" placeholder="Ann Artist"></input>
+
+    <label for="customer-email">Your Email</label>
+    <input name="customer-email" type="text" placeholder="you@example.com"></input>
+
+    <input class="double-wide" type="submit" value="Send"></input>
+  </form>
+
+</body>
+</html>

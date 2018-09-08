@@ -1,0 +1,13 @@
+form {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: start;
+}
+
+form > * {
+  margin: .5em .25em;
+}
+
+.double-wide {
+  grid-column-end: span 2;
+}
