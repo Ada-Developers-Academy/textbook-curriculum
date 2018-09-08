@@ -36,6 +36,7 @@ When submitted, this form should send a POST request to `TODO URL PLS`
 Here's what the finished product should look like.
 
 ![Finished Product](images/form_exercise_result.png)
+<!-- See the solutions folder for code -->
 
 **Question:** What CSS techniques did we use to style this page?
 
