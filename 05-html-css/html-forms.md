@@ -8,7 +8,6 @@ Forms are how users provide input to servers for operation. Everything from auth
 
 ## Relevant Tags
 - `<form>`
-- `<fieldset>` and `<legend>` (handy, but not often used)
 - `<label>`
 - `<input>`
   - `<input type="text">`
@@ -21,6 +20,7 @@ Forms are how users provide input to servers for operation. Everything from auth
 - `<select>`
   - `<option>`
 - `<button>`, and `<input type="button">` (primarily used for JavaScript interactions)
+- `<fieldset>` and `<legend>` (handy, but not often used)
 
 ## Creating and Submitting Forms
 Forms are used to create requests to servers that can create, update, and delete resources.
@@ -89,7 +89,7 @@ Let's make our form a little bit smarter. We can submit nested data by manipulat
 In Rails this is the way we _model_ data objects. Once we have our form set up in this way, then we can pass this data from the form to the controller action that should be handling the form submission.
 
 ### `params`
-Once we have the form we set up to send the submission to the appropriate route, then we need to modify the corresponding controller action. 
+Once we have the form we set up to send the submission to the appropriate route, then we need to modify the corresponding controller action.
 
 We have seen Rails using the special variable called `params` before when we were writing the definition for our `show` action. `params` will also store each piece of data that we've specified in our form!
 
