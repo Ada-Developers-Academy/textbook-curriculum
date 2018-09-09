@@ -63,7 +63,7 @@ We can define a couple rules based on this representation for how the state shou
 1. Instance Variables can go from parent to child squares, but they cannot cross between boxes without any overlap
 2. The `request` data (`params`, `session`, `request`) is available within "Controllers" and it's children.
 3. Controller methods (`render`, `redirect_to`, and any custom methods) are only available within "Controllers", and not any of it's children.
-4. _View helpers_ (`link_to`, `image_tag`, `form_for`, etc.) are available only to "Views".
+4. _View helpers_ (`link_to`, `image_tag`, `form_with`, etc.) are available only to "Views".
 
 ## Identifying state
 Given these tools and facts we can determine:

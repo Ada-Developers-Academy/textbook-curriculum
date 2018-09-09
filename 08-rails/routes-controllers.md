@@ -111,10 +111,10 @@ Route | Prefix | Path Helper | Example
 ---   | ---    | ---         | ---
 `get '/books', to: 'books#index'`	|   `books`	|   `books_path`	| `<%= link_to "All Books", books_path %>`
 `get '/books/new', to: 'books#new', as: 'new_book'`	|   `new_book`	|   `new_book_path`	|	`<%= link_to "New book", new_book_path %>`
-`post '/books', to: 'books#create'`, as: 'books'	|   `books`	|   `books_path`	| `<%= form_for @book, action: books_path, method: :post %>`
+`post '/books', to: 'books#create'`, as: 'books'	|   `books`	|   `books_path`	| `<%= form_with model: @book, url: books_path, method: :post %>`
 `get '/books/:id', to: 'books#show', as: 'book'` | 	`book`  |	`book_path`  |	`<%= link_to "View #{book.title}", book_path(book.id) %>`
 `get '/books/:id/edit', to: 'books#edit', as: 'edit_book'`	|   `edit_book`	|   `edit_book_path`	|  `<%= button_to "Edit #{book.title}", edit_book_path(book.id) %>`
-`patch '/books/:id', to: 'books#update'` | 	`book`  |	`book_path`  |	`<%= form_for @book, action: book_path(@book.id), method: :patch %>`
+`patch '/books/:id', to: 'books#update'` | 	`book`  |	`book_path`  |	`<%= form_with model: @book, url: book_path(@book.id), method: :patch %>`
 `delete '/books/:id', to: 'books#destroy'` | 	`book`  |	`book_path`  |	`<%= link_to "Delete", book_path(book.id) %>`
 
 
