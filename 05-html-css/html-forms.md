@@ -55,19 +55,21 @@ Here's what it would look like in a web page:
 There are several types of `<input>`, each specified by the `type` attribute:
 
 - `<input type="text">`
-- A one-line text box
+  - A one-line text box
 - `<input type="checkbox">`
-- One checkbox (typically you would use several together)
+  - One checkbox (typically you would use several together)
 - `<input type="radio">`
-- One radio button (typically you would use several together)
+  - One radio button (typically you would use several together)
 - `<input type="password">`
-- Similar to `type="text"`, but the characters are hidden
+  - Similar to `type="text"`, but the characters are hidden
 - `<input type="hidden">`
-- Stores a value to be submitted with the form, but is invisible to the user. We won't use these until next week.
+  - Stores a value to be submitted with the form, but is invisible to the user. We won't use these until next week.
 
-Each `<input>` must also have a `name` attribute, which specifies what the data entered here will be called. You can think of it as being similar to the key in a hash.
+Each `<input>` must also have a `name` attribute, which specifies what the data entered here will be called. You can think of it as being similar to the key in a hash. It's worth pointing out that `"name"` is a common value for the `name` attribute, which can get a little confusing.
 
-Another useful attribute for `type="text"` is `placeholder`, which is used to give the user an idea of what to type, but goes away as soon as they start typing.
+Many `<input>`s will also have a `value` attribute. For checkboxes and radio buttons, `value` will determine what data will be sent to the server when the form is submitted. Going back to our hash metaphor, if `name` is the key then `value` is the value. For text inputs, `value` indicates an initial value for this field.
+
+Another useful attribute for `type="text"` is `placeholder`, which is used to give the user an idea of what to type, but goes away as soon as they start typing (as opposed to a `value` which sticks around).
 
 #### Submit Button
 
@@ -92,9 +94,66 @@ Let's add a few `<input>` elements to our email signup form. Since `<input>` is 
 
 ### `<label>` Tags
 
-One thing you'll notice about our example so far is that it doesn't include any labels
+One thing you'll notice about our example so far is that it doesn't include any text on the page. There's no indication (other than the placeholder text) of what our `<input>` elements are for. To help out the user we'll label them with `<label>`s.
+
+Each `<label>` gets a `for` attribute, which should match the `name` of the `<input>` it corresponds to. Making this connection is important for accessibility.
+
+Adding `<label>` tags to our example yields:
+
+```html
+<h1>Sign up for the Ada newsletter</h1>
+<form action="/newsletter/signup" method="post">
+  <div>
+    <label for="email">Your email:</label>
+    <input name="email" type="text" placeholder="lovelace@adadev.org"></input>
+  </div>
+
+  <div>
+    <label for="name">Your name:</label>
+    <input name="name" type="text" placeholder="Ada Lovelace"></input>
+  </div>
+
+  <input type="submit" value="Sign up now!"></input>
+</form>
+```
+
+That's starting to look like a real form!
 
 ### Other Form Elements
+
+While `<input>` covers most types of form elements, there are a few that for one reason or another get a special tag. The two most common are `<textarea>` and `<select>`.
+
+A `<textarea>` is used for a multiline text input. You can use it in the same way as `<input type="text">`, except for it takes `rows` and `columns` attributes to specify how big it is.
+
+A `<select>` is used for dropdown menus, and should have a `name` attribute. Each item in the menu should be wrapped in an `<option>` tag, and should have a `value` attribute indicating the data sent to the server when that option is selected.
+
+Let's add a `<select>` to our email signup form:
+
+```html
+<h1>Sign up for the Ada newsletter</h1>
+<form action="/newsletter/signup" method="post">
+  <div>
+    <label for="email">Your email:</label>
+    <input name="email" type="text" placeholder="lovelace@adadev.org"></input>
+  </div>
+
+  <div>
+    <label for="name">Your name:</label>
+    <input name="name" type="text" placeholder="Ada Lovelace"></input>
+  </div>
+
+  <div>
+    <label for="source">How did you hear about us?</label>
+    <select name="source">
+      <option value="search">Found through a search engine</option>
+      <option value="friend">Referred by a friend</option>
+      <option value="sponsor-company">Through one of our sponsor companies</option>
+    </select>
+  </div>
+
+  <input type="submit" value="Sign up now!"></input>
+</form>
+```
 
 ## Creating and Submitting Forms
 
@@ -188,3 +247,4 @@ book = Book.new(title: params[:book][:title], author: params[:book][:author])
 ## Resources
 - [MDN Input Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
 - [MDN Form Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
+- [SO on why `<textarea>` isn't `<input type="textarea">`](https://stackoverflow.com/questions/5637326/why-isnt-textarea-an-inputtype-textarea)
