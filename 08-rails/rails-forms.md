@@ -81,7 +81,7 @@ The entire form could look like:
 
 `form_with` can also work with an ActiveRecord Model using a `model` key and an ActiveRecord Model as a value.
 
-If we change our `Books#new` controller method to:
+If we change our `BooksController#new` controller method to:
 
 ```ruby
 def new
@@ -92,7 +92,7 @@ end
 We can update the `form_with` in `views/books/new.html.erb` to:
 
 ```erb
-<%= form_with model: @book, url: "/books", method: :post do |f| %>
+<%= form_with model: @book do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
 
@@ -103,7 +103,7 @@ We can update the `form_with` in `views/books/new.html.erb` to:
 <% end %>
 ```
 
-Notice that the resulting HTML is:
+The resulting HTML is:
 
 ```html
 <form action="/books" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="AKeeT6nk32KhwFJvZZvEkoIEMlrsCh2D7AJGygNskWLdbmL8V9p5rDofuG01vPu8/Zsqj4kH4+QmK/aaOteGiw==">
@@ -123,11 +123,24 @@ Lots of stuff!
 
 1. It automatically prepends the name field with the class of the ActiveRecord object. This way all elements of this form will be grouped together.
 1. It automatically fills the `value` attribute of the input with the value of the corresponding attribute of the ActiveRecord object (if it exists).
-1. It will differentiate between making forms for __new__ models and forms for editing __existing__ models and update the form's `action` and `method` attributes accordingly
+1. It will differentiate between making forms for __new__ models and forms for editing __existing__ models and update the form's `action` and `method` attributes accordingly.
 
 __Note:__ All of this connectedness depends on your code going along with many Rails conventions. While all the conventions _can_ be reconfigured, overwritten, and changed, it's important we spend some time getting to know our way around first. As an example, the code above will throw an error if there's not a RESTful route conforming to Rails naming conventions defined.
 
 Here's a link to the [official docs for form helpers](http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html), which contains a list of the form builder methods.  The documentation uses an older `form_for` builder method, but all the view helpers also work alongside `form_with`.
+
+### Exercise:
+
+1.  In `BooksController#new`, give the book instance variable a default title.  Do you notice a change in the form?
+1.  Next put in an `@book.save` to the controller method.  Do you notice any change in the resulting HTML?  Look at the HTML output in Chrome Developer Tools.
+
+**After this exercise, change the content back to:**
+
+```ruby
+def new
+  @book = Book.new
+end
+```
 
 ## Controllers & Form Data
 Submitting a form results in the form data being collected into the _params hash_. The structure of form data follows the same patterns as in other frameworks. This means we can leverage creative naming in the HTML (like `book[author]`) to create well structured objects in the _params hash_.
@@ -159,23 +172,7 @@ def create
 end
 ```
 
-## Why did we use `model: @book`?
-
-Binding a model to the form has two advantages.  First it creates a sub-hash inside the parameters hash which groups together all the fields that correspond to the model.  The second advantage to binding a form to a model is that, if the model's instance variable already has values the form will begin with the corresponding fields prepopulated.
-
-So if in `BooksController#new` we had:
-
-```ruby
-def new
-  @book = Book.new author: 'Anynomous'
-end
-```
-
-The form would look like this:
-
-![form screenshot](images/anynon-author.png)
-
-This will come in very handy when we make the edit action!
+<!-- TODO Add image linking form fields to params -->
 
 ## Note on `form_tag` and `form_for`
 
