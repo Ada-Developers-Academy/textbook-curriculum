@@ -1,15 +1,20 @@
 # Rails Forms
 ## Learning Goals
-- Explore two ways to handle forms in Rails
-  + `form_tag` & `form_for`
+- Learn how to generate a form in Rails with the `form_with` method.
 - Discover some useful _view helpers_ specifically for working with forms
 - Get a feel for handling form data in a _controller_
 
-There are two ways to generate HTML forms within Rails: `form_tag` and `form_for`. On the surface, they are very similar. Both are _view helpers_ that generate HTML form tags. They differ in that `form_tag` is a __generic form__ while `form_for` is __tied to an object__. We'll explore both below.
+Similar to `link_to` Rails has a method to generate a form named `form_with`. On the surface, they are very similar. Both are _view helpers_ that generate HTML content, and `form_with` is used to create a form, and can tie content to a specific type of model.
 
-## `form_tag`
-`form_tag` generates an HTML `<form>` element. The first option that it takes is the submission path, (the `action` attribute in the `<form>` tag). The `method` attribute defaults to `POST`. Additional arguments can be given after the path in the form of a hash. Common options include applying a CSS class to the form, or changing the form _method_. Here's an example:
+## `form_with`
+`form_with` generates an HTML `<form>` element.  Below is one example specifying the URL to submit the form to and the HTTP method (verb) to use in the request.
 
+
+
+<!-- TODO REMOVE THIS Content
+
+The first option that it takes is the submission path, (the `action` attribute in the `<form>` tag). The `method` attribute defaults to `POST`. Additional arguments can be given after the path in the form of a hash. Common options include applying a CSS class to the form, or changing the form _method_. Here's an example:
+-->
 ```erb
 <%= form_tag "/books", class: "delete_products", method: :delete do %>
 
@@ -141,6 +146,15 @@ def create
 end
 ```
 
+## Note on `form_tag` and `form_for`
+
+Prior to Rails 5.1 Rails had two methods to generate forms in ERB.
+
+-   `form_tag` generates a generic HTML form not tied to a specific model.
+-   `form_for` generates an HTML form tied to a specific model-type.
+
+You will see a lot of documentation, even in the [Rails Guide](http://guides.rubyonrails.org/form_helpers.html) for both `form_tag` and `form_for` and much less documentation for `form_with`.  All will still work, but the earlier methods are being soft-depreciated and will be replaced by `form_with` over time.
+
 ## Resources
--  [Rails Guide for Form Helpers](http://guides.rubyonrails.org/form_helpers.html)
--  [Official Documentation for form helper methods](http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html)
+-   [form_with Documentation](https://api.rubyonrails.org/v5.1/classes/ActionView/Helpers/FormHelper.html#method-i-form_with)
+-   [Official Documentation for form helper methods](http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html)
