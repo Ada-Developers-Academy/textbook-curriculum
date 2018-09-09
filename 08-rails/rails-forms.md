@@ -16,28 +16,34 @@ Similar to `link_to` Rails has a method to generate a form named `form_with`. On
 The first option that it takes is the submission path, (the `action` attribute in the `<form>` tag). The `method` attribute defaults to `POST`. Additional arguments can be given after the path in the form of a hash. Common options include applying a CSS class to the form, or changing the form _method_. Here's an example:
 -->
 ```erb
-<%= form_tag "/books", class: "delete_products", method: :delete do %>
+<%= form_with url: "/books", method: :post do |f| %>
 
 <% end %>
 ```
 
 ```html
-<form class="delete_products" action="/products" accept-charset="UTF-8" method="post">
-  <input name="utf8" type="hidden" value="&#x2713;" />
-  <input type="hidden" name="_method" value="delete" />
-  <input type="hidden" name="authenticity_token" value="5iHVj24QO4ku/VoS9/q3/o1XjIMSnnEtCmGt3iY5nPr8TZSyOkplduDkkyWfqPnlWD/zdQ/73e2DD1vRYXF7sQ==" />
+<form action="/books" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="8k7REve8u0Mq7UdaB+awSpMZ8af/5HF7udhgzpOVblQvhy2hCYIdjbEyrVhXwY9k7Ibpcprpjxxz8dCeqi55vQ==">
+
 </form>
 ```
 
-### Common _view helpers_ for forms
-Within the `form_tag` block, additional form helpers can be used to create inputs and labels.
+You can also add additional HTML attributes to the form with more key-value pairs.  For example if you want to add a class with the value `create-book` for the form you can do the following
 
-#### `text_field_tag`
-`text_field_tag` is the the method to make a common text field. The first argument
+```erb
+<%= form_with url: "/books", method: :post class: 'create-book' do |f| %>
+
+<% end %>
+```
+
+### Common _view helpers_ for forms
+Within the `form_with` block, additional form helpers can be used to create inputs and labels.
+
+#### `text_field`
+`text_field` is the the method to make a common text field. The first argument
 it expects is the HTML name attribute. The second is the default value of the input. Additional HTML options can be passed in a hash. For example:
 
 ```erb
-<%= text_field_tag "book[author]", "J.K. Rowling", class: "books" %>
+<%= f.text_field "book[author]", "J.K. Rowling", class: "books" %>
 ```
 
 Results in:
@@ -46,22 +52,23 @@ Results in:
 <input type="text" name="book[author]" id="book_author" value="J.K. Rowling" class="books" />
 ```
 
-#### `submit_tag`
-As the name implies, the `submit_tag` _view helper_ generates a submit button for a form created with `form_tag`. It accepts two parameters, both optional. The first is the text that should appear in the button (defaults to "Submit"), and the second is a hash of HTML attributes:
+#### `f.submit`
+As the name implies, the `f.submit` _view helper_ generates a submit button for a form created with `form_with`. It accepts two parameters, both optional. The first is the text that should appear in the button (defaults to "Submit"), and the second is a hash of HTML attributes:
 
 ```erb
-<%= submit_tag "Save Book", class: "book-button" %>
+<%= f.submit "Save Book", class: "book-button" %>
 ```
 
 Results in:
 
 ```html
-<input type="submit" name="commit" value="Save Book" class="book-button" />
+<input type="submit" name="commit" value="Save Book" class="book-button" data-disable-with="Save Book">
 ```
 
-Many, many other _view helpers_ are available to help build any type of form or input. Look at the [form helper docs](http://api.rubyonrails.org/classes/ActionView/Helpers/FormTagHelper.html) for complete documentation.
+Many, many other _view helpers_ are available to help build any type of form or input. Look at the [form helper docs](https://edgeapi.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html) for complete documentation.
 
-## form_for
+## Binding `form_with` to an ActiveRecord Model
+
 `form_for` is similar to `form_tag`, except it is meant to be used in conjunction with an Active Record model.
 
 The only required argument it takes is any ActiveRecord object. Rails will make assumptions about how to structure the form's method and action based on RESTful conventions (POST to `/books` for creating new records and PUT/PATCH to `/books/:id` for updating existing records, etc). Check it:
@@ -158,3 +165,4 @@ You will see a lot of documentation, even in the [Rails Guide](http://guides.rub
 ## Resources
 -   [form_with Documentation](https://api.rubyonrails.org/v5.1/classes/ActionView/Helpers/FormHelper.html#method-i-form_with)
 -   [Official Documentation for form helper methods](http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html)
+-   [Rails 5.1's form_with vs. form_tag vs. form_for](https://m.patrikonrails.com/rails-5-1s-form-with-vs-old-form-helpers-3a5f72a8c78a)
