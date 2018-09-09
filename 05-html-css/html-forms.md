@@ -7,22 +7,97 @@
 Forms are how users provide input to servers for operation. Everything from authoring a tweet to logging into an email account is accomplished using a small set of HTML tags that create and structure forms.
 
 ## Relevant Tags
+
 - `<form>`
 - `<label>`
 - `<input>`
-  - `<input type="text">`
-  - `<input type="checkbox">`
-  - `<input type="radio">`
-  - `<input type="password">`
-  - `<input type="submit">`
-  - `<input type="hidden">`
+- `<input type="text">`
+- `<input type="checkbox">`
+- `<input type="radio">`
+- `<input type="password">`
+- `<input type="submit">`
+- `<input type="hidden">`
 - `<textarea>`
 - `<select>`
-  - `<option>`
+- `<option>`
 - `<button>`, and `<input type="button">` (primarily used for JavaScript interactions)
 - `<fieldset>` and `<legend>` (handy, but not often used)
 
+## Anatomy of a Form
+
+There are a number of different tags used in building forms. For each tag, the different _attributes_ of that tag will make a big difference in how the form behaves.
+
+Our running example for this lesson will be a signup form for the Ada newsletter.
+
+### The `<form>` Tag
+
+Every HTML form is wrapped in a `<form>` tag. A `<form>` works similar to a `<section>` or `<div>`, in that it's a block element designed to contain other elements. The big difference is that a `<form>` can be _submitted_, causing your browser to send the data somewhere.
+
+The attributes on the `<form>` tell us things about the whole form, like what type of characters it uses or where to send the data when it's submitted. For right now there are two important attributes for a `<form>`:
+- `action="some-URL"`: To what URL should we send the data when the form is submitted?
+- `method="post"`: What HTTP verb should we use for the data? For right now, this will always be `post`.
+
+Both of these attributes are necessary, but they won't make much sense until we've started working with web servers. For now, we will give you the values to use for both `action` and `method`.
+
+Here's what it would look like in a web page:
+
+```html
+<h1>Sign up for the Ada newsletter</h1>
+<form action="/newsletter/signup" method="post">
+  <!-- We'll put something here soon -->
+</form>
+```
+
+### `<input>` Tags
+
+`<input>` tags do the hard work of forms, giving the user somewhere to provide input.
+
+There are several types of `<input>`, each specified by the `type` attribute:
+
+- `<input type="text">`
+- A one-line text box
+- `<input type="checkbox">`
+- One checkbox (typically you would use several together)
+- `<input type="radio">`
+- One radio button (typically you would use several together)
+- `<input type="password">`
+- Similar to `type="text"`, but the characters are hidden
+- `<input type="hidden">`
+- Stores a value to be submitted with the form, but is invisible to the user. We won't use these until next week.
+
+Each `<input>` must also have a `name` attribute, which specifies what the data entered here will be called. You can think of it as being similar to the key in a hash.
+
+Another useful attribute for `type="text"` is `placeholder`, which is used to give the user an idea of what to type, but goes away as soon as they start typing.
+
+#### Submit Button
+
+There's one special type of `<input>` element we should discuss: `<input type="submit">`. This creates a submit button! Almost every form you build will include one of these.
+
+Let's add a few `<input>` elements to our email signup form. Since `<input>` is an inline-block element, we'll wrap each in a `<div>` to force line-breaks (this is a common pattern in the wild).
+
+```html
+<h1>Sign up for the Ada newsletter</h1>
+<form action="/newsletter/signup" method="post">
+  <div>
+    <input name="email" type="text" placeholder="lovelace@adadev.org"></input>
+  </div>
+
+  <div>
+    <input name="name" type="text" placeholder="Ada Lovelace"></input>
+  </div>
+
+  <input type="submit" value="Sign up now!"></input>
+</form>
+```
+
+### `<label>` Tags
+
+One thing you'll notice about our example so far is that it doesn't include any labels
+
+### Other Form Elements
+
 ## Creating and Submitting Forms
+
 Forms are used to create requests to servers that can create, update, and delete resources.
 
 We are going to look at how inputs from a form are passed along through the browser to our server. Let's open the web application we have been using and create a new route and view like:
@@ -82,8 +157,8 @@ Give it a try. It broke, right? We haven't taught our app how to make this work!
 Let's make our form a little bit smarter. We can submit nested data by manipulating the `name` attribute.
 
 ```html
-  <input type="text" name="book[title]" value="" id="title">
-  <input type="text" name="book[author]" value="" id="author">
+<input type="text" name="book[title]" value="" id="title">
+<input type="text" name="book[author]" value="" id="author">
 ```
 
 In Rails this is the way we _model_ data objects. Once we have our form set up in this way, then we can pass this data from the form to the controller action that should be handling the form submission.
@@ -98,10 +173,10 @@ We have seen Rails using the special variable called `params` before when we wer
 ```ruby
 # app/models/book.rb
 class Book
-  def initialize(options = {})
-    @title = options[:title]
-    @author = options[:author]
-  end
+def initialize(options = {})
+@title = options[:title]
+@author = options[:author]
+end
 end
 ```
 -->
