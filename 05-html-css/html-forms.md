@@ -127,7 +127,7 @@ A `<textarea>` is used for a multiline text input. You can use it in the same wa
 
 A `<select>` is used for dropdown menus, and should have a `name` attribute. Each item in the menu should be wrapped in an `<option>` tag, and should have a `value` attribute indicating the data sent to the server when that option is selected.
 
-Let's add a `<select>` to our email signup form:
+Let's add a `<select>` dropdown menu to our email signup form:
 
 ```html
 <h1>Sign up for the Ada newsletter</h1>
@@ -155,95 +155,20 @@ Let's add a `<select>` to our email signup form:
 </form>
 ```
 
-## Creating and Submitting Forms
+## Summary
 
-Forms are used to create requests to servers that can create, update, and delete resources.
+- Forms are always wrapped in a `<form>` element
+  - The `action` and `method` attributes are important
+- Most inputs are `<input>` elements
+  - Specify what type of input you want with the `type` attribute
+  - Every `<input>` needs a `name` attribute. This is the key used when data is sent
+  - `<input>`s also take `value` and a `placeholder`
+- Every `<input>` should be paired with a `<label>`
+  - The `<label>`'s `for` attribute should match the `<input>`'s `name`
+- `<textarea>` is used for a multiline text input
+- `<select>` is used for dropdown menus
+  - Items in the menu should be wrapped in `<option>` tags, each with a `value` attribute
 
-We are going to look at how inputs from a form are passed along through the browser to our server. Let's open the web application we have been using and create a new route and view like:
-
-```bash
-$ touch app/views/books/new.html.erb
-```
-
-```ruby
-# app/controllers/books_controller.rb
-def new
-
-end
-```
-
-Then, let's open the view (`app/views/books/new.html.erb`) in our editor. Add the following code to the page:
-
-```html
-<form action="/books" method="post" accept-charset="utf-8">
-  <!-- SPECIAL INPUT TO ALLOW RAILS TO USE THIS FORM -->
-  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-
-
-  <label for="title">Title</label>
-  <input type="text" name="title" value="" id="title">
-
-  <label for="author">Author</label>
-  <input type="text" name="author" value="" id="author">
-
-  <input type="submit" value="Submit">
-</form>
-```
-
-In the `form` tag, the `action` attribute defines to which route this form will `POST`. We're using the route that corresponds to the RESTful POST route for creating a new entry. We know that submitting the form will create a `POST` request because that's the value of the `method` parameter. We could use `PUT`, `DELETE`, or any other verb (even `GET`, but that's kinda silly).
-
-Next we have a `label` tag
-```html
-<label for="title">Title</label>
-```
-
-Labels are the text portion of a form. The reason we use labels instead of plain text is because we can join an `input` and a `label` to when the text is clicked the cursor will focus on the input. The `for` attribute defines the `id` that the `label` will match. Also, creating a link between the `label` and `input` tags is critical in creating usable form content for folks using screen readers.
-
-Next we have two `input` tags with the type of 'text' (see [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) for all input info).
-
-```html
-<input type="text" name="title" value="" id="title">
-<input type="text" name="author" value="" id="author">
-```
-
-Each `input` tag will pass a value along to the server when we submit the form. The data passed to the web server in our _POST request_ is collected in a Ruby hash called `params`. In this hash, the `name` attribute of the HTML `<input>` defines the key, and the user input is value. In this case `title` will be assigned to what we type into the first text field.
-
-And finally we have an `input` with the type of _submit_. This input creates a button to click that will send an HTTP request with the form data to the route in the `action` attribute of the `form` tag.
-
-Give it a try. It broke, right? We haven't taught our app how to make this work!
-
-### Nested params
-Let's make our form a little bit smarter. We can submit nested data by manipulating the `name` attribute.
-
-```html
-<input type="text" name="book[title]" value="" id="title">
-<input type="text" name="book[author]" value="" id="author">
-```
-
-In Rails this is the way we _model_ data objects. Once we have our form set up in this way, then we can pass this data from the form to the controller action that should be handling the form submission.
-
-### `params`
-Once we have the form we set up to send the submission to the appropriate route, then we need to modify the corresponding controller action.
-
-We have seen Rails using the special variable called `params` before when we were writing the definition for our `show` action. `params` will also store each piece of data that we've specified in our form!
-
-<!-- We will expand upon this idea once we learn about Active Record, but until then, imagine a `Book` class where the initialize method is written to assign attributes from a hash. We would then pass the inner hash to the `new` method and all of our attributes would be assigned.
-
-```ruby
-# app/models/book.rb
-class Book
-def initialize(options = {})
-@title = options[:title]
-@author = options[:author]
-end
-end
-```
--->
-
-```ruby
-# app/controllers/books_controller.rb
-book = Book.new(title: params[:book][:title], author: params[:book][:author])
-```
 ## Resources
 - [MDN Input Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
 - [MDN Form Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
