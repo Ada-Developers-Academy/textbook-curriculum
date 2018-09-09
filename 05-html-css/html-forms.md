@@ -6,23 +6,6 @@
 
 Forms are how users provide input to servers for operation. Everything from authoring a tweet to logging into an email account is accomplished using a small set of HTML tags that create and structure forms.
 
-## Relevant Tags
-
-- `<form>`
-- `<label>`
-- `<input>`
-- `<input type="text">`
-- `<input type="checkbox">`
-- `<input type="radio">`
-- `<input type="password">`
-- `<input type="submit">`
-- `<input type="hidden">`
-- `<textarea>`
-- `<select>`
-- `<option>`
-- `<button>`, and `<input type="button">` (primarily used for JavaScript interactions)
-- `<fieldset>` and `<legend>` (handy, but not often used)
-
 ## Anatomy of a Form
 
 There are a number of different tags used in building forms. For each tag, the different _attributes_ of that tag will make a big difference in how the form behaves.
