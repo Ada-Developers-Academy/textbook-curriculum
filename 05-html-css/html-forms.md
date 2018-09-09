@@ -1,7 +1,11 @@
 # HTML Forms
+
 ## Learning Goals
-- Discover the mechanisms in the HTML standard that allow for interactive elements on a website
-- Discuss how to create accessible and semantic forms
+
+By the end of this lesson, students should be able to...
+
+- Describe the mechanisms in the HTML standard that allow for interactive elements on a website
+- Select the correct form element for a given situation
 - Make and _post_ our first HTML form!
 
 Forms are how users provide input to servers for operation. Everything from authoring a tweet to logging into an email account is accomplished using a small set of HTML tags that create and structure forms.
