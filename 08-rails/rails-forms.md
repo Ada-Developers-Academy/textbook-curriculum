@@ -159,6 +159,24 @@ def create
 end
 ```
 
+## Why did we use `model: @book`?
+
+Binding a model to the form has two advantages.  First it creates a sub-hash inside the parameters hash which groups together all the fields that correspond to the model.  The second advantage to binding a form to a model is that, if the model's instance variable already has values the form will begin with the corresponding fields prepopulated.
+
+So if in `BooksController#new` we had:
+
+```ruby
+def new
+  @book = Book.new author: 'Anynomous'
+end
+```
+
+The form would look like this:
+
+![form screenshot](images/anynon-author.png)
+
+This will come in very handy when we make the edit action!
+
 ## Note on `form_tag` and `form_for`
 
 Prior to Rails 5.1 Rails had two methods to generate forms in ERB.
