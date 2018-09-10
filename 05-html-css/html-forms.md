@@ -68,14 +68,14 @@ Let's add a few `<input>` elements to our email signup form. Since `<input>` is 
 <h1>Sign up for the Ada newsletter</h1>
 <form action="/newsletter/signup" method="post">
   <div>
-    <input name="email" type="text" placeholder="lovelace@adadev.org"></input>
+    <input name="email" type="text" placeholder="lovelace@adadev.org">
   </div>
 
   <div>
-    <input name="name" type="text" placeholder="Ada Lovelace"></input>
+    <input name="name" type="text" placeholder="Ada Lovelace">
   </div>
 
-  <input type="submit" value="Sign up now!"></input>
+  <input type="submit" value="Sign up now!">
 </form>
 ```
 
@@ -92,15 +92,15 @@ Adding `<label>` tags to our example yields:
 <form action="/newsletter/signup" method="post">
   <div>
     <label for="email">Your email:</label>
-    <input name="email" type="text" placeholder="lovelace@adadev.org"></input>
+    <input name="email" type="text" placeholder="lovelace@adadev.org">
   </div>
 
   <div>
     <label for="name">Your name:</label>
-    <input name="name" type="text" placeholder="Ada Lovelace"></input>
+    <input name="name" type="text" placeholder="Ada Lovelace">
   </div>
 
-  <input type="submit" value="Sign up now!"></input>
+  <input type="submit" value="Sign up now!">
 </form>
 ```
 
@@ -121,12 +121,12 @@ Let's add a `<select>` dropdown menu to our email signup form:
 <form action="/newsletter/signup" method="post">
   <div>
     <label for="email">Your email:</label>
-    <input name="email" type="text" placeholder="lovelace@adadev.org"></input>
+    <input name="email" type="text" placeholder="lovelace@adadev.org">
   </div>
 
   <div>
     <label for="name">Your name:</label>
-    <input name="name" type="text" placeholder="Ada Lovelace"></input>
+    <input name="name" type="text" placeholder="Ada Lovelace">
   </div>
 
   <div>
@@ -138,7 +138,7 @@ Let's add a `<select>` dropdown menu to our email signup form:
     </select>
   </div>
 
-  <input type="submit" value="Sign up now!"></input>
+  <input type="submit" value="Sign up now!">
 </form>
 ```
 
