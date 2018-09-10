@@ -142,6 +142,16 @@ Let's add a `<select>` dropdown menu to our email signup form:
 </form>
 ```
 
+## Form Submission
+
+We've built a beautiful form, the user fills it out, and then they hit `submit`. What happens next?
+
+Now the browser takes over, and does two things. First it collects the data from the form into a hash, using the `name` attribute from each `<input>` as the keys, and the `value` attribute as the values.
+
+Second, it sends that data over the internet to the address specified by the `<form>`'s `action` attribute.
+
+![Form Submission](imgs/form_submit_workflow.png)
+
 ## Summary
 
 - Forms are always wrapped in a `<form>` element
