@@ -9,8 +9,6 @@
 
 **CSS** stands for **Cascading Style Sheets**. It is the language for specifying how documents (such as HTML) are presented to users. We will use CSS to define styles for our documents, including the design, layout and variations in display for different devices and screen sizes.
 
-**Note:** if you want to make a front-end developer cringe, tell them how CSS makes a website 'pretty'. They'll love it.
-
 ## CSS Syntax Structure
 
 This is a **CSS rule-set** with a declaration block. The declaration block has two declarations on lines 2 & 3:
