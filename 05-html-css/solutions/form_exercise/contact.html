@@ -11,7 +11,7 @@
   <form action="index.html" method="post">
 
     <label for="brush-size">Brush Size</label>
-    <select name="brush-size">
+    <select id="brush-size" name="brush-size">
       <option value="#3 Fan Blender">#3 Fan Blender</option>
       <option value="#6 Fan Blender">#6 Fan Blender</option>
       <option value="Half Size Round">Half Size Round</option>
@@ -28,20 +28,27 @@
 
     <label for="material">Product Material</label>
     <div>
-      <input name="material" type="radio" value="horsehair">
-      <input name="material" type="radio" value="nylon">
-      <input name="material" type="radio" value="polyester">
-      <input name="material" type="radio" value="n-a">
+      <input id="material-horsehair" name="material" type="radio" value="horsehair">
+      <label for="material-horsehair">Natural Horsehair</label>
+
+      <input id="material-nylon" name="material" type="radio" value="nylon">
+      <label for="material-nylon">Synthetic Nylon</label>
+
+      <input id="material-polyester" name="material" type="radio" value="polyester">
+      <label for="material-polyester">Synthetic Polyester</label>
+
+      <input id="material-n-a" name="material" type="radio" value="n-a">
+      <label for="material-n-a">N/A</label>
     </div>
 
     <label class="double-wide" for="feedback">What would you like to tell us?</label>
-    <textarea class="double-wide" name="feedback" rows="8" placeholder ="How can we help?"></textarea>
+    <textarea id="feedback" class="double-wide" name="feedback" rows="8" placeholder ="How can we help?"></textarea>
 
     <label for="customer-name">Your Name</label>
-    <input name="customer-name" type="text" placeholder="Ann Artist">
+    <input id="customer-name" name="customer-name" type="text" placeholder="Ann Artist">
 
     <label for="customer-email">Your Email</label>
-    <input name="customer-email" type="text" placeholder="you@example.com">
+    <input id="customer-email" name="customer-email" type="text" placeholder="you@example.com">
 
     <input class="double-wide" type="submit" value="Send">
   </form>
