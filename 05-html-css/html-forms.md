@@ -169,4 +169,5 @@ Second, it sends that data over the internet to the address specified by the `<f
 ## Resources
 - [MDN Input Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
 - [MDN Form Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
+- [MDN Label Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)
 - [SO on why `<textarea>` isn't `<input type="textarea">`](https://stackoverflow.com/questions/5637326/why-isnt-textarea-an-inputtype-textarea)
