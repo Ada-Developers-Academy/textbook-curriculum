@@ -68,14 +68,14 @@ Let's add a few `<input>` elements to our email signup form. Since `<input>` is 
 <h1>Sign up for the Ada newsletter</h1>
 <form action="/newsletter/signup" method="post">
   <div>
-    <input name="email" type="text" placeholder="lovelace@adadev.org"></input>
+    <input name="email" type="text" placeholder="lovelace@adadev.org">
   </div>
 
   <div>
-    <input name="name" type="text" placeholder="Ada Lovelace"></input>
+    <input name="name" type="text" placeholder="Ada Lovelace">
   </div>
 
-  <input type="submit" value="Sign up now!"></input>
+  <input type="submit" value="Sign up now!">
 </form>
 ```
 
@@ -83,7 +83,7 @@ Let's add a few `<input>` elements to our email signup form. Since `<input>` is 
 
 One thing you'll notice about our example so far is that it doesn't include any text on the page. There's no indication (other than the placeholder text) of what our `<input>` elements are for. To help out the user we'll label them with `<label>`s.
 
-Each `<label>` gets a `for` attribute, which should match the `name` of the `<input>` it corresponds to. Making this connection is important for accessibility.
+Each `<label>` gets a `for` attribute, which should match the `id` of the `<input>` it corresponds to. Making this connection is important for accessibility.
 
 Adding `<label>` tags to our example yields:
 
@@ -92,15 +92,15 @@ Adding `<label>` tags to our example yields:
 <form action="/newsletter/signup" method="post">
   <div>
     <label for="email">Your email:</label>
-    <input name="email" type="text" placeholder="lovelace@adadev.org"></input>
+    <input id="email" name="email" type="text" placeholder="lovelace@adadev.org">
   </div>
 
   <div>
     <label for="name">Your name:</label>
-    <input name="name" type="text" placeholder="Ada Lovelace"></input>
+    <input id="name" name="name" type="text" placeholder="Ada Lovelace">
   </div>
 
-  <input type="submit" value="Sign up now!"></input>
+  <input type="submit" value="Sign up now!">
 </form>
 ```
 
@@ -121,24 +121,24 @@ Let's add a `<select>` dropdown menu to our email signup form:
 <form action="/newsletter/signup" method="post">
   <div>
     <label for="email">Your email:</label>
-    <input name="email" type="text" placeholder="lovelace@adadev.org"></input>
+    <input id="email" name="email" type="text" placeholder="lovelace@adadev.org">
   </div>
 
   <div>
     <label for="name">Your name:</label>
-    <input name="name" type="text" placeholder="Ada Lovelace"></input>
+    <input id="name" name="name" type="text" placeholder="Ada Lovelace">
   </div>
 
   <div>
     <label for="source">How did you hear about us?</label>
-    <select name="source">
+    <select id="source" name="source">
       <option value="search">Found through a search engine</option>
       <option value="friend">Referred by a friend</option>
       <option value="sponsor-company">Through one of our sponsor companies</option>
     </select>
   </div>
 
-  <input type="submit" value="Sign up now!"></input>
+  <input type="submit" value="Sign up now!">
 </form>
 ```
 
@@ -161,7 +161,7 @@ Second, it sends that data over the internet to the address specified by the `<f
   - Every `<input>` needs a `name` attribute. This is the key used when data is sent
   - `<input>`s also take `value` and a `placeholder`
 - Every `<input>` should be paired with a `<label>`
-  - The `<label>`'s `for` attribute should match the `<input>`'s `name`
+  - The `<label>`'s `for` attribute should match the `<input>`'s `id`
 - `<textarea>` is used for a multiline text input
 - `<select>` is used for dropdown menus
   - Items in the menu should be wrapped in `<option>` tags, each with a `value` attribute
@@ -169,4 +169,5 @@ Second, it sends that data over the internet to the address specified by the `<f
 ## Resources
 - [MDN Input Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
 - [MDN Form Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
+- [MDN Label Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)
 - [SO on why `<textarea>` isn't `<input type="textarea">`](https://stackoverflow.com/questions/5637326/why-isnt-textarea-an-inputtype-textarea)
