@@ -79,7 +79,7 @@ One way to specify measurements is by using the screen pixels. This is done by a
 Percentages can be used in measurements that will be a percentage relative to another value. This is done by adding `%` to the end of the value.
 
 #### `em` or `rem`
-This is a relative measurement based on the heigh of a font. One `em` unit is equivalent to the size of a given font.
+This is a relative measurement based on the height of a font. One `em` unit is equivalent to the size of a given font.
 
 #### `vw`, `vh`, and more
 There are more relative CSS units such as `vw` and `vh`. At this time, the community hasn't determined best practices for how to effectively use them, so we won't go into this deeply, but feel free to (read more about it!)[https://www.w3schools.com/cssref/css_units.asp]
