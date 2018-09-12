@@ -65,9 +65,16 @@ To save you a little typing, here are tags for the dropdown menu and the radio b
 
 <label for="material">Product Material</label>
 <div>
-  <input name="material" type="radio" value="horsehair">Natural Horsehair</input>
-  <input name="material" type="radio" value="nylon">Synthetic Nylon</input>
-  <input name="material" type="radio" value="polyester">Synthetic Polyester</input>
-  <input name="material" type="radio" value="n-a">N/A</input>
+  <input id="material-horsehair" name="material" type="radio" value="horsehair">
+  <label for="material-horsehair">Natural Horsehair</label>
+
+  <input id="material-nylon" name="material" type="radio" value="nylon">
+  <label for="material-nylon">Synthetic Nylon</label>
+
+  <input id="material-polyester" name="material" type="radio" value="polyester">
+  <label for="material-polyester">Synthetic Polyester</label>
+
+  <input id="material-n-a" name="material" type="radio" value="n-a">
+  <label for="material-n-a">N/A</label>
 </div>
 ```
