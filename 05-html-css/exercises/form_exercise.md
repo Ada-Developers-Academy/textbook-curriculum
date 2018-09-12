@@ -29,7 +29,15 @@ The feedback form should have the following properties:
 
 Each field should have a label describing it to the user, and each of the text areas should have a reasonable placeholder.
 
-When submitted, this form should send a POST request to `https://ada-paint-shop.herokuapp.com/contact`
+When submitted, this form should send a POST request to `https://ada-paint-shop.herokuapp.com/contact`. This will take you to either a success page (if everything is set up correctly) or a warning page with a list of errors.
+
+### Verification
+
+Once you've used your form to successfully submit feedback, you can visit https://ada-paint-shop.herokuapp.com/admin/support_tickets to verify that a support ticket was generated using the contact form.
+
+In order to access the admin interface you'll need to log in with the following credentials:
+- Username: `admin`
+- Password: `PaintIsGreat78`
 
 ### End Result
 
