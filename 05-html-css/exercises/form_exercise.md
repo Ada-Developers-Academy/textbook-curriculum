@@ -13,7 +13,7 @@ The feedback form should have the following properties:
 
 - Brush size
   - Dropdown menu (see below for options)
-  - Input name: `brush-size`
+  - Input name: `brush_sku`
 - Product material
   - Set of radio buttons (see below for options)
   - Input name: `material`
@@ -22,14 +22,14 @@ The feedback form should have the following properties:
   - Input name: `feedback`
 - Your name
   - Text input
-  - Input name: `customer-name`
+  - Input name: `name`
 - Your email
   - Text input
-  - Input name: `customer-email`
+  - Input name: `email`
 
 Each field should have a label describing it to the user, and each of the text areas should have a reasonable placeholder.
 
-When submitted, this form should send a POST request to `TODO URL PLS`
+When submitted, this form should send a POST request to `https://ada-paint-shop.herokuapp.com/contact`
 
 ### End Result
 
@@ -47,20 +47,20 @@ You don't need to worry about styling for this exercise, but it is an interestin
 To save you a little typing, here are tags for the dropdown menu and the radio buttons:
 
 ```html
-<label for="brush-size">Brush Size</label>
-<select name="brush-size">
-  <option value="#3 Fan Blender">#3 Fan Blender</option>
-  <option value="#6 Fan Blender">#6 Fan Blender</option>
-  <option value="Half Size Round">Half Size Round</option>
-  <option value="1&quot; Round Foliage Brush">1" Round Foliage Brush</option>
-  <option value="#5 Detail Knife">#5 Detail Knife</option>
-  <option value="#10 Painting Knife">#10 Painting Knife</option>
-  <option value="2&quot; Blender">2" Blender</option>
-  <option value="#2 Script Liner">#2 Script Liner</option>
-  <option value="#6 Filbert">#6 Filbert</option>
-  <option value="2&quot; Background">2" Background</option>
-  <option value="1&quot; Oval Bristle">1" Oval Bristle</option>
-  <option value="1&quot; Landscape">1" Landscape</option>
+<label for="brush-sku">Brush Size</label>
+<select id="brush-sku" name="brush_sku">
+  <option value="FANBLND3">#3 Fan Blender</option>
+  <option value="FANBLND6">#6 Fan Blender</option>
+  <option value="RNDHALF">Half Size Round</option>
+  <option value="RND1FLG">1" Round Foliage Brush</option>
+  <option value="KNFDTL5">#5 Detail Knife</option>
+  <option value="KNFPNT10">#10 Painting Knife</option>
+  <option value="BLENDER2">2" Blender</option>
+  <option value="SCPTLIN2">#2 Script Liner</option>
+  <option value="FILBERT6">#6 Filbert</option>
+  <option value="BKGRND2">2" Background</option>
+  <option value="OVLBRST1">1" Oval Bristle</option>
+  <option value="LNDSCP1">1" Landscape</option>
 </select>
 
 <label for="material">Product Material</label>
