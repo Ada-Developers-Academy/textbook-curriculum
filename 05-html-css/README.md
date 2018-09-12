@@ -23,6 +23,8 @@
 1. [Semantics: Best Practices](semantics-best-practices.md)
 1. [Alt Text](alt-text.md)
 1. [Vision Accessibility & Using Screen Readers](vision-accessibility.md)
+1. [Forms](html-forms.md)
+    - [Exercise: Prismatic Paintbrushes](exercises/form_exercise.md)
 
 ### Archived
 1. [Layouts using Display](archived/layout-display.md) (Replaced with Flexbox and CSS Grid)
