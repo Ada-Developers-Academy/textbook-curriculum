@@ -22,7 +22,7 @@ We'll start with just one controller (the `BooksController`) and one action (`in
 rails generate controller Books index
 ```
 
-Note that `Books` (the controller name) is capitalized and pluralize, and `index` (the action name) is lower-case. Note that this only works because `index` is a "standard" action - if you wanted to do something custom, you would have to do a bit of work yourself.
+Note that `Books` (the controller name) is capitalized and pluralized, and `index` (the action name) is lower-case. Note that this only works because `index` is a "standard" action - if you wanted to do something custom, you would have to do a bit of work yourself.
 
 This command has Rails generate a Controller and View for the /books path, so when you bring up http://localhost:3000/books you will get the following HTML file.
 
@@ -41,13 +41,17 @@ class BooksController < ApplicationController
 end
 ```
 
+Note that while we typed `rails generate controller Books`, Rails called the controller `BooksController`. This kind of shorthand is common in Rails - you'll quickly get used to it.
+
+Rails has generated an empty `index` action for us, but we'll have to fill it in with what to do. We'll get to this in a bit.
+
 **Question:** What does `< ApplicationController` mean? How will this impact our class?
 
-## Adding a Route
+## Routes
 
-We've now created a controller (the `BooksController` class) and given it an action (the `index` method). However, Rails doesn't automatically know how to use this controller; we have to tell it.
+We've now created a controller (the `BooksController` class) and given it an action (the `index` method). But how does Rails know when to use this controller?
 
-To do so, we will introduce a new piece of Rails: the router. The router does its job with the help of a special configuration file that lives at
+The answer is through another new piece of Rails: the router. The router does its job with the help of a special configuration file that lives at
 
 ```
 config/routes.rb
@@ -59,7 +63,7 @@ In this file we will tell Rails where to send incoming HTTP requests.
 
 The two pieces of an HTTP request that our router is interested in are the _verb_ and the _path_. Given those, we can tell it what _controller_ and _action_ to use. It acts kind of like a big `case` statement, though the syntax is a little different.
 
-The routefile should have a block of code filled in already. Add a line inside that block so it looks like this:
+The routefile should have a block of code filled in already that looks like this:
 
 ```ruby
 # config/routes.rb
@@ -69,12 +73,12 @@ Rails.application.routes.draw do
 end
 ```
 
-What we've told the router to do is:
-- When you receive a GET request...
+Here we can see the last thing that `rails generate` built for us: a route! What this tells the router to do is:
+- When it receives a GET request...
 - ...to the `/books` path...
 - ...go to the `BooksController` class and run the `index` action
 
-That'll do for now. We'll talk more about how the router works later in the week.
+We'll talk more about how the router works later in the week.
 
 ## Fleshing Out the Controller
 
