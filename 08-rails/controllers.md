@@ -91,16 +91,25 @@ That'll do for now. We'll talk more about how the router works later in the week
 
 **Question:** According to our understanding of MVC, what should happen in a controller action?
 
-In the following notes we will look at layouts and views and look at how to render our content in the browser.  For now lets modify the `index` method to add an instance variable for use in the view.
+Controller actions typically begin by gathering data from a model, and then use a view to turn that data into HTML. However, we haven't learned about either of those things yet!
+
+To get us started, we will hard-code some data at the top of our file. This definitely not something you would normally do in Rails, but we want to take it piece-by-piece so bear with us.
+
+In Rails, controllers communicate with views using instance variables. So, to make sure our soon-to-be-written view has access to our list of books, in our controller action we'll store a reference to the list in an instance variable.
 
 ```ruby
+# app/controllers/books_controller.rb
+BOOKS = [
+  { title: "Hidden Figures", author: "Margot Lee Shetterly"},
+  { title: "Practical Object-Oriented Design in Ruby", author: "Sandi Metz"},
+  { title: "Kindred", author: "Octavia E. Butler"}
+]
+
+class BooksController < ApplicationController
   def index
-    @books = [
-      { title: "Hidden Figures", author: "Margot Lee Shetterly"},
-      { title: "Practical Object-Oriented Design in Ruby", author: "Sandi Metz"},
-      { title: "Kindred", author: "Octavia E. Butler"}
-    ]
+    @books = BOOKS
   end
+end
 ```
 
 ## Summary
