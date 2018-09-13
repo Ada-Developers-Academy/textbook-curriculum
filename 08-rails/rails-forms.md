@@ -2,7 +2,7 @@
 We've [previously seen](../05-html-css/html-forms.md) how HTML forms can be used to submit information to websites, and have practiced creating them by manually. In this resource we will see that Rails has support for generating custom HTML forms that work well with Rails' conventions for models, controllers, and routes.
 
 ## Learning Goals
-- Learn how to generate a form in Rails with the `form_with` method.
+- Learn how to generate a form in Rails with the `form_with` method
 - Discover some useful _view helpers_ specifically for working with forms
 - Get a feel for handling form data in a _controller_
 
