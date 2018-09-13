@@ -11,7 +11,7 @@ Here we introduce three new terms, all from the world of functional programming:
 
 ### Safe and Destructive
 
-We'll start with _safe_ and _destructive_, which mean pretty much what they do in English. An operation that is _safe_ does not change the data it operates upon. _Destructive_ is the opposite of _safe_: a destructive operation changes the data it touches.
+We'll start with _safe_ and _destructive_. The meanings of these in the context of programming is a little different than their English meaning. An operation that is _safe_ does not change the data it operates upon. _Destructive_ is the opposite of _safe_: a destructive operation changes the data it touches.
 
 We've seen this concept before in the context of enumerables. We know that _safe_ methods like `select` and `map` also have a _destructive_ version (`select!` and `map!`), which changes the original array instead of making a copy.
 
@@ -55,6 +55,8 @@ If you're into etymology, idempotent is comprised of the latin roots _idem_, mea
 
 **Safe**: The request can be made without resulting in data modification.
 
+**Destructive**: The request changes the data stored on the server.
+
 **Idempotent**: Making the same request multiple times will result in the same behavior.
 
 Any operation that is safe is automatically idempotent, but the opposite is not always true.
@@ -65,7 +67,3 @@ Any operation that is safe is automatically idempotent, but the opposite is not 
 | `POST`    | Create      | ❌   | ❌         |
 | `PATCH` or `PUT` | Update | ❌ | ✅        |
 | `DELETE`  | Delete      | ❌   | ✅        |
-
-## Additional Resources
-
-- [Professor Frisby's Mostly Adequate Guide to Functional Programming](https://mostly-adequate.gitbooks.io/mostly-adequate-guide/)
