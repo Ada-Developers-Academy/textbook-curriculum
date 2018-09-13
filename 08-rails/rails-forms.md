@@ -65,6 +65,7 @@ So we can put HTML inside of our form now. This means we could write the `<input
 ## Common view helpers for forms
 Within the `form_with` block, additional view helpers can be used to create inputs, and labels, and submit buttons.
 
+### The form builder
 The Rails convention when generating forms is to specify the block with a parameter named `f`, like so:
 
 ```erb
@@ -74,7 +75,7 @@ The Rails convention when generating forms is to specify the block with a parame
 
 The `f` parameter, known as a _form builder_, is used when with the view helpers for things like input elements and labels. The following are some of the view helpers available through the form builder:
 
-#### `text_field`
+### Single-line text inputs with `text_field`
 `text_field` is the the method to make a common text field. The first argument it expects is the HTML name attribute. The (optional) second argument is the default value of the input. Additional HTML options can be passed in a hash. For example:
 
 ```erb
@@ -87,7 +88,7 @@ Results in:
 <input type="text" name="author" id="author" value="J.K. Rowling" class="books" />
 ```
 
-#### `f.submit`
+### Submit buttons with `f.submit`
 As the name implies, the `f.submit` _view helper_ generates a submit button for a form created with `form_with`. It accepts two parameters, both optional. The first is the text that should appear in the button (defaults to "Submit"), and the second is a hash of HTML attributes:
 
 ```erb
