@@ -52,8 +52,7 @@ The Rails convention when generating forms is to specify the block with a parame
 The `f` parameter, known as a _form builder_, is used when with the view helpers for things like input elements and labels. The following are some of the view helpers available through the form builder:
 
 #### `text_field`
-`text_field` is the the method to make a common text field. The first argument
-it expects is the HTML name attribute. The second is the default value of the input. Additional HTML options can be passed in a hash. For example:
+`text_field` is the the method to make a common text field. The first argument it expects is the HTML name attribute. The (optional) second argument is the default value of the input. Additional HTML options can be passed in a hash. For example:
 
 ```erb
 <%= f.text_field "book[author]", "J.K. Rowling", class: "books" %>
