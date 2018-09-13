@@ -102,7 +102,8 @@ Results in:
 
 Many, many other _view helpers_ are available to help build any type of form or input. Look at the [form helper docs](https://edgeapi.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html) for complete documentation.
 
-The entire form could look like:
+## A complete form
+After combining the `form_with` helper and some of the other view helpers mentioned above, by placing them in the block for `form_with`, we have the ERB code to generate a complete HTML form. The entire form could look like:
 
 ```erb
 <%= form_with url: "/books", method: :post do |f| %>
@@ -116,6 +117,22 @@ The entire form could look like:
 
   <%= f.submit "Save Book", class: "book-button" %>
 <% end %>
+```
+
+The above ERB code generates this HTML:
+
+```html
+<form action="/books" accept-charset="UTF-8" data-remote="true" method="post">
+  <p>Please provide the following information to save your book to our database:</p>
+
+  <label for="title">Title</label>
+  <input type="text" name="title" id="title" />
+
+  <label for="author">Author</label>
+  <input type="text" name="author" id="author" />
+
+  <input type="submit" name="commit" value="Save Book" class="book-button" data-disable-with="Save Book" />
+</form>
 ```
 
 ## Binding `form_with` to an ActiveRecord Model
