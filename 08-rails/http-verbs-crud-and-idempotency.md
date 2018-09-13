@@ -1,11 +1,9 @@
-# HTTP Verbs, CRUD, and Idempotency
+# HTTP Verbs and CRUD
 ## Learning Goals
+
 - Learn about the different kinds of HTTP requests (the HTTP _verbs_)
 - Discuss the situations for which each _verb_ is suited
-  - Define _idempotent_ and _safe_ in the context of HTTP requests
-- Explore how the acronym _CRUD_ (**C**reate **R**ead **U**pdate and **D**elete) relates to both making interactive web applications and HTTP _verbs_.
-
-
+- Explore how the acronym _CRUD_ (<b>C</b>reate <b>R</b>ead <b>U</b>pdate and <b>D</b>elete) relates to both making interactive web applications and HTTP _verbs_.
 
 ## Introduction
 The main differences between a _website_ and a _web application_ is the management of **resources**, aka **data**. There is always a set of common actions that we want to execute on data in a web application.

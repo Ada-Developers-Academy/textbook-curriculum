@@ -35,37 +35,6 @@ We can think of each of these roles as the responsibility of an object, and use 
 
 ## RESTful Routing
 
-### What is REST?
-
-REST (Representational State Transfer) is a pattern to help us provide a consistent method of accessing and managing our resources on the web. Many different languages and frameworks implement some sort of RESTful routing.
-
-At its simplest, REST is a process in which a web server uses the combination of the requested __URL__ and __HTTP VERB__ to decide how to respond. The goal is a normalized, predictable structure for handling web requests. Rails formalizes this approach with a special file just for routes.
-
-### Characteristics of a RESTful Architecture
-- Uses client-server model for separation of concerns
-- Stateless: server does not track client state
-- Has a uniform interface
-- Resource identification with each request
-- Returned resources are data
-- Allows for caching
-
-### Pseudo-code Example of RESTful Routes
-__Assumption__: We've got a resource called `book` that can be recalled/manipulated by a unique identifier called `id`. In Rails, we'd represent getting a single instance of this resource with something like `get "/books/:id", to: "books#show"`.
-
-We can extrapolate the entire RESTful suite of actions from this basic pattern. It'd look something like...
-
-Verb   | URI Pattern       | Controller#Action | Description
----    | ---               | ---               | ---
-GET    | `/books`          | `books#index`     | List of all books
-GET    | `/books/new`      | `books#new`       | Form to add a new book
-POST   | `/books`          | `books#create`    | Send form data to the server and save a new book
-GET    | `/books/:id`      | `books#show`      | Show details for one book
-GET    | `/books/:id/edit` | `books#edit`      | Form to edit details for an existing book
-PATCH  | `/books/:id`      | `books#update`    | Send form data to the server to update an existing book
-DELETE | `/books/:id`      | `books#destroy`   | Destroy an existing book
-
-The combination of __VERB__ and __URL__ tell our web server (Rails, in this example) everything it needs to know to formulate an action and response. The methods we're calling on the `books` object follows a convention common to the Ruby community.
-
 ## Additional Resources
 ### MVC
 - [Short YouTube overview of MVC Architecture from Lynda.com](https://www.youtube.com/watch?v=3mQjtk2YDkM)
