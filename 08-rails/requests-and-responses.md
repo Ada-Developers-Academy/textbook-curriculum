@@ -1,4 +1,4 @@
-# HTTP Verbs and CRUD
+# Requests and Responses: HTTP Verbs, CRUD, and Status Codes
 ## Learning Goals
 
 - Learn about the different kinds of HTTP requests (the HTTP _verbs_)
@@ -105,16 +105,7 @@ There is a caveat about `DELETE` idempotence, however. Calling `DELETE` on a res
 
 ## Summary
 
-**Safe**: The request can be made without resulting in data modification.
 
-**Idempotent**: Making the same request multiple times will result in the same behavior.
-
-| HTTP Verb | CRUD Action | Safe | Idempotent |
-|-----------|-------------|------|------------|
-| `GET`     | Read        | ✅  | ✅        |
-| `POST`    | Create      | ❌   | ❌         |
-| `PATCH` or `PUT` | Update | ❌ | ✅        |
-| `DELETE`  | Delete      | ❌   | ✅        |
 
 
 ## Additional Resources
