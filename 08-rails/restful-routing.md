@@ -30,6 +30,8 @@ REST (Representational State Transfer) is a pattern to help us provide a consist
 At its simplest, REST is a process in which a web server uses the combination of the requested __URL__ and __HTTP VERB__ to decide how to respond. The goal is a normalized, predictable structure for handling web requests. Rails formalizes this approach with a special file just for routes.
 
 ### Characteristics of a RESTful Architecture
+Aside from a specific pattern for laying out a web server's routes, REST also implies a certain philosophy of web development:
+
 - Uses client-server model for separation of concerns
 - Stateless: server does not track client state
 - Has a uniform interface
@@ -158,3 +160,12 @@ Notice that the `update`, `show` & `destroy` actions both use the `book_path`.  
 It's also important to note that the Router selects the first route that matches the request.  So if you swapped `get '/books/new', to: 'books#new', as: 'new_book'` with `get '/books/:id', to: 'books#show', as: 'book'` then when a GET request came in for `/books/new` the router would match it to the `books#show` action because the `:id` placeholder can match any value, not just an ID number.
 
 Because of this it's important to list your routes from most specific to least specific.
+
+## TODO: Summary
+
+## Additional Resources
+
+- [Rails guide on routing](https://guides.rubyonrails.org/routing.html)
+- [Dr. Dobbs article by M. Vaqqas describing RESTful Web Services](http://www.drdobbs.com/web-development/restful-web-services-a-tutorial/240169069)
+- [Fielding's original PhD dissertation - very dry, very long, but perhaps worth skimming, esp Chapter 5](http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm)
+- [Real-world example: Twitter REST APIs](https://dev.twitter.com/rest/public)
