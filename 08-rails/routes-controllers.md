@@ -33,7 +33,45 @@ class BooksController < ApplicationController
   end
 end
 ```
+
 Notice that the `BooksController` class inherits from the `ApplicationController` class in the Rails library.  For the `books/index` path we can handle it with the index method in the controller.  After the logic is finished in the controller method control is passed to a layout and view for rendering the content back to the user.
+
+## Adding a Route
+
+We've now created a controller (the `BooksController` class) and given it an action (the `index` method). However, Rails doesn't automatically know how to use this controller; we have to tell it.
+
+To do so, we will introduce a new piece of Rails: the router. The router does its job with the help of a special configuration file that lives at
+
+```
+config/routes.rb
+```
+
+In this file we will tell Rails where to send incoming HTTP requests.
+
+**Question:** What are the parts of an HTTP request?
+
+The two pieces of an HTTP request that our router is interested in are the _verb_ and the _path_. Given those, we can tell it what _controller_ and _action_ to use. It acts kind of like a big `case` statement, though the syntax is a little different.
+
+The routefile should have a block of code filled in already. Add a line inside that block so it looks like this:
+
+```ruby
+# config/routes.rb
+Rails.application.routes.draw do
+  # method path => action
+  get '/books', to: 'books#index'
+end
+```
+
+What we've told the router to do is:
+- When you receive a GET request...
+- ...to the `/books` path...
+- ...go to the `BooksController` class and run the `index` action
+
+That'll do for now. We'll talk more about how the router works later in the week.
+
+## Fleshing Out the Controller
+
+**Question:** According to our understanding of MVC, what should happen in a controller action?
 
 In the following notes we will look at layouts and views and look at how to render our content in the browser.  For now lets modify the `index` method to add an instance variable for use in the view.
 
