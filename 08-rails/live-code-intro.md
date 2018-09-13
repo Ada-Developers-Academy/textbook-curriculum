@@ -20,9 +20,9 @@ If you also want to have a copy under your own GitHub account, see your instruct
 
 One important question always comes up as we go work through this project: **Should I try to follow along as you build the application?**
 
-In general, our advice is **no, you should not try to follow along**. What inevitably happens is that you will have a typo somewhere, and our version on the projector will work while yours does not. Then you spend 10 frantic minutes quietly debugging, and once it's fixed you've fallen hopelessly behind.
+In general, the choice is yours. However, we have found that because Rails is such a large, finicky framework, following along with a live code can be more difficult than with previous Ruby work. There are more places to make typos, which results in students spending a bunch of time debugging while the rest of the class keeps moving and falling behind.
 
-Instead, we have found that the best approach is to take physical, written notes during lecture. Here are aspects of this week's structure that will help with this:
+Another approach is to take physical, written notes (or type them in an electronic document) during lecture. Here are aspects of this week's structure that will help with this:
 - The requirements for the week 1 project match what we do in class very closely
 - All code written in the live-code will live in a repository on GitHub, and instructors will push frequently
 - We've attempted to keep a tight cycle between lecture and project time, so that you have frequent opportunities to try things out
