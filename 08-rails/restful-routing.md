@@ -66,7 +66,7 @@ We define routes in our `config/routes.rb` file, which is generated when we run 
 
 ```ruby
 Rails.application.routes.draw do
-  # method path => action
+  # verb 'path', to: 'controller#action'
   get '/books', to: 'books#index'
 end
 ```
