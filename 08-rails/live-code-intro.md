@@ -4,7 +4,7 @@
 
 At the end of this lesson, students should be able to...
 - Explain how the lectures for this week will be organized
-- Create a project to follow along with the live-code
+- Create and run a new rails project
 
 ## Live Code
 
