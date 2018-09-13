@@ -179,7 +179,7 @@ There are many ways we could enable this feature, but one of the most straightfo
 
 ![Checkboxes for books-genres](./images/books-genres-ui.png)
 
-This would be tricky to build by hand, but Rails provides a view helper to do exactly what we want. We can achieve the above result by adding the following code to the `_form` view partial, inside the `form_for` block:
+This would be tricky to build by hand, but Rails provides a view helper to do exactly what we want. We can achieve the above result by adding the following code to the `_form` view partial, inside the `form_with` block:
 
 ```html
 <!-- app/views/books/_form.html.erb -->

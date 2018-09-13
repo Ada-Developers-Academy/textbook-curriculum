@@ -92,7 +92,7 @@ Because errors are collected directly into the model instance, we can expose err
 <% end %>
 
 <div class="new-book">
-  <%= form_for @book do |f| %>
+  <%= form_with model: @book do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>
 

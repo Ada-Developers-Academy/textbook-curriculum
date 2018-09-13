@@ -95,7 +95,7 @@ end
 
 ### New
 
-The `new` action will be very similar. In the past we've seen that the `form_for` view helper will automatically insert any attributes on the model into the form. We will take advantage of this functionality by filling in the `author` on the new model.
+The `new` action will be very similar. In the past we've seen that the `form_with` view helper will automatically insert any attributes on the model into the form. We will take advantage of this functionality by filling in the `author` on the new model.
 
 ```ruby
 # app/controllers/books_controller.rb
