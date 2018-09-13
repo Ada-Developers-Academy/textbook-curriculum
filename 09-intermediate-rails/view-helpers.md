@@ -7,7 +7,7 @@ After Reading this you should be able to:
 - Understand what sorts of problems view helpers are good at solving.
 
 ## View Helpers
-We've already seen several built-in view helpers - things like `link_to`, `button_to`, and `form_for`. Rails also allows you to define your own custom view helpers. Custom helpers should be used for similar purposes: generating small amounts of HTML or text to be inserted into a web page.
+We've already seen several built-in view helpers - things like `link_to`, `button_to`, and `form_with`. Rails also allows you to define your own custom view helpers. Custom helpers should be used for similar purposes: generating small amounts of HTML or text to be inserted into a web page.
 
 New helper methods are defined in within the `app/helpers` directory. All of the helper files within `app/helpers` will be available to any page, the only reason to have separate files is to separate concerns. The `application_helper.rb` is a great place to define methods that are not specific to a model.
 
