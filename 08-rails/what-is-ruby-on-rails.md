@@ -94,7 +94,7 @@ Essentially, MVC is way to divide responsibilities to complete a task. It's espe
 - Similar to many of the Ruby classes we've written so far
 
 ### The View
-- Turns data from the model into HTML
+- Turns data into HTML
 - Does not contain "business logic", only display logic
 - Similar to the command-line interfaces we've built in the past
 
