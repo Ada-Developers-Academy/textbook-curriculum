@@ -8,7 +8,7 @@ We've [previously seen](../05-html-css/html-forms.md) how HTML forms can be used
 - Get a feel for handling form data in a _controller_
 
 ## The `form_with` view helper
-Similar to how `link_to` generates an achor tag, Rails has a method to generate a form named `form_with`. On the surface, they are very similar. Both are _view helpers_ that generate HTML content, and `form_with` is used to create a form, and can tie content to a specific type of model.
+Similar to how `link_to` generates an achor tag, Rails has a method to generate a form named `form_with`. On the surface, they are very similar. Both are _view helpers_ that generate HTML content, and `form_with` is used to create a form, and can tie content to a specific ActiveRecord model.
 
 `form_with` generates an HTML `<form>` element.  Below is one example specifying the URL to submit the form to and the HTTP method (verb) to use in the request.
 
@@ -179,10 +179,10 @@ end
 
 ## Note on `form_tag` and `form_for`
 
-Prior to Rails 5.1 Rails had two methods to generate forms in ERB.
+Prior to Rails 5.1 Rails had two methods to generate forms in ERB:
 
--   `form_tag` generates a generic HTML form not tied to a specific model.
--   `form_for` generates an HTML form tied to a specific model-type.
+-   `form_tag` generates a generic HTML form *not* tied to a specific model
+-   `form_for` generates an HTML form tied to a specific model
 
 You will see a lot of documentation, even in the [Rails Guide](http://guides.rubyonrails.org/form_helpers.html) for both `form_tag` and `form_for` and much less documentation for `form_with`.  All will still work, but the earlier methods are being soft-depreciated and will be replaced by `form_with` over time.  In particular, all the view helpers for the `form_for` method **will work** with the newer `form_with`.
 
