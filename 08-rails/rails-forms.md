@@ -38,7 +38,7 @@ If you check out the resulting HTML in the browser you will notice it generates 
 You can also add additional HTML attributes to the form with more key-value pairs.  For example if you want to add a class with the value `create-book` for the form you can do the following
 
 ```erb
-<%= form_with url: "/books", method: :post class: 'create-book' do |f| %>
+<%= form_with url: "/books", method: :post, class: 'create-book' do |f| %>
 
 <% end %>
 ```
@@ -70,7 +70,7 @@ As the name implies, the `f.submit` _view helper_ generates a submit button for 
 Results in:
 
 ```html
-<input type="submit" name="commit" value="Save Book" class="book-button" data-disable-with="Save Book">
+<input type="submit" name="commit" value="Save Book" class="book-button" data-disable-with="Save Book" />
 ```
 
 Many, many other _view helpers_ are available to help build any type of form or input. Look at the [form helper docs](https://edgeapi.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html) for complete documentation.
@@ -162,7 +162,7 @@ If we submitted the `form_for` example above, the params hash would arrive in ou
 ```ruby
   {
     "book" => {
-      "author" => "J.K. Rowling" },
+      "author" => "J.K. Rowling",
       "title" => "Harry Potter and The Chamber of Secrets"
     }
   }
