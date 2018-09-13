@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Prismatic Paintbrushes | Contact Us</title>
+  <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+  <h1>How are we doing?</h1>
+  <p>If you have questions, comments or concerns about our paintbrushes, please let us know.</p>
+  <form action="https://ada-paint-shop.herokuapp.com/contact" method="post">
+
+    <label for="brush-sku">Brush Size</label>
+    <select id="brush-sku" name="brush_sku">
+      <option value="FANBLND3">#3 Fan Blender</option>
+      <option value="FANBLND6">#6 Fan Blender</option>
+      <option value="RNDHALF">Half Size Round</option>
+      <option value="RND1FLG">1" Round Foliage Brush</option>
+      <option value="KNFDTL5">#5 Detail Knife</option>
+      <option value="KNFPNT10">#10 Painting Knife</option>
+      <option value="BLENDER2">2" Blender</option>
+      <option value="SCPTLIN2">#2 Script Liner</option>
+      <option value="FILBERT6">#6 Filbert</option>
+      <option value="BKGRND2">2" Background</option>
+      <option value="OVLBRST1">1" Oval Bristle</option>
+      <option value="LNDSCP1">1" Landscape</option>
+    </select>
+
+    <label for="material">Product Material</label>
+    <div>
+      <input id="material-horsehair" name="material" type="radio" value="horsehair">
+      <label for="material-horsehair">Natural Horsehair</label>
+
+      <input id="material-nylon" name="material" type="radio" value="nylon">
+      <label for="material-nylon">Synthetic Nylon</label>
+
+      <input id="material-polyester" name="material" type="radio" value="polyester">
+      <label for="material-polyester">Synthetic Polyester</label>
+
+      <input id="material-n-a" name="material" type="radio" value="n-a">
+      <label for="material-n-a">N/A</label>
+    </div>
+
+    <label class="double-wide" for="feedback">What would you like to tell us?</label>
+    <textarea id="feedback" class="double-wide" name="feedback" rows="8" placeholder ="How can we help?"></textarea>
+
+    <label for="name">Your Name</label>
+    <input id="name" name="name" type="text" placeholder="Ann Artist">
+
+    <label for="email">Your Email</label>
+    <input id="email" name="email" type="text" placeholder="you@example.com">
+
+    <input class="double-wide" type="submit" value="Send">
+  </form>
+</body>
+</html>
