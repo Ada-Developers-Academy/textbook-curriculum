@@ -13,9 +13,7 @@ Similar to how `link_to` generates an achor tag, Rails has a method to generate 
 Just as `link_to` generates an `<a>` element, `form_with` generates a `<form>` element.  Below is one example specifying the URL to submit the form to and the HTTP method (verb) to use in the request.
 
 ```erb
-<%= form_with url: "/books", method: :post do |f| %>
-
-<% end %>
+<%= form_with url: "/books", method: :post %>
 ```
 
 ### A note about hidden inputs
@@ -38,9 +36,7 @@ If you check out the resulting HTML in the browser you will notice it generates 
 You can also add additional HTML attributes to the form with more key-value pairs.  For example if you want to add a class with the value `create-book` for the form you can do the following
 
 ```erb
-<%= form_with url: "/books", method: :post, class: 'create-book' do |f| %>
-
-<% end %>
+<%= form_with url: "/books", method: :post, class: 'create-book' %>
 ```
 
 ### Common view helpers for forms
