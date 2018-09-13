@@ -211,9 +211,9 @@ If we submitted the `form_for` example above, the params hash would arrive in ou
 
 ```ruby
   {
-    "book" => {
-      "author" => "J.K. Rowling",
-      "title" => "Harry Potter and The Chamber of Secrets"
+    book: {
+      author: "J.K. Rowling",
+      title: "Harry Potter and The Chamber of Secrets"
     }
   }
 ```
