@@ -1,4 +1,4 @@
-# Routes and Controllers
+# Controllers
 ## Learning Goals
 - Refresh on the http request cycle
 - Discuss how a request makes it way through a Rails application
@@ -6,18 +6,25 @@
 - Explore the role of _controllers_ in a Rails application
 - Create a basic controller using the Rails generate command
 
-## TODO intro to route file
-
 ## Setting Up a Controller
-Before we go further lets set up our own Controller class.  A Rails Controller is the central manager of a Rails application.  It takes requests from the web server, pulls information from data models and makes decisions.  It then hands information to the views for rendering the data back to the user.  Below we will setup a Controller to list a set of book titles.
 
-Rails can go ahead and create a Controller and View for us with the following commands.
+A Rails Controller is the central manager of a Rails application. It takes requests from the web server, pulls information from data models and makes decisions. It then hands information to the views for rendering the data back to the user.
+
+In Rails, we will build a separate class for each controller. The class is named after the type of resource it controls, and always ends with the word `Controller`. For example, in our books application, we might have a `BooksController` class and an `AuthorsController` class.
+
+The things that a controller can do are called _actions_, and each action will be an instance method on a controller class. For example, our `BooksController` might have an `index` action that sends back a list of books to the browser, and a `show` action that sends back details on one book. Each of those would be an instance method in the `BooksController`.
+
+Many of these actions are so common that we use the same names for them every time - `index` and `show` are examples of this.
+
+We'll start with just one controller (the `BooksController`) and one action (`index`). Rails can create a Controller and View for us with the following command:
 
 ```bash
-bin/rails generate controller Books index
+rails generate controller Books index
 ```
 
-This command has Rails generate a Controller and Views for the /books path, so when you bring up http://localhost:3000/books you will get the following HTML file.
+Note that `Books` (the controller name) is capitalized and pluralize, and `index` (the action name) is lower-case. Note that this only works because `index` is a "standard" action - if you wanted to do something custom, you would have to do a bit of work yourself.
+
+This command has Rails generate a Controller and View for the /books path, so when you bring up http://localhost:3000/books you will get the following HTML file.
 
 ![view in browser](images/index.html.erb.png)
 
@@ -34,7 +41,7 @@ class BooksController < ApplicationController
 end
 ```
 
-Notice that the `BooksController` class inherits from the `ApplicationController` class in the Rails library.  For the `books/index` path we can handle it with the index method in the controller.  After the logic is finished in the controller method control is passed to a layout and view for rendering the content back to the user.
+**Question:** What does `< ApplicationController` mean? How will this impact our class?
 
 ## Adding a Route
 
