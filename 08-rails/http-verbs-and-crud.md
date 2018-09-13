@@ -101,7 +101,7 @@ HTTP-spec-wise, `DELETE` operations are _idempotent_. If you `DELETE` a resource
 There is a caveat about `DELETE` idempotence, however. Calling `DELETE` on a resource a second time will often return a 404 (NOT FOUND) since it was already removed and therefore is no longer findable. This, by some opinions, makes DELETE operations no longer _idempotent_, however, the end-state of the resource is the same. Returning a 404 is acceptable and communicates accurately the status of the call.
 
 ## CRUD
-**C**reate. **R**ead. **U**pdate. **D**elete. This acronym embodies a huge majority of what we do with our web applications both simple and complex. We begin architecting our applications routes and interfaces by considering what kind of actions users will perform (CRUD) and what effects those actions will have on resources within the application (idempotency).
+<b>C</b>reate. <b>R</b>ead. <b>U</b>pdate. <b>D</b>elete. This acronym embodies a huge majority of what we do with our web applications both simple and complex. We begin architecting our applications routes and interfaces by considering what kind of actions users will perform (CRUD) and what effects those actions will have on resources within the application (idempotency).
 
 ## Summary
 
