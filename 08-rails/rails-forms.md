@@ -18,11 +18,20 @@ Just as `link_to` generates an `<a>` element, `form_with` generates a `<form>` e
 <% end %>
 ```
 
+### A note about hidden inputs
+>When working with Rails-generated forms, you'll notice that they all include a couple of `<input>`elements with the type `hidden`. You may not have encountered this type of input before as it is primarily used when doing back-end programming, such as with Rails. The two inputs, named `utf8` and `authenticity_token` look like this:
+> ```html
+> <input name="utf8" type="hidden" value="✓">
+> <input type="hidden" name="authenticity_token" value="8k7REve8u0Mq7UdaB+awSpMZ8af/5HF7udhgzpOVblQvhy2hCYIdjbEyrVhXwY9k7Ibpcprpjxxz8dCeqi55vQ==">
+> ```
+>You can ignore both of these input elements. They are necessary for Rails to work securely, but you should not need to understand or modify them. We have omitted these elements and associated data from the code snippets throughout the rest of this document.
+
+<br>
+
 If you check out the resulting HTML in the browser you will notice it generates the following:
 
 ```html
-<form action="/books" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="8k7REve8u0Mq7UdaB+awSpMZ8af/5HF7udhgzpOVblQvhy2hCYIdjbEyrVhXwY9k7Ibpcprpjxxz8dCeqi55vQ==">
-
+<form action="/books" accept-charset="UTF-8" data-remote="true" method="post">
 </form>
 ```
 
@@ -109,7 +118,7 @@ We can update the `form_with` in `views/books/new.html.erb` to:
 The resulting HTML is:
 
 ```html
-<form action="/books" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="AKeeT6nk32KhwFJvZZvEkoIEMlrsCh2D7AJGygNskWLdbmL8V9p5rDofuG01vPu8/Zsqj4kH4+QmK/aaOteGiw==">
+<form action="/books" accept-charset="UTF-8" data-remote="true" method="post">
   <label for="book_title">Title</label>
   <input type="text" name="book[title]" id="book_title">
 
@@ -152,8 +161,6 @@ If we submitted the `form_for` example above, the params hash would arrive in ou
 
 ```ruby
   {
-    "utf8" => "✓",
-    "authenticity_token" => "X/be9deLjFilsqYcOVBMM5Fj1vf7OWAr1K9F97JVhbhFmp/Ig9HSp2urbytRAgIoRAupAeZczOtdwbP49R1i8w==",
     "book" => {
       "author" => "J.K. Rowling" },
       "title" => "Harry Potter and The Chamber of Secrets"
