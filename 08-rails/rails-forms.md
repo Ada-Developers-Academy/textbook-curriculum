@@ -6,9 +6,9 @@ We've [previously seen](../05-html-css/html-forms.md) how HTML forms can be used
 - Discover some useful _view helpers_ specifically for working with forms
 - Get a feel for handling form data in a _controller_
 
+## `form_with`
 Similar to how `link_to` generates an achor tag, Rails has a method to generate a form named `form_with`. On the surface, they are very similar. Both are _view helpers_ that generate HTML content, and `form_with` is used to create a form, and can tie content to a specific type of model.
 
-## `form_with`
 `form_with` generates an HTML `<form>` element.  Below is one example specifying the URL to submit the form to and the HTTP method (verb) to use in the request.
 
 ```erb
