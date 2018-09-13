@@ -39,8 +39,17 @@ You can also add additional HTML attributes to the form with more key-value pair
 <%= form_with url: "/books", method: :post, class: 'create-book' %>
 ```
 
-### Common view helpers for forms
-Within the `form_with` block, additional form helpers can be used to create inputs and labels.
+## Common view helpers for forms
+Within the `form_with` block, additional view helpers can be used to create inputs, and labels, and submit buttons.
+
+The Rails convention when generating forms is to specify the block with a parameter named `f`, like so:
+
+```erb
+<%= form_with url: "/books", method: :post do |f| %>
+<% end %>
+```
+
+The `f` parameter, known as a _form builder_, is used when with the view helpers for things like input elements and labels. The following are some of the view helpers available through the form builder:
 
 #### `text_field`
 `text_field` is the the method to make a common text field. The first argument
