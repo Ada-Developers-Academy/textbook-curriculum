@@ -75,7 +75,7 @@ The routefile should have a block of code filled in already. Add a line inside t
 ```ruby
 # config/routes.rb
 Rails.application.routes.draw do
-  # method path => action
+  # verb 'path', to: 'controller#action'
   get '/books', to: 'books#index'
 end
 ```
