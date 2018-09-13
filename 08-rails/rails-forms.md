@@ -39,6 +39,29 @@ You can also add additional HTML attributes to the form with more key-value pair
 <%= form_with url: "/books", method: :post, class: 'create-book' %>
 ```
 
+## Adding form content
+So far we have generated `<form>` elements using `form_with`, but those elements have not had any contents. You may recall that HTML forms need to be populated with inputs such as text boxes and drop-down menus, and generally have a submit button.
+
+We can use the `form_with` view helper to also generate forms with custom HTML content. For example:
+
+```erb
+<%= form_with url: "/books", method: :post do %>
+  <p>Please provide the following information to save your book to our database:</p>
+<% end %>
+```
+
+the above ERB generates the following HTML:
+
+```html
+<form action="/books" accept-charset="UTF-8" data-remote="true" method="post">
+  <p>Please provide the following information to save your book to our database:</p>
+</form>
+```
+
+_NOTE:_ Even though we're using a `do ... end` block now, it is still necessary to use `<%=` because the `form_with` method returns the generated `<form>` element. This is in contrast to how we use `each` in our view code, because the `each` method's return value is not important for the HTML, only the contents of its block.
+
+So we can put HTML inside of our form now. This means we could write the `<input>` elements necessary to complete the form's conents. However as with the form itself, Rails can help us generate our inputs.
+
 ## Common view helpers for forms
 Within the `form_with` block, additional view helpers can be used to create inputs, and labels, and submit buttons.
 
@@ -83,6 +106,8 @@ The entire form could look like:
 
 ```erb
 <%= form_with url: "/books", method: :post do |f| %>
+  <p>Please provide the following information to save your book to our database:</p>
+
   <%= f.label :title %>
   <%= f.text_field :title %>
 
@@ -109,6 +134,8 @@ We can update the `form_with` in `views/books/new.html.erb` to:
 
 ```erb
 <%= form_with model: @book do |f| %>
+  <p>Please provide the following information to save your book to our database:</p>
+
   <%= f.label :title %>
   <%= f.text_field :title %>
 
@@ -123,6 +150,8 @@ The resulting HTML is:
 
 ```html
 <form action="/books" accept-charset="UTF-8" data-remote="true" method="post">
+  <p>Please provide the following information to save your book to our database:</p>
+
   <label for="book_title">Title</label>
   <input type="text" name="book[title]" id="book_title">
 
