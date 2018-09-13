@@ -4,6 +4,7 @@ We've [previously seen](../05-html-css/html-forms.md) how HTML forms can be used
 ## Learning Goals
 - Learn how to generate a form in Rails with the `form_with` method
 - Discover some useful _view helpers_ specifically for working with forms
+- Learn the benefits that `form_with` has when using an ActiveRecord model
 - Get a feel for handling form data in a _controller_
 
 ## `form_with`
