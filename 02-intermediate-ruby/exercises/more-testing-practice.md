@@ -36,7 +36,7 @@ output: `['Peter', 'Paul', 'Mary']`
 Write a set of tests to evaluate a method named `flatten_array` which takes a single array as a parameter and returns that array flattened like above.  It should also remove any nil values.
 
 
-## Stage 3:  Test Review
+## Stage 2:  Test Review
 
 With a classmate review your written tests and look for:
 
@@ -45,7 +45,7 @@ With a classmate review your written tests and look for:
 *   Opportunities to DRY-up code
 
 
-## Stage 4:  Refactor
+## Stage 3:  Refactor
 
 Finally refactor your tests from your partner's suggestions and write a `flatten_array` method in pseudocode to solve the tests.  The problem is *hard* and the point of this exercise is not to write the method, but rather to practice writing tests and examining where your code may not satify the test.
 
