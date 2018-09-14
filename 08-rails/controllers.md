@@ -2,9 +2,10 @@
 ## Learning Goals
 - Refresh on the http request cycle
 - Discuss how a request makes it way through a Rails application
-- Dissect the _routes file_ and learn how to define routes
 - Explore the role of _controllers_ in a Rails application
 - Create a basic controller using the Rails generate command
+- Add an _action_ to a controller
+- Define a basic _route_ for our new controller action
 
 ## Setting Up a Controller
 
@@ -85,7 +86,7 @@ What we've told the router to do is:
 - ...to the `/books` path...
 - ...go to the `BooksController` class and run the `index` action
 
-That'll do for now. We'll talk more about how the router works later in the week.
+Routing is a very important topic in Rails, and we'll definitely be coming back to this file later in the week. For now though, this one route will serve our purposes.
 
 ## Fleshing Out the Controller
 
