@@ -8,8 +8,8 @@ The goal of this set of exercises is to:
 
 *   Practice writing tests
 *   Review the tests written by another and look for:
-  -Testing all edge-cases
-  -Ways to DRY-up tests
+  *   Testing all edge-cases
+  *   Ways to DRY-up tests
 
 ## Flatten Array Problem Description
 
@@ -53,4 +53,4 @@ Answer the following questions:
 
 
 
-*   Explain your biggest takeaway from reviewing your classmate's tests  
+*   Explain your biggest takeaway from reviewing your classmate's tests
