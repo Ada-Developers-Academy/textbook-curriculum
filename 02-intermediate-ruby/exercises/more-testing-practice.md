@@ -1,0 +1,48 @@
+# Test Writing Exercise
+
+In this exercise you will look at a problem description and write a set of tests to evaluate a solution.  Then you will review the tests of another classmate and make suggestions for improvement.  Lastly you will write solution code to satisfy your tests.
+
+## Exercise Goal
+
+The goal of this set of exercises is to:
+
+*   Practice writing tests
+*   Review the tests written by another and look for:
+  -Testing all edge-cases
+  -Ways to DRY-up tests
+
+## Flatten Array Problem Description
+
+This method should take a nested list and return a single flattened list with all values except nil/null.
+
+The challenge is to write a function that accepts an arbitrarily-deep nested list-like structure and returns a flattened structure without any nil/null values.
+
+For Example:
+
+Ex 1:
+input: `[1,[2,3,null,4],[null],5]`
+
+output: `[1,2,3,4,5]`
+
+Ex 2:
+input: `['Peter', ['Paul', [ 'Mary' ]]]]`
+
+output: `['Peter', 'Paul', 'Mary']`
+
+## Stage 1:  Write the Tests
+
+Write a set of tests to evaluate a method named `flatten_array` which takes a single array as a parameter and returns that array flattened like above.  It should also remove any null values.
+
+
+## Stage 3:  Test Review
+
+With a classmate review your written tests and look for:
+
+*   Edge-cases uncovered
+*   Return values tested correctly
+*   Opportunities to DRY-up code
+
+
+## Stage 4:  Refactor and Solution
+
+Finally refactor your tests from your partner's suggestions and write a `flatten_array` method to satisfy your tests.  You may not use the Array class' built-in method to flatten the array.
