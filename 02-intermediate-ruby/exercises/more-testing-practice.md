@@ -13,14 +13,14 @@ The goal of this set of exercises is to:
 
 ## Flatten Array Problem Description
 
-This method should take a nested list and return a single flattened list with all values except nil/null.
+This method should take a nested list and return a single flattened list with all values except nil.
 
-The challenge is to write a function that accepts an arbitrarily-deep nested list-like structure and returns a flattened structure without any nil/null values.
+The challenge is to write a function that accepts an arbitrarily-deep nested list-like structure and returns a flattened structure without any nil values.
 
 For Example:
 
 Ex 1:
-input: `[1,[2,3,null,4],[null],5]`
+input: `[1,[2,3,nil,4],[nil],5]`
 
 output: `[1,2,3,4,5]`
 
@@ -31,7 +31,7 @@ output: `['Peter', 'Paul', 'Mary']`
 
 ## Stage 1:  Write the Tests
 
-Write a set of tests to evaluate a method named `flatten_array` which takes a single array as a parameter and returns that array flattened like above.  It should also remove any null values.
+Write a set of tests to evaluate a method named `flatten_array` which takes a single array as a parameter and returns that array flattened like above.  It should also remove any nil values.
 
 
 ## Stage 3:  Test Review
