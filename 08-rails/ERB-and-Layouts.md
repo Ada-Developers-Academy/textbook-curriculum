@@ -106,7 +106,7 @@ Did you notice that the view doesn't have a full HTML file that starts with the 
 One of the most helpful features of ERB tags is that they allow us to "compose" multiple ERB templates together. This means we are placing the content of a single ERB template, called a view, at a specific point within a different ERB template, in this case a layout. When we have multiple HTML pages that use much of the same content on every page, we can extract the repeated content into a reusable template. This extracted template is known as a _layout_.
 
 For example, if we had two HTML pages like this:
-```erb
+```html
 <!-- app/views/website/index.html.erb -->
 <html>
   <head>
@@ -120,7 +120,7 @@ For example, if we had two HTML pages like this:
 </html>
 ```
 ... and ...
-```erb
+```html
 <!-- app/views/website/about-me.html.erb -->
 <html>
   <head>
