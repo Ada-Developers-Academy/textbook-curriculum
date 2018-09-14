@@ -20,11 +20,13 @@ The challenge is to write a function that accepts an arbitrarily-deep nested lis
 For Example:
 
 Ex 1:
+
 input: `[1,[2,3,nil,4],[nil],5]`
 
 output: `[1,2,3,4,5]`
 
 Ex 2:
+
 input: `['Peter', ['Paul', [ 'Mary' ]]]]`
 
 output: `['Peter', 'Paul', 'Mary']`
