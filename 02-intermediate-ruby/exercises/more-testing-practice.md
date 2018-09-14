@@ -43,6 +43,14 @@ With a classmate review your written tests and look for:
 *   Opportunities to DRY-up code
 
 
-## Stage 4:  Refactor and Solution
+## Stage 4:  Refactor
 
-Finally refactor your tests from your partner's suggestions and write a `flatten_array` method to satisfy your tests.  You may not use the Array class' built-in method to flatten the array.
+Finally refactor your tests from your partner's suggestions and write a `flatten_array` method in pseudocode to solve the tests.  The problem is *hard* and the point of this exercise is not to write the method, but rather to practice writing tests and examining where your code may not satify the test.
+
+Answer the following questions:
+
+*   Will your code satify the tests?  If not where would it fail?
+
+
+
+*   Explain your biggest takeaway from reviewing your classmate's tests  
