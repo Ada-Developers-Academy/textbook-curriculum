@@ -80,9 +80,9 @@ Let's break down this code:
   - **controller and action**: defining the controller and action, split by the `#`. `'books#index'` in this case this would point to the `index` method in the `BooksController` class.
 - We use single quotes `'` because the controller/action are separated by an octothorp `#`. If we used double quotes Atom would try to auto-complete curly braces after each one, and it would get really annoying!
 
-### Naming Routes
+### The Seven RESTful Routes
 
-A `routes.rb` file which lists all the CRUD operations would look like this:
+A `routes.rb` file which lists all the RESTful routes would look like this:
 
 ```ruby
 # config/routes.rb
@@ -161,7 +161,17 @@ It's also important to note that the Router selects the first route that matches
 
 Because of this it's important to list your routes from most specific to least specific.
 
-## TODO: Summary
+## Summary
+
+- The _router_'s job is to decide what controller action should handle an incoming request
+  - It looks at both the _HTTP verb_ and the _path_ of the request to decide
+- REST is both a philosophy of web development, and a specific set of patterns to follow
+  - There are seven RESTful routes, each of which enables a different part of CRUD
+- Configuration for the router lives at `config/routes.rb`
+  - Each route takes the form `verb '/path', to: 'controller#action'`
+  - The _path_ part of a route can be named, using `as: 'prefix'`
+    - This allows the path to be used in other parts of the application via the method `prefix_path`
+  - The order of routes in the routefile matters
 
 ## Additional Resources
 
