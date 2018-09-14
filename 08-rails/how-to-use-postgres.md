@@ -40,6 +40,7 @@ After Postgres is installed and configured you can create new rails apps with po
 ```bash
 $ rails new my-rails-project
 ...
+$ cd my-rails-project
 $ rails db:reset
 $ rails db:migrate
 ...
