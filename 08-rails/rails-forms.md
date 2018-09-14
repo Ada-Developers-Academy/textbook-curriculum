@@ -1,115 +1,209 @@
 # Rails Forms
+We've [previously seen](../05-html-css/html-forms.md) how HTML forms can be used to submit information to websites, and have practiced creating them manually. In this resource we will see that Rails has support for generating custom HTML forms that work well with Rails' conventions for models, controllers, and routes.
+
 ## Learning Goals
-- Explore two ways to handle forms in Rails
-  + `form_tag` & `form_for`
+- Learn how to generate a form in Rails with the `form_with` method
 - Discover some useful _view helpers_ specifically for working with forms
+- Learn the benefits that `form_with` has when using an ActiveRecord model
 - Get a feel for handling form data in a _controller_
 
-There are two ways to generate HTML forms within Rails: `form_tag` and `form_for`. On the surface, they are very similar. Both are _view helpers_ that generate HTML form tags. They differ in that `form_tag` is a __generic form__ while `form_for` is __tied to an object__. We'll explore both below.
+## The `form_with` view helper
+Similar to how `link_to` generates an achor tag, Rails has a method to generate a form named `form_with`. On the surface, they are very similar. Both are _view helpers_ that generate HTML content, and `form_with` is used to create a form, and can tie content to a specific ActiveRecord model.
 
-## `form_tag`
-`form_tag` generates an HTML `<form>` element. The first option that it takes is the submission path, (the `action` attribute in the `<form>` tag). The `method` attribute defaults to `POST`. Additional arguments can be given after the path in the form of a hash. Common options include applying a CSS class to the form, or changing the form _method_. Here's an example:
+Just as `link_to` generates an `<a>` element, `form_with` generates a `<form>` element.  Below is one example specifying the URL to submit the form to and the HTTP method (verb) to use in the request.
 
 ```erb
-<%= form_tag "/books", class: "delete_products", method: :delete do %>
-
-<% end %>
+<%= form_with url: "/books", method: :post %>
 ```
 
+### A note about hidden inputs
+>When working with Rails-generated forms, you'll notice that they all include a couple of `<input>`elements with the type `hidden`. You may not have encountered this type of input before as it is primarily used when doing back-end programming, such as with Rails. The two inputs, named `utf8` and `authenticity_token` look like this:
+> ```html
+> <input name="utf8" type="hidden" value="✓">
+> <input type="hidden" name="authenticity_token" value="8k7REve8u0Mq7UdaB+awSpMZ8af/5HF7udhgzpOVblQvhy2hCYIdjbEyrVhXwY9k7Ibpcprpjxxz8dCeqi55vQ==">
+> ```
+>You can ignore both of these input elements. They are necessary for Rails to work securely, but you should not need to understand or modify them. We have omitted these elements and associated data from the code snippets throughout the rest of this document.
+
+<br>
+
+If you check out the resulting HTML in the browser you will notice it generates the following:
+
 ```html
-<form class="delete_products" action="/products" accept-charset="UTF-8" method="post">
-  <input name="utf8" type="hidden" value="&#x2713;" />
-  <input type="hidden" name="_method" value="delete" />
-  <input type="hidden" name="authenticity_token" value="5iHVj24QO4ku/VoS9/q3/o1XjIMSnnEtCmGt3iY5nPr8TZSyOkplduDkkyWfqPnlWD/zdQ/73e2DD1vRYXF7sQ==" />
+<form action="/books" accept-charset="UTF-8" data-remote="true" method="post">
 </form>
 ```
 
-### Common _view helpers_ for forms
-Within the `form_tag` block, additional form helpers can be used to create inputs and labels.
-
-#### `text_field_tag`
-`text_field_tag` is the the method to make a common text field. The first argument
-it expects is the HTML name attribute. The second is the default value of the input. Additional HTML options can be passed in a hash. For example:
+You can also add additional HTML attributes to the form with more key-value pairs.  For example if you want to add a class with the value `create-book` for the form you can do the following
 
 ```erb
-<%= text_field_tag "book[author]", "J.K. Rowling", class: "books" %>
+<%= form_with url: "/books", method: :post, class: 'create-book' %>
+```
+
+## Adding form content
+So far we have generated `<form>` elements using `form_with`, but those elements have not had any contents. You may recall that HTML forms need to be populated with inputs such as text boxes and drop-down menus, and generally have a submit button.
+
+We can use the `form_with` view helper to also generate forms with custom HTML content. For example:
+
+```erb
+<%= form_with url: "/books", method: :post do %>
+  <p>Please provide the following information to save your book to our database:</p>
+<% end %>
+```
+
+the above ERB generates the following HTML:
+
+```html
+<form action="/books" accept-charset="UTF-8" data-remote="true" method="post">
+  <p>Please provide the following information to save your book to our database:</p>
+</form>
+```
+
+_NOTE:_ Even though we're using a `do ... end` block now, it is still necessary to use `<%=` because the `form_with` method returns the generated `<form>` element. This is in contrast to how we use `each` in our view code, because the `each` method's return value is not important for the HTML, only the contents of its block.
+
+So we can put HTML inside of our form now. This means we could write the `<input>` elements necessary to complete the form's conents. However as with the form itself, Rails can help us generate our inputs.
+
+## Common view helpers for forms
+Within the `form_with` block, additional view helpers can be used to create inputs, and labels, and submit buttons.
+
+### The form builder
+The Rails convention when generating forms is to specify the block with a parameter named `f`, like so:
+
+```erb
+<%= form_with url: "/books", method: :post do |f| %>
+<% end %>
+```
+
+The `f` parameter, known as a _form builder_, is used when with the view helpers for things like input elements and labels. The following are some of the view helpers available through the form builder:
+
+### Single-line text inputs with `text_field`
+`text_field` is the the method to make a common text field. The first argument it expects is the HTML name attribute. The (optional) second argument is the default value of the input. Additional HTML options can be passed in a hash. For example:
+
+```erb
+<%= f.text_field :author, "J.K. Rowling", class: "books" %>
 ```
 
 Results in:
 
 ```html
-<input type="text" name="book[author]" id="book_author" value="J.K. Rowling" class="books" />
+<input type="text" name="author" id="author" value="J.K. Rowling" class="books" />
 ```
 
-#### `submit_tag`
-As the name implies, the `submit_tag` _view helper_ generates a submit button for a form created with `form_tag`. It accepts two parameters, both optional. The first is the text that should appear in the button (defaults to "Submit"), and the second is a hash of HTML attributes:
+### Submit buttons with `f.submit`
+As the name implies, the `f.submit` _view helper_ generates a submit button for a form created with `form_with`. It accepts two parameters, both optional. The first is the text that should appear in the button (defaults to "Submit"), and the second is a hash of HTML attributes:
 
 ```erb
-<%= submit_tag "Save Book", class: "book-button" %>
+<%= f.submit "Save Book", class: "book-button" %>
 ```
 
 Results in:
 
 ```html
-<input type="submit" name="commit" value="Save Book" class="book-button" />
+<input type="submit" name="commit" value="Save Book" class="book-button" data-disable-with="Save Book" />
 ```
 
-Many, many other _view helpers_ are available to help build any type of form or input. Look at the [form helper docs](http://api.rubyonrails.org/classes/ActionView/Helpers/FormTagHelper.html) for complete documentation.
+Many, many other _view helpers_ are available to help build any type of form or input. Look at the [form helper docs](https://edgeapi.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html) for complete documentation.
 
-## form_for
-`form_for` is similar to `form_tag`, except it is meant to be used in conjunction with an Active Record model.
-
-The only required argument it takes is any ActiveRecord object. Rails will make assumptions about how to structure the form's method and action based on RESTful conventions (POST to `/books` for creating new records and PUT/PATCH to `/books/:id` for updating existing records, etc). Check it:
+## A complete form
+After combining the `form_with` helper and some of the other view helpers mentioned above, by placing them in the block for `form_with`, we have the ERB code to generate a complete HTML form. The entire form could look like:
 
 ```erb
-<%= form_for @book do |f| %>
+<%= form_with url: "/books", method: :post do |f| %>
+  <p>Please provide the following information to save your book to our database:</p>
 
-<% end %>
-```
+  <%= f.label :title %>
+  <%= f.text_field :title %>
 
-```html
-<form  action="/books" class="new_book" id="new_book" method="post">
-
-</form>
-```
-
-The `form_for` block is given an argument (commonly `f` for "form builder"),
-this object has methods very similar to the generic form builders like `text_field_tag`, but Rails can make assumptions about the form structure because of what it knows about the object:
-
-```erb
-<%= form_for @book do |f| %>
   <%= f.label :author %>
   <%= f.text_field :author %>
-  <%= f.submit %>
+
+  <%= f.submit "Save Book", class: "book-button" %>
 <% end %>
 ```
 
-Results in:
+The above ERB code generates this HTML:
 
 ```html
-<form class="new_book" id="new_book" action="/books" accept-charset="UTF-8" method="post">
-  <input name="utf8" type="hidden" value="&#x2713;" />
-  <input type="hidden" name="authenticity_token" value="atr2Gl2jJpe7sN9eAz9npBk1T4FYMcPeFI5xcMDSBDVwtrcnCfl4aHWpFmlrbSm/zF0wd0VUbx6d4Id/h5rjfg==" />
+<form action="/books" accept-charset="UTF-8" data-remote="true" method="post">
+  <p>Please provide the following information to save your book to our database:</p>
 
-  <label for="book_author">Author</label>
-  <input type="text" name="book[author]" id="book_author" />
+  <label for="title">Title</label>
+  <input type="text" name="title" id="title" />
 
-  <input type="submit" name="commit" value="Create Book" />
+  <label for="author">Author</label>
+  <input type="text" name="author" id="author" />
+
+  <input type="submit" name="commit" value="Save Book" class="book-button" data-disable-with="Save Book" />
 </form>
 ```
+
+## Binding `form_with` to an ActiveRecord Model
+
+`form_with` can also work with an ActiveRecord Model using a `model` key and an ActiveRecord Model as a value.
+
+If we change our `BooksController#new` controller method to:
+
+```ruby
+def new
+  @book = Book.new
+end
+```
+
+We can update the `form_with` in `views/books/new.html.erb` to:
+
+```erb
+<%= form_with model: @book do |f| %>
+  <p>Please provide the following information to save your book to our database:</p>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+
+  <%= f.submit "Save Book", class: "book-button" %>
+<% end %>
+```
+
+The resulting HTML is:
+
+```html
+<form action="/books" accept-charset="UTF-8" data-remote="true" method="post">
+  <p>Please provide the following information to save your book to our database:</p>
+
+  <label for="book_title">Title</label>
+  <input type="text" name="book[title]" id="book_title">
+
+  <label for="book_author">Author</label>
+  <input type="text" name="book[author]" id="book_author">
+
+  <input type="submit" name="commit" value="Save Book" class="book-button" data-disable-with="Save Book">
+</form>
+```
+
 
 ### So what just happened?
 Lots of stuff!
 
 1. It automatically prepends the name field with the class of the ActiveRecord object. This way all elements of this form will be grouped together.
 1. It automatically fills the `value` attribute of the input with the value of the corresponding attribute of the ActiveRecord object (if it exists).
-1. It will differentiate between making forms for __new__ models and forms for editing __existing__ models and update the form's `action` and `method` attributes accordingly
+1. It will differentiate between making forms for __new__ models and forms for editing __existing__ models and update the form's `action` and `method` attributes accordingly.
 
-__Note:__ All of this connectedness depends on your code going along with many Rails conventions. While all the conventions _can_ be reconfigured, overwritten, and changed, it's important we spend some time getting to know our way around first. As an example, the code above will throw an error if there's not a RESTful route conforming to Rails naming conventions defined.
+__Note:__ All of this connectedness depends on your code going along with many Rails conventions. While all the conventions _can_ be reconfigured, overwritten, and changed, it's important we spend some time getting to know our way around first. As an example, the code above will throw an error if there's not a RESTful route conforming to Rails naming conventions defined, or if the `new` controller action didn't define an `@book` variable.
 
-Here's a link to the [official docs for form helpers](http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html), which contains a list of the form builder methods for `form_for`.
+Here's a link to the [official docs for form helpers](http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html), which contains a list of the form builder methods.  The documentation uses an older `form_for` builder method, but all the view helpers also work alongside `form_with`.
 
-Likely more helpful is the [Rails Guide for Form Helpers](http://guides.rubyonrails.org/form_helpers.html) which extensively covers both kinds of forms discussed in this document.
+### Exercise:
+
+1.  In `BooksController#new`, give the book instance variable a default title.  Do you notice a change in the form?
+1.  Next put in an `@book.save` to the controller method.  Do you notice any change in the resulting HTML?  Look at the HTML output in Chrome Developer Tools.
+
+**After this exercise, change the content back to:**
+
+```ruby
+def new
+  @book = Book.new
+end
+```
 
 ## Controllers & Form Data
 Submitting a form results in the form data being collected into the _params hash_. The structure of form data follows the same patterns as in other frameworks. This means we can leverage creative naming in the HTML (like `book[author]`) to create well structured objects in the _params hash_.
@@ -118,11 +212,9 @@ If we submitted the `form_for` example above, the params hash would arrive in ou
 
 ```ruby
   {
-    "utf8" => "✓",
-    "authenticity_token" => "X/be9deLjFilsqYcOVBMM5Fj1vf7OWAr1K9F97JVhbhFmp/Ig9HSp2urbytRAgIoRAupAeZczOtdwbP49R1i8w==",
-    "book" => {
-      "author" => "J.K. Rowling" },
-      "title" => "Harry Potter and The Chamber of Secrets"
+    book: {
+      author: "J.K. Rowling",
+      title: "Harry Potter and The Chamber of Secrets"
     }
   }
 ```
@@ -141,6 +233,18 @@ def create
 end
 ```
 
+<!-- TODO Add image linking form fields to params -->
+
+## Note on `form_tag` and `form_for`
+
+Prior to Rails 5.1 Rails had two methods to generate forms in ERB:
+
+-   `form_tag` generates a generic HTML form *not* tied to a specific model
+-   `form_for` generates an HTML form tied to a specific model
+
+You will see a lot of documentation, even in the [Rails Guide](http://guides.rubyonrails.org/form_helpers.html) for both `form_tag` and `form_for` and much less documentation for `form_with`.  All will still work, but the earlier methods are being soft-deprecated and will be replaced by `form_with` over time.  In particular, all the view helpers for the `form_for` method **will work** with the newer `form_with`.
+
 ## Resources
--  [Rails Guide for Form Helpers](http://guides.rubyonrails.org/form_helpers.html)
--  [Official Documentation for form helper methods](http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html)
+-   [`form_with` Documentation](https://api.rubyonrails.org/v5.1/classes/ActionView/Helpers/FormHelper.html#method-i-form_with)
+-   [Official Documentation for form helper methods](http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html)
+-   [Rails 5.1's form_with vs. form_tag vs. form_for](https://m.patrikonrails.com/rails-5-1s-form-with-vs-old-form-helpers-3a5f72a8c78a)

@@ -133,7 +133,7 @@ Since we have updated the way that the data is retrieved within our books applic
 
 1. Locate the view where the new book form is located. Switch the form from using a `text_field` for the author to using a `select`. You can read more about the different types of select tags Rails provides [here](http://guides.rubyonrails.org/form_helpers.html#making-select-boxes-with-ease).
 
-    Within a `form_for` you can use:
+    Within a `form_with` you can use:
     `<%= f.select :author_id, Author.all.map{ |auth| [auth.name, auth.id] } %>`
 
 1. Since we're now sending the `author_id` instead of the author's name, we'll need to update the strong params in our `BooksController`.
@@ -158,4 +158,4 @@ ActiveRecord provides powerful tools for building relations between different mo
 - Add the relations to the model classes
 - Use the relations in your controllers and views
 
-Relations are a key part of what makes databases great - they're the **R** in RDB. The skills and techniques we learn for managing them will apply in many settings. Being able to use relations effectively is an essential part of working with Rails, and we will continue to practice them over the coming weeks. 
+Relations are a key part of what makes databases great - they're the **R** in RDB. The skills and techniques we learn for managing them will apply in many settings. Being able to use relations effectively is an essential part of working with Rails, and we will continue to practice them over the coming weeks.
