@@ -9,6 +9,7 @@
     - [Live Code Intro](live-code-intro.md)
 1. [Controllers](routes-controllers.md)
 1. [ERB & Layouts](ERB-and-Layouts.md)
+1. [Route Parameters](route-parameters.md)
 1. [Requests and Responses](requests-and-responses.md)
 1. [Active Record Migrations](active-record-migrations.md)
 1. [Active Record Models](active-record-models.md)
