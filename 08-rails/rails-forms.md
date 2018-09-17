@@ -233,7 +233,11 @@ def create
 end
 ```
 
-<!-- TODO Add image linking form fields to params -->
+<!-- Image source https://www.lucidchart.com/documents/edit/7929dd38-2d2f-4113-97b5-139ffe802bc5/0 -->
+
+## Visual Representation
+
+![chart showing the actions of form_with through the `create` action](images/railsForms.png)
 
 ## Note on `form_tag` and `form_for`
 
