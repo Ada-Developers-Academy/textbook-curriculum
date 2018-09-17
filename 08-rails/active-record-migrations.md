@@ -100,6 +100,12 @@ In our sample Rails project perform the following actions:
 
 Then run `rails db:migrate:status` to verify that the migrations have run successfully.
 
+You can then destroy your `Author` model with:
+
+```bash
+rails destroy model Author name:string publisher:string
+```
+
 ## Naming Conventions
 Built into Rails is a class known as the _Inflector_. It has one of the hardest jobs: deciphering the English language. The _Inflector_ does its very best to assist Rails in understanding the correct singular and plural versions of any noun it receives. This is extremely important in providing Rails developers conventions and tools that follow those conventions. Notice in our _migration_ examples above how the generated class and file names all automatically received a singular or plural notation. That's the _Inflector_ at work. I don't envy the _Inflector_.
 
