@@ -1,10 +1,12 @@
-# Routes and Controllers
+# Restful Routing
+
 ## Learning Goals
-- Refresh on the http request cycle
-- Discuss how a request makes it way through a Rails application
-- Dissect the _routes file_ and learn how to define routes
-- Explore the role of _controllers_ in a Rails application
-- Create a basic controller using the Rails generate command
+By the end of this lesson, students should be able to...
+
+- Define the acronym REST
+- List the 7 RESTful routes
+  - HTTP verb, path, controller action
+- Define RESTful routes for a Rails application
 
 ## HTTP Request
 HTTP is the language of the internet. Browsers send HTTP requests to our servers. Here's a simplified HTTP request:
@@ -21,6 +23,39 @@ The two most important parts of this request are:
 
 In a Rails app when a request comes in for a specific _path_ the Rails router	matches it with a controller and passes the request to the appropriate method in that controller.
 
+## What is REST?
+
+REST (Representational State Transfer) is a pattern to help us provide a consistent method of accessing and managing our resources on the web. Many different languages and frameworks implement some sort of RESTful routing.
+
+At its simplest, REST is a process in which a web server uses the combination of the requested __URL__ and __HTTP VERB__ to decide how to respond. The goal is a normalized, predictable structure for handling web requests. Rails formalizes this approach with a special file just for routes.
+
+### Characteristics of a RESTful Architecture
+Aside from a specific pattern for laying out a web server's routes, REST also implies a certain philosophy of web development:
+
+- Uses client-server model for separation of concerns
+- Stateless: server does not track client state
+- Has a uniform interface
+- Resource identification with each request
+- Returned resources are data
+- Allows for caching
+
+### Pseudo-code Example of RESTful Routes
+__Assumption__: We've got a resource called `book` that can be recalled/manipulated by a unique identifier called `id`. In Rails, we'd represent getting a single instance of this resource with something like `get "/books/:id", to: "books#show"`.
+
+We can extrapolate the entire RESTful suite of actions from this basic pattern. It'd look something like...
+
+Verb   | URI Pattern       | Controller#Action | Description
+---    | ---               | ---               | ---
+GET    | `/books`          | `books#index`     | List of all books
+GET    | `/books/new`      | `books#new`       | Form to add a new book
+POST   | `/books`          | `books#create`    | Send form data to the server and save a new book
+GET    | `/books/:id`      | `books#show`      | Show details for one book
+GET    | `/books/:id/edit` | `books#edit`      | Form to edit details for an existing book
+PATCH  | `/books/:id`      | `books#update`    | Send form data to the server to update an existing book
+DELETE | `/books/:id`      | `books#destroy`   | Destroy an existing book
+
+The combination of __VERB__ and __URL__ tell our web server (Rails, in this example) everything it needs to know to formulate an action and response. The methods we're calling on the `books` object follows a convention common to the Ruby community.
+
 ## Anatomy of `routes.rb`
 
 The combination of _request method_ and _path_ comprise the first half of a Rails _route_. The second half is the route _action_, the Ruby class and method that will handle the incoming request.
@@ -31,7 +66,7 @@ We define routes in our `config/routes.rb` file, which is generated when we run 
 
 ```ruby
 Rails.application.routes.draw do
-  # method path => action
+  # verb 'path', to: 'controller#action'
   get '/books', to: 'books#index'
 end
 ```
@@ -45,9 +80,9 @@ Let's break down this code:
   - **controller and action**: defining the controller and action, split by the `#`. `'books#index'` in this case this would point to the `index` method in the `BooksController` class.
 - We use single quotes `'` because the controller/action are separated by an octothorp `#`. If we used double quotes Atom would try to auto-complete curly braces after each one, and it would get really annoying!
 
-### Naming Routes
+### The Seven RESTful Routes
 
-A `routes.rb` file which lists all the CRUD operations would look like this:
+A `routes.rb` file which lists all the RESTful routes would look like this:
 
 ```ruby
 # config/routes.rb
@@ -126,69 +161,21 @@ It's also important to note that the Router selects the first route that matches
 
 Because of this it's important to list your routes from most specific to least specific.
 
-## Setting Up a Controller
-Before we go further lets set up our own Controller class.  A Rails Controller is the central manager of a Rails application.  It takes requests from the web server, pulls information from data models and makes decisions.  It then hands information to the views for rendering the data back to the user.  Below we will setup a Controller to list a set of book titles.
-
-Rails can go ahead and create a Controller and View for us with the following commands.
-
-```bash
-bin/rails generate controller Books index
-```
-
-This command has Rails generate a Controller and Views for the /books path, so when you bring up http://localhost:3000/books you will get the following HTML file.
-
-![view in browser](images/index.html.erb.png)
-
-### The Controller Class
-
-Rails places controller classes in the `app/controllers` folder.  In the case of the Controller we just generated it will be in the `books_controller.rb` class.
-
-Opening the Controller file you will find the code below:
-
-```ruby
-class BooksController < ApplicationController
-  def index
-  end
-end
-```
-Notice that the `BooksController` class inherits from the `ApplicationController` class in the Rails library.  For the `books/index` path we can handle it with the index method in the controller.  After the logic is finished in the controller method control is passed to a layout and view for rendering the content back to the user.
-
-In the following notes we will look at layouts and views and look at how to render our content in the browser.  For now lets modify the `index` method to add an instance variable for use in the view.
-
-```ruby
-  def index
-    @books = [
-      { title: "Hidden Figures", author: "Margot Lee Shetterly"},
-      { title: "Practical Object-Oriented Design in Ruby", author: "Sandi Metz"},
-      { title: "Kindred", author: "Octavia E. Butler"}
-    ]
-  end
-```
-
 ## Summary
 
-**Routes**
-
-- The Rails Router is responsible for _dispatching_ (figuring out what to do with) a new HTTP request
-  - It uses the _verb_ and the _path_ to select a controller action
-- Routes are defined in `config/routes.rb`
-  - `verb '/url/path', to: 'controller#action', as: 'route_name'`
-  - `get '/books/:id', to: 'books#show', as: 'book'`
-  - `:id` in a URL will match anything at all! This lets the browser specify which book they want
-  - The order of routes matters
-
-**Controllers**
-
-- A Rails Controller is responsible for handling a request and sending back a response
-- Each controller is a class, and each action is a method
-  - Controller class names are usually pluralized, and always end in `Controller`, like `BooksController`
-  - The `controller#action` pair in `config/routes.rb` must match the name of your controller class and action method _exactly_
-    - `books#show` would look for `BooksController` and `def show`
-  - A controller `BooksController` will be defined in the file `app/controllers/books_controller.rb`
-- To generate a controller run `$ rails generate controller books`
-- Controllers use _instance variables_ to communicate with views
+- The _router_'s job is to decide what controller action should handle an incoming request
+  - It looks at both the _HTTP verb_ and the _path_ of the request to decide
+- REST is both a philosophy of web development, and a specific set of patterns to follow
+  - There are seven RESTful routes, each of which enables a different part of CRUD
+- Configuration for the router lives at `config/routes.rb`
+  - Each route takes the form `verb '/path', to: 'controller#action'`
+  - The _path_ part of a route can be named, using `as: 'prefix'`
+    - This allows the path to be used in other parts of the application via the method `prefix_path`
+  - The order of routes in the routefile matters
 
 ## Additional Resources
 
-- [TutorialsPoint on Controllers](https://www.tutorialspoint.com/ruby-on-rails/rails-controllers.htm) - quick summary with examples
-- [Rails Guides on Controllers](http://guides.rubyonrails.org/action_controller_overview.html) - exhaustive, a little dry, but lots of good info
+- [Rails guide on routing](https://guides.rubyonrails.org/routing.html)
+- [Dr. Dobbs article by M. Vaqqas describing RESTful Web Services](http://www.drdobbs.com/web-development/restful-web-services-a-tutorial/240169069)
+- [Fielding's original PhD dissertation - very dry, very long, but perhaps worth skimming, esp Chapter 5](http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm)
+- [Real-world example: Twitter REST APIs](https://dev.twitter.com/rest/public)
