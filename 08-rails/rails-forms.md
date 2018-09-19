@@ -79,7 +79,7 @@ The `f` parameter, known as a _form builder_, is used when with the view helpers
 `text_field` is the the method to make a common text field. The first argument it expects is the HTML name attribute. The (optional) second argument is the default value of the input. Additional HTML options can be passed in a hash. For example:
 
 ```erb
-<%= f.text_field :author, "J.K. Rowling", class: "books" %>
+<%= f.text_field :author, value: "J.K. Rowling", class: "books" %>
 ```
 
 Results in:
