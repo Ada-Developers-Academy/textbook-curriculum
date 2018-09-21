@@ -21,8 +21,8 @@ end
 
 This code is written with the assumption that our `params` hash contains data as follows:
 ```ruby
-{ book:
-  {
+{
+  book: {
     author: "some author",
     title: "some title"
   }
