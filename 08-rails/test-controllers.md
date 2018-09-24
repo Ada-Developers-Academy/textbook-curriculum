@@ -10,6 +10,27 @@
 ## What Kind of Thing Should You Test in the Controller?
 Controller tests are all about how your website responds to the user. This includes a friendly user doing what they should, a curious user banging into things, and a malicious user trying to break your site. This makes it a little different from the testing we've seen before.
 
+### Controller Inputs & Outputs
+
+One thing to consider is what inputs do controller actions take.  These inputs include:
+
+-   HTTP Verb & Path (the route)
+-   The request body, including any form values
+-   Cookie settings (session, to be discussed later)
+-   The current state of the database
+
+The controller will then run and provide the following outputs:
+
+-   An HTTP Response code such as 200 OK, 404 Not Found, redirect, etc
+-   Cookie settings (session & flash)
+-   Changes to the databse
+
+![Controller inputs & Outputs](images/TestingControllers.png)
+
+<!-- Image source:  https://www.draw.io/#G1eHnA4Fko9GRA8wi5fwHs66UKKJv-C_Gz -->
+
+So when we test the controller we will provide the given inputs and verify that controller responds with the correct response code, cookie settings and database changes.
+
 Exactly what's worth testing depends on your site, but here are some general guidelines.
 - If your controller action reads a Model ID from the URL, you need at least 2 cases:
   - The ID corresponds to a model in the DB
@@ -55,6 +76,32 @@ must_redirect_to controller: 'post', action: 'index'
 **Question:**  What is one example of a controller action that commonly redirects the user?
 
 
+## Testing the index action
+
+The index action takes the following inputs.
+-   A database
+-   A get HTTP verb and a path
+
+And it should respond with:
+-   An HTTP response code of 200 ok
+-   A rendered view
+
+For our Ada-Books application we could write the test as:
+
+```ruby
+describe BooksController do
+  it "should get index" do
+    get books_path
+    expect(response).must_be :success?
+  end
+end
+```
+Notice that we are **not** testing the body content of the response.  The particular HTML response
+
+
+## Testing Database Changes
+
+
 Lastly, we have a way to ensure that the controller action appropriately changes the related model.  We'll see how to use the `must_change` matcher with some examples later on.
 
 ```ruby
@@ -64,7 +111,7 @@ proc {
 }.must_change 'Post.count', -1
 ```
 
-We still have the existing Minitest matchers, like `must_equal` and `must_be` to use as well.  
+We still have the existing Minitest matchers, like `must_equal` and `must_be` to use as well.
 
 
 ### Test Setup
@@ -78,7 +125,7 @@ describe PostController do
 end
 ```
 
-The test starts with executing the controller with, in this case, a get request and a given path.  We could also put `get '/posts'` instead, assuming that our index page was at that path, but using the Rails path helper methods make it more portable and easier to change.  If the paths change the testing code doesn't need to be modified.  
+The test starts with executing the controller with, in this case, a get request and a given path.  We could also put `get '/posts'` instead, assuming that our index page was at that path, but using the Rails path helper methods make it more portable and easier to change.  If the paths change the testing code doesn't need to be modified.
 
 Next, we need to use one (or more) of the expectations to ensure that the controller action executed as expected.
 
@@ -165,7 +212,7 @@ it "should be able to create a post" do
 end
 ```
 
-So above we executed a post request to the index path and sent a mock of the params hash to provide values simulating what the form would provide.  
+So above we executed a post request to the index path and sent a mock of the params hash to provide values simulating what the form would provide.
 
 Next, we can check that the count of model object has changed by 1 using the `must_change` matcher. For this matcher, in the first parameter, you put the expression that you would like to evaluate before and after the block you specify. In the second parameter, you can put a numeric value indicating how you expect the expression to change.
 
@@ -180,11 +227,11 @@ it "should be able to create a post" do
 end
 ```
 
-We can do a similar test for deleting a model.  **Exercise:** Write a test for a delete/destroy action.  
+We can do a similar test for deleting a model.  **Exercise:** Write a test for a delete/destroy action.
 
 ### Changing a Model
 
-We also want to test actions that modify a model rather than adding or deleting an entry.  So we also need to test update actions.  
+We also want to test actions that modify a model rather than adding or deleting an entry.  So we also need to test update actions.
 
 We start by creating a test for a put request on a post_path.
 
@@ -195,7 +242,7 @@ We start by creating a test for a put request on a post_path.
   end
 ```
 
-So this test case starts by making a put request on a post using a fixture.  
+So this test case starts by making a put request on a post using a fixture.
 
 Next we can then verify that the post in the database is changed.
 
@@ -225,7 +272,7 @@ end
 
 
 ## Resources
--  [The Rails Guide on Testing: Controllers](http://guides.rubyonrails.org/testing.html#functional-tests-for-your-controllers)  
--  [Testing Assertions](http://api.rubyonrails.org/classes/ActiveSupport/Testing/Assertions.html)  
+-  [The Rails Guide on Testing: Controllers](http://guides.rubyonrails.org/testing.html#functional-tests-for-your-controllers)
+-  [Testing Assertions](http://api.rubyonrails.org/classes/ActiveSupport/Testing/Assertions.html)
 -  [Minitest Cookbook](https://chriskottom.com/minitestcookbook/)
 -  [Minitest-Rails](https://github.com/blowmage/minitest-rails)
