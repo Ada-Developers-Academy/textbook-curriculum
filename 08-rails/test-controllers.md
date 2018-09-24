@@ -96,8 +96,23 @@ describe BooksController do
   end
 end
 ```
-Notice that we are **not** testing the body content of the response.  The particular HTML response
+Notice that we are **not** testing the body content of the response.  The particular HTML page in the response is likely to change and will not be tested.  Instead controller tests focus on the bigger picture including response code, and changes to the database.
 
+### Testing The Show, Edit & New Actions
+
+In the `show` action we will call the method with a `get` http verb, and a path including the id of a model instance in the database.  We should expect to see a response of `success`, if the instance is in the database, and a 404 or `:not_found` if the item is not.
+
+**Exercise** Write 2 tests for the `show` action in our Ada Books Rails application.
+
+Once you have finished you can see a solution [here.](code_samples/show_controller_test.rb)
+
+**Exercise** With your neighbor discuss how many and what tests should the `edit` and `new` actions include.
+
+You can see completed tests for `new` and `edit` actions [here.](code_samples/edit_new_controller_tests.rb)
+
+### New & Edit Actions
+
+What
 
 ## Testing Database Changes
 
