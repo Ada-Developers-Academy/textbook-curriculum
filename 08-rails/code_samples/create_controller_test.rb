@@ -1,0 +1,36 @@
+describe "create" do
+  it "can create a book" do
+    book_hash = {
+      book: {
+        title: 'A Wrinkle in Time',
+        author_id: authors(:metz).id,
+        description: 'A fabulous adventure'
+      }
+    }
+
+    expect {
+      post books_path, params: book_hash
+      expect(response).must_be :redirect?
+    }.must_change 'Book.count', 1
+
+    expect(Book.last.title).must_equal book_hash[:book][:title]
+    expect(Book.last.author_id).must_equal book_hash[:book][:author_id]
+    expect(Book.last.description).must_equal book_hash[:book][:description]
+
+  end
+
+  it "will not create a book with invalid params" do
+    book_hash = {
+      book: {
+        title: 'A Wrinkle in Time',
+        author_id: Author.last.id + 1, # invalid author_id
+        description: 'A fabulous adventure'
+      }
+    }
+
+    expect {
+      post books_path, params: book_hash
+      expect(response).must_be :bad_request?
+    }.wont_change 'Book.count'
+  end
+end
