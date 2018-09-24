@@ -169,6 +169,19 @@ The example above illustrates that the test can pass in a mock-params hash into 
 
 **Exercise** Now write tests for the `update` action.  You should have at least 3 tests. You can see a solution [here.](code_samples/update_controller_tests.rb) **Question**: Why 3 tests?
 
+## Summary
+
+In this less we investigated:
+-   Controllers take in serveral inputs include:
+  - An HTTP Verb
+  - A path
+  - A request body
+  - An Existing Database
+-   We can test a controller against all these inputs and verify the following outputs:
+  - HTTP Status code
+  - Cookie changes (flash & session)
+  - Database changes
+
 
 ## Rails Matchers
 
