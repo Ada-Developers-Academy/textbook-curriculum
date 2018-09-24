@@ -2,7 +2,7 @@ describe "new" do
   it "will load the new book page" do
     get new_book_path
 
-    expect(response).must_be :success?
+    must_respond_with :success
   end
 end
 
@@ -12,7 +12,7 @@ describe "edit" do
 
     get edit_book_path(id)
 
-    expect(response).must_be :success?
+    must_respond_with :success
   end
 
   it "will respond with not_found for invalid ids" do
@@ -21,6 +21,6 @@ describe "edit" do
 
     get edit_book_path(id)
 
-    expect(response).must_be :not_found?
+    must_respond_with :not_found
   end
 end

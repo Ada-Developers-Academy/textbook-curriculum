@@ -10,7 +10,7 @@ describe "create" do
 
     expect {
       post books_path, params: book_hash
-      expect(response).must_be :redirect?
+      must_respond_with :redirect
     }.must_change 'Book.count', 1
 
     expect(Book.last.title).must_equal book_hash[:book][:title]
@@ -30,7 +30,7 @@ describe "create" do
 
     expect {
       post books_path, params: book_hash
-      expect(response).must_be :bad_request?
+      must_respond_with :bad_request
     }.wont_change 'Book.count'
   end
 end
