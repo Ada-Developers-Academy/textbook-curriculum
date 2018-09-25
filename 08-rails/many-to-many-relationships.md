@@ -96,7 +96,7 @@ end
 
 Note the `belongs_to` data type. This tells the database that this column is a foreign key, and which sets up some extra restrictions on what can be in this table. This will help prevent us linking a book to a genre that doesn't exist.
 
-The name of the table (`books_genres`) is important - this is the name ActiveRecord will be looking for later. We could call it something else, but that wouldn't be the Rails Way&trade;.
+The name of the table (`books_genres`, made by putting the two model names together in alphabetical order) is important - this is the name ActiveRecord will be looking for later. We could call it something else, but that wouldn't be the Rails Way&trade;.
 
 Remember to `rails db:migrate` again.
 
