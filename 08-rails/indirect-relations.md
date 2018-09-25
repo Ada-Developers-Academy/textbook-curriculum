@@ -15,6 +15,7 @@ This lesson builds directly on the lesson on [many to many relationships](many-t
 A common scenario when working with databases is to have two models that are related indirectly, through a third model. For example in our library application `Author` and `Genre` are related through the `Book` model.
 
 ![Author and Genre are related through Book](images/indirect-model-relation.png)
+<!-- https://www.draw.io/#G1n2OylcmI2jEzvX_W76-0OpfHfk5QPnOE -->
 
 **Questions:** Imagine that on the details page for an author, we wanted to list all the genres they have written. The list of genres should be de-duplicated (each genre should not appear more than once).
 - What would the code look like to build this list of genres?
