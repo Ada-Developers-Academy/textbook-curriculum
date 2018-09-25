@@ -25,7 +25,7 @@ The controller will then run and provide the following outputs:
 -   Cookie settings (session & flash)
 -   Changes to the databse
 
-![Controller inputs & Outputs](images/TestingControllers.png)
+![Controller inputs & Outputs](images/TestingControllers2.png)
 
 <!-- Image source:  https://www.draw.io/#G1eHnA4Fko9GRA8wi5fwHs66UKKJv-C_Gz -->
 
