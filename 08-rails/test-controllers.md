@@ -79,7 +79,6 @@ must_redirect_to controller: 'post', action: 'index'
 ## Testing the index action
 
 The index action takes the following inputs.
--   A database
 -   A get HTTP verb and a path
 
 And it should respond with:
@@ -96,7 +95,7 @@ describe BooksController do
   end
 end
 ```
-Notice that we are **not** testing the body content of the response.  The particular HTML page in the response is likely to change and will not be tested.  Instead controller tests focus on the bigger picture including response code, and changes to the database.
+Notice that we are **not** testing the body content of the response.  The particular HTML page in the response is likely to change and is difficult and expensive to test.  Instead controller tests focus on the bigger picture including response code, and changes to the database.
 
 ### Testing The Show, Edit & New Actions
 
