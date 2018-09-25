@@ -12,11 +12,11 @@ describe "update" do
     id = books(:poodr).id
     expect {
       patch book_path(id), params: book_hash
-
-      must_respond_with :redirect
     }.wont_change 'Book.count'
-    book = Book.find_by(id: id)
 
+    must_respond_with :redirect
+
+    book = Book.find_by(id: id)
     expect(book.title).must_equal book_hash[:book][:title]
     expect(book.author_id).must_equal book_hash[:book][:author_id]
     expect(book.description).must_equal book_hash[:book][:description]
@@ -28,12 +28,11 @@ describe "update" do
     book_hash[:book][:author_id] = -1 # invalid id
     expect {
       patch book_path(id), params: book_hash
-
-      must_respond_with :error
     }.wont_change 'Book.count'
 
-    book = Book.find_by(id: id)
+    must_respond_with :error
 
+    book = Book.find_by(id: id)
     expect(book.title).must_equal original_book.title
     expect(book.author_id).must_equal original_book.author_id
     expect(book.description).must_equal original_book.description
@@ -44,8 +43,8 @@ describe "update" do
 
     expect {
       patch book_path(id), params: book_hash
-
-      must_respond_with :not_found
     }.wont_change 'Book.count'
+
+    must_respond_with :not_found
   end
 end

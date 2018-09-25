@@ -121,13 +121,13 @@ The sample below illustrates testing the `destroy` action and verifies that the 
 ```ruby
 describe "destroy" do
   it "can destroy a model" do
+    id = books(:poodr).id
+
     expect {
-      id = books(:poodr).id
-
       delete book_path(id)
-
-      must_respond_with :success
     }.must_change 'Book.count', -1
+
+    must_respond_with :success
   end
 end
 ```
@@ -151,8 +151,9 @@ describe "create" do
 
     expect {
       post books_path, params: book_hash
-      must_respond_with  :redirect
     }.must_change 'Book.count', 1
+
+    must_respond_with  :redirect
 
     expect(Book.last.title).must_equal book_hash[:book][:title]
     expect(Book.last.author_id).must_equal book_hash[:book][:author_id]
