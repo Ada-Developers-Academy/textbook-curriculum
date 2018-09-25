@@ -190,7 +190,7 @@ In this less we investigated:
 |---	|---	|
 |   `must_respond_with`	|   `must_respond_with :success`	|
 |   `must_redirect_to`	|   `must_redirect_to root_path`	|
-|   `must_change`	|   `proc {delete post_path(posts(:post_a).id) }.must_change 'Post.count', -1`	|
+|   `must_change`	|   `expect {delete book_path(books(:poodr).id) }.must_change 'Book.count', -1`	|
 
 
 ## Resources
