@@ -10,7 +10,7 @@ By the end of this lesson, students should be able to...
 
 ## Introduction
 
-This lesson builds directly on the lesson on [many to many relationships](many-to-many-relationships.md), so make sure you've got that under your belt before getting started here.
+This lesson builds directly on the lesson on [many to many relationships](many-to-many-relationships.md), so do that one first. The concepts don't have to be 100%, but we'll be building on the `Genre` model we added there.
 
 A common scenario when working with databases is to have two models that are related indirectly, through a third model. For example in our library application `Author` and `Genre` are related through the `Book` model.
 
@@ -39,6 +39,8 @@ class Author < ApplicationRecord
   end
 end
 ```
+
+**Question:** Why `+=` and not `<<`?
 
 This method gives us an array of `genre`s, as we would expect from a model method. We now need to write some display logic to turn that list into some HTML. Here is one way to approach it:
 
@@ -70,31 +72,11 @@ end
 
 There are two parts to this line of code. `has_many :genres` specifies both what table we're building a relation to, and what the method we're generating will be called. The `through: :books` tells us how to get there: follow the `books` relation for this author (defined on the line above).
 
-If we refresh the page, we should see exactly the same behavior. All we've done is remove some boilerplate.
+If we refresh the page, we should see exactly the same behavior. All we've done is remove some boilerplate code.
 
 Note that we did **not** need to create a new migration for this work. We've upgraded the ActiveRecord model, but have not changed our database schema.
 
 **Question:** What would we do if we needed to get the list of authors for a given genre?
-
-### Singular Indirect Relations
-
-<!-- QUESTION: do we need this section? Lesson would be more focused without it. -->
-
-Sometimes you want to follow a relationship chain, but the end result is only one model, not a collection.
-
-For example, we might add a `publishers` table and `Publisher` model to our library application. We could then say that each `Author` has exactly one `Publisher` with `belongs_to :publisher`.
-
-If we were to think about the relation between `Book` and `Publisher`, a `Book` has one `Author`, which has one `Publisher`, so a book has one (not many) `Publisher`.
-
-For this reason, ActiveRecord has a `has_one :through` helper method as well as `has_many :through`. You use it in almost exactly the same way:
-
-```ruby
-# app/models/book.rb
-class Book < ApplicationRecord
-  belongs_to :author
-  has_one :publisher, through: :author
-end
-```
 
 ## Indirect Relations vs Join Tables
 
@@ -112,7 +94,7 @@ So, why would you use one vs the other?
   - Gets a model class that you can use in views and controllers
   - More complex to set up (requires generating a whole model), but gives you full functionality
 
-If your intermediate table is keeping track of _any_ information other than the relationship, then it's not a _join table_.
+**If your intermediate table is keeping track of _any_ information other than the relationship, then it's not a _join table_.**
 
 ## Summary
 
@@ -124,4 +106,5 @@ If your intermediate table is keeping track of _any_ information other than the 
 ## Additional Resources
 
 - [Rails Guides on `has_many :through`](https://guides.rubyonrails.org/association_basics.html#the-has-many-through-association)
+- [`has_one :through`](https://guides.rubyonrails.org/association_basics.html#the-has-one-through-association), similar to `has_many :through`, but when you're only related to one thing
 - Why didn't we [put the call to `uniq` in the model](https://stackoverflow.com/a/318146/1513338)? Because it involves [lambda syntax](https://stackoverflow.com/questions/8476627/what-do-you-call-the-operator-in-ruby), which we haven't learned yet.
