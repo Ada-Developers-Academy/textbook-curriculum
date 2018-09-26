@@ -36,7 +36,9 @@ If we had an instance of `Genre`, we might imagine getting a list of books with 
 
 Databases do not have an "array" data type, so we can't put a list of genres on each book. Instead we will use an intermediate table, referred to as a _join table_, where each row specifies one book-genre pair.
 
-This means we'll need not two but _three_ tables: `books`, `genres` and `books_genres`. The tables will be related in this way:
+This means we'll need not two but _three_ tables: `books`, `genres` and `books_genres`. The name of the join table is made by connecting the two existing table names with an underscore in alphabetical order. The order is important - if it's not in alphabetical order Rails won't know what's going on.
+
+The tables will be related in this way:
 
 ![Many to many ERD](./images/books-genres-ERD.png)
 
@@ -94,7 +96,7 @@ end
 
 Note the `belongs_to` data type. This tells the database that this column is a foreign key, and which sets up some extra restrictions on what can be in this table. This will help prevent us linking a book to a genre that doesn't exist.
 
-The name of the table (`books_genres`) is important - this is the name ActiveRecord will be looking for later. We could call it something else, but that wouldn't be the Rails Way&trade;.
+The name of the table (`books_genres`, made by putting the two model names together in alphabetical order) is important - this is the name ActiveRecord will be looking for later. We could call it something else, but that wouldn't be the Rails Way&trade;.
 
 Remember to `rails db:migrate` again.
 
@@ -243,6 +245,7 @@ end
     - Books have many genres, genres have many books
 - At the database level, a many-to-many relation requires a _join table_
     - Each row in the join table specifies one book-genre relation
+    - The name of a join table is made by connecting the two table names in alphabetical order, like `books_genres`
 - At the model level, use ActiveRecord's `has_and_belongs_to_many` to specify a many-to-many relation
     - This gives us many of our familiar AR methods
 - Complex relations require careful UX design
