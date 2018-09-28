@@ -10,10 +10,10 @@ Active Record (AR) is an important piece of the Rails approach to web applicatio
 __Question: What is the role of _models_ in the MVC pattern?__
 
 ## A Few Terms
--  A Database _schema_ is the structure of a database.  It's the logical view of the tables and how they are related to one another.  
+-  A Database _schema_ is the structure of a database.  It's the logical view of the tables and how they are related to one another.
 -  A _migration_ is a change to that database schema.
 
-So in this lesson we will be learning how to create, change and structure the Model layer of our application.  
+So in this lesson we will be learning how to create, change and structure the Model layer of our application.
 
 ## Generating a New Rails Model Migration
 An important component of the `rails` command line tool is the generator. We can use the generator to automatically create idiomatic classes and files in the appropriate directories for the most common application roles.
@@ -90,6 +90,21 @@ end
 ```
 
 Once we have the migration created, we must again run `rails db:migrate` for the migration to take effect.
+
+## Practice
+
+In our sample Rails project perform the following actions:
+
+1.  Create a new model named: `Author`, an author should only have a `name` field (String).  Remember to run your migration with `rails db:migrate`
+2.  Then add a migration to add a `publisher` field to the model.
+
+Then run `rails db:migrate:status` to verify that the migrations have run successfully.
+
+You can then destroy your `Author` model with:
+
+```bash
+rails destroy model Author name:string publisher:string
+```
 
 ## Naming Conventions
 Built into Rails is a class known as the _Inflector_. It has one of the hardest jobs: deciphering the English language. The _Inflector_ does its very best to assist Rails in understanding the correct singular and plural versions of any noun it receives. This is extremely important in providing Rails developers conventions and tools that follow those conventions. Notice in our _migration_ examples above how the generated class and file names all automatically received a singular or plural notation. That's the _Inflector_ at work. I don't envy the _Inflector_.
