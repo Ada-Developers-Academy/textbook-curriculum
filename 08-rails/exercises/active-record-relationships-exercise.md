@@ -17,6 +17,7 @@ If you **do not** have a copy of the class Books application with no extra work 
 1. `cd active-record-relationships`
 1. `git clone <YOUR-CLASS-BOOKS-REPO>`
 1. `cd <your-class-books-directory>`
+1. `bundle install`
 1. `rails db:drop db:create db:migrate`
 
 ### Verify
