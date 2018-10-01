@@ -12,12 +12,15 @@ Controller tests are all about how your website responds to the user. This inclu
 
 ### Controller Inputs & Outputs
 
-What information does a controller depend on?  A controller is called with:
+What information does a controller depend on?  The browser makes a request to Rails with the following items:
 
--   The HTTP Verb & Path (the route)
+-   An HTTP Verb & Path (the route)
 -   The request body, including any form values
 -   Cookie settings (session, to be discussed later)
--   The current state of the database
+
+The Rails router takes these inputs and forwards them to a matching controller (if any).
+
+The Rails server uses these inputs and **the current state of the database** to perform it's task.
 
 The controller will then run and provide the following outputs:
 
@@ -29,7 +32,7 @@ The controller will then run and provide the following outputs:
 
 <!-- Image source:  https://www.draw.io/#G1eHnA4Fko9GRA8wi5fwHs66UKKJv-C_Gz -->
 
-So when we test the controller we will provide the given inputs and verify that controller responds with the correct response code, cookie settings and database changes.
+When we test the controller we will provide the given inputs and verify that controller responds with the correct response code, cookie settings and database changes.
 
 Exactly what's worth testing depends on your site, but here are some general guidelines.
 - If your controller action reads a Model ID from the URL, you need at least 2 cases:
