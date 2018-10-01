@@ -175,7 +175,7 @@ The example above illustrates that the test can pass in a mock-params hash into 
 ## Summary
 
 In this lesson we investigated:
--   Controllers take in serveral inputs include:
+-   Controllers take in serveral inputs including:
     -   An HTTP Verb
     -   A path
     -   A request body
