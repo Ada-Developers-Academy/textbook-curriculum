@@ -2,9 +2,9 @@ describe "create" do
   it "can create a book" do
     book_hash = {
       book: {
-        title: 'A Wrinkle in Time',
+        title: 'Practical Object Oriented Programming in Ruby',
         author_id: authors(:metz).id,
-        description: 'A fabulous adventure'
+        description: 'Looking into the mysteries of Ruby!'
       }
     }
 
@@ -21,7 +21,7 @@ describe "create" do
   it "will not create a book with invalid params" do
     book_hash = {
       book: {
-        title: 'A Wrinkle in Time',
+        title: 'Practical Object Oriented Programming in Ruby',
         author_id: Author.last.id + 1, # invalid author_id
         description: 'A fabulous adventure'
       }
