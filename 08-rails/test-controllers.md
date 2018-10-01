@@ -23,7 +23,7 @@ The controller will then run and provide the following outputs:
 
 -   An HTTP Response code such as 200 OK, 404 Not Found, redirect, etc
 -   Cookie settings (session & flash)
--   Changes to the databse
+-   Changes to the database
 
 ![Controller inputs & Outputs](images/TestingControllers2.png)
 
