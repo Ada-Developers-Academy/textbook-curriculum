@@ -12,9 +12,9 @@ Controller tests are all about how your website responds to the user. This inclu
 
 ### Controller Inputs & Outputs
 
-One thing to consider is what inputs do controller actions take.  These inputs include:
+What information does a controller depend on?  A controller is called with:
 
--   HTTP Verb & Path (the route)
+-   The HTTP Verb & Path (the route)
 -   The request body, including any form values
 -   Cookie settings (session, to be discussed later)
 -   The current state of the database
