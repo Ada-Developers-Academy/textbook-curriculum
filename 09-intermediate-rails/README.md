@@ -2,6 +2,7 @@
 
 ## Part 1 - Authentication and Intermediate Rails Topics
 1. [Advanced Validations](./advanced-validations.md)  
+1. [Flash](./flash.md)
 1. [Session](./session.md)
 1. [Controller Filters](./controller-filters.md)
 1. [OAuth](./oauth.md)
