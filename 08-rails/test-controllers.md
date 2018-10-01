@@ -145,9 +145,9 @@ describe "create" do
   it "can create a book" do
     book_hash = {
       book: {
-        title: 'A Wrinkle in Time',
+        title: 'Practical Object Oriented Programming in Ruby',
         author_id: authors(:metz).id,
-        description: 'A fabulous adventure'
+        description: 'A look at how to design object-oriented systems'
       }
     }
 
@@ -174,7 +174,7 @@ The example above illustrates that the test can pass in a mock-params hash into 
 
 ## Summary
 
-In this less we investigated:
+In this lesson we investigated:
 -   Controllers take in serveral inputs include:
   - An HTTP Verb
   - A path
