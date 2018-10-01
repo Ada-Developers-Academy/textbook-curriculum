@@ -176,14 +176,14 @@ The example above illustrates that the test can pass in a mock-params hash into 
 
 In this lesson we investigated:
 -   Controllers take in serveral inputs include:
-  - An HTTP Verb
-  - A path
-  - A request body
-  - An Existing Database
--   We can test a controller against all these inputs and verify the following outputs:
-  - HTTP Status code
-  - Cookie changes (flash & session)
-  - Database changes
+    -   An HTTP Verb
+    -   A path
+    -   A request body
+    -   An Existing Database
+    -   We can test a controller against all these inputs and verify the following outputs:
+    -   HTTP Status code
+    -   Cookie changes (flash & session)
+    -   Database changes
 
 
 ## Rails Matchers
