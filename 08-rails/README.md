@@ -28,6 +28,7 @@
 1. [Nested Routes](nested-routes.md)
 1. [Active Record Validations](active-record-validations.md)
 1. [Many-to-Many Relationships](many-to-many-relationships.md)
+1. [Indirect Relationships](indirect-relations.md)
 
 ## Week 3
 1. [Testing Introduction](test-intro.md)

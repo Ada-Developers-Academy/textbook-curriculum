@@ -1,8 +1,37 @@
 # Relations Exercise: Authors and Books
 
+## Objective
+
+Let's update our Books application from our previous lectures to adopt the new `Author` model and create a relationship between `Book`s and `Author`s. In this activity, we will execute the steps in order to introduce and establish this relationship in a Rails app.
+
+## Before We Get Started
+
+Before we get started, let's all start from the same code base with the same models, commit history, and database configuration.
+
+If you have a copy of the class Books application with **no commits or work written by yourself** on your computer, `cd` to that project and execute `git pull origin master`.
+
+If you **do not** have a copy of the class Books application with no extra work or commits, follow these steps:
+
+1. Find the github link for your class Books repo
+1. `mkdir active-record-relationships`
+1. `cd active-record-relationships`
+1. `git clone <YOUR-CLASS-BOOKS-REPO>`
+1. `cd <your-class-books-directory>`
+1. `rails db:drop db:create db:migrate`
+
+### Verify
+
+For both cases, verify that your rails app is as expected... or at least, that you can make `Book`s.
+
+1. run `rails c`
+1. in rails console, execute this or something like this (your instructors should verify this command based on variations that the Books app could go): `Book.create(title: '99 Bottles of OOP', author: 'Sandi Metz', description: 'A practical guide to writing cost-effective, maintainable, and pleasing object-oriented code')`
+1. Run `Book.all` to see that the new book was saved into the database
+
 ## Intro
 
-Let's update our books application from our previous lectures to have this structure. We will complete the following steps to modify our application to support this new **one-to-many** relationship. Note: We will lose some data in this process and that is OK for now.
+Now that we are all working from the same codebase and same understanding of what our `Book` model is currently, we will complete the following steps to modify our application to support the new **one-to-many** relationship with `Author`s.
+
+Note: We will lose some data in this process and that is OK for now.
 
 1. Remove the existing `author` column on the books table
 1. Create a new `authors` table and `Author` model.
@@ -114,7 +143,7 @@ To set up some test data, let's dive into the Rails console to create some datab
 
 ## Step Six
 
-How would you do each of the following:
+How would you do each of the following?
 
 1. Get the author for book 3
 1. Get all the books written by author 7
