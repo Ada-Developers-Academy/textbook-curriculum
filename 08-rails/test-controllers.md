@@ -118,6 +118,8 @@ You can see completed tests for `new` and `edit` actions [here.](code_samples/ed
 
 Lastly, we must ensure that the controller action appropriately changes the related model for the `destroy`, `create` and `update` actions.  We'll see how to use the `must_change` matcher with some examples later on.
 
+`must_change` is called on a block, just like `must_raise`.  We give it a string which it evaluates as Ruby code before and after the block executes.  The second argument is the amount by which the 1st argument changes when the block executes.  
+
 The sample below illustrates testing the `destroy` action and verifies that the database reduces the number of records by one.
 
 ```ruby
