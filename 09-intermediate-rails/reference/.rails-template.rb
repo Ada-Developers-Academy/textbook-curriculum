@@ -8,11 +8,9 @@ unless API_MODE
 
   # Make $(document).ready work as expected, despite turbolinks weirdness
   gem 'jquery-turbolinks'
+  # Bootstrap CSS Library
   gem 'bootstrap', '~> 4.1.3'
-
-  # CSS libraries
-#  gem 'foundation-rails'
-#  gem 'normalize-rails'
+  gem 'sass-rails'
 end
 
 gem_group :development, :test do
@@ -61,6 +59,8 @@ unless API_MODE
 
 /* Custom bootstrap variables must be set or imported *before* bootstrap. */
 @import "bootstrap";
+/* Import scss content */
+@import "**/*";
     SCSS
   end
 end
