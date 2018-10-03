@@ -64,13 +64,17 @@ unless API_MODE
     SCSS
   end
 end
-gsub_file 'app/assets/stylesheets/application.css', / \*= require_tree .\n/ do
+
+unless API_MODE
+
+  gsub_file 'app/assets/stylesheets/application.css', / \*= require_tree .\n/ do
   ""
-end
-gsub_file 'app/assets/stylesheets/application.css', / \*= require_self\n/ do
+  end
+  gsub_file 'app/assets/stylesheets/application.css', / \*= require_self\n/ do
   ""
+  end
+  run "mv app/assets/stylesheets/application.css app/assets/stylesheets/application.scss"
 end
-run "mv app/assets/stylesheets/application.css app/assets/stylesheets/application.scss"
 # Mess with generators to get the behavior we expect around new files
 # For these injections, indentation matters!
 inject_into_file 'config/application.rb', after: "class Application < Rails::Application\n" do
