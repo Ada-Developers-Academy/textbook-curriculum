@@ -11,7 +11,7 @@ It's 9:00 AM on Monday, and our CTO has just called an all-hands meeting. Our cu
 
 - See a list of authors
 - Keep track of details for a given author
-- See the list of books written by a particular authors
+- See the list of books written by a particular author
 
 With the tools we've seen so far, keeping track of authors by themselves would be straightforward. However, we need to keep track of not just a list of authors but of how they relate to books. Managing these relations calls for a new set of techniques.
 
