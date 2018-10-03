@@ -168,9 +168,9 @@ The example above illustrates that the test can pass in a mock-params hash into 
 
 **Exercise** You also need to create a test in which the params are invalid, violating validations.  With a partner write another test in which the params are invalid.  You can see an example [here.](code_samples/create_controller_test.rb)
 
-**Exercise** Similar to the `create` action tests, write tests to verify the correctness of the `update` action.  You can find a solution [here.](code_samples/update_controller_test.rb)
+**Exercise** Similar to the `create` action tests, write tests to verify the correctness of the `update` action.  You should have at least 3 tests. You can see a solution [here.](code_samples/update_controller_tests.rb)
 
-**Exercise** Now write tests for the `update` action.  You should have at least 3 tests. You can see a solution [here.](code_samples/update_controller_tests.rb) **Question**: Why 3 tests?
+**Question**: Why 3 tests?
 
 ## Summary
 
