@@ -8,10 +8,9 @@ unless API_MODE
 
   # Make $(document).ready work as expected, despite turbolinks weirdness
   gem 'jquery-turbolinks'
-
-  # CSS libraries
-  gem 'foundation-rails'
-  gem 'normalize-rails'
+  # Bootstrap CSS Library
+  gem 'bootstrap', '~> 4.1.3'
+  gem 'sass-rails'
 end
 
 gem_group :development, :test do
@@ -49,19 +48,33 @@ unless API_MODE
   inject_into_file 'app/assets/javascripts/application.js', after: '// about supported directives.' do
     <<-'JAVASCRIPT'
 
-    //= require jquery
+  //= require jquery3
+  //= require popper
+  //= require bootstrap-sprockets
     JAVASCRIPT
   end
 
-  # Add normalize-rails
-  inject_into_file 'app/assets/stylesheets/application.css', after: ' * It is generally better to create a new file per style scope.' do
+  append_to_file 'app/assets/stylesheets/application.css' do
     <<-'SCSS'
 
-    *= require normalize-rails
+/* Custom bootstrap variables must be set or imported *before* bootstrap. */
+@import "bootstrap";
+/* Import scss content */
+@import "**/*";
     SCSS
   end
 end
 
+unless API_MODE
+
+  gsub_file 'app/assets/stylesheets/application.css', / \*= require_tree .\n/ do
+  ""
+  end
+  gsub_file 'app/assets/stylesheets/application.css', / \*= require_self\n/ do
+  ""
+  end
+  run "mv app/assets/stylesheets/application.css app/assets/stylesheets/application.scss"
+end
 # Mess with generators to get the behavior we expect around new files
 # For these injections, indentation matters!
 inject_into_file 'config/application.rb', after: "class Application < Rails::Application\n" do
@@ -69,7 +82,6 @@ inject_into_file 'config/application.rb', after: "class Application < Rails::App
   config.generators do |g|
     # Force new test files to be generated in the minitest-spec style
     g.test_framework :minitest, spec: true
-
     # Always use .js files, never .coffee
     g.javascript_engine :js
   end
@@ -96,25 +108,16 @@ create_file 'Guardfile' do
     end
   GUARDFILE
 end
-
 # Things to do after all the gems have been installed
 after_bundle do
   # Run rails generate minitest:install
   generate "minitest:install", "--force"
-
-  unless API_MODE
-    # Run rails generate foundation:install
-    generate "foundation:install", "--force"
-  end
-
   # Add minitest reporters support. This must be run after
   # rails generate minitest:install, because that command
   # changes test/test_helper.rb
   inject_into_file 'test/test_helper.rb', after: 'require "minitest/rails"' do
     <<-'RUBY'
-
 require "minitest/reporters"  # for Colorized output
-
 #  For colorful output!
 Minitest::Reporters.use!(
   Minitest::Reporters::SpecReporter.new,
@@ -122,20 +125,5 @@ Minitest::Reporters.use!(
   Minitest.backtrace_filter
 )
     RUBY
-  end
-
-  unless API_MODE
-    # Add Foundation Javascript with Motion-ui this must be run after
-    # rails generate foundation:install, because that command
-    # adds foundation_and_overrides.scss
-    inject_into_file 'app/assets/stylesheets/foundation_and_overrides.scss', after: '// @include motion-ui-animations;' do
-      <<-'SCSS'
-
-@import 'motion-ui/motion-ui';
-@include motion-ui-transitions;
-@include motion-ui-animations;
-
-      SCSS
-    end
   end
 end

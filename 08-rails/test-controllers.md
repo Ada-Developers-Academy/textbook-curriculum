@@ -10,6 +10,30 @@
 ## What Kind of Thing Should You Test in the Controller?
 Controller tests are all about how your website responds to the user. This includes a friendly user doing what they should, a curious user banging into things, and a malicious user trying to break your site. This makes it a little different from the testing we've seen before.
 
+### Controller Inputs & Outputs
+
+What information does a controller depend on?  The browser makes a request to Rails with the following items:
+
+-   An HTTP Verb & Path (the route)
+-   The request body, including any form values
+-   Cookie settings (session, to be discussed later)
+
+The Rails router takes these inputs and forwards them to a matching controller (if any).
+
+The Rails server uses these inputs and **the current state of the database** to perform it's task.
+
+The controller will then run and provide the following outputs:
+
+-   An HTTP Response code such as 200 OK, 404 Not Found, redirect, etc
+-   Cookie settings (session & flash)
+-   Changes to the database
+
+![Controller inputs & Outputs](images/TestingControllers2.png)
+
+<!-- Image source:  https://www.draw.io/#G1eHnA4Fko9GRA8wi5fwHs66UKKJv-C_Gz -->
+
+When we test the controller we will provide the given inputs and verify that controller responds with the correct response code, cookie settings and database changes.
+
 Exactly what's worth testing depends on your site, but here are some general guidelines.
 - If your controller action reads a Model ID from the URL, you need at least 2 cases:
   - The ID corresponds to a model in the DB
@@ -55,165 +79,114 @@ must_redirect_to controller: 'post', action: 'index'
 **Question:**  What is one example of a controller action that commonly redirects the user?
 
 
-Lastly, we have a way to ensure that the controller action appropriately changes the related model.  We'll see how to use the `must_change` matcher with some examples later on.
+## Testing the index action
+
+The index action takes the following inputs.
+-   A get HTTP verb and a path
+
+And it should respond with:
+-   An HTTP response code of 200 ok
+-   A rendered view
+
+For our Ada-Books application we could write the test as:
 
 ```ruby
-proc {
-  # run the delete verb on the post_path with a param equal to 1
-  delete post_path(1)
-}.must_change 'Post.count', -1
-```
-
-We still have the existing Minitest matchers, like `must_equal` and `must_be` to use as well.  
-
-
-### Test Setup
-First, we need to execute the controller action that we would like to test. We use the verb along with the path to execute the controller method.
-
-```ruby
-describe PostController do
+describe BooksController do
   it "should get index" do
-    get post_index_path
+    get books_path
+    must_respond_with :success
   end
 end
 ```
+Notice that we are **not** testing the body content of the response.  The particular HTML page in the response is likely to change and is difficult and expensive to test.  Instead controller tests focus on the bigger picture including response code, and changes to the database.
 
-The test starts with executing the controller with, in this case, a get request and a given path.  We could also put `get '/posts'` instead, assuming that our index page was at that path, but using the Rails path helper methods make it more portable and easier to change.  If the paths change the testing code doesn't need to be modified.  
+### Testing The Show, Edit & New Actions
 
-Next, we need to use one (or more) of the expectations to ensure that the controller action executed as expected.
+In the `show` action we will call the method with a `get` http verb, and a path including the id of a model instance in the database.  We should expect to see a response of `success`, if the instance is in the database, and a 404 or `:not_found` if the item is not.
+
+**Exercise** Write 2 tests for the `show` action in our Ada Books Rails application.
+
+Once you have finished you can see a solution [here.](code_samples/show_controller_test.rb)
+
+**Exercise** With your neighbor discuss how many and what tests should the `edit` and `new` actions include.
+
+You can see completed tests for `new` and `edit` actions [here.](code_samples/edit_new_controller_tests.rb)
+
+
+## Testing Database Changes
+
+
+Lastly, we must ensure that the controller action appropriately changes the related model for the `destroy`, `create` and `update` actions.  We'll see how to use the `must_change` matcher with some examples later on.
+
+`must_change` is called on a block, just like `must_raise`.  We give it a string which it evaluates as Ruby code before and after the block executes.  The second argument is the amount by which the 1st argument changes when the block executes.  
+
+The sample below illustrates testing the `destroy` action and verifies that the database reduces the number of records by one.
 
 ```ruby
-describe PostController do
-  ...
-  it "should get index" do
-    get post_index_path
-    # Added expectation to verify the HTTP response code
+describe "destroy" do
+  it "can destroy a model" do
+    id = books(:poodr).id
+
+    expect {
+      delete book_path(id)
+    }.must_change 'Book.count', -1
+
     must_respond_with :success
   end
 end
 ```
 
-**Exercise:** Now you try it! Try setting up the next test for the `new` action on your last project and run the tests to validate.
+**Question** What other test(s) should we write for the `destroy` action?
 
-### Test Setup with Params
-When we create the controller actions, oftentimes they contain information that comes from the `params` hash, with data populated from the routes or forms. In order to appropriately test controllers, we must "mock" this information.
+### Sending form params in a controller test
 
-Let's refresh our memory with a controller action:
-```ruby
-def show
-  @post = Post.find(params[:id])
-end
-```
-
-In this case, we need to provide an `id` to the path helper method.
-
+Remember that when we submit a form using `form_with` Rails recieves the data as a sub-hash in params.  For our test we can pass such a hash into the request body like this:
 
 ```ruby
-it "should get show" do
-  get post_path(1)
-  must_respond_with :success
-end
-```
+describe "create" do
+  it "can create a book" do
+    book_hash = {
+      book: {
+        title: 'Practical Object Oriented Programming in Ruby',
+        author_id: authors(:metz).id,
+        description: 'A look at how to design object-oriented systems'
+      }
+    }
 
-Then, we added the expectation to ensure the show view is loaded successfully with `must_respond_with :success`.
+    expect {
+      post books_path, params: book_hash
+    }.must_change 'Book.count', 1
 
-### Test Setup with Fixtures
-The problem with the test above is that it is using a hard-coded value for the `id`. We used fixtures with our model testing to ensure that we aren't relying on any specific data in the database. We can do the same for our controller tests.
+    must_respond_with  :redirect
 
-Let's assume that we have some fixture data set up.
-```
-post_a:
-  title: This is a post on something
-  body: La la la la
-```
-
-We can now utilize this fixture data within our test to ensure the data is valid.
-```ruby
-it "should get show" do
-  get post_path(posts(:post_a).id)
-  must_respond_with :success
-end
-```
-
-Using `posts(:post_a).id` lets us use data in our fixtures in our test, rather than hard-coding id numbers.
-
-**Exercise:** Write a test for the `edit` action and write it to use fixtures.  Then run `rails test` to make sure it runs properly.
-
-### Test the Difference
-
-We have model tests to ensure that models act the way we anticipate. Oftentimes controllers create and delete model objects, so we can check these types of changes in controller tests.
-
-What is a type of controller action that would affect the number of Model objects? **Create!**
-
-Let's see how a test of the create action would look:
-
-```ruby
-it "should be able to create a post" do
-  post post_index_path, params: { post: {title: "Some post", body: "la la la"}  }
-end
-```
-
-We must have appropriate parameters that would match up with parameters that would be populated from the form. These parameters must be passed along with the request.
-
-The successful create action should redirect to the index view, so we should update our test to assert that:
-```ruby
-it "should be able to create a post" do
-  post post_index_path, params: { post: {title: "Some post", body: "la la la"} }
-
-  must_respond_with :redirect
-  must_redirect_to post_index_path
-end
-```
-
-So above we executed a post request to the index path and sent a mock of the params hash to provide values simulating what the form would provide.  
-
-Next, we can check that the count of model object has changed by 1 using the `must_change` matcher. For this matcher, in the first parameter, you put the expression that you would like to evaluate before and after the block you specify. In the second parameter, you can put a numeric value indicating how you expect the expression to change.
-
-```ruby
-it "should be able to create a post" do
-  proc   {
-    post post_index_path, params: { post: {title: "Some post", body: "la la la"}  }
-  }.must_change 'Post.count', 1
-
-  must_respond_with :redirect
-  must_redirect_to post_index_path
-end
-```
-
-We can do a similar test for deleting a model.  **Exercise:** Write a test for a delete/destroy action.  
-
-### Changing a Model
-
-We also want to test actions that modify a model rather than adding or deleting an entry.  So we also need to test update actions.  
-
-We start by creating a test for a put request on a post_path.
-
-
-```ruby
-  it "should update a post" do
-    put post_path(posts(:post_a).id), params: {post: {title: "Some title goes here", description: "la la la"} }
+    expect(Book.last.title).must_equal book_hash[:book][:title]
+    expect(Book.last.author_id).must_equal book_hash[:book][:author_id]
+    expect(Book.last.description).must_equal book_hash[:book][:description]
   end
-```
-
-So this test case starts by making a put request on a post using a fixture.  
-
-Next we can then verify that the post in the database is changed.
-
-```ruby
-it "should update a post" do
-  put post_path(posts(:post_a).id), params: {post: {title: "Some title goes here", description: "la la la"} }
-
-  # find the post with that ID in the database
-  post = Post.find(posts(:post_a).id)
-
-
-  # verify the post was changed properly
-  post.title.must_equal "Some title goes here"
-  post.description.must_equal "la la la"
-
-  must_respond_with :redirect
 end
 ```
+
+The example above illustrates that the test can pass in a mock-params hash into the request with the `params: params_hash` argument.  Notice we verify that the number of books in the database increases and that the last book in the database has the correct title, author and description.
+
+**Exercise** You also need to create a test in which the params are invalid, violating validations.  With a partner write another test in which the params are invalid.  You can see an example [here.](code_samples/create_controller_test.rb)
+
+**Exercise** Similar to the `create` action tests, write tests to verify the correctness of the `update` action.  You should have at least 3 tests. You can see a solution [here.](code_samples/update_controller_tests.rb)
+
+**Question**: Why 3 tests?
+
+## Summary
+
+In this lesson we investigated:
+-   Controllers take in serveral inputs including:
+    -   An HTTP Verb
+    -   A path
+    -   A request body
+    -   An Existing Database
+    -   We can test a controller against all these inputs and verify the following outputs:
+    -   HTTP Status code
+    -   Cookie changes (flash & session)
+    -   Database changes
+
 
 ## Rails Matchers
 
@@ -221,11 +194,11 @@ end
 |---	|---	|
 |   `must_respond_with`	|   `must_respond_with :success`	|
 |   `must_redirect_to`	|   `must_redirect_to root_path`	|
-|   `must_change`	|   `proc {delete post_path(posts(:post_a).id) }.must_change 'Post.count', -1`	|
+|   `must_change`	|   `expect {delete book_path(books(:poodr).id) }.must_change 'Book.count', -1`	|
 
 
 ## Resources
--  [The Rails Guide on Testing: Controllers](http://guides.rubyonrails.org/testing.html#functional-tests-for-your-controllers)  
--  [Testing Assertions](http://api.rubyonrails.org/classes/ActiveSupport/Testing/Assertions.html)  
+-  [The Rails Guide on Testing: Controllers](http://guides.rubyonrails.org/testing.html#functional-tests-for-your-controllers)
+-  [Testing Assertions](http://api.rubyonrails.org/classes/ActiveSupport/Testing/Assertions.html)
 -  [Minitest Cookbook](https://chriskottom.com/minitestcookbook/)
 -  [Minitest-Rails](https://github.com/blowmage/minitest-rails)
