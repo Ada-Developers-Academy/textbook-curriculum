@@ -12,9 +12,9 @@ So your rails app is awesome. It's got gadgets and gizmos aplenty, maybe even wh
 
 ## What is Heroku?
 From the company
-```
-Heroku is a cloud platform that lets companies build, deliver, monitor and scale apps — we're the fastest way to go from idea to URL, bypassing all those infrastructure headaches.
-```
+
+>Heroku is a cloud platform that lets companies build, deliver, monitor and scale apps — we're the fastest way to go from idea to URL, bypassing all those infrastructure headaches.
+
 So Heroku is a cloud platform like Amazon Web Services or Azure that provides a platform for web applications to run on.  
 
 We use Heroku for a few reasons:
