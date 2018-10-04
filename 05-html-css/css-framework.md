@@ -1,11 +1,9 @@
-# CSS Framework: Zurb Foundation
+# CSS Framework: Bootstrap
 
 ## 📚 Learning Goals 📚
 By the end of this lesson you should be able to:
-- Explain the use of a CSS framework like Foundation
-- Use Foundation to apply standard styles to common HTML elements
-- Use Foundation to apply styling and validation to HTML form elements
-
+- Explain the use of a CSS framework like Bootstrap
+- Use Bootstrap to apply standard styles to common HTML elements
 
 ## What is a Front-end Framework?
 
@@ -18,9 +16,9 @@ The usual components are:
 - **Browser compatibility** solutions so there is consistent style across browsers
 - Creation of standard **CSS classes** which can be used to style advanced components of the user interface
 
-The most popular frameworks are Bootstrap and Foundation. Here's [an article](https://www.upwork.com/hiring/development/bootstrap-vs-foundation-which-framework-is-right-for-you/) comparing the two Frameworks. We'll be digging into Foundation, but the concepts apply to both frameworks.
+The most popular frameworks are Bootstrap and Foundation. Here's [an article](https://www.upwork.com/hiring/development/bootstrap-vs-foundation-which-framework-is-right-for-you/) comparing the two Frameworks. We'll be digging into Bootstrap, but the concepts apply to both frameworks.
 
-Foundation does provide a grid framework so developers can more quickly setup a layout for their site by simply, yet strategically, adding classes to HTML elements!
+Bootstrap does provide a grid framework so developers can more quickly setup a layout for their site by simply, yet strategically, adding classes to HTML elements!
 
 NOTE: _CSS Frameworks_, like Bootstrap and Foundation are different from _Front-end JavaScript frameworks_ like React, Angular and Ember.
 
@@ -45,144 +43,122 @@ A grid system is an invisible foundation of web page layout, which is used to di
 Grids have long been used in design to provide structure and balance for content in a layout. Interested in learning more about grid theory? [Read this](https://designschool.canva.com/blog/grid-design/)
 
 
-### Foundation uses a 12 column grid.
-![Foundation Grid](http://foundation.zurb.com/assets/img/seo/feature-grid-1.png)
+### Bootstrap provides a 12-column Flexbox-based grid system
+![Bootstrap Grid System](imgs/bootstrap-grid.jpg)
 
-At Ada we will continue to use CSS Grid & Flexbox for layout, but it's important to know that many sites use CSS framework layouts like the 12 column grid foundation layout.  If you want to learn more about Foundation's XY-Grid you can check [this out](https://foundation.zurb.com/sites/docs/xy-grid.html).  One nice advantage to Foundation's grid system is that it can be easier to make responsive to varying screen sizes.
+At Ada we will continue to use CSS Grid & Flexbox for layout, but it's important to know that many sites use CSS framework layouts like the 12 column grid foundation layout.  If you want to learn more about Bootstrap's Grid system you can check [this out](http://getbootstrap.com/docs/4.1/layout/grid/).  One nice advantage to Bootstrap's grid system is that it can be easier to make responsive to varying screen sizes.
 
-## Add Foundation to your project
+## Add Bootstrap to your project
 
- When choosing to use Foundation in a Rails project you can select to either:
+ When choosing to use Bootstrap in a Rails project you can select to either:
  1.  Manually copy and include all the CSS, JavaScript and SCSS files into your project.
- 2. Use a provided [foundation-rails](https://github.com/zurb/foundation-rails) gem.
+ 2. Use a provided [Bootstrap](https://github.com/twbs/bootstrap-rubygem) gem.
 
-We will take the expedient of using the Gem, and placing it into our [`.rails-template.rb`](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/09-intermediate-rails/reference/.rails-template.rb) file.  
+We will take the expedient of using the Gem, and placing it into our [`.rails-template.rb`](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/09-intermediate-rails/reference/.rails-template.rb) file.
 
-In our [`rails-template.rb`](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/09-intermediate-rails/reference/.rails-template.rb) file we added code to automatically install the Foundation 6 framework.
+In our [`rails-template.rb`](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/09-intermediate-rails/reference/.rails-template.rb) file we added code to automatically install the Bootstrap 4 framework.
 
 The template adds the following content:
 
 ```ruby
 ...
 
-gem 'foundation-rails'
+gem 'bootstrap'
 
 ...
 
-# Run rails generate foundation:install
-  generate "foundation:install", "--force"
+# Add jquery to application.js to work with foundation-rails
+inject_into_file 'app/assets/javascripts/application.js', after: '// about supported directives.' do
+  <<-'JAVASCRIPT'
+
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
+  JAVASCRIPT
+end
 
 ...
 
-# Add Foundation Javascript with Motion-ui this must be run after
-# rails generate foundation:install, because that command
-# adds foundation_and_overrides.scss
-inject_into_file 'app/assets/stylesheets/foundation_and_overrides.scss', after: '// @include motion-ui-animations;' do
-<<-'RUBY'
+append_to_file 'app/assets/stylesheets/application.css' do
+  <<-'SCSS'
 
-@import 'motion-ui/motion-ui';
-@include motion-ui-transitions;
-@include motion-ui-animations;
-
-RUBY
+/* Custom bootstrap variables must be set or imported *before* bootstrap. */
+@import "bootstrap";
+/* Import scss content */
+@import "**/*";
+  SCSS
 end
 ```
 
 These foundation template changes will cause Rails to:
-1. Add the `foundation-rails` gem to the gemfile.  
-2. Run a generator command to work with the gem to generate a bunch of CSS and JavaScript files.  
-3. Lastly add some code to `foundation_and_overrides.scss` in the stylesheets folder to include some libraries for animated menus and transitions.
+1. Add the `bootstrap` gem to the gemfile.
+2. Tell Rails to import some JavaScript and CSS files for Bootstrap
 
 Now when you create a new Rails project you will see the following stylesheets.
 
-![Foundation Gem Stylesheets](imgs/foundation_stylesheets.png)
-
-You can change foundation settings by editing the `_settings.scss` file and turn off and on Foundation features by changing the `foundation_and_overrides.scss` file.  You can also override foundation styles, by defining css rules of your own in the `application.css` file.  
-
-## Using Foundation Typography
+## Using Bootstrap Typography
 
 You should first notice that foundation changes the default styling of all the header and paragraph text styling
 
-### Before Foundation:
+### Before Bootstrap:
 ![before-foundation-typography](imgs/before-foundation.png)
 
-### After Foundation:
-![after-foundation-typography](imgs/after-foundation.png)
+### After Bootstrap:
+![Bootstrap Typography](imgs/bootstrap-typography.png)
 
-As you can see above Foundation provides an set of default fonts and styles for the basic elements.  It also provides styling for lists, abbreviations, quotations and accessibility.  You can read about Foundation's typography [here](https://foundation.zurb.com/sites/docs/typography-base.html).
 
-## Built-in Foundation Classes
+As you can see above Bootstrap provides an set of default fonts and styles for the basic elements.  It also provides styling for lists, abbreviations, quotations and accessibility.  You can read about Bootstrap's typography [here](http://getbootstrap.com/docs/4.1/content/typography/).
 
-Foundation also provides a number pre-created stylings for class names you can add to common HTML elements and take advantage of ready-made stylings.  
+## Built-in Bootstrap Classes
+
+Bootstrap also provides a number pre-created stylings for class names you can add to common HTML elements and take advantage of ready-made stylings.
 
 For example, Foundation also provides a variety of ways to create buttons on your site either using anchor or button elements.  You can experiment with foundation buttons [here](https://codepen.io/adadev/pen/WzYvyo?editors=1000).
 
 ```html
-<a class="button tiny" href="#">So Tiny</a>
-<a class="button small" href="#">So Small</a>
-<button class="button" href="#">So Basic</button>
-<a class="button alert" href="#">So Basic with alert</a>
-<a class="button success" href="#">So Basic with success</a>
-<button class="button secondary" href="#">So Basic with secondary</button>
-<a class="button warning" href="#">So Basic with warning</a>
-<a class="button large" href="#">So Large and success</a>
-<a class="button expanded" href="#">Such Expand</a>
-<a class="button small expanded" href="#">Wow, Small Expand</a>
+<section>
+<a href="#" class="btn btn-primary">Prmary</a>
+<a href="#" class="btn btn-secondary">Secondary</a>
+<a href="" class="btn btn-success">Success</a>
+<a href="#" class="btn btn-danger">Danger</a>
+<a href="#" class="btn btn-warning">Warning</a>
+<a href="#" class="btn btn-info">Info</a>
+<a href="#" class="btn btn-light">Light</a>
+<a href="#" class="btn btn-dark">Dark</a>
+
+<a href="#" class="btn btn-link">Link</a>
+</section>
+
+<a href="#" class="btn btn-primary btn-lg btn-block">Block level button</a>
+<a href="#" class="btn btn-secondary btn-lg btn-block">Block level button</a>
+<a href="#" class="btn-lg btn-primary">Primary-large</a>
+<a href="#" class="btn-sm btn-primary">Primary-small</a>
 ```
 
-**Experiment:** Try creating a large warning `button` element in Codepen.  Then try adding CSS to make `secondary` buttons dark green.
+**Experiment:** Try creating a large danger `button` element in Codepen.  Then try adding CSS to make `secondary` buttons dark green.
 
-![button example](imgs/foundation-buttons.png)
+![button example](imgs/bootstrap-btns.png)
 
 Another set of pre-defined classes are used to create alert panels calling a user's attention to notifications or error messages.   This is commonly used for flash notices or validation errors on forms.
 
 ```html
-<section class="alert callout">
-  <h5>This is an alert callout</h5>
+<section class="alert alert-danger">
+  <h5>This is an alert</h5>
   <p>It has an easy to override visual style, and is appropriately subdued.</p>
   <a href="#">There is an error here!</a>
 </section>
 ```
 
-![alert callout screenshot](imgs/alert-calloutv2.png)
+![alert callout screenshot](imgs/bootstrap-callout.png)
 
-You can experiment with callouts [here](https://codepen.io/adadev/pen/dmQodr?editors=1000).
+You can experiment with callouts [here](https://codepen.io/adadev/pen/VEjKqz?editors=1000).
 
-**Experiment**:  Change the color of the callout background.
+**Experiment**:  Change the color of the alert background.
 
-## Form Validations
-
-Foundation also has a library named [**Abide**](https://foundation.zurb.com/sites/docs/abide.html) which can be used to go beyond the built-in HTML5 form validation available to us.  To use Abide over HTML5 validations, add `novalidate` and `data-abide` attributes to the form element.  
-
-Elements can have a number of validations which ensure input matches common patterns like `alpha` (only letters), `alpha_numeric`, `color`, `cvv` (the three numbers on the back of a credit card), `date`, `datetime`, `day_month_year`, `domain`, `email`, `integer`, `month_day_year`, `number`, `time`, and `url`.  
-
-A pattern can be specified by adding a pattern attribute-value to the form field.  For example `<input type="text" pattern="email" >`.  Then when the user attempts to submit the form, Abide will check to ensure the field matches the given pattern.  
-
-Developers can also add an attribute `required` to any form field which is required to have a value.  
-
-Abide can also use a `form-error` field to display an error message to the user when a field fails to validate.  To use a `form-error`, group labels, inputs and a span or other text field with the class `form-error` together in a container.  The text with the class `form-error` will display in red if and only if the form is submitted with invalid data in the accompanying field.  You can experiment with a code example [here](https://codepen.io/adadev/pen/vRQKoZ?editors=1100).
-
-```html
-<form data-abide novalidate>
-  <p>This example shows input validation using Abide.</p>
-  <div>
-      <input type="text" required>
-       <span class="form-error">Please enter amount.</span>
-  </div>
-  <div>
-      <input type="text" placeholder="www.somesite.com" required pattern="url">
-      <span class="form-error">Please enter a website URL.</span>  
-  </div>    
-
-  <button type="submit" class="button" value="Submit">Submit to see Errors</button>
-</form>
-```
-
-**Question:** If I have validations in my HTML with Foundation, do I need model validations on the back-end?
 
 ## Best Practices
-- NEVER change any CSS in Foundation's documents
-  - It's _okay_ to override them, if necessary, in your css files or the `_settings.scss` file.  You can use the `foundation_and_overrides.scss` file to turn off or on sections of the Foundation library.
+- NEVER change any CSS in Bootstrap's documents
+  - It's _okay_ to override them, if necessary, in your css files.
 - Comment your HTML & CSS by sections to stay organized
 - Keep Validating your HTML Code!
 
@@ -194,9 +170,15 @@ Abide can also use a `form-error` field to display an error message to the user 
 
 
 ## 🔑 Key Takeaway
-Using a front-end framework like Foundation or Bootstrap will allow you to more rapidly develop with styles and typography created in advance and add common validations to your site front-end.  
+Using a front-end framework like Foundation or Bootstrap will allow you to more rapidly develop with styles and typography created in advance and add common validations to your site front-end.
 
 ### Additional Resources
+#### Bootstrap
+- [Bootstrap Documentation](https://getbootstrap.com/docs/4.1/getting-started/introduction/)
+- [Bootstrap Course on Scrimba](https://scrimba.com/g/gbootstrap4) (~45 minutes)
+-  [Bootstrap Grid Examples](https://coreui.io/docs/layout/grid/)
+
+#### Foundation
 - [Foundation XY Grid Video](https://www.youtube.com/watch?v=Xl5DjEzKn1g&t=3s)
 - [Media Queries Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries
 )
