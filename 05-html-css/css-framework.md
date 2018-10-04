@@ -23,14 +23,14 @@ Bootstrap does provide a grid framework so developers can more quickly setup a l
 NOTE: _CSS Frameworks_, like Bootstrap and Foundation are different from _Front-end JavaScript frameworks_ like React, Angular and Ember.
 
 ## Grid Layout
-A grid system is an invisible foundation of web page layout, which is used to divide the web page multiple grids.  While CSS Grid has reduced the need for a framework grid system there are use advantages to a grid system like Bootstrap or Foundation.
+A grid system is an invisible foundation of web page layout, which is used to divide the web page multiple grids.  While CSS Grid has reduced the need for a framework grid system there are advantages to a grid system like Bootstrap or Foundation.  One nice advantage to Bootstrap's grid system is that it [can be easier to make grids responsive to varying screen sizes.](https://getbootstrap.com/docs/4.1/layout/grid/#responsive-classes)
 
 ![grid](imgs/7_Grid1-530x265.jpg)
 
-### Bootstrap provides a 12-column Flexbox-based grid system
+### Bootstrap's 12-column Flexbox-based grid system
 ![Bootstrap Grid System](imgs/bootstrap-grid.jpg)
 
-At Ada we will continue to use CSS Grid & Flexbox for layout, but it's important to know that many sites use CSS framework layouts like the 12 column grid layout.  If you want to learn more about Bootstrap's Grid system you can check [this out](http://getbootstrap.com/docs/4.1/layout/grid/).  One nice advantage to Bootstrap's grid system is that it [can be easier to make responsive to varying screen sizes.](https://getbootstrap.com/docs/4.1/layout/grid/#responsive-classes)
+At Ada we will continue to use CSS Grid & Flexbox for layout, but it's important to know that many sites use CSS framework layouts like the 12 column grid layout.  If you want to learn more about Bootstrap's Grid system you can check [this out](http://getbootstrap.com/docs/4.1/layout/grid/).
 
 ## Add Bootstrap to your project
 
@@ -75,10 +75,8 @@ end
 ```
 
 These foundation template changes will cause Rails to:
-1. Add the `bootstrap` gem to the gemfile.
-2. Tell Rails to import some JavaScript and CSS files for Bootstrap
-
-Now when you create a new Rails project you will see the following stylesheets.
+1. Add the `bootstrap` gems to the gemfile.
+2. Tell Rails to import some JavaScript and CSS files for Bootstrap.
 
 ## Using Bootstrap Typography
 
@@ -101,22 +99,22 @@ For example, Foundation also provides a variety of ways to create buttons on you
 
 ```html
 <section>
-<a href="#" class="btn btn-primary">Prmary</a>
-<a href="#" class="btn btn-secondary">Secondary</a>
-<a href="" class="btn btn-success">Success</a>
-<a href="#" class="btn btn-danger">Danger</a>
-<a href="#" class="btn btn-warning">Warning</a>
-<a href="#" class="btn btn-info">Info</a>
-<a href="#" class="btn btn-light">Light</a>
-<a href="#" class="btn btn-dark">Dark</a>
-
-<a href="#" class="btn btn-link">Link</a>
+  <a href="#" class="btn btn-primary">Prmary</a>
+  <a href="#" class="btn btn-secondary">Secondary</a>
+  <a href="" class="btn btn-success">Success</a>
+  <a href="#" class="btn btn-danger">Danger</a>
+  <a href="#" class="btn btn-warning">Warning</a>
+  <a href="#" class="btn btn-info">Info</a>
+  <a href="#" class="btn btn-light">Light</a>
+  <a href="#" class="btn btn-dark">Dark</a>
+  <a href="#" class="btn btn-link">Link</a>
 </section>
-
-<a href="#" class="btn btn-primary btn-lg btn-block">Block level button</a>
-<a href="#" class="btn btn-secondary btn-lg btn-block">Block level button</a>
-<a href="#" class="btn-lg btn-primary">Primary-large</a>
-<a href="#" class="btn-sm btn-primary">Primary-small</a>
+<section>
+  <a href="#" class="btn btn-primary btn-lg btn-block">Block level button</a>
+  <a href="#" class="btn btn-secondary btn-lg btn-block">Block level button</a>
+  <a href="#" class="btn-lg btn-primary">Primary-large</a>
+  <a href="#" class="btn-sm btn-primary">Primary-small</a>
+</section>
 ```
 
 **Experiment:** Try creating a large danger `button` element in Codepen.  Then try adding CSS to make `secondary` buttons dark green.
@@ -135,7 +133,7 @@ Another set of pre-defined classes are used to create alert panels calling a use
 
 ![alert callout screenshot](imgs/bootstrap-callout.png)
 
-You can experiment with callouts [here](https://codepen.io/adadev/pen/VEjKqz?editors=1000).
+You can experiment with alerts [here](https://codepen.io/adadev/pen/VEjKqz?editors=1000).
 
 **Experiment**:  Change the color of the alert background.
 
