@@ -22,31 +22,15 @@ Bootstrap does provide a grid framework so developers can more quickly setup a l
 
 NOTE: _CSS Frameworks_, like Bootstrap and Foundation are different from _Front-end JavaScript frameworks_ like React, Angular and Ember.
 
-## Mobile First
-As browsing on phones has increasingly become popular, so has the philosophy of designing mobile first.  Mobile first is planning the design of your site for a very small screen before anything else.
-
-Doing so will help you concentrate on visual hierarchy and boiling your content down to what is most important.
-
-![mobile first visual](http://metamonks.com/wp-content/uploads/responsive-vs-mobile-first-webdesign-022-1024x689.png)
-
-That means creating separate wireframes for the different ways a user may interact with your site. Ex: A phone vertically, a phone horizontally, a large tablet in either direction, a laptop, a large-screen  television, I could go on forever!
-
-In an effort to not overwhelm ourselves, we’ll only be concerned on three generic screen sizes: small, medium and large. We refer to the user's visible area of a web page as the **viewport**.
-
-Think of small as a very narrow viewport, like your phone horizontally. Medium when you are split screening your laptop screen with your browser on one half and another application on the other. And large as your browser full-screen on your laptop.
-
 ## Grid Layout
-A grid system is an invisible foundation of web page layout, which is used to divide the web page multiple grids.
+A grid system is an invisible foundation of web page layout, which is used to divide the web page multiple grids.  While CSS Grid has reduced the need for a framework grid system there are use advantages to a grid system like Bootstrap or Foundation.
 
 ![grid](imgs/7_Grid1-530x265.jpg)
-
-Grids have long been used in design to provide structure and balance for content in a layout. Interested in learning more about grid theory? [Read this](https://designschool.canva.com/blog/grid-design/)
-
 
 ### Bootstrap provides a 12-column Flexbox-based grid system
 ![Bootstrap Grid System](imgs/bootstrap-grid.jpg)
 
-At Ada we will continue to use CSS Grid & Flexbox for layout, but it's important to know that many sites use CSS framework layouts like the 12 column grid foundation layout.  If you want to learn more about Bootstrap's Grid system you can check [this out](http://getbootstrap.com/docs/4.1/layout/grid/).  One nice advantage to Bootstrap's grid system is that it can be easier to make responsive to varying screen sizes.
+At Ada we will continue to use CSS Grid & Flexbox for layout, but it's important to know that many sites use CSS framework layouts like the 12 column grid layout.  If you want to learn more about Bootstrap's Grid system you can check [this out](http://getbootstrap.com/docs/4.1/layout/grid/).  One nice advantage to Bootstrap's grid system is that it [can be easier to make responsive to varying screen sizes.](https://getbootstrap.com/docs/4.1/layout/grid/#responsive-classes)
 
 ## Add Bootstrap to your project
 
@@ -162,15 +146,8 @@ You can experiment with callouts [here](https://codepen.io/adadev/pen/VEjKqz?edi
 - Comment your HTML & CSS by sections to stay organized
 - Keep Validating your HTML Code!
 
-## Vocab ✅
-- Mobile First
-- Grid Layout
-- Viewport
-- Validation
-
-
 ## 🔑 Key Takeaway
-Using a front-end framework like Foundation or Bootstrap will allow you to more rapidly develop with styles and typography created in advance and add common validations to your site front-end.
+Using a front-end framework like Bootstrap or Foundation will allow you to more rapidly develop with styles and typography created in advance and add common validations to your site front-end.
 
 ### Additional Resources
 #### Bootstrap
