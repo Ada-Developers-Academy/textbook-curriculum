@@ -87,6 +87,14 @@ inject_into_file 'config/application.rb', after: "class Application < Rails::App
   end
   RUBY
 end
+
+# Allow us to use form_with without utilizing the remote form option
+create_file 'config/initializers/action_view.rb' do
+  <<~INIT
+    Rails.application.config.action_view.form_with_generates_remote_forms = false
+  INIT
+end
+
 create_file 'Guardfile' do
   <<~GUARDFILE
     guard :minitest, autorun: false, spring: true do
