@@ -85,7 +85,7 @@ describe Book do
       result = @book.valid?
 
       # Assert
-      result.must_equal true
+      expect(result).must_equal true
     end
   end
 end
@@ -124,7 +124,7 @@ it 'is invalid without a title' do
   result = @book.valid?
 
   # Assert
-  result.must_equal false
+  expect(result).must_equal false
 end
 ```
 
@@ -150,8 +150,8 @@ it 'is invalid without a title' do
   result = @book.valid?
 
   # Assert
-  result.must_equal false
-  @book.errors.messages.must_include :title
+  expect(result).must_equal false
+  expect(@book.errors.messages).must_include :title
 end
 ```
 
@@ -189,7 +189,7 @@ describe Book do
       book.author = author
 
       # author_id should have changed accordingly
-      book.author_id.must_equal author.id
+      expect(book.author_id).must_equal author.id
     end
 
     it 'can set the author through "author_id"' do
@@ -201,7 +201,7 @@ describe Book do
       book.author_id = author.id
 
       # author should have changed accordingly
-      book.author.must_equal author
+      expect(book.author).must_equal author
     end
   end
 end
