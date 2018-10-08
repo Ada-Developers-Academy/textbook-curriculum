@@ -1,6 +1,6 @@
 # Rails Testing Setup
 
-## Enabling Spec-Style Testing
+## Step-by-step: Enabling Spec-Style Testing
 Minitest is set up to do assert-style testing by default. The automatically generated testing classes will look like:
 
 ```ruby
@@ -85,7 +85,7 @@ Minitest::Reporters.use!(
 )
 ```
 
-## Automating This Process
+## Recommended: Automating This Process
 
 As of right now, you'll have to follow all the above steps for every new rails project you make. Sounds like an easy way to forget something. Fortunately, Rails allows you to make all this stuff happen by default, every time you run `rails new`.
 
