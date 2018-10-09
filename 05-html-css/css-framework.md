@@ -30,11 +30,6 @@ NOTE: _CSS Frameworks_, like Bootstrap and Foundation are different from _Front-
 ## Grid Layout
 A grid system is an invisible foundation of web page layout, which is used to divide the web page multiple grids.  While CSS Grid has reduced the need for a framework grid system there are advantages to a grid system like Bootstrap or Foundation.  One nice advantage to Bootstrap's grid system is that it [can be easier to make grids responsive to varying screen sizes.](https://getbootstrap.com/docs/4.1/layout/grid/#responsive-classes)
 
-![grid](imgs/7_Grid1-530x265.jpg)
-
-### Bootstrap's 12-column Flexbox-based grid system
-![Bootstrap Grid System](imgs/bootstrap-grid.jpg)
-
 At Ada we will continue to use CSS Grid & Flexbox for layout, but it's important to know that many sites use CSS framework layouts like the 12 column grid layout.  If you want to learn more about Bootstrap's Grid system you can check [this out](http://getbootstrap.com/docs/4.1/layout/grid/).
 
 ## Add Bootstrap to your project
