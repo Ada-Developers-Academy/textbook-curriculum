@@ -63,7 +63,7 @@ As you can see above Bootstrap provides an set of default fonts and styles for t
 
 Bootstrap also provides a number pre-created stylings for class names you can add to common HTML elements and take advantage of ready-made stylings.
 
-For example, Foundation also provides a variety of ways to create buttons on your site either using anchor or button elements.  You can experiment with foundation buttons [here](https://codepen.io/adadev/pen/WzYvyo?editors=1000).
+For example, Bootstrap also provides a variety of ways to create buttons on your site either using anchor or button elements.  You can experiment with Bootstrap buttons [here](https://codepen.io/adadev/pen/XxpNJQ).
 
 ```html
 <section>
