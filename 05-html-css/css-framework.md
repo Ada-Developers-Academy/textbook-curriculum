@@ -142,9 +142,3 @@ Using a front-end framework like Bootstrap or Foundation will allow you to more 
 - [Bootstrap Documentation](https://getbootstrap.com/docs/4.1/getting-started/introduction/)
 - [Bootstrap Course on Scrimba](https://scrimba.com/g/gbootstrap4) (~45 minutes)
 -  [Bootstrap Grid Examples](https://coreui.io/docs/layout/grid/)
-
-#### Foundation
-- [Foundation XY Grid Video](https://www.youtube.com/watch?v=Xl5DjEzKn1g&t=3s)
-- [Media Queries Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries
-)
-- [Foundation Form Validations](https://www.youtube.com/watch?v=4bN0qr5pxjs)
