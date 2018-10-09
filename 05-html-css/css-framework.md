@@ -89,7 +89,7 @@ For example, Bootstrap also provides a variety of ways to create buttons on your
 ![button example](imgs/bootstrap/bootstrap-btns.png)
 
 
-**Experiment:** Check out [the CodePen](https://codepen.io/adadev/pen/XxpNJQ).  Try creating a large danger `button` element in Codepen.  Then try adding CSS to make `secondary` buttons dark green.
+**Experiment:** Check out [the CodePen](https://codepen.io/adadev/pen/XxpNJQ).  First fork the codepen.  Then try creating a large danger `button` element in Codepen.  Then try adding CSS to make `secondary` buttons dark green.
 
 
 Another set of pre-defined classes are used to create alert panels calling a user's attention to notifications or error messages.   This is commonly used for flash notices or validation errors on forms.
