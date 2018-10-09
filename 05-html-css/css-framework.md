@@ -48,10 +48,10 @@ These rails template changes will cause Rails to:
 
 ## Using Bootstrap Typography
 
-You should first notice that foundation changes the default styling of all the header and paragraph text styling
+You should first notice that Bootstrap changes the default styling of all the header and paragraph text styling
 
 ### Before Bootstrap:
-![before-foundation-typography](imgs/bootstrap/before-bootstrap.png)
+![before-bootstrap-typography](imgs/bootstrap/before-bootstrap.png)
 
 ### After Bootstrap:
 ![Bootstrap Typography](imgs/bootstrap/bootstrap-typography.png)
