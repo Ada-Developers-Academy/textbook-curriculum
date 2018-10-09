@@ -1,4 +1,4 @@
-# CSS Framework: Bootstrap
+  # CSS Framework: Bootstrap
 
 ## 📚 Learning Goals 📚
 By the end of this lesson you should be able to:
@@ -42,39 +42,7 @@ We will take the expedient of using the Gem, and placing it into our [`.rails-te
 
 In our [`rails-template.rb`](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/09-intermediate-rails/reference/.rails-template.rb) file we added code to automatically install the Bootstrap 4 framework.
 
-The template adds the following content:
-
-```ruby
-...
-
-gem 'bootstrap'
-
-...
-
-# Add jquery to application.js to work with foundation-rails
-inject_into_file 'app/assets/javascripts/application.js', after: '// about supported directives.' do
-  <<-'JAVASCRIPT'
-
-//= require jquery3
-//= require popper
-//= require bootstrap-sprockets
-  JAVASCRIPT
-end
-
-...
-
-append_to_file 'app/assets/stylesheets/application.css' do
-  <<-'SCSS'
-
-/* Custom bootstrap variables must be set or imported *before* bootstrap. */
-@import "bootstrap";
-/* Import scss content */
-@import "**/*";
-  SCSS
-end
-```
-
-These foundation template changes will cause Rails to:
+These rails template changes will cause Rails to:
 1. Add the `bootstrap` gems to the gemfile.
 2. Tell Rails to import some JavaScript and CSS files for Bootstrap.
 
