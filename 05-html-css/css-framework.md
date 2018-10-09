@@ -16,9 +16,14 @@ The usual components are:
 - **Browser compatibility** solutions so there is consistent style across browsers
 - Creation of standard **CSS classes** which can be used to style advanced components of the user interface
 
-The most popular frameworks are Bootstrap and Foundation. Here's [an article](https://www.upwork.com/hiring/development/bootstrap-vs-foundation-which-framework-is-right-for-you/) comparing the two Frameworks. We'll be digging into Bootstrap, but the concepts apply to both frameworks.
+The most popular frameworks are:
+-   [Bootstrap](https://getbootstrap.com/)
+-   [Foundation](https://foundation.zurb.com/sites/docs/)
+-   [Material Design](https://material.io/design/)
+-   [uikit](https://getuikit.com/)
+-   [Semantic UI](https://semantic-ui.com/)
 
-Bootstrap does provide a grid framework so developers can more quickly setup a layout for their site by simply, yet strategically, adding classes to HTML elements!
+May frameworks like Bootstrap do provide a grid frameworks which can be used on top of or in place of CSS Grid.
 
 NOTE: _CSS Frameworks_, like Bootstrap and Foundation are different from _Front-end JavaScript frameworks_ like React, Angular and Ember.
 
@@ -107,7 +112,7 @@ Add this to the CSS of the Codepen.
 }
 ```
 
-This CSS code __overrode__ the bootstrap styling.  Remember that CSS cascades and the last rule encountered of equal specificity take precidence.  
+This CSS code __overrode__ the bootstrap styling.  Remember that CSS cascades and the last rule encountered of equal specificity take precidence.
 
 ### Alerts
 
