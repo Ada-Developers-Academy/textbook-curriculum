@@ -92,6 +92,25 @@ For example, Bootstrap also provides a variety of ways to create buttons on your
 **Experiment:** Check out [the CodePen](https://codepen.io/adadev/pen/XxpNJQ).  First fork the codepen.  Then try creating a large danger `button` element in Codepen.  Then try adding CSS to make `secondary` buttons dark green.
 
 
+
+**Question:  Do I have to use Bootstraps styles for everything?**
+
+No, you can override Bootstrap's styling by adding your own styles for the class.
+
+Add this to the CSS of the Codepen.
+
+```css
+.btn-primary {
+  background-color: #FF69B4;
+  border-color: #FFA1B4;
+  margin: 5px;
+}
+```
+
+This CSS code __overrode__ the bootstrap styling.  Remember that CSS cascades and the last rule encountered of equal specificity take precidence.  
+
+### Alerts
+
 Another set of pre-defined classes are used to create alert panels calling a user's attention to notifications or error messages.   This is commonly used for flash notices or validation errors on forms.
 
 ```html
