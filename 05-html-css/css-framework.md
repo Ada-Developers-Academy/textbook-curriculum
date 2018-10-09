@@ -123,9 +123,9 @@ Another set of pre-defined classes are used to create alert panels calling a use
 
 ![alert callout screenshot](imgs/bootstrap/bootstrap-callout.png)
 
-You can experiment with alerts [here](https://codepen.io/adadev/pen/VEjKqz?editors=1000).
 
-**Experiment**:  Change the color of the alert background.
+
+**Experiment**: Experiment with alerts [here](https://codepen.io/adadev/pen/VEjKqz?editors=1000) and change the color of the alert background.
 
 
 ## Best Practices
