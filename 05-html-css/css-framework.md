@@ -51,10 +51,10 @@ These rails template changes will cause Rails to:
 You should first notice that foundation changes the default styling of all the header and paragraph text styling
 
 ### Before Bootstrap:
-![before-foundation-typography](imgs/before-foundation.png)
+![before-foundation-typography](imgs/bootstrap/before-bootstrap.png)
 
 ### After Bootstrap:
-![Bootstrap Typography](imgs/bootstrap-typography.png)
+![Bootstrap Typography](imgs/bootstrap/bootstrap-typography.png)
 
 
 As you can see above Bootstrap provides an set of default fonts and styles for the basic elements.  It also provides styling for lists, abbreviations, quotations and accessibility.  You can read about Bootstrap's typography [here](http://getbootstrap.com/docs/4.1/content/typography/).
@@ -87,7 +87,7 @@ For example, Foundation also provides a variety of ways to create buttons on you
 
 **Experiment:** Try creating a large danger `button` element in Codepen.  Then try adding CSS to make `secondary` buttons dark green.
 
-![button example](imgs/bootstrap-btns.png)
+![button example](imgs/bootstrap/bootstrap-btns.png)
 
 Another set of pre-defined classes are used to create alert panels calling a user's attention to notifications or error messages.   This is commonly used for flash notices or validation errors on forms.
 
@@ -99,7 +99,7 @@ Another set of pre-defined classes are used to create alert panels calling a use
 </section>
 ```
 
-![alert callout screenshot](imgs/bootstrap-callout.png)
+![alert callout screenshot](imgs/bootstrap/bootstrap-callout.png)
 
 You can experiment with alerts [here](https://codepen.io/adadev/pen/VEjKqz?editors=1000).
 
