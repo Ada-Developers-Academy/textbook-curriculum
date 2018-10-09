@@ -76,6 +76,9 @@ For example, Bootstrap also provides a variety of ways to create buttons on your
   <a href="#" class="btn btn-light">Light</a>
   <a href="#" class="btn btn-dark">Dark</a>
   <a href="#" class="btn btn-link">Link</a>
+
+  <a href="#" class="btn btn-primary btn-lg">large button</a>
+  <a href="#" class="btn btn-primary btn-sm">small button</a>
 </section>
 <section>
   <a href="#" class="btn btn-primary btn-lg btn-block">Block level button</a>
