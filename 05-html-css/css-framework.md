@@ -77,8 +77,6 @@ For example, Bootstrap also provides a variety of ways to create buttons on your
   <a href="#" class="btn btn-dark">Dark</a>
   <a href="#" class="btn btn-link">Link</a>
 
-  <a href="#" class="btn btn-primary btn-lg">large button</a>
-  <a href="#" class="btn btn-primary btn-sm">small button</a>
 </section>
 <section>
   <a href="#" class="btn btn-primary btn-lg btn-block">Block level button</a>
@@ -88,9 +86,11 @@ For example, Bootstrap also provides a variety of ways to create buttons on your
 </section>
 ```
 
-**Experiment:** Try creating a large danger `button` element in Codepen.  Then try adding CSS to make `secondary` buttons dark green.
-
 ![button example](imgs/bootstrap/bootstrap-btns.png)
+
+
+**Experiment:** Check out [the CodePen](https://codepen.io/adadev/pen/XxpNJQ).  Try creating a large danger `button` element in Codepen.  Then try adding CSS to make `secondary` buttons dark green.
+
 
 Another set of pre-defined classes are used to create alert panels calling a user's attention to notifications or error messages.   This is commonly used for flash notices or validation errors on forms.
 
