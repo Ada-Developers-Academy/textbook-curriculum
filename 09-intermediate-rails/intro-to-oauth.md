@@ -1,4 +1,3 @@
-
 # Introduction to OAuth
 
 Today we will introduce a technology called *OAuth*, which we will use to allow users to log into our Rails app. OAuth is short for **Open Authentication**, and it is an open standard that describes how users can use one service to log into another. If you've ever logged into a website using Facebook, you've used OAuth.
