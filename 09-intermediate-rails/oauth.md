@@ -13,12 +13,13 @@ We are going to use a few new tools to accomplish our goal of user authenticatio
 ![OAuth Overview](./images/oauth-overview.png)
 
 ## OmniAuth
-The **OmniAuth** gem provides pretty much everything you need to use OAuth to authenticate users. It starts by adding a new route to your application:
+The **OmniAuth** gem provides pretty much everything you need to use OAuth to authenticate users. It starts by adding a new route to your application: `/auth/:provider`.
 
-- `/auth/:provider`
-- `/auth/:provider/callback`
+`:provider` is a named parameter that will equal the name of the service we are using (`github`, in this example). When a user visits this route, OmniAuth will redirect the user to GitHub, beginning the authentication process. _All of this is handled automatically by OmniAuth_ - we do not have to define the route or the controller action ourselves.
 
-In both of these examples `:provider` is a named parameter that will equal the name of the service we are using (`github`, in this example). These two routes are how to start and end the authentication interaction with the provider. Sending the user to `/auth/github`, will start the authentication process. When authentication is complete, GitHub will redirect the user to `/auth/github/callback`. It goes something like this:
+Once the user has OKed our application, GitHub will redirect the user to `/auth/github/callback`, along with information about who they are. At this point, it's up to our application what to do next. Because the next steps are less prescribed, OmniAuth does not do this for us - _we will need to define the callback route and controller action ourselves_.
+
+The whole thing goes something like this:
 
 ![OmniAuth Dance](./images/omniauth.png)
 
@@ -30,7 +31,7 @@ gem "omniauth"
 gem "omniauth-github"
 ```
 
-Save your Gemfile, then head over to your terminal, where you'll need to `$ bundle`. Notice that there's a specific gem for authenticating with GitHub. Each _provider_ has a small Ruby gem that's responsible for the specifics of how to authenticate with that service.
+Save your Gemfile, then head over to your terminal, where you'll need to `$ bundle` (and restart your rails server). Notice that there's a specific gem for authenticating with GitHub. Each _provider_ has a small Ruby gem that's responsible for the specifics of how to authenticate with that service.
 
 ### GitHub Credentials
 Each provider requires you to provide some credentials for your application, so they can keep track of which website is authorizing which user. [Login to GitHub and register a new "application"](https://github.com/settings/applications/new).
@@ -58,25 +59,32 @@ To use a `.env` file with Rails, you **must** do all of these steps to gain acce
 
 1. Create the `.env` file in the root directory with `$ touch .env`.
 
-  This file is a collection of key/value pairs. We will add the application credentials from GitHub like this:
+    This file is a collection of key/value pairs. We will add the application credentials from GitHub like this:
 
-  ```bash
-  GITHUB_CLIENT_ID: fd6XXXXXXXX
-  GITHUB_CLIENT_SECRET: y6wXXXXXXX
-  ```
+    ```bash
+    GITHUB_CLIENT_ID: fd6XXXXXXXX
+    GITHUB_CLIENT_SECRET: y6wXXXXXXX
+    ```
+
+1. Restart the Rails server. Similar to installing new gems, changes to the `.env` file will not be picked up without a server restart.
 
 **With that done, the GitHub application credentials will now be available to Rails via the `ENV` constant.**
 
 #### Accessing Credentials
-Now that you have application credentials, let's configure Rails to use them. To do this, create a new _initializer file_. **Initializers are files that run as part of the Rails start-up process**. Initializers go in the `config/initializers/` directory. From the terminal, create a new initializer with `$ touch config/initializers/omniauth.rb`. Open this file and add the following code:
+Now that you have application credentials, let's configure Rails to use them. To do this, create a new _initializer file_. Initializers are files that run as part of the Rails start-up process, which means that **if you change an initializer, you must restart the server**.
+
+Initializers go in the `config/initializers/` directory. From the terminal, create a new initializer with `$ touch config/initializers/omniauth.rb`. Open this file and add the following code:
 
 ```ruby
+# config/initializers/omniauth.rb
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :github, ENV["GITHUB_CLIENT_ID"], ENV["GITHUB_CLIENT_SECRET"], scope: "user:email"
 end
 ```
 
-This tells Rails to use OmniAuth for authentication. Specifically, it tells Rails that it will be communicating with GitHub, and where it can find the application credentials that GitHub expects: in the `ENV` variable we populated earlier. **Note** that any code added or updated in the initializers will require a rails server restart since this code is loaded when the server is started.
+This tells Rails to use OmniAuth for authentication. Specifically, it tells Rails that it will be communicating with GitHub, and where it can find the application credentials that GitHub expects: in the `ENV` variable we populated earlier.
+
+Now restart the server so that the initializer is run.
 
 ## Let's Test it Out
 
