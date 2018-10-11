@@ -182,7 +182,7 @@ In this lesson we investigated:
     -   A path
     -   A request body
     -   An Existing Database
-    -   We can test a controller against all these inputs and verify the following outputs:
+-   We can test a controller against all these inputs and verify the following outputs:
     -   HTTP Status code
     -   Cookie changes (flash & session)
     -   Database changes
