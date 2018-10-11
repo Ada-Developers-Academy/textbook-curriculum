@@ -5,8 +5,12 @@ Today we will introduce a technology called *OAuth*, which we will use to allow 
 
 
 ## Learning Goal
-You should be able to:
-*  Explain the OAuth workflow and how an OAuth service can provide authentication and information about a user.
+By the end of this lesson, students should be able to...
+
+- Differentiate between Authentication and Authorization
+- Describe how the OAuth protocol works at a high level
+- Identify the different roles in the OAuth workflow
+- Explain the advantages of using OAuth instead of building a custom login system
 
 ## Introduction
 
@@ -14,7 +18,15 @@ Security is a deep and nuanced field, but for our purposes there are two importa
 - **Authentication:** Who are you, and how can I trust you?
 - **Authorization:** Are you allowed to do that action?
 
-OAuth is an **authorization** framework.  Using OAuth a user can securely **authenticate** (log in) to a service like Github, Google or Facebook, and **authorize** another service, like our Rails App, to access the user's profile.  So users log into one service and be logged into other authorized services.  Providing a secure way for users to authenticate is complex, difficult and risk-laden.  Using OAuth, we can delegate authentication to another service so we can rely on that service's security rather than build and maintain our own.
+OAuth is an **authentication** framework.  Using OAuth a user can securely **authenticate** (log in) to a service like Github, Google or Facebook, and allow another service, like our Rails App, to access the user's profile. So users log into one service, and use that account to log into other services.
+
+If you've ever followed a link to "log in with Facebook" (or Google, Twitter, GitHub, etc) then you've used OAuth.
+
+![Log in with Facebook button](images/oauth_in_the_wild.png)
+
+Once our Rails app has authenticated a user via OAuth, it can make decisions about whether that user is **authorized** to take various actions on the site.
+
+The alternative to OAuth is building your own system to manage credentials, and having the user log in with a username and password. However, providing a secure way for users to authenticate is complex, difficult and risk-laden. Using OAuth, we can delegate authentication to another service so we can rely on that service's security rather than build and maintain our own.
 
 ## OAuth Roles
 
@@ -26,7 +38,7 @@ In an OAuth application the following entities play roles in the process.
 
 ## Authorization Process
 
-Before the client site can use OAuth from the provider, the client must be registered with the provider.  When the client registers it provides a callback URL, a website (for a web app) and an application name.  In return it receives a **Client ID** and **Client Secret**.  
+Before the client site can use OAuth from the provider, the client must be registered with the provider.  This is something you the engineer will do manually by visiting GitHub's website.  When the client registers it provides a callback URL, a website (for a web app) and an application name.  In return it receives a **Client ID** and **Client Secret**.  
 
 The **Client ID** is a publicly available string which identifies the service with the API and the **Client Secret** is kept hidden, like a password and used to authenticate with the service.
 
