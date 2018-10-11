@@ -21,8 +21,8 @@ OAuth is an **authorization** framework.  Using OAuth a user can securely **auth
 In an OAuth application the following entities play roles in the process.
 
 * The **User** is the person using the browser to access the site.
-* The **Client** is an application which wants access to the user's account.  
-* The **OAuth Provider** is the service providing OAuth access to the client, like our Rails app.  It hosts the user accounts and provides information about the user to clients.
+* The **Client** is an application which wants access to the user's account. For us this means the Rails server that we have built. Note that the Rails _server_ is an OAuth _client_.
+* The **OAuth Provider** is the service providing OAuth access to the client. For us this means GitHub. It hosts the user accounts and provides information about the user to clients.
 
 ## Authorization Process
 
