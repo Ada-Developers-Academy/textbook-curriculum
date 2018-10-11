@@ -147,7 +147,12 @@ Remember to migrate the database: `$ rails db:migrate`.
 **Question**: What do we want our controller method to do upon successful or unsuccessful login?
 
 ### Handling the Auth Callback
-Now everything is in place to initialize a User using the hash that is returned from the provider request:
+In the auth callback, we will have access to a bunch of credentials about the user from GitHub. We'll follow this strategy to turn that into a logged in user:
+
+1. Check if there's already a `User` record matching those credentials in our database
+1. If there is no existing `User`, try to create a new `User`
+1. Save the user's ID in the `session` (just like we did previously)
+1. Redirect the user back to the `root_path`
 
 ```ruby
 # app/controllers/sessions_controller.rb
@@ -155,47 +160,26 @@ Now everything is in place to initialize a User using the hash that is returned 
 class SessionsController < ApplicationController
   def create
     auth_hash = request.env['omniauth.auth']
-
-    if auth_hash['uid']
-      @user = User.find_by(uid: auth_hash[:uid], provider: 'github')
-      if @user.nil?
-        # User doesn't match anything in the DB
-        # Attempt to create a new user
-      else
-        flash[:success] = "Logged in successfully"
-        redirect_to root_path
-      end
+    user = User.find_by(uid: auth_hash[:uid], provider: 'github')
+    if user
+      # User was found in the database
+      flash[:success] = "Logged in as returning user #{user.name}"
     else
-      flash[:error] = "Could not log in"
-      redirect_to root_path
+      # User doesn't match anything in the DB
+      # TODO: Attempt to create a new user
     end
+
+    session[:user_id] = user.id
+    redirect_to root_path
   end
 end
 ```
 
-**Exercise**: Let's implement a new model method in our `User` model which will accept the `auth_hash` as a parameter and construct a new `User` and save it to the database using the info from the `auth_hash`.
+Recall that before the `session` is sent to the browser it is encrypted. This means its contents are _opaque_ to the browser. All the browser sees is several KB of garbled nonsense, which it can neither interpret nor change. This makes the `session` ideal for things like storing the ID of an authenticated user, since there's no way for a malicious browser to fake a login.
 
-Now that we've successfully authenticated a user and built a database entry for them, what happens next? The login ought to be _persistent_ - that is, the user should be logged in as long as they are on the site, even if they move from page to page. Moreover, we don't want to embed the user ID in the URI, since then you could impersonate a user just by changing the address.
+**Exercise**: Let's implement a new class method in our `User` model which will accept the `auth_hash` as a parameter and construct a new `User` and save it to the database using the info from the `auth_hash`. [You can see our solution here](code_samples/oauth_build_from_github.rb).
 
-<!--
-```ruby
-# app/models/user.rb
-class User < ActiveRecord::Base
-
-  def self.build_from_github(auth_hash)
-   user       = User.new
-   user.uid   = auth_hash[:uid]
-   user.provider = 'github'
-   user.name  = auth_hash['info']['name']
-   user.email = auth_hash['info']['email']
-     return user
-  end
-end
-```-->
-
-#### The `session`
-
-The most common use of `session` is to store the id of an authenticated user. From within a controller, we can get and set `session` keys using the familiar hash access syntax:
+Now that we've got this model method, we can implement the final version of our auth callback:
 
 ```ruby
 # app/controllers/sessions_controller.rb
@@ -203,32 +187,37 @@ class SessionsController < ApplicationController
   def create
     auth_hash = request.env['omniauth.auth']
 
-    if auth_hash['uid']
-      user = User.find_by(uid: auth_hash[:uid], provider: 'github')
-      if user.nil?
-        # User doesn't match anything in the DB
-        # Attempt to create a new user
-        user = User.build_from_github(auth_hash)
-      else
-        flash[:success] = "Logged in successfully"
-        redirect_to root_path
-      end
+    user = User.find_by(uid: auth_hash[:uid], provider: 'github')
+    if user
+      # User was found in the database
+      flash[:success] = "Logged in as returning user #{user.name}"
 
-      # If we get here, we have the user instance
-      session[:user_id] = user.id
     else
-      flash[:error] = "Could not log in"
-      redirect_to root_path
-    end
-  end
+      # User doesn't match anything in the DB
+      # Attempt to create a new user
+      user = User.build_from_github(auth_hash)
 
-  def index
-    @user = User.find(session[:user_id]) # < recalls the value set in a previous request
+      if user.save
+        flash[:success] = "Logged in as new user #{user.name}"
+
+      else
+        # Couldn't save the user for some reason. If we
+        # hit this it probably means there's a bug with the
+        # way we've configured GitHub. Our strategy will
+        # be to display error messages to make future
+        # debugging easier.
+        flash[:error] = "Could not create new user account: #{user.errors.messages}"
+        redirect_to root_path
+        return
+      end
+    end
+
+    # If we get here, we have a valid user instance
+    session[:user_id] = user.id
+    redirect_to root_path
   end
 end
 ```
-
-Before the `session` is sent to the browser it is encrypted. This means its contents are _opaque_ to the browser. All the browser sees is several KB of garbled nonsense, which it can neither interpret nor change. This makes the `session` ideal for things like storing the ID of an authenticated user, since there's no way for a malicious browser to fake a login.
 
 ## Wait!  How Do I Log Out!
 
@@ -261,9 +250,12 @@ Lastly in our `/app/views/layouts/application.html.erb` file we can add links to
   <%= link_to "Log out", logout_path, method: "delete"   %>
 <% else %>
   <%= link_to "Login with Github", "/auth/github" %>
+<% end %>
 ```
 
 **Question**: How could you display the name or email address of the logged-in user?
+
+If you are making changes and end up getting stuck, you may need to [clear your browser's cookies](https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DDesktop&hl=en).
 
 ## Additional Resources
 - [oauth Overview Notes](https://docs.google.com/presentation/d/1lIQ4F8gpXwaIEBHlsussoIEN31sqCY2upGIV_L81zi4)
