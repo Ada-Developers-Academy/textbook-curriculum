@@ -1,18 +1,19 @@
 # User Authentication and Authorization using OAuth
 ## Learning Goals
-- Discover what's really happening when we "Sign in with Facebook" (or any other 3rd party provider)
+At the end of this lesson, students should be able to...
+
+- Describe what happens when you "Sign in with Facebook" (or any other 3rd party provider)
 - Understand the basic workflow of OAuth, and how it protects users
 - Implement user login/logout using GitHub as an _OAuth provider_
-- What is an environment variable?
-- How do we deal with needing to know data _across_ multiple HTTP requests?
+- Define and use _environment variables_ in Rails
 
 ## Our Approach
-We are going to use a few new tools to accomplish our goal of user authentication and authorization. We are going to work with GitHub as our **provider** which means our users will log in via their GitHub credentials. We will use  [OmniAuth](https://github.com/omniauth/omniauth) which is a Ruby gem that standardizes the authentication process. It uses the [OAuth](https://oauth.net/) protocol for authenticating and authorizing users. **OAuth** is an open standard for authorization, commonly used as a way for users to log in websites using 3rd-party credentials (like Google, Facebook, Twitter, etc) without exposing their password.
+We are going to use a few new tools to accomplish our goal of user authentication and authorization. We are going to work with GitHub as our **provider** which means our users will log in via their GitHub credentials. We will use [OmniAuth](https://github.com/omniauth/omniauth) which is a Ruby gem that standardizes the authentication process. It uses the [OAuth](https://oauth.net/) protocol for authenticating and authorizing users. **OAuth** is an open standard for authorization, commonly used as a way for users to log in websites using 3rd-party credentials (like Google, Facebook, Twitter, etc) without exposing their password.
 
 ![OAuth Overview](./images/oauth-overview.png)
 
 ## OmniAuth
-The **OmniAuth** gem provides pretty much everything you need to use OAuth to authenticate users. It starts by adding new routes to your application:
+The **OmniAuth** gem provides pretty much everything you need to use OAuth to authenticate users. It starts by adding a new route to your application:
 
 - `/auth/:provider`
 - `/auth/:provider/callback`
@@ -254,7 +255,7 @@ Lastly in our `/app/views/layouts/application.html.erb` file we can add links to
   <%= link_to "Login with Github", "/auth/github" %>
 ```
 
-**Question**: How could you display the name or email address of the logged-in user? 
+**Question**: How could you display the name or email address of the logged-in user?
 
 ## Additional Resources
 - [oauth Overview Notes](https://docs.google.com/presentation/d/1lIQ4F8gpXwaIEBHlsussoIEN31sqCY2upGIV_L81zi4)
