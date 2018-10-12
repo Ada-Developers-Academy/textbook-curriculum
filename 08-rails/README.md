@@ -35,4 +35,5 @@
 1. [Rails Testing Setup](test-setup.md)
 1. [Unit Testing Models](test-models.md)
 1. [The Test Database](test-the-test-database.md)
+1. [Intro to Integration Testing](test-integration-intro.md)
 1. [Unit Testing Controllers](test-controllers.md)
