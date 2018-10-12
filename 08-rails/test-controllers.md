@@ -1,4 +1,7 @@
 # Unit Testing Controllers
+
+Controller tests are all about how your website responds to the user. This includes a friendly user doing what they should, a curious user banging into things, and a malicious user trying to break your site. This makes it a little different from the testing we've seen before.
+
 ## Learning Goals
 - Identify the matchers we can utilize with controllers
 - Setup controller tests with HTTP verb and action
@@ -6,54 +9,18 @@
 - Utilize fixture data to populate parameters
 - Understand what sort of functionality ought to be covered by a controller test
 
+## Controller Testing Tools
+Controller tests are all about verifying all the pieces of a Rails application work together for realistic user workflows. This means we need to be able to send requests from our tests, and to check the responses. To do this, we need a bit of extra testing infrastructure.
 
-## What Kind of Thing Should You Test in the Controller?
-Controller tests are all about how your website responds to the user. This includes a friendly user doing what they should, a curious user banging into things, and a malicious user trying to break your site. This makes it a little different from the testing we've seen before.
+There are several helper methods that let us send requests from our controller tests. They look like this:
 
-### Controller Inputs & Outputs
+```ruby
+get books_path
+```
 
-What information does a controller depend on?  The browser makes a request to Rails with the following items:
+There is a helper method for each HTTP verb, and each helper method takes the path as an argument. Every controller test we write will call at least one of these helper methods (this is the _Act_ step of the test).
 
--   An HTTP Verb & Path (the route)
--   The request body, including any form values
--   Cookie settings (session, to be discussed later)
-
-The Rails router takes these inputs and forwards them to a matching controller (if any).
-
-The Rails server uses these inputs and **the current state of the database** to perform it's task.
-
-The controller will then run and provide the following outputs:
-
--   An HTTP Response code such as 200 OK, 404 Not Found, redirect, etc
--   Cookie settings (session & flash)
--   Changes to the database
-
-![Controller inputs & Outputs](images/TestingControllers2.png)
-
-<!-- Image source:  https://www.draw.io/#G1eHnA4Fko9GRA8wi5fwHs66UKKJv-C_Gz -->
-
-When we test the controller we will provide the given inputs and verify that controller responds with the correct response code, cookie settings and database changes.
-
-Exactly what's worth testing depends on your site, but here are some general guidelines.
-- If your controller action reads a Model ID from the URL, you need at least 2 cases:
-  - The ID corresponds to a model in the DB
-  - The ID is not found in the DB
-- If your controller action reads form data and creates a model object, you need at least 2 cases:
-  - The data was valid
-  - The data was bad and validations failed
-- If your controller action reads something like a user ID from the session (we'll talk about this soon), you need 2 or more cases:
-  - Someone is logged in
-  - No one is logged in
-  - If the action touches a Model that belongs to a user, then you also need to test when the wrong user is logged in
-
-That's not an exhaustive list, but it's a good starting point.
-
-In general, controller tests should operate at a higher level than Model tests. For example, in Model testing you need 2 or more test cases for every validation.  When testing the corresponding Controller you only need to test the case where all validations pass, and the case where one or more fail, since those are the two different behaviors your Controller action can exhibit. You do, however, need to test those cases for both the `create` and `update` actions.
-
-## So that's what I test, now how do I write them?
-
-### Expectations
-In controller tests, you have several new expectations to use:
+Rails controller tests also add several new expectations to use:
 1. Testing for a correct HTTP status code in response
 1. Testing that a controller redirects correctly
 1. Testing that a model is updated
@@ -77,7 +44,6 @@ must_redirect_to controller: 'post', action: 'index'
 ```
 
 **Question:**  What is one example of a controller action that commonly redirects the user?
-
 
 ## Testing the index action
 
@@ -112,9 +78,7 @@ Once you have finished you can see a solution [here.](code_samples/show_controll
 
 You can see completed tests for `new` and `edit` actions [here.](code_samples/edit_new_controller_tests.rb)
 
-
 ## Testing Database Changes
-
 
 Lastly, we must ensure that the controller action appropriately changes the related model for the `destroy`, `create` and `update` actions.  We'll see how to use the `must_change` matcher with some examples later on.
 

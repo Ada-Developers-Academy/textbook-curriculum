@@ -1,23 +1,25 @@
 # User Authentication and Authorization using OAuth
 ## Learning Goals
-- Discover what's really happening when we "Sign in with Facebook" (or any other 3rd party provider)
+At the end of this lesson, students should be able to...
+
+- Describe what happens when you "Sign in with Facebook" (or any other 3rd party provider)
 - Understand the basic workflow of OAuth, and how it protects users
 - Implement user login/logout using GitHub as an _OAuth provider_
-- What is an environment variable?
-- How do we deal with needing to know data _across_ multiple HTTP requests?
+- Define and use _environment variables_ in Rails
 
 ## Our Approach
-We are going to use a few new tools to accomplish our goal of user authentication and authorization. We are going to work with GitHub as our **provider** which means our users will log in via their GitHub credentials. We will use  [OmniAuth](https://github.com/omniauth/omniauth) which is a Ruby gem that standardizes the authentication process. It uses the [OAuth](https://oauth.net/) protocol for authenticating and authorizing users. **OAuth** is an open standard for authorization, commonly used as a way for users to log in websites using 3rd-party credentials (like Google, Facebook, Twitter, etc) without exposing their password.
+We are going to use a few new tools to accomplish our goal of user authentication and authorization. We are going to work with GitHub as our **provider** which means our users will log in via their GitHub credentials. We will use [OmniAuth](https://github.com/omniauth/omniauth) which is a Ruby gem that standardizes the authentication process. It uses the [OAuth](https://oauth.net/) protocol for authenticating and authorizing users. **OAuth** is an open standard for authorization, commonly used as a way for users to log in websites using 3rd-party credentials (like Google, Facebook, Twitter, etc) without exposing their password.
 
 ![OAuth Overview](./images/oauth-overview.png)
 
 ## OmniAuth
-The **OmniAuth** gem provides pretty much everything you need to use OAuth to authenticate users. It starts by adding new routes to your application:
+The **OmniAuth** gem provides pretty much everything you need to use OAuth to authenticate users. It starts by adding a new route to your application: `/auth/:provider`.
 
-- `/auth/:provider`
-- `/auth/:provider/callback`
+`:provider` is a named parameter that will equal the name of the service we are using (`github`, in this example). When a user visits this route, OmniAuth will redirect the user to GitHub, beginning the authentication process. _All of this is handled automatically by OmniAuth_ - we do not have to define the route or the controller action ourselves.
 
-In both of these examples `:provider` is a named parameter that will equal the name of the service we are using (`github`, in this example). These two routes are how to start and end the authentication interaction with the provider. Sending the user to `/auth/github`, will start the authentication process. When authentication is complete, GitHub will redirect the user to `/auth/github/callback`. It goes something like this:
+Once the user has OKed our application, GitHub will redirect the user to `/auth/github/callback`, along with information about who they are. At this point, it's up to our application what to do next. Because the next steps are less prescribed, OmniAuth does not do this for us - _we will need to define the callback route and controller action ourselves_.
+
+The whole thing goes something like this:
 
 ![OmniAuth Dance](./images/omniauth.png)
 
@@ -29,7 +31,7 @@ gem "omniauth"
 gem "omniauth-github"
 ```
 
-Save your Gemfile, then head over to your terminal, where you'll need to `$ bundle`. Notice that there's a specific gem for authenticating with GitHub. Each _provider_ has a small Ruby gem that's responsible for the specifics of how to authenticate with that service.
+Save your Gemfile, then head over to your terminal, where you'll need to `$ bundle` (and restart your rails server). Notice that there's a specific gem for authenticating with GitHub. Each _provider_ has a small Ruby gem that's responsible for the specifics of how to authenticate with that service.
 
 ### GitHub Credentials
 Each provider requires you to provide some credentials for your application, so they can keep track of which website is authorizing which user. [Login to GitHub and register a new "application"](https://github.com/settings/applications/new).
@@ -57,25 +59,32 @@ To use a `.env` file with Rails, you **must** do all of these steps to gain acce
 
 1. Create the `.env` file in the root directory with `$ touch .env`.
 
-  This file is a collection of key/value pairs. We will add the application credentials from GitHub like this:
+    This file is a collection of key/value pairs. We will add the application credentials from GitHub like this:
 
-  ```bash
-  GITHUB_CLIENT_ID: fd6XXXXXXXX
-  GITHUB_CLIENT_SECRET: y6wXXXXXXX
-  ```
+    ```bash
+    GITHUB_CLIENT_ID: fd6XXXXXXXX
+    GITHUB_CLIENT_SECRET: y6wXXXXXXX
+    ```
+
+1. Restart the Rails server. Similar to installing new gems, changes to the `.env` file will not be picked up without a server restart.
 
 **With that done, the GitHub application credentials will now be available to Rails via the `ENV` constant.**
 
 #### Accessing Credentials
-Now that you have application credentials, let's configure Rails to use them. To do this, create a new _initializer file_. **Initializers are files that run as part of the Rails start-up process**. Initializers go in the `config/initializers/` directory. From the terminal, create a new initializer with `$ touch config/initializers/omniauth.rb`. Open this file and add the following code:
+Now that you have application credentials, let's configure Rails to use them. To do this, create a new _initializer file_. Initializers are files that run as part of the Rails start-up process, which means that **if you change an initializer, you must restart the server**.
+
+Initializers go in the `config/initializers/` directory. From the terminal, create a new initializer with `$ touch config/initializers/omniauth.rb`. Open this file and add the following code:
 
 ```ruby
+# config/initializers/omniauth.rb
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :github, ENV["GITHUB_CLIENT_ID"], ENV["GITHUB_CLIENT_SECRET"], scope: "user:email"
 end
 ```
 
-This tells Rails to use OmniAuth for authentication. Specifically, it tells Rails that it will be communicating with GitHub, and where it can find the application credentials that GitHub expects: in the `ENV` variable we populated earlier. **Note** that any code added or updated in the initializers will require a rails server restart since this code is loaded when the server is started.
+This tells Rails to use OmniAuth for authentication. Specifically, it tells Rails that it will be communicating with GitHub, and where it can find the application credentials that GitHub expects: in the `ENV` variable we populated earlier.
+
+Now restart the server so that the initializer is run.
 
 ## Let's Test it Out
 
@@ -138,7 +147,12 @@ Remember to migrate the database: `$ rails db:migrate`.
 **Question**: What do we want our controller method to do upon successful or unsuccessful login?
 
 ### Handling the Auth Callback
-Now everything is in place to initialize a User using the hash that is returned from the provider request:
+In the auth callback, we will have access to a bunch of credentials about the user from GitHub. We'll follow this strategy to turn that into a logged in user:
+
+1. Check if there's already a `User` record matching those credentials in our database
+1. If there is no existing `User`, try to create a new `User`
+1. Save the user's ID in the `session` (just like we did previously)
+1. Redirect the user back to the `root_path`
 
 ```ruby
 # app/controllers/sessions_controller.rb
@@ -146,47 +160,26 @@ Now everything is in place to initialize a User using the hash that is returned 
 class SessionsController < ApplicationController
   def create
     auth_hash = request.env['omniauth.auth']
-
-    if auth_hash['uid']
-      @user = User.find_by(uid: auth_hash[:uid], provider: 'github')
-      if @user.nil?
-        # User doesn't match anything in the DB
-        # Attempt to create a new user
-      else
-        flash[:success] = "Logged in successfully"
-        redirect_to root_path
-      end
+    user = User.find_by(uid: auth_hash[:uid], provider: 'github')
+    if user
+      # User was found in the database
+      flash[:success] = "Logged in as returning user #{user.name}"
     else
-      flash[:error] = "Could not log in"
-      redirect_to root_path
+      # User doesn't match anything in the DB
+      # TODO: Attempt to create a new user
     end
+
+    session[:user_id] = user.id
+    redirect_to root_path
   end
 end
 ```
 
-**Exercise**: Let's implement a new model method in our `User` model which will accept the `auth_hash` as a parameter and construct a new `User` and save it to the database using the info from the `auth_hash`.
+Recall that before the `session` is sent to the browser it is encrypted. This means its contents are _opaque_ to the browser. All the browser sees is several KB of garbled nonsense, which it can neither interpret nor change. This makes the `session` ideal for things like storing the ID of an authenticated user, since there's no way for a malicious browser to fake a login.
 
-Now that we've successfully authenticated a user and built a database entry for them, what happens next? The login ought to be _persistent_ - that is, the user should be logged in as long as they are on the site, even if they move from page to page. Moreover, we don't want to embed the user ID in the URI, since then you could impersonate a user just by changing the address.
+**Exercise**: Let's implement a new class method in our `User` model which will accept the `auth_hash` as a parameter and construct a new `User` and save it to the database using the info from the `auth_hash`. [You can see our solution here](code_samples/oauth_build_from_github.rb).
 
-<!--
-```ruby
-# app/models/user.rb
-class User < ActiveRecord::Base
-
-  def self.build_from_github(auth_hash)
-   user       = User.new
-   user.uid   = auth_hash[:uid]
-   user.provider = 'github'
-   user.name  = auth_hash['info']['name']
-   user.email = auth_hash['info']['email']
-     return user
-  end
-end
-```-->
-
-#### The `session`
-
-The most common use of `session` is to store the id of an authenticated user. From within a controller, we can get and set `session` keys using the familiar hash access syntax:
+Now that we've got this model method, we can implement the final version of our auth callback:
 
 ```ruby
 # app/controllers/sessions_controller.rb
@@ -194,32 +187,37 @@ class SessionsController < ApplicationController
   def create
     auth_hash = request.env['omniauth.auth']
 
-    if auth_hash['uid']
-      user = User.find_by(uid: auth_hash[:uid], provider: 'github')
-      if user.nil?
-        # User doesn't match anything in the DB
-        # Attempt to create a new user
-        user = User.build_from_github(auth_hash)
-      else
-        flash[:success] = "Logged in successfully"
-        redirect_to root_path
-      end
+    user = User.find_by(uid: auth_hash[:uid], provider: 'github')
+    if user
+      # User was found in the database
+      flash[:success] = "Logged in as returning user #{user.name}"
 
-      # If we get here, we have the user instance
-      session[:user_id] = user.id
     else
-      flash[:error] = "Could not log in"
-      redirect_to root_path
-    end
-  end
+      # User doesn't match anything in the DB
+      # Attempt to create a new user
+      user = User.build_from_github(auth_hash)
 
-  def index
-    @user = User.find(session[:user_id]) # < recalls the value set in a previous request
+      if user.save
+        flash[:success] = "Logged in as new user #{user.name}"
+
+      else
+        # Couldn't save the user for some reason. If we
+        # hit this it probably means there's a bug with the
+        # way we've configured GitHub. Our strategy will
+        # be to display error messages to make future
+        # debugging easier.
+        flash[:error] = "Could not create new user account: #{user.errors.messages}"
+        redirect_to root_path
+        return
+      end
+    end
+
+    # If we get here, we have a valid user instance
+    session[:user_id] = user.id
+    redirect_to root_path
   end
 end
 ```
-
-Before the `session` is sent to the browser it is encrypted. This means its contents are _opaque_ to the browser. All the browser sees is several KB of garbled nonsense, which it can neither interpret nor change. This makes the `session` ideal for things like storing the ID of an authenticated user, since there's no way for a malicious browser to fake a login.
 
 ## Wait!  How Do I Log Out!
 
@@ -252,16 +250,17 @@ Lastly in our `/app/views/layouts/application.html.erb` file we can add links to
   <%= link_to "Log out", logout_path, method: "delete"   %>
 <% else %>
   <%= link_to "Login with Github", "/auth/github" %>
+<% end %>
 ```
 
-**Question**: How could you display the name or email address of the logged-in user? 
+**Question**: How could you display the name or email address of the logged-in user?
+
+If you are making changes and end up getting stuck, you may need to [clear your browser's cookies](https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DDesktop&hl=en).
 
 ## Additional Resources
-*  [oauth Overview Notes](https://docs.google.com/presentation/d/1lIQ4F8gpXwaIEBHlsussoIEN31sqCY2upGIV_L81zi4)
-*  [oAuth Youtube video overview](https://youtu.be/CPbvxxslDTU)
-*  [Sessions, Cookies and Authentication ](http://www.theodinproject.com/courses/ruby-on-rails/lessons/sessions-cookies-and-authentication)(not including 'Rolling Your Own Auth')  
-*  [How Sessions Work](http://www.justinweiss.com/articles/how-rails-sessions-work/)  
-[Rails Guides: Accessing the Session](http://guides.rubyonrails.org/action_controller_overview.html#accessing-the-session)
-*  [How to Set Environment Variables in Heroku](https://devcenter.heroku.com/articles/config-vars)
-*  [Logout Route delete or get?](https://stackoverflow.com/questions/26018471/routing-trouble-for-logout-link-delete-vs-get-action)
-*  [Stack Overflow: Create named routes for OmniAuth](https://stackoverflow.com/questions/4361994/create-named-routes-for-omniauth-in-rails-3?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa)
+- [oauth Overview Notes](https://docs.google.com/presentation/d/1lIQ4F8gpXwaIEBHlsussoIEN31sqCY2upGIV_L81zi4)
+- [oAuth Youtube video overview](https://youtu.be/CPbvxxslDTU)
+- [Sessions, Cookies and Authentication ](http://www.theodinproject.com/courses/ruby-on-rails/lessons/sessions-cookies-and-authentication)(not including 'Rolling Your Own Auth')  
+- [How to Set Environment Variables in Heroku](https://devcenter.heroku.com/articles/config-vars)
+- [Logout Route delete or get?](https://stackoverflow.com/questions/26018471/routing-trouble-for-logout-link-delete-vs-get-action)
+- [Stack Overflow: Create named routes for OmniAuth](https://stackoverflow.com/questions/4361994/create-named-routes-for-omniauth-in-rails-3?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa)

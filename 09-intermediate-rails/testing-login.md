@@ -7,23 +7,7 @@
 - Set up OmniAuth for testing
 - Understand what test mocking is
 
-## Integration Testing
-**Integration testing** is a kind of testing that is distinct from _unit testing_, which is what we've used primarily until now. While unit tests focus on a very specific piece of code, usually a single method, integration tests are about testing how multiple units work together to produce larger-scale program behavior.
-
-### Example
-|  Test Type  | Test | Scope of the test |
-|:------------|:-----|:------------------|
-| Unit        | Verify that a `Book` model's `valid?` method returns `false` when its `title` attribute is blank. | The test checks the behavior of a single method within a single class. |
-| Integration | Verify that filling out a form to create a new book and leaving the title field empty does not create a new `Book` in the database. | The test checks how the `valid?` method combines with the database persistence code, the routes configuration, and the controller code. |
-
-### Where we use integration testing
-All of our model tests, as well as all of the tests we wrote before Rails, are unit tests. On the other hand, all of our controller tests are integration tests.
-
-This is a natural dichotomy because controllers, when following the "heavy model, light controller" approach, are mostly "glue" between models and views. If you try to strip them of their entire context, as you should with a unit test, there's not much to test.
-
-So instead we create integration tests which _use_ the controller actions we've defined, but also involve testing additional code from the models and routes.
-
-### How to use integration tests in Rails
+## Review: Integration Tests in Rails
 Because our integration tests are going to run code from all areas of our Rails app (models, views, controllers, and routes), we need to write our tests from the perspective of something outside of our application.
 
 Specifically, we need to write our integration tests _in the role of the **browser**_. That is, our integration tests simulate a browser accessing our site by making HTTP requests to the server. Just like the browser, our test code is limited to making those requests and asserting various things about the response received back.
@@ -45,7 +29,7 @@ This approach would have worked great for MediaRanker, but now that we've added 
 - We'd need real GitHub usernames and passwords for our tests
 - This introduces GitHub as a **dependency** to our tests. If talking to GitHub is slow then our tests will be slow, and if GitHub is down then our tests will fail even though our code is correct.
 
-To resolve these issues, we'll use a strategy known as **mocking**. The basic idea is when we're running our test, instead of going all the way to GitHub for user data we'll short-circuit the process and use some made up data instead.
+To resolve these issues, we'll use a strategy known as **mocking**. The basic idea is when we're running our test, instead of going all the way to GitHub for user data we'll short-circuit the process and use some made-up data instead.
 
 ### Mocking GitHub OAuth
 
@@ -53,7 +37,7 @@ Here is how we are going to approach this problem:
 
 1. Tell OmniAuth to use mock data instead of connecting to GitHub
 1. Define some test fixtures for the `User` model
-1. Define a `login` function for our tests that sends the login request using fixture data
+1. Define a `perform_login` function for our tests that sends the login request using fixture data
 1. Test controller actions that require login!
 
 #### Turn on Mocking
@@ -81,10 +65,9 @@ The `setup` method defined here will be run once, before all tests. All of our `
 
 #### Define Test Fixtures
 
-These test fixtures are very similar to those we've made in the past. The only difference is in how we'll use them, not in how they are defined. Make sure the field names match the schema for your User model (this may differ slightly between Stacks and Queues).
+These test fixtures are very similar to those we've made in the past. The only difference is in how we'll use them, not in how they are defined. Make sure the field names match the schema for your User model.
 
-<!-- TODO: Add yml highlighting before finishing -->
-```
+```yml
 ada:
   oauth_provider: github
   oauth_uid: 12345
@@ -95,7 +78,7 @@ grace:
   oauth_provider: github
   oauth_uid: 13371337
   email: grace@hooper.net
-  username: graceful_hoops
+  username: graceful_hopps
 ```
 
 #### Logging In
@@ -211,7 +194,7 @@ We're going to be using this login functionality a lot, so let's add it as a hel
 
 ```ruby
 # test/test_helper.rb
-def login(user)
+def perform_login(user)
   OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(mock_auth_hash(user))
   get auth_callback_path(:github)
 end
@@ -227,7 +210,7 @@ it "logs in an existing user" do
   start_count = User.count
   user = users(:grace)
 
-  login(user)
+  perform_login(user)
   must_redirect_to root_path
   session[:user_id].must_equal  user.id
 
@@ -237,106 +220,6 @@ end
 ```
 
 Much neater!
-
-### Interacting with Books
-
-Recall that last time we added a line like the following to `BooksController`:
-
-```ruby
-before_action :require_login, except [:index]
-```
-
-This made it impossible for a user to do anything but list books before logging in. If you really think about it, this actually gives us two bits of functionality for each action:
-- If the user is logged in, they can do a thing to a book
-- If the user is **not** logged in, when they attempt to do a thing to a book they get redirected to the root path with an error message
-
-This new functionality means we need a new test case for each controller action, to verify access is correctly restricted.
-
-To accomplish this, let's start by splitting our books tests in two using nested describe blocks:
-
-```ruby
-# books_controller_test.rb
-describe BooksController do
-  describe "Logged in users" do
-    # most of our existing tests go here since they
-    # assume a logged-in user
-  end
-
-  describe "Guest users" do
-    # we allow only the book index page for our guest users
-    # so we'll want to verify the redirect to root and message for these
-  end
-end
-```
-
-#### Logged In Users
-
-These tests require the user to be logged in. We can accomplish this using a `before` block, which will run before every test:
-
-```ruby
-# books_controller_test.rb
-describe BooksController do
-  describe "Logged in users" do
-    before do
-      login(users(:grace))
-    end
-
-    describe "show" do
-      # Just the standard show tests
-      it "succeeds for a book that exists" do
-        book_id = Book.first.id
-        get book_path(book_id)
-        must_respond_with :success
-      end
-
-      it "returns 404 not_found for a book that D.N.E." do
-        book_id = Book.last.id + 1
-        get book_path(book_id)
-        must_respond_with :not_found
-      end
-    end
-
-    # ...
-    # Tests for other actions
-    # ...
-  end
-
-  describe "Guest users" do
-  end
-end
-```
-
-**Question:** If we made a rule that users can only edit and delete books that they added to the site, how would this affect our testing?
-
-#### Guest Users
-
-For our guest users, we need to verify that access is restricted to everything but `index`.
-
-```ruby
-# books_controller_test.rb
-describe BooksController do
-  describe "Logged in users" do
-    # See above section
-  end
-
-  describe "Guest users" do
-    it "can access the index" do
-      get books_path
-      must_respond_with :success
-    end
-
-    it "cannot access new" do
-      get new_book_path
-      must_redirect_to root_path
-      flash[:message].must_equal "You must be logged in to see that page!"
-    end
-
-    # ...
-    # Similarly for other controller actions
-    # ...
-  end
-end
-```
 
 ## What Did We Accomplish?
 
@@ -350,9 +233,6 @@ end
   - Added a method to turn a model back into a (mocked) auth hash
 - Wrote tests for our login controller using fixture data
 - Moved the login functionality to it's own test helper method, again in `test/test_helper.rb`
-- Split our `BooksController` tests based on whether the user is logged in or not
-  - Tests for a logged-in user look very similar to what we had previously, we just had to add a `before` block
-  - Tests for a guest user are all about what you can't do
 
 ## Additional Resources
 - [OmniAuth Integration Testing](https://github.com/omniauth/omniauth/wiki/Integration-Testing)
