@@ -206,7 +206,7 @@ end
 ```
 
 ## Controllers & Form Data
-Submitting a form results in the form data being collected into the _params hash_. The structure of form data follows the same patterns as in other frameworks. This means we can leverage creative naming in the HTML (like `book[author]`) to create well structured objects in the _params hash_.
+Submitting a form results in the form data being collected into the _params hash_.  Rails formats the data into a sub-hash inside params where `books` is the key and the value is a hash with key-value pairs matching the form controls.
 
 If we submitted the `form_for` example above, the params hash would arrive in our _controller action_ looking something like:
 
@@ -233,7 +233,13 @@ def create
 end
 ```
 
-<!-- TODO Add image linking form fields to params -->
+Notice that we pull the title field from the submitted form with `params[:book][:title]`.  Rails notices the submitted form fields following the pattern of: `id="book[title]"` and formats the params hash to create a sub-hash to match.  All of this happens transparently behind-the-scenes as long as you follow the Rails _convention_.  
+
+<!-- Image source https://www.lucidchart.com/documents/edit/7929dd38-2d2f-4113-97b5-139ffe802bc5/0 -->
+
+## Visual Representation
+
+![chart showing the actions of form_with through the `create` action](images/railsForms.png)
 
 ## Note on `form_tag` and `form_for`
 
