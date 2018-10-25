@@ -8,7 +8,7 @@
 
 Web api's are requested using HTTP, this means that many tools and any programming language can make requests. Ruby has **many** tools to make HTTP requests:
 
-- [HTTParty](http://httparty.rubyforge.org): Just a few features, great to use for learning and simple requests
+- [HTTParty](https://github.com/jnunemaker/httparty): Just a few features, great to use for learning and simple requests
 - [Net::HTTP](http://ruby-doc.org/stdlib-2.1.0/libdoc/net/http/rdoc/Net/HTTP.html): Standard Ruby library.
 - [Typheous](https://github.com/typhoeus/typhoeus): Advanced functionality such as parallel requests and streaming.
 
@@ -83,7 +83,7 @@ With this class we can now easily use the Dog CEO API. We can also test or exten
 
 ### Practice
 
-Try out a few APIs using your browser and the [HTTParty gem](http://httparty.rubyforge.org), We've supplied one example request with each api, try to read through the api and figure out a different action to use.
+Try out a few APIs using your browser and the [HTTParty gem](https://github.com/jnunemaker/httparty), We've supplied one example request with each api, try to read through the api and figure out a different action to use.
 
 - [Google Books](https://developers.google.com/books/docs/v1/getting_started)
     - `https://www.googleapis.com/books/v1/volumes?q=<search term>`
