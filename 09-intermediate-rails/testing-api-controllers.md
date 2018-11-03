@@ -14,7 +14,7 @@ Earlier we learned to create API endpoints.  Now we will write controller tests 
 When testing a normal controller, we normally do **not** test the body of the response, because HTML and styling often change.  However an API endpoint should return consistently formatted JSON data.  Therefore we will write tests to verify the body of the response!
 
 
-## Testing the `get '/pets'` Endpoint
+## Testing the `get '/pets'` endpoint
 
 First we will write a test to verify that the route works.  This test should look mostly familiar:
 
@@ -79,13 +79,13 @@ end
 
 In the tests above we verify that the JSON response contains an array with the proper number of elements, and that each element of the array is a JSON hash with the required fields.
 
-## Exercise #1:  Write tests for the show action
+## Exercise:  Write tests for the show action
 
 Now with your partner, write tests for the `show` action.  If you get stuck you can find a solution [here](./code_samples/pet_controller_test.rb).
 
 ## Summary
 
-We have introduced controller testing for an API application.  In a controller test for an API, you can also test the body of the response and verify the expected data is being transmitted.  We also used the `JSON.parse` method to convert the JSON object into a Ruby Hash object.  
+We have introduced controller testing for an API application.  In a controller test for an API, you can also test the body of the response and verify the expected data is being transmitted.  We also used the `JSON.parse` method to convert the JSON object into a Ruby Hash object.
 
 ## Resources
 - [`.as_json` documentation](http://api.rubyonrails.org/classes/ActiveModel/Serializers/JSON.html#method-i-as_json)
