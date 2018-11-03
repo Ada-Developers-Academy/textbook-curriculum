@@ -88,7 +88,4 @@ Now with your partner, write tests for the `show` action.  If you get stuck you 
 We have introduced controller testing for an API application.  In a controller test for an API, you can also test the body of the response and verify the expected data is being transmitted.  We also used the `JSON.parse` method to convert the JSON object into a Ruby Hash object.
 
 ## Resources
-- [`.as_json` documentation](http://api.rubyonrails.org/classes/ActiveModel/Serializers/JSON.html#method-i-as_json)
-- [ActiveModel Serializers](http://railscasts.com/episodes/409-active-model-serializers)
-- [blog post by thoughtbot about serialization](http://robots.thoughtbot.com/better-serialization-less-as-json)
-- [Rails API Development Guide](http://edgeguides.rubyonrails.org/api_app.html)
+- [Testing a Rails API](https://www.learnhowtoprogram.com/rails/building-an-api/testing-a-rails-api)
