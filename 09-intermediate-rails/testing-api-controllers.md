@@ -83,6 +83,8 @@ In the tests above we verify that the JSON response contains an array with the p
 
 Now with your partner, write tests for the `show` action.  If you get stuck you can find a solution [here](./code_samples/pet_controller_test.rb).
 
+**Question:** What tests would you need to write for the `create` action?  Check with a partner and then review the tests written [here](./code_samples/pet_controller_test.rb).
+
 ## Summary
 
 We have introduced controller testing for an API application.  In a controller test for an API, you can also test the body of the response and verify the expected data is being transmitted.  We also used the `JSON.parse` method to convert the JSON object into a Ruby Hash object.
