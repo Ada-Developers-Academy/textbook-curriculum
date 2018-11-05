@@ -12,7 +12,7 @@ Last week, we learned about using APIs that already exist. Now, our goal is to c
 
 When creating an API, usually the goal is to provide data to a consumer, whether that be a human (not normally) or another system (usually). This could be a mobile app, a single-page application written in JavaScript, or something else entirely.
 
-![diagram from ](./images/api-diagram.jpg)http://www.mukeshkumar.net/articles/web-api
+![diagram from http://www.mukeshkumar.net/articles/web-api](./images/api-diagram.jpg)
 
 #### Vocabulary
 | Word | Definition | Example

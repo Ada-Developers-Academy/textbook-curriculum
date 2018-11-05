@@ -10,7 +10,7 @@ A web API is a programmatic interface to request and deliver data using HTTP. Th
 
 APIs interact using HTTP so all that we've learned about the response-request cycle in Rails will apply to the way we'll use APIs as well.
 
-![diagram from http://www.mukeshkumar.net/articles/web-api](./images/api-diagram.jpg)
+![diagram from http://www.mukeshkumar.net/articles/web-api ](./images/api-diagram.jpg)
 
 ## Data Formats
 APIs use specific data formats because the only way for computers to interact with one another is by agreeing upon the way that communication will happen. Generally this communication happens using some kind of text format. Typically API data is JSON or XML. Most modern web API's use JSON, but plenty of XML APIs are still in use.
