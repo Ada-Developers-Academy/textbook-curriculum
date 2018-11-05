@@ -44,6 +44,12 @@ class PetsControllerTest < ActionDispatch::IntegrationTest
       get pet_path(pets(:two).id)
       must_respond_with :success
     end
+    
+    it "responds with a 404 message if no pet is found" do
+      id = -1
+      get pet_path(id)
+      must_respond_with: :not_found
+    end
   end
 
   describe "create" do
