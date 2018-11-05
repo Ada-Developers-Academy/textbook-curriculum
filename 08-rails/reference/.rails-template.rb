@@ -111,6 +111,7 @@ Minitest::Reporters.use!(
   end
 
   puts "Successfully generated a new Rails app using the Ada Developers Academy template"
+  puts "This is template version 1 (intro Rails)"
   puts "You are on..."
   puts ADA_RAILS
 end
