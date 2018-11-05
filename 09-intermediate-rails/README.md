@@ -20,3 +20,5 @@
 1. [Testing The lib folder](./testing-lib-classes.md)
 1. [VCR Testing](./vcr-testing.md)  
 1. [Creating an API](./creating-apis.md)
+1. [Testing an API](./testing-api-controllers.md)
+
