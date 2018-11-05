@@ -2,6 +2,16 @@ puts "Executing the Rails template"
 API_MODE = ARGV.include? '--api'
 puts "API mode: #{API_MODE}"
 
+# Generated with figlet
+ADA_RAILS = <<-FIGLET
+    _       _         ____       _ _
+   / \\   __| | __ _  |  _ \\ __ _(_) |___
+  / _ \\ / _` |/ _` | | |_) / _` | | / __|
+ / ___ \\ (_| | (_| | |  _ < (_| | | \\__ \\
+/_/   \\_\\__,_|\\__,_| |_| \\_\\__,_|_|_|___/
+
+FIGLET
+
 unless API_MODE
   # jQuery is cool
   gem 'jquery-rails'
@@ -126,4 +136,8 @@ Minitest::Reporters.use!(
 )
     RUBY
   end
+
+  puts "Successfully generated a new Rails app using the Ada Developers Academy template"
+  puts "You are on..."
+  puts ADA_RAILS
 end
