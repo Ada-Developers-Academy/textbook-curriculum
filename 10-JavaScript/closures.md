@@ -245,6 +245,9 @@ console.log(f(300)); // 310
 Any of the various ways that functions can be passed around as __values__, and invoked in other locations, are all examples of observing/exercising closure.
 
 ### Additional Resources
+
+- [I never understood JavaScript closures...](https://medium.com/dailyjs/i-never-understood-javascript-closures-9663703368e8)
+- [Video: Understanding Closures](https://www.youtube.com/watch?v=rBBwrBRoOOY)
 - [Closures](http://javascriptissexy.com/understand-javascript-closures-with-ease/)
 - [MDN on Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
 - [Diagram Link](https://www.lucidchart.com/invitations/accept/21e6a308-154a-47ef-980b-99a1917ce6af)
