@@ -3,10 +3,11 @@
 This lesson assumes that you're comfortable with ES6 arrow function syntax, and that you have spent at least a little time using jQuery to manipulate the DOM and handle events.
 
 ## Learning Goals
-By the end of this lesson you should be able to:
+By the end of this lesson, students should be able to...
 
-- Explain, "What's a _closure_ and why's it important?"
-- Identify closures when they occur in code.
+- Identify closures when they occur in code
+- Explain why closures are important and useful
+- Enumerate the three steps to create a closure in JavaScript
 
 ## Introduction
 
