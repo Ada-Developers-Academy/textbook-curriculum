@@ -125,39 +125,48 @@ firstInc();  // This is call number 4 for function first
 Note that we reference a parameter of the outer function. Parameters are a special type of local variables, so they work for closures as well.
 
 ![closure diagram](./images/closure-diagram.png)
+<!-- https://www.draw.io/#G18RoR2FDhey0XMYD5GLZinnug9p2ksL2u -->
 
-## Closure SeatSquad Exercises
+## Closures with jQuery
 
-Take a look at the following codepens, make sure to open your Dev Tools to see the console.
+Now that we've explored the concepts behind closures a bit, let's return to our [original example with the buttons](https://codepen.io/adadev/pen/ZmbMdq).
 
-- [Example 1](https://codepen.io/adadev/pen/gXXadg?editors=0010)
-- [Example 2](https://codepen.io/adadev/pen/gXXaQm?editors=0010)
-- [Example 3](https://codepen.io/anon/pen/wjQyEy?editors=1010)
+With your seat squad, look at the JavaScript code in that pen, open your Dev Tools to see the console, and answer the following questions:
+
+- What is the outer function?
+- What is the inner function?
+- What variable from the outer function is being referenced in the inner function?
+- How many different click handlers are created by this code?
+
+## Exercise: Reading Closures
+
+Take a look at the following codepens:
+
+- [Adder](https://codepen.io/adadev/pen/gXXaQm?editors=0010)
+- [Stopwatch](https://codepen.io/adadev/pen/GwpXmJ?editors=1010)
+- [Helpful Hints](https://codepen.io/adadev/pen/EbbVqq?editors=1010)
 
 With your SeatSquad, walk through the code and be able to identify in each example:
 1. Where is the closure?
 2. What does the code do?
 3. How does the closure take advantage of the outer function's variables?
 
-### Building a Closure Creating `makeAccumulator`
+## Exercise: Writing Closures
 
-Define a function named `makeAccumulator` that takes no arguments. It should create and return a function that takes __one__ argument and __returns a running total of all the arguments it has seen__. _E.g_ if `f` is the function returned by `makeAccumulator`, the first time you call `f(3)` it should return _3_, then if you call `f(2)`, it should return _5_. If you called `f(1000)` after that, it should return _1005_. Like this:
+- Start a new codepen (or a new HTML/JS project on your computer)
+- Add jQuery to the project (on codepen you can do this through the settings menu)
+- Add the following HTML:
+    ```html
+    <section id="buttons">
+      <button id="button-1">Click count: 0</button>
+      <button id="button-2">Click count: 0</button>
+      <button id="button-3">Click count: 0</button>
+    </section>
+    ```
+- Write JavaScript code to add a click event handler to each button that will keep track of how many times it has been clicked
+- How would you need to change your code to display 1000 buttons?
 
-```javascript
-let makeAccumulator = function() {
-  //you write this code
-  //it will return a function
-};
-
-let f = makeAccumulator();
-console.log(f(0)); // 0
-console.log(f(5)); // 5
-console.log(f(5)); // 10
-console.log(f(300)); // 310
-```
-
-### What Did We Learn?
-Any of the various ways that functions can be passed around as __values__, and invoked in other locations, are all examples of observing/exercising closure.
+### Summary
 
 ### Additional Resources
 
