@@ -148,8 +148,9 @@ Take a look at the following codepens:
 
 With your SeatSquad, walk through the code and be able to identify in each example:
 1. Where is the closure?
-2. What does the code do?
-3. How does the closure take advantage of the outer function's variables?
+1. What does the code do?
+1. How does the closure take advantage of the outer function's variables?
+1. How does the inner function "get out" of the outer function? Pay special attention to `Stopwatch` and `Helpful Hints`.
 
 ## Exercise: Writing Closures
 
@@ -166,12 +167,20 @@ With your SeatSquad, walk through the code and be able to identify in each examp
 - Write JavaScript code to add a click event handler to each button that will keep track of how many times it has been clicked
 - How would you need to change your code to display 1000 buttons?
 
-### Summary
+## Summary
 
-### Additional Resources
+- Closures are a technique for adding a bit of extra information to a function
+- In JavaScript, creating a closure requires 3 steps:
+    1. Create a function within a function
+    1. In the inner function, reference a local variable from the outer function
+    1. Make the inner function available outside the outer function
+        - Return it
+        - Register it as a callback
+- Closures are a very useful tool when defining behavior for repeated UI elements
 
-- [I never understood JavaScript closures...](https://medium.com/dailyjs/i-never-understood-javascript-closures-9663703368e8)
+## Additional Resources
+
+- [I never understood JavaScript closures until...](https://medium.com/dailyjs/i-never-understood-javascript-closures-9663703368e8)
 - [Video: Understanding Closures](https://www.youtube.com/watch?v=rBBwrBRoOOY)
 - [Closures](http://javascriptissexy.com/understand-javascript-closures-with-ease/)
 - [MDN on Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
-- [Diagram Link](https://www.lucidchart.com/invitations/accept/21e6a308-154a-47ef-980b-99a1917ce6af)
