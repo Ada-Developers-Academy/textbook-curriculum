@@ -7,11 +7,6 @@
 1. [Fun with Functions](fun-with-functions.md)
     - [Worksheet: Functions Practice](exercises/functions-worksheet.md)
     - [Exercise: JS Calculator](exercises/calculator.md)
-1. [Prototypical JS Objects](js-objects.md)
-  - [Worksheet: Classes Practice](exercises/objects-worksheet.md)
-1. [Classes](classes.md)
-    - [Worksheet: Classes Practice](exercises/classes-worksheet.md)
-    - [Exercise: Fortune](exercises/fortune.md)
 1. [Arrow Functions](arrow-functions.md)
 
 ## In the Browser: jQuery
@@ -26,3 +21,8 @@
 1. [Hoisting](hoisting.md)
 1. [Testing](testing.md)
 1. [Underscore Templates](underscore-templates.md)
+1. [Prototypical JS Objects](js-objects.md)
+    - [Worksheet: Classes Practice](exercises/objects-worksheet.md)
+1. [Classes](classes.md)
+    - [Worksheet: Classes Practice](exercises/classes-worksheet.md)
+    - [Exercise: Fortune](exercises/fortune.md)
