@@ -1,3 +1,15 @@
+puts "Executing the Rails template"
+
+# Generated with figlet
+ADA_RAILS = <<-FIGLET
+    _       _         ____       _ _
+   / \\   __| | __ _  |  _ \\ __ _(_) |___
+  / _ \\ / _` |/ _` | | |_) / _` | | / __|
+ / ___ \\ (_| | (_| | |  _ < (_| | | \\__ \\
+/_/   \\_\\__,_|\\__,_| |_| \\_\\__,_|_|_|___/
+
+FIGLET
+
 # Make $(document).ready work as expected, despite turbolinks weirdness
 gem 'jquery-turbolinks'
 
@@ -97,4 +109,9 @@ Minitest::Reporters.use!(
 )
     RUBY
   end
+
+  puts "Successfully generated a new Rails app using the Ada Developers Academy template"
+  puts "This is template version 1 (intro Rails)"
+  puts "You are on..."
+  puts ADA_RAILS
 end
