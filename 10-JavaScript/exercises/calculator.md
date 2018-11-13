@@ -5,7 +5,7 @@ Build a calculator command line interface (CLI) that allows a user to perform ar
 - Create and enter a new directory for this project, such as:
   + `$ mkdir js-calculator && cd js-calculator`
 - Once inside the project directory, install `prompt` with npm. This package allows for gathering input from a user.
-  + `$ npm install prompt`
+  + `$ npm install -g prompt`
   + When it's done, you should now have a directory called `node_modules`
 - Create the file that will contain your program's code: `$ touch calculator.js`
 - Open `calculator.js` in your editor and paste this code into it:
