@@ -49,6 +49,7 @@ Add this file `~/.eslintrc`
     "max-len": [1, 120, 2, { "ignoreComments": true }],
     "no-console": 0,
     "no-var": 1,
+    "camelcase": ["error", {"properties": "always"}],
     "jsx-a11y/href-no-hash": [0]
   },
   "extends": ["eslint:recommended", "plugin:react/recommended"],
