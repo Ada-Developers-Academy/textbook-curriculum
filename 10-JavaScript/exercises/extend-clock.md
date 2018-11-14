@@ -8,7 +8,7 @@ Add 3 buttons with text showing the names of colors.  Add an `onClick` event to 
 
 ## Changing Font & Alignment
 
-Next with a pair of buttons change the clock's font and alignment to the left or right, in the browser.  
+Next, add a pair of buttons, one with the text "left", and one saying "right". When the "right" button is clicked, the text of the clock should align left, and when the right button is clicked it should align right.  Then add a pair of buttons with the text set to the fonts of your choice.  When those buttons are clicked change the clock's font to match.
 
 ## Optional Enhancement
 
