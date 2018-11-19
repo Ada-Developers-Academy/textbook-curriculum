@@ -92,15 +92,15 @@ In our `App` component, we'll start with an array of student data like this:
 // App.js
 render() {
   const students = [
-      {
-        fullName: 'Ada Lovelace',
-        email: 'ada@ada.co'
-      },
-      {
-        fullName: 'Grace',
-        email: 'grace@ada.co'
-      }
-    ];
+    {
+      fullName: "Ada Lovelace",
+      email: "ada@lovelace.uk",
+    },
+    {
+      fullName: "Katherine Johnson",
+      email: "kat@nasa.gov",
+    }
+  ];
   // ... the return statement that was here before ...
 }
 ```
