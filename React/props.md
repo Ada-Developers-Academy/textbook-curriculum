@@ -8,8 +8,7 @@
 ## Overview
 Props is one of the two ways that React components manage and share their data. `props` is short for _properties_.
 
-## `props`
-Props are **passed from the outside of the component** into the component itself. Props are accessible using `this.props` within a component. Props cannot be changed from within the component. The closest parallel that we can see for `props` is constructor method parameters - props act like parameters being sent into Components when they are created.
+Props are **passed from the outside of the component** into the component as an argument. Props cannot be changed from within the component. The closest parallel that we can see for `props` is constructor method parameters - props act like parameters being sent into Components when they are created.
 
 #### Overview
 - Can be assigned to any variable name you want
@@ -25,7 +24,7 @@ Component A's `render` function contains the following JSX:
 import React, { Component } from 'React';
 import ComponentB from './components/ComponentB.js';
 
-class ComponentA extends React.Component {
+const ComponentA = () => {
   render() {
     return (
       <ComponentB varName='value goes here'/>
@@ -34,17 +33,15 @@ class ComponentA extends React.Component {
 }
 ```
 
-From within Component B, you can now access this data using the `this.props.varName` variable.
+From within Component B, you can now access this data using the `props.varName` variable.
 ```javascript
 // ComponentB.js
-class ComponentB extends React.Component {
-  render() {
-    return (
-      <div>
-        The data from props is: { this.props.varName }
-      </div>
-    );
-  }
+const ComponentB = (props) => {
+  return (
+    <div>
+      The data from props is: { props.varName }
+    </div>
+  );
 }
 ```
 
@@ -54,7 +51,7 @@ A fairly common thing to do is to utilize `props` to pass an event handler from 
 
 ## Try it!
 
-### Part 1: One Component
+### One Component
 First, we want to use the `Student` component we already created, but we want to allow this to load data dynamically.
 
 To do this, we will pass in the data from the `App` component to the `Student` component. Within the `Student` component, we will use the code tags to pull in the data that was passed in.
@@ -65,19 +62,28 @@ To do this, we will pass in the data from the `App` component to the `Student` c
     - `<Student fullName="Improved Ada" email="improved-ada@ada.co" />`
     - This shouldn't change anything yet in our application, so save the file and refresh the browser to verify that the data still looks like the original hard-coded data.
 
-1. Update the `render` function in the `Student` component to replace the hard-coded values with code tags `{ }` which contains the `prop` that came in from the parent component.  
-    - It should now contain `{ this.props.fullName }` and `{ this.props.email }`
+1. Update the `Student` component function to take one argument, called `props`:
+    ```js
+    const Student = (props) => {
+      // ...
+    }
+    ```
+    All the data we passed in from the parent component will be stored inside the `props` argument
+
+1. Update the JSX returned by the `Student` function to replace the hard-coded values with code tags `{ }` which contains the `prop` that came in from the parent component.  
+    - It should now contain `{ props.fullName }` and `{ props.email }`
     - Verify that the content displayed is now coming from the values in the `App` component
 
 
 If we identify each individual piece of the component rendered, we'll see:
+
 ![component prop breakdown](images/component-prop-breakdown.png)
 
 Prop names can be any variable you want them to be. In this particular case, we chose `fullName` and `email` to store our values.
 
-Once the prop names are **passed in** to the component, we can then use them within the component. That's where `this.props` comes in!
+Once the prop names are **passed in** to the component, we can then use them within the component. That's where `props` comes in!
 
-### Part 2: Many Components
+### Many Components
 
 Next what we want to do is take an array of student data and create the `Student` components for each student in the array.
 
@@ -95,7 +101,7 @@ render() {
         email: 'grace@ada.co'
       }
     ];
-  ...
+  // ... the return statement that was here before ...
 }
 ```
 
@@ -116,7 +122,8 @@ Lastly, we must put this new collection of `Student` components in our `render` 
 Replace `<Student fullName="Improved Ada" email="improved-ada@ada.co" />` with the variable `studentComponents` and examine the result.
 
 ## Key Takeaway
-Using `props` within your React application is one necessary ways to manage and share data.
+
+Using `props` within your React application allows you to pass data from a parent component into a child component.
 
 ## Additional Resources
 - [React Docs: Components and props](https://reactjs.org/docs/components-and-props.html)
