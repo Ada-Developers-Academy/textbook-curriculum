@@ -18,6 +18,14 @@ create-react-app hello-world
 cd hello-world
 ```
 
+#### React Atom Plugin
+
+As long as we're installing things, there's a plugin for Atom that will make our lives a little easier as we work with React. Install it now:
+1. Open up Atom's settings page (`cmd+,`)
+1. Click on `Install`
+1. Search for `react`
+1. Install the `react` package.
+
 ### What's Included?
 Let's go ahead and open this project up in Atom to examine the files that have been created for us. We'll start in the `src` folder.
 
