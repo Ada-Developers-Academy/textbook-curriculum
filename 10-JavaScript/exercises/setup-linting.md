@@ -41,11 +41,15 @@ Add this file `~/.eslintrc`
 ```json
 {
   "parser": "babel-eslint",
+  "parserOptions": {
+        "ecmaVersion": 8
+  },
   "plugins": ["jest", "react"],
   "rules": {
-    "max-len": [1, 120, 2, {ignoreComments: true}],
+    "max-len": [1, 120, 2, { "ignoreComments": true }],
     "no-console": 0,
     "no-var": 1,
+    "camelcase": ["error", {"properties": "always"}],
     "jsx-a11y/href-no-hash": [0]
   },
   "extends": ["eslint:recommended", "plugin:react/recommended"],
@@ -53,7 +57,6 @@ Add this file `~/.eslintrc`
     "node": true,
     "browser": true,
     "commonjs": true,
-    "es6": true,
     "jquery": true,
     "jest/globals": true
   }

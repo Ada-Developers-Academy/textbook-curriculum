@@ -22,7 +22,7 @@
 1. [Testing](testing.md)
 1. [Underscore Templates](underscore-templates.md)
 1. [Prototypical JS Objects](js-objects.md)
-  - [Worksheet: Classes Practice](exercises/objects-worksheet.md)
+    - [Worksheet: Classes Practice](exercises/objects-worksheet.md)
 1. [Classes](classes.md)
     - [Worksheet: Classes Practice](exercises/classes-worksheet.md)
     - [Exercise: Fortune](exercises/fortune.md)

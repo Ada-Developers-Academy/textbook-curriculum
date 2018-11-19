@@ -12,7 +12,7 @@ Although it was developed under the name Mocha, the language was officially call
 
 The change of name from LiveScript to JavaScript roughly coincided with Netscape adding support for Java technology in its Netscape Navigator Web browser. The final choice of name caused confusion, giving the impression that the language was a spin-off of the Java programming language, and the choice has been characterized as a marketing ploy by Netscape to give JavaScript the cachet of what was then the hot new Web programming language.
 
-## Node is changing the game
+## Node is the name of the game
 [Node.js](https://nodejs.org/en/) is an open-source, cross-platform runtime environment for developing server-side Web applications. Although Node.js is not a JavaScript framework, many of its basic modules are written in JavaScript, and developers can write new modules in JavaScript. The runtime environment interprets JavaScript using Google's V8 JavaScript engine (same as what's in Chrome).
 
 To get started, let's install node using `$ brew install node`. It should go something like this:

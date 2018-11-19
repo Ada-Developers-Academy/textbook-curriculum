@@ -21,17 +21,8 @@ Here's the exercises we'll cover in class.
 3. Delete a node from a singly linked list
 4. Count number of nodes in the linked list
 
-## Assignments
-1. Complete integers and arrays practice questions. See the slide deck linked below for hints and tips.
-- [Ada-C10/digit_match](https://github.com/Ada-C10/digit_match)
-- [Ada-C10/integer_palindrome_check](https://github.com/Ada-C10/integer_palindrome_check)
-- [Ada-C10/factorial](https://github.com/Ada-C10/factorial)
-- [Ada-C10/fibonacci](https://github.com/Ada-C10/fibonacci)
-- [Ada-C10/array_intersection](https://github.com/Ada-C10/array_intersection)
-- [Ada-C10/matrix_convert_to_zero](https://github.com/Ada-C10/matrix_convert_to_zero)
-- [Ada-C10/matrix_check_sum](https://github.com/Ada-C10/matrix_check_sum)
-
-2. *Optional*: Create .rb file and define the Linked List and Node classes keeping object oriented principles in mind. Author methods to add a value, search for a value, count the number of entries and delete a value from the linked list, assuming that the values in each nodes are integers. Be mindful of when the linked list is empty (before adding the first node, after deleting the last node etc.) in your methods.</br>
+## Assignment
+Create .rb file and define the Linked List and Node classes keeping object oriented principles in mind. Author methods to add a value, search for a value, count the number of entries and delete a value from the linked list, assuming that the values in each nodes are integers. Be mindful of when the linked list is empty (before adding the first node, after deleting the last node etc.) in your methods.</br>
 Do the above for a singly linked list and a separate file for a doubly linked list.
 
 ## Additional Resources:
@@ -39,7 +30,7 @@ Do the above for a singly linked list and a separate file for a doubly linked li
 - Video on [Memory Leak explained](https://www.youtube.com/watch?v=hSDAJNCVhjs)
 - More reading on [memory leak on lifehacker.com](https://lifehacker.com/what-it-really-means-when-a-program-leaks-memory-1711957819)
 - Sitepoint reading on [How Ruby uses memory](https://www.sitepoint.com/ruby-uses-memory/)
-- [Introduction to pointers](https://www.slideshare.net/secret/qCrOIS4xRIAE4k)
+- [Introduction to pointers](https://drive.google.com/open?id=0B__DV26QHsH4dHZQNlo4OV80c1E)
 
 ## Slide Deck
 + Slide Deck used in class</br>
