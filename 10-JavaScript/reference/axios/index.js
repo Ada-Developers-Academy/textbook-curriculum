@@ -43,27 +43,25 @@ const loadPets = () => {
 //
 // Creating Pets
 //
-const FORM_FIELDS = ['name', 'age', 'owner'];
-const inputField = name => $(`#pet-form input[name="${name}"]`);
-
 const readFormData = () => {
-  const getInput = name => {
-    const input = inputField(name).val();
-    return input ? input : undefined;
-  };
+  const parsedFormData = {};
 
-  const formData = {};
-  FORM_FIELDS.forEach((field) => {
-    formData[field] = getInput(field);
-  });
+  const nameFromForm = $(`#pet-form input[name="name"]`).val();
+  parsedFormData['name'] = nameFromForm ? nameFromForm : undefined;
 
-  return formData;
+  const ageFromForm = $(`#pet-form input[name="age"]`).val();
+  parsedFormData['age'] = ageFromForm ? ageFromForm : undefined;
+
+  const ownerFromForm = $(`#pet-form input[name="owner"]`).val();
+  parsedFormData['owner'] = ownerFromForm ? ownerFromForm : undefined;
+
+  return parsedFormData;
 };
 
 const clearForm = () => {
-  FORM_FIELDS.forEach((field) => {
-    inputField(field).val('');
-  });
+  $(`#pet-form input[name="name"]`).val('');
+  $(`#pet-form input[name="age"]`).val('');
+  $(`#pet-form input[name="owner"]`).val('');
 }
 
 const createPet = (event) => {
