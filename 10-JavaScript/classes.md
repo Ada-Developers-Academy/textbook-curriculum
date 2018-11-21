@@ -235,7 +235,7 @@ Even if there is no attribute named `contrib`, this code will give __no error__ 
 
 **Exercise**:  Create getter and setter methods for the `Animal`'s `sound`' so that you can do:  `myAnimal.sound = 'Ruff'` and `console.log(myAnimal.sound)`.
 
-**Exercise** After you have created getter and setter methods, convert them into regular methods named `getSound` and `setSound`.
+**Exercise**: After you have created getter and setter methods, convert them into regular methods named `getSound` and `setSound`.
 
 ### Static Methods
 
