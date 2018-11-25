@@ -199,7 +199,7 @@ Update the `render` function in the `StudentCollection` component to pass in a n
 ```javascript
 // StudentCollection.js
 this.state.students.map((student, index) => {
-  rreturn (
+  return (
     <li key={ i }>
       <Student
         index={ i }
