@@ -3,7 +3,7 @@
 ## Learning Goals
 - Examine how React allows components to manage data
 - Use `state` within a component
-- Examine how `props` and `state` effect component rendering
+- Examine how `props` and `state` affect component rendering
 
 ## `state`
 State is managed **within a given component**. State can be accessed using the `this.state` object and it can be modified using the `this.setState()` function.

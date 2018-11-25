@@ -16,20 +16,30 @@ In this lesson we will define `propTypes` in our React components which will pro
 
 Our Student component takes a name & an e-mail as props.  We can define the properties our `Student` component takes by adding a `static` `propTypes` attribute.
 
-First you need to `import PropTypes from 'prop-types';` to import the package.  Then add a static `propTypes` attribute to your class inside the class' curly braces.
+First you need to `import PropTypes from 'prop-types';` to import the package.  Then add a static `propTypes` attribute to your component, by making it an additional property to the function.
 
 ```javascript
-class Student {
-  static propTypes = {
-    fullName: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    present: PropTypes.bool,
-  }
-  ...
-}
+const Student = (props) => {
+  // Component functions always return JSX
+  return (
+    <div>
+      <h3>
+        {props.fullName}
+      </h3>
+      <p>{props.email}</p>
+    </div>
+  );
+};
+
+Student.propTypes = {
+  fullName: PropTypes.string.isRequired,
+  email: PropTypes.string,
+};
 ```
 
-The above block defines two props.  They both must be Strings and are required to use a `Student` component.  The attribute `present` however is an optional boolean prop.  If you try to use the `Student` component without a `fullName` prop you will get this error message:
+Wait a second - what's with that syntax? We just attached an attribute (`propTypes`) to a function (`Student`). Since functions are first-class objects in JavaScript, this is a totally valid thing to do. It even has a name: `propTypes` is a "static attribute" of `Student`.
+
+The above block defines two props. They both must be Strings. `email` is optional, but `fullName` is required to use a `Student` component. If you try to use the `Student` component without a `fullName` prop you will get this error message:
 
 ![Error Msg](images/missing-prop.png)
 
@@ -39,31 +49,17 @@ If a component has optional props you can simply leave off the `isRequired` attr
 
 **Question**:  Why encourage developers to list the props the component takes like this?
 
-## Alternative Syntax
-
-You may also see `propTypes` declared in an alternative syntax outside the class curly braces like this:
-
-
-```javascript
-MyComponent.propTypes = {
-  fullName: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  present: PropTypes.boolean,
-}
-```
-
 ## Advantages of PropTypes
 
 By adding `propTypes` to your React component classes you gain two things.  First you document the props that your component can and must take.  This makes it much easier for another developer to use your component in another application.  Second `propTypes` helps React engage in type-checking, making sure the proper props are passed to a component along with their correct types.  If a component is missing a prop or the wrong type is passed, React will generate a helpful error message.
 
 ## Default Prop Values
 
-You can also set default values for props with a `defaultProps` static attribute.
+You can also set default values for some or all of your props with a `defaultProps` static attribute.
 
 ```javascript
-static defaultProps = {
-  fullName: 'Hermione Granger',
-  email: 'placeholder@notarealemail.com',
+Student.defaultProps = {
+  email: 'no email on file',
 }
 ```
 
@@ -90,7 +86,7 @@ A `defaultProp` attribute like above ensures that every time the given props hav
 You can also create a custom validator which you can look up along with more examples of using `PropTypes` on the [PropTypes github page](https://github.com/facebook/prop-types).
 
 ## Key Takeaway
-`propTypes` is a static attribute you can define in a React component class which lists the props the component can take along with their types.  Mismatches or missing props will generate error messages in the browser console.  PropTypes help you document the props a component can take and help prevent the wrong types of props being passed accidentally.
+`propTypes` is an attribute you can define in a React component which lists the props the component can take along with their types.  Mismatches or missing props will generate error messages in the browser console.  PropTypes help you document the props a component can take and help prevent the wrong types of props being passed accidentally.
 
 ## Resources
 - [Why you should use PropTypes in React Native (works for React in general)](https://codeburst.io/why-you-should-use-proptypes-in-react-native-e6f5ef78e7dd)

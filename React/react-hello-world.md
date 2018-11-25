@@ -18,7 +18,15 @@ create-react-app hello-world
 cd hello-world
 ```
 
-#### What's Included?
+#### React Atom Plugin
+
+As long as we're installing things, there's a plugin for Atom that will make our lives a little easier as we work with React. Install it now:
+1. Open up Atom's settings page (`cmd+,`)
+1. Click on `Install`
+1. Search for `react`
+1. Install the `react` package.
+
+### What's Included?
 Let's go ahead and open this project up in Atom to examine the files that have been created for us. We'll start in the `src` folder.
 
 Take a look at the `index.js` file that was created. Some questions for you as you check out this code:
@@ -30,34 +38,44 @@ Next, take a look at the `App.js` file that was created. Some questions for you 
 - What do you think this code is doing?
 - How is this code related to the code you looked at in `index.js`?
 
+#### Class Components
+
+This code contains a class! We haven't officially learned about those in JavaScript yet (that will come later this week), but the big idea is basically the same as a Ruby class.
+
+In React, you can build a component as either a class or a function. We will be sticking with functional components to start, but `create-react-app` will always create a class for the top-level `App` component. At least to start, we will only be paying attention to that class's `render()` function.
+
+#### Running the Server
+
 Now that we've examined the code that was generated for us, we can go ahead and run our web server for this application by running `npm start` from our terminal. This command is set up to start our application and then open the browser where the server is running.
 
 **Question**: Where is the HTML that is displayed on the web page coming from? Figure out with your neighbor.
 
-#### Component's `render` function
+### Component's `render` function
 The `App.js` file contains our first (auto-generated) component. How exciting!
 
 Now let's examine the pieces of code within the `render` function and identify the key pieces.
 ```javascript
 render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <h1 className="App-title">Welcome to React</h1>
+      </header>
+      <p className="App-intro">
+        To get started, edit <code>src/App.js</code> and save to reload.
+      </p>
+    </div>
+  );
+}
 ```
 
 Here are some important things to note about this function:
 - The pieces that look like HTML are **JSX**
-- Every component is a class, and gets its own file
-- Every component has a `render` function
+- Every component is either a function or a class, and each gets its own file
+- Every component has a function that returns a bunch of JSX
+  - For a class component, it's the `render` function
+  - For a functional component, the whole component is the function!
 - The `render` function must return a *single* element
   - In this case, it is the outermost `div`. Every other element in the function is contained within that outermost `div`.
 
@@ -66,7 +84,7 @@ Here are some important things to note about this function:
 #### What is JSX?
 JSX is a pre-processor (similar to ERB in Rails) that adds XML syntax to JavaScript. JSX and React can technically be used independently, but you almost always see them together. JSX looks a lot like HTML though there are a few important differences.
 
-**Adding Classes**
+**Adding CSS Classes**
 
 Since JSX is within our JavaScript code, we cannot use the `class` keyword the way we would directly in our HTML. Instead, we must use `className` to avoid the reserved word. You'll notice this in several lines of the `render` function that we were examining above.
 

@@ -1,19 +1,26 @@
 # React
 
+## Week 1
+
 1.  [Intro to React](intro-to-react.md)
 1.  [Hello World](react-hello-world.md)
     - [Exercise](exercises/intro-to-react.md)
 1.  [Creating Components](creating-components.md)
+    - [Exercise: Identifying Components](exercises/identifying-components.md)
     - [Worksheet: Building Basic and Nested Components](exercises/components-worksheet.md)
 1.  [`props`](props.md)
 1.  [Styling](styling.md)
+1.  [Prop-Types](prop-types.md)
+1.  [Class Components](class-components.md)
 1.  [`state`](state.md)
 1.  [Event Handling](events.md)
-1.  [Creating Components Part 2](creating-components-2.md)
+1.  [Event Handling with Nested Components](nested-event-handling.md)
+
+## Week 2
+
 1.  [Forms](forms.md)
     - [Exercise: controlled forms](exercises/forms-worksheet.md)
 1.  [Advanced Forms](forms-advanced.md)
-1.  [Prop-Types](prop-types.md)
 1.  [Testing](testing.md)
 1.  [APIs: Get](apis-get.md)
 1.  [APIs: Post](apis-post.md)
