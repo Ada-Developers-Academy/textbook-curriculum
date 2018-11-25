@@ -167,7 +167,7 @@ const Zine = class {
 
 ## Methods
 
-In a JavaScript class, methods are functions declared inside the class, without the `function` keyword.  There are a number of special functions such as __constructor__, __getter methods__ and __setter methods__.
+In a JavaScript class, methods are functions declared inside the class, without the `function` keyword.  There are a number of special functions, and we will go over the special __constructor__ method.
 
 ### Constructor Methods
 
@@ -216,56 +216,6 @@ console.log(wizardZine.totalPrice());
 
 **Exercise**:  For our `Animal` class, create a `speak` method which will print the sound to the console.  Try it out to verify that the method is working.
 
-### Getter & Setter Methods
-
-Getter methods are methods which are run when a property with the same name is accessed.  Similarly a Setter method is called when there is an attempt to change a property.  
-
-```javascript
-class Zine {
-  constructor(title, contributor) {
-    console.log('Constructor Run!');
-    this._title = title;
-    this._contributor = contributor;
-  }
-
-  // getter methods
-  get contributor() {
-    return this._contributor;
-  }
-
-  // setter method
-  set contributor(newContributor) {
-    if (typeof newContributor === 'string') {
-      this._contributor = newContributor;
-    }
-  }
-
-}
-let wizardZine = new Zine('So you want to be a wizard', 'Evans');
-
-// setter method
-wizardZine.contributor = 'Chris';
-
-console.log(wizardZine.contributor); // getter method
-> Chris
-```
-
-Notice that the properties are all named __\_propertyName__.  This is a common naming convention for instance variables you want to keep private.  It's a convention that signals an intent to prevent access outside the class as nothing is **really** private in JavaScript.  Properties cannot have the same names as our getter and setter methods as doing so will result in infinite recursion.  
-
-**Question**:  Why would naming the property the same as the getter or setter method result in infinite recursion?
-
-At Ada, we will not use getter and setter functions and not use the  __\_propertyName__ convention, but it is a convention you will likely encounter.  Instead we will create regular functions to access and change variables as per [AirBNB's style guide](https://github.com/airbnb/javascript#accessors--no-getters-setters).  This is because they can cause unexpected side-effects because we're treating functions like they are instance variables.
-
-For example if I wrote:
-```javascript
-wizardZine.contrib = 'Devin';
-```
-Even if there is no attribute named `contrib`, this code will give __no error__ at all!  Because Objects are extendable (you can always add more attributes), this will not result in an error message and tracking down the bug is harder to spot.  You can read more about it [here.](https://nemisj.com/why-getterssetters-is-a-bad-idea-in-javascript/)
-
-**Exercise**:  Create getter and setter methods for the `Animal`'s `sound`' so that you can do:  `myAnimal.sound = 'Ruff'` and `console.log(myAnimal.sound)`.
-
-**Exercise**: After you have created getter and setter methods, convert them into regular methods named `getSound` and `setSound`.
-
 ### Static Methods
 
 Static methods are equivalent to class methods in Ruby.  They are attached to the class rather than instances of the class.
@@ -308,7 +258,7 @@ class Zine {
     this._title = title;
     this._contributor = contributor;
   }
-  // .. getter & setter functions
+
   toString() {
     return `${this._title} by ${this._contributor}`;
   }
@@ -335,20 +285,17 @@ console.log(janusAndAurora.toString());
 
 In the example above we can use the `super` keyword to access the parent class' version of the `toString` method and we overrode the parent class' method to add our own functionality.
 
-**Exercise**:  Create a `Cat` class that extends `Animal` and has a name attribute, with getter and setter methods.  All `Cat` instances should "Meow" when speaking.
+**Exercise**:  Create a `Cat` class that extends `Animal` and has a name attribute.  All `Cat` instances should "Meow" when speaking.
 
 ## Summary
 
 In this lesson we have seen:
 - How to use classes to create object instances
 - How to use a constructor to set up a new object in proper state
-- Add instance methods including getter and setter methods to control access to our attributes.
 - Create static methods using the `static` keyword
 - Extend existing classes with subclasses
 
 ## Resources
 - [MDN on classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
-- [MDN on getter methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get)
-- [MDN on setter methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set)
 - [JavaScript ES6 Class Syntax](https://coryrylan.com/blog/javascript-es6-class-syntax)
 - [Ada's old lesson on Object Prototypes](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/10-JavaScript/js-objects.md)
