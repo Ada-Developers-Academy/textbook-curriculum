@@ -10,12 +10,11 @@ Props is one of the two ways that React components manage and share their data. 
 
 Props are **passed from the outside of the component** into the component as an argument. Props cannot be changed from within the component. The closest parallel that we can see for `props` is constructor method parameters - props act like parameters being sent into Components when they are created.
 
-#### Overview
+In short, props:
 - Can be assigned to any variable name you want
 - Can contain any object or function you would like
 
-#### Examples
-**Syntax**
+### Syntax
 
 Component A's `render` function contains the following JSX:
 `<ComponentB varName='value goes here'/>`
