@@ -90,7 +90,7 @@ Functional Components
 
 - Involve less complicated and lengthy syntax.
 - Can be understood more quickly because of their short, declaritive nature.
-- Are easier to test and debug because given a set of props, they **always** return the same JSX.
+- Are easier to test and debug because they are `deterministic`, i.e. given a set of props, they **always** return the same JSX.
 - Provide better **performance** because they do not inherit functionality provided by the Component class.  
 - Are more reusable because by only providing the most basic functionality with fewer dependencies, functional components can be reused more often
 
