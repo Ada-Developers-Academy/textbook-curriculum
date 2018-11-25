@@ -84,12 +84,61 @@ Once the prop names are **passed in** to the component, we can then use them wit
 
 ### Many Components
 
-Next what we want to do is take an array of student data and create the `Student` components for each student in the array.
+#### Adding an Intermediate Component
 
-In our `App` component, we'll start with an array of student data like this:
+One student is great and all, but ideally our app should be able to manage our whole list of students. We'd also like to do this _outside_ of the `App` component, because what if our application also tracks Teachers, or Assignments?
+
+To achieve this _separation of concerns_, we'll create a new component called `StudentCollection` that will live between the existing  `App` and `Student` components. When we're done, this new component will manage the full list of students. To start, we'll make it render a "list" of only one student.
+
+**This diagram will drive our overall approach for accomplishing this goal:**
+![nested components](images/nested-components.png)
+<!-- https://drive.google.com/open?id=1xq5jaCrI7FGp6PG1gr-bYE1ZTvPb5PxZ -->
+
+1. Spend a few minutes now going back to the [creating components](creating-components.md) notes to see how to create a new component
+    - What should the file be called?
+    - What needs to be imported and exported?
+    - What should the component function return?
+    - Does the component function need any props?
+
+1. Move the code that renders a `Student` from `App` to `StudentCollection`
+    - Render the `Student` in an `<li>` inside a `<ul>` element
+    - You will also need to move and update the `import` statement
+
+1. Import and render `StudentCollection` in the `App` component
+    - You will need to add an import statement
+
+When you're finished, your `StudentCollection` component should look like this:
+
+```js
+// src/components/StudentCollection.js
+import React from 'react';
+
+import Student from './Student';
+
+const StudentCollection = () => {
+  return (
+    <ul className="student-collection">
+      <li>
+        <Student fullName="Improved Ada" email="improved-ada@ada.co" />
+      </li>
+    </ul>
+  );
+};
+
+export default StudentCollection;
+```
+
+At this point your app should look almost exactly the same as it did before, except the student info will be behind a bullet point.
+
+#### Rendering a List of Students
+
+Now instead of one student, we will render information about a whole list of students. We will keep the information about the students in an array in our `StudentCollection` component, and render a `Student` component for each element in the array.
+
+In our `StudentCollection` component, we'll create an array of student data like this:
+
 ```javascript
-// App.js
-render() {
+// src/components/StudentCollection.js
+const StudentCollection = () => {
   const students = [
     {
       fullName: "Ada Lovelace",
@@ -100,25 +149,36 @@ render() {
       email: "kat@nasa.gov",
     }
   ];
-  // ... the return statement that was here before ...
+  // ... the return statement and JSX that was here before ...
 }
 ```
 
 Then we are going to use the JavaScript `map` function to create a new component for each element within the array. Note: This is not a React-specific thing, you can use `map` in any JS code you want!
 
 ```javascript
-const studentComponents = students.map((student, i) => {
-  return <Student key={ i } fullName={ student.fullName } email={ student.email } />
-});
+// src/components/StudentCollection.js
+const StudentCollection = () => {
+  const students // ... array ...
+
+  const studentComponents = students.map((student, i) => {
+    return (
+      <li key={i}>
+        <Student fullName={ student.fullName } email={ student.email } />
+      </li>
+    );
+  });
+
+  return // ... JSX ...
+};
 ```
 
-**Take a moment** to review this code with your neighbor to understand what it is doing.
+**Take a moment** to review this code with your neighbor to understand what it is doing. Question: what would this code look like if we used `forEach` instead of `map`?
 
-One thing to watch out for: we've given our `Student` a new prop, `key`. This is a React thing: whenever you have an array of several components like this, you need to give each a unique key. The `key` prop is not visible in our child component; React eats it. For now the index in the array (`i`) will work fine.
+One thing to watch out for: we've given our `<li>` element a new prop, `key`. This is a React thing: whenever you have an array of several components like this, you need to give each a unique key. The `key` prop is not visible in our child component; React eats it. For now the index in the array (`i`) will work fine.
 
 Lastly, we must put this new collection of `Student` components in our `render` function in order to see the results.
 
-Replace `<Student fullName="Improved Ada" email="improved-ada@ada.co" />` with the variable `studentComponents` and examine the result.
+Replace `<Student fullName="Improved Ada" email="improved-ada@ada.co" />` with the variable `studentComponents` and examine the result. Use Chrome's dev tools to inspect the generated HTML. Does it look like you expected?
 
 ## Key Takeaway
 
