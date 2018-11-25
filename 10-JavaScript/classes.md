@@ -246,7 +246,7 @@ console.log(Zine.lowestPrice(wizardZine, linuxZine));
 
 Just like a Ruby class method, the above example calls the static method on the name of the class as `Zine.lowestPrice`.  Trying to call the method with `wizardZine.lowestPrice(wizardZine, linuxZine);` will result in a TypeError.
 
-**Exercise**:  Add a static method to Animal called `createAnimals`, which takes an array of Strings (sounds) and returns an Array of Animals which make those sounds.  
+<!-- **Exercise**:  Add a static method to Animal called `createAnimals`, which takes an array of Strings (sounds) and returns an Array of Animals which make those sounds.   -->
 
 ## Inheritance
 
@@ -285,7 +285,7 @@ console.log(janusAndAurora.toString());
 
 In the example above we can use the `super` keyword to access the parent class' version of the `toString` method and we overrode the parent class' method to add our own functionality.
 
-**Exercise**:  Create a `Cat` class that extends `Animal` and has a name attribute.  All `Cat` instances should "Meow" when speaking.
+<!-- **Exercise**:  Create a `Cat` class that extends `Animal` and has a name attribute.  All `Cat` instances should "Meow" when speaking. -->
 
 ## Summary
 
