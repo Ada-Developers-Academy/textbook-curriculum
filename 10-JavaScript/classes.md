@@ -11,15 +11,11 @@
 
 ## Introduction: JavaScript uses Prototype-Based Objects
 
-JavaScript uses prototype-based objects.  This works, but is very awkward for OOP-trained developers.  So for ES6, classes were introduced as syntactical sugar to allow developers to write classes and __classical__ OOP code, like we did in Ruby, for JavaScript.  It's important to remember that classes don't change how JavaScript behaves, instead it provides a more traditional framework for the developer.  The interpreter converts it all behind the scenes into prototype based OOP.
-
-
+JavaScript uses [prototype-based objects](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes), which allows developers to extend JavaScript object templates into reusable bits.  At Ada, we will not cover prototypical objects, but you are free to optionally read about some fascinating under-the-hood stuff that JS does in order to make objects inherit from other objects. Otherwise, we will not expect any knowledge about prototypes going forward.
 
 ## Introducing Classes
 
-Fortunately as of [ES6](http://es6-features.org/#ClassDefinition), JavaScript has added some syntactical sugar to let us write classes and the JavaScript interpreter will convert that into __prototypical__ objects.  This lets us write more familiar syntax and get the Object-Oriented results we're used to.  
-
-**So why cover prototypical syntax?**  It's important to know when you inspect and examine JavaScript code in debuggers that behind the scenes things are actually done using functions and prototypes.  Classes are simply syntax sugar to make our lives as devs easier.  Also as a developer, you will often work on an existing codebase that predates classes, and with team members who still write JavaScript code using the older methods.  
+Prototype-based languages work, but it is very awkward for OOP-trained developers.  Fortunately as of [ES6](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), `class`es were introduced as syntactical sugar to allow developers to write classes and __classical__ OOP code, like we did in Ruby, for JavaScript. The interpreter converts it all behind the scenes into prototype based OOP. This syntactical sugar lets us write more familiar syntax and get the Object-Oriented results we're used to.
 
 
 ### Our Example: `Zine`
@@ -322,3 +318,4 @@ In this lesson we have seen:
 - [MDN on getter methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get)
 - [MDN on setter methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set)
 - [JavaScript ES6 Class Syntax](https://coryrylan.com/blog/javascript-es6-class-syntax)
+- [Ada's old lesson on Object Prototypes](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/10-JavaScript/js-objects.md)
