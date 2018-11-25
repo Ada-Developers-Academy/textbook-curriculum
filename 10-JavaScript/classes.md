@@ -49,7 +49,7 @@ class Zine {
   }
 }
 
-let zine = new Zine('So you want to be a wizard');
+const zine = new Zine('So you want to be a wizard');
 ```
 
 ### Try it
@@ -80,7 +80,40 @@ linuxZine
 
 Congratulations! You made your first class in JavaScript!
 
----
+How do you read attributes?
+
+In JavaScript, instances of classes aren't anything special, you just get objects. So, reading an attribute from an instance of a class is the same as reading an attribute from any other object with the same attributes.
+
+To read or write the `title` we set in the constructor, we can use both dot notation and subscript notation (square brackets):
+
+```js
+// You can read/write with 'dot notation'
+console.log(wizardZine.title);
+> So you want to be a wizard
+
+wizardZine.title = "A much better title";
+console.log(wizardZine.title);
+> A much better title
+
+// Or with subscript notation
+console.log(wizardZine["title"]);
+> A much better title
+
+wizardZine["title"] = "Frankly, this title is a little mediocre"
+console.log(wizardZine["title"]);
+> Frankly, this title is a little mediocre
+```
+
+**Experiment:** What happens if you try to read or write an attribute that isn't set in the constructor?
+
+**Question:** How are dot notation and subscript notation different? Is there something you can do with one that you can't with the other?
+<!-- Looking for "use a variable as the key" -->
+
+This syntax should seem familiar - it's exactly the same syntax we used to read and write attributes on variables created from object literals (curly braces, like a Ruby hash). This isn't a coincidence. Under the hood, they're the same thing. Anything you can do with an object from a literal, you can do with an object from a class, and vice versa. This is a big difference from Ruby (and many other languages), so it's worth emphasizing:
+
+**In JavaScript, there is no difference between objects from literals and objects from classes.**
+
+### A Fuller Class
 
 In Ruby, a more fully-developed class with methods may look like this:
 
