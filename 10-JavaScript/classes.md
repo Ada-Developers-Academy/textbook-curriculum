@@ -151,7 +151,7 @@ class Zine {
   }
 }
 
-let zine = new Zine('So you want to be a wizard', 'Julia Evans');
+const zine = new Zine('So you want to be a wizard', 'Julia Evans');
 
 console.log(zine.toString());
 // So you want to be a wizard by Julia Evans
@@ -182,7 +182,7 @@ class Zine {
   }
 }
 
-let wizardZine = new Zine('So you want to be a wizard', 'Evans');
+const wizardZine = new Zine('So you want to be a wizard', 'Evans');
 
 > Constructor Ran!
 ```
@@ -208,7 +208,7 @@ class Zine {
   }
 }
 
-let wizardZine = new Zine('So you want to be a wizard', 'Evans', 1.00);
+const wizardZine = new Zine('So you want to be a wizard', 'Evans', 1.00);
 console.log(wizardZine.totalPrice());
 
 > 1.08
