@@ -81,7 +81,7 @@ constructor() {
         email: "kat@nasa.gov",
         isPresent: false
       }
-    ];
+    ]
   }
 }
 ```
@@ -92,8 +92,16 @@ Next, we'll use a `map` in our `render` function to iterate through each item in
 // src/components/StudentCollection.js
 render() {
     const studentComponents = this.state.students.map((student, i) => {
-      return <Student key={ i }
-        index={ i } fullName={ student.fullName } email={ student.email } isPresent={ student.isPresent }/>
+      return (
+        <li key={ i }>
+          <Student
+            index={ i }
+            fullName={ student.fullName }
+            email={ student.email }
+            isPresent={ student.isPresent }
+            />
+        </li>
+      );
     });
 
     return (
@@ -116,7 +124,7 @@ Now let's take a look at an updated version of the diagram that we created in ou
 
 Note that we're passing in a new `isPresent` prop here. How could we modify our `Student` component to reflect this information?
 
-### Modify `state` using an event
+## Modify `state` using an event
 Listing out our students is great, but what if we could also track attendance? Let's do it! We'll set up a button for each student. When pressed, this button will update the `state` data for that student to mark them as "present". Additionally, we'll add some CSS so that students who have been marked "present" will be identified to the user.
 
 There are a few things to consider when making this change to our application. Think about these questions with your seat squad.
@@ -127,11 +135,18 @@ There are a few things to consider when making this change to our application. T
 If you answered NO to question #3, you're on to something big. The data related to the students is tracked in the `StudentCollection` while the button to mark an individual student "present" should really be on each individual `Student` component. Our challenge then is to use the tools we have been given to _propagate_ the button press event from one component to another.
 
 #### The button
-Let's start by updating the `render` function of the `Student` component to include a button.
+Let's start by updating the `render` function of the `Student` component to include the `isPresent` property, and a button.
 
-```html
-<button>Mark Present</button>
+```js
+<p>
+  { this.props.isPresent ? 'Present' : 'Absent' } today
+  <button
+    disabled={ this.props.isPresent }
+    >Mark Present</button>
+</p>
 ```
+
+Change the initial state in the `StudentCollection` to verify this works as intended.
 
 #### The Event Handler
 Next, let's explore the event handler setup. What data do we need from the button click event to appropriately change the overall student's state?
@@ -151,7 +166,10 @@ Then we tie the button to the event handler function:
 ```javascript
 // Student.js
 
-<button onClick={ this.onPresentButtonClick }>Mark Present</button>
+<button
+  disabled={ this.props.isPresent }
+  onClick={ this.onPresentButtonClick }
+  >Mark Present</button>
 ```
 
 Test it out and see what gets logged in the console. What piece of data is going to help us determine exactly which student should be updated?
@@ -160,7 +178,7 @@ Test it out and see what gets logged in the console. What piece of data is going
 
 Next, we must consider that the `state` of the students is not stored within this component. In order to update this, we'll need to call some code within the `StudentCollection` component which will change the state.
 
-Let's create a new event handler function in the `StudentCollection` component. This even handler should take in one parameter which represents the unique identifier for the given student for whom we want to mark "present".
+Let's create a new event handler function in the `StudentCollection` component. This even handler should take in one parameter which represents the unique identifier for the given student whom we want to mark "present".
 
 ```javascript
 //StudentCollection.js
@@ -181,9 +199,17 @@ Update the `render` function in the `StudentCollection` component to pass in a n
 ```javascript
 // StudentCollection.js
 this.state.students.map((student, index) => {
-  return <Student key={ index }
-    index={ index } fullName={ student.fullName } email={ student.email }
-    markPresentCallback={ this.markPresent }/>
+  rreturn (
+    <li key={ i }>
+      <Student
+        index={ i }
+        fullName={ student.fullName }
+        email={ student.email }
+        isPresent={ student.isPresent }
+        markPresentCallback={ this.markPresent }
+        />
+    </li>
+  );
 });
 ```
 
@@ -215,7 +241,7 @@ markPresent = (studentIndex) => {
 }
 ```
 
-#### Event Handling Summary
+### Event Handling Summary
 
 Wow, that was kind of complex. Let's look at a diagram of what's going on.
 
@@ -245,6 +271,6 @@ This style of event handling is very common in React - it comes up whenever an e
 ## Key Takeaway
 Once we have a grasp on how to use `props` and `state` within our React application, the possibilities are endless. Using these concepts to manage the data and our understand of how to nest components, we can create rich and interactive applications.
 
-## Summary
-
 ## Additional Resources
+
+- [React Docs: Lifting State Up](https://reactjs.org/docs/lifting-state-up.html)
