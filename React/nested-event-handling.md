@@ -1,27 +1,68 @@
 # Event Handling With Nested Components
 
+In this lesson we will return to our `Students` example, to discuss state management and event handling between nested components.
+
 ## Learning Goals
 
 By the end of this lesson, students should be able to...
 
--
+- Render child components from `state`
+- Understand when and how to lift state from a child component to a parent component
+- Pass event handler functions as callbacks within `props`
 
-##
+## Introduction
 
+Last time we worked on our student tracking application, we used a functional `StudentCollection` component to render a list of `Student`s. The student data came from an array created in the `StudentCollection` component.
 
-## Use `state` for data
-One way that we often set initial `state` data in a component, is by taking data passed in through `props` (from the parent) and setting that to `state` in our constructor. Let's see an example!
+Our goal for this lesson is to make the application respond to events from the user. So, let's start with some brainstorming:
+- What kind of actions might the user take on individual students?
+- What kind of actions might the user take on the list of students?
 
-Set up a constructor in the `StudentCollection` component. Don't forget your call to `super();` which is always required in a component constructor!
+For this lesson our plan is to use our app to track attendance. Each student will have a button with the text "mark present", which when clicked, will show the student as present.
 
-```javascript
+## Refactor to a Stateful Component
+
+### Lifting State Up
+
+Currently there is no way for us to change the student data. If we want to be able to change whether a student is present, we'll need to keep track of that as state in our application.
+
+**Question:** Where should our application's state live? What are our options?
+
+We could keep the state for each student in the corresponding `Student` component, initializing it from `prop`s in the constructor. For this limited example, that would work fine. However, if we were to add event handling on the whole collection (sort, add/remove, etc.), it would reset all the state on the individual `Student`s! Not so good.
+
+Instead, we will _lift_ the state out of the `Student` component into the `StudentCollection`. This is a very common technique when managing a list of components in React: all the state lives in the parent component. This will also line up well with the code we've already written.
+
+#### Classical Component
+
+Our first step is to refactor the existing `StudentCollection` to be a classical component. The easiest way to do this is to:
+- Wrap the existing function in a class declaration
+- Rewrite the function signature to match the pattern for `render`
+- Replace `props` with `this.props` (find-and-replace is your friend)
+
+When all is said and done, you should have something like this:
+
+```js
 // src/components/StudentCollection.js
-constructor() {
-    super();
+// ... same import statements ...
+
+class StudentCollection extends React.Component {
+  render() {
+    // ... exactly what was in the body of the component function before ...
   }
+};
+
+export default StudentCollection;
 ```
 
-Then, add some constant student data to set the initial `state` in the constructor. We'll add an extra field to our students here, `isPresent`, which we'll be using in a bit.
+Verify that this was a true refactor, in other words that your app still runs and looks exactly the same.
+
+#### Adding State
+
+Our component is now a class, but it still doesn't keep track of any state. Let's fix that.
+
+As we saw in previous lessons, `state` should be set initially in the constructor. For our `StudentComponent`'s initial state, we'll use the list of students. We'll add an extra field to our students here, `isPresent`, which we'll be using in a bit.
+
+Set up a constructor in the `StudentCollection` component. Don't forget your call to `super();` which is always required in a component constructor!
 
 ```javascript
 // src/components/StudentCollection.js
