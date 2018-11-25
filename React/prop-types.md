@@ -23,7 +23,7 @@ const Student = (props) => {
   // Component functions always return JSX
   return (
     <div>
-      <h3 className={props.present ? 'present': 'absent'}>
+      <h3>
         {props.fullName}
       </h3>
       <p>{props.email}</p>
@@ -33,12 +33,13 @@ const Student = (props) => {
 
 Student.propTypes = {
   fullName: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  present: PropTypes.bool,
+  email: PropTypes.string,
 };
 ```
 
-The above block defines two props.  They both must be Strings and are required to use a `Student` component.  The attribute `present` however is an optional boolean prop.  If you try to use the `Student` component without a `fullName` prop you will get this error message:
+Wait a second - what's with that syntax? We just attached an attribute (`propTypes`) to a function (`Student`). Since functions are first-class objects in JavaScript, this is a totally valid thing to do. It even has a name: `propTypes` is a "static attribute" of `Student`.
+
+The above block defines two props. They both must be Strings. `email` is optional, but `fullName` is required to use a `Student` component. If you try to use the `Student` component without a `fullName` prop you will get this error message:
 
 ![Error Msg](images/missing-prop.png)
 
@@ -54,12 +55,11 @@ By adding `propTypes` to your React component classes you gain two things.  Firs
 
 ## Default Prop Values
 
-You can also set default values for props with a `defaultProps` static attribute.
+You can also set default values for some or all of your props with a `defaultProps` static attribute.
 
 ```javascript
 Student.defaultProps = {
-  fullName: 'Hermione Granger',
-  email: 'placeholder@notarealemail.com',
+  email: 'no email on file',
 }
 ```
 
