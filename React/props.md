@@ -24,7 +24,6 @@ import React, { Component } from 'React';
 import ComponentB from './components/ComponentB.js';
 
 const ComponentA = () => {
-  render() {
     return (
       <ComponentB varName='value goes here'/>
     );
