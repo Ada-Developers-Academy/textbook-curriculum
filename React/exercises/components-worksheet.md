@@ -33,8 +33,6 @@ In this worksheet the nested components are built using the basic components -- 
 
     ![Product component example](./images/example-component-product.png)
 
-1. Write a test file for the **Product** component which performs a snapshot test.  
-
 ## Nested Components
 
 1. Create a **UserCard** component which takes a user object. The user object has properties for:
