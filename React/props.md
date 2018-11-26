@@ -27,8 +27,7 @@ const ComponentA = () => {
     return (
       <ComponentB varName='value goes here'/>
     );
-  }
-}
+};
 ```
 
 From within Component B, you can now access this data using the `props.varName` variable.
@@ -40,7 +39,7 @@ const ComponentB = (props) => {
       The data from props is: { props.varName }
     </div>
   );
-}
+};
 ```
 
 **More Complex**
@@ -146,10 +145,10 @@ const StudentCollection = () => {
     {
       fullName: "Katherine Johnson",
       email: "kat@nasa.gov",
-    }
+    },
   ];
   // ... the return statement and JSX that was here before ...
-}
+};
 ```
 
 Then we are going to use the JavaScript `map` function to create a new component for each element within the array. Note: This is not a React-specific thing, you can use `map` in any JS code you want!
