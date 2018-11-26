@@ -91,7 +91,7 @@ Functional Components
 - Involve less complicated and lengthy syntax.
 - Can be understood more quickly because of their short, declaritive nature.
 - Are easier to test and debug because they are `deterministic`, i.e. given a set of props, they **always** return the same JSX.
-- Provide better **performance** because they do not inherit functionality provided by the Component class.  
+- In future releases they will provide better **performance** because they do not inherit functionality provided by the Component class.  
 - Are more reusable because by only providing the most basic functionality with fewer dependencies, functional components can be reused more often
 
 Class components however provide access to the state and lifecycle functionality provided by the `Component` class.  In the next lecture we will examine [`state`](state.md) and how it works.  Your applications going forward will consist of a mix of class and functional components.  You will find that most of your business logic resides in your class components, while functional components provide much of the presentation structure.
