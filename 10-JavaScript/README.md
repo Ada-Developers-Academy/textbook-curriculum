@@ -26,4 +26,5 @@
 1. [Classes](classes.md)
     - [Worksheet: Classes Practice](exercises/classes-worksheet.md)
     - [Exercise: Fortune](exercises/fortune.md)
+1. [Rest and Spread Operators](spread-and-rest.md)
 <!-- 1. [Underscore Templates](underscore-templates.md) -->
