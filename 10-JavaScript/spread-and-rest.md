@@ -205,6 +205,13 @@ As a pair read the code and predict the result.  Then run the resulting code in 
 </details>
 
 
+## Review
+
+- Rest parameters can be used to write a method taking an unlimited number of arguments.  
+- Using rest parameters arguments are added to an array parameter.
+- The spread operator does the inverse, taking an iterable object, like an array or string and converting it to individual items to be used in a function call, or instantiating a method.
+- The spread operator can also be used to merge objects.
+
 ## Resources
 
 - [MDN on Rest Parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
