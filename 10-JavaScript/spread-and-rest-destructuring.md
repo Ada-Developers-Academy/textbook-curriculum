@@ -53,7 +53,7 @@ console.log(name); // Stinker
 console.log(human); // Chris
 ```
 
-This makes it easier to r
+This makes it easier to use specific attributes of an object without having to write the full `pet.name` and `pet.human` each time.  
 
 ## Rest Parameters
 
