@@ -209,7 +209,67 @@ const merged = { ...ada, ...language };
 console.log(merged); // { name: 'C#', age: 103, about: 'A strongly typed language by Microsoft' }
 ```
 
-Notice that it merges the objects in order, so that `ada`'s name is overwritten by that of `language`.  
+Notice that it merges the objects in order, so that `ada`'s name is overwritten by that of `language`.  It also creates an entirely **new** array which shallowly copies elements of the original object.  This means that sub-objects or arrays can be references to the original.
+
+```javascript
+const student = {
+  name: 'Bob',
+  grades: [3, 4, 5],
+  address: {
+    street: '123 Elm St',
+    city: 'Trenton',
+    state: 'NJ',
+    zip: 11111,
+   }
+};
+
+const newStudent = { ...student };
+
+newStudent.name = 'Alice';
+newStudent.address.street = '4th avenue';
+
+console.log(newStudent);
+console.log('---');
+console.log(student);
+```
+
+The above code outputs: 
+
+```javascript
+{
+  name: 'Alice',
+  grades: [ 12, 4, 5 ],
+  address: {
+    street: '4th avenue',
+    city: 'Trenton',
+    state: 'NJ',
+    zip: 11111
+  }
+}
+---
+{
+  name: 'Bob',
+  grades: [ 12, 4, 5 ],
+  address:
+   { 
+     street: '4th avenue',
+     city: 'Trenton',
+     state: 'NJ',
+     zip: 11111
+  } 
+}
+```
+
+**Question** Look at the code above.  Why do both Alice & Bob have a street address of 4th avenue?
+
+<details>
+  <summary>
+    Click here to see the answer.
+  </summary>
+
+  The `...` operator is making a _shallow_ copy of the original object.  It does not copy all the values of `student`'s properties.  It instead copies the _reference_ to the `address` object and the `grades` array.  To make a _deep copy_ of the original object you would need to do things [differently.](https://medium.com/@tkssharma/objects-in-javascript-object-assign-deep-copy-64106c9aefab)
+</details>
+
 
 ## Examining Code
 
