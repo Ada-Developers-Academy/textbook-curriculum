@@ -1,4 +1,4 @@
-# Rest Parameters & The Spread Operator
+# Rest, Spread & Destructuring
 
 ## Learning Goals
 
@@ -6,6 +6,54 @@ By the end of this lesson you should:
 
 - Be able to use the rest parameter syntax to in functions which accept an unlimited number of arguments.
 - Be able to explain what the spread operator does and where it is useful.
+
+## Destructuring
+
+Destructuring is a way to peel items from an object or array into individual variables. 
+
+### Destructuring Arrays
+
+With an array you can use square brackets `[]` on the left side of an assignment to pull individual elements from an array in the order they are listed.  
+
+```javascript
+const list = [1, 2, 3, 4];
+
+const [first, second, third] = list;
+console.log(first);  // 1
+console.log(second); // 2
+console.log(third);  // 3
+```
+
+It can also allow you to swap to variables without an additional temporary variable.
+
+```javascript
+let firstName = 'Team';
+let lastName = 'Rocket';
+
+[lastName, firstName] = [firstName, lastName];
+console.log(lastName); // Team
+console.log(firstName); // Rocket
+```
+
+### Destructuring Objects
+
+With objects, you can pull items from an object and assign them to variables with the same name as the key.  
+
+```javascript
+const pet = {
+  name: 'Stinker',
+  age: 12,
+  human: 'Chris',
+  species: 'Cat',
+};
+
+const { name, human } = pet;
+
+console.log(name); // Stinker
+console.log(human); // Chris
+```
+
+This makes it easier to r
 
 ## Rest Parameters
 
@@ -127,6 +175,20 @@ You can also break a string into an array of individual characters with the spre
 const letters = [...'abc']; // ['a', 'b', 'c']
 ```
 
+### Combining the spread operator with destructuring
+
+You can also use destructuring along with the spread operator to remove individual elements from an array.
+
+```javascript
+const list = ['peanut butter', 'chocolate', 'vanilla', 'cookies and cream'];
+
+const [first, second, ...rest] = list;
+
+console.log(first); // peanut butter
+console.log(second); // chocolate
+console.log(rest); // vanilla,cookies and cream 
+```
+
 ### Spread operator with object literals
 
 The spread operator can also be used to combine or merge two object literals.  The code below merges two object literals.
@@ -203,7 +265,6 @@ As a pair read the code and predict the result.  Then run the resulting code in 
 
 </details>
 
-
 ## Review
 
 - Rest parameters can be used to write a method taking an unlimited number of arguments.  
@@ -213,6 +274,7 @@ As a pair read the code and predict the result.  Then run the resulting code in 
 
 ## Resources
 
+- [MDN on Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 - [MDN on Rest Parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
 - [MDN on Spread Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 - [JavaScript.info on Rest & Spread](https://javascript.info/rest-parameters-spread-operator)
