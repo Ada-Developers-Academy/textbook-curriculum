@@ -235,96 +235,9 @@ Use `mount` when you need to test the interaction between a container and child 
 |  mount  |  Deep Rendering | Renders the entire component and subcomponent to test their interactions  |
 |  shallow  |  shallow rendering  | Used for tests on a single component in isolation.
 
-## Testing User Interaction
+## Event Handling
 
-With snapshot testing we have tested how React components **render** to the DOM.  Next we need to test how the components respond to user interaction.
-
-```javascript
-// src/components/NewPetForm.test.js
-...
-test('when the user enters a name in the text field, the field is updated', () => {
-  // Arrange
-  // Shallow-mount the wrapper
-  const wrapper = shallow( <NewPetForm addPetCallback={() => {}} />);
-  // Find the input in the component
-  let nameField = wrapper.find('input[name="name"]');
-
-  // Act
-  // Trigger a 'change' event
-  nameField.simulate('change', {
-    target: {
-      name: 'name',
-      value: 'Bob',
-    },
-  });
-  // Force the component to update (setState is async)
-  wrapper.update();
-  // Find the updated component
-  nameField = wrapper.find('input[name="name"]');
-
-  // Assert
-  expect(nameField.getElement().props.value).toEqual('Bob');
-});
-```
-
-The Above test first shallowly renders the form, and then finds the input for the `name` field.  With the `find` method you can select elements just like using jQuery.  It returns a [`ShallowWrapper`](http://airbnb.io/enzyme/docs/api/shallow.html) object to enclose the input and then we trigger a `change` event on the field with  the `simulate` function.
-
-Because `setState` is asynchronous, Enzyme provides an `update` function to force the component to update its state, and then we can test the new value of the `name` input field.
-
-You may also notice that we have `nameField.getElement().props.value` to get the value of the HTML element.  In this case Enzyme can return the HTML properties.  Enzyme shallow copies treat all properties both among HTML elements or React components.
-
-**Exercise** Add tests to verify the `change` events for the other input fields.  There are two ways to do this, either add 3 separate tests, or create a loop to iterate through the fields.  You can see the second solution [here](https://github.com/AdaGold/react-pets/blob/testing/src/components/NewPetForm.test.js).
-
-### Testing Submit Actions and Callbacks
-
-When the user submits the NewPetForm we expect it to call the `addPetCallback` prop.  To test this we can use a feature of Jest called a [Mock Function](https://facebook.github.io/jest/docs/en/mock-functions.html).
-
-```javascript
-test('addPetCallback prop is called when the form is submitted', () => {
-  // Arrange
-  const mockAddPetCallback = jest.fn();
-  const wrapper = shallow(<NewPetForm addPetCallback={mockAddPetCallback} />);
-  const form = wrapper.find('form');
-
-  // Act
-  form.simulate('submit', {
-    preventDefault: () => {},
-  });
-  wrapper.update();
-
-  // Assert
-  expect(mockAddPetCallback).toHaveBeenCalled();
-  expect(mockAddPetCallback.mock.calls[0][0]).toEqual({
-    name: '',
-    age: '',
-    breed: '',
-    about: '',
-  });
-});
-```
-
-The line `const mockAddPetCallback = jest.fn();` creates a function which we can use to capture calls and verify if a callback has been executed.
-
-Using this technique we can test a component and verify that a callback function passed as a prop is called when an event occurs.
-
-We can verify the function was called with the expectation `toHaveBeenCalled`.
-
-We can also verify the arguments sent to the callback function with: `mockAddPetCallback.mock.calls`.  `mockAddPetCallback.mock.calls` returns a 2-dimensional array of calls against the function and arguments sent to it.  So `mockAddPetCallback.mock.calls[0][0]` returns the first argument sent to the function the first time it was called.  `mockAddPetCallback.mock.calls[1][2]` meanwhile would indicate the 3rd argument sent to the function the second time it was called.
-
-## Unit Testing User Interation - What To Test
-
-We have looked at what to test.  _What_ should you test?  In general if a Component has state that changes with user interaction, you should test to verify that it responds as expected.
-
-When testing the `NewPetForm`, the Component should respond to two kinds of user interaction.
-
-1.  When the user types in a field, the state should be updated and the field's value should be updated.
-2.  When the form is submitted, it should call the function passed into the `addPetCallback` prop with the proper parameters.
-
-### Going Further
-
-Another test we could write would enable us to test what happens to the `PetsCollection` when the user submits the form?
-
-**Question**:  Could you do this with a shallow render of the form?  How would you write this test?
+Enzyme also allows you to write tests for user interaction, using a jQuery-like syntax to simulate events. We won't cover that in this class, but if that sounds interesting to you you can [read more about simulating events here](https://airbnb.io/enzyme/docs/api/ReactWrapper/simulate.html).
 
 ## Summary
 
