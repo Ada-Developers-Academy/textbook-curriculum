@@ -241,7 +241,12 @@ Enzyme also allows you to write tests for user interaction, using a jQuery-like 
 
 ## Summary
 
-In this lesson we learned what a snapshot test is and how to create one.  We then saw how to test a React component and verify that it responds properly to events.
+- Jest is included with React by default
+- Enzyme is a library that provides more convenient testing syntax, as well as some advanced functionality
+- Snapshot testing allows you to detect when your component changes
+- Enzyme has two methods for rendering components: `shallow` and `mount`
+  - `shallow` renders only the component you specify, and should be the default choice
+  - `mount` renders a component and all its children, and should be used only when you need to test cross-component interactions
 
 ## Resources
 - [Tutorial on Testing React](https://medium.com/tribalscale/tutorial-on-testing-react-part-1-2c587e39114d)
