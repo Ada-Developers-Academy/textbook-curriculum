@@ -11,13 +11,58 @@ By the end of this lesson you should be able to:
 
 In this lesson we will be learning testing through the React pets project we worked on earlier.
 
-You can clone the repository [here](https://github.com/AdaGold/react-pets), and switch to the `solution` branch, if needed.
+You can clone [our implementation of the ada-pets project](https://github.com/AdaGold/react-pets), and switch to the `solution` branch, if needed.
 
 Once you have cloned the repository remember to run `npm install` to install the project dependencies.
+
+### Installing Enzyme & React Test Renderer
+
+Enzyme is a handy library which will make it easier to manipulate, traverse and make assertions on our React components.  It's made to work similar to jQuery for selecting, rendering and manipulating the DOM.
+
+To install enzyme for testing your application, execute from the terminal:
+
+```bash
+npm i --save-dev enzyme enzyme-adapter-react-16 enzyme-to-json
+```
+
+**Note** This will install enzyme and an adapter or version 16 of React.  You can expect a new adapter for later versions of React.
+
+Next we need to tell Jest how to serialize enzyme data. Open up `package.json` and add the following object:
+
+```json
+"jest": {
+  "snapshotSerializers": ["enzyme-to-json/serializer"]
+}
+```
+
+Finally, tell Jest how to configure enzyme and use the adapter.  Create the file `src/setupTests.js` and add the following content.
+
+```javascript
+// src/setupTests.js
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
+```
+
+This file is run when you start testing with create-react-app and allows us to tell enzyme which adapter to use.  If you have tests running you will need to exit and restart Jest.
+
+**You will need to follow these steps for every new React project you create.**
+
+### Test Files
+
+We will use the following pattern for our test files:
+
+- Create a new folder `src/components/test`
+- Each component `src/components/X.js` gets a test file `src/components/test/X.test.js`
+- Jest should be able to automatically find and run any file ending in `.test.js` without us having to do any extra work
+
+Run `mkdir src/components/test` now to create this folder.
 
 ## How to Run Tests
 
 Create-react-app comes with Jest testing built in and in fact provides an initial test.  To run the test type:  `npm test` and you will get a screen like this:
+
 ```bash
 No tests found related to files changed since last commit.
 Press `a` to run all tests, or run Jest with `--watchAll`.
@@ -75,40 +120,6 @@ Add a `  console.log(div.innerHTML);` after the `ReactDOM.render` command and lo
 The default test in `App.test.js` first creates a `div` element which is **not** embedded in any webpage and then embeds an instance of the App component inside the `div`.  In this way it tests that the component can be rendered at all.  Lastly `ReactDOM.unmountComponentAtNode` destroys the instance to save memory.
 
 This test doesn't actually make any assertions, there are no `expect(div).toBe(y)` commands, but it ensures that the component will show up on the screen without crashing React.
-
-### Installing Enzyme & React Test Renderer
-
-Enzyme is a handy library which will make it easier to manipulate, traverse and make assertions on our React components.  It's made to work similar to jQuery for selecting, rendering and manipulating the DOM.
-
-To install enzyme for testing your application, execute from the terminal:
-
-```bash
-npm i --save-dev enzyme enzyme-adapter-react-16 enzyme-to-json
-```
-
-**Note** This will install enzyme and an adapter or version 16 of React.  You can expect a new adapter for later versions of React.
-
-Next we need to tell Jest how to serialize enzyme data. Open up `package.json` and add the following object:
-
-```json
-{
-  "jest": {
-    "snapshotSerializers": ["enzyme-to-json/serializer"]
-  }
-}
-```
-
-Finally, tell Jest how to configure enzyme and use the adapter.  Create the file `src/setupTests.js` and add the following content.
-
-```javascript
-// src/setupTests.js
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-
-configure({ adapter: new Adapter() });
-```
-
-This file is run when you start testing with create-react-app and allows us to tell enzyme which adapter to use.  If you have tests running you will need to exit and restart Jest.
 
 ## Snapshot Testing
 
