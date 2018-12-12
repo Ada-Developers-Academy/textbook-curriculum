@@ -5,7 +5,7 @@ Here we will try to ensure that individual components work predictably by testin
 ## Learning Goals
 By the end of this lesson you should be able to:
 - Explain the terms _Snapshot Test_, and _shallow_ and _deep_ rendering
-- Write tests to verify components exist and actions perform as expected
+- Write tests to verify components exist and have not changed
 
 ## Getting Started
 
@@ -142,6 +142,8 @@ Instead we can:
 When a component changes, we can be alerted and make corrections, or update the snapshot for future test runs.
 
 **Question:** Can you do TDD with a Snapshot test?
+
+**Question:** When would a snapshot test be useful?
 
 ### Creating our First Snapshot
 
