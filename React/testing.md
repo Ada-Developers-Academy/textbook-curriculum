@@ -147,19 +147,19 @@ When a component changes, we can be alerted and make corrections, or update the 
 
 Lets create a snapshot test for one of our untested components, `NewPetForm`.
 
-First create `src/NewPetForm.test.js`
+First create `src/components/test/NewPetForm.test.js`
 
 ```javascript
-// src/NewPetForm.test.js
+// src/components/test/NewPetForm.test.js
 import React from 'react';
-import NewPetForm from './NewPetForm';
-import { mount } from 'enzyme';
+import NewPetForm from '../NewPetForm';
+import { shallow } from 'enzyme';
 
 describe('NewPetForm', () => {
   test('that it matches an existing snapshot', () => {
     // First Mount the Component in the testing DOM
     // Arrange
-    const wrapper = mount( <NewPetForm addPetCallback={() => {} } />);
+    const wrapper = shallow( <NewPetForm addPetCallback={() => {} } />);
 
     // Assert that it looks like the last snapshot
     expect(wrapper).toMatchSnapshot();
@@ -169,7 +169,7 @@ describe('NewPetForm', () => {
   });
 });
 ```
-Now lets break the test.  Modify the `NewPetForm` component by adding a class attribute to one of the elements.  You should see something like this:
+Now let's break the test.  Modify the `NewPetForm` component by adding a class attribute to one of the elements.  You should see something like this:
 
 ![Failed Snapshot](./images/failedSnapShot.png)
 
@@ -181,7 +181,8 @@ This is called a shapshot diff.  Notice the added content are highlighted in red
 
 You can see a solution on the testing branch of the repository.
 
-In the above example we used Enzyme's `mount` function to create the snapshot.  You can read about `mount` in Enzyme's documentation [here](https://airbnb.io/enzyme/docs/api/mount.html).  Using `mount` renders a component including any subcomponents fully in a virtual DOM.  Because it mounts the component in the DOM, it is important to call `.unmount` at the end of every test to prevent one test from affecting another.
+In the above example we used Enzyme's `shallow` function to create the snapshot.  You can read about `shallow` in Enzyme's documentation [here](https://airbnb.io/enzyme/docs/api/mount.html).  The word `shallow` indicates that we will render this component but not any of its child components.  This is good, because it means that a problem with a child component will not cause the tests for the parent component to break.
+
 
 ### Snapshots Files
 
@@ -194,7 +195,7 @@ You may wonder, "Where are these snapshots saved?"  You can see the snapshot fil
 Notice that the snapshot file looks a lot like the JSX rendered by the component, but it's a generated JSON file making it easier to compare to new snapshots.  You generally won't need to look at these files directly, but looking at the snapshot file should help you understand how Jest compares the current snapshot to the rendered content from the test.
 
 
-### Creating a Shallow Snapshot with enzyme
+### Creating a Deep Snapshot with Enzyme
 
 This type of snapshot can work just fine for small components without subcomponents.  However with a complicated container component with dozens of subcomponents the snapshot can be thousands of lines long.  It would also be very fragile.  Any time one subcomponent changed, the snapshot would fail with an enormous diff.  A test that fails too often and is hard to parse gets ignored becoming useless.  **Snapshot test files should as a rule be as small as practical and specific to the component being tested**.
 
