@@ -7,6 +7,8 @@ In this lesson you will learn about Amazon Web Services in general and the Elast
 After following along with this lesson you should be able to:
 
 1. Follow a guide to deploy a Ruby on Rails web application to EB
+1. Troubleshoot issues with deployment involving the database.
+1. Manage environment variables in an EB instance.  
 
 ## Tutorial Overview
 
