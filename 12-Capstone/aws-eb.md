@@ -6,8 +6,9 @@ In this lesson you will learn about Amazon Web Services in general and the Elast
 
 After following along with this lesson you should be able to:
 
-1. Explain what AWS is and how it differs from Heroku
-1. Explain what Elastic Beanstalk is and how it relates to Heroku
+1. What is _Infrastructure as a service?_
+1. What is _Platform as a service?_
+1. How does Elastic Beanstalk compare to Heroku?
 1. Explain what components of AWS are used with Elastic Beanstalk
 
 ## Overview
@@ -15,6 +16,12 @@ After following along with this lesson you should be able to:
 Previously we've seen deployment with Heroku which is easy to get started with, but which also restricts your options for deployment architectures and technologies. We've also seen deployment with GitHub pages, but this only supports static front-end web applications.
 
 One alternative for deploying back-end web applications is to use Amazon Web Services (which Heroku is built on).
+
+As you read this document try to answer the following questions:
+
+- What does Amazon provide with AWS?
+- How is Elastic Beanstalk similar to Heroku and how is it different?
+- What alternatives to Elastic Beanstalk exist?
 
 ### What is AWS?
 
@@ -95,6 +102,14 @@ Now that we've taken a pretty significant tour through the different systems tha
 While it may seem like there's a lot more involved in an Elastic Beanstalk application, in truth both of these systems are very similar! Heroku's system involves every one of the above components and uses them in almost exactly the same ways.
 
 The main difference between the two is that Heroku hides many of the underlying systems from developers which makes learning to use it and deploy your first application significantly faster. The other side to that coin however, is that you have less control over how each component of your deployment stack is configured and Heroku must explicitly support the kind of application you're attempting to deploy.
+
+## Other Systems
+
+While Amazon is by far the market leader in cloud computing a number of other companies provide Platform as a service offerings.  The Google Cloud Platform (GCP) provides [Appengine](https://cloud.google.com/appengine/) for deploying applications, and Microsoft Azure provides [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/).  
+
+## Summary
+
+In this lesson we introduced Amazon Web Services and focused on the Elastic Beanstalk service (EB).  Elastic Beanstalk is a Platform As A Service(PAAS) offering.  It allows developers to deploy web applications in a variety of languages and EB configures and maintains networking, application servers and databases for the application transparently to the developer.  It has many similarities to Heroku, but provides more automatic scaling and fine-grained control.
 
 ## Resources
 
