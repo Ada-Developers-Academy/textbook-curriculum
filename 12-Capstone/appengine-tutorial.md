@@ -271,6 +271,25 @@ beta_settings:
   cloud_sql_instances: [YOUR_INSTANCE_CONNECTION_NAME]
 ```
 
+## Grant the appengine gem permission
+
+Next grant the cloudbuild service account to run commands on the database server.
+
+First retrieve your project  number with:
+
+```bash
+$ gcloud projects list
+```
+
+Copy the [PROJECT NUMBER] and use it here.  
+
+```bash
+gcloud projects add-iam-policy-binding [YOUR-PROJECT-ID] \
+  --member=serviceAccount:[PROJECT_NUMBER]@cloudbuild.gserviceaccount.com \
+  --role=roles/editor
+```
+
+
 ## Create the App Engine Flexible Environment
 
 Almost done!  You can create the App Engine app with the command:
@@ -281,15 +300,30 @@ $  gcloud app create
 
 Choose your region `us-central` and continue. 
 
-You can deploy your application with:
+You can deploy your application with two commands, one to compile the assets for the application and the second to start the deployment process:
 
 ```bash
+$  bundle exec bin/rails assets:precompile
 $  gcloud app deploy
 ```
 
 Press `y` to continue and Google will begin publishing the app.  
 
- Then get a cup of coffee and wait.  This should take up to 2 minutes.
+ Then get a cup of coffee and wait.  This should take up to 10 minutes.
+
+ Once the app is deployed you can bring it up with
+
+ `gcloud app browse`
+
+ **OMG It's not working!**
+
+ Relax, you haven't run your migrations on the server yet.  So execute the following two commands:
+
+ ```bash
+$  bundle exec rake appengine:exec -- bundle exec rake db:migrate
+
+$ bundle exec rake appengine:exec -- bundle exec rake db:seed
+ ```
 
 ## Summary
 
