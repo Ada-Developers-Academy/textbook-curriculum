@@ -154,7 +154,7 @@ project = <YOUR PROJECT ID>
 
 ### Cloning the application
 
-Clone the repository from https://github.com/adagold/appengine-example-rails
+Clone the repository from https://github.com/AdaGold/appengine-sample-pets
 
 Then run `bundle install`, `rails db:reset`.
 
@@ -324,6 +324,8 @@ $  bundle exec rake appengine:exec -- bundle exec rake db:migrate
 
 $ bundle exec rake appengine:exec -- bundle exec rake db:seed
  ```
+
+ Now if you add `gcloud app browse`, you should see the application running on the web.  
 
 ## Summary
 
