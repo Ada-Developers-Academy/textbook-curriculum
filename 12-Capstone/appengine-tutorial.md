@@ -4,9 +4,9 @@
 
 By the end of this tutorial you should be able to:
 
-1. explain what the Google Cloud Platform is
-1. explain what a _project_, _instance_, and ______ are.
-1. create database instances and a 
+1. explain what the Google Cloud Platform and App Engine are
+1. create database instances and deploy a rails project using appengine
+1. run rails commands on an App Engine production instance using the appengine gem
 
 ## Overview
 
@@ -114,8 +114,8 @@ It will open a browser window and ask you to choose an account and authorize the
 Next we will create a server running Postgres for our deployed application to store data on.  
 
 1. In the Google web console go to Storage-->SQL and click `create instance`
-1. Then select a `PostgreSQL` database engine and click `next`.
-1. Give your instance the name `rails-database-instance`, the password `password` and the region `us-central1` and zone `us-central1-c`
+2. Then select a `PostgreSQL` database engine and click `next`.
+3. Give your instance the name `rails-database-instance`, the password `password` and the region `us-central1` and zone `us-central1-c`
 
 Then wait, it could take up to five minutes to complete.  We have configured a **database server**, but the server doesn't have a database ready for our app to use.  We will create one next.
 
