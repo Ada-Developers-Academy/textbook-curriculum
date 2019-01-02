@@ -4,7 +4,7 @@
     - [Worksheet: Conditions](./exercises/conditions-worksheet.md)
 1. [Methods](methods.md)
     - [Activity: Built-in Ruby Methods Jigsaw](./exercises/built-in-ruby-methods-jigsaw.md)
-    - [Activity: Friendship Note](./exercises/methods-worksheet.md)
+    - [Activity: Friendship Note](./exercises/friendship-note.md)
 1. [Data Structures](data-structures.md)
 1. [Scope](scope.md)
 1. [Constants](constants.md)
