@@ -172,7 +172,7 @@ Convert the following binary numbers to their decimal equivalent number using th
 </br>
 
 4. 
-11000011</sub>
+11000011<sub>2</sub>
 <details>
   <summary> Click here to tally the answer for 11000011<sub>2</sub> to decimal </summary>
   11000011<sub>2</sub> = (1 * 2<sup>0</sup>) + (1 * 2<sup>1</sup>) + (0 * 2<sup>2</sup>) + (0 * 2<sup>3</sup>)</br>
