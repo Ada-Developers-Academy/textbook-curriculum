@@ -9,7 +9,7 @@ _CS fundamentals 0_
 ## Activities
 * Understand [decimal numbers](#decimal-numbers) in terms of ten unique digits
 * Learn about [binary numbers](#binary-numbers)
-* Understand how to [convert from binary numbers to decimal numbers](#converting-from-binary-to-decimal) and solve the exercises(#binary-to-decimal-exercises) that follow.
+* Understand how to [convert from binary numbers to decimal numbers](#converting-from-binary-to-decimal) and solve the [exercises](#binary-to-decimal-exercises) that follow.
 * Understand how to [convert form decimal numbers to binary numbers](#converting-from-decimal-to-binary) and solve the [exercises](#decimal-to-binary-exercises) that follow.
 * [optional] Further Reading exercise: Learn how to convert a decimal number to a binary number and vice versa, as well as [Computer Data Basics](https://docs.google.com/document/d/1g-Dxn1rVTChBs9ZZSOgmohjP_RoWNyPJTE-m_n35aZ0/edit).
 
@@ -140,34 +140,45 @@ Let's walk through another conversion exercise together. Let's convert 0101<sub>
 
 #### Binary to Decimal Exercises
 Convert the following binary numbers to their decimal equivalent number using the approach we learned above:
-1. 1001<sub>2</sub>
+
+1. 
+1001<sub>2</sub>
 <details>
   <summary> Click here to tally the answer for 1001<sub>2</sub> to decimal </summary>
-  **1001**<sub>2</sub> = (1 \* 2<sup>0</sup>) + (0 \* 2<sup>1</sup>) + (0 \* 2<sup>2</sup>) + (1 \* 2<sup>3</sup>)</br>
+  1001<sub>2</sub> = (1 * 2<sup>0</sup>) + (0 * 2<sup>1</sup>) + (0 * 2<sup>2</sup>) + (1 * 2<sup>3</sup>)</br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 1 + 0 + 0 + 8</br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= **9**<sub>10</sub></br></br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 9<sub>10</sub></br></br>
 </details>
-1. 1010<sub>2</sub>
+</br>
+
+2. 
+1010<sub>2</sub>
 <details>
   <summary> Click here to tally the answer for 1010<sub>2</sub> to decimal </summary>
-  **1010**<sub>2</sub> = (0 \* 2<sup>0</sup>) + (1 \* 2<sup>1</sup>) + (0 \* 2<sup>2</sup>) + (1 \* 2<sup>3</sup>)</br>
+  1010<sub>2</sub> = (0 * 2<sup>0</sup>) + (1 * 2<sup>1</sup>) + (0 * 2<sup>2</sup>) + (1 * 2<sup>3</sup>)</br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 0 + 2 + 0 + 8</br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= **10**<sub>10</sub></br></br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 10<sub>10</sub></br></br>
 </details>
-1. 1111<sub>2</sub>
+</br>
+
+3. 
+1111<sub>2</sub>
 <details>
   <summary> Click here to tally the answer for 1111<sub>2</sub> to decimal </summary>
-  **1111**<sub>2</sub> = (1 \* 2<sup>0</sup>) + (1 \* 2<sup>1</sup>) + (1 \* 2<sup>2</sup>) + (1 \* 2<sup>3</sup>)</br>
+  1111<sub>2</sub> = (1 * 2<sup>0</sup>) + (1 * 2<sup>1</sup>) + (1 * 2<sup>2</sup>) + (1 * 2<sup>3</sup>)</br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 1 + 2 + 4 + 8</br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= **15**<sub>10</sub></br></br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 15<sub>10</sub></br></br>
 </details>
-1. 11000011</sub>
+</br>
+
+4. 
+11000011</sub>
 <details>
   <summary> Click here to tally the answer for 11000011<sub>2</sub> to decimal </summary>
-  **11000011**<sub>2</sub> = (1 \* 2<sup>0</sup>) + (1 \* 2<sup>1</sup>) + (0 \* 2<sup>2</sup>) + (0 \* 2<sup>3</sup>)</br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ (0 \* 2<sup>4</sup>) + (0 \* 2<sup>5</sup>) + (1 \* 2<sup>6</sup>) + (1 \* 2<sup>7</sup>)</br>
+  11000011<sub>2</sub> = (1 * 2<sup>0</sup>) + (1 * 2<sup>1</sup>) + (0 * 2<sup>2</sup>) + (0 * 2<sup>3</sup>)</br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ (0 * 2<sup>4</sup>) + (0 * 2<sup>5</sup>) + (1 * 2<sup>6</sup>) + (1 * 2<sup>7</sup>)</br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 1 + 2 + 0 + 0 + 0 + 0 + 64 +128</br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= **195**<sub>10</sub></br></br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 195<sub>10</sub></br></br>
 </details>
 
 ### Converting from Decimal to Binary
@@ -308,6 +319,7 @@ The binary equivalent of 475<sub>10</sub> is **111011011**<sub>2</sub>.
 
 #### Decimal to Binary Exercises
 Convert the following decimal numbers to their binary equivalent number using the approach we learned above:
+
 * 49
 <details>
    <summary>Click here to see the solution for 49</summary>
@@ -332,6 +344,7 @@ We know that 49<sub>10</sub> is less than all powers of 2 greater than 32. So, w
 
 The binary equivalent of **49**<sub>10</sub> is **110001**<sub>2</sub>.
 </details>
+</br>
 
 * 234
 <details>
@@ -363,6 +376,7 @@ We know that 128 is the largest power of two that is smaller than 234.</br>
 
 The binary equivalent of **234**<sub>10</sub> is **11101010**<sub>2</sub>.
 </details>
+</br>
 
 * 432
 <details>
