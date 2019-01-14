@@ -179,3 +179,4 @@ The Jest docs also have some great examples of how to use the different matchers
 - [Testing React Apps](https://facebook.github.io/jest/docs/en/tutorial-react.html)
 - [Jest Examples Folder](https://github.com/facebook/jest/tree/master/examples)
 - [Karma a way to run tests through the browser](https://karma-runner.github.io/2.0/index.html)
+- [Free Code Camp Jest Introduction](https://medium.freecodecamp.org/the-react-handbook-b71c27b0a795)
