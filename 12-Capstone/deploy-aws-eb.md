@@ -25,10 +25,10 @@ Clone the repository from https://github.com/adagold/aws-eb-rails (there is no n
 1. Log into the [AWS Management Console](https://console.aws.amazon.com/).
 1. Go to the [Elastic Beanstalk Management Console](https://us-west-2.console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2#/getting_started) (we're using the Oregon datacenter aka us-west-2).
 1. Create a new EB application:
-  1. Click "Create New Application" link in the upper-right
-  2. Enter "EB Rails Test" in the "Application name" text entry
-  3. Click Next
-  4. Click Cancel (we'll create an Environment with the CLI)
+  - Click "Create New Application" link in the upper-right
+  - Enter "EB Rails Test" in the "Application name" text entry
+  - Click Next
+  - Click Cancel (we'll create an Environment with the CLI)
 
 ## Step 3:  Install the EB CLI
 
