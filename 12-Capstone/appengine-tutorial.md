@@ -216,7 +216,7 @@ production:
 
 ### Update the `.ruby-version` file
 
-App Engine tries to get the version of ruby to use from the `.ruby-version` file, but requires simply the ruby version number, change `ruby-2.5.3` to `2.5.3`
+App Engine tries to get the version of ruby from the `.ruby-version` file, but requires just the straight number without `ruby-` in front.  Change `ruby-2.5.3` in the file to `2.5.3`.
 
 ### Create an `app.yaml` file
 
@@ -228,7 +228,7 @@ env: flex
 runtime: ruby
 ```
 
-### Configure Rails secret key in app.yaml
+### Configure Rails secret key in `app.yaml`
 
 When a Rails app is deployed to a production environment, the environment variable SECRET_KEY_BASE expects a secret key to protect user session data. This environment variable is read from the config/secrets.yml file in your Rails app.
 
@@ -238,9 +238,9 @@ First, generate a new secret key:
 $  bundle exec bin/rails secret
 ```
 
-Copy the generated secret key to your clipboard. You use the secret key in the next step.
+Copy the generated secret key to your clipboard. **You use the secret key in the next step.**
 
-Next, open the file app.yaml that you created earlier, and add an env_variables section. The env_variables defines environment variables in the App Engine environment. The app.yaml should look similar to the example below with [SECRET_KEY] replaced with the secret key in your clipboard.
+Next, open the file `app.yaml` that you created earlier, and add an env_variables section. The env_variables defines environment variables in the App Engine environment. The `app.yaml` should look similar to the example below with [SECRET_KEY] replaced with the secret key in your clipboard.
 
 ```yaml
 entrypoint: bundle exec rackup --port $PORT
@@ -253,11 +253,11 @@ env_variables:
 
 ### Configure app.yaml to use the Cloud SQL instance
 
-Next, configure the App Engine flexible environment to use a specified Cloud SQL instance by providing the Cloud SQL Instance Connection Name in the app.yaml configuration file.
+Next, configure the App Engine flexible environment to use a specified Cloud SQL instance by providing the Cloud SQL Instance Connection Name in the `app.yaml` configuration file.
 
-Open the file app.yaml, and add a new section named beta_settings and define a nested parameter cloud_sql_instances with the instance connection name as the value.
+Open the file `app.yaml`, and add a new section named beta_settings and define a nested parameter cloud_sql_instances with the instance connection name as the value.
 
-The app.yaml should now look similar to the following with [INSTANCE_CONNECTION_NAME] replaced with the value of the Cloud SQL instance connection name.
+The `app.yaml` file should now look similar to the following with [INSTANCE_CONNECTION_NAME] replaced with the value of the Cloud SQL instance connection name.
 
 ```yaml
 entrypoint: bundle exec rackup --port $PORT
@@ -320,7 +320,7 @@ Press `y` to continue and Google will begin publishing the app.
  Relax, you haven't run your migrations on the server yet.  So execute the following two commands:
 
  ```bash
-$  bundle exec rake appengine:exec -- bundle exec rake db:migrate
+$ bundle exec rake appengine:exec -- bundle exec rake db:migrate
 
 $ bundle exec rake appengine:exec -- bundle exec rake db:seed
  ```
