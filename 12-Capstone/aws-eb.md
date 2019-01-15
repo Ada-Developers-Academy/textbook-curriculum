@@ -4,7 +4,7 @@ In this lesson you will learn about Amazon Web Services in general and the Elast
 
 ## Learning Goals
 
-After following along with this lesson you should be able to:
+After following along with this lesson you should be able to answer the following questions:
 
 1. What is _Infrastructure as a service?_
 1. What is _Platform as a service?_
