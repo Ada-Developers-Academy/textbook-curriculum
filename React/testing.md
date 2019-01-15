@@ -255,3 +255,4 @@ Enzyme also allows you to write tests for user interaction, using a jQuery-like 
 - [The Right way to test React Components](https://medium.freecodecamp.org/the-right-way-to-test-react-components-548a4736ab22)
 - [Jest Documentation - Testing React Apps](https://facebook.github.io/jest/docs/en/tutorial-react.html)
 - [Using Jest with enzyme](https://github.com/airbnb/enzyme/blob/master/docs/guides/jest.md)
+- [FreeCodeCamp React Testing with Jest](https://medium.com/p/b71c27b0a795#54c3)
