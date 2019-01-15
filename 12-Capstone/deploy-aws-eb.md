@@ -74,7 +74,8 @@ $ eb create example-env -db -db.engine postgres -db.i db.t2.micro -i t2.micro --
 
 This sets up a new Environment using mostly the default options. However, we've explicitly asked for the environment to include a database (specificially a PostgreSQL database), and it opts for using the smallest _instance types_ for both the database and the web app servers.  
 
-Instance type is the term AWS uses to identify which "size" of resource is being requested. For databases the `db.t2.micro` instance type is the smallest possible, and the only one that qualifies in the Free Tier, likewise for web application servers the `t2.micro` instance is the only option for usage in the Free Tier.  If you are curious about the instance types available, you can read more [here](https://aws.amazon.com/ec2/instance-types/).
+Instance type is the term AWS uses to identify which "size" of resource is being requested. For databases the `db.t2.micro` instance type is the smallest possible, and the only one that qualifies in the Free Tier, likewise for web application servers the `t2.micro` instance is the only option for usage in the Free Tier.  [AWS supports many different instance types](https://aws.amazon.com/ec2/instance-types/), feel free to read more if you're curious
+.
 
 When the EB CLI prompts you for a database username and password, keep the default `ebroot` for the username and type `password` for the password.
 
