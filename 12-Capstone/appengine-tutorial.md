@@ -125,8 +125,6 @@ Then wait, it could take up to five minutes to complete.  We have configured a *
 1. Next click on the `Databases` tab and create a database named `pets`. 
 1. Lastly go back to the `Overview` tab and find the area labeled, `Connect to this instance` and copy the `Instance connection name` to a text file for later.  
 
-# TODO CLI STUFF
-
 ## Using the Google CLI to create and deploy a rails app
 
 Now we will begin to create and deploy a rails application from the command line.  
