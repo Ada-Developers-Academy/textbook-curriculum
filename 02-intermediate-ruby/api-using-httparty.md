@@ -1,5 +1,7 @@
 # Consuming an API w/Ruby
 
+# TODO: gentler introduction
+
 ## Learning Goals:
 - Consume an API in Ruby
 - Identify the pieces of an HTTParty response/request
