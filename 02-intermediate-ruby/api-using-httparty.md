@@ -1,37 +1,56 @@
 # Consuming an API w/Ruby
 
-# TODO: gentler introduction
+When we first discussed APIs, we described them as a way to publish data so it's easy for machines to consume. But so far we have only used the browser to read API data. In this lesson, we will discover how to make requests against an API from within a Ruby program.
 
 ## Learning Goals:
 - Consume an API in Ruby
 - Identify the pieces of an HTTParty response/request
 
-### HTTP isn't just for browsers
+## HTTParty
 
-Web api's are requested using HTTP, this means that many tools and any programming language can make requests. Ruby has **many** tools to make HTTP requests:
+To consume an API from Ruby, we'll need to make use of a gem. There are a few that would do the trick, but in this class we'll be using one called [HTTParty](https://github.com/jnunemaker/httparty). HTTParty doesn't support some of the more complex things you can do with a network connection, but it's relatively simple to use and is more than powerful enough for our purposes.
 
-- [HTTParty](https://github.com/jnunemaker/httparty): Just a few features, great to use for learning and simple requests
-- [Net::HTTP](http://ruby-doc.org/stdlib-2.1.0/libdoc/net/http/rdoc/Net/HTTP.html): Standard Ruby library.
-- [Typheous](https://github.com/typhoeus/typhoeus): Advanced functionality such as parallel requests and streaming.
+**Question:** How would we install the HTTParty gem and include it in our program?
 
-Here is an example of an HTTP request using the HTTParty gem.
+### Making Requests
 
-```ruby
-require 'httparty'
-response = HTTParty.get("https://dog.ceo/api/breeds/image/random")
+The HTTParty gem gives us access to a module called `HTTParty`, which we can use to make requests. To do so we'll need a URL. This one will do:
+
+```
+https://dog.ceo/api/breeds/image/random
 ```
 
-...and just like that we will get back data from an API! This HTTP request is exactly the same as a request coming from your browser, a form, link, button, etc...  The return value of the HTTParty `.get` method is an HTTParty instance
+**Question:** Try this URL out in your browser. What do you get back?
 
-    #<HTTParty::Response:0x7fa8c282d008 parsed_response={"status"=>"success", "message"=>"https://dog.ceo/api/img/hound-Ibizan/n02091244_1025.jpg"},...
-
-This instance of HTTParty has methods to access the data from the request:
+Now let's do the same thing in Ruby. Open up pry and enter the following code:
 
 ```ruby
-response.body    # => Raw response of the HTTP body (the html in this case)
+# pry
+require 'httparty'
+
+url = "https://dog.ceo/api/breeds/image/random"
+response = HTTParty.get(url)
+```
+
+Pry is a great tool for investigating an API, because it allows us to poke at the data we get back without having to worry about writing a whole Ruby script.
+
+When we say `HTTParty.get`, HTTParty will send a GET request to the url. The `get` method returns something, which we have stored in the variable `response`.
+
+**Question:** What is `response`? What data does it contain?
+
+`response` looks and acts like a hash containing the data we got back from the server. But it's really an instance of `HTTParty::Response`, which means it's got some extra methods we can call:
+
+```ruby
+# Use hash syntax to access the data returned
+response["status"]  # => "success"
+response["message"] # => "https://images.dog.ceo/breeds/leonberg/n02111129_892.jpg"
+
+# Use dot notation to access other attributes
+response.body    # => Raw response of the HTTP body
 response.code    # => The numerical code of the response (200)
 response.message # => The text message that corresponds to the code ("OK")
 response.headers # => A hash of data about the request (date, server, content-type)
+response.request # => An HTTParty::Request object containing info about what we sent to the server
 ```
 
 So HTTParty is a tool to make HTTP requests, but HTML isn't a great way for computers to consume data, typically JSON or XML are used to represent data when it's not being displayed to humans. Let's look at an example of HTTParty with a JSON response.
@@ -42,8 +61,10 @@ response = HTTParty.get("https://dog.ceo/api/breeds/image/random")
 
 HTTParty will attempt to automatically parse any data that it knows how, it's very good at doing this with JSON
 
-    response.parsed_response
-    # => {"status"=>"success", "message"=>"https://dog.ceo/api/img/hound-Ibizan/n02091244_1025.jpg"}
+```
+response.parsed_response
+# => {"status"=>"success", "message"=>"https://dog.ceo/api/img/hound-Ibizan/n02091244_1025.jpg"}
+```
 
 As you can see the `.parsed_response` returns a ruby `Hash`. HTTParty took the response JSON, and parsed it into ruby. This works similarly with XML. Note that in this response, the `"status"` refers to a string representing the response, not a status code.
 
