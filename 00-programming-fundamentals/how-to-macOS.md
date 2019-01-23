@@ -58,12 +58,12 @@ Command-Shift-leftbracket | `⌘ + ⇧ + [` | Move one tab to the left.
 Command-Shift-rightbracket | `⌘ + ⇧ + ]` | Move one tab to the right.
 Command-Shift-t | `⌘ + ⇧ + t` | open the last closed item.
 Command-f  | `⌘ + f`  | Find.  Opens a panel to search for a term.
-Command-shift-f | `⌘ + ⇧ + f` | Find all.  Searches all files (text editors like Atom & Sublime only).
+Command-shift-f | `⌘ + ⇧ + f` | Find all.  Searches all files (text editors like VS Code & Atom only).
 Command-n | `⌘ + n` | Opens a new window (or file depending on the application).
 Command-t | `⌘ + t` | Opens a new tab in a browser
 Command-r | `⌘ + r` | Reloads the page in a browser
 Command-comma | `⌘ + ,` | Opens an app's preferences page.
-Command-/ | `⌘ + /` | Make either the current line or a selection of text a comment (Sublime or Atom only)
+Command-/ | `⌘ + /` | Make either the current line or a selection of text a comment (text editors like VS Code & Atom only)
 Control-Command-f | `^ + ⌘ + f` | Fullscreen
 
 ## A Word About Mice

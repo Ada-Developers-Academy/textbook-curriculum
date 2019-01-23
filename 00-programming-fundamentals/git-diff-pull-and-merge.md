@@ -80,7 +80,7 @@ There are two different versions of `git diff`. The first, with no options, show
 
 ```bash
 $ touch file.txt
-$ atom file.txt # Make and save some changes
+$ code file.txt # Make some changes to file.txt in VS Code (such as adding text) and save
 $ git diff
 ```
 

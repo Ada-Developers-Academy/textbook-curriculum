@@ -4,13 +4,13 @@ To demonstrate how methods are useful, let's write a program that prints out a s
 
 ## Setup
 
-Create a new directory called `friendship_note`, `cd` into it, create a file `friendship_note.rb` and open it with Atom:
+Create a new directory called `friendship_note`, `cd` into it, create a file `friendship_note.rb` and open it with VS Code:
 
 ```bash
 mkdir friendship_note
 cd friendship_note
 touch friendship_note.rb
-atom .
+code .
 ```
 
 ## The Heart
@@ -118,7 +118,7 @@ When we run the code `print_note(user_name, friend_name)`, we _invoke_ the metho
 
 ## Diagram
 
-This diagram shows how the code in different methods is interleaved when the program is run. Some of the code has been omitted to save space, but otherwise it's the same program. Notice how different it looks than the code you wrote in Atom.
+This diagram shows how the code in different methods is interleaved when the program is run. Some of the code has been omitted to save space, but otherwise it's the same program. Notice how different it looks than the code you wrote in VS Code.
 
 <!-- https://docs.google.com/presentation/d/1KQ7dyY4EMkGDYQNuYjrtoSofKiKaQttEx13R1vG_JyM/ -->
 ![Method Invocation Diagram](images/method_diagram.png)
