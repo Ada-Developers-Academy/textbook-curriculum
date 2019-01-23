@@ -19,9 +19,9 @@ By the end of this lesson you would get familiar with or would have revised the 
 1. [Integers](#integers)
 1. [Maximum and Minimum](#maximum-and-minimum)
 1. [Sorting](#sorting)
+1. [Modulo and Divide](#modulo-and-divide)
 1. [Average or Mean](#average-or-mean)
 1. [Median](#median)
-1. [Modulo and Divide](#modulo-and-divide)
 1. [Exponents and Logarithms](#exponents-and-logarithms)
 1. [Set Theory basics](#set-theory-basics)
 
@@ -31,11 +31,11 @@ The _decimal number system_ or _base-10 number system_ is the numbering system w
 Further reading: https://www.britannica.com/science/decimal-number-system
 
 ### Natural numbers
-_Natural numbers_, sometimes known as _counting numbers_ or _whole numbers_, are numbers used to count in everyday use. Some definitions begin natural numbers with 0. 
+_Natural numbers_, sometimes known as _counting numbers_ or _whole numbers_, are numbers used to count in everyday use. Some definitions begin natural numbers with 0.
 ```
-0, 1, 2, 3 … 
+0, 1, 2, 3 …
 ```
-Other definitions do not include 0 and begin natural numbers at 1. 
+Other definitions do not include 0 and begin natural numbers at 1.
 ```
 1, 2, 3 …
 ```
@@ -106,25 +106,6 @@ E.g. `a, b, c, d, f, k, x, z` are alphabets sorted in ascending order.
 When the objects are *ordered from highest value to lowest value, the sorting order is said to be in descending order*.</br>
 E.g. `98, 72, 13, -1, -37, -64` are integers sorted in descending order.
 
-### Average or Mean
-In every day usage, the terms _average_ and _mean_ are used interchangeably. **The _mean_ or _average_ of a collection of numbers is the sum of the numbers divided by the total count of numbers.**
-
-E.g. Given a collection of numbers: `42, 14, 73, 5 and 10`. The average or mean of these five numbers is calculated as 
-```
-(42 + 14 + 73 + 5 + 10) / 5 
-= 144 / 5 
-= 28.8
-```
-
-### Median
-**The _median_ of a collection of numbers is the middle number if the numbers were sorted (ascending/descending)**. 
-
-E.g. Given the following numbers: `45, 72, 12, 7 and 15`. If we were to sort these numbers in _ascending order_, they would look like: `7, 12, 15, 45, 72`. The middle number of these five sorted numbers is `15` and hence 15 is the median of the values `45, 72, 12, 7 and 15`.
-
-**Note**: If there are an even count of values, then the median may be considered as the middle two values if the values were sorted. Alternatively, sometimes, depending on the usage and definition provided, the median of an even count of values may be considered to be the average of the middle two values if the values were sorted.
-
-E.g. Given `56, 42, 5, 13, 28, 74`. The middle two values in these `6` numbers are `28` and `42`. Some definitions will consider `28` and `42` to be the median values. Other, will calculate the _average of the middle two values to compute the median_. Average of `28` and `42` is `(28 + 42) / 2 = 70 / 2 = 35` and hence, in those definitions, 35 will be considered to be the median value. If it is not stated, it’s best to clarify the definition of median for even number of values.
-
 ### Modulo and Divide
 #### Modulo
 Consider the decimal number 54321. **54321 % 10**, read as *54321 mod 10* or *54321 modulo 10* gives us the **remainder after 54321 is divided by 10**. 54321 % 10 = 1. Because there are ten digits in the decimal number system, modulo 10 gives us the last digit of the number. Similarly, 54321 % 100 = 21 which are the last two digits of 54321. 54321 % 10000 = 4321, which is all but the first digit of the number, 54321.
@@ -139,6 +120,25 @@ Similarly, 54321 divided by 10 i.e. _54321 / 10 = 5432_. Observe that the last d
 Examples:
 * _33 divided by 2_ i.e. _33 / 2_ is *16*.
 * _68 divided by 3_ i.e. _68 / 3_ is *22*.
+
+### Average or Mean
+In every day usage, the terms _average_ and _mean_ are used interchangeably. **The _mean_ or _average_ of a collection of numbers is the sum of the numbers divided by the total count of numbers.**
+
+E.g. Given a collection of numbers: `42, 14, 73, 5 and 10`. The average or mean of these five numbers is calculated as
+```
+(42 + 14 + 73 + 5 + 10) / 5
+= 144 / 5
+= 28.8
+```
+
+### Median
+**The _median_ of a collection of numbers is the middle number if the numbers were sorted (ascending/descending)**.
+
+E.g. Given the following numbers: `45, 72, 12, 7 and 15`. If we were to sort these numbers in _ascending order_, they would look like: `7, 12, 15, 45, 72`. The middle number of these five sorted numbers is `15` and hence 15 is the median of the values `45, 72, 12, 7 and 15`.
+
+**Note**: If there are an even count of values, then the median may be considered as the middle two values if the values were sorted. Alternatively, sometimes, depending on the usage and definition provided, the median of an even count of values may be considered to be the average of the middle two values if the values were sorted.
+
+E.g. Given `56, 42, 5, 13, 28, 74`. The middle two values in these `6` numbers are `28` and `42`. Some definitions will consider `28` and `42` to be the median values. Other, will calculate the _average of the middle two values to compute the median_. Average of `28` and `42` is `(28 + 42) / 2 = 70 / 2 = 35` and hence, in those definitions, 35 will be considered to be the median value. If it is not stated, it’s best to clarify the definition of median for even number of values.
 
 ### Exponents and Logarithms
 Before we look into _exponents_ and _logarithms_, let's take a step back and consider **multiplication**. </br>
