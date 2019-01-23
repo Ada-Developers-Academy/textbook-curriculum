@@ -210,7 +210,8 @@ When working with files, our strategy was to create a class to contain the detai
 - How does the driver code interact with the wrapper class?
 - How is the code to build and send the request different than what we had previously?
 - What does the wrapper class do if it encounters an error?
-- What data structure is returned from `get_passes`? Draw a picture.
+- What does the call to `self.new` in `get_passes` do?
+- What is returned from `get_passes`?
 
 ## Summary
 

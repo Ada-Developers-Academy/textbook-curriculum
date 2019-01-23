@@ -1,19 +1,21 @@
 require 'httparty'
 
-class IssLocation
+class IssPass
   ISS_PASS_TIME_URL = 'http://api.open-notify.org/iss-pass.json'
   class IssLocationError < StandardError; end
 
-  def initialize(latitude, longitude)
-    @latitude = latitude
-    @longitude = longitude
+  attr_reader :time, :duration
+
+  def initialize(time, duration)
+    @time = Time.strptime(time.to_s, '%s')
+    @duration = duration
   end
 
-  def get_passes
+  def self.get_passes(latitude, longitude)
     # Build and send the request
     query = {
-      lat: @latitude,
-      lon: @longitude
+      lat: latitude,
+      lon: longitude
     }
     response = HTTParty.get(ISS_PASS_TIME_URL, query: query)
 
@@ -22,12 +24,9 @@ class IssLocation
       raise IssLocationError, "API call failed with code #{response.code} and reason '#{response['reason']}"
     end
 
-    # Pull out and format the data we're interested in
+    # Turn the raw JSON data into instances of this class
     passes = response['response'].map do |pass|
-      {
-        time: Time.strptime(pass['risetime'].to_s, '%s'),
-        duration: pass['duration']
-      }
+      self.new(pass['risetime'], pass['duration'])
     end
 
     return passes
@@ -41,12 +40,11 @@ def main
   print "Longitude: "
   longitude = gets.chomp
 
-  location = IssLocation.new(latitude, longitude)
-  passes = location.get_passes
+  passes = IssPass.get_passes(latitude, longitude)
 
   puts "The next ISS flyover is:"
-  puts passes.first[:time]
-  puts "and will last #{passes.first[:duration]} seconds"
+  puts passes.first.time
+  puts "and will last #{passes.first.duration} seconds"
 end
 
 # Run the program only if invoked directly from the command line
