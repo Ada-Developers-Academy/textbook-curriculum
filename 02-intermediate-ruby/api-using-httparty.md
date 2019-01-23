@@ -3,8 +3,13 @@
 When we first discussed APIs, we described them as a way to publish data so it's easy for machines to consume. But so far we have only used the browser to read API data. In this lesson, we will discover how to make requests against an API from within a Ruby program.
 
 ## Learning Goals:
+
+By the end of this lesson, students should be able to...
+
 - Consume an API in Ruby
-- Identify the pieces of an HTTParty response/request
+- Identify the pieces of an HTTParty response
+- Handle errors from an API
+- Wrap API code in a class
 
 ## HTTParty
 
