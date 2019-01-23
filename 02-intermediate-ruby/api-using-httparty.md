@@ -36,7 +36,7 @@ Pry is a great tool for investigating an API, because it allows us to poke at th
 
 When we say `HTTParty.get`, HTTParty will send a GET request to the url. The `get` method returns something, which we have stored in the variable `response`.
 
-**Question:** What is `response`? What data does it contain?
+**Question:** What is `response`? What data does it contain? What is its class?
 
 `response` looks and acts like a hash containing the data we got back from the server. But it's really an instance of `HTTParty::Response`, which means it's got some extra methods we can call:
 
@@ -53,24 +53,44 @@ response.headers # => A hash of data about the request (date, server, content-ty
 response.request # => An HTTParty::Request object containing info about what we sent to the server
 ```
 
-So HTTParty is a tool to make HTTP requests, but HTML isn't a great way for computers to consume data, typically JSON or XML are used to represent data when it's not being displayed to humans. Let's look at an example of HTTParty with a JSON response.
+## Query Parameters
 
-```ruby
-response = HTTParty.get("https://dog.ceo/api/breeds/image/random")
+`dog.ceo` is great, but it's not a very complex API. To explore more of the features of HTTParty, let's dive into something a little more interesting.
+
+### ISS Pass Time API
+
+There is a project called Open Notify, which publishes an API to compute the next time the International Space Station will be visible from a given location on Earth.
+
+**Activity:** Spend a few minutes reading through [the documentation for the ISS pass time API](http://open-notify.org/Open-Notify-API/ISS-Pass-Times/).
+- Can you make the API work from your browser?
+- What is different about the URL for this API?
+
+### Query Parameter Syntax
+
+The following URL will show ISS passes for Seattle. Put it in your browser now.
+
+```
+http://api.open-notify.org/iss-pass.json?lat=47.6062&lon=122.3321
 ```
 
-HTTParty will attempt to automatically parse any data that it knows how, it's very good at doing this with JSON
+The pieces after the `?` in the URL are called _query parameters_. They act almost the same as method parameters in Ruby. Each query parameter takes the form:
 
 ```
-response.parsed_response
-# => {"status"=>"success", "message"=>"https://dog.ceo/api/img/hound-Ibizan/n02091244_1025.jpg"}
+name=value
 ```
 
-As you can see the `.parsed_response` returns a ruby `Hash`. HTTParty took the response JSON, and parsed it into ruby. This works similarly with XML. Note that in this response, the `"status"` refers to a string representing the response, not a status code.
+Different query parameters are separated by ampersand (`&`) characters. A bunch of query parameters together make up a _query string_, which has the form:
 
-### Parsing JSON Directly
+```
+?name1=value1&name2=value2
+```
 
-When `HTTParty` isn't being used, you would need to parse the JSON using Ruby. Ruby provides a class to parse JSON, the class is called `JSON`, the method to parse is called `.parse`. We don't really  need to worry about using this library ourselves, just know that it's out that and that this is probably what `HTTParty` is using.
+You can figure out the names and the possible values of an API's query parameters by reading the API's documentation.
+
+### Query Parameters in HTTParty
+
+
+HTTParty does a lot of work to make it easy to send a request: 
 
 ### Dealing with the data
 
