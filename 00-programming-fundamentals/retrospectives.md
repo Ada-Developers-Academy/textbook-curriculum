@@ -1,6 +1,6 @@
 # What is a Retrospective?
 
-Agile software development is a set of methodologies and processes of software development. In Agile, a sprint is a phase of a project. A project is completed over many sprints. Agile teams conduct a _retrospective_ after each sprint. This is an opportunity to examine how the team is working together. It's a mediated conversation about the process by which the team is accomplishing its tasks and goals.
+"Agile" is a set of methodologies and processes of software development. In Agile, a sprint is a phase of a project. A project is completed over many sprints. Agile teams conduct a _retrospective_ after each sprint. This is an opportunity to examine how the team is working together. It's a mediated conversation about the process by which the team is accomplishing its tasks and goals.
 
 We will get more into depth about Agile software development over the curriculum.
 
