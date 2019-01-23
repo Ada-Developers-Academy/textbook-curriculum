@@ -29,7 +29,7 @@ You should see two identical entries, one for `fetch` and one for `push`. The UR
 
 Once you've finished a project, you need to get your work up to GitHub somehow so you can turn it in. This is done using the `git push` command.
 
-1. Open up Atom and do some work on the project. Let's say we've worked on a file called `project.rb`.
+1. Open up VS Code and do some work on the project. Let's say we've worked on a file called `project.rb`.
 1. Add the file
     ```
     $ git add project.rb

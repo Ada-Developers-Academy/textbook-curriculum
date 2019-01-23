@@ -12,7 +12,9 @@ By the end of this lesson, students should be able to...
 
 ## Preliminaries
 
-### Changing Your Default Editor
+<!-- TODO: Add instructions to how to fold in VS Code into this flow. Before C11, we changed our default git editor to Atom, so that making git commit messages used Atom. What do we do now? -->
+
+<!-- ### Changing Your Default Editor
 
 Many git commands will drop you into an editor. We've seen this with `git commit` - without the `-m "<commit message>"` option, it opens up your shell's editor to compose a commit message. By default this editor is Vim, which isn't very helpful to us since Vim requires a whole bunch of specialized knowledge to use.
 
@@ -34,7 +36,7 @@ $ git add git-atom-test.txt
 $ git commit
 ```
 
-Git will wait for you to save the file and close the window, and then use whatever you wrote as the commit message. If you close the window without saving, git will assume you've changed your mind and abort the commit. Pretty slick!
+Git will wait for you to save the file and close the window, and then use whatever you wrote as the commit message. If you close the window without saving, git will assume you've changed your mind and abort the commit. Pretty slick! -->
 
 ### The `.gitignore` File
 
@@ -80,7 +82,7 @@ There are two different versions of `git diff`. The first, with no options, show
 
 ```bash
 $ touch file.txt
-$ atom file.txt # Make and save some changes
+$ code file.txt # Make some changes to file.txt in VS Code (such as adding text) and save
 $ git diff
 ```
 
@@ -143,7 +145,7 @@ Here's a handy table of all the git commands we've learned so far.
 
 ## What Did We Accomplish?
 
-- Change our shell's default editor to Atom
+<!-- - Change our shell's default editor to Atom -->
 - Tell git to ignore files using the `.gitignore` file
 - View uncommitted work using `git diff`
 - View previous commits using `git show`

@@ -131,7 +131,7 @@ Usually the owner of a library will give instructions for how to include it via 
 Pro tip: Bootstrap can also be sourced from a CDN.
 
 ## Exercise: Rendering Data with jQuery
-This exercise should be completed on your own computer, with Atom and Chrome. CodePen is great, but we want to practice including jQuery.
+This exercise should be completed on your own computer, with VS Code and Chrome. CodePen is great, but we want to practice including jQuery.
 
 Your task is to take following data, and dynamically render it in a table:
 

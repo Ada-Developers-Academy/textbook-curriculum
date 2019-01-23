@@ -56,13 +56,13 @@ Now that we've used git to download a repository, our next step is to use it to 
 
 On the far right is the `.git` directory. This is an actual directory in the repo - you can see it with `ls -a`. Git stores all the information about the history of this repo in this directory. Most of the time you don't need to worry about how that works.
 
-"Working Directory" on the far left refers to the files in the repo as they currently are on your computer. As you make changes with Atom, your files will get further and further away from what's in the history.
+"Working Directory" on the far left refers to the files in the repo as they currently are on your computer. As you make changes in your code in your text editor, your files will get further and further away from what's in the history.
 
 Taking the changes we've made and adding them to git's history is what we're about to discuss. This is a two-step process: first you _stage_ the changes, and then you _commit_ them to the history. Let's see how it works in action.
 
 ### Adding a new file
 
-We've cloned the repository and have all the starting files on our computer. Our next step is to create a file where we can work on the project. You could create this file through Atom, but we'll use the `touch` command.
+We've cloned the repository and have all the starting files on our computer. Our next step is to create a file where we can work on the project. You could create this file through VS Code or Finder, but we'll use the `touch` command.
 
 ```bash
 $ touch hello.rb
@@ -171,7 +171,7 @@ Date:   Sat Aug 11 13:46:05 2018 -0700
 At the top we can see the commit we just made, where we added a new file. Below that is the full history of this repository, including all the work that's been done in the past. You can see the work that one of the instructors did setting up this project.
 
 ### Changing an Existing File
-So far, we've created a commit by adding a new file. What happens if we change a file instead? Open up the file in Atom and write the ruby code needed to complete the "project":
+So far, we've created a commit by adding a new file. What happens if we change a file instead? Open up the file in VS Code and write the ruby code needed to complete the "project":
 
 ```ruby
 # hello.rb

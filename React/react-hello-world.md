@@ -19,7 +19,7 @@ cd hello-world
 ```
 
 #### What's Included?
-Let's go ahead and open this project up in Atom to examine the files that have been created for us. We'll start in the `src` folder.
+Let's go ahead and open this project up in your text editor to examine the files that have been created for us. We'll start in the `src` folder.
 
 Take a look at the `index.js` file that was created. Some questions for you as you check out this code:
 - What looks familiar?
