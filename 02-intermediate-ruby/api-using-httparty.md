@@ -129,15 +129,60 @@ There's a lot going on here!
 1. HTTParty returns from the call to `get`
 1. Our program goes about its merry way
 
-It might help to draw a diagram. 
+It might help to draw a diagram:
 
 ![HTTParty Workflow](images/api-httparty-workflow.svg)
 
 ## Error Handling
 
+When working with an API, everything won't always go as smoothly as you might like. This might be due to a programming mistake, or because a user provided you with bad data.
 
+To demonstrate, let's see what happens if we don't send a longitude when requesting ISS pass times. 
 
+**Make a prediction:** What do you think will happen when we run the below code? How might the API or HTTParty behave?
 
+```ruby
+url = 'http://api.open-notify.org/iss-pass.json'
+query_parameters = {
+  lat: 47.6062
+  # no longitude
+}
+response = HTTParty.get(url, query: query_parameters)
+```
+
+**Question:** What happened? Was your prediction correct?
+
+### Investigating the Error Response
+
+In a Ruby program, if we give a method bogus input it will probably throw an exception. APIs don't have this luxury. All they can send back is a status code and some JSON.
+
+By investigating the response, we can see that the ISS API did both. It set a response code of 400 ("bad request"), and it sent back some JSON detailing why the request was problematic.
+
+```ruby
+# Look at data from the response headers with dot notation
+puts response.code
+# => 400
+puts response.message
+# => "BAD REQUEST"
+
+# Look at data from the JSON with subscript notation
+puts response["message"]
+# => "failure"
+puts response["reason"]
+# => "Longitude must be specified"
+```
+
+Note the difference between the first `message` and the second `message` in the above code.
+
+The first, `response.message`, is a method called on the `HTTParty::Response` object to get the human-readable version of the HTTP status code.
+
+The second, `response["message"]`, is a piece of data sent in the response JSON, that happens to have the same name as one of the HTTParty methods.
+
+This kind of naming collision is common when working with APIs, and it's important to be aware of what comes from where.
+
+**Activity:** Modify the code you wrote before to check for an error response
+- If you get an error, print out the HTTP status code and the reason from the JSON to the user
+- Test your new code by messing with the query
 
 ### Dealing with the data
 
