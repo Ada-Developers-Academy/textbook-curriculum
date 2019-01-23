@@ -6,7 +6,7 @@
 
 
 ## Better Errors
-Let's start by adding a tool generate better error pages. The [Better Errors](https://github.com/charliesome/better_errors) gem will change the Rails error page to be much more descriptive and add a "live shell" we can use to interact with objects in memory and scope at the time of the error.
+Let's start by adding a tool that generates better error pages. The [Better Errors](https://github.com/charliesome/better_errors) gem will change the Rails error page to be much more descriptive and add a "live shell" we can use to interact with objects in memory and scope at the time of the error.
 
 To add this functionality, we need to modify the `Gemfile`:
 
