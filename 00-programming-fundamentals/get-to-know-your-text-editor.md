@@ -12,7 +12,7 @@ Most of our time coding will be spent in a text editor. When we are more familia
 We will use the text editor VS Code at Ada in the classroom portion. [VS Code](https://code.visualstudio.com/) is a text editor built by Microsoft. We've chosen to use VS Code specifically because:
 
 - it supports features that are important to us (language support, debugging tools that we will use in the future, and more)
-- it is lightweight (it is not too cumbersome)
+- it is lightweight (it has the right number of features)
 - it has plenty of support and documentation should we ever need help
 - it's customizable, allowing us to be flexible in case something changes
 - it's free!
@@ -24,7 +24,7 @@ And every person you ask will have a favorite with a very personal list of reaso
 
 Beginning in C11, the Ada Developers Academy classroom portion is converting from using the text editor [Atom](https://atom.io/) to the text editor [VS Code](https://code.visualstudio.com/).
 
-Please note that if there are any mentions of `Atom` or the command `atom .`, that the document is outdated.
+Please note that if there are any mentions of `Atom` or the command `atom .`, that the document is outdated. With a few exceptions, you should be able to think of them interchangably.
 
 ## Installing the `code` command to open VS Code
 
@@ -47,16 +47,19 @@ Now, you can navigate back to your cool folder that has `assignment.rb` in the T
 
 ### Themes
 
-Themes change the way your editor looks. You can configure, install, remove themes in any of the following ways:
+Themes change the way your editor looks. You can configure, install, remove themes to suit your liking.
 
-// TODO
+To quickly open the list of your installed themes, use `⌘K ⌘T`. This lets you switch themes on the fly. Try out a few themes, and if none of them are to your liking,  you can scroll to the bottom of the list and click on 'Install Additional Color Themes'.
 
-- A
-- B
+[alt-text](/location/ "a picture of what the list looks like")
 
-### Packages
+This list includes things beyond just basic themes (such as icon styling), but most of them do provide screenshots so you can see what they look like. Once you click the green install button, you should be able to find them through `⌘K ⌘T`.
 
-One of the most powerful parts of VS Code is the ability to install custom packages. These can add features as weird and varied as:
+Being able to switch themes quickly is useful to us, as the screen settings that are comfortable for our eyes when we are working aren't necessarily the same ones that we want for using on the projector.
+
+### Extensions
+
+One of the most powerful parts of VS Code is the ability to install custom extensions. These can add features as weird and varied as:
 
 - Linters (spellchecker for code)
 - Autocomplete for common patterns
@@ -71,16 +74,21 @@ We'll add some of these as they become relevant. Feel free to look some up if th
 
 Shortcut | Effect
 ---      | ---
-`⌘⇧p`    | Open the _Command Palette_ to execute commands in the editor
-`⌘t`     | Search files, open in a new tab
-<!-- `⌘l`     | Select the current line -->
-<!-- `⌘⇧d`    | Copy the current line -->
-<!-- `⌃⇧k`    | Delete the current line -->
-<!-- `⌘^up` & `⌘^down` | Move the active line up or down -->
-`⌘d`     | Select the next instance of the highlighted string
-<!-- `⌃⇧up` & `⌃⇧down` | add a cursor in the same position on the line above/below. Press `esc` to get back to a single cursor. -->
-<!-- `⌘\`     | Open/close the Tree View pane -->
+`⌘⇧P` or `F1`   | Open the _Command Palette_ to execute commands in the editor
+`⌘T`     | Search files, open in a new tab
+`⌘C` (nothing highlighted)    | Copy the current line
+`⌥up` & `⌥down` | Move the active line up or down
+`⌘D`     | Select the next instance of the highlighted string
 `⌘/`     | Comment out the current line
+`⇧⌘E` | Show Explorer
+`⇧⌘D` | Show Debug
+`⌘B`  | Hide Sidebar Elements
+`⌘K V`  | Toggle Zen Mode (just the editor)
+**`⇧⌥F`**   | **Auto Fix Your Indentation**
+
+<!-- `⇧⌘V`  | Open Markdown Preview  -->
+<!-- `⌃⇧K`    | Delete the current line -->
+<!-- `⌥⌘up` & `⌥⌘down` | add a cursor in the same position on the line above/below. Press `esc` to get back to a single cursor. This does interfere with Spectacle. -->
 
 Remember that normal macOS keyboard shortcuts will work here too!
 
@@ -94,28 +102,24 @@ Shortcut | Effect
 `⌘w`     | Close the current tab
 `⌘⇧w`    | Close the current window (all tabs)
 
-### Adding a Custom Shortcut
+## Adding Custom Extensions
 
-// TODO
+Sometimes the funtionality that ships with VS Code doesn't quite get us where we want. In that case, we can rely on the delevoper community that supports VS Code to make tools that fill in the gaps where Microsoft hasn't gone yet.
 
-<!-- One of the best things about Atom is its flexibility - you can customize just about anything about it! As an example of this (and because it's super useful) we'll add a custom keyboard shortcut to fix indentation in our programs.
+Currently, the our Auto-Indent functionality doesn't know how to indent Ruby, so we need to fix that.
 
-1. Open up the `Settings` page with `⌘,` (`cmd-comma`)
-1. Click on the `Keybindings` tab
-1. In the paragraph at the top, click on the link to `your keymap file`. This will open a new tab with the file `keymap.cson`
-1. Scroll to the bottom and copy-paste the following code into `keymap.cson`:
-    ```cson
-    # Fix indentation on selected rows
-    'atom-text-editor':
-      'cmd-i': 'editor:auto-indent'
-    ```
-1. Now if we hit `⌘i` (`cmd-i`) when we have lines of code selected, Atom will do its best to fix the indentation for us
+1. Use `⌘⇧X` to open the extensions bar.
+1. Search for RuFo (ruby formatter). The result we are looking for has about 14k downloads.
+1. Install the extension using the green install button.
+1. Open your terminal and download the rufo gem using `gem install rufo`
+1. Once both have finished installing, you should have the option to reload your current VS Code window. From that point on, formatting should be as easy as `⇧⌥F`!!
 
-Automatic indentation isn't just to make code look good, it's also a powerful tool that allows your human eyes to find problems like a forgotten `end` statement. Use it regularly, and please don't turn in assignments with sloppy indentation! -->
+Automatic indentation isn't just to make code look good, it's also a powerful tool that allows your human eyes to find problems like a forgotten `end` statement. Use it regularly, and please don't turn in assignments with sloppy indentation!
 
 ## Resources
 <!-- -  [Atom & Sublime Compared](https://www.codementor.io/mattgoldspink/best-text-editor-atom-sublime-vim-visual-studio-code-du10872i7) -->
-- Some decent text editors
+Some decent text editors:
   <!-- - [Microsoft's Visual Studio Code](https://code.visualstudio.com/) -->
   - [Sublime Text](https://www.sublimetext.com/)
+  - [Atom](https://atom.io/)
 <!-- -  [Youtube video on 10 Essential Atom Packages](https://www.youtube.com/watch?v=aiXNKHKWlmY) -->
