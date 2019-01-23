@@ -134,6 +134,7 @@ There's a lot going on here!
 It might help to draw a diagram:
 
 ![HTTParty Workflow](images/api-httparty-workflow.svg)
+<!-- https://www.draw.io/#G1Pk80ViT_UJg4FKuzrZ7uHaT3OL6Zmndu -->
 
 ## Error Handling
 
@@ -206,7 +207,21 @@ When working with files, our strategy was to create a class to contain the detai
 - What does the wrapper class do if it encounters an error?
 - What data structure is returned from `get_passes`? Draw a picture.
 
-When reading through an API, ask the following questions:
-- How do you walk through the response?
-- Does this API require authentication?
-- How does this API handle errors?
+## Summary
+
+- When consuming an API from Ruby, we use the HTTParty gem
+- `HTTParty.get` will send a request to an API, and takes a URL and an optional hash of query parameters
+- HTTParty calls return an `HTTParty::Response` object
+  - This acts like a hash containing the response JSON
+  - It also has some methods like `.code` to interact with the response's metadata
+  - Pry is a great tool to investigate the structure of the response, and figure out how to get at the data you need
+- Error handling is key for working with APIs
+  - Every API will be different
+  - Read the docs and play around in pry to get a sense for what error handling should look like
+- It's often best practice to wrap code to interact with an API in a class
+
+## Additional Resources
+
+- [HTTParty documentation](https://github.com/jnunemaker/httparty)
+- [Treehouse: It's Time to HTTParty](https://blog.teamtreehouse.com/its-time-to-httparty)
+
