@@ -1,4 +1,4 @@
-# Consuming an API w/Ruby
+# Consuming an API with Ruby
 
 When we first discussed APIs, we described them as a way to publish data so it's easy for machines to consume. But so far we have only used the browser to read API data. In this lesson, we will discover how to make requests against an API from within a Ruby program.
 
