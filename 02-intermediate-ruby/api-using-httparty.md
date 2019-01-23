@@ -53,6 +53,8 @@ response.headers # => A hash of data about the request (date, server, content-ty
 response.request # => An HTTParty::Request object containing info about what we sent to the server
 ```
 
+Note that we could have called `response` anything we wanted, like `dog_data`. `response` seems like a good name for this variable, so we will stick with that.
+
 ## Query Parameters
 
 `dog.ceo` is great, but it's not a very complex API. To explore more of the features of HTTParty, let's dive into something a little more interesting.
@@ -85,12 +87,57 @@ Different query parameters are separated by ampersand (`&`) characters. A bunch 
 ?name1=value1&name2=value2
 ```
 
+The query string for the ISS pass time API contains two query parameters, `lat` and `lon`, each of which takes a floating point number as its value.
+
 You can figure out the names and the possible values of an API's query parameters by reading the API's documentation.
 
 ### Query Parameters in HTTParty
 
+When using HTTParty, you have two options for sending query parameters with a request. The first is to do what we did in the browser and append them to the URL:
 
-HTTParty does a lot of work to make it easy to send a request: 
+```ruby
+# Don't do this
+url = 'http://api.open-notify.org/iss-pass.json?lat=47.6062&lon=122.3321'
+response = HTTParty.get(url)
+```
+
+While this works, it's not very pretty, especially for longer query strings. The other way is to use the optional `query` argument to `HTTParty.get`:
+
+```ruby
+# Ahh, much cleaner
+url = 'http://api.open-notify.org/iss-pass.json'
+query_parameters = {
+  lat: 47.6062,
+  lon: 122.3321
+}
+response = HTTParty.get(url, query: query_parameters)
+```
+
+**Activity:** Write a script that sends a request for ISS pass times for Seattle, then loops through the times in the response and prints them out to the command line.
+- Note: to convert the timestamps to human-readable dates, use `Time.strptime(stamp, '%s')`
+
+### Diagram
+
+There's a lot going on here!
+
+1. Our code talks to HTTParty by calling the `get` method
+1. HTTParty turns Ruby data structures like strings and hashes into something the API can understand: a URL containing a query string
+1. HTTParty sends an HTTP request to that URL and waits for a response
+1. The API sends an HTTP response back
+1. HTTParty receives the HTTP response and decodes it into Ruby data structures
+    - The raw JSON string is decoded into a hash
+1. HTTParty returns from the call to `get`
+1. Our program goes about its merry way
+
+It might help to draw a diagram. 
+
+![HTTParty Workflow](images/api-httparty-workflow.svg)
+
+## Error Handling
+
+
+
+
 
 ### Dealing with the data
 
