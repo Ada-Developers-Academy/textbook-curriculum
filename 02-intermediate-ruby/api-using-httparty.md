@@ -38,7 +38,9 @@ When we say `HTTParty.get`, HTTParty will send a GET request to the url. The `ge
 
 **Question:** What is `response`? What data does it contain? What is its class?
 
-`response` looks and acts like a hash containing the data we got back from the server. But it's really an instance of `HTTParty::Response`, which means it's got some extra methods we can call:
+`response` looks and acts like a hash containing the data we got back from the server. It's important to note that all they keys in this hash are `"strings"`, not `:symbols`.
+
+But `response` is really an instance of `HTTParty::Response`, which means it's got some extra methods we can call:
 
 ```ruby
 # Use hash syntax to access the data returned
@@ -182,9 +184,30 @@ This kind of naming collision is common when working with APIs, and it's importa
 
 **Activity:** Modify the code you wrote before to check for an error response
 - If you get an error, print out the HTTP status code and the reason from the JSON to the user
-- Test your new code by messing with the query
+- Test your new code by messing with the query parameters
 
-### Dealing with the data
+**Every API will report errors differently!** It is up to you to read the docs and use pry to find out how to detect and handle these errors.
+
+Having solid error handling code is required work for every project at Ada that interacts with an API. Writing this code early in your project can save you a lot of headache and frustration when things go wrong.
+
+## Wrapping the API
+
+When we write a Ruby program that interacts with an API, it's common to end up with a bunch of code specific to that API, which doesn't have much to do with the rest of our program. We're already starting to see that with our ISS pass time program.
+
+**Question:** How might we organize code that interacts with an API?
+
+This is a problem we've run into before, in the context of reading data from CSV files. There we had a bunch of code that dealt with parsing the file and turning it into something our program could use, that was independent of the problem our program was solving.
+
+When working with files, our strategy was to create a class to contain the details of reading the file. We will follow a similar strategy for working with APIs.
+
+**Activity:** Read through [the final version of our ISS pass time program](source/api-wrapper-class.rb), and answer the following questions:
+- How does the driver code interact with the wrapper class?
+- How is the code to build and send the request different than what we had previously?
+- What does the wrapper class do if it encounters an error?
+- What data structure is returned from `get_passes`? Draw a picture.
+
+
+When we wrote code in the past that interacted with data from a file, we ended up with a bunch of complex code 
 
 We've looked at what an API is, how to make a request to it using ruby, and the types of responses you can expect back. Let's look at an example of how we could use this data.
 ```ruby
