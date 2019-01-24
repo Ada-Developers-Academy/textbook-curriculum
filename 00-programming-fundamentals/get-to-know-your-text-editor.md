@@ -125,7 +125,9 @@ Below are plugins we at Ada feel are very important to programming productively 
 | [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby)  | Visual Studio Code Ruby Extension  |
 | [erb](https://marketplace.visualstudio.com/items?itemName=CraigMaslowski.erb)  | A syntax highlighting plugin useful with Rails ERB files.  |
 | [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)  | Syntax highlighting and style guide for JavaScript  |
-| [Markdown Preview Github Styling](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-preview-github-styles) | A plugin to help you write markdown and preview how it will appear on Github.
+| [Markdown Preview Github Styling](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-preview-github-styles) | A plugin to help you write markdown and preview how it will appear on Github. |
+| [HTML CSS Support](https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css) | A handy plugin to help with syntax highlighting for HTML and CSS documents
+| [File Icons](https://marketplace.visualstudio.com/items?itemName=file-icons.file-icons) | Places an icon next to each file indicating what type of file they are.
 
 ### Optional Plugins
 
@@ -137,6 +139,7 @@ Below are plugins we at Ada feel can be very helpful using VS Code, but are not 
 | [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2)  | A plugin which will help you identifying matching brackets with colors.  |
 | [Git Lens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)  | A way to visualize code authorship at a glance via git and VS Code  |
 | [NPM Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense) | A handy plugin which will help autocomplete JavaScript npm modules as you code. |
+| [Auto Close Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag) | A plugin to automatically close HTML tags.
 
 ## Resources
 <!-- -  [Atom & Sublime Compared](https://www.codementor.io/mattgoldspink/best-text-editor-atom-sublime-vim-visual-studio-code-du10872i7) -->
