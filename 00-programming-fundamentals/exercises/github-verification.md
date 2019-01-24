@@ -46,12 +46,12 @@ Next change into the folder
 $ cd github_checkup
 ```
 
-## 6.  Next Edit The File With Atom
+## 6.  Next Edit The File With VS Code
 
 Now we will edit `name.md` and put your name in the file.
 
 ```bash
-$  atom name.md
+$  code name.md
 ```
 
 Put your name in the file.
