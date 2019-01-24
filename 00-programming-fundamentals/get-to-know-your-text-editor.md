@@ -104,7 +104,7 @@ Shortcut | Effect
 
 ## Adding Custom Extensions
 
-Sometimes the funtionality that ships with VS Code doesn't quite get us where we want. In that case, we can rely on the delevoper community that supports VS Code to make tools that fill in the gaps where Microsoft hasn't gone yet.
+Sometimes the functionality that ships with VS Code doesn't quite get us where we want. In that case, we can rely on the developer community that supports VS Code to make tools that fill in the gaps where Microsoft hasn't gone yet.
 
 Currently, the our Auto-Indent functionality doesn't know how to indent Ruby, so we need to fix that.
 
