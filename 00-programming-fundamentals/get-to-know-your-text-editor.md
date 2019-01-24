@@ -123,8 +123,7 @@ Below are plugins we at Ada feel are very important to programming productively 
 | Plugin Name  |  Plugin Description  |
 |---|---|
 | [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby)  | Visual Studio Code Ruby Extension  |
-| [erb]
-(https://marketplace.visualstudio.com/items?itemName=CraigMaslowski.erb)  | A syntax highlighting plugin useful with Rails ERB files.  |
+| [erb](https://marketplace.visualstudio.com/items?itemName=CraigMaslowski.erb)  | A syntax highlighting plugin useful with Rails ERB files.  |
 | [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)  | Syntax highlighting and style guide for JavaScript  |
 | [Markdown Preview Github Styling](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-preview-github-styles) | A plugin to help you write markdown and preview how it will appear on Github.
 
