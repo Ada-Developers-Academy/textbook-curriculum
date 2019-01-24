@@ -147,4 +147,5 @@ Some decent text editors:
   <!-- - [Microsoft's Visual Studio Code](https://code.visualstudio.com/) -->
   - [Sublime Text](https://www.sublimetext.com/)
   - [Atom](https://atom.io/)
+  - [Egghead.io Video on VS Code](https://egghead.io/lessons/egghead-vs-code-for-javascript-with-burke-holland)
 <!-- -  [Youtube video on 10 Essential Atom Packages](https://www.youtube.com/watch?v=aiXNKHKWlmY) -->

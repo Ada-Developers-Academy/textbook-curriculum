@@ -21,7 +21,7 @@ Many git commands will drop you into an editor. We've seen this with `git commit
 So far we've been able to work around this, but as we introduce more complicated git workflows having a functional editor is a must. So let's change our shell's default editor! Run the following command in your terminal:
 
 ```bash
-$ git config --global core.editor "atom --wait"
+$ git config --global core.editor "code --wait"
 ```
 
 Now, whenever git wants to drop you into an editor, it will open a new window of Atom instead of using Vim. Let's test it out now. Create and `cd` into an empty git repository to play with, create and `git add` a file, and `git commit` without the `-m` flag.
