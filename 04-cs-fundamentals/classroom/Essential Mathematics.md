@@ -7,12 +7,12 @@ The primary goal of this lesson is to revise or get familiar with some of the fu
 We will also get introduced to the _Binary number system_ and learn to convert numbers from _decimal_ to _binary_ and vice versa.
 
 ## Activities
-* Read the [notes](notes) in this section.
-* Complete the [practice problems]() and check your learning
+* Read the [notes](#notes) in this section.
+* Complete the [practice problems](#./maths-exercises/essential-maths-exercises.md) and check your learning
 * Read the [notes on binary numbers and conversion to and from decimal numbers](#./maths-exercises/decimal-and-binary-conversions.md)
 
 ## Notes
-By the end of this lesson you would get familiar with or would have revised the following concepts:
+By the end of this lesson, students should be familiar with the following concepts:
 1. [Decimal number system](#decimal-number-system)
 1. [Natural numbers](#natural-numbers)
 1. [Sum of _n_ consecutive natural numbers](#sum-of-consecutive-natural-numbers)
@@ -46,7 +46,7 @@ Further reading: https://en.wikipedia.org/wiki/Natural_number
 **Problem statement**: What would be the sum of sequential, consecutive natural numbers starting with *0*, upto and including *n*? Is there a way to describe this sum in terms of *n*?
 
 To think about this, let's consider an example value of *n* = *99*.
-Then, the sum of all sequential natural numbers from 0 through 99 would like:
+Then, the sum of all sequential natural numbers from 0 through 99 would look like:
 ```
 0 + 1 + 2 + 3 + … + 48 + 49 + 50 + 51 + … + 96 + 97 + 98 + 99
 ```
@@ -67,7 +67,7 @@ could be written as:
 ```
 Observe that there are a total of 50 pairs of values, each adding up to ```99``` in the summation above.
 
-This summation hence turns out to be the same as:
+Therefore, this summation turns out to be the same as:
 ```
 99 + 99 + 99 + … + 99 (a total of 50 times)
 ```
@@ -98,24 +98,32 @@ The **minimum** value in a list of numbers is the smallest value in the list.</b
 E.g. *4* is the minimum value in the list: 21, 4, 9, 20, 17, 42, 13, 8.
 
 ### Sorting
-Sorting is the action of arranging a set of items following a certain logical pattern. A set of objects that can be ordered may be sorted in **ascending** or **descending** order.
+Sorting is the action of arranging a list of items following a certain logical pattern. A list of objects that can be ordered may be sorted in **ascending** or **descending** order.
 
-When the objects are *ordered from lowest value to highest value, the sorting order is said to be in ascending order*.</br>
-E.g. `a, b, c, d, f, k, x, z` are alphabets sorted in ascending order.
+Consider the list of numbers: `21, 4, 9, 20, 17, 42, 13, 8`
 
-When the objects are *ordered from highest value to lowest value, the sorting order is said to be in descending order*.</br>
-E.g. `98, 72, 13, -1, -37, -64` are integers sorted in descending order.
+When the objects are *ordered from lowest value to highest value, the sorting order is said to be in ascending order*. In our example, that would be `4, 8, 9, 13, 17, 20, 21, 42`.
+
+When the objects are *ordered from highest value to lowest value, the sorting order is said to be in descending order*. In our example, that would be `42, 21, 20, 17, 13, 9, 8, 4`.
+
+You can also sort things other than numbers, like words. Intuitively we need to put them in alphabetical order, though convincing a computer to do so is a little trickier. For example:
+
+`banana, strawberry, coconut, apple` in _ascending order_ would be `apple, banana, coconut, strawberry`.
 
 ### Modulo and Divide
+Let's understand modulo and divide operations while working with integer numbers.
+
 #### Modulo
-Consider the decimal number 54321. **54321 % 10**, read as *54321 mod 10* or *54321 modulo 10* gives us the **remainder after 54321 is divided by 10**. 54321 % 10 = 1. Because there are ten digits in the decimal number system, modulo 10 gives us the last digit of the number. Similarly, 54321 % 100 = 21 which are the last two digits of 54321. 54321 % 10000 = 4321, which is all but the first digit of the number, 54321.
+Consider an integer value, 54321. **54321 % 10**, read as *54321 mod 10* or *54321 modulo 10* gives us the **remainder after 54321 is divided by 10**. 54321 % 10 = 1. Because there are ten digits in the decimal number system, modulo 10 gives us the last digit of the number. Similarly, 54321 % 100 = 21 which are the last two digits of 54321. 54321 % 10000 = 4321, which is all but the first digit of the number, 54321.
 
 Examples:
 * _33 mod 2_ gives us the remainder after 33 is divided by 2. Therefore, _33 mod 2_ is *1*.
 * _68 mod 3_ gives us the remainder after 68 is divided by 3. Therefore, _68 mod 3_ is *2*.
 
+Modulo can be used to check if a number is divisible by another number. If a number, _x_ is completely divisible by another number, _y_, then the resulting modulo, _x mod y_ will be _0_. e.g. Since 25 is divisible by 5, _25 % 5_ will return _0_. In contrast, since 26 is not divisible by 5, the result of _26 % 5_ is _1_ (not zero).
+
 #### Divide
-Similarly, 54321 divided by 10 i.e. _54321 / 10 = 5432_. Observe that the last digit got removed from the original number on dividing by 10. Similarly, _54321 / 100 = 543_. Note that the last two digits got removed from the original number.
+Similarly, when integer, 54321 is divided by 10 i.e. _54321 / 10_, we get the result of _5432_. Observe that the last digit got removed from the original number on dividing by 10. Similarly, _54321 / 100 = 543_. Note that the last two digits got removed from the original number.
 
 Examples:
 * _33 divided by 2_ i.e. _33 / 2_ is *16*.
@@ -152,7 +160,7 @@ Similarly, **exponents can be viewed as repeated multiplication.**</br>
 For example;</br>
 _21 \* 21 \* 21_ = _21<sup>3</sup>_
 
-In the expression, **_21<sup>3</sup>_**, _21_ is what is known as the **base** and _3_ is what is known as the **exponent**. With the base of *21* and exponent of *7*, we have _21<sup>7</sup>_. This can also be read as _twenty one raise to the power of seven_. An exponent tells us to multiply the base to itself that many number of times. e.g.</br></br>
+In the expression, **_21<sup>3</sup>_**, _21_ is known as the **base** and _3_ is known as the **exponent**. With the base of *21* and exponent of *7*, we have _21<sup>7</sup>_. This can also be read as _twenty one raise to the power of seven_. An exponent tells us to multiply the base to itself that many number of times. e.g.</br></br>
 _21<sup>3</sup>_ = _21 \* 21 \* 21_ = _9261_ </br>
 Read as _twenty one raise to the power of three_.
 
