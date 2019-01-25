@@ -1,5 +1,5 @@
 # Decimal to Binary and Binary to Decimal
-_CS fundamentals 0_
+*CS fundamentals 0*
 
 ## Learning Goals
 * Understand binary numbering system

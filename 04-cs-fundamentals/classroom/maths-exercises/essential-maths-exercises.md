@@ -1,11 +1,11 @@
 # Essential Mathematics - practice problems
-_CS fundamentals 0_
+*CS fundamentals 0*
 
 ## Overview
 Complete each problem manually (i.e. using paper and pencil) and check your solution with the one provided for each problem below.
 
 ### Sorted items
-For each of the following list of objects, share whether the objects are: _sorted in ascending order_, _sorted in descending order_, _unsorted_.
+For each of the following list of objects, share whether the objects are: *sorted in ascending order*, *sorted in descending order*, *unsorted*.
 
 1. [<b>2, 4, 6, 8, 10</b>]
     <details>
@@ -240,12 +240,13 @@ Solve the following problems related to exponents and logarithms.
     </details>
     </br>
 
-7.  
-log<sub>2</sub> (256)
-<details><summary>click here to check your answer</summary>
-log<sub>2</sub> (256) = 8
-</details>
-</br>
+1. log<sub>2</sub> (256)
+    <details>
+    <summary>click here to check your answer
+    </summary>
+    log<sub>2</sub> (256) = 8
+    </details>
+    </br>
 
 1. log<sub>2</sub> (64)
     <details>
