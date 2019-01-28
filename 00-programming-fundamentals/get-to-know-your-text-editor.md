@@ -139,10 +139,10 @@ Below are plugins we at Ada feel can be very helpful using VS Code, but are not 
 | [Auto Close Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag) | A plugin to automatically close HTML tags.
 
 ## Resources
+  - [Egghead.io Video on VS Code](https://egghead.io/lessons/egghead-vs-code-for-javascript-with-burke-holland)
 <!-- -  [Atom & Sublime Compared](https://www.codementor.io/mattgoldspink/best-text-editor-atom-sublime-vim-visual-studio-code-du10872i7) -->
 Some decent text editors:
   <!-- - [Microsoft's Visual Studio Code](https://code.visualstudio.com/) -->
   - [Sublime Text](https://www.sublimetext.com/)
   - [Atom](https://atom.io/)
-  - [Egghead.io Video on VS Code](https://egghead.io/lessons/egghead-vs-code-for-javascript-with-burke-holland)
 <!-- -  [Youtube video on 10 Essential Atom Packages](https://www.youtube.com/watch?v=aiXNKHKWlmY) -->
