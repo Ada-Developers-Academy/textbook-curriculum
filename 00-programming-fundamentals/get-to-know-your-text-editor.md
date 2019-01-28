@@ -70,12 +70,10 @@ We'll add some of these as they become relevant. Feel free to look some up if th
 
 ## Awesome Keyboard Shortcuts
 
-// TODO: update
-
 Shortcut | Effect
 ---      | ---
 `⌘⇧P` or `F1`   | Open the _Command Palette_ to execute commands in the editor
-`⌘T`     | Search files, open in a new tab
+`⌘P`     | Search files, open in a new tab
 `⌘C` (nothing highlighted)    | Copy the current line
 `⌥up` & `⌥down` | Move the active line up or down
 `⌘D`     | Select the next instance of the highlighted string
@@ -85,10 +83,9 @@ Shortcut | Effect
 `⌘B`  | Hide Sidebar Elements
 `⌘K V`  | Toggle Zen Mode (just the editor)
 **`⇧⌥F`**   | **Auto Fix Your Indentation**
-
-<!-- `⇧⌘V`  | Open Markdown Preview  -->
-<!-- `⌃⇧K`    | Delete the current line -->
-<!-- `⌥⌘up` & `⌥⌘down` | add a cursor in the same position on the line above/below. Press `esc` to get back to a single cursor. This does interfere with Spectacle. -->
+`⌘K`  `V`  | Open Markdown Preview
+`⌘⇧K`    | Delete the current line
+`⌘⌥up` & `⌘⌥down` | add a cursor in the same position on the line above/below. Press `esc` to get back to a single cursor. This does interfere with Spectacle.
 
 Remember that normal macOS keyboard shortcuts will work here too!
 
