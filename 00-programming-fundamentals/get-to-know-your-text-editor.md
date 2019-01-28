@@ -46,31 +46,6 @@ To "restart the terminal," you can just quit (or `⌘Q`) the terminal applicatio
 
 Now, you can navigate back to your cool folder that has `assignment.rb` in the Terminal, and then use the command `code .` to use the `code` command and give it the parameter of the current directory (`.`)!
 
-## More About VS Code
-
-### Themes
-
-Themes change the way your editor looks. You can configure, install, remove themes to suit your liking.
-
-To quickly open the list of your installed themes, use `⌘K ⌘T`. This lets you switch themes on the fly. Try out a few themes, and if none of them are to your liking,  you can scroll to the bottom of the list and click on 'Install Additional Color Themes'.
-
-![Theme selection list](images/theme-list.png)
-
-This list includes things beyond just basic themes (such as icon styling), but most of them do provide screenshots so you can see what they look like. Once you click the green install button, you should be able to find them through `⌘K ⌘T`.
-
-Being able to switch themes quickly is useful to us, as the screen settings that are comfortable for our eyes when we are working aren't necessarily the same ones that we want for using on the projector.
-
-### Extensions
-
-One of the most powerful parts of VS Code is the ability to install custom extensions. These can add features as weird and varied as:
-
-- Linters (spellchecker for code)
-- Autocomplete for common patterns
-- A tool to let you pick colors
-- Adding fireworks to your code
-
-We'll add some of these as they become relevant. Feel free to look some up if they interest you, but for now just know that they exist.
-
 ## Awesome Keyboard Shortcuts
 
 Shortcut | Effect
@@ -101,6 +76,33 @@ Shortcut | Effect
 `⌘,`     | Open the settings page
 `⌘w`     | Close the current tab
 `⌘⇧w`    | Close the current window (all tabs)
+
+
+## More About VS Code
+
+### Themes
+
+Themes change the way your editor looks. You can configure, install, remove themes to suit your liking.
+
+To quickly open the list of your installed themes, use `⌘K ⌘T`. This lets you switch themes on the fly. Try out a few themes, and if none of them are to your liking,  you can scroll to the bottom of the list and click on 'Install Additional Color Themes'.
+
+![Theme selection list](images/theme-list.png)
+
+This list includes things beyond just basic themes (such as icon styling), but most of them do provide screenshots so you can see what they look like. Once you click the green install button, you should be able to find them through `⌘K ⌘T`.
+
+Being able to switch themes quickly is useful to us, as the screen settings that are comfortable for our eyes when we are working aren't necessarily the same ones that we want for using on the projector.
+
+### Extensions
+
+One of the most powerful parts of VS Code is the ability to install custom extensions. These can add features as weird and varied as:
+
+- Linters (spellchecker for code)
+- Autocomplete for common patterns
+- A tool to let you pick colors
+- Adding fireworks to your code
+
+We'll add some of these as they become relevant. Feel free to look some up if they interest you, but for now just know that they exist.
+
 
 ## Adding Custom Extensions
 
