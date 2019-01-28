@@ -52,7 +52,7 @@ Themes change the way your editor looks. You can configure, install, remove them
 
 To quickly open the list of your installed themes, use `⌘K ⌘T`. This lets you switch themes on the fly. Try out a few themes, and if none of them are to your liking,  you can scroll to the bottom of the list and click on 'Install Additional Color Themes'.
 
-[alt-text](/location/ "a picture of what the list looks like")
+![Theme selection list](images/theme-list.png)
 
 This list includes things beyond just basic themes (such as icon styling), but most of them do provide screenshots so you can see what they look like. Once you click the green install button, you should be able to find them through `⌘K ⌘T`.
 
@@ -133,7 +133,7 @@ Below are plugins we at Ada feel can be very helpful using VS Code, but are not 
 | Plugin Name  |  Plugin Description  |
 |---|---|
 | [Spell Right](https://marketplace.visualstudio.com/items?itemName=ban.spellright)  | Multilingual, Offline and Lightweight Spellchecker for Visual Studio Code  |
-| [File Icons](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) | Places an icon next to each file indicating what type of file they are.
+| [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) | Places an icon next to each file indicating what type of file they are.
 | [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2)  | A plugin which will help you identifying matching brackets with colors.  |
 | [Git Lens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)  | A way to visualize code authorship at a glance via git and VS Code  |
 | [NPM Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense) | A handy plugin which will help autocomplete JavaScript npm modules as you code. |
