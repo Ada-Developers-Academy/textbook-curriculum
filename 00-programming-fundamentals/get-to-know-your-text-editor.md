@@ -39,6 +39,8 @@ First, we need to install this command. Below is the instructions copied/pasted 
 1. Open the Command Palette (⇧⌘P) and type 'shell command' to find the **Shell Command: Install 'code' command in PATH** command.
 1. Restart the terminal for the new `$PATH` value to take effect. You'll be able to type '`code .`' in any folder to start editing files in that folder.
 
+![install `code` command](images/install-code-command.png)
+
 To "restart the terminal," you can just quit (or `⌘Q`) the terminal application, and then reopen it.
 
 
