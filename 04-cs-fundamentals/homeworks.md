@@ -22,7 +22,7 @@ Oct 08   | Submit PR for [Ada-C10/fibonacci](https://github.com/Ada-C10/fibonacc
 Oct 08   | Submit PR for [Ada-C10/array_intersection](https://github.com/Ada-C10/array_intersection)
 Oct 29   | Submit PR for [Ada-C10/matrix_convert_to_zero](https://github.com/Ada-C10/matrix_convert_to_zero)
 Oct 29   | Submit PR for [Ada-C10/matrix_check_sum](https://github.com/Ada-C10/matrix_check_sum)
-Nov 28   | Define terms, practice tracing and deduce the time and space complexities for some **recursive** problems. [Ada-C10/recursion-tracing](https://github.com/Ada-C10/recursion-tracing). Answer key for reference can be found [here](https://github.com/Ada-C9/recursion-tracing/tree/solutions)
+Nov 28   | Define terms, practice tracing and deduce the time and space complexities for some **recursive** problems. [Ada-C10/recursion-tracing](https://github.com/Ada-C10/recursion-tracing). Answer key for reference can be found [here](https://github.com/Ada-C10/recursion-tracing/tree/solutions)
 
 ## Optional Homeworks
 ### Binary & Decimal
@@ -36,7 +36,7 @@ Nov 28   | Define terms, practice tracing and deduce the time and space complexi
 2. Do the above for a singly linked list and a separate file for a doubly linked list.
 
 ### Recursion
-1. Design and implement recursive algorithms and explain the time and space complexities of your solution for the problems in [Ada-C10/recursion-writing](https://github.com/Ada-C10/recursion-writing). One approach to implementing the solutions can be found [here](https://github.com/Ada-C9/recursion-writing/tree/solution)
+1. Design and implement recursive algorithms and explain the time and space complexities of your solution for the problems in [Ada-C10/recursion-writing](https://github.com/Ada-C10/recursion-writing). One approach to implementing the solutions can be found [here](https://github.com/Ada-C10/recursion-writing/tree/solution)
 2. [Set 1: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion/)
 3. [Set 2: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-2/)
 4. [Set 3: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-3/)
