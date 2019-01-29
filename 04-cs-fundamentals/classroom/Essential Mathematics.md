@@ -8,8 +8,8 @@ We will also get introduced to the *Binary number system* and learn to convert n
 
 ## Activities
 * Read the [notes](#notes) in this section.
-* Complete the [practice problems](#./maths-exercises/essential-maths-exercises.md) and check your learning
-* Read the [notes on binary numbers, and conversion to and from decimal numbers](#./maths-exercises/decimal-and-binary-conversions.md)
+* Complete the [practice problems](maths-exercises/essential-maths-exercises.md) and check your learning
+* Read the [notes on binary numbers, and conversion to and from decimal numbers](maths-exercises/decimal-and-binary-conversions.md)
 
 ## Notes
 By the end of this lesson, students should be familiar with the following concepts:
