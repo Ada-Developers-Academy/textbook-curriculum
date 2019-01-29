@@ -73,7 +73,7 @@ Almost there -- to actually finish project submission, you'll need to open and c
 1. Finishing the commit should bring you back to your own fork's page, but if not, make sure you're back there. Then, find the button that says "New pull request" and click it
 ![New PR](./images/project-submissions-without-git/new-pr.png)
 
-1. This should open up a new page. PRs are ways in GitHub that we can compare code changes between repos easily. You need to change these settings so that the PR compares the right two things: You'll need to configure it so that it says your username on the right under "head fork," and your cohort org name on the left under "base fork." **Without these settings configured correctly, your project will not submit!** Github tries to be helpful by predicting what you will compare, but it's not very accurate sometimes.
+1. This should open up a new page. PRs are ways in GitHub that we can compare code changes between repos easily. You need to change these settings so that the PR compares the right two things: You'll need to configure it so that it says your username on the right under "head fork," and your cohort org name on the left under "base fork." **Without these settings configured correctly, we won't see that your project has been submitted,** which will be **marked in our system as unsubmitted** and late. Github tries to be helpful by predicting what you will compare, but it's not very accurate sometimes.
 ![PR Comparison](./images/project-submissions-without-git/pr-comparison.png)
 
 1. This page actually has a lot of interesting detail, like all of the code additions you made, so if you scroll down, you should be able to see green lines of code that indicate the code additions you made.
