@@ -186,6 +186,23 @@ Learn and revise more about [Exponents on Khan Academy](https://www.khanacademy.
 *Whilst exponential expression tells us what we will get if we start with one and keep multiplying the base exponent number of times, logarithmic expressions tell us how many times we will need to keep dividing by the base to get one.*</br>
 e.g. If we start with *1* and keep multiplying *2* to itself, *4* times, we are describing *2<sup>4</sup>*, which is *16*. Where as if we start with *16* and keep dividing by *2* until we reach *1*, we are describing *log<sub>2</sub> (16)*, which is *4*.
 
+<b>*log<sub>2</sub> (16)*</b> is a logarithm. To write a logarithm:
+- Start with the word, "*log*"
+- Next is the <b>base</b>, which is written as a subscript. (*2* in the expression above).
+- Finally, the number we're taking the logarithm of follows. (*16* in the expression above).
+
+We have seen the exponential expression, <b>*21<sup>3</sup>* = *9261*</b>. We can state the same fact using a logarithm by saying, <b>*log<sub>21</sub> (9261)* = *3*</b>.
+
+We may read these expressions in one of the following variations:
+- *21<sup>3</sup>* = *9261*
+    - Twenty one raise to power three is ninety two hundred and sixty one.
+    - Twenty one cubed is nine thousand two hundred and sixty one.
+- *log<sub>21</sub> (9261)* = *3*
+    - Logarithm of ninety two hundred and sixty one, to the base of twenty one is three.
+    - Log of nine thousand two hundred and sixty one, to the base of twenty one is three.
+
+Often times the base is omitted from a logarithm when it *should be* clearly implied from the context. In computer science, if you see *log* without a base, it almost always means *log<sub>2</sub>*.
+
 Let's consider a few examples by viewing <b>exponential expression</b> and the corresponding <b>logarithmic expressions</b> side by side:
 
 Exponents | Logarithms |
