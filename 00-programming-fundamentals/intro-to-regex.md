@@ -202,7 +202,7 @@ puts match_result[1]
 
 Note that capture groups start at index 1. For historical reasons index 0 stores the part of the string that matched the pattern.
 
-Your other option is to use the special variables named `$1`, `$2`, etc. We'll see this technique used when we talk about using regex with Atom below.
+Your other option is to use the special variables named `$1`, `$2`, etc. We'll see this technique used when we talk about using regex with VS Code below.
 
 Now that we've got access to the captured data, we can make use of it. Here is a slightly more complex version of the same program:
 
@@ -247,14 +247,14 @@ These phone numbers are formatted very differently: some have the `+1` country c
 
 [Check your answer here](solutions/regex.md#Phone%20Numbers)
 
-### Search and Replace in Atom
+### Search and Replace in VS Code
 
 One of the most common ways to use regex search and replace is through your text editor. Here are a few examples of when this might be useful:
 - You need to change a variable name throughout your code base, without changing a similarly named method
 - Your mentor left you a comment on your code review that, according to the company's style guide, you need to change all your single-quoted strings to use double quotes
 - You have a big list of data that you copy-pasted from the internet, and you need to transform it into something usable in Ruby
 
-Atom allows you to use regexes and capture groups when you search and replace. Let's see how to use it. Imagine that we have a file full of differently formatted phone numbers:
+VS Code allows you to use regexes and capture groups when you search and replace. Let's see how to use it. Imagine that we have a file full of differently formatted phone numbers:
 
 ```
 # phone_numbers.txt
@@ -265,10 +265,10 @@ Atom allows you to use regexes and capture groups when you search and replace. L
 4255558872
 ```
 
-1. Open a new file in Atom and paste in the above list of numbers
-1. Press `cmd+f` to open Atom's search tool
+1. Open a new file in VS Code and paste in the above list of numbers
+1. Press `cmd+f` to open VS Code's search tool
 1. In the upper right corner of the search bar, click the `.*` button to enable regex search
-    ![Atom regex search](images/atom-regex-search.png)
+    ![VS Code regex search](images/vs-code-regex-search.png)
 1. In the find bar, copy-paste the regex we used in the previous example: `^.*(\d{3}).*(\d{3}).*(\d{4})$`
     - You should not include the `/` characters at the beginning and end
 1. In the replace bar, we have access to the capture groups using `$n`, where `n` is the group number (starting at 1). We can use `($1) $2-$3` to format the phone numbers the way we want.
@@ -278,7 +278,7 @@ Atom allows you to use regexes and capture groups when you search and replace. L
 
 Remember back to the original RideShare project from the first week of class. We provided a [CSV file full of ride information](https://raw.githubusercontent.com/AdaGold/ride-share/master/rides.csv), and you had to manually build up a data structure of nested arrays and hashes to manage that data.
 
-Manually copying data is a tedious, error-prone process. It would be much better if we could use our tools to do this transformation automatically. Fortunately Atom's regex search-and-replace tool is perfectly suited to this task.
+Manually copying data is a tedious, error-prone process. It would be much better if we could use our tools to do this transformation automatically. Fortunately VS Code's regex search-and-replace tool is perfectly suited to this task.
 
 We will build a regex search-and-replace pattern to transform CSV data like this
 
@@ -300,11 +300,11 @@ into a Ruby hashes like this
 
 1. Create a new empty file called `ride_share_regex.rb`
 1. Paste in the CSV data from the file linked above
-1. Open up Atom's search-and-replace tool, and turn on regex mode
+1. Open up VS Code's search-and-replace tool, and turn on regex mode
 1. In the search bar, build a regex to match the lines from the CSV file.
     - What pieces of data will you need to capture?
 1. In the replace bar, build a template and fill it in with the capture groups from your regex.
-    - Remember that Atom stores captured data in variables named `$1`, `$2`, etc.
+    - Remember that VS Code stores captured data in variables named `$1`, `$2`, etc.
     - You can use `\n` for a newline
     - Which parts can be hard-coded in the template, and which come from the original CSV data?
 1. Click `Replace All` (or hit `cmd+enter`)

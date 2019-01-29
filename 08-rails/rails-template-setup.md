@@ -9,7 +9,7 @@ There are a few changes we need to make to the default Rails configuration, to m
     $ touch ~/.railsrc
     ```
 
-1. Open `~/.railsrc` with Atom, and add the following lines:
+1. Open `~/.railsrc` with your text editor, and add the following lines:
     ```
     -d postgresql
     -m ~/.rails-template.rb

@@ -19,7 +19,7 @@ To demonstrate these steps, open up your TaskList project from Rails week 1.
 
 ### Step 1: Installing the Gems
 
-In your `Gemfile` we will set up Rails to use the minitest-spec gem to do our testing so open the gemfile with `atom Gemfile`.  Then add the following lines to the file:
+In your `Gemfile` we will set up Rails to use the minitest-spec gem to do our testing so open the gemfile with `code Gemfile`.  Then add the following lines to the file:
 
 ```ruby
 group :test do
