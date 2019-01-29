@@ -19,6 +19,7 @@ With a `POST` request you are asking the API to accept some data and create a re
 Below is a diagram of the structure of a `POST` request.
 
 ![structure of an http request](images/http-request.png)
+<!-- Lucid chart link:  https://www.lucidchart.com/invitations/accept/5a79e24c-fcd2-4754-8162-83fcf44f2030 -->
 
 ## Making `POST` Requests
 
