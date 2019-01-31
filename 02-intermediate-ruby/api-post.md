@@ -203,7 +203,7 @@ class SlackApiWrapper
 
     response_body = JSON.parse(response.body)
 
-    return response.success? && response_body["ok"]
+    return response.code == 200 && response_body["ok"]
   end
 end
 ```
@@ -262,7 +262,7 @@ Update `send_msg` to the following:
 
     response_body = JSON.parse(response.body)
 
-    unless response.success? && response_body["ok"]
+    unless response.code == 200 && response_body["ok"]
       raise StandardError, response_body["error"]
     end
 
