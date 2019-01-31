@@ -151,7 +151,7 @@ end
 
 This test calls a class-method called `send_msg` and sends it a message and channel name.  When we run our tests we get one test error because the method does not yet exist.  Now we can write `send_msg` to get the test to pass.
 
-With `HTTParty`, you can use the `post` method to send `POST` requests, it takes two arguments.
+With `HTTParty`, you can use the `post` method to send `POST` requests.  The `post` method takes two arguments.
 
 1. The URL of the post request, like `https://slack.com/api/chat.postMessage`.
 1. A hash with the following key-value pairs.
