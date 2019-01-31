@@ -166,7 +166,7 @@ For example:
 response = HTTParty.post("http://adapets.org/pets", {
   headers: { 'Content-Type' => 'application/json' },
   body: {
-    name: 'Kylo'
+    name: 'Kylo',
     human: 'Kari',
     species: 'Dog',
     age: 4
@@ -201,9 +201,7 @@ class SlackApiWrapper
       headers: { 'Content-Type' => 'application/x-www-form-urlencoded' }
     )
 
-    response_body = JSON.parse(response.body)
-
-    return response.code == 200 && response_body["ok"]
+    return response.code == 200 && response.body["ok"]
   end
 end
 ```
@@ -260,10 +258,8 @@ Update `send_msg` to the following:
       headers: { 'Content-Type' => 'application/x-www-form-urlencoded' }
     )
 
-    response_body = JSON.parse(response.body)
-
-    unless response.code == 200 && response_body["ok"]
-      raise StandardError, response_body["error"]
+    unless response.code == 200 && response.body["ok"]
+      raise StandardError, response.body["error"]
     end
 
     return true
