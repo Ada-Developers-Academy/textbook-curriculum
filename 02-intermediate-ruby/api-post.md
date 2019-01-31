@@ -163,15 +163,23 @@ Like the `get` method, `post` returns an HTTP response from the API.
 For example:
 
 ```ruby
-HTTParty.post("http://adapets.org/pets",
+response = HTTParty.post("http://adapets.org/pets", {
   headers: { 'Content-Type' => 'application/json' },
   body: {
     name: 'Kylo'
     human: 'Kari',
-    species: 'Dog'
+    species: 'Dog',
     age: 4
   }
-)
+})
+```
+
+When the API returns a response, just like a `GET` request, the body of the response of many APIs is JSON, which can be converted into a Ruby hash.
+
+```ruby
+  response_body = JSON.parse(response.body)
+  puts response_body
+  # { id: 57, name: 'Kylo', human: 'Kari', species: 'Dog', age: 4, Created-at: '2019-02-27'}
 ```
 
 In `lib/slack_api_wrapper.rb` we will use this method to post data to Slack using the Slack URL and the API key we saved in our `.env` file.
