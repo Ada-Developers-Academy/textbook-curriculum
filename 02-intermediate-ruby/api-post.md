@@ -23,7 +23,7 @@ Below is a diagram of the structure of a `POST` request.
 
 ## Making `POST` Requests
 
-We will learn to make `POST` requests using the [Slack API](https://api.slack.com/web).  To do so we will need a developer access token, a long alphanumeric string of characters.  **You will need to log into the slack website and apply for one on their [legacy tokens page](https://api.slack.com/custom-integrations/legacy-tokens).**  Register for a token and bookmark the legacy tokens page for now.  You will need it going forward.  **Note** There are [other](https://api.slack.com/docs/oauth), better, more secure methods of accessing an API, but the token method is the most simple way to introduce the concept.
+We will learn to make `POST` requests using the [Slack API](https://api.slack.com/web).  To do so we will need our [legacy tokens page](https://api.slack.com/custom-integrations/legacy-tokens) which we have already obtained for our project.  **Note** There are [other](https://api.slack.com/docs/oauth), better, more secure methods of accessing an API, but the token method is the most simple way to introduce the concept and begin using APIs.
 
 Next we need to see how Slack takes in messages to post into a channel.  Take a look at the [chat.postMessage](https://api.slack.com/methods/chat.postMessage) page in the Slack API documentation.
 
@@ -82,7 +82,7 @@ The `lib` directory also has a `slack_api_wrapper.rb` file with the following co
 # slack_api_wrapper.rb
 require 'httparty'
 
-class SlackApiWrapper
+module SlackApi
   BASE_URL = 'https://slack.com/api/'
 
   # Code goes here
@@ -90,7 +90,7 @@ class SlackApiWrapper
 end
 ```
 
-In this exercise we will build some tests for a `send_msg` method in the `SlackApiWrapper` class and then build out the functionality to satisfy the tests.
+In this exercise we will build some tests for a `send_msg` method in the `SlackApi` class and then build out the functionality to satisfy the tests.
 
 ### Our First Test - Nominal Case
 
@@ -139,17 +139,17 @@ Next we can write our first test using VCR.
 # slack_api_wrapper_spac.rb
 require_relative 'spec_helper'
 
-describe SlackApiWrapper do
+describe SlackApi do
   it "can send a valid message" do
     VCR.use_cassette("slack-posts") do
-      response = SlackApiWrapper.send_msg("Hey I can post messages!", "YOUR-CHANNEL-NAME")
+      response = SlackApi.send_msg("Hey I can post messages!", "YOUR-CHANNEL-NAME")
       expect(response).must_equal true
     end
   end
 end
 ```
 
-This test calls a class-method called `send_msg` and sends it a message and channel name.  When we run our tests we get one test error because the method does not yet exist.  Now we can write `send_msg` to get the test to pass.
+This test calls a method called `send_msg` and sends it a message and channel name.  When we run our tests we get one test error because the method does not yet exist.  Now we can write `send_msg` to get the test to pass.
 
 With `HTTParty`, you can use the `post` method to send `POST` requests.  The `post` method takes two arguments.
 
@@ -185,7 +185,7 @@ When the API returns a response, just like a `GET` request, the body of the resp
 In `lib/slack_api_wrapper.rb` we will use this method to post data to Slack using the Slack URL and the API key we saved in our `.env` file.
 
 ```ruby
-class SlackApiWrapper
+module SlackApi
   BASE_URL = 'https://slack.com/api/'
   API_KEY = ENV['SLACK_TOKEN']
 
@@ -232,7 +232,7 @@ Add the following test to `specs/slack_api_wrapper_spec.rb`.
   it "will raise an error when given an invalid channel" do
     VCR.use_cassette("slack-posts") do
       exception = expect {
-        SlackApiWrapper.send_msg("This post should not work", "invalid-channel")
+        SlackApi.send_msg("This post should not work", "invalid-channel")
       }.must_raise StandardError
 
       expect(exception.message).must_equal 'channel_not_found'
