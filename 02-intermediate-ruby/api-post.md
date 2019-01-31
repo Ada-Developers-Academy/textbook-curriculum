@@ -174,11 +174,10 @@ response = HTTParty.post("https://petdibs.herokuapp.com/pets",
 )
 ```
 
-When the API returns a response, just like a `GET` request, the body of the response of many APIs is JSON, which can be converted into a Ruby hash.
+When the API returns a response, just like a `GET` request, the body of the response of many APIs is JSON, which can be used like a Ruby hash.
 
 ```ruby
-  response_body = JSON.parse(response.body)
-  puts response_body
+  puts response.body
   # { id: 57, name: 'Kylo', human: 'Kari', species: 'Dog', age: 4, Created-at: '2019-02-27'}
 ```
 
