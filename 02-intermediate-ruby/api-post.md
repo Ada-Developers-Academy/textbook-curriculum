@@ -14,7 +14,7 @@ By the end of this lesson you should be able to:
 
 With `GET` requests you request information from the API.  The API then sends information back in the body of the response.  However with a `GET` request, you only need specify the method and URL of the request.  Any other information is embedded in the URL as _Query Parameters_.
 
-With a `POST` request you are asking the API to accept some data and create a resource.  For example, a blogging API like the [Wordpress API](https://developer.wordpress.org/rest-api/reference/posts/#create-a-post) takes a date, author, title and body when it creates a new blog entry.  Because you are sending additional information with all `POST` requests, these requests have an additional _body_ section to contain the information being sent.
+With a `POST` request you are asking the API to accept some data and create a resource.  For example, a blogging API like the [Wordpress API](https://developer.wordpress.org/rest-api/reference/posts/#create-a-post) takes a date, author, title and content when it creates a new blog entry.  Because you are sending additional information with all `POST` requests, these requests have an additional _body_ section to contain the information being sent.
 
 Below is a diagram of the structure of a `POST` request.
 
