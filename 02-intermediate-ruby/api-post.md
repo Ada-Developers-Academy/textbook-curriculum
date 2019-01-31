@@ -283,4 +283,4 @@ In this lesson you learned:
 
 ## Resources
 
-- [List of HTTP Header files](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)
+- [List of HTTP Header Fields](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)
