@@ -123,7 +123,7 @@ VCR.configure do |config|
 end
 ```
 
-This code configures VCR just like we did when we tested `GET` requests.  We have added `config.filter_sensitive_data("SLACK_TOKEN")` so that anytime our VCR sees our slack token it will replace it with the words "SLACK_TOKEN".  **This will prevent the token from appearing in git**.
+Later we will not need to explicitly load the `dotenv` gem when we are using Rails.  This code configures VCR just like we did when we tested `GET` requests.  We have added `config.filter_sensitive_data("SLACK_TOKEN")` so that anytime our VCR sees our slack token it will replace it with the words "SLACK_TOKEN".  **This will prevent the token from appearing in git**.
 
 We can add our Slack token to a `.env` file in the project's root folder like this:
 
