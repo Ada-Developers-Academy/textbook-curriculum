@@ -25,9 +25,9 @@ Below is a diagram of the structure of a `POST` request.
 
 We will learn to make `POST` requests using the [Slack API](https://api.slack.com/web).  To do so we will need a developer access token, a long alphanumeric string of characters.  **You will need to log into the slack website and apply for one on their [legacy tokens page](https://api.slack.com/custom-integrations/legacy-tokens).**  Register for a token and bookmark the legacy tokens page for now.  You will need it going forward.  **Note** There are [other](https://api.slack.com/docs/oauth), better, more secure methods of accessing an API, but the token method is the most simple way to introduce the concept.
 
-Next we need to see how Slack takes in messages to post into a channel.  Take a look at the [chat.postMessage](https://api.slack.com/methods/chat.postMessage) page in the Slack API documentation.  
+Next we need to see how Slack takes in messages to post into a channel.  Take a look at the [chat.postMessage](https://api.slack.com/methods/chat.postMessage) page in the Slack API documentation.
 
-**Questions**:  
+**Questions**:
 
 - What is the URL for this Api endpoint?
 - What arguments does the `chat.postMessage` endpoint accept?  Are any mandatory?
@@ -67,11 +67,11 @@ You've now successfully posted to Slack from Postman!
 
 ### Using HTTParty - Setting Up
 
-In this lesson we will build a method for sending messages to Slack in a TDD fashion.  Start by forking and cloning the [Ada Gold slack-cli](https://github.com/AdaGold/slack-cli) repository.  
+In this lesson we will build a method for sending messages to Slack in a TDD fashion.  Start by forking and cloning the [Ada Gold slack-cli](https://github.com/AdaGold/slack-cli) repository.
 
 ### What Do We Have?
 
-In this repository we have a `Rakefile` to run our tests with, a `run_chatstream.rb` file to run our finished application, and a `specs` folder with the following files?
+In this repository we have a `Rakefile` to run our tests with, a `run_chatstream.rb` file to run our finished application, and a `specs` folder with the following files:
 
 - `spec_helper.rb`
 - `slack_api_wrapper_spec.rb`
@@ -90,7 +90,7 @@ class SlackApiWrapper
 end
 ```
 
-In this exercise we will build some tests for a `send_msg` method in the `SlackApiWrapper` class and then build out the functionality to satisfy the tests.  
+In this exercise we will build some tests for a `send_msg` method in the `SlackApiWrapper` class and then build out the functionality to satisfy the tests.
 
 ### Our First Test - Nominal Case
 
@@ -123,12 +123,12 @@ VCR.configure do |config|
 end
 ```
 
-This code configures VCR just like we did when we tested `GET` requests.  We have added `config.filter_sensitive_data("SLACK_TOKEN")` so that anytime our VCR sees our slack token it will replace it with the words "SLACK_TOKEN".  **This will prevent the token from appearing in git**.  
+This code configures VCR just like we did when we tested `GET` requests.  We have added `config.filter_sensitive_data("SLACK_TOKEN")` so that anytime our VCR sees our slack token it will replace it with the words "SLACK_TOKEN".  **This will prevent the token from appearing in git**.
 
 We can add our Slack token to a `.env` file in the project's root folder like this:
 
 ```
-SLACK_TOKEN: <TOKEN_GOES_HERE>
+SLACK_TOKEN=<TOKEN_GOES_HERE>
 ```
 
 ![.env file picture](images/dotenv.png)
@@ -140,7 +140,7 @@ Next we can write our first test using VCR.
 require_relative 'spec_helper'
 
 describe SlackApiWrapper do
-  it "can send a valid tweet" do
+  it "can send a valid message" do
     VCR.use_cassette("slack-posts") do
       response = SlackApiWrapper.send_msg("Hey I can post messages!", "YOUR-CHANNEL-NAME")
       expect(response).must_equal true
@@ -153,17 +153,17 @@ This test calls a class-method called `send_msg` and sends it a message and chan
 
 With `HTTParty`, you can use the `post` method to send `POST` requests, it takes two arguments.
 
-1. The URL of the post request, like `https://slack.com/api/chat.postMessage`.  
+1. The URL of the post request, like `https://slack.com/api/chat.postMessage`.
 1. A hash with the following key-value pairs.
     - `headers` a hash of key-value pairs to put in the request header.
-    - `body` a hash of key-value pairs for the data sent to the API.  
+    - `body` a hash of key-value pairs for the data sent to the API.
 
-Like the `get` method, `post` returns an HTTP response from the API.  
+Like the `get` method, `post` returns an HTTP response from the API.
 
-For example:  
+For example:
 
 ```ruby
-HTTParty.post("http://adapets.org/pets", 
+HTTParty.post("http://adapets.org/pets",
   headers: { 'Content-Type' => 'application/json' },
   body: {
     name: 'Kylo'
@@ -200,9 +200,9 @@ class SlackApiWrapper
 end
 ```
 
-This method takes the message and channel and uses `ENV['SLACK_TOKEN`] to retrieve the API key and sends a message to slack.  
+This method takes the message and channel and uses `ENV['SLACK_TOKEN`] to retrieve the API key and sends a message to slack.
 
-Run the test, it should now be **green**.  If you run the test a few times, you should notice that only the initial run caused a message to be posted to slack.  
+Run the test, it should now be **green**.  If you run the test a few times, you should notice that only the initial run caused a message to be posted to slack.
 
 ### Edge Cases
 
@@ -234,7 +234,7 @@ Add the following test to `specs/slack_api_wrapper_spec.rb`.
   end
 ```
 
-Now when we run the tests, the new test fails.  
+Now when we run the tests, the new test fails.
 Notice that Slack returns the error message `channel_not_found` when the channel does not exist, and we can use this in our `send_msg` method as we write code to pass the new test.
 
 Update `send_msg` to the following:
@@ -255,7 +255,7 @@ Update `send_msg` to the following:
     response_body = JSON.parse(response.body)
 
     unless response.success? && response_body["ok"]
-      raise StandardError, response_body["error"] 
+      raise StandardError, response_body["error"]
     end
 
     return true
