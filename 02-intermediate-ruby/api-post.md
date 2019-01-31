@@ -274,7 +274,7 @@ Update `send_msg` to the following:
 
 Now update the existing code to use the optional arguments to `chat.postMessage`.  You can add keyword arguments for the optional parameters to your `send_msg` method.  To start change the avatar of your posting bot.
 
-There is also a `run_chatstream.rb` file in the project root directory which you can send messages with.
+Next try running the `run_chatstream.rb` file in the project root directory.  What does it do?  How could you improve it?
 
 
 ## Summary
