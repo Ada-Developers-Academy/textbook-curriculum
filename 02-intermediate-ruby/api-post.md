@@ -155,7 +155,7 @@ With `HTTParty`, you can use the `post` method to send `POST` requests.  The `po
 
 1. The URL of the post request, like `https://slack.com/api/chat.postMessage`.
 1. A hash with the following key-value pairs.
-    - `headers` a hash of key-value pairs to put in the request header.
+    - `headers` a hash of key-value pairs to put in the request header.  If headers is left off, `HTTParty` will assume a set of default headers.
     - `body` a hash of key-value pairs for the data sent to the API.
 
 Like the `get` method, `post` returns an HTTP response from the API.
@@ -163,7 +163,7 @@ Like the `get` method, `post` returns an HTTP response from the API.
 For example:
 
 ```ruby
-response = HTTParty.post("http://adapets.org/pets", {
+response = HTTParty.post("https://petdibs.herokuapp.com/pets",
   headers: { 'Content-Type' => 'application/json' },
   body: {
     name: 'Kylo',
@@ -171,7 +171,7 @@ response = HTTParty.post("http://adapets.org/pets", {
     species: 'Dog',
     age: 4
   }
-})
+)
 ```
 
 When the API returns a response, just like a `GET` request, the body of the response of many APIs is JSON, which can be converted into a Ruby hash.
