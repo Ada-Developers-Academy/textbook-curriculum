@@ -1,11 +1,22 @@
 # Impostor Syndrome
 
-### Learning Goal
+## Learning Goal
 + To learn more about Impostor Syndrome
 + To chat about the importance of deep work and pesistence
 + To take charge of managing your journey to be a software engineer
 
-#### Resources
+## Homework
+- Before our discussion, please take some time to learn about impostor syndrome and deep work by watching the videos and reading the articles [below](#resources). 
+- As you learn from these resources, think about:
+  - What is your biggest <b>fear</b> as you start your journey at Ada?
+  - What makes you awesome?
+  - What are some of your accomplishments?
+  - What are your current study habits? What works well? What could be improved?
+  - What kind of support can you offer to your fellow Adies?
+  - What kind of support are you looking for from your fellow Adies?
+- Note: In the spirit of sharing vulnerabilities builds trust, we will have small group discussions. Only share what you are comforatble sharing.
+
+### Resources
 Watch:
 + [she++ The Documentary - Good Girl Gone Geek](https://www.youtube.com/watch?v=DqrfPCGo2aQ)
 + [RailsConf 2014 - You are Not an Impostor by Nickolas Means (33 mins)](https://www.youtube.com/watch?v=l_Vqp1dPuPo)
@@ -22,30 +33,9 @@ Read:
 + [How to become a programmer or the art of googling well](https://okepi.wordpress.com/2014/08/21/how-to-become-a-programmer-or-the-art-of-googling-well/)
 + [10000 hours of practice to achieve mastery](http://wisdomgroup.com/blog/10000-hours-of-practice/)
 
-#### HomeWork:
-+ Reflections on Impostor Syndrome. Think about the following and share with at least two students in your cohort:
-+ (optional) 1+ of your fears of Ada
-+ (optional) 1+ new coding-related learning you've made in the last month
-+ (optional) 1+ thing that makes you a great addition to the Ada Family! \<3 (programming aside)
-
-<hr>
-
-## In Class Discussion
-
-### Learning Goal
-+ To learn more about Impostor Syndrome
-+ To chat about the importance of deep work and pesistence
-+ To take charge of managing your journey to be a software engineer
 
 ### Presentation
 + [Impostor Syndrome](https://drive.google.com/file/d/0B__DV26QHsH4LXQtenlnRWxRV2s/view?usp=sharing)
-
-### Activities
-+ Share with small group at least one of the following:
-  + fears
-  + accomplishments
-  + things that make you awesome
-+ Share out: sharing vulnerabilities builds trust
 
 ### Remember
 + You were chosen to be here. This is not an accident.
@@ -59,4 +49,4 @@ Read:
 + This is a hard but worth-while journey.
   + Support each other.
   + Intentionally compliment one another during pair projects
-  + Be willing to intentionally share struggles and broken code.
+  + Be willing to intentionally share struggles and broken code. These are <b>learning moments</b> and not just mistakes.
