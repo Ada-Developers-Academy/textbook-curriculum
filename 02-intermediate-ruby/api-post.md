@@ -232,7 +232,7 @@ Add the following test to `specs/slack_api_wrapper_spec.rb`.
     VCR.use_cassette("slack-posts") do
       exception = expect {
         SlackApi.send_msg("This post should not work", "invalid-channel")
-      }.must_raise SlackApiError
+      }.must_raise SlackApiWrapper::SlackApiError
 
       expect(exception.message).must_equal 'channel_not_found'
     end
