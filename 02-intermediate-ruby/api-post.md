@@ -200,7 +200,7 @@ module SlackApi
       headers: { 'Content-Type' => 'application/x-www-form-urlencoded' }
     )
 
-    return response.code == 200 && response.body["ok"]
+    return response.code == 200 && response.parsed_response["ok"]
   end
 end
 ```
@@ -223,7 +223,7 @@ What should we do when the channel does not exist?  We have a few options.
 
 1. We could simply return false, but this does not provide much information to the user about what the problem is.
 1. We could return a string describing the error, which could work, but a user of our method would need to know to check for the return value to know that the message did not work, and strings are truthy values, which could be misleading.
-1. We could raise an error.  This is what we will do instead.  By raising an error we can describe the problem, and alert any user of our method of the problem, making it clear that the API call did not work while making it easier to debug with an error message and stack trace.
+1. We could raise an error.  This is what we will do instead.  By raising an error we can describe the problem, and alert any user of our method of the problem, making it clear that the API call did not work while making it easier to debug with an error message and stack trace.  We can create a new exception class with: `class SlackApiError < StandardError; end` and use it to indicate problems Slack tells us.  
 
 Add the following test to `specs/slack_api_wrapper_spec.rb`.
 
@@ -232,7 +232,7 @@ Add the following test to `specs/slack_api_wrapper_spec.rb`.
     VCR.use_cassette("slack-posts") do
       exception = expect {
         SlackApi.send_msg("This post should not work", "invalid-channel")
-      }.must_raise StandardError
+      }.must_raise SlackApiError
 
       expect(exception.message).must_equal 'channel_not_found'
     end
@@ -245,6 +245,8 @@ Notice that Slack returns the error message `channel_not_found` when the channel
 Update `send_msg` to the following:
 
 ```ruby
+class SlackApiError < StandardError; end
+
   def self.send_msg(message, channel)
 
     response = HTTParty.post(
@@ -257,8 +259,8 @@ Update `send_msg` to the following:
       headers: { 'Content-Type' => 'application/x-www-form-urlencoded' }
     )
 
-    unless response.code == 200 && response.body["ok"]
-      raise StandardError, response.body["error"]
+    unless response.code == 200 && response.parsed_response["ok"]
+      raise SlackApiError, "Error when posting #{message} to #{channel}, error: #{response.parsed_response["error"]}"
     end
 
     return true
