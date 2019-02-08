@@ -10,7 +10,7 @@
 ## What is React?
 React is an [open-source](https://github.com/facebook/react) JavaScript library for building user interfaces. It encompasses only the **V** in the MVC Pattern.
 
-React is modular through the use of **components**. A component is an individual JavaScript class which represents the pieces of the user interface (HTML and CSS) and behavior (events via JavaScript). Each component manages it's own state and then components can be composed within one another to create a complete web application.
+React is modular through the use of **components**. A component is a JavaScript function or class which knows how to render pieces of the user interface (HTML and CSS) and assign them behavior (event handling). Each component manages its own state and then components can be composed within one another to create a complete web application.
 
 ## Why React?
 There are a lot of reasons that technology teams are switching to use React. You can read one of those from the Netflix team written a few years ago on their transition in the [Additional Resources](#additional-resources) below.
@@ -39,3 +39,4 @@ React is extremely popular right now and is growing in popularity. The Virtual D
 - [React Virtual DOM](https://www.codecademy.com/articles/react-virtual-dom)
 - [32 Sites Built with React](https://medium.com/@coderacademy/32-sites-built-with-reactjs-172e3a4bed81)
 - [Netflix likes React](https://medium.com/netflix-techblog/netflix-likes-react-509675426db)
+- [Free Code Camp React Handbook](https://medium.freecodecamp.org/the-react-handbook-b71c27b0a795)

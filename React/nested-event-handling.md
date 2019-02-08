@@ -1,66 +1,89 @@
-# Creating Components: Part 2
+# Event Handling With Nested Components
+
+In this lesson we will return to our `Students` example, to discuss state management and event handling between nested components.
 
 ## Learning Goals
-- Continue nesting components within one another
-- Continue to practice component creation and JSX syntax
-- Use `state` within our components
-- Act on events within our components
+
+By the end of this lesson, students should be able to...
+
+- Render child components from `state`
+- Understand when and how to lift state from a child component to a parent component
 - Pass event handler functions as callbacks within `props`
 
-### Overview
-In this discussion, we are going to go back to our students application and add some new features. First, we're going to refactor our code a bit to set ourselves up to use some of the new concepts we've learned about, like `state`. Then, we're going to add some new functionality so we can use our application to take attendance for our students.
+## Introduction
 
-## Refactor!
+Last time we worked on our student tracking application, we used a functional `StudentCollection` component to render a list of `Student`s. The student data came from an array created in the `StudentCollection` component.
 
-**This diagram will drive our overall approach for accomplishing this goal:**
-![nested components](images/nested-components.png)
-<!-- https://drive.google.com/open?id=1xq5jaCrI7FGp6PG1gr-bYE1ZTvPb5PxZ -->
+Our goal for this lesson is to make the application respond to events from the user. So, let's start with some brainstorming:
+- What kind of actions might the user take on individual students?
+- What kind of actions might the user take on the list of students?
 
-### Setup to manage list of data
-One student is great and all, but ideally, we'd really be able to manage our whole list of students that we might need. We'd also like to do this _outside_ of the `App` component, because what if our application also tracks Teachers?
+For this lesson our plan is to use our app to track attendance. Each student will have a button with the text "mark present", which when clicked, will show the student as present.
 
-We'll create a new component called `StudentCollection` that will live between the existing  `App` and `Student` components. This new component will manage the full list of students and then render the data for each student.
+## Refactor to a Stateful Component
 
-1. Spend a few minutes now going back to the [creating components](creating-components.md) notes to see how to create the new component file with the basic class, imports and exports you need.
+### Lifting State Up
 
-1. Move the code that renders the list of `Student`s from `App` to `StudentCollection`. Note: You will also need to move and update the `import` statement.
+Currently there is no way for us to change the student data. If we want to be able to change whether a student is present, we'll need to keep track of that as state in our application.
 
-1. Import and render `StudentCollection` now from the `App` component instead. Note: You will need to add an import statement.
+**Question:** Where should our application's state live? What are our options?
 
-## Use `state` for data
-One way that we often set initial `state` data in a component, is by taking data passed in through `props` (from the parent) and setting that to `state` in our constructor. Let's see an example!
+We could keep the state for each student in the corresponding `Student` component, initializing it from `prop`s in the constructor. For this limited example, that would work fine. However, if we were to add event handling on the whole collection (sort, add/remove, etc.), it would reset all the state on the individual `Student`s! Not so good.
+
+Instead, we will _lift_ the state out of the `Student` component into the `StudentCollection`. This is a very common technique when managing a list of components in React: all the state lives in the parent component. This will also line up well with the code we've already written.
+
+#### Classical Component
+
+Our first step is to refactor the existing `StudentCollection` to be a classical component. The easiest way to do this is to:
+- Wrap the existing function in a class declaration
+- Rewrite the function signature to match the pattern for `render`
+- Replace `props` with `this.props` (find-and-replace is your friend)
+
+When all is said and done, you should have something like this:
+
+```js
+// src/components/StudentCollection.js
+// ... same import statements ...
+
+class StudentCollection extends React.Component {
+  render() {
+    // ... exactly what was in the body of the component function before ...
+  }
+};
+
+export default StudentCollection;
+```
+
+Verify that this was a true refactor, in other words that your app still runs and looks exactly the same.
+
+#### Adding State
+
+Our component is now a class, but it still doesn't keep track of any state. Let's fix that.
+
+As we saw in previous lessons, `state` should be set initially in the constructor. For our `StudentComponent`'s initial state, we'll use the list of students. We'll add an extra field to our students here, `isPresent`, which we'll be using in a bit.
 
 Set up a constructor in the `StudentCollection` component. Don't forget your call to `super();` which is always required in a component constructor!
 
 ```javascript
 // src/components/StudentCollection.js
 constructor() {
-    super();
-  }
-```
-
-Then, add some constant student data to set the initial `state` in the constructor. We'll add an extra field to our students here, `isPresent`, which we'll be using in a bit.
-
-```javascript
-constructor() {
   super();
 
   this.state = {
     students: [
-        {
-          fullName: "Katherine Ada",
-          email: "katherine-ada@ada.co",
-          isPresent: false
-        },
-        {
-          fullName: "Grade Ada",
-          email: "grace@ada.co",
-          isPresent: false
-        }
-      ];
+      {
+        fullName: "Ada Lovelace",
+        email: "ada@lovelace.uk",
+        isPresent: false
+      },
+      {
+        fullName: "Katherine Johnson",
+        email: "kat@nasa.gov",
+        isPresent: false
+      }
+    ]
   }
 }
-
 ```
 
 Next, we'll use a `map` in our `render` function to iterate through each item in our state object and render a `Student` component for each piece of data. You should already have some of this `map` logic, but now we'll be getting the data from `state` rather than a constant.
@@ -69,8 +92,16 @@ Next, we'll use a `map` in our `render` function to iterate through each item in
 // src/components/StudentCollection.js
 render() {
     const studentComponents = this.state.students.map((student, i) => {
-      return <Student key={ i }
-        index={ i } fullName={ student.fullName } email={ student.email } isPresent={ student.isPresent }/>
+      return (
+        <li key={ i }>
+          <Student
+            index={ i }
+            fullName={ student.fullName }
+            email={ student.email }
+            isPresent={ student.isPresent }
+            />
+        </li>
+      );
     });
 
     return (
@@ -93,7 +124,7 @@ Now let's take a look at an updated version of the diagram that we created in ou
 
 Note that we're passing in a new `isPresent` prop here. How could we modify our `Student` component to reflect this information?
 
-### Modify `state` using an event
+## Modify `state` using an event
 Listing out our students is great, but what if we could also track attendance? Let's do it! We'll set up a button for each student. When pressed, this button will update the `state` data for that student to mark them as "present". Additionally, we'll add some CSS so that students who have been marked "present" will be identified to the user.
 
 There are a few things to consider when making this change to our application. Think about these questions with your seat squad.
@@ -104,11 +135,18 @@ There are a few things to consider when making this change to our application. T
 If you answered NO to question #3, you're on to something big. The data related to the students is tracked in the `StudentCollection` while the button to mark an individual student "present" should really be on each individual `Student` component. Our challenge then is to use the tools we have been given to _propagate_ the button press event from one component to another.
 
 #### The button
-Let's start by updating the `render` function of the `Student` component to include a button.
+Let's start by updating the `render` function of the `Student` component to include the `isPresent` property, and a button.
 
-```html
-<button>Mark Present</button>
+```js
+<p>
+  { this.props.isPresent ? 'Present' : 'Absent' } today
+  <button
+    disabled={ this.props.isPresent }
+    >Mark Present</button>
+</p>
 ```
+
+Change the initial state in the `StudentCollection` to verify this works as intended.
 
 #### The Event Handler
 Next, let's explore the event handler setup. What data do we need from the button click event to appropriately change the overall student's state?
@@ -128,7 +166,10 @@ Then we tie the button to the event handler function:
 ```javascript
 // Student.js
 
-<button onClick={ this.onPresentButtonClick }>Mark Present</button>
+<button
+  disabled={ this.props.isPresent }
+  onClick={ this.onPresentButtonClick }
+  >Mark Present</button>
 ```
 
 Test it out and see what gets logged in the console. What piece of data is going to help us determine exactly which student should be updated?
@@ -137,7 +178,7 @@ Test it out and see what gets logged in the console. What piece of data is going
 
 Next, we must consider that the `state` of the students is not stored within this component. In order to update this, we'll need to call some code within the `StudentCollection` component which will change the state.
 
-Let's create a new event handler function in the `StudentCollection` component. This even handler should take in one parameter which represents the unique identifier for the given student for whom we want to mark "present".
+Let's create a new event handler function in the `StudentCollection` component. This even handler should take in one parameter which represents the unique identifier for the given student whom we want to mark "present".
 
 ```javascript
 //StudentCollection.js
@@ -158,9 +199,17 @@ Update the `render` function in the `StudentCollection` component to pass in a n
 ```javascript
 // StudentCollection.js
 this.state.students.map((student, index) => {
-  return <Student key={ index }
-    index={ index } fullName={ student.fullName } email={ student.email }
-    markPresentCallback={ this.markPresent }/>
+  return (
+    <li key={ i }>
+      <Student
+        index={ i }
+        fullName={ student.fullName }
+        email={ student.email }
+        isPresent={ student.isPresent }
+        markPresentCallback={ this.markPresent }
+        />
+    </li>
+  );
 });
 ```
 
@@ -192,7 +241,7 @@ markPresent = (studentIndex) => {
 }
 ```
 
-#### Event Handling Summary
+### Event Handling Summary
 
 Wow, that was kind of complex. Let's look at a diagram of what's going on.
 
@@ -223,4 +272,5 @@ This style of event handling is very common in React - it comes up whenever an e
 Once we have a grasp on how to use `props` and `state` within our React application, the possibilities are endless. Using these concepts to manage the data and our understand of how to nest components, we can create rich and interactive applications.
 
 ## Additional Resources
-- [How to write your first React component](https://medium.freecodecamp.org/how-to-write-your-first-react-js-component-d728d759cabc)
+
+- [React Docs: Lifting State Up](https://reactjs.org/docs/lifting-state-up.html)

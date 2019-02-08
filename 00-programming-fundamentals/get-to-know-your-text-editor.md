@@ -18,13 +18,14 @@ We will use the text editor VS Code at Ada in the classroom portion. [VS Code](h
 - it's free!
 
 ### There are a lot of other editors.
+
 And every person you ask will have a favorite with a very personal list of reasons why their choice is right. Take these with a grain of salt. Use what makes the most sense to you. It's likely you'll change editors every couple of years anyway.  The most important thing is that the editor works for you and meshes with your workflow.
 
 ### Adoption at Ada
 
 Beginning in C11, the Ada Developers Academy classroom portion is converting from using the text editor [Atom](https://atom.io/) to the text editor [VS Code](https://code.visualstudio.com/).
 
-Please note that if there are any mentions of `Atom` or the command `atom .`, that the document is outdated. With a few exceptions, you should be able to think of them interchangably.
+Please note that if there are any mentions of `Atom` or the command `atom .`, that the document is outdated. With a few exceptions, you should be able to think of them interchangeably.
 
 ## Installing the `code` command to open VS Code
 
@@ -38,10 +39,44 @@ First, we need to install this command. Below is the instructions copied/pasted 
 1. Open the Command Palette (⇧⌘P) and type 'shell command' to find the **Shell Command: Install 'code' command in PATH** command.
 1. Restart the terminal for the new `$PATH` value to take effect. You'll be able to type '`code .`' in any folder to start editing files in that folder.
 
+![install `code` command](images/install-code-command.png)
+
 To "restart the terminal," you can just quit (or `⌘Q`) the terminal application, and then reopen it.
 
 
 Now, you can navigate back to your cool folder that has `assignment.rb` in the Terminal, and then use the command `code .` to use the `code` command and give it the parameter of the current directory (`.`)!
+
+## Awesome Keyboard Shortcuts
+
+Shortcut | Effect
+---      | ---
+`⌘⇧P` or `F1`   | Open the _Command Palette_ to execute commands in the editor
+`⌘P`     | Search files, open in a new tab
+`⌘C` (nothing highlighted)    | Copy the current line
+`⌥up` & `⌥down` | Move the active line up or down
+`⌘D`     | Select the next instance of the highlighted string
+`⌘/`     | Comment out the current line
+`⇧⌘E` | Show Explorer
+`⇧⌘D` | Show Debug
+`⌘B`  | Hide Sidebar Elements
+`⌘K V`  | Toggle Zen Mode (just the editor)
+**`⇧⌥F`**   | **Auto Fix Your Indentation**
+`⌘K`  `V`  | Open Markdown Preview
+`⌘⇧K`    | Delete the current line
+`⌘⌥up` & `⌘⌥down` | add a cursor in the same position on the line above/below. Press `esc` to get back to a single cursor. This does interfere with Spectacle.
+
+Remember that normal macOS keyboard shortcuts will work here too!
+
+Shortcut | Effect
+---      | ---
+`⌥left` & `⌥right` | Jump left or right by one word
+`⌘left` & `⌘right` | Jump to the beginning or the end of the current line
+`⌘up` & `⌘down` | Jump to the top or the bottom of the document
+`⌘⇧[` & `⌘⇧]` | Switch tabs left or right
+`⌘,`     | Open the settings page
+`⌘w`     | Close the current tab
+`⌘⇧w`    | Close the current window (all tabs)
+
 
 ## More About VS Code
 
@@ -51,7 +86,7 @@ Themes change the way your editor looks. You can configure, install, remove them
 
 To quickly open the list of your installed themes, use `⌘K ⌘T`. This lets you switch themes on the fly. Try out a few themes, and if none of them are to your liking,  you can scroll to the bottom of the list and click on 'Install Additional Color Themes'.
 
-[alt-text](/location/ "a picture of what the list looks like")
+![Theme selection list](images/theme-list.png)
 
 This list includes things beyond just basic themes (such as icon styling), but most of them do provide screenshots so you can see what they look like. Once you click the green install button, you should be able to find them through `⌘K ⌘T`.
 
@@ -68,43 +103,10 @@ One of the most powerful parts of VS Code is the ability to install custom exten
 
 We'll add some of these as they become relevant. Feel free to look some up if they interest you, but for now just know that they exist.
 
-## Awesome Keyboard Shortcuts
-
-// TODO: update
-
-Shortcut | Effect
----      | ---
-`⌘⇧P` or `F1`   | Open the _Command Palette_ to execute commands in the editor
-`⌘T`     | Search files, open in a new tab
-`⌘C` (nothing highlighted)    | Copy the current line
-`⌥up` & `⌥down` | Move the active line up or down
-`⌘D`     | Select the next instance of the highlighted string
-`⌘/`     | Comment out the current line
-`⇧⌘E` | Show Explorer
-`⇧⌘D` | Show Debug
-`⌘B`  | Hide Sidebar Elements
-`⌘K V`  | Toggle Zen Mode (just the editor)
-**`⇧⌥F`**   | **Auto Fix Your Indentation**
-
-<!-- `⇧⌘V`  | Open Markdown Preview  -->
-<!-- `⌃⇧K`    | Delete the current line -->
-<!-- `⌥⌘up` & `⌥⌘down` | add a cursor in the same position on the line above/below. Press `esc` to get back to a single cursor. This does interfere with Spectacle. -->
-
-Remember that normal macOS keyboard shortcuts will work here too!
-
-Shortcut | Effect
----      | ---
-`⌥left` & `⌥right` | Jump left or right by one word
-`⌘left` & `⌘right` | Jump to the beginning or the end of the current line
-`⌘up` & `⌘down` | Jump to the top or the bottom of the document
-`⌘⇧[` & `⌘⇧]` | Switch tabs left or right
-`⌘,`     | Open the settings page
-`⌘w`     | Close the current tab
-`⌘⇧w`    | Close the current window (all tabs)
 
 ## Adding Custom Extensions
 
-Sometimes the funtionality that ships with VS Code doesn't quite get us where we want. In that case, we can rely on the delevoper community that supports VS Code to make tools that fill in the gaps where Microsoft hasn't gone yet.
+Sometimes the functionality that ships with VS Code doesn't quite get us where we want. In that case, we can rely on the developer community that supports VS Code to make tools that fill in the gaps where Microsoft hasn't gone yet.
 
 Currently, the our Auto-Indent functionality doesn't know how to indent Ruby, so we need to fix that.
 
@@ -116,7 +118,33 @@ Currently, the our Auto-Indent functionality doesn't know how to indent Ruby, so
 
 Automatic indentation isn't just to make code look good, it's also a powerful tool that allows your human eyes to find problems like a forgotten `end` statement. Use it regularly, and please don't turn in assignments with sloppy indentation!
 
+### Mandatory Plugins
+
+Below are plugins we at Ada feel are very important to programming productively in Ruby & Javascript with VS Code.  
+
+| Plugin Name  |  Plugin Description  |
+|---|---|
+| [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby)  | Visual Studio Code Ruby Extension  |
+| [erb](https://marketplace.visualstudio.com/items?itemName=CraigMaslowski.erb)  | A syntax highlighting plugin useful with Rails ERB files.  |
+| [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)  | Syntax highlighting and style guide for JavaScript  |
+| [Markdown Preview Github Styling](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-preview-github-styles) | A plugin to help you write markdown and preview how it will appear on Github. |
+| [HTML CSS Support](https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css) | A handy plugin to help with syntax highlighting for HTML and CSS documents
+
+### Optional Plugins
+
+Below are plugins we at Ada feel can be very helpful using VS Code, but are not essential.  
+
+| Plugin Name  |  Plugin Description  |
+|---|---|
+| [Spell Right](https://marketplace.visualstudio.com/items?itemName=ban.spellright)  | Multilingual, Offline and Lightweight Spellchecker for Visual Studio Code  |
+| [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) | Places an icon next to each file indicating what type of file they are.
+| [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2)  | A plugin which will help you identifying matching brackets with colors.  |
+| [Git Lens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)  | A way to visualize code authorship at a glance via git and VS Code  |
+| [NPM Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense) | A handy plugin which will help autocomplete JavaScript npm modules as you code. |
+| [Auto Close Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag) | A plugin to automatically close HTML tags.
+
 ## Resources
+  - [Egghead.io Video on VS Code](https://egghead.io/lessons/egghead-vs-code-for-javascript-with-burke-holland)
 <!-- -  [Atom & Sublime Compared](https://www.codementor.io/mattgoldspink/best-text-editor-atom-sublime-vim-visual-studio-code-du10872i7) -->
 Some decent text editors:
   <!-- - [Microsoft's Visual Studio Code](https://code.visualstudio.com/) -->

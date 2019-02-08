@@ -67,7 +67,7 @@ We will use Ruby version 2.5.1 for the Ada curriculum _(last updated: early 2019
 - `$ rvm list` should return the list of Ruby versions installed with rvm, and which version is being used and being used as default
 
 ## Text Editor(s)
-There are many options for text editors. _Sublime Text_, _TextMate_ and _Atom_ are popular **Graphic User Interface (GUI)** editors. _vim_ and _emacs_ are popular editors that operate directly on the command line.
+There are many options for text editors. _Sublime Text_, _TextMate_, and _Atom_ are popular **Graphic User Interface (GUI)** editors. _vim_ and _emacs_ are popular editors that operate directly on the command line.
 
 Beginning in C11, the Ada Developers Academy classroom portion is converting from using the text editor [Atom](https://atom.io/) to the text editor [VS Code](https://code.visualstudio.com/).
 
