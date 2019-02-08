@@ -245,8 +245,8 @@ Vocabulary
  abstract class  | A class that is not instantiated, but instead serves as a parent class. 
  concrete class  | A class that is instantiated. May or may not inherit from some other class. 
  template method | A method that is intended to be overridden in a subclass.  
- polymorphism    | Treating instances of different classes in the same way.   
- interface       | Some set of methods that go together.                      
+ interface       | Some set of methods that go together. A class that has all those methods _implements_ that interface. 
+ polymorphism    | Treating instances of different classes in the same way. All those classes must implement the same interface.
 
 ## Additional Resources
 
