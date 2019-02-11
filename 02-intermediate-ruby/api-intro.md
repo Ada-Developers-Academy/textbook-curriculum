@@ -198,6 +198,21 @@ Code    | Text             | Meaning
 
 ## Summary
 
-
+- The _client/server_ architecture is very common on the internet
+  - The server is a dedicated computer that keeps track of some information
+  - The client is an application that wants that information
+  - There are typically many clients and one server
+- Whenever computers communicate with each other, they use a _protocol_
+  - All the work we do in this class will involve the HTTP protocol
+- There are two main types of resource on the web:
+  - _Websites_ are designed to be used by humans
+  - _APIs_ are designed to be used by other machines
+  - Browsers can consume both
+- A key pattern on the web is the _request/response cycle_
+  - Client makes a request, including HTTP verb, path, optional payload
+  - Server sends a response, including HTTP status code, optional payload
 
 ## Additional Resources
+
+- [Description of the various HTTP verbs](http://www.restapitutorial.com/lessons/httpmethods.html)
+- [HTTP Basics](https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/HTTP_Basics.html)
