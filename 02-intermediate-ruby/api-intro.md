@@ -1,12 +1,7 @@
 # Intro to the Web, HTTP and APIs
 
-Pull from HTML/CSS week intro, Rails week intro, API week intro
-
-Talk about installing a JSON viewer chrome plugin
-
-https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh
-
 ## Learning Goals
+
 - Examine the _HTTP_ protocol; what does it do? How does it do it?
 - Talk about the most common server architecture on the internet: _Client/Server_
 - Discuss the difference between _websites_ and _APIs_
@@ -16,6 +11,7 @@ https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibn
   - Response: Status code
 
 ## So what is the Internet?
+
 It's a computer network: a collection of computers and devices connected using communication devices (routers, cables, wifi, fiber, etc).
 
 Computers communicate over a network by sending data over the connection.
@@ -200,8 +196,8 @@ Code    | Text             | Meaning
 
 - The _client/server_ architecture is very common on the internet
   - The server is a dedicated computer that keeps track of some information
-  - The client is an application that wants that information
-  - There are typically many clients and one server
+  - The client is an application (command-line program or the browser) that wants that information
+  - There are typically many clients for every server
 - Whenever computers communicate with each other, they use a _protocol_
   - All the work we do in this class will involve the HTTP protocol
 - There are two main types of resource on the web:
