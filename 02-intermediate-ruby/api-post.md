@@ -67,7 +67,7 @@ You've now successfully posted to Slack from Postman!
 
 ### Using HTTParty - Setting Up
 
-In this lesson we will build a method for sending messages to Slack in a TDD fashion.  Start by forking and cloning the [Ada Gold slack-cli](https://github.com/AdaGold/slack-cli) repository.
+In this lesson we will build a method for sending messages to Slack in a TDD fashion.  Start by forking and cloning the [Ada Gold slack-post-exercise](https://github.com/AdaGold/slack-post-exercise) repository.
 
 ### What Do We Have?
 
