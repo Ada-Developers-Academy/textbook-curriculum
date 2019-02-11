@@ -212,3 +212,4 @@ Code    | Text             | Meaning
 
 - [Description of the various HTTP verbs](http://www.restapitutorial.com/lessons/httpmethods.html)
 - [HTTP Basics](https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/HTTP_Basics.html)
+- [Programmable Web](https://www.programmableweb.com/) - A site dedicated to news and information about APIs
