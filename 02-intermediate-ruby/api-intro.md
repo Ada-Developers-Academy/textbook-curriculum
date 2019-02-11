@@ -10,7 +10,7 @@ https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibn
 - Examine the _HTTP_ protocol; what does it do? How does it do it?
 - Talk about the most common server architecture on the internet: _Client/Server_
 - Define the key pieces in making the internet work:
-  + _webserver_
+  + _server_
   + _client_
   + _network_
   + _request_
@@ -31,7 +31,7 @@ A **Client** is a computer that requests services from a _server_ (your web brow
 
 Typically there is a single _server_ and many _clients_.
 
-![Client Server](images/client-server.png)
+![Client Server](images/apis/client-server.png)
 
 ### How do _clients_ and _servers_ communicate? Protocols.
 
@@ -50,7 +50,7 @@ and then responds with an _HTTP response_. A _webserver_ interfaces your applica
 
 When we create a Rails web application, we make a **request** from our browser to our webserver, which then will send a **response** back to our browser. When we develop our Rails applications, we run our webserver locally, on our own computer.
 
-![Localhost Request Response](images/local-request-response.png)
+![Localhost Request Response](images/apis/local-request-response.png)
 
 
 ### Request
