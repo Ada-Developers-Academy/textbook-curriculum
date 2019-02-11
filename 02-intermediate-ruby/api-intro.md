@@ -9,12 +9,11 @@ https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibn
 ## Learning Goals
 - Examine the _HTTP_ protocol; what does it do? How does it do it?
 - Talk about the most common server architecture on the internet: _Client/Server_
-- Define the key pieces in making the internet work:
-  + _server_
-  + _client_
-  + _network_
-  + _request_
-  + _response_
+- Discuss the difference between _websites_ and _APIs_
+- Explore an API using the browser
+- Define the key pieces of the _request/response cycle_
+  - Request: HTTP verb and path
+  - Response: Status code
 
 ## So what is the Internet?
 It's a computer network: a collection of computers and devices connected using communication devices (routers, cables, wifi, fiber, etc).
@@ -40,8 +39,6 @@ Hypertext Transfer Protocol (HTTP) functions as a __request-response__ protocol.
 A client sends a __request__ and a server sends back an __response__. HTTP describes how that request and response are formatted. There are lots of different protocols that describe lots of different kinds of interactions. Common protocols utilized in networked or internet-based applications include HTTP and HTTPS (hypertext transfer protocol secured), IMAP, FTP, SSH, SMTP, LDAP, DHCP, NFS, and more.
 
 All of these are, at the end of the day, text sent over the network. A suite of technologies take this text, carry it to the intended destination, and make sense of it. The _protocol_ is the definition of how the _client_ and _server_ understand the information they've received. Most _protocols_ serve a single purpose--displaying web pages (HTTP), sending an email (SMTP), transmitting a file (FTP), etc.
-
-
 
 ### Our role in all of this
 
@@ -200,5 +197,7 @@ Code    | Text             | Meaning
 **If you're writing a client program, you should make sure to check the response code for every request you send!**
 
 ## Summary
+
+
 
 ## Additional Resources
