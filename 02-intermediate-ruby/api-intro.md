@@ -1,4 +1,11 @@
-# HTTP And The Internet
+# Intro to the Web, HTTP and APIs
+
+Pull from HTML/CSS week intro, Rails week intro, API week intro
+
+Talk about installing a JSON viewer chrome plugin
+
+https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh
+
 ## Learning Goals
 - Examine the _HTTP_ protocol; what does it do? How does it do it?
 - Talk about the most common server architecture on the internet: _Client/Server_
