@@ -18,7 +18,7 @@ With a `POST` request you are asking the API to accept some data and create a re
 
 Below is a diagram of the structure of a `POST` request.
 
-![structure of an http request](images/http-request.png)
+![structure of an http request](images/apis/http-request.png)
 <!-- Lucid chart link:  https://www.lucidchart.com/invitations/accept/5a79e24c-fcd2-4754-8162-83fcf44f2030 -->
 
 ## Making `POST` Requests
@@ -46,7 +46,7 @@ You can make a `POST` request from Postman in a similar fashion to `GET` request
 
 Postman should look like this:
 
-![screenshot of postman making postMessage request](images/postman-slack-postMessage.png)
+![screenshot of postman making postMessage request](images/apis/postman-slack-postMessage.png)
 
 Now hit `send`
 
@@ -131,7 +131,7 @@ We can add our Slack token to a `.env` file in the project's root folder like th
 SLACK_TOKEN=<TOKEN_GOES_HERE>
 ```
 
-![.env file picture](images/dotenv.png)
+![.env file picture](images/apis/dotenv.png)
 
 Next we can write our first test using VCR.
 
