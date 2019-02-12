@@ -121,12 +121,18 @@ Accept: */*
 ```
 
 This is the literal text that is sent over the internet by the browser. There are two components of the request that are important to us right now:
+- `/books`, the path
 - `GET`, an HTTP verb
-- `/books`, path
 
 There's a bunch of other stuff in there too, but we won't be worrying about that for a while (if at all).
 
-### Verbs and Paths
+### Paths
+
+The _path_ tells the server what resource the client is interested in. In our example above this is the list of books at `/books`. You've seen paths before - in a URL, everything after the first `/` is the path of the request.
+
+It's not a coincidence that the path has the same name and syntax as a path on the filesystem. Historically, these were the same thing - web servers gave direct access to a collection of files. Modern web servers tend to be a little more sophisticated, but the path nomenclature has stayed with us.
+
+### Verbs
 
 The _verb_ tells the server what sort of thing the client wants to do. There are a bunch of verbs, but the most common are:
 
@@ -138,8 +144,6 @@ Verb             | Meaning
 `DELETE`         | Remove data
 
 There's quite a few default _verbs_ in the HTTP spec, though we (Ruby/Rails devs) mostly just use `GET`, `POST`, `PUT` (and `PATCH`), and `DELETE`.
-
-The _path_ tells the server what resource the client is interested in. In our example above this is the list of books at `/books`. Later we'll see it looking at individual books via the path `/books/3` (where 3 is the ID of the book in question).
 
 A request may also contain a _payload_, like the data submitted through a form. We'll talk about this more later in the week.
 
