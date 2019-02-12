@@ -68,8 +68,12 @@ Here are some important things to note about this function:
 - Every component has a function that returns a bunch of JSX
   - For a class component, it's the `render` function
   - For a functional component, the whole component is the function!
-- The `render` function must return a *single* element
-  - In this case, it is the outermost `div`. Every other element in the function is contained within that outermost `div`.
+- The `render` function must return a single object.
+  - It must be one of the following:
+    - A *single* element.
+    - An array of elements.
+    - A String.
+  - In this case, render returns the outermost `div`. Every other element in the function is contained within that outermost `div`.
 
 **Try It!** Change something about the `render` function above and see how it immediately affects the page.
 
@@ -89,7 +93,7 @@ In ERB, we were familiar with using the `<%` and `<%=` elements to dynamically g
 **Important Notes**
 
 - JSX cannot contain if-statements. If you need to include logic within your render function, you can do so _before_ the return statement.
-- The `render` function must return a **single element**. This does not mean that there can't be more complicated JSX in the `return`, but it does mean that all elements must be contained within **one** outermost element.
+- The `render` function must return a **single element**, an **array of elements** or a **string**. This does not mean that there can't be more complicated JSX in the `return`, but it does mean that all if you have multiple elements they need to be wrapped in **one** outermost element or contained within **one** array.
 
 ## Key Takeaway
 - We can use `create-react-app` to create a new boilerplate React application.
