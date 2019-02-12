@@ -61,6 +61,8 @@ Object, CsvRecord from the project
 
 Returning to our example from [the previous lesson](object-inheritance.md), `Property` would be a good candidate for an abstract class. Instead of creating a generic `Property`, it would make more sense to always create an `Apartment`, `Condo`, or `House`.
 
+In real-world software projects, abstract parent classes are very common when using a framework like Rails to structure your program. The framework provides a number of abstract classes, which your app can extend as needed.
+
 Some languages, particularly statically typed languages like C++ and Java, have built-in support for abstract classes. Ruby does not - any class that is not instantiated is abstract, and the way to make class abstract is to not instantiate it.
 
 ### Template Methods
@@ -227,7 +229,9 @@ puts "We have many marvelous properties avaiable!"
 puts "All figures assume a the minimum downpayment on a 30-year loan with a 4% interest rate"
 
 properties.each do |property|
-  # We don't care if the property is an apartment or a condo
+  # We don't care if the property is an apartment or a condo.
+  # That's the power of polymorphism - so long as whatever
+  # we've got implements the property interface, we can use it.
   puts
   puts property.address
   payment = property.monthly_payment(30, 0.04)
@@ -242,8 +246,8 @@ Vocabulary
  Term            | Definition                                                 
 -----------------|------------------------------------------------------------
  software idiom  | A common pattern used by programmers. Not always obvious from the syntax of the language. 
- abstract class  | A class that is not instantiated, but instead serves as a parent class. 
- concrete class  | A class that is instantiated. May or may not inherit from some other class. 
+ abstract class  | A class that cannot or should not be instantiated, but instead serves only as a parent class. 
+ concrete class  | A class that can or should be instantiated. May or may not inherit from some other class. 
  template method | A method that is intended to be overridden in a subclass.  
  interface       | Some set of methods that go together. A class that has all those methods _implements_ that interface. 
  polymorphism    | Treating instances of different classes in the same way. All those classes must implement the same interface.
