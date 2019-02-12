@@ -16,33 +16,16 @@ For each of the problems below: Assume you are given a singly linked list where 
   3. Return the max value in the linked list. Returns the data value and not the node.
   4. Return the min value in the linked list. Returns the data value and not the node.
   5. Return the count of nodes in the singly linked list.
-  6. Return the value of the nth node from the beginning. *n* is the input to the method. 
+  6. Return the value of the nth node from the beginning. *n* is the input to the method.
      Assume indexing starts at 0 while counting to n.
   7. Insert a new node with specific input data value, assuming the linked list is sorted in ascending order.
   8. Print the value of each node in the singly linked list separated by a space.
   9. Delete the first node found with the specified input data value.
   10. Reverse the singly linked list. The nodes should be moved and not just the values in the nodes.
-  11. Returns the value at the middle node in the singly linked list. 
+  11. Returns the value at the middle node in the singly linked list.
       If the node count is even, pick one of the two middle values to return.
   12. Find the nth node from the end of the linked list and return its value. Assume indexing starts at 0 while counting to n.
   13. Check if the linked list has a cycle. A cycle exists if any node in the linked list links to a node already visited. Returns true if a cycle is found, false otherwise.
-
-### Additional Exercises
-Do the same exercises for a doubly linked list where each node contains an integer data and two links: one to the previous node and one to the next node in the doubly linked list.
-
-## Assignment
-Implement methods in a singly linked list, linked_list.rb in [Ada-C9/Linked-List](https://github.com/Ada-C9/Linked-List)
-
-## Additional Resources
-+ Kal academy's material on [Linear Data Structures](https://drive.google.com/open?id=0BxHords9odw3cDhCdGMxcWFVRms)
-+ Kal academy's material on [Linked List](https://drive.google.com/open?id=0BxHords9odw3am9SWEtGSkdrRTA)
-+ Stanford CS Education Library material on [Linked List basics](http://cslibrary.stanford.edu/103/)
-+ Read through and watch videos on [Linked List vs Array](http://www.geeksforgeeks.org/linked-list-vs-array/)
-
-## Optional offline problem sets
-+ Stanford CS Education Library material on [Linked List Problems](http://cslibrary.stanford.edu/105/)
-+ In "Cracking the Coding Interview" book, "Chapter 2: Linked Lists"
-+ CareerCup [Linked List Interview Questions](https://www.careercup.com/page?pid=linked-lists-interview-questions)
 
 ## Slide Deck
 + Slide Deck used in class</br>

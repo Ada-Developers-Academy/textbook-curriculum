@@ -45,7 +45,7 @@ If we were to divide this concept into a recursive definition, we might say:
 - If n > 1, return n * (n-1)!
 We call this the *static view* of a recursive method.  Basically the **static view** is the mathematical way of looking at a recursive problem.
 
-Mathametically, factorial can be explained as:</br>
+Mathematically, factorial can be explained as:</br>
 *0! = 1*</br>
 *n! = n × (n-1)!*      if *n > 0*</br>
 The second statement shows the **recurrence relationship** while computing factorial of a number.
@@ -98,22 +98,7 @@ When writing a recursive method, try the following:
 - Write the code.
 - Test out your code with several different cases. Ensure all of them terminate with a base case and yield the right results.
 
-## Assignments
-+ Define terms, practice tracing and deduce the time and space complexities for problems in [Ada-C10/recursion-tracing](https://github.com/Ada-C10/recursion-tracing). Answer key for reference can be found [here](https://github.com/Ada-C10/recursion-tracing/tree/solutions)
-+ Design and implement recursive algorithms and explain the time and space complexities of your solution for the problems in [Ada-C10/recursion-writing](https://github.com/Ada-C10/recursion-writing). One approach to implementing the solutions can be found [here](https://github.com/Ada-C10/recursion-writing/tree/solution)
-
-## Additional Resources:
-- This content assumes a good understanding of [understand a function call](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Understanding%20function%20calls.md)
-- Optional assignments from GeeksForGeeks:
-  - [Set 1: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion/)
-  - [Set 2: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-2/)
-  - [Set 3: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-3/)
-  - [Set 4: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-4/)
-  - [Set 5: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-5/)
-  - [Set 6: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-6/)
-  - [Set 7: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-7/)
-
 ## Slide Deck
 + Slide Deck used in class</br>
 <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://drive.google.com/file/d/0B__DV26QHsH4bWJmS1A0QXBad1U/view?usp=sharing">Introduction to Recursion</a></span></br> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</br>
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /> 
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />
