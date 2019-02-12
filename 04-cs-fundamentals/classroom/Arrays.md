@@ -40,10 +40,6 @@ Consider a physical phone book as an example to illustrate Big O notation for al
 - *O(n)* – Find all people whose phone numbers contain the digit "5".
 - *O(n log n)* – Sort a phone book’s pages by looking at the first name on each page. We'll look at such a sort algorithm in a future lesson.
 
-## Essential Reading
-Here's some good follow up reading after we meet in class:
-  + [Big O notation and complexity in Ruby](https://devblast.com/b/big-o-notation-complexity-ruby) by DevBlast
-
 ## Exercises
 Here's the exercises we'll cover in class.
 Given an array data structure holding only integer values, device an algorithm for the following exercises.
@@ -54,19 +50,6 @@ Given an array data structure holding only integer values, device an algorithm f
 5. Return the maximum (or minimum) integer value in a sorted array.
 6. <strong>Binary Search</strong> Search for a given integer value in a sorted array. Return true if the value is found in the array. Return false otherwise.
 7. Reverse the elements in the array in place.
-
-## Assignments
-Assignments are expected to be worked on after the class discussion.
-1. Fork, clone and complete the methods in using_restricted_array.rb on [Ada-C10/Restricted-Arrays-Part1](https://github.com/Ada-C10/Restricted-Arrays-Part1). See the readme file for details.
-2. Watch this [Video: Big O Notation](https://www.youtube.com/watch?v=v4cd1O4zkGw) by Gale Laakmann McDowell
-3. Solve this [quiz](https://www.khanacademy.org/computing/computer-science/algorithms/asymptotic-notation/e/quiz--comparing-function-growth) by Khan Academy.
-4. Solve this [quiz](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/time%20complexity/time_complexity_quiz.md).
-
-## Additional Resources:
-Videos and additional reading material for furthering your learning for curiosity on topics related to what we covered in class:
-   + [Big O notation, time and space complexity](https://www.interviewcake.com/article/python/big-o-notation-time-and-space-complexity?) by interview cake
-   + [Binary Search](https://www.khanacademy.org/computing/computer-science/algorithms#binary-search) by Khan Academy
-   + Read about [Asymptotic Notation](https://www.khanacademy.org/computing/computer-science/algorithms#asymptotic-notation) by Khan Academy.
 
 ## Slide Deck
 + Slide Deck used in class</br>
