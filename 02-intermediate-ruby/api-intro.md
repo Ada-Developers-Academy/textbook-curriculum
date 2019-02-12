@@ -212,6 +212,41 @@ Code    | Text             | Meaning
   - Client makes a request, including HTTP verb, path, optional payload
   - Server sends a response, including HTTP status code, optional payload
 
+## Comprehension Questions
+
+<details>
+<summary>If we write a Ruby program that makes a request to an API, which is the client and which is the server?</summary>
+
+The Ruby program is the client, and the API is the server
+</details>
+
+<details>
+<summary>How is data sent back from an API? How is this different than a regular website?</summary>
+
+Data is sent back from an API in a machine-readable format like JSON or XML. This does not contain any instructions about how to _display_ that data, but is relatively easy for a program to process.
+
+In contrast, a website sends back HTML and CSS, which does include display instructions.
+</details>
+
+<details>
+<summary>What is the difference between the HTTP verbs GET and POST?</summary>
+
+A GET request is asking to view an existing resource, whereas POST is sending new data to the server.
+
+GET typically has a payload on the response but not the request.
+
+POST is the opposite, and usually has a payload on the request but not the response.
+</details>
+
+<details>
+<summary>What are the meanings of HTTP status codes 200, 400, 404 and 500?</summary>
+
+- `200 OK` (everything went well)
+- `400 BAD REQUEST` (something about the data that was sent caused a problem)
+- `404 NOT FOUND` (the path of the request was bad)
+- `500 INTERNAL SERVER ERROR` (the server has a bug)
+</details>
+
 ## Additional Resources
 
 - [Description of the various HTTP verbs](http://www.restapitutorial.com/lessons/httpmethods.html)
