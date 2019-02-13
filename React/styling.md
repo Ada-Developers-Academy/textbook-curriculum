@@ -22,6 +22,8 @@ The `style` attribute takes in a JavaScript object, whose properties are _camelC
 Take a look at the following example:
 
 ```javascript
+import React from 'react';
+
 const Link = () => {
   const linkStyle = {
     color: 'purple',
@@ -30,10 +32,12 @@ const Link = () => {
 
   return (
     <div style={linkStyle}>
-      <a href={this.props.url}>{this.props.text}</a>
+      Link: <a href={this.props.url}>{this.props.text}</a>
     </div>
   );
 };
+
+export default Link;
 ```
 
 In this example, we see that in our `Link` component, we declare a `const` var `linkStyle`, which is a JavaScript object. We use `linkStyle` in the JSX we return, in `<div style={linkStyle}>`.
@@ -42,7 +46,7 @@ If we look at the actually rendered page that renders this component, we see tha
 
 ```html
 <div style="color: purple; font-family: monospace;">
-  <a href="about:blank">Goes to nowhere</a>
+  Link: <a href="about:blank">Goes to nowhere</a>
 </div>
 ```
 
@@ -80,6 +84,8 @@ Here we've made a new class `link-container` that we hope to use in our componen
 Now we can refactor our `Link` Component from above to use our external stylesheet:
 
 ```javascript
+import React from 'react';
+
 import './Link.css';
 
 const Link = () => {
@@ -89,6 +95,8 @@ const Link = () => {
     </div>
   );
 };
+
+export default Link;
 ```
 
 We made the following changes:
@@ -108,7 +116,7 @@ What else can we do? How far can we extend this? Everything else about JavaScrip
 
 ## Key Takeaway
 
-While you may seem some examples using the `style` attribute directly on components, we are going to continue putting our styles in external style sheets and loading them into components where necessary.
+While you may see some examples using the `style` attribute directly on components, we are going to continue putting our styles in external style sheets and loading them into components where necessary.
 
 ## Additional Resources
 
