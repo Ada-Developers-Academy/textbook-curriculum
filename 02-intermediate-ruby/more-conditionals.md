@@ -89,7 +89,7 @@ x = 10  # => 10
 x += 50 # => 60, same as x = x + 50
 x -= 10 # => 50, same as x = x - 10
 x *= 2  # => 100, same as x = x * 2
-x /= 20 # => 5, same as x = x / 5
+x /= 20 # => 5, same as x = x / 20
 
 puts x #=> 5
 ```
