@@ -274,7 +274,7 @@ Continuing the consider the next power of 2, 2<sup>5</sup> i.e. 32 is greater th
 512 | 256 | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1
  0  |  1  |   1 |  1 |  0 |  0 | 0 | 1 | 0 | ?
 
-Finally, 2<sup>1</sup> is 1, which is the same as our remainder. We subtract it from the remainder to yield 0.</br>
+Finally, 2<sup>0</sup> is 1, which is the same as our remainder. We subtract it from the remainder to yield 0.</br>
 ```
    1
  - 1
