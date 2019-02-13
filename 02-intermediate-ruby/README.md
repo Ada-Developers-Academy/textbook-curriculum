@@ -15,6 +15,7 @@
 
 ## Week 4
 1. [Object Inheritance](object-inheritance.md)
+1. [Inheritance Idioms](inheritance-idioms.md)
 1. [Exception Handling](exception-handling.md)
 1. [Custom Exceptions](custom-exceptions.md)
 1. [Object Oriented Design](oo-design.md)
