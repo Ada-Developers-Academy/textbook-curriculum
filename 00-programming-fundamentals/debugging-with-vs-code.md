@@ -5,7 +5,7 @@
 - Know how to set up break points and use the step functions
 
 ## Text Editors vs. IDEs
-Whenever you go to write code, you have options about the tools that you use to employ. These can range from the most basic text editors like [Vim and Emacs](link) to development tools full integrated with specific languages like [PyCharm](link) or [WebStorm](link), or something in between like [Atom](), or our very own VS Code.
+Whenever you go to write code, you have options about the tools that you use to employ. These can range from the most basic text editors like [Vim](https://www.vim.org/) and [Emacs](https://www.gnu.org/software/emacs/) to development tools full integrated with specific languages like [PyCharm](https://www.jetbrains.com/pycharm/) or [WebStorm](https://www.jetbrains.com/webstorm/), or something in between like [Atom](https://atom.io/), or our very own VS Code.
 
 For every two developers, there are three opinions about the best environment for making code. So how do we pick? It all depends on how much help (some would say interference) a programmer wants moment to moment.
 
@@ -25,30 +25,30 @@ The relationship between VS Code and Ruby is still in its infancy, so many of th
 Copy and paste the following code into a new `.rb` file:
 
 ```ruby
-#my_efficient_and_clever_program.rb
+# my_efficient_and_clever_program.rb
 
-#definitely always sums the two numbers you give it.
+# definitely always sums the two numbers you give it.
 def cool_sum_func(a, b)
-    puts "a = #{a}"
-    puts "b = #{b}"
+  puts "a = #{a}"
+  puts "b = #{b}"
 
-    #completely necessary if-else
-    if a % 2 == 0
-        return add_them(a, b)
-    else
-        b += 2
-        return subtract_them(a, b)
-    end
+  #completely necessary if-else
+  if a % 2 == 0
+    return add_them(a, b)
+  else
+    b += 2
+    return subtract_them(a, b)
+  end
 end
 
 #adds two numbers
 def add_them(a, b)
-    return a + b
+  return a + b
 end
 
 #subtracts b from a
 def subtract_them(a, b)
-    return a - b
+  return a - b
 end
 
 
@@ -66,8 +66,8 @@ This is some very dopey code, but it will show us a lot about how the debugger g
 If you have not already run the following:
 
 ```bash
-$:gem install ruby-debug-ide
-$:gem install debase
+$ gem install ruby-debug-ide
+$ gem install debase
 ```
 
 Please run them now.
@@ -75,6 +75,8 @@ Please run them now.
 ## Configuring the Debugger
 
 VS Code has a very bare-bones debugger that comes with it, but it doesn't know how to talk to every language out of the box. When we set up projects in VS Code, we create a series of configurations that VS Code stores in a file called `launch.json` in a folder called `.vscode`.
+
+_Note:_ Make sure that you open VS Code using `code .` rather than `code my-efficient-and-clever-program.rb`, as the latter doesn't afford you the options we need later on.
 
 Open the debugger by using `⇧⌘D`, and look near the top left of the viewport to find a green triangle button that likely reads "No Configurations". Click on the text and select "Add Configuration" from the drop down menu. It doesn't matter what you pick after this, as we will be filling in the file for ourselves from this point forward. When you have finished selecting a pre-generated option, a new pane should open called `launch.json`. Replace the file with the following:
 
@@ -104,7 +106,7 @@ Now that we have the debugger prepped, we need to add a `breakpoint`. Breakpoint
 
 We add them in VS Code by clicking on a line number that we want to stop on. In our current file, lines 4 and 7 are potentially interesting to us. Click to the left of the line number, or get the cursor to the line and use `f9` to add the breakpoint. When you've finished, you should see 2 red circles near the code, and the text next to the green play button should read "Debug Local File", see below:
 
-![In the editor, lines 4 and seven have bright red circles in front, indicating that have breakpoints set](images/breakpoints_VS_code.png "In the editor, lines 4 and seven have bright red circles in front, indicating that have breakpoints set")
+![In the editor, lines four and seven have bright red circles in front, indicating that have breakpoints set](images/breakpoints_VS_code.png "In the editor, lines 4 and seven have bright red circles in front, indicating that have breakpoints set")
 
 ## Running the Debugger
 

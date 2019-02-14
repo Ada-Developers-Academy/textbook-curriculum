@@ -26,16 +26,16 @@ __NOTE: These gems should ALWAYS be part of development and test ONLY.__
 Once they are included in your `Gemfile`, run the following commands:
 
 ```bash
-  bundle install 
+  $ bundle install 
   #installs the new gems we just added to the Gemfile
 
-  $: which bundle
+  $ which bundle
   # returns /path/to/rubygem/bin/bundle
 
-  $: bundle show ruby-debug-ide
+  $ bundle show ruby-debug-ide
   #returns /path/to/rubygem/gems/ruby-debug-ide-x.x.x
 
-  $: which rspec
+  $ which rspec
   #returns /path/to/rubygem/bin/rspec
 ```
 
@@ -49,7 +49,7 @@ The next selections you make are somewhat arbitrary, as we will be replacing the
 
 Once you have the `launch.json` file loaded and open, copy the code below and paste those three paths into the appropriate locations. You should paste each path in two different spots in the file (please remove the asterisks).
 
-```json
+```javascript
 {
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
@@ -113,6 +113,15 @@ Once you have the `launch.json` file loaded and open, copy the code below and pa
 }
 ```
 
-This file is pretty handy, so you might want to make a copy that you can use for future projects somewhere convenient!
+Double check your work. You should have added, in order from top to bottom:
+
+1. Your Bundle Path
+1. Your Debug Path
+1. Your RSPEC path
+1. Your Bundle Path
+1. Your Debug Path
+1. Your rSpec path.
+
+This file is pretty handy, so you might want to make a copy that you can use for future projects somewhere convenient! For some people this looks like a new file of notes about debugging in rails saved in their notes folder, and others this looks like a file in a folder of "important dev documents" called `copy-for-rails-debugging-launch.json`.
 
 From this point forward, debugging in rails works much the same way that it did when we were debugging in vanilla ruby. Breakpoints can be set on any instruction, and you can use step and continue to move through your work. 

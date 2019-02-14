@@ -1,4 +1,4 @@
-# Rails, State and Better Errors
+# Rails, Better Errors and State
 ## Learning Goals
 - Practice tracking and identifying the _state_ of a Rails application at any point
 - Practice with a _better errors_, a debugging tool to help us understand _state_
