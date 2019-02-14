@@ -37,7 +37,7 @@ def cool_sum_func(a, b)
         return add_them(a, b)
     else
         b += 2
-        return subtract_them(a,b)
+        return subtract_them(a, b)
     end
 end
 
