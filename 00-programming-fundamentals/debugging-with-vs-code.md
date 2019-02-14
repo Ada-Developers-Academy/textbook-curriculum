@@ -14,7 +14,7 @@ On the most basic level, a Text Editor will do just that: let you edit the words
 __Note: If anyone ever tells you that "real developers only use [their personal favorite tool]", laugh in their face and walk away from that conversation.__
 
 ## Setting Up
-The relationship between VS Code and Ruby is still in its infancy, so many of the tools that we regularly use in other languages (such as C++, Javascript or Ook) aren't immidiately accessible. Our process will be:
+The relationship between VS Code and Ruby is still in its infancy, so many of the tools that we regularly use in other languages (such as C++, Javascript or Ook) aren't immediately accessible. Our process will be:
 
 1. Set up the file we want to debug
 1. Make sure we have the proper gems on our machine
@@ -78,7 +78,7 @@ VS Code has a very bare-bones debugger that comes with it, but it doesn't know h
 
 Open the debugger by using `⇧⌘D`, and look near the top left of the viewport to find a green triangle button that likely reads "No Configurations". Click on the text and select "Add Configuration" from the drop down menu. It doesn't matter what you pick after this, as we will be filling in the file for ourselves from this point forward. When you have finished selecting a pre-generated option, a new pane should open called `launch.json`. Replace the file with the following:
 
-```json
+```javascript
 {
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
@@ -104,7 +104,7 @@ Now that we have the debugger prepped, we need to add a `breakpoint`. Breakpoint
 
 We add them in VS Code by clicking on a line number that we want to stop on. In our current file, lines 4 and 7 are potentially interesting to us. Click to the left of the line number, or get the cursor to the line and use `f9` to add the breakpoint. When you've finished, you should see 2 red circles near the code, and the text next to the green play button should read "Debug Local File", see below:
 
-![In the editor, lines 4 and seven have bright red circles in front, indicating that have breakpoints set](images/breakpoints_vs_code.png "In the editor, lines 4 and seven have bright red circles in front, indicating that have breakpoints set")
+![In the editor, lines 4 and seven have bright red circles in front, indicating that have breakpoints set](images/breakpoints_VS_code.png "In the editor, lines 4 and seven have bright red circles in front, indicating that have breakpoints set")
 
 ## Running the Debugger
 
@@ -120,7 +120,7 @@ The watch window is useful, but for now we will ignore it.
 
 Below the watch window is the Call Stack. The call stack shows every method we had to call in order to get here (especially useful if you have a function that is called in more than one place). 
 
-Finally the lower left of the pane shows us a list of all the breakpoints we have set. If we want to skip one of them, we can click it's checkbox in order to ignore it for the time being.
+Finally the lower left of the pane shows us a list of all the breakpoints we have set. If we want to skip one of them, we can click its checkbox in order to ignore it for the time being.
 
 In the top right of our screen, we see a new drop-down tray:
 
@@ -135,6 +135,8 @@ From Left to Right, here's what they do, and a hotkey to do them without clickin
 - "Step" out of the current function. Any code that hasn't yet been run in the function will finish, and you are returned to the line where the function was called. AKA `Step Out` `⇧f11`
 - Restart the debugging from the beginning, AKA `Restart`. (No Keyboard Shortcut)
 - Stop the current program without finishing. `⇧f5`
+
+_NOTE:_ you may have issues with these default settings, as the people at Microsoft writing VS Code are doing so on -surprise, surprise- Windows machines! If you need to change these hotkeys, use `⌘K ⌘S` to open up your hotkey settings.
 
 Let's run through these tools to help us debug our current program.
 
