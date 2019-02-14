@@ -33,11 +33,11 @@ def cool_sum_func(a, b)
     puts "b = #{b}"
 
     #completely necessary if-else
-    if (a%2 == 0)
+    if a % 2 == 0
         return add_them(a, b)
     else
         b += 2
-        return subtract_them(a,b)
+        return subtract_them(a, b)
     end
 end
 
