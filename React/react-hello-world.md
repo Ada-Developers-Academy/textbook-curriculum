@@ -93,7 +93,7 @@ In ERB, we were familiar with using the `<%` and `<%=` elements to dynamically g
 **Important Notes**
 
 - JSX cannot contain if-statements. If you need to include logic within your render function, you can do so _before_ the return statement.
-- The `render` function must return a **single element**, an **array of elements** or a **string**. This does not mean that there can't be more complicated JSX in the `return`, but it does mean that all if you have multiple elements they need to be wrapped in **one** outermost element or contained within **one** array.
+- The `render` function must return a **single element**, an **array of elements** or a **string**. This does not mean that there can't be more complicated JSX in the `return`, but it does mean that if you have multiple elements they need to be wrapped in **one** outermost element or contained within **one** array.
 
 ## Key Takeaway
 - We can use `create-react-app` to create a new boilerplate React application.
