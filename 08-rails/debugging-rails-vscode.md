@@ -25,7 +25,7 @@ __NOTE: These gems should ALWAYS be part of development and test ONLY.__
 
 Once they are included in your `Gemfile`, run the following commands:
 
-```ruby
+```bash
   bundle install 
   #installs the new gems we just added to the Gemfile
 
