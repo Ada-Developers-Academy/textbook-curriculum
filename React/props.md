@@ -19,20 +19,24 @@ In short, props:
 Component A's `render` function contains the following JSX:
 `<ComponentB varName='value goes here'/>`
 ```javascript
-// ComponentA.js
-import React, { Component } from 'React';
-import ComponentB from './components/ComponentB.js';
+// components/ComponentA.js
+import React from 'react';
+import ComponentB from './ComponentB.js';
 
 const ComponentA = () => {
     return (
       <ComponentB varName='value goes here'/>
     );
 };
+
+export default ComponentA;
 ```
 
 From within Component B, you can now access this data using the `props.varName` variable.
 ```javascript
-// ComponentB.js
+// components/ComponentB.js
+import React from 'react';
+
 const ComponentB = (props) => {
   return (
     <div>
@@ -40,6 +44,8 @@ const ComponentB = (props) => {
     </div>
   );
 };
+
+export default ComponentB;
 ```
 
 **More Complex**
@@ -55,7 +61,7 @@ To do this, we will pass in the data from the `App` component to the `Student` c
 
 1. Locate the spot where the `Student` component is rendered from the `App` component.
 
-1. Update the component rendering to include two new parameters by adding them in like this:  
+1. Update the component rendering to include two new parameters by adding them in like this:
     - `<Student fullName="Improved Ada" email="improved-ada@ada.co" />`
     - This shouldn't change anything yet in our application, so save the file and refresh the browser to verify that the data still looks like the original hard-coded data.
 
@@ -67,7 +73,7 @@ To do this, we will pass in the data from the `App` component to the `Student` c
     ```
     All the data we passed in from the parent component will be stored inside the `props` argument
 
-1. Update the JSX returned by the `Student` function to replace the hard-coded values with code tags `{ }` which contains the `prop` that came in from the parent component.  
+1. Update the JSX returned by the `Student` function to replace the hard-coded values with code tags `{ }` which contains the `prop` that came in from the parent component.
     - It should now contain `{ props.fullName }` and `{ props.email }`
     - Verify that the content displayed is now coming from the values in the `App` component
 

@@ -234,7 +234,7 @@ markPresent = (studentIndex) => {
 
   // Store our state in a local variable so we can make the update
   let updatedStudents = this.state.students;
-  updatedStudents[studentIndex].present = true;
+  updatedStudents[studentIndex].isPresent = true;
 
   // Call setState to update our state (as well as re-render automatically)
   this.setState({ students: updatedStudents });
