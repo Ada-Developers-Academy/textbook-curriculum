@@ -99,6 +99,7 @@ $ git config --global core.ignorecase false
 $ git config --global color.diff auto
 $ git config --global color.status auto
 $ git config --global color.branch auto
+$ git config --global core.editor "nano"
 ```
 
 ### Trust but Verify
