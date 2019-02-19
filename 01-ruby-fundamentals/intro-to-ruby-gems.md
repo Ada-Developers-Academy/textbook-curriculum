@@ -66,12 +66,12 @@ Next we will break into teams to investigate various gems.  Each time will creat
 
 In the research round, you will meet with your first assigned group to learn about an assigned topic.
 
-- [Awesome Print](https://rubygems.org/gems/awesome_print/versions/1.8.0)
-- [Pry](https://rubygems.org/gems/pry/versions/0.11.3)
-- [Faker](https://rubygems.org/gems/faker/versions/1.8.7)
-- [Chronic](https://github.com/mojombo/chronic)
-- [Money](http://rubymoney.github.io/money/)
-- [Terminal Table](https://github.com/tj/terminal-table)
+1. [Awesome Print](https://rubygems.org/gems/awesome_print/versions/1.8.0)
+1. [Pry](https://rubygems.org/gems/pry/versions/0.11.3)
+1. [Faker](https://rubygems.org/gems/faker/versions/1.8.7)
+1. [Chronic](https://github.com/mojombo/chronic)
+1. [Money](http://rubymoney.github.io/money/)
+1. [Terminal Table](https://github.com/tj/terminal-table)
 
 In the teaching round, your research round group will disseminate and you will go into your a second assigned group. It is your responsibility to teach this group about that topic.
 
