@@ -5,7 +5,7 @@
 - Know how to set up break points and use the step functions
 
 ## Text Editors vs. IDEs
-Whenever you go to write code, you have options about the tools that you use to employ. These can range from the most basic text editors like [Vim](https://www.vim.org/) and [Emacs](https://www.gnu.org/software/emacs/) to development tools full integrated with specific languages like [PyCharm](https://www.jetbrains.com/pycharm/) or [WebStorm](https://www.jetbrains.com/webstorm/), or something in between like [Atom](https://atom.io/), or our very own VS Code.
+Whenever you go to write code, you have options about the tools that you use to employ. These can range from the most basic text editors like [Vim](https://www.vim.org/) and [Emacs](https://www.gnu.org/software/emacs/) to development tools fully integrated with specific languages like [PyCharm](https://www.jetbrains.com/pycharm/) or [WebStorm](https://www.jetbrains.com/webstorm/), or something in between like [Atom](https://atom.io/), or our very own VS Code.
 
 For every two developers, there are three opinions about the best environment for making code. So how do we pick? It all depends on how much help (some would say interference) a programmer wants moment to moment.
 
