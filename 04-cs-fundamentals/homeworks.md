@@ -5,8 +5,8 @@ Here's the list of required and optional homeworks pertaining to CS Fundamentals
 Due Date     | Homework
 -------------|----------------
 Feb 20       | [Essential Mathematics for software engineers](#essential-mathematics)
-Feb 20       | [Binary and Decimal - Part 1](#binary-and-decimal)
-Feb 27       | [Binary and Decimal - Part 2](#binary-and-decimal)
+Feb 20       | [Binary and Memory - Part 1](#binary-and-memory)
+Feb 27       | [Binary and Memory - Part 2](#binary-and-memory)
 Feb 27       | Submit PR for [Ada-C11/array_equals](https://github.com/Ada-C11/array_equals)
 Mar 13, 20   | Submit PR for [Ada-C11/Restricted-Arrays-Part1](https://github.com/Ada-C11/Restricted-Arrays-Part1)
 Mar 13       | Watch this [Video: Big O Notation](https://www.youtube.com/watch?v=v4cd1O4zkGw) by Gale Laakmann McDowell
