@@ -28,7 +28,7 @@ Xcode is an **integrated development environment** (often called an **IDE**) for
 If the Xcode Command-Line tools are not installed you can install it with:
 `$ xcode-select -p` If the command shows a directory path like `/Applications/Xcode.app/Contents/Developer` then it's installed properly.
 
-If the command does not show a directory path and instead something like `xcode-select: error: unable to get active developer directory, use xcode-select --switch to set one (or see man xcode-select)` you can install it with `$ xcode-select --install` select install and then grab coffee because it will take a bit of time.  
+If the command does not show a directory path and instead something like `xcode-select: error: unable to get active developer directory, use xcode-select --switch to set one (or see man xcode-select)` you can install it with `$ xcode-select --install` select install and then grab coffee because it will take a bit of time.
 
 ## Homebrew
 [Homebrew](http://brew.sh/) is a **package manager** that simplifies installing software on macOS. Package managers are very common, and each language/framework/stack tends to have their own or preferred tool.
@@ -99,6 +99,7 @@ $ git config --global core.ignorecase false
 $ git config --global color.diff auto
 $ git config --global color.status auto
 $ git config --global color.branch auto
+$ git config --global push.default current
 $ git config --global core.editor "nano"
 ```
 
@@ -106,19 +107,19 @@ $ git config --global core.editor "nano"
 - `$ git config --get user.name` Should show your name
 - `$ git config --get user.email` Should show your email
 
-<!-- We now need to verify that github is set up properly.  
+<!-- We now need to verify that github is set up properly.
 
 **Exercise**
 - [Complete the Github-Git Verification Exercise](exercises/github-verification.md)  -->
 
 ## It's All About Communication!
 
-Lastly we you should already have Ada's primary mode of communication installed... [**Slack!**](https://slack.com/downloads/osx).  While it is **possible** to get by using the Slack website.  We recommend **strongly** to use the Desktop client.  Simply follow the link above and install it, or go to the Mac Appstore and install Slack that way.  
+Lastly we you should already have Ada's primary mode of communication installed... [**Slack!**](https://slack.com/downloads/osx).  While it is **possible** to get by using the Slack website.  We recommend **strongly** to use the Desktop client.  Simply follow the link above and install it, or go to the Mac Appstore and install Slack that way.
 
 When Ada has announcements or students want to share general information, we will generally use Slack.  If we have updates to projects or homework, we will use Slack.  We only use e-mail for personal communication and things we need to keep a record of (like absences).
 
 That being said, please get familiar and comfortable with Slack, and make it your own space to build special-interest channels and discussion spaces.
 
-It's also critically important to use Emoji's (not really, but it's fun!).  So once you have Slack running  follow the directions [**here**](https://get.slack.help/hc/en-us/articles/206870177-Create-custom-emoji) to install a Slack Emoji of your choice.  
+It's also critically important to use Emoji's (not really, but it's fun!).  So once you have Slack running  follow the directions [**here**](https://get.slack.help/hc/en-us/articles/206870177-Create-custom-emoji) to install a Slack Emoji of your choice.
 
 You can find a great site for Slack Emoji's [**here**](https://slackmojis.com/).
