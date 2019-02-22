@@ -21,6 +21,7 @@ As with methods, there are two steps to working with classes in Ruby:
 With all the classes we've worked with so far (`String`, `Array` and `Hash`) we've only had to do the second step, because the class was already defined for us. The first step definitely did happen though - somewhere in the bowels of you computer there is a file called `string.rb` containing all the code required to make a `String` work.
 
 ### Example: `User`
+
 Our running example today will be a class to represent a user of an application. We will call this class `User`. Note the capital `U`, and the difference between `User` (a class in our program) and user (a user of our app). Remember that we don't need to keep track of every fact about a user in our `User`, only the pieces that matter to our program.
 
 The simplest possible class in Ruby doesn't have any state or behavior, just the name `User`. Even so, we can instantiate it with `User.new`.
@@ -137,6 +138,7 @@ puts ada.name           # => Ada Lovelace
 puts katherine.summary  # => Katherine Johnson: katherine@adadev.org
 ```
 
+
 ## The Constructor
 
 Objects in Ruby can have a special method called `initialize`. This method, often called a _constructor_, is called automatically from within the `new` method. So we will use it to "construct" our object. Since `initialize` is a method we create, we can define _parameters_ for it and pass _arguments_ to the `new` method. `new` is kind enough to pass along its _arguments_ to `initialize`.
@@ -181,85 +183,6 @@ Much more concise! This pattern of passing in a bunch of values for instance var
 
 Another advantage of setting instance variables in the constructor is that we know those variables will always have a value. By making it impossible to have a `User` without an associated `name` and `email`, we can save ourselves all sorts of frustration later on.
 
-## Use Helper Methods to Avoid Repetition
-
-The code above allows us to read/get and write/set the name and email properties in the `User` class. This is done so frequently that Ruby added some syntactic sugar to help us out. Enter two _helper methods_, `attr_reader` and `attr_writer`:
-
-```ruby
-class User
-  # Generate reader methods for name and email
-  attr_reader :name, :email
-
-  # Only generate a writer method for email
-  attr_writer :email
-
-  def initialize(name, email)
-    @name = name
-    @email = email
-  end
-
-  def summary
-    return "#{@name}: #{@email}"
-  end
-end
-```
-
-A _helper method_ (sometimes called a _macro_ or _generator_) is a small piece of code that generates a big piece of code. These two lines tell Ruby to automatically add reader and writer methods for those variables to your class. Adding `attr_reader :name` to our class is _exactly_ the same as creating the `def name` method in the previous example. Similarly, `attr_writer :name` replaces the `def name=(new_name)` method.
-
-The instance variables to be exposed are specified using a comma-seperated list of symbols. To demonstrate the syntax, in the above example we have created both reader and writer methods for `@email`, but only a reader method for `@name`.
-
-These pieces of code are called helper **methods** for a reason. Under the hood they're actually built-in Ruby methods that are run when the class is defined. `attr_reader` or `attr_writer` is the name of the method, and the instance variables to expose (like `:name`) are the arguments. Weird!
-
-If you don't need to be able to control the read/get and write/set functionality independently, `attr_accessor` provides the functionality of `attr_reader` and `attr_writer`!
-
-```ruby
-class User
-  # email had both an attr_reader and an attr_writer, so we replace it with attr_accessor
-  attr_accessor :email
-
-  # name had only an attr_reader, so we leave it as-is
-  attr_reader :name
-
-  def initialize(name, email)
-    @name = name
-    @email = email
-  end
-
-  def summary
-    return "#{@name}: #{@email}"
-  end
-end
-```
-
-Helper methods like `attr_accessor` are very useful, because they allow us to add common functionality without typing out a bunch of boilerplate code. This makes our programs more readable and reduces the possibility of making a mistake. For these reasons, **we recommend that you always use the `attr_reader` / `attr_writer` / `attr_accessor` helper methods**, and never write getter and setter methods manually.
-
-We'll see many more helper methods as we start talking about Rails in a few weeks.
-
-## The `self` Keyword
-
-Inside an instance method, it's sometimes useful to refer to the current object, the instance upon which this method was invoked. Ruby's `self` keyword does exactly this.
-
-```ruby
-class User
-  def puts_self
-    puts self
-  end
-end
-```
-
-```ruby
-ada = User.new('Ada Lovelace', 'ada@adadev.org')
-ada.puts_self     # => #<User:0x007fb7da550ca0>
-```
-
-`self` acts much like any other variable. You can print it, call methods on it, and even pass it to other methods. The only thing you can't do is reassign it.
-
-Some other languages (notably JavaScript) use `this` instead of `self`, but the meaning is the same.
-
-The `self` keyword will come up quite a lot as we continue to learn about Ruby and build more complicated programs, but for now it's enough to know that it exists.
-
-**Question:** In what situations might `self` be useful?
-
 ## Classes Vocabulary
 
 Term              | Definition | Example&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -272,8 +195,6 @@ Instance Method   | A method attached to a particular instance of a class. Often
 Constructor       | A special instance method that is called automatically when a new instance of a class is created. Takes care of any initial setup. Any arguments passed to `new` will be passed to the constructor. | `def initialize(name, email)`
 Reader Method     | Instance method that returns the value of an instance variable. Also known as a _getter_ or _accessor_. | `def email`<br>&nbsp;&nbsp;&nbsp;&nbsp;`return @email`<br>`end`
 Writer Method     | Instance method that sets the value of an instance variable. Also known as a _setter_ or _mutator_. | `def email=(new_email)`<br>&nbsp;&nbsp;&nbsp;&nbsp;`@email=new_email`<br>`end`
-Helper Method     | A small piece of code that generates a big piece of code. In Ruby, they're used to automatically add functionality to a class, like reader or writer methods. | `attr_accessor :email`
-`self`            | Ruby keyword referring to the current object | `self`
 
 ## Additional Resources
 
