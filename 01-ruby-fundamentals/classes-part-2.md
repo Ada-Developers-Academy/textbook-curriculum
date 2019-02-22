@@ -7,7 +7,7 @@ By the end of this lesson, students should be able to...
 
 ## Use Helper Methods to Avoid Repetition
 
-The code above allows us to read/get and write/set the name and email properties in the `User` class. This is done so frequently that Ruby added some syntactic sugar to help us out. Enter two _helper methods_, `attr_reader` and `attr_writer`:
+The [code from the previous lesson](classes-in-ruby.md) allows us to read/get and write/set the name and email properties in the `User` class. This is done so frequently that Ruby added some syntactic sugar to help us out. Enter two _helper methods_, `attr_reader` and `attr_writer`:
 
 ```ruby
 class User
