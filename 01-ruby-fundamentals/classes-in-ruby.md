@@ -5,8 +5,6 @@ By the end of this lesson, students should be able to...
 - Define, instantiate and use a Ruby _class_
 - Store object state using _instance variables_
 - Define object behavior using _instance methods_
-- DRY up repeated code using _helper methods_
-- Use Ruby's `self` keyword to refer to the current object
 
 ## Classes in Ruby
 
@@ -335,4 +333,4 @@ Writer Method     | Instance method that sets the value of an instance variable.
 
 ## Additional Resources
 
-- [Creating your own attr_accessor in Ruby](https://mikeyhogarth.wordpress.com/2011/12/01/creating-your-own-attr_accessor-in-ruby/)
+- [Ruby for Beginners: Defining Classes](http://ruby-for-beginners.rubymonstas.org/writing_classes/definition.html)

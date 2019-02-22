@@ -1,5 +1,10 @@
 # Classes Part 2: Helper Methods and Self
 
+## Learning Goals
+By the end of this lesson, students should be able to...
+- DRY up repeated code using _helper methods_
+- Use Ruby's `self` keyword to refer to the current object
+
 ## Use Helper Methods to Avoid Repetition
 
 The code above allows us to read/get and write/set the name and email properties in the `User` class. This is done so frequently that Ruby added some syntactic sugar to help us out. Enter two _helper methods_, `attr_reader` and `attr_writer`:
@@ -54,6 +59,36 @@ Helper methods like `attr_accessor` are very useful, because they allow us to ad
 
 We'll see many more helper methods as we start talking about Rails in a few weeks.
 
+### Exercise
+
+Use helper methods to DRY up the `Product` class from the [previous lesson](classes-in-ruby.md).
+
+<details>
+<summary>Solution</summary>
+
+```ruby
+class Product
+  attr_accessor :name, :quantity_in_stock
+  attr_reader :quantity_sold
+
+  def initialize(name, quantity_in_stock)
+    @name = name
+    @quantity_in_stock = quantity_in_stock
+    @quantity_sold = 0
+  end
+
+  def available?
+    return quantity_in_stock > 0
+  end
+
+  def sell(amount)
+    @quantity_in_stock -= amount
+    @quantity_sold += amount
+  end
+end
+```
+</details>
+
 ## The `self` Keyword
 
 Inside an instance method, it's sometimes useful to refer to the current object, the instance upon which this method was invoked. Ruby's `self` keyword does exactly this.
@@ -95,3 +130,7 @@ Reader Method     | Instance method that returns the value of an instance variab
 Writer Method     | Instance method that sets the value of an instance variable. Also known as a _setter_ or _mutator_. | `def email=(new_email)`<br>&nbsp;&nbsp;&nbsp;&nbsp;`@email=new_email`<br>`end`
 Helper Method     | A small piece of code that generates a big piece of code. In Ruby, they're used to automatically add functionality to a class, like reader or writer methods. | `attr_accessor :email`
 `self`            | Ruby keyword referring to the current object | `self`
+
+## Additional Resources
+
+- [Creating your own attr_accessor in Ruby](https://mikeyhogarth.wordpress.com/2011/12/01/creating-your-own-attr_accessor-in-ruby/)
