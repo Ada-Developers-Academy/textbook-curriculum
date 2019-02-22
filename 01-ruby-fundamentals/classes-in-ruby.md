@@ -75,6 +75,40 @@ ada.email          # => ada@adadev.org
 ada.summary        # => Ada Lovelace: ada@adadev.org
 ```
 
+### Exercise
+
+Write a new class, `Product`, to represent an item in an online shopping catalogue. `Product` should have 3 methods:
+- `name`, the name of the product
+- `quantity_in_stock`, the number of that item available
+- `available?`, returns true if `quantity_in_stock` is greater than 0, and false otherwise.
+
+Write code that creates a new product, and prints out the name and whether any are available.
+
+<details>
+<summary>Solution</summary>
+
+```ruby
+class Product
+  def name
+    return "Dr. Flemington's cure-all tonic"
+  end
+
+  def quantity_in_stock
+    return 10
+  end
+
+  def available?
+    return quantity_in_stock > 0
+  end
+end
+
+tonic = Product.new
+puts "#{tonic.name}: #{tonic.available? ? 'currently' : 'not'} available"
+```
+</details>
+
+### Post-Exercise
+
 This is a good start, our users now have something to do. But our users are still all the same. There's nothing to differentiate one user from another.
 
 ```ruby
@@ -138,6 +172,50 @@ puts ada.name           # => Ada Lovelace
 puts katherine.summary  # => Katherine Johnson: katherine@adadev.org
 ```
 
+### Exercise
+
+- Modify the `Product` class you wrote earlier to use instance variables to track `name` and `quantity_in_stock`
+- Add writer methods for `name` and `quantity_in_stock`
+- Write code that creates two different products, sets the values, and prints out the information as before
+
+<details>
+<summary>Solution</summary>
+
+```ruby
+class Product
+  def name
+    return @name
+  end
+
+  def name=(value)
+    @name = value
+  end
+
+  def quantity_in_stock
+    return @quantity_in_stock
+  end
+
+  def quantity_in_stock=(value)
+    @quantity_in_stock = value
+  end
+
+  def available?
+    return quantity_in_stock > 0
+  end
+end
+
+tonic = Product.new
+tonic.name = "Dr. Flemington's cure-all tonic"
+tonic.quantity_in_stock = 10
+
+chair = Product.new
+chair.name = "Professor Nimble's easy-spin swivel chair"
+chair.quantity_in_stock = 0
+
+puts "#{tonic.name}: #{tonic.available? ? 'currently' : 'not'} available"
+puts "#{chair.name}: #{chair.available? ? 'currently' : 'not'} available"
+```
+</details>
 
 ## The Constructor
 
@@ -170,6 +248,7 @@ class User
   def summary
     return "#{@name}: #{@email}"
   end
+end
 ```
 
 Now when we create a new `User`, we can give it some initial settings.
@@ -182,6 +261,64 @@ puts ada.summary     # => Ada Lovelace: ada@adadev.org
 Much more concise! This pattern of passing in a bunch of values for instance variables is a very common one, but the constructor is just another method, so you can write any code you need in it. You can even call other methods!
 
 Another advantage of setting instance variables in the constructor is that we know those variables will always have a value. By making it impossible to have a `User` without an associated `name` and `email`, we can save ourselves all sorts of frustration later on.
+
+### Exercise
+
+- Add a constructor to the `Product` class, and use it to set the initial values of `name` and `quantity_in_stock`
+- Add a third instance variable, `quantity_sold`. This variable should be set to 0 in the constructor, and should have a reader but not a writer.
+- Add a `sell` method, which takes one parameter `amount`, which will reduce `quantity_in_stock` by `amount` and increase `quantity_sold` by `amount`.
+  - Don't worry about error handling for this method yet
+- Write code to use your new methods
+
+<details>
+<summary>Solution</summary>
+
+```ruby
+class Product
+  def initialize(name, quantity_in_stock)
+    @name = name
+    @quantity_in_stock = quantity_in_stock
+    @quantity_sold = 0
+  end
+
+  def name
+    return @name
+  end
+
+  def name=(value)
+    @name = value
+  end
+
+  def quantity_in_stock
+    return @quantity_in_stock
+  end
+
+  def quantity_in_stock=(value)
+    @quantity_in_stock = value
+  end
+
+  def quantity_sold
+    return @quantity_sold
+  end
+
+  def available?
+    return quantity_in_stock > 0
+  end
+
+  def sell(amount)
+    @quantity_in_stock -= amount
+    @quantity_sold += amount
+  end
+end
+
+tonic = Product.new(
+  "Dr. Flemington's cure-all tonic", 
+  10
+)
+tonic.sell(3)
+puts "#{tonic.name}: #{tonic.quantity_sold} sold, #{tonic.quantity_in_stock} in stock"
+```
+</details>
 
 ## Classes Vocabulary
 
