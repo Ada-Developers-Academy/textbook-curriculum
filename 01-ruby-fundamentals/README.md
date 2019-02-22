@@ -17,6 +17,7 @@
 1. [Classes Overview](classes-overview.md)
 1. [Classes in Ruby](classes-in-ruby.md)
     - [Worksheet: Objects](./exercises/oo-worksheet.md)
+1. [Classes Part 2: Helper Methods and Self](classes-part-2.md)
 
 ## Exercises
 - [Worksheet: Object Types](./exercises/object-data-types.md)
