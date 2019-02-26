@@ -7,6 +7,8 @@ By the end of this lesson students should be able to...
 - Add an appropriate "shebang" to their Ruby scripts
 - Make a Ruby script executable
 - Add a Ruby script to their path
+- Use command line arguments
+- Write code that only runs on the command line.
 
 ## What is a Script?
 
@@ -73,13 +75,72 @@ $ ./my-new-script.rb
 
 To give your script permission to run you need to give it execute permission.  You can do this with:
 
-```
+```sh
 $ chmod +x my-new-script.rb
 
 # Now if you try to run my-new-script.rb it works!
 $ ./my-new-script.rb
 Success!
 ```
+
+## Command Line Arguments and `ARGV`
+
+Having a script that always runs the same way is useful, but sometimes you want some information from the user.  We've done this in the past by using `gets` from inside of Ruby however there's another approach that's often simpler.
+
+You've used command line arguments before in the terminal.  When you run `cd Desktop` you are calling the `cd` command with the argument `Desktop`.
+
+If you want to do the same thing from inside of your Ruby script the `ARGV` constant is an array containing all of the command line arguments passed to your program.
+
+### A Note on Command Line Arguments
+
+Command line arguments are always strings and are split on whitespace.  If you call `./greet.rb Ada Lovelace` you're calling `./greet.rb` with two arguments `Ada` and `Lovelace`.  If you want that to be a single argument you need to surround it in quotes (either single or double) like `./greet.rb 'Ada Lovelace'`.
+
+Similarly because everything is a string we need to convert our arguments from a string.
+
+`adder.rb`:
+```ruby
+#!/usr/bin/env ruby
+
+puts ARGV[0] + ARGV[1]
+```
+
+If you call `./adder.rb 1 2` you're going to get back `12` not `3`.  To fix it we need to call `.to_i` to make an integer or `.to_f` to make a floating point number.
+
+`adder.rb`:
+```ruby
+#!/usr/bin/env ruby
+
+puts ARGV[0].to_i + ARGV[1].to_i
+```
+
+`./adder.rb 1 2` will now print `3`.
+
+## Command Line Only Code
+
+Sometimes you will want to have some code only run if you call your program from the command line.  This is common if you have a library that can also be run interactively.
+
+Say we have this super useful greeting library but also want to be able to greet people on the command line.  Since we don't want to greet everyone that `require`s our library we can add a `main` method and then detect if we're being called directly.
+
+`greet.rb`
+```ruby
+#!/usr/bin/env ruby
+
+def greet(name)
+  puts "Hello, #{name.upcase}!"
+end
+
+def main
+  if ARGV.length > 0 # We want to make sure we have an argument.
+    puts "Please provide your name!
+  else
+    greet(ARGV[0])
+  end
+end
+
+main if __FILE__ == $PROGRAM_NAME
+```
+
+The final line of this program is where the magic happens.  `if __FILE__ == $PROGRAM_NAME` relies on two special variables.  `__FILE__` is the name of your file and `$PROGRAM_NAME` is the name of the current program, so if they are the same that means your script is being run directly and not `require`d.
 
 ## Summary
 
@@ -89,6 +150,8 @@ Success!
 - You can add a script to your **`$PATH`** in two ways.
     1. Put the script in a directory already on your `$PATH` (you can check this with `echo $PATH`.
     2. Add the directory the script is in to your path in your `~/.profile`.
+- You can access the **command line arguments** using the `ARGV` Ruby constant.
+- You can write code that only runs on the command line by comparing `__FILE__` to `$PROGRAM_NAME` (if they are the same you are running as a script!)
 
 ## Additional Resources
 - [Shebang (Wikipedia)](https://en.wikipedia.org/wiki/Shebang_(Unix))
