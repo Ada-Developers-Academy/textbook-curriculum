@@ -38,25 +38,26 @@ You are assigned the task of creating a program that tracks flowers for a floral
 Your code does not have to match these tests exactly. This is only an example of what some of your tests might look like.
 
 ```ruby
-rose = Flower.new({
+rose = Flower.new(
   name: "rose",
   size: "medium",
   color: "red",
   quantity_available: 144,
   bundles: 24,
   max_stock: 350,
-  total_sold: 15042  
-  })
+  total_sold: 15042
+)
 
 
 puts rose.name
 
-#Sell some roses (46 total)
+# Sell some roses (46 total)
 rose.sell(12)
 rose.sell(1)
 rose.sell(24)
+rose.sell(9)
 
-#Check stock and total sold
+# Check stock and total sold
 puts rose.quantity_available
   #=> 98
 puts rose.total_sold
@@ -64,7 +65,7 @@ puts rose.total_sold
 
 
 
-#restock roses (logic below)
+# restock roses (logic below)
 rose.restock
 puts rose.quantity_available
   #=> 338

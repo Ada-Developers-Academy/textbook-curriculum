@@ -5,8 +5,8 @@ Here's the list of required and optional homeworks pertaining to CS Fundamentals
 Due Date     | Homework
 -------------|----------------
 Feb 20       | [Essential Mathematics for software engineers](#essential-mathematics)
-Feb 20       | [Binary and Decimal - Part 1](#binary-and-decimal)
-Feb 27       | [Binary and Decimal - Part 2](#binary-and-decimal)
+Feb 20       | [Binary and Memory - Part 1](#binary-and-memory)
+Feb 27       | [Binary and Memory - Part 2](#binary-and-memory)
 Feb 27       | Submit PR for [Ada-C11/array_equals](https://github.com/Ada-C11/array_equals)
 Mar 13, 20   | Submit PR for [Ada-C11/Restricted-Arrays-Part1](https://github.com/Ada-C11/Restricted-Arrays-Part1)
 Mar 13       | Watch this [Video: Big O Notation](https://www.youtube.com/watch?v=v4cd1O4zkGw) by Gale Laakmann McDowell
@@ -28,9 +28,11 @@ May 30       | Define terms, practice tracing and deduce the time and space comp
 
 <b>Notes</b>: Dates are subjected to change based on changes to class scheduling due to unexpected cancellations or delays.
 
+---
 ## Homework details
 ### Essential Mathematics
 1. Read the notes and complete the practice exercises on [Essential Mathematics for software engineers](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Essential%20Mathematics.md)
+---
 
 ### Binary and Memory
 <b>Part 1</b>:
@@ -40,10 +42,11 @@ May 30       | Define terms, practice tracing and deduce the time and space comp
 
 <b> Part 2 </b>
 1. Submit PR for [Ada-C11/BinaryAndDecimal](https://github.com/Ada-C11/BinaryAndDecimal)
-1. Code: Write a program to print all possible values that can be represented using 4 bits. e.g. 0000, 0001, 0010, 0011, 0100 ... and so on.
+1. [Optional] Write a program to print all possible values that can be represented using 4 bits. e.g. 0000, 0001, 0010, 0011, 0100 ... and so on.
 
 <b>Reference from class discussion on data structures</b>:
 1. Understand pros and cons of organizing data in different structures. See assignment on [Ada-C11/array_or_hash](https://github.com/Ada-C11/array_or_hash).
+---
 
 ### Arrays and efficiency of Algorithms
 Assignments are expected to be worked on after the class discussion.
@@ -52,12 +55,13 @@ Assignments are expected to be worked on after the class discussion.
 1. Solve this [quiz](https://www.khanacademy.org/computing/computer-science/algorithms/asymptotic-notation/e/quiz--comparing-function-growth) by Khan Academy.
 1. Solve this [quiz](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/time%20complexity/time_complexity_quiz.md).
 
-Here's some good follow up reading after we meet in class:
+[Optional] Here's some good follow up reading after we meet in class:
 + [Big O notation and complexity in Ruby](https://devblast.com/b/big-o-notation-complexity-ruby) by DevBlast
 Videos and additional reading material for furthering your learning for curiosity on topics related to what we covered in class:
 + [Big O notation, time and space complexity](https://www.interviewcake.com/article/python/big-o-notation-time-and-space-complexity?) by interview cake
 + [Binary Search](https://www.khanacademy.org/computing/computer-science/algorithms#binary-search) by Khan Academy
 + Read about [Asymptotic Notation](https://www.khanacademy.org/computing/computer-science/algorithms#asymptotic-notation) by Khan Academy.
+---
 
 ### Linked Lists
 
@@ -65,16 +69,17 @@ Assignments:
 + Create .rb file and define the Linked List and Node classes keeping object oriented principles in mind. Author methods to add a value, search for a value, count the number of entries and delete a value from the linked list, assuming that the values in each nodes are integers. Be mindful of when the linked list is empty (before adding the first node, after deleting the last node etc.) in your methods.
 + Do the above for a singly linked list and a separate file for a doubly linked list.
 
-Additional resources:
+[Optional] Additional resources:
 + Kal academy's material on [Linear Data Structures](https://drive.google.com/open?id=0BxHords9odw3cDhCdGMxcWFVRms)
 + Kal academy's material on [Linked List](https://drive.google.com/open?id=0BxHords9odw3am9SWEtGSkdrRTA)
 + Stanford CS Education Library material on [Linked List basics](http://cslibrary.stanford.edu/103/)
 + Read through and watch videos on [Linked List vs Array](http://www.geeksforgeeks.org/linked-list-vs-array/)
 
-Optional offline problem sets
+[Optional] Optional offline problem sets
 + Stanford CS Education Library material on [Linked List Problems](http://cslibrary.stanford.edu/105/)
 + In "Cracking the Coding Interview" book, "Chapter 2: Linked Lists"
 + CareerCup [Linked List Interview Questions](https://www.careercup.com/page?pid=linked-lists-interview-questions)
+---
 
 ### Recursion
 Recommended homework exercises related to recursion:
@@ -88,9 +93,11 @@ Recommended homework exercises related to recursion:
 1. [Set 5: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-5/)
 1. [Set 6: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-6/)
 1. [Set 7: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-7/)
+---
 
 ### Binary Search Trees
 1. Create a Binary Search Tree class and define methods. Create one version with recursive methods. Create another version with iterative methods. Explain the time and space complexity of the methods.
+---
 
 ### Stacks and Queues
 Keeping object oriented design principles in mind, implement the following:
@@ -110,13 +117,14 @@ Keeping object oriented design principles in mind, implement the following:
 1. Implement a Queue using 2 Stacks. (Note: it may not be possible to achieve constant time complexity for both Enqueue and Dequeue.)
 1. Implement a Stack using 2 Queues. (Note: it may not be possible to achieve constant time complexity for both Push and Pop.)
 
-Additional learning content related to Stacks and Queues:
+[Optional] Additional learning content related to Stacks and Queues:
 + Kal academy's material on [Stacks and Queues](https://drive.google.com/open?id=0BxHords9odw3a2V5cVpkNTl2amc)
 + Read about [Method Call Stack](https://drive.google.com/open?id=0BxHords9odw3cG9WM1Y2S0FQWVE)
 + Read about [Stacks](https://simple.wikipedia.org/wiki/Stack_(data_structure)) on Wikipedia
 + Read about [Queues](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)) on Wikipedia
 + CMU lecture notes on [Stacks and Queues](https://www.cs.cmu.edu/~adamchik/15-121/lectures/Stacks%20and%20Queues/Stacks%20and%20Queues.html)
 + Kal academy's problems on [Stacks and Queues](https://drive.google.com/open?id=0BxHords9odw3b2d1ZTJtVkZZTkk)
+---
 
 ### Essential concepts
 Further essential reading links:
@@ -125,6 +133,7 @@ Further essential reading links:
 + More reading on [memory leak on lifehacker.com](https://lifehacker.com/what-it-really-means-when-a-program-leaks-memory-1711957819)
 + Sitepoint reading on [How Ruby uses memory](https://www.sitepoint.com/ruby-uses-memory/)
 + [Introduction to pointers](https://drive.google.com/open?id=0B__DV26QHsH4dHZQNlo4OV80c1E)
+---
 
 ### Interview practice problems
 #### String manipulation practice problems
@@ -136,9 +145,10 @@ Solve the following string manipulation practice problems:
 - [Ada-C11/encode_repeating](https://github.com/Ada-C11/encode_repeating)
 - Check if two strings are anagrams of each other: [anagram solved](http://www.geeksforgeeks.org/check-whether-two-strings-are-anagram-of-each-other/)
 
-Here are some additional interview practice problems:
+[Optional] Here are some additional interview practice problems:
 1. Submit PR for [Ada-C11/encode_repeating](https://github.com/Ada-C11/encode_repeating)
 1. Submit PR for [Ada-C11/digit_match](https://github.com/Ada-C11/digit_match)
+---
 
 ## Books
 Here's a list of suggested books to read or reference:
@@ -151,8 +161,9 @@ Here's a list of suggested books to read or reference:
 + [Book: Design Patterns: Elements of Reusable Object-Oriented Software](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612)
 + [Book: Hacker's Delight by Henry S. Warren](https://www.amazon.com/Hackers-Delight-2nd-Henry-Warren/dp/0321842685)
 + [Book: Code: The Hidden Language of Computer Hardware and Software by Charles Petzold](https://www.amazon.com/Code-Language-Computer-Hardware-Software/dp/0735611319)
-
-## Additional Learning Resources
+---
+---
+## [Optional] Additional Learning Resources
 + Watch:
     + [Video: Crash Course in Computer Science with Carrie Anne Philbin, PBS](https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo)
     + [Video: Binary and Hexadecimal number systems by Khan Academy](https://www.khanacademy.org/math/algebra-home/alg-intro-to-algebra/algebra-alternate-number-bases/v/number-systems-introduction)
@@ -173,7 +184,6 @@ Here's a list of suggested books to read or reference:
     + Andiamogo on [Object Oriented Design Interview Questions](http://www.andiamogo.com/S-OOD.pdf)
     + CareerCup on [Object Oriented Design Interview Questions](https://www.careercup.com/page?pid=object-oriented-design-interview-questions)
 
-
 ### Hashtables
 + Wikipedia on [Hash function](https://en.wikipedia.org/wiki/Hash_function)
 + TutorialsPoint material on [Hash Table](http://www.tutorialspoint.com/data_structures_algorithms/hash_data_structure.htm)
@@ -184,17 +194,10 @@ Here's a list of suggested books to read or reference:
 + GeeksForGeeks material on [Hashing](http://www.geeksforgeeks.org/hashing/)
 + Java: JavaHungry blog post on [Java: difference between Hashmap and Hashtable](http://javahungry.blogspot.com/2014/03/hashmap-vs-hashtable-difference-with-example-java-interview-questions.html)
 + Ruby: LaunchSchool blog on [how hash works in Ruby](https://launchschool.com/blog/how-the-hash-works-in-ruby)
-
 + Interview Cake content and interview questions on [Hash Table](https://www.interviewcake.com/concept/java/hash-map)
 + CareerCup [Hash Table Interview Questions](https://www.careercup.com/page?pid=hash-table-interview-questions)
 
-### algorithms
-Required: Go through what you've already learned:
-+ Revise JumpStart notes on [Algorithms](https://github.com/Ada-Developers-Academy/jump-start/blob/master/lessons/02-problem-solving/notes/algorithms.md)
-+ Revise classroom session on [Merge Sort](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/05-Mergesort.md)
-+ Revise previous session on [Binary Search Trees](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/internship/Binary%20Search%20Trees.md)
-
-## Optional: Find the reading material that helps you learn further from the links below:
+### Algorithms
 + Khan Academy on [Algorithms](https://www.khanacademy.org/computing/computer-science/algorithms)
 + Khan Academy on [Divide and Conquer algorithms](https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/divide-and-conquer-algorithms)
 + Khan Academy on [Graphs](https://www.khanacademy.org/computing/computer-science/algorithms/graph-representation/a/describing-graphs)
@@ -206,11 +209,10 @@ Required: Go through what you've already learned:
 + Book: [Fundamentals of Computer Algorithms by Ellis Horowitz, Sartaj Sahani](https://www.amazon.com/Fundamentals-Computer-Algorithms-software-engineering/dp/0914894226)
 + Book: [Fundamentals of Algorithmics by Gilles Brassard, Paul Bratley](https://www.amazon.com/Fundamentals-Algorithmics-Gilles-Brassard/dp/0133350681)
 
-## Interview Practice
+### Interview Practice
 The following resources would help with getting additional white boarding interview and code challenge practice:
 + [Tutorials and code challenges by Gale Laakmann McDowell on HackerRank](https://www.hackerrank.com/domains/tutorials/cracking-the-coding-interview)
 + [Code challenge and white boarding practice on HackerRank](https://www.hackerrank.com/)
 + [Practice problems on LeetCode](https://leetcode.com/)
 + [Code challenge and white boarding practice on CodeFlights](https://codefights.com/)
 + [White boarding practice by pairing up on Pramp](https://www.pramp.com/#/)
-

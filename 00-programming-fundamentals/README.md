@@ -9,7 +9,7 @@
 
 
 ### Process
-1. [What is a retrospective?](what-is-a-retrospective.md)
+1. [What is a retrospective?](retrospectives.md)
 1. [Introduction to Agile](intro-to-agile.md)
 1. [Pair Programming](programming-techniques-pairs-or-solo.md)
 1. [What is Pseudocode?](pseudocode.md)
