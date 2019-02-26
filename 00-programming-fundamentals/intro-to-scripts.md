@@ -1,20 +1,28 @@
 # Introduction to Scripts
 
-## What is a script?
+## Learning Goals
+
+By the end of this lesson students should be able to...
+- Create a Ruby script
+- Add an appropriate "shebang" to their Ruby scripts
+- Make a Ruby script executable
+- Add a Ruby script to their path
+
+## What is a Script?
 
 By now you should be familiar with a variety of different commands from the terminal.  Things like `ls` and `touch`.  However, it turns out macOS doesn't come with _every_ command you could ever want.  Things like the `code` and `brew` commands are once you added yourself.
 
 A "script" is a command written in a "Scripting Language," luckily you already know one, Ruby!  Scripting languages are special in that they are designed to be easy to read _and_ run.  If you were to open the `ls` command all you are would see is a bunch of gibberish.
 
-## How to run a script
+## How to Run a Script
 
 Start by downloading this [demo script](./demo-script.rb)!
 
-You should already be familiar with the simplest way to run a Ruby script.  You can `ruby ./demo-script.rb`.  If a script is properly formatted with a magic comment at the top you can run it with `./demo-script-rb` leaving off the `ruby` from the front.
+You should already be familiar with the simplest way to run a Ruby script.  You can `ruby ./demo-script.rb`.  If a script is properly formatted with a magic comment at the top you can run it with `./demo-script.rb` leaving off the `ruby` from the front.
 
 However, you'll notice you don't have to run `/usr/local/bin/brew` but can just run `brew`.
 
-## Paths
+## `$PATH`
 
 The reason that you can run `brew` without a prefix is because you have it on what's called your `PATH`.  You can see your `PATH` with the echo command.
 
@@ -44,6 +52,8 @@ We call the magic comment at the top of `demo-script.rb` a "shebang".  Because i
 
 The shebang just tells macOS how to run the file.  We're not going to get into why it works (since it's a little complicated) but you just need to know that `#!/usr/bin/env ruby` will let you run a Ruby file from the command line.
 
+The command `/usr/bin/env ruby` here means "look for the version of Ruby in my `$PATH` and run that".
+
 ## Execute Permission
 
 Unfortunately just adding the shebang to the top of your file isn't enough, you also need to tell the macOS that you want to be able to run it as a command.
@@ -70,3 +80,17 @@ $ chmod +x my-new-script.rb
 $ ./my-new-script.rb
 Success!
 ```
+
+## Summary
+
+- A **Ruby script** is any Ruby program intended to be run directly by a user.
+- A **Shebang** is the special line at the top of your Ruby scripts.  It should read `#!/usr/bin/env ruby`.
+- To make a script **executable** run the command `chmod +x` on your script.
+- You can add a script to your **`$PATH`** in two ways.
+    1. Put the script in a directory already on your `$PATH` (you can check this with `echo $PATH`.
+    2. Add the directory the script is in to your path in your `~/.profile`.
+
+## Additional Resources
+- [Shebang (Wikipedia)](https://en.wikipedia.org/wiki/Shebang_(Unix))
+- [The `env` command](https://en.wikipedia.org/wiki/Env)
+- [4 Ways to Write and Run a Ruby Script](https://cobwwweb.com/four-ways-to-write-run-ruby-script)
