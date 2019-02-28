@@ -100,13 +100,17 @@ With this code above, identify which parts of the following code are:
 1. invoking/calling an instance method on an instance of a class
 
 <details>
-    <summary>
-    Answers
-    </summary>
-    1. `@title`, `@artist`, `@filename`, `@play_count`
-    1. `summary`, `play`. `attr_reader` technically defines more instance methods, too! So, additionally: `title`, `artist`, `filename`, `play_count`
-    1. `Song.new("Respect", "Aretha Franklin", "songs/respect.mp3")`
-    1. `song.summary`, `song.play`, `song.play_count`
+  <summary>
+  Answers
+  </summary>
+
+  1. `@title`, `@artist`, `@filename`, `@play_count`
+
+  1. `summary`, `play`. `attr_reader` technically defines more instance methods, too! So, additionally: `title`, `artist`, `filename`, `play_count`
+
+  1. `Song.new("Respect", "Aretha Franklin", "songs/respect.mp3")`
+
+  1. `song.summary`, `song.play`, `song.play_count`
 </details>
 
 ### Review Summary
@@ -153,7 +157,7 @@ Another class method we might have seen before is `Random.rand` to generate a ra
 
 ### Syntax to Define Class Methods
 
-Let's see how to define a class method within a **class definition**:
+Let's see how to define a class method within a class definition:
 
 ```ruby
 class ClassName
@@ -169,7 +173,7 @@ end
 
 **Class methods** are _defined_ like **instance methods**, but they start with `self.`
 
-**Check:** What's the syntax to call the class method? What's the syntax to call the instance method?
+**Review:** What's the syntax to call the class method? What's the syntax to call the instance method?
 
 #### Usage of Class Methods Within the Class
 
@@ -188,12 +192,17 @@ end
 ```
 
 ### Class Variables
+
+While we are discussing class methods, now seems like a good time to also introduce class variables. Class methods and class variables are about as related to each other as instance methods and instance variables are related to each other... There is no strict relationship, but their concepts in how they relate to object-oriented programming are similar.
+
 - Class variables begin with `@@`
 - Class variables are typically defined with an initial value at the top of the class
 - Class variables are available to the entire class (in any method)
 - Class variables will raise an error if they are read before they're created
-- Class variables can cause problems later (**avoid using them**)
+- Class variables can cause problems later, so **avoid using them**
 - Class variables are sometimes used for application configuration
+
+Let's glance at one example of using class variables:
 
 ```ruby
 class Library
@@ -228,7 +237,7 @@ Welcome to all of the libraries: Woodland Library Northview Library
 
 Here, we observe that all `Library`s can access and change the same `@@tagline` variable. This is useful in some cases, but can be confusing and obscure in most cases.
 
-In general, we will discourage the use of class variables because of their usually unintended side-effects.
+We could go deeper into class variables. However, in general, we will discourage the use of class variables because of their usually unintended side-effects.
 
 #### Assess
 
@@ -237,12 +246,13 @@ In general, we will discourage the use of class variables because of their usual
 1. What's the syntax to define a class variable? Where are class variables defined?
 
 <details>
-    <summary>
-    Answers
-    </summary>
-    1. `def self.class_method`. Class methods are defined within a class.
-    1. with a dot, off of the class name (with the proper capitalization, because this must match the name of the class)
-    1. `@@variable_name`. Class variables are defined within a class.
+  <summary>
+  Answers
+  </summary>
+  
+  1. `def self.class_method`. Class methods are defined within a class.
+  1. with a dot, off of the class name (with the proper capitalization, because this must match the name of the class)
+  1. `@@variable_name`. Class variables are defined within a class.
 </details>
 
 ## Adding Class Methods to `Song`
