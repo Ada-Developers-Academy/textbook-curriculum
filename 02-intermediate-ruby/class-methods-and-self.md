@@ -9,6 +9,7 @@
 - Discover new functionality within classes:
   - _Class Methods_
   - `self`
+  - Class variables
 - Examine why we'd use one type of method over another
 
 ## Introduction
@@ -197,6 +198,48 @@ class ClassName
   end
 end
 ```
+
+### Class Variables
+- Class variables begin with `@@`
+- Class variables are available to the entire class (in any method)
+- Class variables will raise an error if they are read before they're created
+- Class variables can cause problems later (**avoid using them**)
+- Class variables are sometimes used for application configuration
+
+```ruby
+class Library
+  attr_reader :library_name
+  @@tagline = "Welcome to all of the libraries:"
+
+  def initialize(name)
+    @library_name = name
+    @@tagline = @@tagline + " " + @library_name
+  end
+
+  def tagline
+    puts @@tagline
+  end
+
+end
+
+woodland_library = Library.new("Woodland Library")
+woodland_library.tagline
+northview_library = Library.new("Northview Library")
+northview_library.tagline
+
+woodland_library.tagline
+```
+
+This code outputs the following:
+```
+Welcome to all of the libraries: Woodland Library
+Welcome to all of the libraries: Woodland Library Northview Library
+Welcome to all of the libraries: Woodland Library Northview Library
+```
+
+Here, we observe that all `Library`s can access and change the same `@@tagline` variable. This is useful in some cases, but can be confusing and obscure in most cases.
+
+In general, we will discourage the use of class variables because of their usually unintended side-effects.
 
 ### Adding Class Methods to `Song`
 
