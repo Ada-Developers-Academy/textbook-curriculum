@@ -109,16 +109,6 @@ With this code above, identify which parts of the following code are:
     1. `song.summary`, `song.play`, `song.play_count`
 </details>
 
-#### Instance Methods in Documentation
-
-When Rubyists write English text about a class's instance methods in documentation, we typically write their names in the following format:
-
-```
-ClassName#method_name
-```
-
-The octothorp indicates that the method is an instance method. In the case of our `Song` class, we have `Song#play` and `Song#summary`. Note that we leave off the arguments - only the class and the method name are included.
-
 ### Review Summary
 
 When we review each of these pieces of code that we've written there is one major thing in common: we are always creating an **instance** of our class prior to _calling_ any of its instance methods.
@@ -160,8 +150,6 @@ We've already seen many different class methods!
 `new` is probably the class method we're most familiar with. If you haven't noticed before, take the time to notice that we always call `.new` off of the name of the class we're instantiating. That's because `new` is a class method! `new` is a built-in Ruby method defined on all objects, which builds an instance of that class, calls its `initialize` method, and returns that instance. It is a class method because it doesn't make sense to operate off of an instance of a class... initializing an instance of a class is the functionality of a class as a whole!
 
 Another class method we might have seen before is `Random.rand` to generate a random number. `Random` is a class that doesn't particularly necessitate an _instance_ of a Thing that is Random, but it _is_ a class that has a feature available to the concept of Random.
-
-When writing about a class method, we use a dot instead of a pound sign: `ClassName.class_method`. Note that this matches the way the method is called.
 
 ### Syntax to Define Class Methods
 
@@ -327,6 +315,18 @@ All that `total_plays` does is return the value of `@@total_plays`. If `@@total_
   - How would our program change if we did not initialize this variable?
   - How would our program change if we initialized this variable in the `initialize` method?
 - Why is `total_plays` a class method? How would our program change if it was an instance method?
+
+#### Writing About Methods in Documentation
+
+When Rubyists write English text about a class's instance methods in documentation, we typically write their names in the following format:
+
+```
+ClassName#method_name
+```
+
+The octothorp indicates that the method is an instance method. In the case of our `Song` class, we have `Song#play` and `Song#summary`.
+
+When writing about a class method, we use a dot instead of a pound sign: `ClassName.class_method`. Note that this matches the way the method is called.
 
 ## Activity: `Song.most_played`
 
