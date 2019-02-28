@@ -1,23 +1,34 @@
 # Class Methods & Self
+
 ## Learning Goals
+
 - Review what we've learned about classes so far:
   - Constructor (`initialize`)
-  - Instance Methods
   - Attributes (stored in instance variables)
+  - Instance Methods
 - Discover new functionality within classes:
-  - _Class Methods_ and
-  - _self_
+  - _Class Methods_
+  - `self`
 - Examine why we'd use one type of method over another
+
+## Introduction
+
+The examples we will use in class today will assume we are writing software for a music player that plays audio tracks based off files on your computer, and keeps track of how many times each audio track has been played.
 
 ## Ruby Classes Thus Far
 
-### Constructors (`initialize`), Instance Variables and Helper Methods
+### Constructors (`initialize`), Instance Variables, and Instance Methods
 
 The `initialize` method within a class is special. When the `new` method is called on a _class_ a new _instance_ is created and the `initialize` method is promptly invoked. This method is used to create the default state of an _object instance_.
 
-Typically within a `initialize` method we set any given attributes and make any necessary data manipulations. We hold on to these values in _instance variables_.
+Within the `initialize` method, we do any setup that should happen at the beginning of creating any instance of a class:
 
-By default, instance variables are only visible inside their object. To make them readable or writable from the outside, use one of the _helper methods_ `attr_reader`, `attr_writer` or `attr_accessor`.
+  1. make any necessary data manipulations
+  1. set any given attributes in _instance variables_.
+
+By default, instance variables are only visible inside their object. Within the class definition, we refer to and access the values of instance variables using the `@variable_name` syntax.
+
+Outside of the class definition, code that wants to read or write those instance variables must use one of the _helper methods_ `attr_reader`, `attr_writer` or `attr_accessor` (which are shortcuts for _getter_ and _setter_ methods).
 
 Here is a class that might represent a song in a music player program:
 
@@ -41,7 +52,8 @@ song.title
 ```
 
 ### Instance Methods
-Instance methods are defined with `def a_snake_case_name`. Instance methods are only available on _instances_ of a class. **These are exactly the type of Ruby method we've seen thus far**.
+
+Instance methods are defined with `def a_snake_case_name`. Instance methods are invoked on _instances_ of a class. **These are exactly the type of Ruby method we've seen thus far**.
 
 Here is an expanded version of our `Song` class, now with a couple of instance methods.
 
@@ -62,7 +74,7 @@ class Song
 
   def play
     @play_count += 1
-    # ... load the song data from the file and send it to the speakers ...
+    # ... more code that loads the song data from the file and sends it to the speakers ...
   end
 end
 ```
@@ -77,9 +89,28 @@ song.play_count
 # => 1
 ```
 
-#### Talking About Instance Methods
+#### Assess
 
-When Rubyists write English text about a class's instance methods, we typically write their names in the following format:
+With this code above, identify which parts of the following code are:
+
+1. instance variables
+1. instance methods
+1. creating an instance of a class
+1. invoking/calling an instance method on an instance of a class
+
+<details>
+    <summary>
+    Answers
+    </summary>
+    1. `@title`, `@artist`, `@filename`, `@play_count`
+    1. `summary`, `play`. `attr_reader` technically defines more instance methods, too! So, additionally: `title`, `artist`, `filename`, `play_count`
+    1. `Song.new("Respect", "Aretha Franklin", "songs/respect.mp3")`
+    1. `song.summary`, `song.play`, `song.play_count`
+</details>
+
+#### Instance Methods in Documentation
+
+When Rubyists write English text about a class's instance methods in documentation, we typically write their names in the following format:
 
 ```
 ClassName#method_name
