@@ -201,6 +201,7 @@ end
 
 ### Class Variables
 - Class variables begin with `@@`
+- Class variables are typically defined with an initial value at the top of the class
 - Class variables are available to the entire class (in any method)
 - Class variables will raise an error if they are read before they're created
 - Class variables can cause problems later (**avoid using them**)
@@ -208,7 +209,7 @@ end
 
 ```ruby
 class Library
-  attr_reader :library_name
+
   @@tagline = "Welcome to all of the libraries:"
 
   def initialize(name)
@@ -241,11 +242,26 @@ Here, we observe that all `Library`s can access and change the same `@@tagline` 
 
 In general, we will discourage the use of class variables because of their usually unintended side-effects.
 
-### Adding Class Methods to `Song`
+#### Assess
 
-Now that we see the syntax for how we'd use a **class method** versus an **instance method** let's see why we'd want to use one over the other.
+1. What's the syntax to define a class method? Where are class methods defined?
+1. What's the syntax to invoke a class method?
+1. What's the syntax to define a class variable? Where are class variables defined?
 
-Let's think back to the `Song` class we created earlier. We'll start with tracking the total number of plays across all songs. For this we'll need to add a _class variable_, `@@total_plays`, as well as a method to read its value, `Song.total_plays`.
+<details>
+    <summary>
+    Answers
+    </summary>
+    1. `def self.class_method`. Class methods are defined within a class.
+    1. with a dot, off of the class name (with the proper capitalization, because this must match the name of the class)
+    1. `@@variable_name`. Class variables are defined within a class.
+</details>
+
+## Adding Class Methods to `Song`
+
+Now that we see the syntax for how we'd use a **class method** versus an **instance method**, let's see why we'd want to use one over the other.
+
+Let's think back to the `Song` class we created earlier. We'll start with tracking the total number of plays across all songs. For this, we'll use a strategy to allow the `Song` class to manage this tracking. We'll create a _class variable_, `@@total_plays`, as well as a method to read its value, `Song.total_plays`.
 
 ```ruby
 class Song
