@@ -120,48 +120,83 @@ The octothorp indicates that the method is an instance method. In the case of ou
 
 ### Review Summary
 
-When we review each of these pieces of code that we've written there is one major thing in common. We are always creating an **instance** of our class prior to _calling_ any of the methods we create.
+When we review each of these pieces of code that we've written there is one major thing in common: we are always creating an **instance** of our class prior to _calling_ any of its instance methods.
 
-The reason we do this is that the types of methods we've been using always have some sort of specific data that is related to each individual instance of the object we are using. For the `Song`'s `summary` method, we were showing the data about a **specific** `Song`.
+This is because all of the methods we use are always relying on specific data that is related to each individual instance of the object we are using. For the `Song`'s `summary` method, we were showing the data about a **specific** `Song`. If we had 500 different instances of `Song`, it would probably be true that each instance of `Song` had a different result for the `summary` method, even though they are all `Song` instances with the same implementation. The instance method `summary` used an instance variable within it.
 
-But what if we have things that related to **all** `Song`s? Or setting up a bunch of `Song`s? Stay tuned...!
+There are times in which we'll make methods that are related to the concept of `Song`, but are not related to a specific instance of a `Song`.
+
+  - What if we have things that related to **all** `Song`s?
+  - What if we want `Song`-specific code used to set up a bunch of `Song`s, and not just one `Song`?
 
 ## Class Methods and `self`
 
-Class methods are methods that are called on a **class** and instance methods are methods that are called on an **instance of a class**.
+Instance methods are methods that are called on an instance of a class. **_Class methods_ are methods that _are called on a class_**.
 
-### Class Method Syntax
+### Why?
 
-With no specific problem in mind to start, let's see what the difference is in the **class definition**:
+Class methods provide functionality to a class itself. We may soon need to implement features that belong to the class, but don't belong to a single instance of the class. Let's look at the syntax
 
-```ruby
-class ClassName
-  def self.class_method
-    "This is a CLASS METHOD"
-  end
+### Syntax to Use Class Methods
 
-  def instance_method
-    "This is an INSTANCE METHOD"
-  end
-end
-```
-
-**Class methods** are _defined_ like **instance methods**, but they start with `self.` and are called internally with the `self` identifier.
-
-Class methods are called directly on the _class_ and not on an _instance_ of the class.
+Class methods are called directly on the _class_ and not on an _instance_ of the class. Assuming that there is a class named `ClassName` and a class method named `class_method`...
 
 ```ruby
 puts ClassName.class_method
 # 'This is a CLASS METHOD'
+```
 
+Compare this to our syntax of calling an instance method.
+
+```ruby
 instance = ClassName.new
 puts instance.instance_method
 # 'This is an INSTANCE METHOD'
 ```
 
-We've already seen one class method: `new`. `new` is a built-in Ruby method defined on all objects, which builds an instance of that class, calls its `initialize` method, and returns it.
+We've already seen many different class methods!
+
+`new` is probably the class method we're most familiar with. If you haven't noticed before, take the time to notice that we always call `.new` off of the name of the class we're instantiating. That's because `new` is a class method! `new` is a built-in Ruby method defined on all objects, which builds an instance of that class, calls its `initialize` method, and returns that instance. It is a class method because it doesn't make sense to operate off of an instance of a class... initializing an instance of a class is the functionality of a class as a whole!
+
+Another class method we might have seen before is `Random.rand` to generate a random number. `Random` is a class that doesn't particularly necessitate an _instance_ of a Thing that is Random, but it _is_ a class that has a feature available to the concept of Random.
 
 When writing about a class method, we use a dot instead of a pound sign: `ClassName.class_method`. Note that this matches the way the method is called.
+
+### Syntax to Define Class Methods
+
+Let's see how to define a class method within a **class definition**:
+
+```ruby
+class ClassName
+  def self.class_method
+    return "This is a CLASS METHOD"
+  end
+
+  def instance_method
+    return "This is an INSTANCE METHOD"
+  end
+end
+```
+
+**Class methods** are _defined_ like **instance methods**, but they start with `self.`
+
+**Check:** What's the syntax to call the class method? What's the syntax to call the instance method?
+
+#### Usage of Class Methods Within the Class
+
+Class methods are called internally with the `self.class` identifier or the name of the class identifier.
+
+```ruby
+class ClassName
+  def self.class_method
+    return "This is a CLASS METHOD"
+  end
+
+  def instance_method
+    return "This is an INSTANCE METHOD... and I'm calling the class method with syntax 1: #{self.class.class_method}, and syntax 2: #{ClassName.class_method}"
+  end
+end
+```
 
 ### Adding Class Methods to `Song`
 
