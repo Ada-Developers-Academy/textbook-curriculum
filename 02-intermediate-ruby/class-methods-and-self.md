@@ -338,44 +338,6 @@ Work with a partner to implement `Song.most_played`. As you write the method, th
 
 Once you've come up with an version you're happy with, [you can see ours here](https://gist.github.com/droberts-ada/8f3e70aa8dd05450f8c8b41692e206fc).
 
-### Another Example
-
-Another common use of a class method is as a _factory_, that is a method that builds an instance or instances of that class. This is a powerful technique, and we'll explore it more in this week's project.
-
-As an example, imagine a computer chess game that has a class representing a pawn. When the game begins, each side has 8 pawns, so this class includes a method that builds each piece and gives it the correct position on the board.
-
-```ruby
-class Pawn
-  def initialize(position)
-    @position = position
-  end
-
-  # This is the class method, it starts with self.
-  # It is only called on the class directly Pawn.make_row
-  def self.make_row(side)
-    if side == :white
-      num = 2
-    else
-      num = 7
-    end
-
-    pawns = []
-    ("a".."h").each do |letter|
-      # Here we call the new method of the current class
-      pawns << self.new("#{letter}#{num}")
-    end
-
-    return pawns
-  end
-end
-
-#make one pawn
-one_pawn = Pawn.new("A2")
-
-#make a whole row of pawns
-pawns = Pawn.make_row(:black)
-pawns.length # => 8
-```
 
 ## Additional Resources
 - [Some Additional Examples](https://www.jimmycuadra.com/posts/self-in-ruby/)
