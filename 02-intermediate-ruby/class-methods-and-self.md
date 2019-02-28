@@ -328,16 +328,23 @@ All that `total_plays` does is return the value of `@@total_plays`. If `@@total_
   - How would our program change if we initialized this variable in the `initialize` method?
 - Why is `total_plays` a class method? How would our program change if it was an instance method?
 
-### Activity: `Song.most_played`
+## Activity: `Song.most_played`
 
 In the previous example, we used a class method to access a class variable. Another common use of a class method is to work with a collection of instances of that class.
 
 For example, what if we wanted a method that, given an array of `Song`s, picks the one with the most plays? Since the argument is a collection of `Song`s, it doesn't make sense to require the method to be called on one particular instance. In this case, a class method is a good choice.
 
-Work with a partner to implement `Song.most_played`. As you write the method, think about how you would test it - what interesting inputs can you imagine?
+Work with a partner to implement `Song.most_played`. As you write the method, think about how you would test it - what interesting scenarios can you imagine?
 
 Once you've come up with an version you're happy with, [you can see ours here](https://gist.github.com/droberts-ada/8f3e70aa8dd05450f8c8b41692e206fc).
 
+## Conclusion
+
+Class methods provide functionality to a class itself.
+
+We should be able to contrast class methods against instance methods, and class variables against instance variables.
+
+We should be able to combine our regular Ruby logic to this new concept of object-oriented programming to do complex functionality, such as what our `Song.most_played` activity accomplished.
 
 ## Additional Resources
 - [Some Additional Examples](https://www.jimmycuadra.com/posts/self-in-ruby/)
