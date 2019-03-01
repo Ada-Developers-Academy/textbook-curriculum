@@ -23,6 +23,11 @@ In the context of software, the word "idiom" means much the same thing as in reg
 > Idiom: A style or form of artistic expression that is characteristic of an individual, a period or movement, or a medium or instrument<br>
 > -- <cite>[Miriam Webster](https://www.merriam-webster.com/dictionary/idiom)</cite>
 
+Some examples of idioms in American English are:
+- Beat around the bush
+- Bite the bullet
+- Under the weather
+
 In essence, a software idiom is a pattern or style of programming that is commonly used, but which isn't necessarily obvious from the syntax of the language.
 
 For an example of an idiom that doesn't involve inheritance, consider the `map` method. Originally most programming languages did not contain a method named `map` - if you wanted to do that work, you would have to write it yourself:
