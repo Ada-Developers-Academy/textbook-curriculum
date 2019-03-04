@@ -45,9 +45,10 @@ After registration you will be given a `client id` and a `client secret`:
 **Note:** These credentials are the equivalent of passwords to your GitHub account. Keep them safe; never, ever post them in public places or commit them in git.
 
 #### Storing Credentials
-Because they cannot be committed to git, the GitHub application credentials must be loaded external of the Rails application. The most common way to do this is to create a file called `.env` in the project root. Dot files (called that because they start with a dot) are typically excluded from version control and are well suited for secrets. __NEVER COMMIT A `.env` TO GIT!__  (This also means if you are working with a partner, you'll need to share this information since it won't be be in git)
+Because they cannot be committed to git, the GitHub application credentials must be loaded external of the Rails application. Similar to the work we've done on previous projects, we will use a `.env` file to store these credentials securely, though the process for using them in Rails will be slightly different.
 
 To use a `.env` file with Rails, you **must** do all of these steps to gain access to the data you set in the `.env` file.
+
 1. Add `gem 'dotenv-rails'` to the `:development` group in the Gemfile  
 
     __QUESTION:__ Why add it to the `:development` group? Why does the group matter?
