@@ -4,8 +4,9 @@
 
 By the end of this lesson, students should be able to...
 
-- Use an API that requires an authentication token
-- Store API credentials securely
+- Use an API that requires an _authentication token_
+- Store _API credentials_ securely
+- Recognize and use _environment variables_ in Ruby with the `dotenv` gem
 
 ## Authentication
 
@@ -65,6 +66,86 @@ By the way, all of this is covered in [The Movie DB's documentation](https://dev
 ## Storing Credentials Securely
 
 This authorization token uniquely identifies and provides access to your account. Just like a password, anyone who has the token can pretend to be you. This means you need to be careful about keeping track of your tokens.
+
+In particular, you cannot commit tokens to git, because everything in a git repository is visible publicly on the internet. Instead we will make these tokens part of our application's _environment_.
+
+### Environment Variables
+
+Every program you run has access to a special set of information known as its environment. Some of this information is provided by the operating system, some by the Ruby interpreter, and some comes from the application itself. In Ruby, we can access this information through a built-in hash constant called `ENV`. Fire up `pry` and take a look at this constant:
+
+```ruby
+$ pry
+[1] pry(main)> ENV.keys
+=> ["TERM_SESSION_ID",
+ "SSH_AUTH_SOCK",
+ "Apple_PubSub_Socket_Render",
+ "COLORFGBG",
+ "ITERM_PROFILE",
+ ...
+[2] pry(main)> ENV['USER']
+=> "droberts"
+[3] pry(main)> ENV['HOME']
+=> "/Users/droberts"
+[4] pry(main)> ENV['RUBY_VERSION']
+=> "ruby-2.5.1"
+```
+
+Things to notice:
+- `ENV` is just a regular old Ruby hash, and can be read and modified as such. However, it is generally considered good practice not to change `ENV` directly.
+- The keys in `ENV` are strings, not symbols.
+- By the convention, most of the keys in `ENV` are upper case (think constants).
+
+### The `dotenv` Gem
+
+We can get our program to load some extra information at startup using a gem called `dotenv`. Install it now:
+
+```
+$ gem install dotenv
+```
+
+The `dotenv` gem looks for a file called `.env` in the project root. If it finds one, it will read the contents as key-value pairs and add them to the `ENV` hash.
+
+**Question:** What does the `.` at the start of the filename `.env` mean?
+
+We can write a small Ruby program (or use `pry`) to test this out. First the `.env` file:
+
+```
+# .env
+LUNCH=tofu scramble
+```
+
+Now the Ruby to load it:
+
+```ruby
+# dotenv-practice.rb
+require 'dotenv'
+
+# Tell dotenv to look for the .env file
+Dotenv.load
+
+puts ENV['LUNCH']
+# => tofu scramble
+```
+
+#### Ignoring `.env`
+
+Our plan is to use the `.env` file to store our secret authentication token, which means we must not check the `.env` file into git. To do so, create a `.gitignore` file and add `.env` to it:
+
+```
+# .gitignore
+.env
+```
+
+Then add and commit the `.gitignore`:
+
+```
+$ git add .gitignore
+$ git commit -m "Ignore the .env file"
+```
+
+**NEVER COMMIT A `.env` TO GIT!**
+
+Since the `.env` file is not in git, if you are working with a partner each of you will need to create and populate a `.env` file.
 
 ## Summary
 
