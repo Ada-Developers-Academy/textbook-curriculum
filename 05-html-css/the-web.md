@@ -14,7 +14,7 @@ A static site presents the same content to every visitor. Everybody that visits 
 
 Common examples of static sites include restaurants sites that display contact info and menus, or small business sites that display mission statement and info.
 
-Most modern sites are dynamic. Dynamic sites are sites that have logic involved in serving content. Logic like this requires the use of programming languages like ruby, python or PHP. Every time you sign-in to a site and are given custom content based on your preferences (like who you follow on social media), you are interacting with a dynamic site.
+Most modern sites are dynamic. Dynamic sites are sites that have logic involved in serving content. Logic like this requires the use of programming languages like Ruby, Python, or PHP. Every time you sign-in to a site and are given custom content based on your preferences (like who you follow on social media), you are interacting with a dynamic site.
 
 Common Examples: Facebook, Gmail, websites that allow shopping functionality, real-estate websites such as Redfin or Zillow
 
@@ -29,7 +29,7 @@ Web applications are dynamic websites that can be broken down into two parts, th
 
 Front-end refers to the code that executes on your browser (and is often called "client-side"). Front-end languages include HTML, CSS and JavaScript.
 
-Back-end refers to code that processes requests. This code remains "server-side" and often interacts with a database. The back-end utilizes programming languages such as ruby, python, PHP, java or JavaScript.
+Back-end refers to code that processes requests. This code remains "server-side" and often interacts with a database. The back-end utilizes programming languages such as Ruby, Python, PHP, Java, or JavaScript.
 
 A full-stack developer whose responsibility is to work on both the front-end and back-end of a web application. At Ada, we teach everyone to be full-stack developers.
 
@@ -67,7 +67,7 @@ The web server who receives that request processes it, and then sends back a res
   While we have already seen different patterns of clients that aren't browsers, such as CLI programs that send requests to APIs, this is one common pattern.
 </details>
 
-## How the Internet works: A more technical look
+## How the Internet works: A More Technical look
 
 Should you be excited to look at how the Internet sends and receives data, here are more resources for you.
 

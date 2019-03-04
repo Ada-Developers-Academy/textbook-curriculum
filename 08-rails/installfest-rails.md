@@ -8,9 +8,9 @@ Ruby on Rails (or _RoR_, or _Rails_) is a framework used to create web applicati
 
 At the end of this lesson, you should be able to
 
-1. Have a list of dependencies to install in order to begin the Rails curriculum at Ada
+- Have a list of dependencies to install in order to begin the Rails curriculum at Ada
 
-### postgresQL
+### PostgresQL
 
 The web applications we write will begin to use a [_database_](https://en.wikipedia.org/wiki/Database), or a mechanism to save, update, access, and manage a collection of data. In Ruby on Rails, our preferred database that we will use is [PostgreSQL](https://www.postgresql.org/) (or _Postgres_)
 
