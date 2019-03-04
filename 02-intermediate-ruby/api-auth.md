@@ -107,17 +107,24 @@ The `dotenv` gem looks for a file called `.env` in the project root. If it finds
 
 **Question:** What does the `.` at the start of the filename `.env` mean?
 
-We can write a small Ruby program (or use `pry`) to test this out. First the `.env` file:
+We can write a small Ruby program (or use `pry`) to test this out. To simulate a real project, we'll create a full directory structure.
+
+```bash
+$ mkdir dotenv_practice
+$ cd dotenv_practice
+$ touch .env
+$ touch dotenv_practice.rb
+```
+
+Then fill in the two files:
 
 ```
 # .env
 LUNCH=tofu scramble
 ```
 
-Now the Ruby to load it:
-
 ```ruby
-# dotenv-practice.rb
+# dotenv_practice.rb
 require 'dotenv'
 
 # Tell dotenv to look for the .env file
@@ -146,6 +153,54 @@ $ git commit -m "Ignore the .env file"
 **NEVER COMMIT A `.env` TO GIT!**
 
 Since the `.env` file is not in git, if you are working with a partner each of you will need to create and populate a `.env` file.
+
+## Exercise
+
+Now it's time to put all these pieces together. Add your MovieDB token from above to the `.env` file on a new line, and modify your Ruby script to use the token to make a search against the API.
+
+Debugging will be key here! How will you know whether your program has successfully queried the API? What will you do if it didn't work?
+
+<details>
+<summary>Our implementation</summary>
+
+```ruby
+# dotenv_practice.rb
+require 'dotenv'
+require 'httparty'
+
+Dotenv.load
+
+unless ENV['MOVIEDB_API_KEY']
+  puts "Could not load API key, please store in the environment variable 'MOVIEDB_API_KEY'"
+  exit
+end
+
+URL = "https://api.themoviedb.org/3/search/movie"
+
+while true
+  puts "Welcome to the movie lookup! Please enter a movie title. 'quit' to stop."
+  search = gets.chomp
+
+  break if search.downcase == 'quit'
+
+  response = HTTParty.get(URL, query: {
+    query: search,
+    api_key: ENV['MOVIEDB_API_KEY']
+  })
+
+  if response['success'] == false
+    puts "Something went wrong: #{response['status_message']}"
+  elsif response['results'].any?
+    puts "Here is a summary of that movie:"
+    puts response['results'].first['overview']
+  else
+    puts "We couldn't find that movie :("
+  end
+end
+
+puts "OK bye"
+```
+</details>
 
 ## Summary
 
