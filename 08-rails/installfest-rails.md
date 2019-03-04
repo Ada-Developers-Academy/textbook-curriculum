@@ -24,9 +24,10 @@ The web applications we write will begin to use a [_database_](https://en.wikipe
 1. In any directory, run `$ gem install rails`
 1. Verify that it gives a success message
 
-## Related
+## Related Topics
 
 Related configuration/set-up steps include the following:
 
 - Now is a good time to check that you're still using the preferred version of Ruby.
-- [Rails template](https://guides.rubyonrails.org/rails_application_templates.html), which is one method to set-up how all new Rails applications should look on a local machine. In [the Ada curriculum](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/08-rails/rails-template-setup.md), we will go over this all together as a class, so that we may scaffold every Rails project with our preferred configurations at Ada. If you're looking at this installfest doc for the first time, you shouldn't follow this step.
+- [Rails template](https://guides.rubyonrails.org/rails_application_templates.html), which is one method to set-up how all new Rails applications should look on a local machine. In [the Ada curriculum](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/08-rails/rails-template-setup.md), we will go over this all together as a class, so that we may scaffold every Rails project with our preferred configurations at Ada.
+  - If you aren't being guided in-class to go through installing the rails-template, you shouldn't follow this step. This information is being included in this guide for completeness
