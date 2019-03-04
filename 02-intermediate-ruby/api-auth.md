@@ -63,6 +63,12 @@ https://api.themoviedb.org/3/search/movie?query=hidden%20figures&api_key=<paste 
 
 By the way, all of this is covered in [The Movie DB's documentation](https://developers.themoviedb.org/3). The documentation is where you would go to figure all this out for a new API.
 
+### Resetting Keys
+
+Every once in a while you will find that your keys have been compromised and are no longer secret. Maybe you uploaded them to Git accidentally, they were in the background of a screenshot, or maybe you had them in your clipboard and accidentally pasted them into Slack. Now what?
+
+Fortunately most APIs make it easy to _reset_ your API keys. This will invalidate the old key and generate a new one for you to use. This is true of most of the APIs we'll be using in this class, including Slack and GitHub, but not TMDB.
+
 ## Storing Credentials Securely
 
 This authorization token uniquely identifies and provides access to your account. Just like a password, anyone who has the token can pretend to be you. This means you need to be careful about keeping track of your tokens.
@@ -134,7 +140,7 @@ puts ENV['LUNCH']
 # => tofu scramble
 ```
 
-#### Ignoring `.env`
+### Ignoring `.env`
 
 Our plan is to use the `.env` file to store our secret authentication token, which means we must not check the `.env` file into git. To do so, create a `.gitignore` file and add `.env` to it:
 
