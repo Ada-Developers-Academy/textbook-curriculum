@@ -6,11 +6,11 @@ As we transition from exploring programming fundamentals and making CLI programs
 
 ## Learning Goals
 
-At the end of this lesson, you should be able to
+At the end of this lesson, you should be able to...
 
-1. adjust expectations for what kinds of problems we will be solving
-1. have resources to follow for preparing your computer (development environment) for Ruby on Rails development
-1. have resources to follow for preparing your perspective for Ruby on Rails development
+- adjust expectations for what kinds of problems we will be solving
+- have resources to follow for preparing your computer (development environment) for Ruby on Rails development
+- have resources to follow for preparing your perspective for Ruby on Rails development
 
 <!-- ## Examples of Rails apps -->
 <!-- Maybe add some visuals about different Rails apps? The auditorium lecture for Rails day 1 already includes some of this, though -->
