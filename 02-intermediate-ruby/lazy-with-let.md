@@ -1,29 +1,52 @@
 # Being Lazy With Let
+
 ## Learning Goals
+
 You should be able to:
+
 - DRY up your test code with let & before.
 - Explain how `let` is "lazy" in Minitest.
+
+Consider writing tests for a `Pet` class like this:
+
+```ruby
+# pet.rb
+
+class Pet
+  attr_reader :name
+
+  def initialize(name)
+    @name = name
+  end
+
+  # .. more methods
+end
+```
 
 In your Minitest code you will often find yourself creating instances over and over again in each test case like this:
 
 ```ruby
 it "must have a name" do
-  pet = AdaPets::Pet.new("Fido")
+  pet = Pet.new("Fido")
 
   # expectations go here
 end
 ```
 
-In most test cases we're creating a new identical instance of `Pet` to work with.  This doesn't seem DRY.
+In most test cases we're creating a new identical instance of `Pet` to work with.  This doesn't seem *DRY*.
 
 ## Solution 1:  Before Blocks
 
 One solution is to use Minitest's `before` block.
 
 ```ruby
+require 'minitest/autorun'
+require 'minitest/reporters'
+require 'pet'
+
 describe Pet do
   before do
-    @pet = AdaPets::Pet.new("Fido")
+    @pet = Pet.new("Fido")
   end
 
   it "must respond to name" do
@@ -33,19 +56,27 @@ describe Pet do
 end
 ```
 
-So in the above example the `before` block runs before each test and provides an instance variable `@pet` which we can use in our tests.  The problem with before blocks is that they **always** run before each test case.  Even if we don't want to use `@pet` in a few test cases, like for instance if we want to try creating a Pet with no arguments the before block will still run.
+In the above example the `before` block runs before each test and provides an instance variable `@pet` which we can use in our tests.  This can often serve as a helpful way to DRY testing code.
+
+Unfortunately `before` blocks **always** run before each test case.  Even if we don't want to use `@pet` in a few test cases, like for instance if we want to try creating a Pet with no arguments the before block will still run.
 
 ## Let
 
-Let is another way to DRY up your code.  With Let we create a block which can be referenced in our test cases.
+If you recall, when using `attr_reader :name`, you pass in a _symbol_ (:name), and the `attr_reader` method uses the symbol to create a method with the same name.  
 
+`let` works in a similar fashion.  It takes a symbol for a variable name and a block to give the variable a starting value.  `let` is called an initializer, because it provides an _initial_ value for the given variable name.
+
+The **first** time ruby encounters the variable in a test, it will execute the given block to give the variable an initial value.  Subsequently it will function as a regular local variable.
 
 ```ruby
 # pet_spec.rb
+require 'minitest/autorun'
+require 'minitest/reporters'
+require 'pet'
 
 describe Pet do
   let (:pet)  {              # <-- The name used
-    AdaPets::Pet.new("Fido") # <-- The value returned by 'pet'
+    Pet.new("Fido") # <-- The initial value of 'pet'
   }
 
 
@@ -55,25 +86,28 @@ describe Pet do
 end
 ```
 
-The `let` statement creates a block with the given name (in this case `pet`) and executes the code in the curly braces the first time `pet` is referenced in a test and caches the result for later use.  That's why it's often called "lazy," the code inside the block doesn't execute until the let is first used, in this case when we do `expect(pet.name).must_equal "Fido"`.
+Because the block is only executed the when it is referenced, `let` is often called "lazy," the code inside the block doesn't execute until the variable is first used, in this case when we do `expect(pet.name).must_equal "Fido"`.
 
-In the same test case (`it` block) only the returned value from the block is used. So the let runs for each test case that uses it and doesn't run in test cases where it isn't needed.  Neat!
+The block is only executed the first time the variable is encountered in a given test.  So the let runs **once** for each test case that uses it and **never** in test cases where it isn't needed.  Neat!
 
-Just like `before` each test case sets up autonomously with a fresh `pet` so that no test case will interfere with another.
+Just like `before` each test case runs autonomously with a fresh `pet` so that no test case will interfere with another.
 
 ### Proof that let is lazy
 
-In this example using `before` the statement "Creating a pet named Ada Lovelace" prints twice, once for each `it` block showing that before always runs before a test case.
+In the first example here, when using `before` the statement "Creating a pet named Ada Lovelace" is printed twice, once for each `it` block.
 
 #### Using `before`
 
 ```ruby
 # sample_spec.rb
+require 'minitest/autorun'
+require 'minitest/reporters'
+require 'pet'
 
 describe "Pet" do
   before do
     puts "Creating a pet named Ada Lovelace"
-    @pet = AdaPets::Pet.new("Fido")
+    @pet = Pet.new("Fido")
   end
 
   describe "initialize method" do
@@ -84,7 +118,7 @@ describe "Pet" do
 
     it "Throws an ArgumentError if created without a name" do
       expect {
-        AdaPets::Pet.new
+        Pet.new
       }.must_raise ArgumentError
     end
   end
@@ -109,34 +143,31 @@ Finished in 0.011018s, 272.2817 runs/s, 272.2817 assertions/s.
 
 #### Using `let`
 
-But if we use let instead:
+But if we use let instead the statement is only printed **once** because `pet` is only referenced in one test.
 
 ```ruby
-# pet_spec.rb
+require_relative "spec_helper"
 
 describe "Pet" do
-  let (:pet)  {
+  let (:pet) {
     puts "Creating a pet named Ada Lovelace"
-    AdaPets::Pet.new("Fido")
+    Pet.new("Fido")
   }
-
 
   describe "initialize method" do
     it "New Pets initialize with a name" do
       expect(pet).must_respond_to :name
-      expect(pet).name.must_equal "Ada Lovelace"
+      expect(pet.name).must_equal "Fido"
     end
 
     it "Throws an ArgumentError if created without a name" do
       expect {
-        AdaPets::Pet.new
+        Pet.new
       }.must_raise ArgumentError
     end
   end
 end
 ```
-
-We get
 
 ```bash
 ruby specs/sample_spec.rb
@@ -152,38 +183,13 @@ Finished in 0.005194s, 770.1194 runs/s, 770.1194 assertions/s.
 2 runs, 2 assertions, 0 failures, 0 errors, 0 skips
 ```
 
-Notice the `puts` ran only once, only in the test-case where it was used.  So let can often be more efficient because it's only ran where needed.  Unlike life, in Minitest being lazy pays off!
+Notice the `puts` ran only once using `let`, and only in the test-case where it was used.  So `let` can often be more efficient because it only executes where it is referenced.
 
-### A Longer Let Example:
-
-The below example creates 2 let statements for a pet and a person and uses them together in a batch of tests.  You can use the names defined in let like variable names.
-
-```ruby
-describe "Pet & Person" do
-  let (:pet) { AdaPets::Pet.new("Fido") }
-  let (:person) { AdaPets::Person.new("Ada Lovelace") }
-
-  describe "person for Pet class" do
-
-    it "sets the pet's person" do
-      pet.set_person(person)
-      expect(pet.person).must_be_instance_of AdaPets::Person
-      expect(pet.person.name).must_be_instance_of String
-    end
-
-    it "won't fill the array beyond 7 letters" do
-      pet.set_person(person)
-      expect(pet.person.name).must_equal "Ada Lovelace"
-    end
-
-  end
-end
-```
+Unlike life, in Minitest being lazy pays off!
 
 ## Summary
 
-So `let` is a useful helper method to DRY up your testing code.  With it you can define a block of code that is run only when it is used in your test case and the result saved in the name you provide, in the example above `pet` and `person` so you can use it like a local variable in your test cases.
-
+The `let` method is useful to DRY up your testing code.  With it you can define a block of code that is used to initialize a variable the first time it is used in a test block.
 
 ## Resources
 -  [Minitest let() is Lazy](http://ruby-journal.com/minitest-let-is-lazy/)
