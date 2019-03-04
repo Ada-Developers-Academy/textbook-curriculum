@@ -152,13 +152,23 @@ Solve the following string manipulation practice problems:
 
 ## Books
 Here's a list of suggested books to read or reference:
+### Data Structures, Algorithms and Interview practice
 + [Book: Grokking Algorithms: An illustrated guide for programmers and other curious people by Aditya Bhargava](https://www.amazon.com/Grokking-Algorithms-illustrated-programmers-curious/dp/1617292230/)
 + [Book: Programming Interviews Exposed: Coding Your Way Through the Interview by John Mongan, Noah Suojanen Kindler, Eric Giguere](https://www.amazon.com/Programming-Interviews-Exposed-Through-Interview/dp/111941847X/)
 + [Book: Cracking the Coding Interview: 189 Programming Questions and Solutions by Gayle Laakmann McDowell](https://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/0984782850/)
 + [Book: Introduction to Algorithms by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein](https://www.amazon.com/Introduction-Algorithms-3rd-MIT-Press/dp/0262033844)
+
+### Ruby
 + [Book: Practical Object-Oriented Design in Ruby](https://www.amazon.com/Practical-Object-Oriented-Design-Ruby-Addison-Wesley/dp/0321721330)
+
+### Design patterns and Principles
 + [Book: Agile Software Development, Principles, Patterns and Practices](https://www.amazon.com/Software-Development-Principles-Patterns-Practices/dp/0135974445)
 + [Book: Design Patterns: Elements of Reusable Object-Oriented Software](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612)
+
+### Behind the scenes: Operating Systems, Programming Languages, Compilers, Harware
++ [Book: Programming Languages: Principles and Paradigms](https://www.amazon.com/Programming-Languages-Principles-Paradigms-Undergraduate/dp/1848829132)
++ [Book: Operating System Concepts](https://www.amazon.com/Operating-System-Concepts-Abraham-Silberschatz/dp/1118063333)
++ [Book: Compilers: Principles, Techniques and Tools](https://www.amazon.com/Compilers-Principles-Techniques-Tools-2nd/dp/0321486811)
 + [Book: Hacker's Delight by Henry S. Warren](https://www.amazon.com/Hackers-Delight-2nd-Henry-Warren/dp/0321842685)
 + [Book: Code: The Hidden Language of Computer Hardware and Software by Charles Petzold](https://www.amazon.com/Code-Language-Computer-Hardware-Software/dp/0735611319)
 ---
