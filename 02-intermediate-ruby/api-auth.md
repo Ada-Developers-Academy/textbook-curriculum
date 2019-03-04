@@ -161,7 +161,7 @@ Now it's time to put all these pieces together. Add your MovieDB token from abov
 Debugging will be key here! How will you know whether your program has successfully queried the API? What will you do if it didn't work?
 
 <details>
-<summary>Our implementation</summary>
+<summary>Click to see our implementation.</summary>
 
 ```ruby
 # dotenv_practice.rb
@@ -204,4 +204,17 @@ puts "OK bye"
 
 ## Summary
 
+To use an API that requires credentials from Ruby:
+1. Get an authentication token from the API, typically via their website
+1. Store the token in a `.env` file
+    - Each line has form `KEY=VALUE`
+    - Do not commit this to git!
+1. Use the `dotenv` gem to load environment data
+    - Remember to call `Dotenv.load`
+    - Data will be available in the `ENV` hash
+1. Make an `HTTParty` request using the token
+
 ## Additional Resources
+
+- [`dotenv` gem documentation](https://github.com/bkeepers/dotenv)
+- [Ruby `ENV` documentation](https://ruby-doc.org/core/ENV.html)
