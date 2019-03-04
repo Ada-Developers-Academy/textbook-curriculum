@@ -87,9 +87,9 @@ Success!
 
 Having a script that always runs the same way is useful, but sometimes you want some information from the user.  We've done this in the past by using `gets` from inside of Ruby however there's another approach that's often simpler.
 
-You've used command line arguments before in the terminal.  When you run `cd Desktop` you are calling the `cd` command with the argument `Desktop`.
+You've used command line arguments before in the terminal.  When you run `cd Desktop` you are calling the `cd` command with the argument `Desktop`.  Command line arguments are like method arguments except they are for the entire program.
 
-If you want to do the same thing from inside of your Ruby script the `ARGV` constant is an array containing all of the command line arguments passed to your program.
+If you want to access command line arguments from inside of your Ruby script the `ARGV` constant is an array containing all of the command line arguments passed to your program.
 
 ### A Note on Command Line Arguments
 
