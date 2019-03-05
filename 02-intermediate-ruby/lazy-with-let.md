@@ -60,7 +60,7 @@ In the above example the `before` block runs before each test and provides an in
 
 Unfortunately `before` blocks **always** run before each test case.  Even if we don't want to use `@pet` in a few test cases, like for instance if we want to try creating a Pet with no arguments the before block will still run.
 
-## Let
+## Solution 2: Let
 
 If you recall, when using `attr_reader :name`, you pass in a _symbol_ (:name), and the `attr_reader` method uses the symbol to create a method with the same name.  
 
@@ -86,7 +86,7 @@ describe Pet do
 end
 ```
 
-Because the block is only executed the when it is referenced, `let` is often called "lazy," the code inside the block doesn't execute until the variable is first used, in this case when we do `expect(pet.name).must_equal "Fido"`.
+Because the block is only executed the when it is referenced, `let` is often called "lazy."  The code inside the block doesn't execute until the variable is first used, in this case when we do `expect(pet.name).must_equal "Fido"`.
 
 The block is only executed the first time the variable is encountered in a given test.  So the let runs **once** for each test case that uses it and **never** in test cases where it isn't needed.  Neat!
 
