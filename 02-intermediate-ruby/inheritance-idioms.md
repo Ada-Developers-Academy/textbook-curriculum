@@ -61,7 +61,9 @@ Again, let us begin with a definition:
 
 <details>
 <summary>Click for the answer</summary>
+  
 Object, CsvRecord from the project
+
 </details>
 
 Returning to our example from [the previous lesson](object-inheritance.md), `Property` would be a good candidate for an abstract class. Instead of creating a generic `Property`, it would make more sense to always create an `Apartment`, `Condo`, or `House`.
