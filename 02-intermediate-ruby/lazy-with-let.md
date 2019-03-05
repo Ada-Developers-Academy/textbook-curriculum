@@ -37,7 +37,7 @@ In most test cases we're creating a new identical instance of `Pet` to work with
 
 ## Solution 1:  Before Blocks
 
-One solution is to use Minitest's `before` block.
+One solution is to use Minitest's `before` block.  In Minitest a `before` block runs before each test case, which allows you to dry up common code in the arrange step of testing.
 
 ```ruby
 require 'minitest/autorun'
