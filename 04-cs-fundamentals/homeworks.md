@@ -8,10 +8,10 @@ Feb 20       | [Essential Mathematics for software engineers](#essential-mathema
 Feb 20       | [Binary and Memory - Part 1](#binary-and-memory)
 Feb 27       | [Binary and Memory - Part 2](#binary-and-memory)
 Feb 27       | Submit PR for [Ada-C11/array_equals](https://github.com/Ada-C11/array_equals)
-Mar 13, 20   | Submit PR for [Ada-C11/Restricted-Arrays-Part1](https://github.com/Ada-C11/Restricted-Arrays-Part1)
-Mar 13       | Watch this [Video: Big O Notation](https://www.youtube.com/watch?v=v4cd1O4zkGw) by Gale Laakmann McDowell
-Mar 13       | Solve this [quiz](https://www.khanacademy.org/computing/computer-science/algorithms/asymptotic-notation/e/quiz--comparing-function-growth) by Khan Academy.
-Mar 13       | Solve this [quiz](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/time%20complexity/time_complexity_quiz.md).
+Mar 20       | Submit PR for [Ada-C11/Restricted-Arrays-Part1](https://github.com/Ada-C11/Restricted-Arrays-Part1)
+Mar 20       | Watch this [Video: Big O Notation](https://www.youtube.com/watch?v=v4cd1O4zkGw) by Gale Laakmann McDowell
+Mar 20       | Solve this [quiz](https://www.khanacademy.org/computing/computer-science/algorithms/asymptotic-notation/e/quiz--comparing-function-growth) by Khan Academy.
+Mar 20       | Solve this [quiz](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/time%20complexity/time_complexity_quiz.md).
 Mar 20       | Submit PR for [Ada-C11/string_reverse](https://github.com/Ada-C11/string_reverse)
 Apr 03       | Submit PR for [Ada-C11/reverse_words](https://github.com/Ada-C11/reverse_words)
 Apr 03       | Read and understand [Sorting algorithms](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Sorting.md)
