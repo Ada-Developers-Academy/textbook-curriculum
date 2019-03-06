@@ -20,7 +20,8 @@ Requiring users to have an account has many benefits for API maintainers:
 
 _Authentication_ is a branch of computer security that deals with the questions "who are you and how can I trust you".
 
-Authentication is distinct from _authorization_, which answers the question "what am I allowed to do?". Both start with "auth", which can be a little confusing. Here's a way to remember which is which:
+Authentication is distinct from _authorization_. Authorization answers the question "what am I allowed to do?". Both start with "auth", which can be a little confusing. Here's a way to remember which is which:
+
 - **Authentication:** is this request _authentic_, did it really come from you?
 - **Authorization:** are you _authorized_ to do that action?
 
