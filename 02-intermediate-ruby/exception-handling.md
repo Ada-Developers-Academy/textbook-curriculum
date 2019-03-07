@@ -198,7 +198,7 @@ If we expect a method to raise an exception and it doesn't, that's a bug! This m
 
 ```ruby
 it "Raises an ArgumentError when given an invalid word" do
-  proc {
+  expect {
     Scrabble::Scoring.score("1337")
   }.must_raise ArgumentError
 end
