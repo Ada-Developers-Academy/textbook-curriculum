@@ -93,7 +93,7 @@ Imagine that we are building a piece of software for a company that publishes bo
 - All the books published by this company, including title, author and ISBN
 - All the bookstores that buy books published by this company, and what books they currently have on order
 
-Work with your seat squad to answer the following questions:
+Work with your neighbors to answer the following questions:
 
 - What classes might this application need?
   - What responsibility does each class have?

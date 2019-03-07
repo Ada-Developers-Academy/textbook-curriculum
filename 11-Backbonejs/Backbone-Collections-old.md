@@ -99,7 +99,7 @@ And we can replace the `.each` loop in `$(document).ready` with `renderList(task
 
 #### Check-in
 
-With your Seatsquad check and verify that you can both display the todo list using the Collection and can add Tasks to the list.
+With your neighbors check and verify that you can both display the todo list using the Collection and can add Tasks to the list.
 
 You can see a working solution [here](https://gist.github.com/CheezItMan/bbb9465a88d16412243dd1abadee8a21).
 
@@ -126,7 +126,7 @@ $('#add-task').click( function() {
 
 ### Check-in
 
-Check and verify with your SeatSquad member that you can now add task items to your list.
+Check and verify with your neighbor that you can now add task items to your list.
 
 You can see a working version [here:](https://gist.github.com/CheezItMan/f6ca39005274ec23d79060384dbf944b)
 
@@ -214,7 +214,7 @@ To review, the code above:
 
 #### Check-In
 
-Verify with your SeatSquad member that you both have it working.  You can see a working solution [here:](https://gist.github.com/CheezItMan/b77634f6d017227cf440481e232c74e1)
+Verify with your neighbor that you both have it working.  You can see a working solution [here:](https://gist.github.com/CheezItMan/b77634f6d017227cf440481e232c74e1)
 
 
 ## What Have We Accomplished?

@@ -124,7 +124,7 @@ to:
     test.skip('isPangram() is defined', () => {
 ```
 
-## Exercise With A Seatsquad Partner
+## Exercise With A Neighbor
 
 Read through the couple of implemented tests in `textblock.spec.js` and the stubbed out tests.
 

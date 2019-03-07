@@ -22,7 +22,7 @@ Sometimes when we have an array of elements, we want a new array that is based o
 
 Let's think of an example situation. Let's say you have an array of strings that represent food items `food_items`, and you want to make a new array `spicy_food_items` of all of those food items with `"spicy"` before each item name.
 
-How would you do it? Talk through your strategy with your seat squad.
+How would you do it? Talk through your strategy with your neighbors.
 
 ### Initial approach without an `Enumerable` method
 

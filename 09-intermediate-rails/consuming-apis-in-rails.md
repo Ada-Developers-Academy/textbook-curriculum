@@ -166,7 +166,7 @@ The last step is to call our new API wrapper, so that we can build a nice websit
 This will all take place in `app/controllers/chat_controller.rb`
 
 #### Exercise
-Work with your seat squad to complete the controller actions to tie together the API wrapper code we've written with your existing knowledge of the Rails request cycle.
+Work with your neighbors to complete the controller actions to tie together the API wrapper code we've written with your existing knowledge of the Rails request cycle.
 
 1. First, we want to set up the controller to show the list of channels from the API.
 

@@ -1,6 +1,6 @@
 # Intro to React
 
-Complete this worksheet with your seat squad. Some items are questions, some items are exercises to extend your hello world React application.
+Complete this worksheet with your neighbors. Some items are questions, some items are exercises to extend your hello world React application.
 
 ## Test your Knowledge
 

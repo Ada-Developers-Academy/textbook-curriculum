@@ -57,7 +57,7 @@ addPet = (petInfo) => {
 
 **Checking In**
 
-Now observe what happens when we submit the form in our application. Check in with your seat squad to be sure that you've got the post request set up successfully.
+Now observe what happens when we submit the form in our application. Check in with your neighbors to be sure that you've got the post request set up successfully.
 
 ## Key Takeaway
 Making a POST request from our React application is very similar to the GET request. We continue to utilize `state` within React as our primary mechanism for storing and updating data that will be displayed to our users.

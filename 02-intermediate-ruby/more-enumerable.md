@@ -28,7 +28,7 @@ The key is elephant and the value is hotdog.
 ```
 
 ### Hash Practice
-With your seat squad, create a file called `enum-hash.rb`. Open it in your editor and add this code:
+With your neighbors, create a file called `enum-hash.rb`. Open it in your editor and add this code:
 
 ```ruby
 # enum-hash.rb
