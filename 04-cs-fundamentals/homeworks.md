@@ -63,11 +63,43 @@ Videos and additional reading material for furthering your learning for curiosit
 + Read about [Asymptotic Notation](https://www.khanacademy.org/computing/computer-science/algorithms#asymptotic-notation) by Khan Academy.
 ---
 
-### Linked Lists
+### Recursion
+Recommended homework exercises related to recursion:
+1. This content assumes a good understanding of [understand a function call](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Understanding%20function%20calls.md)
+1. Define terms, practice tracing and deduce the time and space complexities for problems in [Ada-C11/recursion-tracing](https://github.com/Ada-C11/recursion-tracing). Answer key for reference can be found [here](https://github.com/Ada-C11/recursion-tracing/tree/solutions)
+1. Design and implement recursive algorithms and explain the time and space complexities of your solution for the problems in [Ada-C11/recursion-writing](https://github.com/Ada-C11/recursion-writing). One approach to implementing the solutions can be found [here](https://github.com/Ada-C11/recursion-writing/tree/solution)
+1. [Set 1: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion/)
+1. [Set 2: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-2/)
+1. [Set 3: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-3/)
+1. [Set 4: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-4/)
+1. [Set 5: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-5/)
+1. [Set 6: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-6/)
+1. [Set 7: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-7/)
 
-Assignments:
-+ Create .rb file and define the Linked List and Node classes keeping object oriented principles in mind. Author methods to add a value, search for a value, count the number of entries and delete a value from the linked list, assuming that the values in each nodes are integers. Be mindful of when the linked list is empty (before adding the first node, after deleting the last node etc.) in your methods.
-+ Do the above for a singly linked list and a separate file for a doubly linked list.
+[Optional] Additional resources for reading and exercises:
+  + Khan Academy on [Recursion](https://www.khanacademy.org/computing/computer-science/algorithms#recursive-algorithms)
+  + Cornell CS211 Lecture Notes on [Recursion] (http://www.cs.cornell.edu/info/courses/spring-98/cs211/lecturenotes/07-recursion.pdf)
+---
+
+### Linked Lists
+Repeat the following for <b>singly linked list</b> and <b>doubly linked list</b>.
++ Using object oriented design principles, create a LinkedList class and a Node class.
++ Design an algorithm, deduce the space and time complexity and then, author functions to do the following:
+  1. Add a new node with the specific input data value in the linked list. Insert the new node at the beginning of the linked list
+  2. Check if the linked list contains a node with specified input value. Returns true if found, false otherwise.
+  3. Return the max value in the linked list. Returns the data value and not the node. (Assume that the data is an integer value).
+  4. Return the min value in the linked list. Returns the data value and not the node. (Assume that the data is an integer value).
+  5. Return the count of nodes in the singly linked list.
+  6. Return the value of the nth node from the beginning. *n* is the input to the method.
+     Assume indexing starts at 0 while counting to n.
+  7. Insert a new node with specific input data value, assuming the linked list is sorted in ascending order.
+  8. Print the value of each node in the singly linked list separated by a space.
+  9. Delete the first node found with the specified input data value.
+  10. Reverse the singly linked list. The nodes should be moved and not just the values in the nodes.
+  11. Returns the value at the middle node in the singly linked list.
+      If the node count is even, pick one of the two middle values to return.
+  12. Find the nth node from the end of the linked list and return its value. Assume indexing starts at 0 while counting to n.
+  13. Check if the linked list has a cycle. A cycle exists if any node in the linked list links to a node already visited. Returns true if a cycle is found, false otherwise.
 
 [Optional] Additional resources:
 + Kal academy's material on [Linear Data Structures](https://drive.google.com/open?id=0BxHords9odw3cDhCdGMxcWFVRms)
@@ -81,30 +113,51 @@ Assignments:
 + CareerCup [Linked List Interview Questions](https://www.careercup.com/page?pid=linked-lists-interview-questions)
 ---
 
-### Recursion
-Recommended homework exercises related to recursion:
-1. This content assumes a good understanding of [understand a function call](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Understanding%20function%20calls.md)
-1. Define terms, practice tracing and deduce the time and space complexities for problems in [Ada-C11/recursion-tracing](https://github.com/Ada-C11/recursion-tracing). Answer key for reference can be found [here](https://github.com/Ada-C10/recursion-tracing/tree/solutions)
-1. Design and implement recursive algorithms and explain the time and space complexities of your solution for the problems in [Ada-C11/recursion-writing](https://github.com/Ada-C10/recursion-writing). One approach to implementing the solutions can be found [here](https://github.com/Ada-C11/recursion-writing/tree/solution)
-1. [Set 1: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion/)
-1. [Set 2: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-2/)
-1. [Set 3: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-3/)
-1. [Set 4: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-4/)
-1. [Set 5: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-5/)
-1. [Set 6: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-6/)
-1. [Set 7: Practice question for Recursion](http://www.geeksforgeeks.org/practice-questions-for-recursion-set-7/)
----
-
 ### Binary Search Trees
-1. Create a Binary Search Tree class and define methods. Create one version with recursive methods. Create another version with iterative methods. Explain the time and space complexity of the methods.
++ Design <b>recursive algorithms</b>, deduce the space and time complexity and then, author functions to do the following. For each of the problems below, assume you are given a Binary Search Tree where each node contains an integer data and links to the left and right children nodes.
+  1. Search for a given integer value in the Binary Search Tree. Return true if the value is found, false otherwise.
+  2. Insert a given integer value in the Binary Search Tree.
+  3. Compute the height of the Binary Search Tree.
+  4. Print values in the Binary Search Tree in pre-order.
+  5. Print values in the Binary Search Tree in in-order.
+  6. Print values in the Binary Search Tree in post-order.
+  7. Print values in the Binary Search Tree in level-order. (Breadth-first traversal)
+  8. Delete a given value from the Binary Search Tree.
+
++ Design <b>iterative algorithms</b> for the first seven exercises above, deduce the space and time complexity and author the functions to implement them. You may use additional data structures (i.e. a Stack or Queue holding references or pointers to the nodes in the tree).
+
++ [Optional] Resources for reading:
+   + [Trees](https://drive.google.com/drive/u/0/folders/0B6DpS0ihYV31alhKR2NKc3BuUGc)
+   + Kal academy's material on [BSTs](https://drive.google.com/open?id=0BxHords9odw3ZXRGUlBZTHEta2M)
+   + Kal academy's material on [Balanced BST](https://drive.google.com/open?id=0BxHords9odw3Sk5VZE9heWJjUXM)
+   + Kal academy's material on [Bit Arrays](https://drive.google.com/open?id=0BxHords9odw3ZU11dzBtWkxCMjQ)
+   + Read about [Tree Traversals](http://www.geeksforgeeks.org/618/) and watch videos on GeeksForGeeks
+   + Read about [Binary Tree Introduction](http://quiz.geeksforgeeks.org/binary-tree-set-1-introduction/) on GeeksForGeeks
+   + Read about [Binary Tree Properties](http://quiz.geeksforgeeks.org/binary-tree-set-2-properties/) on GeeksForGeeks
+   + Read about [Types of Binary Tree](http://quiz.geeksforgeeks.org/binary-tree-set-3-types-of-binary-tree/) on GeeksForGeeks
+   + Stanford CS Education Library material on [Binary Trees](http://cslibrary.stanford.edu/110/)
+   + Stanford CS Education Library material on [Tree List Recursion Problem](http://cslibrary.stanford.edu/109/)
+   + Cornell CS211 Lecture Notes on [Lists, Priority Queues and Binary Search Trees](http://www.cs.cornell.edu/info/courses/spring-98/cs211/lecturenotes/06-ListsPQsBSTs.pdf)
+   + MIT Open Courseware on [Breadth First Search](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/lecture-13-breadth-first-search-bfs/)
+   + MIT Open Courseware on [Depth First Search](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/lecture-14-depth-first-search-dfs-topological-sort/)
+   + MIT Open Courseware on [Binary Search Trees, BST Sort](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/lecture-5-binary-search-trees-bst-sort/)
+   
++ [Optional] Resources for exercises:
+   + Convert a given integer array e.g. {5,2,1,6,7,3,4} to a Binary Search Tree.
+   + Find the height of a BST using an iterative solution.
+   + Given 2 Binary Trees (not BST), return true if both trees have the same in-order else return false. Note: You can save in-order from both trees and compare in the end (try implementing this as well). Can you inorder traverse them parallely and stop the traversal on a mismatch to return false instead?
+   + In "Cracking the Coding Interview" book, "Chapter 4: Trees and Graphs"
+   + CareerCup [Trees and Graph Interview Questions](https://www.careercup.com/page?pid=trees-and-graphs-interview-questions) - scan and look for the tree interview questions.
+   + Kal academy's problems on [Trees](https://drive.google.com/open?id=0BxHords9odw3b2d1ZTJtVkZZTkk)
+
 ---
 
 ### Stacks and Queues
 Keeping object oriented design principles in mind, implement the following:
-1. Implement a Stack using an array to hold integer data
-1. Implement a Stack using a linked list to hold integer data
-1. Implement a Queue using an array to hold integer data
-1. Implement a Queue using a linked list to hold integer data
+1. Implement a Stack using an array to hold integer data (implement push(e) and pop() method)
+1. Implement a Stack using a linked list to hold integer data (implement push(e) and pop() method)
+1. Implement a Queue using an array to hold integer data (implement enqueue() and dequeue(e) method)
+1. Implement a Queue using a linked list to hold integer data (implement enqueue() and dequeue(e) method)
 1. Add the following functions to each of the above:
     * Empty() which returns true is the data structure is empty, false otherwise
     * Size() which returns the number of items in the data structure
