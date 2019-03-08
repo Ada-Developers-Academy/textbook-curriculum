@@ -56,7 +56,9 @@ describe Pet do
 end
 ```
 
-In the above example the `before` block runs before each test and provides an instance variable `@pet` which we can use in our tests.  This can often serve as a helpful way to DRY testing code.
+In the above example the `before` block runs before each test and provides an instance variable `@pet` which we can use in our tests.  This can often serve as a helpful way to DRY testing code.  It's also important to note that a `before` block runs prior to any `it` block inside the same `describe`.  
+
+![before example](images/before.png)
 
 Unfortunately `before` blocks **always** run before each test case.  Even if we don't want to use `@pet` in a few test cases, like for instance if we want to try creating a Pet with no arguments the before block will still run.
 
