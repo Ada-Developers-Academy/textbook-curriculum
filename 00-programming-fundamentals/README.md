@@ -28,3 +28,7 @@ Programming topics not directly related to Ruby development.
 1. [Diff Pull & Merge](git-diff-pull-and-merge.md)
 1. [Managing Git branches](managing-git-branches.md)
 1. [Merge Conflicts](git-merge-conflicts.md)
+
+## Miscellaneous
+1. [Intro to Scripting](intro-to-scripts.md)
+1. [Intro to Regular Expressions](intro-to-regex.md)
