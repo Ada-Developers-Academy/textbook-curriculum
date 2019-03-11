@@ -135,7 +135,7 @@ We can simplify this down a bit by creating a `specs/spec_helper.rb`.  So now al
 # specs/spec_helper.rb
 require 'simplecov'
 SimpleCov.start do
-  add_filter %r{^/specs/}
+  add_filter %r{^/specs?/}
 end
 require 'minitest'
 require 'minitest/autorun'
