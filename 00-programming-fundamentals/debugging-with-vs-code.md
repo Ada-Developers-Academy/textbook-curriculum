@@ -169,6 +169,12 @@ Okay, so we have stepped forward, and we've seen a change right before our eyes.
 
 At this point, we would use the information we gathered during our debugging to fix the code, or, if the problem didn't arise, we might try again with new parameters.
 
+## But We Can't Have Nice Things
+
+So, this is very powerful functionality, but if we leave our configuration in the `launch.json` we aren't going to have access to them whenever we start a new project. As things are set up right now, we would need to copy this `launch.json` into every project, forever. 
+
+We are going to fix this by making a change to the settings in VS Code. Using `⌘,` or  the drop down menu as seen below, open the settings menu.
+
 ## Wrapping Up
 
 Hopefully at this point you feel comfortable enough with VS Code's debugger that you could set it up on your own machine and get started the next time you run into issues. 
