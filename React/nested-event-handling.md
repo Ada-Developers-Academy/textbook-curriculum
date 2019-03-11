@@ -127,7 +127,7 @@ Note that we're passing in a new `isPresent` prop here. How could we modify our 
 ## Modify `state` using an event
 Listing out our students is great, but what if we could also track attendance? Let's do it! We'll set up a button for each student. When pressed, this button will update the `state` data for that student to mark them as "present". Additionally, we'll add some CSS so that students who have been marked "present" will be identified to the user.
 
-There are a few things to consider when making this change to our application. Think about these questions with your seat squad.
+There are a few things to consider when making this change to our application. Think about these questions with your neighbors.
 1. Which component should contain the button that will enable us to mark an individual student as "present"?
 2. Which component is managing the student data?
 3. Is the answer to #1 the same as #2?

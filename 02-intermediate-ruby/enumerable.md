@@ -90,7 +90,7 @@ In a group of 4, you shall research each of these `Enumerable` methods. Prepare 
 - `drop_while` & `take_while`
 
 ## Activity: Refactor Loops
-Let's take what we just learned about `Enumerable` and apply that to the [Loop Problem Practice](./exercises/loop-practice.md) that we did previously. Work with your seat squad to refactor each problem to use one of these `Enumerable` methods we just learned about.
+Let's take what we just learned about `Enumerable` and apply that to the [Loop Problem Practice](./exercises/loop-practice.md) that we did previously. Work with your neighbors to refactor each problem to use one of these `Enumerable` methods we just learned about.
 
 ## Additional Resources
 - For more information on Mixins, read up on it in [this chapter](mixins.md)

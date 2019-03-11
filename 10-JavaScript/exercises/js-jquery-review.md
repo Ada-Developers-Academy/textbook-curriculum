@@ -8,11 +8,11 @@
 
 ## Fundamentals Questions
 
-For the following section, practice the following process with your seat squad:
-- Read the question with your seat squad
+For the following section, practice the following process with your neighbors:
+- Read the question with your neighbors
 - Answer it on your own
 - Check the answer
-- Check-in with your seat squad: Do you or your seat squad have any questions?
+- Check-in with your neighbors: Do you or your neighbors have any questions?
 
 ---
 1. What is the following code snippet doing?
@@ -111,7 +111,7 @@ sayLoudGreeting( sayHi );
 <details>
 
   <summary>
-    There's actually no answer for this one, please just discuss it a little with your seat squad. :)
+    There's actually no answer for this one, please just discuss it a little with your neighbors. :)
   </summary>
 
   :) :) :)
