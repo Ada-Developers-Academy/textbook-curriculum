@@ -169,11 +169,21 @@ Okay, so we have stepped forward, and we've seen a change right before our eyes.
 
 At this point, we would use the information we gathered during our debugging to fix the code, or, if the problem didn't arise, we might try again with new parameters.
 
-## But We Can't Have Nice Things
+## Make it Portable
 
 So, this is very powerful functionality, but if we leave our configuration in the `launch.json` we aren't going to have access to them whenever we start a new project. As things are set up right now, we would need to copy this `launch.json` into every project, forever. 
 
 We are going to fix this by making a change to the settings in VS Code. Using `⌘,` or  the drop down menu as seen below, open the settings menu.
+
+![Drop down Code, drop down Preferences, click Settings.](images/debug_settings_1.png "Drop down Code, drop down Preferences, click Settings.")
+
+When you have opened the settings, the bar at the top will have a curly brace icon as seen below. Clicking on it will open your `settings.json` for VS Code.
+
+![The settings page has a pair of curly braces to the right {}.](images/debug_settings_2.png "The settings page has a pair of curly braces to the right {}.")
+
+With the `settings.json` open, we can now add the contents of our original `launch.json` as follows.
+
+![The functional part of the original json is now in a new field called 'launch'.](images/debug_settings_3.png "The functional part of the original json is now in a new field called 'launch'.")
 
 ## Wrapping Up
 
