@@ -12,7 +12,7 @@ By the end of this lesson students should be able to...
 
 ## What is a Script?
 
-By now you should be familiar with a variety of different commands from the terminal.  Things like `ls` and `touch`.  However, it turns out macOS doesn't come with _every_ command you could ever want.  Things like the `code` and `brew` commands are once you added yourself.
+By now you should be familiar with a variety of different commands from the terminal.  Things like `ls` and `touch`.  However, it turns out macOS doesn't come with _every_ command you could ever want.  Things like the `code` and `brew` commands are ones you added yourself.
 
 A "script" is a command written in a "Scripting Language," luckily you already know one, Ruby!  Scripting languages are special in that they are designed to be easy to read _and_ run.  If you were to open the `ls` command all you are would see is a bunch of gibberish.
 
@@ -20,7 +20,7 @@ A "script" is a command written in a "Scripting Language," luckily you already k
 
 Start by downloading this [demo script](./demo-script.rb)!
 
-You should already be familiar with the simplest way to run a Ruby script.  You can `ruby ./demo-script.rb`.  If a script is properly formatted with a magic comment at the top you can run it with `./demo-script.rb` leaving off the `ruby` from the front.
+You should already be familiar with the simplest way to run a Ruby script.  You can `ruby ./demo-script.rb`.  If a script is properly formatted with a special comment at the top you can run it with `./demo-script.rb` leaving off the `ruby` from the front.
 
 However, you'll notice you don't have to run `/usr/local/bin/brew` but can just run `brew`.
 
@@ -50,9 +50,9 @@ Once you open a new terminal you should now be able to type `demo-script.rb` no 
 
 ## Shebang
 
-We call the magic comment at the top of `demo-script.rb` a "shebang".  Because it starts with a `#` (a hash) and a `!` (a bang).  We say "shebang" instead of "hashbang" because programmers like being cute.
+We call the special comment at the top of `demo-script.rb` a "shebang".  Because it starts with a `#` (a hash) and a `!` (a bang).  We say "shebang" instead of "hashbang" because programmers like being cute.
 
-The shebang just tells macOS how to run the file.  We're not going to get into why it works (since it's a little complicated) but you just need to know that `#!/usr/bin/env ruby` will let you run a Ruby file from the command line.
+The shebang just tells macOS how to run the file.  We're not going to get into why it works (since it's a little beside the point at the moment) but you just need to know that `#!/usr/bin/env ruby` will let you run a Ruby file from the command line.
 
 The command `/usr/bin/env ruby` here means "look for the version of Ruby in my `$PATH` and run that".
 
