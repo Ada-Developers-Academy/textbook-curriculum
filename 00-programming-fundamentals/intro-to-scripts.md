@@ -52,7 +52,7 @@ Once you open a new terminal you should now be able to type `demo-script.rb` no 
 
 We call the special comment at the top of `demo-script.rb` a "shebang".  Because it starts with a `#` (a hash) and a `!` (a bang).  We say "shebang" instead of "hashbang" because programmers like being cute.
 
-The shebang just tells macOS how to run the file.  We're not going to get into why it works (since it's a little besides the point at the moment) but you just need to know that `#!/usr/bin/env ruby` will let you run a Ruby file from the command line.
+The shebang just tells macOS how to run the file.  We're not going to get into why it works (since it's a little beside the point at the moment) but you just need to know that `#!/usr/bin/env ruby` will let you run a Ruby file from the command line.
 
 The command `/usr/bin/env ruby` here means "look for the version of Ruby in my `$PATH` and run that".
 
