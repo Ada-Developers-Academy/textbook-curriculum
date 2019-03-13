@@ -48,40 +48,40 @@ $ mv demo-script.rb ~/bin/
 
 Once you open a new terminal you should now be able to type `demo-script.rb` no matter what folder you are in!
 
+## Shebang
+
+We call the special comment at the top of `demo-script.rb` a "shebang".  Because it starts with a `#` (a hash) and a `!` (a bang).  We say "shebang" instead of "hashbang" because programmers like being cute.
+
+The shebang just tells macOS how to run the file.  We're not going to get into why it works (since it's a little beside the point at the moment) but you just need to know that `#!/usr/bin/env ruby` will let you run a Ruby file from the command line.
+
+The command `/usr/bin/env ruby` here means "look for the version of Ruby in my `$PATH` and run that".
+
 ## Execute Permission
 
 Unfortunately just adding the shebang to the top of your file isn't enough, you also need to tell the macOS that you want to be able to run it as a command.
 
-Consider `demo-script.rb`:
+Copy/paste the following into `my-new-script.rb`:
 
 ```ruby
 #!/usr/bin/env ruby
 
-puts "Hello, scripting!"
+puts "Success!"
 ```
 
 ```
-$ demo-script.rb
--bash: demo-script.rb: Permission denied
+$ ./my-new-script.rb
+-bash: ./my-new-script.rb: Permission denied
 ```
 
 To give your script permission to run you need to give it execute permission.  You can do this with:
 
 ```sh
-$ chmod +x ~/bin/demo-script.rb
+$ chmod +x my-new-script.rb
 
-# Now if you try to run demo-script.rb it works!
-$ demo-script.rb
-Hello, scripting!
+# Now if you try to run my-new-script.rb it works!
+$ ./my-new-script.rb
+Success!
 ```
-
-## Shebang
-
-Now that we have our script running, let's dive into the details. We call the special comment at the top of `demo-script.rb` a "shebang".  Because it starts with a `#` (a hash) and a `!` (a bang).  We say "shebang" instead of "hashbang" because programmers like being cute.
-
-The shebang just tells macOS how to run the file.  We're not going to get into why it works (since it's a little besides the point at the moment) but you just need to know that `#!/usr/bin/env ruby` will let you run a Ruby file from the command line.
-
-The command `/usr/bin/env ruby` here means "look for the version of Ruby in my `$PATH` and run that".
 
 ## Command Line Arguments and `ARGV`
 
@@ -93,7 +93,7 @@ If you want to access command line arguments from inside of your Ruby script the
 
 ### A Note on Command Line Arguments
 
-Command line arguments are always strings and are split on whitespace.  Consider a script `greet.rb` that would take in one name as its only argument, such as `Ada Lovelace`. If you call `./greet.rb Ada Lovelace` you're calling `./greet.rb` with two arguments `Ada` and `Lovelace`.  If you want that to be a single argument you need to surround it in quotes (either single or double) like `./greet.rb 'Ada Lovelace'`.
+Command line arguments are always strings and are split on whitespace.  If you call `./greet.rb Ada Lovelace` you're calling `./greet.rb` with two arguments `Ada` and `Lovelace`.  If you want that to be a single argument you need to surround it in quotes (either single or double) like `./greet.rb 'Ada Lovelace'`.
 
 Similarly because everything is a string we need to convert our arguments from a string.
 
