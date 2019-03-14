@@ -1,7 +1,5 @@
 # Testing APIs
 
-# TODO: No Rails
-
 ## Learning Goals
 - Identify the areas of APIs that we want to test
 - Utilize VCR to snapshot API calls
@@ -25,7 +23,7 @@ Each interaction is recorded as a **cassette**. We can load cassettes in our tes
 ### Installation
 1. **Test Config**
 
-  In your `test_helper.rb` file, add the following code:
+  In your `spec_helper.rb` file, add the following code:
   ```ruby
   require 'vcr'
   require 'webmock/minitest'
@@ -49,7 +47,7 @@ Each interaction is recorded as a **cassette**. We can load cassettes in our tes
 
   The last section, beginning with `config.filter_sensitive_data`, tells VCR not to put your slack token into the cassette file, instead replacing it with the string `"<SLACK_TOKEN>"`. That way when the cassettes end up in your git repo, you won't be exposing your secrets to the world. You'll need a separate call to `config.filter_sensitive_data` for every piece of data you want to omit from your cassettes.
 
-  Cassette files usually should be checked into git - they fill the same role as test fixtures.
+  Cassette files usually should be checked into git as they fill a similar role to spec files.
 
 1. **Tests**
 
@@ -61,7 +59,7 @@ Each interaction is recorded as a **cassette**. We can load cassettes in our tes
   it "Can send valid message to real channel" do
     VCR.use_cassette("channels") do
       message = "test message"
-      response = SlackApiWrapper.send_msg("<CHANNELID>", message)
+      response = SlackApiWrapper.send_msg("<CHANNELID>", message) 
       response["ok"].must_equal true
       response["message"]["text"].must_equal message
     end
@@ -81,8 +79,18 @@ Each interaction is recorded as a **cassette**. We can load cassettes in our tes
 
 Once you run a test that uses VCR, you'll notice that there will be a file in the `test/cassettes` folder with the name corresponding to the parameter provided in the `use_cassette` method.
 
-If you expect the response data to change, you must delete the cassette file.
+If you expect the response data to change, _you must delete the cassette file._
 
 Once the cassette file is created, how do we know that our tests are not still calling the API directly? One (very manual) way of doing this is by turning off your Wifi. If you ensure you have the VCR cassette files, then turn off your Wifi and run your tests again, your tests should still pass! Huzzah!
 
-**Note** You will also need to place the `VCR.use_cassette` block around your controller tests as well.  Otherwise your controller tests, which use the API will fail.
+## Wrap Up
+
+Our process for testing with VCR is as follows:
+
+1. Ensure that we are using `dotenv` to hide any personal information or secrets that we might have to send as part of a test
+
+1. Write and run our tests as normal
+
+1. Check to see that our cassettes have been instansiated.
+
+1. When a test needs to change, delete the existing cassette and proceed from step 2.
