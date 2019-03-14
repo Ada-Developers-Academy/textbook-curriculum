@@ -23,23 +23,15 @@ Each interaction is recorded as a **cassette**. We can load cassettes in our tes
 ![VCR](images/vcr.jpg)
 
 ### Installation
-1. **Gem**
-
-  There are a few gems that we want to include to test using VCR. First, we'll load those into our `development` and `test` sections.
-
-  ```ruby
-  group :development, :test do
-    gem 'minitest-vcr'
-    gem 'webmock'
-  end
-  ```
-
-2. **Test Config**
+1. **Test Config**
 
   In your `test_helper.rb` file, add the following code:
   ```ruby
   require 'vcr'
   require 'webmock/minitest'
+  require 'dotenv'
+
+  Dotenv.load
 
   VCR.configure do |config|
     config.cassette_library_dir = 'test/cassettes' # folder where casettes will be located
@@ -59,7 +51,7 @@ Each interaction is recorded as a **cassette**. We can load cassettes in our tes
 
   Cassette files usually should be checked into git - they fill the same role as test fixtures.
 
-3. **Tests**
+1. **Tests**
 
   Now you're ready to test your API!!
 
