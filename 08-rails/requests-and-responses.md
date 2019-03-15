@@ -1,4 +1,9 @@
 # Requests and Responses: HTTP Verbs, CRUD, and Status Codes
+
+<!-- NB: if you update this text, please also update the similar text in ../02-intermediate-ruby/api-intro.md -->
+
+In this lesson we will revisit the request/response cycle from the perspective of a Rails server.
+
 ## Learning Goals
 
 - Learn about the different kinds of HTTP requests (the HTTP _verbs_)
@@ -8,7 +13,7 @@
 
 ## Introduction
 
-One of the most important ideas in web development is the _request-response cycle_:
+One of the most important ideas in web development is the _request-response cycle_. We've seen this list before, but the examples are slightly different this time.
 
 1. **User** (a human) takes some action in the browser (click a link, submit a form) to begin the cycle
 1. **Client** (the browser) makes a _request_ to the server
@@ -22,7 +27,7 @@ We can shorten this to 3 major steps:
 1. Processing
 1. Response
 
-![Request response overview](images/request_response_overview.png)
+![Request response overview](../02-intermediate-ruby/images/apis/request_response_overview.png)
 <!-- https://www.draw.io/#G17ynKwAoksm5XSU5tqEsDiGuMz_UwZByl -->
 
 In our Rails unit we will mostly be focused on the processing step, but it is important to understand the context in which it occurs. This step is also the main difference between the static _websites_ we built previously and the dynamic _web applications_ we will now build - with a static site, there's no processing.
