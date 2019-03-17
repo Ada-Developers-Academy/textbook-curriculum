@@ -32,3 +32,4 @@ Programming topics not directly related to Ruby development.
 ## Miscellaneous
 1. [Intro to Scripting](intro-to-scripts.md)
 1. [Intro to Regular Expressions](intro-to-regex.md)
+1. [Commands and Queries](commands-queries.md)
