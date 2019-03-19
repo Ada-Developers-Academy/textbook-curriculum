@@ -28,28 +28,33 @@ Each interaction is recorded as a **cassette**. We can load cassettes in our tes
 1. **Test Config**
 
     In your `spec_helper.rb` file, add the following code:
-    ```ruby
-    require 'vcr'
-    require 'webmock/minitest'
-    require 'dotenv'
+```ruby
+require "minitest/autorun"
+require "minitest/reporters"
+require "vcr"
+require "webmock/minitest"
+require "dotenv"
+Dotenv.load
 
-    Dotenv.load
+require_relative "../lib/seven_wonders"
 
-    VCR.configure do |config|
-      config.cassette_library_dir = 'test/cassettes' # folder where casettes will be located
-      config.hook_into :webmock # tie into this other tool called webmock
-      config.default_cassette_options = {
-        :record => :new_episodes,    # record new data when we don't have it yet
-        :match_requests_on => [:method, :uri, :body] # The http method, URI and body of a request all need to match
-      }
-      # Don't leave our Slack token lying around in a cassette file.
-      config.filter_sensitive_data("<SLACK_TOKEN>") do
-        ENV['SLACK_TOKEN']
-      end
-    end
-    ```
+Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
-    The last section, beginning with `config.filter_sensitive_data`, tells VCR not to put your slack token into the cassette file, instead replacing it with the string `"<SLACK_TOKEN>"`. That way when the cassettes end up in your git repo, you won't be exposing your secrets to the world. You'll need a separate call to `config.filter_sensitive_data` for every piece of data you want to omit from your cassettes.
+VCR.configure do |config|
+  config.cassette_library_dir = "specs/cassettes" # folder where casettes will be located
+  config.hook_into :webmock # tie into this other tool called webmock
+  config.default_cassette_options = {
+    :record => :new_episodes,    # record new data when we don't have it yet
+    :match_requests_on => [:method, :uri, :body], # The http method, URI and body of a request all need to match
+  }
+  # Don't leave our Slack token lying around in a cassette file.
+  config.filter_sensitive_data("<LOCATIONIQ_TOKEN>") do
+    ENV["LOCATIONIQ_TOKEN"]
+  end
+end
+```
+
+    The last section, beginning with `config.filter_sensitive_data`, tells VCR not to put your token into the cassette file, instead replacing it with the string `"<LOCATIONIQ_TOKEN>"`. That way when the cassettes end up in your git repo, you won't be exposing your secrets to the world. You'll need a separate call to `config.filter_sensitive_data` for every piece of data you want to omit from your cassettes.
 
     Cassette files usually should be checked into git as they fill a similar role to spec files.
 
@@ -59,29 +64,64 @@ Each interaction is recorded as a **cassette**. We can load cassettes in our tes
 
     We wrap the code where an API call would be made in the `VCR.use_cassette` block. This will ensure that the code inside the block will use the cassette if it has not already been generated.
 
-    ```ruby
-    it "Can send valid message to real channel" do
-      VCR.use_cassette("channels") do
-        message = "test message"
-        response = SlackApiWrapper.send_msg("<CHANNELID>", message)
-        response["ok"].must_equal true
-        response["message"]["text"].must_equal message
-      end
-    end
-    ```
+```ruby
+describe "get_location" do
+  it "can find a location" do
+    VCR.use_cassette("location_find") do
+      location = "Seattle"
+      response = get_location(location)
 
-    Test a negative case:
-    ```ruby
-    it "Can't send message to fake channel" do
-      VCR.use_cassette("channels") do
-        response = SlackApiWrapper.send_msg("this-channel-does-not-exist", "test message")
-        response["ok"].must_equal false
-        response["error"].wont_be_nil
-      end
+      expect(response["Seattle"]).wont_be_nil
+      expect(response["Seattle"][:lon]).must_equal "-122.3300624"
+      expect(response["Seattle"][:lat]).must_equal "47.6038321"
     end
-    ```
+  end   
+   
+  it "will raise an exception if the search fails" do
+    VCR.use_cassette("location_find") do
+      location = ""
+      expect {
+        response = get_location(location)
+      }.must_raise SearchError
+    end
+  end
+end
+```
 
-Once you run a test that uses VCR, you'll notice that there will be a file in the `test/cassettes` folder with the name corresponding to the parameter provided in the `use_cassette` method.
+Application Code: 
+
+```ruby
+require "httparty"
+
+#Starter Code:
+
+BASE_URL = "https://us1.locationiq.com/v1/search.php"
+KEY = ENV["LOCATIONIQ_TOKEN"]
+
+class SearchError < StandardError; end
+
+def get_location(search_term)
+  query = {
+    q: search_term,
+    key: KEY,
+    format: "json",
+  }
+  response = HTTParty.get(BASE_URL, query: query)
+
+  unless response.code == 200
+    raise SearchError, "Cannot find #{search_term}"
+  end
+
+  return {
+           search_term => {
+             lat: response.first["lat"],
+             lon: response.first["lon"],
+           },
+         }
+end
+```
+
+Once you run a test that uses VCR, you'll notice that there will be a file in the `specs/cassettes` folder with the name corresponding to the parameter provided in the `use_cassette` method.
 
 If you expect the response data to change, _**you** must delete the cassette file._
 
