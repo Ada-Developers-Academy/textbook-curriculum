@@ -19,7 +19,7 @@ To make our design and implementation follow a test-driven design and developmen
 1. Pop an item from the stack and verify that it is of value 10
 1. Check whether the stack is empty
     <details>
-        <summary> Click here to see a version for the above
+        <summary> Click here to see an implemented version for the above
         </summary>
             my_stack = Stack.new()
             puts "Stack should be empty. Is the stack empty? #{my_stack.is_empty}"
@@ -38,15 +38,16 @@ To make our design and implementation follow a test-driven design and developmen
             puts "Stack should not be empty. Is the stack empty? #{my_stack.is_empty}"
 
             puts "pop should return 30. popped value: #{my_stack.pop()}"
-            puts "Stack shoul not be empty. Is the stack empty? #{my_stack.is_empty}"
+            puts "Stack should not be empty. Is the stack empty? #{my_stack.is_empty}"
 
             puts "pop should return 20. popped value: #{my_stack.pop()}"
-            puts "Stack shoul not be empty. Is the stack empty? #{my_stack.is_empty}"
+            puts "Stack should not be empty. Is the stack empty? #{my_stack.is_empty}"
 
             puts "pop should return 10. popped value: #{my_stack.pop()}"
-            puts "Stack shoul not be empty. Is the stack empty? #{my_stack.is_empty}"
+            puts "Stack should not be empty. Is the stack empty? #{my_stack.is_empty}"
     </details>
 
+## ADT to implementation
 As we saw earlier in this lesson, the consumer of the Stack care that _push_ and _pop_ methods are available in the Stack. Typically, the designer and developer of the Stack will try to abstract away the implementation details. The process of abstraction, allows the  programmer to hide implementation details, in order to reduce complexity and increase maintainability.
 
 <img src="images/stack_abstraction.png" alt="Stack Abstraction">
@@ -54,7 +55,7 @@ As we saw earlier in this lesson, the consumer of the Stack care that _push_ and
 
 Let's consider the _private data structure_ in the diagram above. Knowing the requirements and use case scenarios, what data structure may we consider to keep a record of all the items in our stack? Since the stack is a linear data structure, we could consider saving the information in one of the linear data structures that we are already familiar with. An _array_ or a _linked list_ would serve our purpose. We would then need to ensure that the constraints and the requirements for the stack are met in how we devise our algorithms.
 
-## Stack with internal array
+## Stack implemented using an internal array
 Let's consider implementing a stack using an array data structure. Because we're using a static data structure, we'll need to define the size of the array. So, let's constrain our stack to 10 items. The size of the internal array will be the _limit_ to which the stack may grow, and hence the size of the internal array will also be 10. Initially, the stack will be empty and the size of the used stack will be 0.
 
 <b>Exercise</b>: Create a class called `Stack` and define the `initialize` method. What data member variables would you need to implement a stack usign an array data structure?
@@ -103,7 +104,7 @@ Putting it all together, this is what our pop method may look like:
 ```ruby
     def pop()
         return nil if @size == 0 # stack is empty
-
+        
         @size -= 1
         return @internal_array[@size]
     end
@@ -117,7 +118,7 @@ Putting it all together, this is what our pop method may look like:
 1. `is_full`: returns `true` if the stack is at capacity. returns `false` otherwise.
 1. `top`: returns the value of the next item that will get popped from the stack. Does not alter the stack.
 
-## Stack with internal linked list
+## Stack implemented using a linked list
 One of the downsides of using an array data structure to implement a stack is that the size of the stack is limited to the size of the internal array. If we were creating a stack which would often be used in scenarios requiring a flexibility in the sizing/resizing, we may be better off considering using a linked list instead. Linked list is a linear data structure, just like an array. However, since linked list is dynamic data structure, it gives us the flexibility we need to resize our stack without knowing an upper bound. This benefit comes at a cost since each node in a linked list needs to save reference to the next node and this uses additional memory.
 
 <b>Exercise</b>: Create a class `Stack` in a new file. Considering that we wanted to implement it using a linked list instead of an array, define the `initialize` method.
@@ -140,7 +141,7 @@ One of the downsides of using an array data structure to implement a stack is th
 
 <b>Thought exercise</b>: Would there be any benefit to using a singly linked list versus a doubly linked list to implement a stack?
     <details>
-        <summary> Understanding one reasoned explanation below:
+        <summary> Understand one reasoned explanation below:
         </summary>
             Since all the additions and deletions happen at one end, we could simply update the head of the linked list on every push or pop operation on the stack. With that in mind, we don't get any benefit from using a doubly linked list. The doubly linked list does use more memory per node due to the additional previous reference.
     </details>
@@ -152,10 +153,8 @@ One of the downsides of using an array data structure to implement a stack is th
             def push(value)
                 @internal_list.add_to_head(value)
             end
-
             def pop()
                 temp = @internal_list.delete_head()
-
                 if !temp
                     # linked list is empty
                     puts "stack is empty"
@@ -165,3 +164,9 @@ One of the downsides of using an array data structure to implement a stack is th
     </details>
 
 <b>Exercise</b>: Think about any other methods that would be useful to add to the Stack class and go ahead and add those.
+
+## Solutions
+List of completed solutions:
+- [Doubly linked list](solutions/linked_lists/linked_list.rb)
+- [Stack using linked list](solutions/stacks/stack_using_linked_list.rb)
+- [Stack using an array](solutions/stacks/stack_using_arrays.rb)
