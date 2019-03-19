@@ -36,7 +36,7 @@ require "webmock/minitest"
 require "dotenv"
 Dotenv.load
 
-require_relative "../lib/seven_wonders"
+require_relative "../lib/location_search"
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
@@ -91,6 +91,7 @@ end
 Application Code: 
 
 ```ruby
+# lib/location_search
 require "httparty"
 
 #Starter Code:
