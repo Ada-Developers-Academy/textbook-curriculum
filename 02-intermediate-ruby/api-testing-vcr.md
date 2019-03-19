@@ -20,6 +20,23 @@ Each interaction is recorded as a **cassette**. We can load cassettes in our tes
 
 ![VCR](images/vcr.jpg)
 
+### What is VCR doing?
+VCR is essentially a recording device that interrupts the normal way they we send messages out to the internet. The first time a set of tests that use VCR run, the cassette takes note of the new URL:
+
+![A VHS cassette watches a message leave HTTParty, taking note](images/apis/VCR_step_1.png "A VHS cassette watches a message leave HTTParty, taking note")
+
+When the API responds, the cassette takes note of the contents of the response as well:
+
+![A VHS cassette sees the response from the API before it gets back to HTTParty.](images/apis/VCR_step_2.png "A VHS cassette sees the response from the API before it gets back to HTTParty.")
+
+Whenever that URL is sent out in the future, VCR gobbles up the message before it goes to the API, taking the API out of the equation:
+
+![A VHS removes the API from the web call process](images/apis/VCR_step_3.png "No API's were hurt in the making of this image.")
+
+At this point, the cassette can read in and play back messages and responses as if it were the API.
+
+![The VHS takes the place of the API.](images/apis/VCR_step_4.png "The cassette takes the place of the ")
+
 ### Installation
 1. **Gems**
     ```
