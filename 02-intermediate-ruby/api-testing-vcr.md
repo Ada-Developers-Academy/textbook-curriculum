@@ -27,6 +27,8 @@ Each interaction is recorded as a **cassette**. We can load cassettes in our tes
     ```
 1. **Test Config**
 
+You can see an example [testing setup](https://github.com/AdaGold/api-testing).
+
     In your `spec_helper.rb` file, add the following code:
 ```ruby
 require "minitest/autorun"
