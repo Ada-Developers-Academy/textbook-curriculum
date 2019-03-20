@@ -234,7 +234,7 @@ Add the following test to `specs/slack_api_wrapper_spec.rb`.
         SlackApi.send_msg("This post should not work", "invalid-channel")
       }.must_raise SlackApiWrapper::SlackApiError
 
-      expect(exception.message).must_equal 'channel_not_found'
+      expect(exception.message).must_equal 'Error when posting This post should not work to invalid-channel, error: channel_not_found'
     end
   end
 ```
