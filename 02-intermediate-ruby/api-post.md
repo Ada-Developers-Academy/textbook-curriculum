@@ -136,7 +136,7 @@ SLACK_TOKEN=<TOKEN_GOES_HERE>
 Next we can write our first test using VCR.
 
 ```ruby
-# slack_api_wrapper_spac.rb
+# slack_api_wrapper_spec.rb
 require_relative 'spec_helper'
 
 describe SlackApi do
