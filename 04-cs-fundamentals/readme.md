@@ -1,7 +1,9 @@
 # CS Fundamentals rough schedule
 Below is the rough outline of what we will be covering in CS Fundamentals. Some conversations may spill into the next CS Fundamentals' session.
 - A comprehensive list of essential homework assignments may be found [here](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/homeworks.md).
-- A lot of the curriculum content is in slide decks. All CS Fundamentals slide decks may be found [here](https://drive.google.com/folderview?id=0B__DV26QHsH4RXM5ZXlneHlCWnc). Please present the slide deck to see the animations render and avoid seeing the answers before reading the question.
+- A lot of the curriculum content is in slide decks. All <b>CS Fundamentals slide decks</b> may be found [here](https://drive.google.com/folderview?id=0B__DV26QHsH4RXM5ZXlneHlCWnc). Please present the slide deck to see the animations render and avoid seeing the answers before reading the question.
+- Here are the general guidelines for CS Fundamentals [classroom norms](https://docs.google.com/document/d/1R2_L8pl0CjLGATvJLdDbw-6RE7cC_NB4Ak_GrvpVc2o/edit?usp=sharing
+)
 - See pinned posts on the cs-fundamentals Slack channel in your cohort to see other useful links.
 
 <b>Notes</b>: Dates are subjected to change based on changes to class scheduling due to unexpected cancellations or delays.
