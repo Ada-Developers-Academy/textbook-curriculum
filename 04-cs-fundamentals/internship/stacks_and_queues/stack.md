@@ -69,7 +69,7 @@ Let's consider implementing a stack using an array data structure. Because we're
                 @internal_array = Array.new(@limit) # internal private data structure: array
             end
         end
-<details>
+</details>
 
 If designed well, we'll leverage _encapsulation_ to abstract away implementation details. In the code snippet above, you'll notive that `@size`, `@limit` and `@internal_array` are all private data member variables with no `attr_reader` or `attr_writer` to allow access to them from outside the class.
 
@@ -150,17 +150,17 @@ One of the downsides of using an array data structure to implement a stack is th
     <details>
         <summary> Click here to see one solution to the exercise.
         </summary>
-            def push(value)
-                @internal_list.add_to_head(value)
-            end
-            def pop()
-                temp = @internal_list.delete_head()
-                if !temp
-                    # linked list is empty
-                    puts "stack is empty"
+                def push(value)
+                    @internal_list.add_to_head(value)
                 end
-                return temp # return the data at the head of the linked list
-            end
+                def pop()
+                    temp = @internal_list.delete_head()
+                    if !temp
+                        # linked list is empty
+                        puts "stack is empty"
+                    end
+                    return temp # return the data at the head of the linked list
+                end
     </details>
 
 <b>Exercise</b>: Think about any other methods that would be useful to add to the Stack class and go ahead and add those.
