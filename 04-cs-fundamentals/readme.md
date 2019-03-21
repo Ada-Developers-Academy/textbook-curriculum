@@ -34,7 +34,7 @@ Here are the topics we'll cover:
 - [Linked Lists](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/internship/Linked%20Lists.md) 
   - [Slide deck](https://drive.google.com/open?id=0B__DV26QHsH4bFczWXBXdGtHYkE) 
   - [Homework](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/homeworks.md#linked-lists)
-- [Stacks and Queues](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/internship/Stacks%20and%20Queues.md)
+- [Stacks and Queues](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/internship/stacks_and_queues/readme.md)
   - [Slide deck](https://drive.google.com/open?id=0B__DV26QHsH4c1NTSmNaT1JoR28)
   - [Homework](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/homeworks.md#stacks-and-queues)
 - [Binary Search Trees](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/internship/Binary%20Search%20Trees.md)
