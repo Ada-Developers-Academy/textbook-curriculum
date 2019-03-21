@@ -21,6 +21,7 @@ To make our design and implementation follow a test-driven design and developmen
     <details>
         <summary> Click here to see an implemented version for the above
         </summary>
+    
             my_stack = Stack.new()
             puts "Stack should be empty. Is the stack empty? #{my_stack.is_empty}"
             puts "Stack should not be full. Is the stack full? #{my_stack.is_full}"
@@ -62,6 +63,7 @@ Let's consider implementing a stack using an array data structure. Because we're
 <details>
     <summary> [Solution to the exercise above] With that, our stack class would look like the one below:
     </summary>
+    
         class Stack
             def initialize()
                 @size = 0 # initial size of the stack
@@ -150,17 +152,19 @@ One of the downsides of using an array data structure to implement a stack is th
     <details>
         <summary> Click here to see one solution to the exercise.
         </summary>
-                &nbsp;&nbsp;&nbsp;&nbsp;def push(value)</br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@internal_list.add_to_head(value)</br>
-                &nbsp;&nbsp;&nbsp;&nbsp;end</br>
-                &nbsp;&nbsp;&nbsp;&nbsp;def pop()</br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp = @internal_list.delete_head()</br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if !temp</br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# linked list is empty</br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "stack is empty"</br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end</br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return temp # return the data at the head of the linked list</br>
-                &nbsp;&nbsp;&nbsp;&nbsp;end</br>
+    
+                def push(value)
+                    @internal_list.add_to_head(value)
+                end
+                
+                def pop()
+                    temp = @internal_list.delete_head()
+                    if !temp
+                        # linked list is empty
+                        puts "stack is empty"
+                    end
+                    return temp # return the data at the head of the linked list
+                end
     </details>
 
 <b>Exercise</b>: Think about any other methods that would be useful to add to the Stack class and go ahead and add those.
