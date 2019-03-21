@@ -27,3 +27,4 @@
 1. [APIs and Authorization](api-auth.md)
 1. [APIs and Testing](api-testing-vcr.md)
 1. [Sending Data to an API](api-post.md)
+1. [MVC in the Slack CLI project](mvc-slack-cli.md)
