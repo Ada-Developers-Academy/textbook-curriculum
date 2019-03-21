@@ -107,4 +107,16 @@ In essence, composition allows us to separate distinct functionality, while inhe
 
 ## Summary
 
+The MVC pattern is a key technique in building programs with user interfaces. The different components are
+- **Model:** Keep track of domain objects
+- **View:** Present information to the user
+- **Controller:** Respond to user actions
+
+Thinking about these different components and tasks separately keeps our code organized, and allows us to identify and take advantage of common patterns.
+
+MVC is a way to think about _composition_ relationships to keep our code organized. This is orthogonal to _inheritance_ relationships, which enable code reuse.
+
 ## Additional Resources
+
+- [Codecademy on MVC](https://www.codecademy.com/articles/mvc)
+- [Short YouTube overview of MVC Architecture from Lynda.com](https://www.youtube.com/watch?v=3mQjtk2YDkM)
