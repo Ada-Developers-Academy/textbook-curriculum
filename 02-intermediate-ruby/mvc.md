@@ -76,7 +76,7 @@ Acknowledging that these tasks are different allows us to separate them in our c
   - Very difficult to test, often not cost-effective to do so
   - In Ruby and Ruby on Rails, we will not ask you to test View code
 - Dependencies
-  - In our code the view directly on the controller
+  - In our code the view depends directly on the controller
   - Sometimes (e.g. Rails) this relationship is reversed
   - Often implemented last
 
