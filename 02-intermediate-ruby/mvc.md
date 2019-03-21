@@ -1,10 +1,14 @@
 # The MVC Pattern
 
-As seen in the Slack CLI project
+In this lesson we will introduce a design pattern called MVC (short for Model, View, Controller) through the lens of the Slack CLI project.
 
 ## Learning Goals
 
 By the end of this lesson, students should be able to...
+
+- Explain how the MVC pattern helps to organize programs
+- Define the terms Model, View and Controller
+- Identify program components as Models, Views or Controllers
 
 ## Design Patterns in the Slack CLI Project
 
