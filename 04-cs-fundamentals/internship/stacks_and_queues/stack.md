@@ -111,7 +111,7 @@ Putting it all together, this is what our pop method may look like:
 ```
 <b>Exercise</b>: Reduce the limit of the stack to be 2 and try using the stack again. Does the stack act as you expect when the a push is called on a full stack?
 
-<b>Aside<b>: _What should be done in the case the stack is empty when a <b>pop</b> is called or when the stack is full when a <b>push</b> called?_ At minimum, we know that in such cases the call will not complete. So the push or pop operation will/should not succeed. In addition, based on conventions used on the team and the contract established with the consumer code of the stack, the design may require (i) throwing an exception with appropriate error code and message, (ii) returning a value (e.g. return `false` from the push operation if adding the item fails) or (iii) printing an error message in the terminal or log file. You're encouraged to enhance your code based on any of these conventions for practice.
+<b>Aside</b>: _What should be done in the case the stack is empty when a <b>pop</b> is called or when the stack is full when a <b>push</b> called?_ At minimum, we know that in such cases the call will not complete. So the push or pop operation will/should not succeed. In addition, based on conventions used on the team and the contract established with the consumer code of the stack, the design may require (i) throwing an exception with appropriate error code and message, (ii) returning a value (e.g. return `false` from the push operation if adding the item fails) or (iii) printing an error message in the terminal or log file. You're encouraged to enhance your code based on any of these conventions for practice.
 
 <b>Exercises</b>: Complete the rest of the class by adding the following methods:
 1. `is_empty`: returns `true` if the stack is empty. returns `false` otherwise.
@@ -150,17 +150,17 @@ One of the downsides of using an array data structure to implement a stack is th
     <details>
         <summary> Click here to see one solution to the exercise.
         </summary>
-                def push(value)
-                    @internal_list.add_to_head(value)
-                end
-                def pop()
-                    temp = @internal_list.delete_head()
-                    if !temp
-                        # linked list is empty
-                        puts "stack is empty"
-                    end
-                    return temp # return the data at the head of the linked list
-                end
+                &nbsp;&nbsp;&nbsp;&nbsp;def push(value)</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@internal_list.add_to_head(value)</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;end</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;def pop()</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp = @internal_list.delete_head()</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if !temp</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# linked list is empty</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "stack is empty"</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return temp # return the data at the head of the linked list</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;end</br>
     </details>
 
 <b>Exercise</b>: Think about any other methods that would be useful to add to the Stack class and go ahead and add those.
