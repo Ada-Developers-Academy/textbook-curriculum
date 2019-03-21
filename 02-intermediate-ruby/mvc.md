@@ -47,7 +47,7 @@ In particular, Ruby on Rails (along with many other web frameworks) uses MVC to 
 MVC adds much-needed structure to our programs.
 
 The key insight of MVC is that any program with a user interface needs to do three more-or-less distinct things:
-- **Model:** Keep track of domain objects
+- **Model:** Keep track of application data
 - **View:** Present information to the user
 - **Controller:** Respond to user actions
 
@@ -109,7 +109,7 @@ In essence, composition allows us to separate distinct functionality, while inhe
 ## Summary
 
 The MVC pattern is a key technique in building programs with user interfaces. The different components are
-- **Model:** Keep track of domain objects
+- **Model:** Keep track of application data
 - **View:** Present information to the user
 - **Controller:** Respond to user actions
 
