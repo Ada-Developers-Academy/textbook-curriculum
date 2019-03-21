@@ -21,6 +21,7 @@ To make our design and implementation follow a test-driven design and developmen
     <details>
         <summary> Click here to see an implemented version for the above
         </summary>
+    
             my_queue = Queue.new()
             puts "Queue should be empty. Is the queue empty? #{my_queue.is_empty}"
             puts "Queue should not be full. Is the queue full? #{my_queue.is_full}"
@@ -74,6 +75,7 @@ In a queue all insert operations, known as <b>enqueue</b> happen at one end of t
     <details>
         <summary> [Solution to the exercise above] Using a linked list, our queue class would look like the one below:
         </summary>
+    
             class Queue
                 def initialize()
                     @internal_list = LinkedList.new() # initialize an instance of a doubly linked list
@@ -85,6 +87,7 @@ In a queue all insert operations, known as <b>enqueue</b> happen at one end of t
     <details>
         <summary> One implementation of the two methods needed in the doubly linked list:
         </summary>
+    
             # method to add a new node with the specific data value in the linked list
             # insert the new node at the beginning of the linked list
             def insert(value)
@@ -96,6 +99,7 @@ In a queue all insert operations, known as <b>enqueue</b> happen at one end of t
                 @head = new_node
                 @tail = new_node if !@tail # if linked list was empty before this addition
             end
+            
             # removes and returns the last item in the linked list
             def remove_tail()
                 return nil if @tail == nil
@@ -111,9 +115,11 @@ In a queue all insert operations, known as <b>enqueue</b> happen at one end of t
     <details>
         <summary> [Solution to the above exercise] Possible definitions for enqueue and dequeue methods.
         </summary>
+    
             def enqueue(value)
                 @inner_list.insert(value)
             end
+            
             def dequeue()
                 return @inner_list.remove_tail()
             end
