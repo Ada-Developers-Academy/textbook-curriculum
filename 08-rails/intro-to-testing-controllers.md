@@ -1,4 +1,4 @@
-# Intro to Testing Responses in Controllers
+# Intro to Testing Responses in Controllers: Testing the `index` Action
 
 Controller tests are all about how your website responds to the user. This includes a friendly user doing what they should, a curious user banging into things, and a malicious user trying to break your site. This makes it a little different from the testing we've seen before.
 
@@ -44,7 +44,7 @@ must_redirect_to controller: 'post', action: 'index'
 
 **Question:**  What is one example of a controller action that commonly redirects the user?
 
-## Testing the index action
+## Testing the `index` action
 
 The index action takes the following inputs.
 -   A get HTTP verb and a path
@@ -65,6 +65,23 @@ end
 ```
 Notice that we are **not** testing the body content of the response.  The particular HTML page in the response is likely to change and is difficult and expensive to test.  Instead controller tests focus on the bigger picture including response code, and changes to the database.
 
+## Nominal Cases & Edge Cases for `index`
+
+For the `index` action, we will guide you all to consider writing the following tests for the `index` action:
+
+- Nominal case: check that the response is with the HTTP response code of 200 ok
+- Edge case: if the view for the `index` action relies on any variables, check that if those variables are `nil` or empty, then it still responds with the status code you expect. For example, in the Books app, if the `index` action is going to show a view that displays all books defined in `@books`, and that the controller _isn't_ supposed to break if `@books` is empty, be sure to test that.
+  - Alternatively, if the controller is supposed to _redirect_ in certain cases, be sure to test that.
+
+## Rails Matchers
+
+For your reference, here are the most common matchers we will use for controller tests:
+
+|   Matcher	|   Sample	|
+|---	|---	|
+|   `must_respond_with`	|   `must_respond_with :success`	|
+|   `must_redirect_to`	|   `must_redirect_to root_path`
+
 ### Testing The Show, Edit & New Actions
 
 In the `show` action we will call the method with a `get` http verb, and a path including the id of a model instance in the database.  We should expect to see a response of `success`, if the instance is in the database, and a 404 or `:not_found` if the item is not.
@@ -80,19 +97,12 @@ You can see completed tests for `new` and `edit` actions [here.](code_samples/ed
 ## Summary
 
 In this lesson we investigated:
--   Controllers take in serveral inputs including:
-    -   An HTTP Verb
-    -   A path
-    -   A request body
--   We can test a controller against all these inputs and verify the following outputs:
-    -   HTTP Status code
-
-## Rails Matchers
-
-|   Matcher	|   Sample	|
-|---	|---	|
-|   `must_respond_with`	|   `must_respond_with :success`	|
-|   `must_redirect_to`	|   `must_redirect_to root_path`	|
+- Controllers take in several inputs including:
+  - An HTTP Verb
+  - A path
+  - A request body
+- We can test a controller against all these inputs and verify the following outputs:
+  - HTTP Status code
 
 ## Resources
 -  [The Rails Guide on Testing: Controllers](http://guides.rubyonrails.org/testing.html#functional-tests-for-your-controllers)
