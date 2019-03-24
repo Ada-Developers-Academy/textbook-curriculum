@@ -5,8 +5,7 @@ Controller tests are all about how your website responds to the user. This inclu
 ## Learning Goals
 - Identify the matchers we can utilize with controllers
 - Setup controller tests with HTTP verb and action
-- Use parameters in controller tests
-- Understand what sort of functionality ought to be covered by a controller test
+- Understand what sort of functionality ought to be covered by a controller test for the `index` action
 
 ## Controller Testing Tools
 Controller tests are all about verifying all the pieces of a Rails application work together for realistic user workflows. This means we need to be able to send requests from our tests, and to check the responses. To do this, we need a bit of extra testing infrastructure.

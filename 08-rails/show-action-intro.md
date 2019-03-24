@@ -1,5 +1,11 @@
 # Intro to the `show` Action
 
+## Learning Goals
+
+- Understand the responsibility of the Rails convention `show` action
+- Know a list of nominal and edge cases to consider when testing the `show` action
+- Use a route parameter in a controller action
+
 ## The `show` Action
 
 The `show` action is a second controller action we will define. Its responsibility is, given some information (through route params), find a specific item, and then share that specific item's details with a view to display that specific item's details. **It is closest to the _Read_ in CRUD.** The `show` action is a _Rails convention_, so we will continue to use the name `show`.

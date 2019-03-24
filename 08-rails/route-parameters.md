@@ -5,7 +5,6 @@
 By the end of this lesson, students should be able to...
 - Describe the role of a _route parameter_ in a web application
 - Define a route with a parameter
-- Use a route parameter in a controller action
 
 ## Introduction
 
