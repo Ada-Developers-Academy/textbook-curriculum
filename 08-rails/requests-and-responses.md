@@ -153,7 +153,16 @@ Code    | Text             | Meaning
 
 So far, we've let Rails handle sending the response for us, and by default Rails will send back a `200 OK` status code along with the HTML from the view. If we want to send something different, we have to say so explicitly.
 
-**Question:** Which part of Rails should be responsible for setting the status code of a response?
+<details>
+
+  <summary>
+    Which part of Rails should be responsible for setting the status code of a response?
+  </summary>
+
+  The controller!
+
+</details>
+<br/>
 
 There are a few ways to send back a status code from the controller, but here is one:
 
@@ -163,7 +172,7 @@ head :not_found
 
 When added to a controller action, the `head` method indicates that only HTTP headers should be sent back (i.e. no payload). The only argument, the symbol `:not_found`, is the text-version of the status code to use (404).
 
-Typically you would do this inside of a conditional:
+We might not have seen the `show` action yet or route params yet, but it is a case in which we will need to send back a specific status code. During those cases, we will put this inside of a conditional inside of that action:
 
 ```ruby
 def show
@@ -175,7 +184,7 @@ def show
 end
 ```
 
-In this code, if the book we're looking for isn't in the list, then we will return status code 404. If the book is in the list then we won't enter the conditional, and Rails will do its default operation: render the `show` view and send back the result with a 200 status.
+In this code, if the book we're looking for isn't in the list (`if @book.nil?`), then we will return status code 404. If the book is in the list, then we won't enter the conditional, and Rails will do its default operation: render the `show` view and send back the result with a 200 status.
 
 ## Summary
 
