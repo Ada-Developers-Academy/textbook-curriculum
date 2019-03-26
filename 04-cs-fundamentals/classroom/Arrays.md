@@ -145,6 +145,7 @@ There are several real world scenarios where we want our data to be ordered in a
 - Sort names from *A* to *Z* (ascending way) like in the contacts' list on the phone.
 
 Having the data sorted, simplifies some of the algorithms.
+
 <b>Question</b>: If the array is sorted in ascending manner, how would you find the min value, or max value?
 <details>
     <summary> Minimum and maximum value in a sorted array
@@ -230,7 +231,7 @@ Value | 6 | 2 | 5 | 3 | 8
 
 <b>Note</b>: _in-place_ means the updates should happen in the same location in memory i.e. in the same location as the original array.
 
-#### Reverse solution 1 - auxiliary array
+#### Reverse solution 1 - using an auxiliary array
 One approach to solve this problem would be create a new array of the same size as the input array. We copy over the element at index 0 in the original array over to index *n*-1 in the new array, where *n* is length of the input array. Then we copy over the element at index 1 in the original array over to index *n*-2 in the new array. We keep repeating the process until all values are copied over. Then, we copy the elements from the new array sequentially from index 0 to *n*-1 to the same index in the original array.
 
 Here's what the pseudo code for this approach look like:
@@ -272,7 +273,7 @@ You'll notice that the solution above has two `while` loops in addition to a set
 - The first while loop copies over each of the elements in the input array into a new array in reverse order of their position. The means, if there are 100 elements in the input array, then the loop will execute 100 times. If there are 700,000 elements in the input array, then the loop will execute 700,000 times and so on. Therefore, we can conclude that in the instructions in the first loop run as many times as the number of elements in the input array.
 - The second loop copies for each element of the temporary array back into the input array. So, the second loop will also run as many times as the number of elements in the input array.
 
-#### Reverse solution 2
+#### Reverse solution 2 - using swap
 Is there any algorithmic approach where we can avoid creating an additional array of the same size as the input array? In order to reverse the elements in the array, we could consider swapping the element at index 0 with the element at index *n*-1, where *n* is the number of elements in the input array. Then, we could swap the element at index *n*-2 with the element at index 1, and so on.
 Here's what the pseudo code for this approach would look like:
 
