@@ -78,7 +78,7 @@ Similarly, while quantitatively sharing memory utilizaton of an algorithm, we ar
 
 Let's continue considering the example of reversing an array in place. Here's our algorithm (in pseudo code):
 ### Algorithm 1
-    ```
+
         // array is the input integer array to the algorithm
 
         if array.length <= 1
@@ -92,14 +92,14 @@ Let's continue considering the example of reversing an array in place. Here's ou
         while i < j
         {
             // swap values at i and j
-                temp = array[i]
-                array[i] = array[j]
-                array[j] = temp
+            temp = array[i]
+            array[i] = array[j]
+            array[j] = temp
 
             increment i
             decrement j
         }
-    ```
+
 <b>Exercise</b>: Examine the algorithm above. Can you call out all the extra, new memory allocations the algorithm performs?
 
 You must have noticed the three memory allocations done by the program: `i`, `j` and `temp`. These are three integers created. Regardless of the size of the input array (be it 500 or 900,000), there will always be only and exactly three integers created. As such, the new memory allocations in this algorithm do not change as the size or value of the input changes. Such algorithms are said to have _constant_ space complexity or _O(1)_ space complexity.
@@ -107,7 +107,7 @@ You must have noticed the three memory allocations done by the program: `i`, `j`
 ## Example consideration
 Consider the same problem of reversing the values in an input integer array. Here's another approach to solve the same problem. Here's the pseudo code:
 ### Algorithm 2
-    ```
+    
         // array is the input integer array to the algorithm
         
         if array.length <= 1
@@ -139,7 +139,7 @@ Consider the same problem of reversing the values in an input integer array. Her
         }
 
         // array is reversed
-    ```
+    
 <b>Exercise</b>: Examine the algorithm above to count the number of operations it will perform. Do the number of operations change as the input array size changes?
 
 You'll notice that the solution above has two `while` loops in addition to a set of single line code instructions. The two while loops are one after the other.
@@ -164,17 +164,22 @@ Leveraging the big O notation, we can:
 1. Make quantitative judgments about the value of one algorithm over another.
 1. Predict whether the software will meet any efficiency constraints that exist.
 
+<img src="images/big-o-meaning.png" alt="Big O and meaning">
+
 Here are the commonly seen big O terms:
 - _O(1)_ is the no-growth curve. An _O(1)_ algorithm's performance is conceptually independent of the size of the data set on which it operates. Such an algorithm is said to have _constant_ time complexity. e.g. Indexing into an array to retrieve a value at a particular index is _O(1)_.
 - _O(log n)_ means that the data set size affects the efficiency of the algorithm in a _logarithmic_ fashion. The key thing to note is that _log (base 2) n_ grows slowly. Doubling _n_ has a relatively small effect. Logarithmic curves flatten out nicely. e.g. Searching for a value in a sorted array using _binary search_ is of _O(log n)_ time complexity.
 - _O(n)_ says that the algorithm's performance is directly proportional to the size of the data set being processed. Such an algorithm is said to have _linear_ time complexity. e.g. Searching for a value in an unsorted array takes _O(n)_ or _linear_ time.
 - _O(n^2)_ says that the algorithm's performance is proportional to the square of the data set size. This happens when the algorithm processes each element of a set, and for each element processing, another pass through all the remaining elements in the set is required. Such an algorithm is said to have _quadratic_ time complexity. e.g. Some of the [sorting](Sorting.md) algorithms have a _quadratic_ time complexity.
-- _O(n * m)_ says that the algorithm's performance is _quadratic_ in nature. e.g. Consider an algorithm which has access to a list of *n* Jedis and *m* Siths. The algorithm records the winners of a 1-to-1 duel between each Jedi and each Sith. Then the resulting record will be of size _n * m_. 
+- _O(n * m)_ says that the algorithm's performance is _quadratic_ in nature. e.g. Consider an algorithm which has access to a list of *n* Jedis and *m* Siths. The algorithm records the winners of a 1-to-1 duel between each Jedi and each Sith. Then the resulting record will be of size _n * m_.
+
 <b>Note</b>: While sharing the time or space complexity in terms of _n_ or _m_ or any other variable like _k_, it is important to explain what _n_, _m_ or _k_ stand for.
 
 ### Nuances
 - Constants are dropped. Constants only shift our graph slightly, but do not affect the overall look of the graph by much. _O(2n)_ is shortened to _O(n)_. _O(1⁄2 n)_ is shortened to _O(n)_.
 - Usually when an algorithm's growth rate is a mix of orders, the dominant order is shown, and the rest are dropped. _O(n^2) + O(n)_ or _O(n^2 + n)_ would be shortened to _O(n^2)_. This is because _O(n^2) + O(n)_ is smaller than _O(n^2) + O(n^2)_.In other words, _O(n^2) + O(n)_ is in the order of _O(n^2) + O(n^2)_. _O(n^2) + O(n^2)_ can be simplified to _O(n^2) * 2_ or _O(2 * n^2)_. Then, we can drop the constant, and simply state that the complexity is _O(n^2)_.
+
+<img src="images/big-o-complexity.png" alt="Big O">
 
 ### Complexity Analogy
 Consider a physical phone book as an example to illustrate Big O notation for algorithm complexity. Let's take a look at some of the use cases related to the phone book:
@@ -184,4 +189,9 @@ Consider a physical phone book as an example to illustrate Big O notation for al
 - _O(n log n)_ – Sort a phone book’s pages by looking at the first name on each page. See [the merge sort](Sorting.md) for understanding this further.
 
 ## Exercises
-1. Solve the [time complexity quiz](time complexity/time_complexity_quiz.md) and compare your answers and explanations with the ones provided.
+Complete the assignments listed in the section [Arrays and efficiency and algorithms](../homeworks.md#arrays-and-efficiency-of-algorithms)
+
+## Slide Deck
++ Slide Deck used in class</br>
+<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://drive.google.com/file/d/0B__DV26QHsH4eHJqTWttLUdNZk0/view?usp=sharing">Array data structure and Introduction to Efficiency of Algorithms</a></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</br>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />
