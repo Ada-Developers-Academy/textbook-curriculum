@@ -29,7 +29,15 @@ Let's start with observing what we have. The data set above can be viewed as a <
 Next, let's consider the options we could explore. As we learned in [JumpStart](https://github.com/Ada-Developers-Academy/jump-start) and [JumpStart Live](https://github.com/Ada-Developers-Academy/jump-start-live) curriculums, to allow the data to scale to more students, leveraging _arrays_ or _hashes_ could be a good way to approach this problem.
 
 ### Synchronized Arrays
-A simple approach would be to consider having an array for each column above. The three arrays, one for names, one for ids and one for email addresses, will need to be kept synchronized. The overhead of having to keep them synchronized also becomes the challenge for this approach. Anytime we need to reorder any of the arrays, e.g. sort the student names alphabetically or sort the student ids in ascending order, we will need to accordingly update the other two arrays such that the information at a given index in all of the arrays continues to remain for the same student.
+A simple approach would be to consider having an array for each column above. The three arrays, one for names, one for ids and one for email addresses, will need to be kept synchronized.
+
+```ruby
+    names = ["Rosie Martinez", "Joe Liu", "Sally Sue"]
+    ids = [123256, 349222, 999999]
+    email_addresses = ["rmartinez256@adadev.org", "jliu222@adadev.org", "ssue999@adadev.org"]
+```
+
+The overhead of having to keep them synchronized also becomes the challenge for this approach. Anytime we need to reorder any of the arrays, e.g. sort the student names alphabetically or sort the student ids in ascending order, we will need to accordingly update the other two arrays such that the information at a given index in all of the arrays continues to remain for the same student.
 
 ### Array of hashes
 Another approach to organize our student data would be to consider each of the column names as keys within a hash. We create a separate hash for each student and organize all the student hashes within an array. This is how the code might look like if we were to structure our data as _an array of hashes_:
@@ -65,29 +73,32 @@ This approach allows to sort information more easily based on a criteria. Here's
     # Arrays allow for sorting information according to our criteria
     # Let's organize the data alphabetically based on first name
     puts "Here's the student data array in ascending first name order"
+
     # implements selection sort on name value
     (students_data_array.count - 1).times do |j|
     # for each index in the array, select the right data set for that index
     # Note: if all except the last index have the right data, then by default
     #       the last index will have the right data. That's why this loop runs
     #       (student count - 1) times.
-    select_index = j # assume that at index j, the correct data is present
-    i = j + 1 # starting at the index following the current index, j
-    # go through all entries after index j to check if any data is better suited
-    # for index j based on ascending first name criteria
-    while i < students_data_array.count
-        if students_data_array[select_index][:name] > students_data_array[i][:name]
-        # found a better data to place at selected index j
-        select_index = i
+        select_index = j # assume that at index j, the correct data is present
+        i = j + 1 # starting at the index following the current index, j
+
+        # go through all entries after index j to check if any data is better suited
+        # for index j based on ascending first name criteria
+        while i < students_data_array.count
+            if students_data_array[select_index][:name] > students_data_array[i][:name]
+            # found a better data to place at selected index j
+            select_index = i
+            end
+            i += 1
         end
-        i += 1
-    end
-    if !(select_index == j) # we found a better data set for index j
-        # swap data at index j with data at select_index
-        temp = students_data_array[j]
-        students_data_array[j] = students_data_array[select_index]
-        students_data_array[select_index] = temp
-    end
+
+        if !(select_index == j) # we found a better data set for index j
+            # swap data at index j with data at select_index
+            temp = students_data_array[j]
+            students_data_array[j] = students_data_array[select_index]
+            students_data_array[select_index] = temp
+        end
     end
     puts students_data_array
 ```
