@@ -137,6 +137,16 @@ Minitest::Reporters.use!(
     RUBY
   end
 
+  # Create the initial postgres database
+  run "rails db:create"
+
+  puts "======================="
+  print "Postgres status: "
+  system("brew services list | grep postgresql")
+  puts "======================="
+
+  puts ""
+
   puts "Successfully generated a new Rails app using the Ada Developers Academy template"
   puts "This is template version 2 (intermediate Rails)"
   puts "You are on..."
