@@ -86,6 +86,33 @@ There are also many different browsers (Safari, Internet Explorer, Chrome, Firef
 
 In the Ada curriculum, we will focus our learning goals on developing web sites that are compatible with the latest version of [Google Chrome](https://www.google.com/chrome/). Students don't need to switch to Google Chrome for their every day use, but are asked to use Google Chrome for web development at Ada.
 
+## Each Web Site and Web App is Made of Code
+
+When we use an Internet browser to go to a web address, our browser (as a _client_) makes a _request_ to a _server_, which usually gives us a _response_ that is a set of HTML, CSS, and other code for our browsers to interpret and then display.
+
+Therefore, it's safe to say that all websites and web apps we use and have a visual/interactive element rendered on the browser has some HTML and CSS. Let's prove it!
+
+### Intro to Chrome Dev Tools
+
+Google Chrome provides tools for developers to inspect the rendered code of a website or web app with its Chrome Dev Tools.
+
+Although Chrome Dev Tools have a huge amount of functionality, for this week, we will focus on using them to observe code.
+
+On any page rendered with Google Chrome, you can open the Chrome Dev Tools to inspect its innards. Let's do it on _this literal page_. Right click on this website and find the option "Inspect". Alternatively, you can use the menu path View > Developer > Developer Tools, or the keyboard shortcut `cmd + opt + i`.
+
+![intro to dev tools](imgs/intro_to_dev_tools.png)
+
+A separate pane should show up. You can configure how this pane shows up (on the side, on the top or bottom, or on a separate window). However, the important thing is that you can see that the elements that make up this page is all HTML.
+
+Try inspecting the code on some of these websites!
+
+- Some websites have very "simple"-looking code for a very effective web page... http://nicole.pizza/
+- Some websites have a mix of JavaScript... https://www.omayeli.com/
+- Some have unrealistically complex CSS... http://diana-adrianne.com/purecss-francine/
+- Huge, complex web apps (dynamic sites) are mostly JavaScript, and actually some are even very self-aware about Chrome Dev Tools! https://www.facebook.com/
+
+We will absolutely get deeper into these tools soon enough, but for now, we'll use it to prove to ourselves that we can see _something_.
+
 ## 🔑 Key Takeaway
 
 There's a lot to web development and web!
