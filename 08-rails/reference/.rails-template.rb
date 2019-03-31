@@ -36,6 +36,7 @@ end
 gem_group :test do
   gem 'minitest-rails'
   gem 'minitest-reporters'
+  gem 'minitest-skip'
 end
 
 # Don't even install coffeescript
@@ -100,6 +101,7 @@ after_bundle do
     <<-'RUBY'
 
 require "minitest/reporters"  # for Colorized output
+require "minitest/skip_dsl"
 
 #  For colorful output!
 Minitest::Reporters.use!(
