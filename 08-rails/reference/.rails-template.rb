@@ -100,7 +100,6 @@ after_bundle do
     <<-'RUBY'
 
 require "minitest/reporters"  # for Colorized output
-require "minitest/skip_dsl"
 
 #  For colorful output!
 Minitest::Reporters.use!(
