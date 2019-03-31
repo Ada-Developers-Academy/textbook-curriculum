@@ -36,7 +36,6 @@ end
 gem_group :test do
   gem 'minitest-rails'
   gem 'minitest-reporters'
-  gem 'minitest-skip'
 end
 
 # Don't even install coffeescript
