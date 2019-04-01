@@ -27,12 +27,22 @@ id  | name    | length_miles | elevation_gain_feet | max_elevation_feet | rating
 
 ## Questions
 
+### Migrations
+
+1. How would you create a database table including the above columns?
+    - What goes in the migration file?
+    - What commands do you need to run?
+1. How would you add a new column of type `string` called `best_month`?
+    - What goes in the migration file?
+    - What commands do you need to run?
+
 ### Reading Data
 
 1. How would you store the list of all hikes in a variable named `hike_list`?
 1. How would you search for the hike with ID 13 and store it in a variable named `hike`?
     - There are two ways to do this! What is the other one?
     - What is the difference between the two methods?
+        - _Hint: what happens if you search for hike 14?_
 1. What happens when you use each of the previous two methods to search for a hike with ID 19?
 1. How would you get the list of hikes with a rating of 4?
 1. What happens if you try to get the list of hikes with a rating of 1?
@@ -53,6 +63,29 @@ Fortune Ponds | 13.0   | 2700                | 4700               | 3
 
 ### Updating Data
 
+1. Assume that hike #4 has been loaded into an local variable called `hike`:
+    ```ruby
+    hike = Hike.find(4)
+    ```
+    How would you change the value of `length_miles` to 8.2 for this local variable, without changing the database?
+1. Once that change has been made, how would you save the new value to the database?
+1. Imagine you had several attributes to update stored in a hash like this:
+    ```ruby
+    new_values = {
+        elevation_gain_feet: 4200,
+        length_miles: 9.7,
+        rating: 4
+    }
+    ```
+    How would you change all the fields on the `hike` local variable to match whats in the hash and save it to the database in one line of code?
+
 ### Deleting Data
 
 1. There are two ActiveRecord methods that will remove a row from the database. What are they, and which one should you be using?
+1. What will the following code print out?
+
+```ruby
+hike = Hike.find(4)
+hike.destroy
+puts Hike.find_by(id: 4)
+puts hike.id
