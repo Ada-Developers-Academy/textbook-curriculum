@@ -80,7 +80,7 @@ Forms and tables are old hat at this point, but let's dive into that Underscore 
 </script>
 ```
 
-We'll do a quick recall activity with your chair pair to recall what we just learned about Underscore:
+We'll do a quick recall activity with your neighbor(s) to recall what we just learned about Underscore:
 1. What are the three steps in creating an Underscore template?
 1. Now that you know which steps you need, identify which of those steps we have completed and which we still need to complete.
 1. What does it mean to "compile the template"? What code corresponds to this instruction (JavaScript lives in `src/app.js`)?

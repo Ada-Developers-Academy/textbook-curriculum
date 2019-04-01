@@ -33,7 +33,7 @@ Below are tags that group elements together.
   <main></main>
 ```
 **Think, Pair, Share**
-Take some time to research how to use each of the above tags. Then discuss with your chair pair. And then high five each other.
+Take some time to research how to use each of the above tags. Then discuss with your neighbor(s). And then high five each other.
 
 ## Organize Content with Sectioning Elements
 Sectioning elements wrap around the elements we have already been working with. Organizing elements into sectioning elements will also become useful as we start to style the layout of our webpages.
