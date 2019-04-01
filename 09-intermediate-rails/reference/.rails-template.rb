@@ -127,6 +127,7 @@ after_bundle do
   # changes test/test_helper.rb
   inject_into_file 'test/test_helper.rb', after: 'require "minitest/rails"' do
     <<-'RUBY'
+
 require "minitest/reporters"  # for Colorized output
 #  For colorful output!
 Minitest::Reporters.use!(
