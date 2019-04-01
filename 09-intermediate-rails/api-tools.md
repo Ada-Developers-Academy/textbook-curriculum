@@ -123,7 +123,7 @@ You should have a JSON object returned as a response with the details of the use
 
 #### Experimenting on your own:
 
-With your chair partner take a look at the [Slack API](https://api.slack.com/methods) and try to use some of the other methods.  Try other parameters the API Docs show you.
+With your neighbor(s) take a look at the [Slack API](https://api.slack.com/methods) and try to use some of the other methods.  Try other parameters the API Docs show you.
 
 ## Resources
 - [TutorialsPoint curl docs](https://www.tutorialspoint.com/unix_commands/curl.htm)  
