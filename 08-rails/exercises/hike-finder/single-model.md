@@ -44,8 +44,6 @@ id  | name    | length_miles | elevation_gain_feet | max_elevation_feet | rating
 1. How would you store the list of all hikes in a variable named `hike_list`?
 1. How would you search for the hike with ID 13 and store it in a variable named `hike`?
     - There are two ways to do this! What is the other one?
-    - What is the difference between the two methods?
-        - _Hint: what happens if you search for hike 14?_
 1. What happens when you use each of the previous two methods to search for a hike with ID 19?
 1. How would you get the list of hikes with a rating of 4?
 1. What happens if you try to get the list of hikes with a rating of 1?

@@ -38,15 +38,38 @@
 ### Reading Data
 
 1. How would you store the list of all hikes in a variable named `hike_list`?
+    ```ruby
+    hike_list = Hike.all
+    ```
 1. How would you search for the hike with ID 13 and store it in a variable named `hike`?
     - There are two ways to do this! What is the other one?
-    - What is the difference between the two methods?
-        - _Hint: what happens if you search for hike 14?_
+        ```ruby
+        hike = Hike.find(13)
+        # - or- 
+        hike = Hike.find_by(id: 13)
+        ```
 1. What happens when you use each of the previous two methods to search for a hike with ID 19?
+    > `find_by` returns `nil` if not found, but `find` raises an exception
 1. How would you get the list of hikes with a rating of 4?
+    ```ruby
+    Hike.where(rating: 4)
+    ```
 1. What happens if you try to get the list of hikes with a rating of 1?
+    > `.where` returns an empty array
 1. How would you get the number of hikes in the database?
+    ```ruby
+    Hike.count
+    ```
 1. **BONUS:** How would you get the list of hikes less than 8 miles long?
+    ```ruby
+    # Using the select enumerable (slower but easier to read)
+    Hike.all.select do |hike|
+      hike.length_miles < 8
+    end
+    # - or -
+    # Using a custom SQL query (faster but harder to read)
+    Hike.where("length_miles < ?", 8)
+    ```
 
 ### Creating Data
 
