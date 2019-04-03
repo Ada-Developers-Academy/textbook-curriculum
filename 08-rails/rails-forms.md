@@ -63,7 +63,8 @@ You can also add additional HTML attributes to the form with more key-value pair
 ```
 
 ## Adding form content
-So far we have generated `<form>` elements using `form_with`, but those elements have not had any contents. You may recall that HTML forms need to be populated with inputs such as text boxes and drop-down menus, and generally have a submit button.
+
+So far we have generated `<form>` elements using `form_with`, but that element lacks content. You may recall that HTML forms need to be populated with inputs such as text boxes and drop-down menus, and generally have a submit button.
 
 We can use the `form_with` view helper to also generate forms with custom HTML content. For example:
 
@@ -88,9 +89,11 @@ _NOTE:_ Even though we're using a `do ... end` block now, it is still necessary 
 Because `form_with` generates a form, we could write the `<input>` elements necessary to complete the form's contents. However as with the form itself, Rails can help us generate our inputs.
 
 ## Common view helpers for forms
+
 Within the `form_with` block, additional view helpers can be used to create inputs, and labels, and submit buttons.
 
 ### The form builder
+
 The Rails convention when generating forms is to specify the block with a parameter named `f`, like so:
 
 ```erb
@@ -101,6 +104,7 @@ The Rails convention when generating forms is to specify the block with a parame
 The `f` parameter, known as a _form builder_, is used when with the view helpers for things like input elements and labels. The following are some of the view helpers available through the form builder:
 
 ### Single-line text inputs with `text_field`
+
 `text_field` is the the method to make a common text field. In this example we provide the symbol name which matches a field in the model.  
 
 ```erb
@@ -116,6 +120,7 @@ Results in:
 The form builder's `text_field` method will generate an `input` element to match the provided field.  The field is named to match both the type "Book" and the field name.
 
 ### Submit buttons with `f.submit`
+
 As the name implies, the `f.submit` _view helper_ generates a submit button for a form created with `form_with`. It accepts two parameters, both optional. The first is the text that should appear in the button (defaults to "Submit"), and the second is a hash of HTML attributes:
 
 ```erb
@@ -131,6 +136,7 @@ Results in:
 Many, many other _view helpers_ are available to help build any type of form or input. Look at the [form builder docs](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html) for complete documentation.
 
 ## A complete form
+
 After combining the `form_with` helper and some of the other view helpers mentioned above, by placing them in the block for `form_with`, we have the ERB code to generate a complete HTML form. The entire form could look like:
 
 ```erb
