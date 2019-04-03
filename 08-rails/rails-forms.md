@@ -186,9 +186,11 @@ Next put in a `@book.save` to the controller method.  Do you notice any change i
 
   <details>
     <summary>Solution</summary>  
-    Because the `Book` instance now already exists in the database with an `id` field, the form will now submit to the `book_path` i.e. `/books/:id` and should now submit a `patch` request.  
+
+    Because the Book instance now already exists in the database with an id field, the form will now submit to the `book_path` i.e. "/books/:id" and should now submit a patch request instead of a post request.  
 
     Therefore you could simply copy and paste the form into the `edit.html.erb` file and the form would work perfectly... but that doesn't seem very dry...
+
   </details>
 
 
