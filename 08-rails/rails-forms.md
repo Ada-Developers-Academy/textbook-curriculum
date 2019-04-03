@@ -45,6 +45,9 @@ If you visit [the new book path](http://localhost:3000/books/new) to check out t
 </form>
 ```
 
+Notice that Rails automatically set the form to submit to the [RESTful route](./restful-routing.md) for creating new books, `post /books`.  The submission method is set to `post` and the path is `/books`.
+
+
 ### A note about hidden inputs
 
 When working with Rails-generated forms, you'll notice that they all include a couple of `<input>`elements with the type `hidden`. You may not have encountered this type of input before as it is primarily used when doing back-end programming, such as with Rails. The two inputs, named `utf8` and `authenticity_token` look like this:
@@ -83,8 +86,6 @@ the above ERB generates the following HTML:
   <p>Please provide the following information to save your book to our database:</p>
 </form>
 ```
-
-Notice that Rails automatically set the form to submit to the RESTful route for creating new books, `post /books`.  The submission method is set to `post` and the path is `/books`.  
 
 _NOTE:_ Even though we're using a `do ... end` block now, it is still necessary to use `<%=` because the `form_with` method returns the generated `<form>` element. This is in contrast to how we use `each` in our view code, because the `each` method's return value is not important for the HTML, only the contents of its block.
 
