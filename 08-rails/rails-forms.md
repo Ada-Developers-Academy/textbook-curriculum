@@ -100,7 +100,7 @@ Within the `form_with` block, additional view helpers can be used to create inpu
 The Rails convention when generating forms is to specify the block with a parameter named `f`, like so:
 
 ```erb
-<%= form_with model: @book, class: 'create-book' do |f|s %>
+<%= form_with model: @book, class: 'create-book' do |f| %>
 <% end %>
 ```
 
