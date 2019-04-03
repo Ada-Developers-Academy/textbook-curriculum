@@ -51,8 +51,8 @@ describe "create" do
   it "can create a book" do
     book_hash = {
       book: {
-        title: 'Practical Object Oriented Programming in Ruby',
-        author_id: authors(:metz).id,
+        title: "Practical Object Oriented Programming in Ruby",
+        author: "Sandi Metz",
         description: 'A look at how to design object-oriented systems'
       }
     }
@@ -63,9 +63,11 @@ describe "create" do
 
     must_respond_with  :redirect
 
-    expect(Book.last.title).must_equal book_hash[:book][:title]
-    expect(Book.l ast.author_id).must_equal book_hash[:book][:author_id]
-    expect(Book.last.description).must_equal book_hash[:book][:description]
+    book = Book.find_by(title: "Practical Object Oriented Programming in Ruby")
+
+    expect(book.title).must_equal book_hash[:book][:title]
+    expect(book.author).must_equal book_hash[:book][:author]
+    expect(book.description).must_equal book_hash[:book][:description]
   end
 end
 ```
