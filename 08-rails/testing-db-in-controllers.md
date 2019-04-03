@@ -24,7 +24,6 @@ describe "destroy" do
       delete book_path(id)
     }.must_change 'Book.count', -1
 
-    must_respond_with :success
   end
 end
 ```
