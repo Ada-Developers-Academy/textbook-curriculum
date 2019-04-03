@@ -47,4 +47,3 @@ describe "update" do
 
     must_respond_with :not_found
   end
-end
