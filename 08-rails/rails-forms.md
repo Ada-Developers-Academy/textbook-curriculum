@@ -230,7 +230,7 @@ end
 
 ## Creating Forms without a model
 
-There will be times you will want to create a form _without_ a model.  `form_with` can do this as well, but you will need to specify the action and method.  
+There will be times you will want to create a form _without_ a model.  `form_with` can do this as well, but you will need to specify the action/url and method.  
 
 ```erb
 <%= form_with url: "/search", method: :get do |f| %>
