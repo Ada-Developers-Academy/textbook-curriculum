@@ -173,10 +173,24 @@ The above ERB code generates this HTML:
 </form>
 ```
 
-### Exercise:
+### Exercises
 
-1.  In `BooksController#new`, give the book instance variable a default title.  Do you notice a change in the form?
-1.  Next put in an `@book.save` to the controller method.  Do you notice any change in the resulting HTML?  Look at the HTML output in Chrome Developer Tools.
+In `BooksController#new`, give the book instance variable a default title.  Do you notice a change in the form?
+
+  <details>
+    <summary>Solution</summary>  
+    The form's title field should now display the text which was set in the controller.
+  </details>
+
+Next put in an `@book.save` to the controller method.  Do you notice any change in the resulting HTML?  Look at the HTML output in Chrome Developer Tools.
+
+  <details>
+    <summary>Solution</summary>  
+    Because the `Book` instance now already exists in the database with an `id` field, the form will now submit to the `book_path` i.e. `/books/:id` and should now submit a `patch` request.  
+
+    Therefore you could simply copy and paste the form into the `edit.html.erb` file and the form would work perfectly... but that doesn't seem very dry...
+  </details>
+
 
 **After this exercise, change the content back to:**
 
