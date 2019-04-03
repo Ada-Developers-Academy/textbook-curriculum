@@ -228,7 +228,20 @@ def create
 end
 ```
 
-<!-- TODO Add image linking form fields to params -->
+## Creating Forms without a model
+
+There will be times you will want to create a form _without_ a model.  `form_with` can do this as well, but you will need to specify the action and method.  
+
+```erb
+<%= form_with url: "/search", method: :get do |f| %>
+  <p>What are you looking for?</p>
+
+  <%= f.label :term, "Search Term" %>
+  <%= f.text_field :term %>
+
+  <%= f.submit "Search", class: "button search" %>
+<% end %>
+```
 
 ## Note on `form_tag` and `form_for`
 
