@@ -2,6 +2,14 @@
 
 ## Learning Goals
 
+By the end of this lesson, students should be able to...
+
+- Define key terms related to a grid layout
+- Use the `display: grid;` CSS property to create a grid on a webpage
+- Use the `grid-template` properties to adjust the spacing of a grid
+- Specifiy sizes using `fr` fractional units
+- Position specific items using `grid-column` and `grid-row`
+
 ## History
 
 [Designing on a grid is not a new concept](https://en.wikipedia.org/wiki/Grid_%28graphic_design%29), and in fact grid theory is a well-known practice in many schools of design. However, historically, web designers did not apply these ideas, and CSS did not have available good ways to practice them anyway. It is only until recently that web design has been pushing using a grid for layout.
