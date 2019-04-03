@@ -56,6 +56,8 @@ When working with Rails-generated forms, you'll notice that they all include a c
 
 You can ignore both of these input elements. They are necessary for Rails to work securely, but you should not need to understand or modify them. We have omitted these elements and associated data from the code snippets throughout the rest of this document.
 
+### Adding Attributes to the Form Tag
+
 You can also add additional HTML attributes to the form with more key-value pairs.  For example if you want to add a class with the value `create-book` for the form you can do the following
 
 ```erb
