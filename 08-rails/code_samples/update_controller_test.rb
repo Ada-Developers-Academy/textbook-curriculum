@@ -1,20 +1,17 @@
 describe "update" do
-  before do
-    Book.create(title: "We're all wonders", author: " R.J. Palacio", description: "Good kids book" 
-  end
-  let (:new_book_hash) {
+  let (:book_hash) {
     {
           book: {
             title: 'A Wrinkle in Time',
-            author: "Madeleine L'Engle",
+            author_id: Author.last.id, # valid author_id
             description: 'A fabulous adventure'
           }
     }
   }
   it "will update a model with a valid post request" do
-    id = Book.first.id
+    id = books(:poodr).id
     expect {
-      patch book_path(id), params: new_book_hash
+      patch book_path(id), params: book_hash
     }.wont_change 'Book.count'
 
     must_respond_with :redirect
@@ -26,11 +23,11 @@ describe "update" do
   end
 
   it "will not update if the params are invalid" do
-    id = Book.first.id
-    original_book = Book.find_by(id: id)
-    
+    id = books(:poodr).id
+    original_book = books(:poodr)
+    book_hash[:book][:author_id] = -1 # invalid id
     expect {
-      patch book_path(id), params: { }
+      patch book_path(id), params: book_hash
     }.wont_change 'Book.count'
 
     must_respond_with :error
@@ -45,9 +42,8 @@ describe "update" do
     id = -1
 
     expect {
-      patch book_path(id), params: new_book_hash
+      patch book_path(id), params: book_hash
     }.wont_change 'Book.count'
 
     must_respond_with :not_found
   end
-end
