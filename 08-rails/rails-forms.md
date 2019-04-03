@@ -182,7 +182,7 @@ In `BooksController#new`, give the book instance variable a default title.  Do y
     The form's title field should now display the text which was set in the controller.
   </details>
 
-Next put in an `@book.save` to the controller method.  Do you notice any change in the resulting HTML?  Look at the HTML output in Chrome Developer Tools.
+Next put in a `@book.save` to the controller method.  Do you notice any change in the resulting HTML?  Look at the HTML output in Chrome Developer Tools.
 
   <details>
     <summary>Solution</summary>  
