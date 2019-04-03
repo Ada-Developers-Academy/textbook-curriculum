@@ -20,36 +20,41 @@ Just as `link_to` generates an `<a>` element, `form_with` generates a `<form>` e
 Given a controller method with:
 
 ```ruby
+# in app/controllers/books_controller.rb
 def new
   @book = Book.new
 end
 ```
 
-You can generate a form to correspond with: 
+You can generate a form to correspond with the model by adding the following to the view:
 
 ```erb
+<%# in app/controllers/new.html.erb %>
+
 <%= form_with model: @book do |f| %>
 
 <% end %>
 ```
 
-### A note about hidden inputs
->When working with Rails-generated forms, you'll notice that they all include a couple of `<input>`elements with the type `hidden`. You may not have encountered this type of input before as it is primarily used when doing back-end programming, such as with Rails. The two inputs, named `utf8` and `authenticity_token` look like this:
-> ```html
-> <input name="utf8" type="hidden" value="✓">
-> <input type="hidden" name="authenticity_token" value="8k7REve8u0Mq7UdaB+awSpMZ8af/5HF7udhgzpOVblQvhy2hCYIdjbEyrVhXwY9k7Ibpcprpjxxz8dCeqi55vQ==">
-> ```
->You can ignore both of these input elements. They are necessary for Rails to work securely, but you should not need to understand or modify them. We have omitted these elements and associated data from the code snippets throughout the rest of this document.
-
-<br>
-
-If you check out the resulting HTML in the browser you will notice it generates the following:
+If you visit [the new book path](http://localhost:3000/books/new) to check out the resulting HTML in the browser you will notice it generates the following:
 
 ```html
 <form action="/books" accept-charset="UTF-8" method="post">
-
+<input name="utf8" type="hidden" value="✓">
+<input type="hidden" name="authenticity_token" value="8k7REve8u0Mq7UdaB+awSpMZ8af/5HF7udhgzpOVblQvhy2hCYIdjbEyrVhXwY9k7Ibpcprpjxxz8dCeqi55vQ==">
 </form>
 ```
+
+### A note about hidden inputs
+
+When working with Rails-generated forms, you'll notice that they all include a couple of `<input>`elements with the type `hidden`. You may not have encountered this type of input before as it is primarily used when doing back-end programming, such as with Rails. The two inputs, named `utf8` and `authenticity_token` look like this:
+
+```html
+<input name="utf8" type="hidden" value="✓">
+<input type="hidden" name="authenticity_token" value="8k7REve8u0Mq7UdaB+awSpMZ8af/5HF7udhgzpOVblQvhy2hCYIdjbEyrVhXwY9k7Ibpcprpjxxz8dCeqi55vQ==">
+```
+
+You can ignore both of these input elements. They are necessary for Rails to work securely, but you should not need to understand or modify them. We have omitted these elements and associated data from the code snippets throughout the rest of this document.
 
 You can also add additional HTML attributes to the form with more key-value pairs.  For example if you want to add a class with the value `create-book` for the form you can do the following
 
