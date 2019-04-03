@@ -1,12 +1,15 @@
 # Testing Database Changes in Controllers
 
 ## Learning Goals
-  - Utilize fixture data to populate parameters
 
+By the end of this lesson you should be able to:
+
+- write tests to verify controller actions make the proper changes to the database under nominal conditions
+- write tests to verify that controller actions respond properly to invalid or incorrect input
 
 ## Content
 
-Lastly, we must ensure that the controller action appropriately changes the related model for the `destroy`, `create` and `update` actions.  We'll see how to use the `must_change` matcher with some examples later on.
+It's important to ensure that controller actions appropriately change the related model for the `destroy`, `create` and `update` actions.  To do so we will use the rails `must_change` matcher and see how to use the it.
 
 `must_change` is called on a block, just like `must_raise`.  We give it a string which it evaluates as Ruby code before and after the block executes.  The second argument is the amount by which the 1st argument changes when the block executes.  
 
@@ -27,6 +30,12 @@ end
 ```
 
 **Question** What other test(s) should we write for the `destroy` action?
+
+<details>
+  <summary>Answer</summary>
+  You should test for a delete request with an invalid or nonexistant id. 
+</details>
+
 
 ### Sending form params in a controller test
 
@@ -50,7 +59,7 @@ describe "create" do
     must_respond_with  :redirect
 
     expect(Book.last.title).must_equal book_hash[:book][:title]
-    expect(Book.last.author_id).must_equal book_hash[:book][:author_id]
+    expect(Book.l ast.author_id).must_equal book_hash[:book][:author_id]
     expect(Book.last.description).must_equal book_hash[:book][:description]
   end
 end
@@ -58,11 +67,18 @@ end
 
 The example above illustrates that the test can pass in a mock-params hash into the request with the `params: params_hash` argument.  Notice we verify that the number of books in the database increases and that the last book in the database has the correct title, author and description.
 
-**Exercise** You also need to create a test in which the params are invalid, violating validations.  With a partner write another test in which the params are invalid.  You can see an example [here.](code_samples/create_controller_test.rb)
+**Exercise** You also need to create a test in which the params are invalid, violating validations.  With a partner write another test in which the params are invalid.  We have an [example solution](code_samples/create_controller_test.rb)
 
-**Exercise** Similar to the `create` action tests, write tests to verify the correctness of the `update` action.  You should have at least 3 tests. You can see a solution [here.](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/08-rails/code_samples/update_controller_test.rb)
+**Exercise** Similar to the `create` action tests, write tests to verify the correctness of the `update` action.  You should have at least 3 tests. When you finish you can [view our solution](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/08-rails/code_samples/update_controller_test.rb)
 
 **Question**: Why 3 tests?
+
+<details>
+  <summary>
+    Answer
+  </summary>
+  Your tests should check for a valid update, an update to a nonexistant Book, and a submission with a missing form body (missing the `:book` field in params).
+</details>
 
 ## Rails Matchers
 
