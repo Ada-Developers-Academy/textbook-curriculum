@@ -45,7 +45,7 @@ If you visit [the new book path](http://localhost:3000/books/new) to check out t
 </form>
 ```
 
-Notice that Rails automatically set the form to submit to the [RESTful route](./restful-routing.md) for creating new books, `post /books`.  The submission method is set to `post` and the path is `/books`.
+Notice that Rails automatically set the form to submit to the [RESTful route](./restful-routing.md) for creating new books, `post /books`.  The submission method is set to `post` and the path/action is set to `/books`.
 
 
 ### A note about hidden inputs
