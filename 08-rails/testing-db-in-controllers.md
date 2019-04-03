@@ -18,12 +18,18 @@ The sample below illustrates testing the `destroy` action and verifies that the 
 ```ruby
 describe "destroy" do
   it "can destroy a model" do
-    id = books(:poodr).id
+    # Arrange
+    poodr = Book.new title: "Practical Object Oriented Programming in Ruby", author: "Sandi Metz"
 
+    poodr.save
+    id = poodr.id
+
+    # Act
     expect {
       delete book_path(id)
-    }.must_change 'Book.count', -1
 
+      # Assert
+    }.must_change 'Book.count', -1
   end
 end
 ```
