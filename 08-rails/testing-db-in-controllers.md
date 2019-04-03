@@ -30,7 +30,7 @@ end
 
 ### Sending form params in a controller test
 
-Remember that when we submit a form using `form_with` Rails recieves the data as a sub-hash in params.  For our test we can pass such a hash into the request body like this:
+Remember that when we submit a form using `form_with` Rails receives the data as a sub-hash in params.  For our test we can pass such a hash into the request body like this:
 
 ```ruby
 describe "create" do
