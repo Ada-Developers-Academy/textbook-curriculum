@@ -38,7 +38,7 @@ end
 
 <details>
   <summary>Answer</summary>
-  You should test for a delete request with an invalid or nonexistant id. 
+  You should test for a delete request with an invalid or nonexistant id.
 </details>
 
 
@@ -65,6 +65,7 @@ describe "create" do
 
     book = Book.find_by(title: "Practical Object Oriented Programming in Ruby")
 
+    expect(book).wont_be_nil
     expect(book.title).must_equal book_hash[:book][:title]
     expect(book.author).must_equal book_hash[:book][:author]
     expect(book.description).must_equal book_hash[:book][:description]
@@ -74,7 +75,7 @@ end
 
 The example above illustrates that the test can pass in a mock-params hash into the request with the `params: params_hash` argument.  Notice we verify that the number of books in the database increases and that the last book in the database has the correct title, author and description.
 
-**Exercise** You also need to create a test in which the params are invalid, violating validations.  With a partner write another test in which the params are invalid.  We have an [example solution](code_samples/create_controller_test.rb)
+**Exercise** You also need to create a test in which the params are invalid or missing.  With a partner write another test in which the params are invalid.  We have an [example solution](code_samples/create_controller_test.rb)
 
 **Exercise** Similar to the `create` action tests, write tests to verify the correctness of the `update` action.  You should have at least 3 tests. When you finish you can [view our solution](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/08-rails/code_samples/update_controller_test.rb)
 
