@@ -13,6 +13,7 @@
 1. [Requests and Responses](requests-and-responses.md)
 1. [Active Record Migrations](active-record-migrations.md)
 1. [Active Record Models](active-record-models.md)
+    - [Exercise: Hike Finder Single Model](exercises/hike-finder/single-model.md)
 1. [RESTful Routing](restful-routing.md)
 1. [Safety and Idempotency](safety-idempotency.md)
 1. [View Helpers](common-view-helpers.md)
