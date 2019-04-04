@@ -21,4 +21,4 @@ Each worksheet also has an answer sheet in the [solutions](solutions) directory.
 
 We built a real Rails app to test all this out! You can find it at https://github.com/AdaGold/hike-finder
 
-![Hiking boot. Credit: https://melbournechapter.net/explore/clipart-hiking-boot/](hiking-boot.png)
+![Hiking boot.](hiking-boot.png "Credit: https://melbournechapter.net/explore/clipart-hiking-boot/")
