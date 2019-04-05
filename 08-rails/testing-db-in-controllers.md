@@ -77,15 +77,15 @@ The example above illustrates that the test can pass in a mock-params hash into 
 
 **Exercise** You also need to create a test in which the params are invalid or missing.  With a partner write another test in which the params are invalid.  We have an [example solution](code_samples/create_controller_test.rb)
 
-**Exercise** Similar to the `create` action tests, write tests to verify the correctness of the `update` action.  You should have at least 3 tests. When you finish you can [view our solution](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/08-rails/code_samples/update_controller_test.rb)
+**Exercise** Similar to the `create` action tests, write tests to verify the correctness of the `update` action.  You should have at least 2 tests. When you finish you can [view our solution](./code_samples/update_controller_test.rb)
 
-**Question**: Why 3 tests?
+**Question**: Why 2 tests?
 
 <details>
   <summary>
     Answer
   </summary>
-  Your tests should check for a valid update, an update to a nonexistant Book, and a submission with a missing form body (missing the `:book` field in params).
+  Your tests should check for a valid update, and an update to a nonexistant Book.
 </details>
 
 ## Rails Matchers

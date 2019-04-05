@@ -25,6 +25,17 @@ describe "update" do
     expect(book.description).must_equal book_hash[:book][:description]
   end
 
+  it "will respond with not_found for invalid ids" do
+    id = -1
+
+    expect {
+      patch book_path(id), params: new_book_hash
+    }.wont_change "Book.count"
+
+    must_respond_with :not_found
+  end
+
+  # This test will be examined on Friday
   it "will not update if the params are invalid" do
     id = Book.first.id
     original_book = Book.find_by(id: id)
@@ -39,15 +50,5 @@ describe "update" do
     expect(book.title).must_equal original_book.title
     expect(book.author_id).must_equal original_book.author_id
     expect(book.description).must_equal original_book.description
-  end
-
-  it "will respond with not_found for invalid ids" do
-    id = -1
-
-    expect {
-      patch book_path(id), params: new_book_hash
-    }.wont_change "Book.count"
-
-    must_respond_with :not_found
   end
 end
