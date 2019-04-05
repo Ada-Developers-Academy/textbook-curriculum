@@ -19,13 +19,7 @@ describe "create" do
   end
 
   it "will not create a book with invalid params" do
-    book_hash = {
-      book: {
-        title: 'Practical Object Oriented Programming in Ruby',
-        author_id: Author.last.id + 1, # invalid author_id
-        description: 'A fabulous adventure'
-      }
-    }
+    book_hash = { } # invalid params
 
     expect {
       post books_path, params: book_hash
