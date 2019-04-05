@@ -47,6 +47,7 @@ In the `destroy` action we will call the method with a `delete` http verb, and a
 To demonstrate the `destroy` action, we will be sure to go through:
 
 1. routes, and using route params
+1. Adding a link to the destroy action's route
 1. updating the controller
 1. writing two tests: one for nominal case, and one for edge case.
 
@@ -70,6 +71,14 @@ end
 ```
 
 Here we read the book ID from the params and store it in a variable `book_id`, then use that to find a specific book.  If the book is found, we call the **model** `destroy` method.  If we do not find the book, we render a 404 page.  
+
+### Adding a Link to the `destroy` Action
+
+In our active site, we will need some way for a user to delete a book.  We can do so with a link, but `link_to` by default makes a `GET` request.  We can add a `link_to` with a `method` attribute similar to this, in our `index.html.erb` and `show.html.erb` views.
+
+```erb
+<%= link_to "Delete #{book.title}", book_path(book.id), method: :delete %>
+```
 
 ### Exercise: Test
 
