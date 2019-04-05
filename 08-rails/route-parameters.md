@@ -5,7 +5,6 @@
 By the end of this lesson, students should be able to...
 - Describe the role of a _route parameter_ in a web application
 - Define a route with a parameter
-- Use a route parameter in a controller action
 
 ## Introduction
 
@@ -27,48 +26,19 @@ A parameterized route will look like this:
 get '/books/:id', to: 'books#show'
 ```
 
-Note the `:id` in the path - this is the parameter. Remember that we've called it `:id` - we'll be using this name later.
+This should look like the same form of defining routes as before: we still have a _verb_, _path_, that goes to some _controller#action_.
+
+However, note the `:id` in the path - this is the parameter. We can identify it as a route parameter because of the `:`. Remember that we've called it `:id` - we'll be using this name later.
 
 Now any request that Rails gets with a path matching the pattern `/books/something` will be sent to the `show` action on the `BooksController`.
 
 ### Using a Route Parameter
 
-The next step is to build the `show` action.
+We will have access to values that were params in a special hash called `params`. `params`, which contains all of the route params we saw defined above, is _a Rails-defined object_.
+
+In order for us to use it realistically, the next step is to build the `show` action.
 
 **Question:** How do you add a controller action?
-
-Open up the `BooksController` - you should start with code like this:
-
-```ruby
-# app/controllers/books_controller.rb
-BOOKS = [
-  { title: "Hidden Figures", author: "Margot Lee Shetterly"},
-  { title: "Practical Object-Oriented Design in Ruby", author: "Sandi Metz"},
-  { title: "Kindred", author: "Octavia E. Butler"}
-]
-
-class BooksController < ApplicationController
-  def index
-    @books = BOOKS
-  end
-end
-```
-
-We'll need to add a new method, `show`. Inside that method we'll be able to access our route parameter via a special hash provided by Rails called `params`. The ID sent by the browser will be stored under the key `:id` (remember that this is the name we gave the parameter in the routefile).
-
-```ruby
-# app/controllers/books_controller.rb
-def show
-  book_id = params[:id]
-  @book = BOOKS[book_id]
-end
-```
-
-Here we read the book ID from the params and store it in a variable `book_id`, then use that as an index into our list of books. As before, we'll use an instance variable to communicate with the view, though this time we've only got one `@book`, not multiple `@books`.
-
-### Exercise
-
-Build a `show` view that shows details for this book.
 
 ## Summary
 
@@ -76,8 +46,6 @@ Build a `show` view that shows details for this book.
 - Define route parameters in the routefile with a symbol
   - `get '/books/:id', to: 'books#show'`
 - Use route parameters through the special `params` hash
-  - `book_id = params[:id]`
-- The key in `params` **must match** the name of the parameter in the route
 
 ## Additional Resources
 

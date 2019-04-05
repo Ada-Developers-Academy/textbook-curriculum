@@ -1,7 +1,10 @@
 # Rails Index
 
+## Pre-Rails
+1. [Preview of Rails](preview-rails.md)
+1. [Rails Installfest](installfest-rails.md)
+
 ## Week 1
-1. [HTTP & The Internet](http-and-the-internet.md)
 1. [What is Rails?](what-is-ruby-on-rails.md)
 1. Rails Setup
     - [Rails Templates](rails-template-setup.md)
