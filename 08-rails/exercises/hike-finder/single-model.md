@@ -13,7 +13,7 @@ elevation_gain_feet | integer
 max_elevation_feet  | integer
 rating              | integer
 
-The hikes table has 3 rows:
+The hikes table has several rows:
 
 id  | name    | length_miles | elevation_gain_feet | max_elevation_feet | rating
 --- | ---     | ---          | ---                 | ---                | ---
@@ -68,7 +68,7 @@ Fortune Ponds | 13.0   | 2700                | 4700               | 3
     ```ruby
     hike = Hike.find(4)
     ```
-    How would you change the value of `length_miles` to 8.2 for this local variable, without changing the database?
+    How would you change the value of `length_miles` to 8.2 for this local variable, _without changing the database_?
 1. Once that change has been made, how would you save the new value to the database?
 1. Imagine you had several attributes to update stored in a hash like this:
     ```ruby
