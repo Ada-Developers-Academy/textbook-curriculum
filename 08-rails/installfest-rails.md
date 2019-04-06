@@ -22,7 +22,7 @@ The web applications we write will begin to use a [_database_](https://en.wikipe
 
 [Ruby on Rails](https://en.wikipedia.org/wiki/Ruby_on_Rails) is distributed as a gem!
 
-1. In any directory, run `$ gem install rails`
+1. In any directory, run `$ gem install rails --no-rdoc --no-ri`
 1. Verify that it gives a success message
 
 ## Related Topics
