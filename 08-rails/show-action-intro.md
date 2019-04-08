@@ -50,12 +50,14 @@ We'll need to add a new method, `show`. Inside that method we'll be able to acce
 ```ruby
 # app/controllers/books_controller.rb
 def show
-  book_id = params[:id]
+  book_id = params[:id].to_i
   @book = BOOKS[book_id]
 end
 ```
 
 Here we read the book ID from the params and store it in a variable `book_id`, then use that as an index into our list of books. As before, we'll use an instance variable to communicate with the view, though this time we've only got one `@book`, not multiple `@books`.
+
+**Note:** In this implementation, we need to explicitly call `.to_i` on `params[:id]` because we need to use `book_id` as an index on the `BOOKS` array. We won't necessarily need to do this `.to_i` call in the future-- stay tuned!
 
 ### Exercise: View
 
@@ -63,7 +65,68 @@ Build a `show` view that shows details for this book.
 
 ### Exercise: Test
 
-Write the two tests for the show action. There is a finished solution for the controller tests [here](code_samples/show_controller_test.rb)
+Ask and answer the following questions for testing the show action in the Books Controller:
+
+1. What file should these tests live in?
+1. The nominal case for the show action is that, given a valid, existing book, when a user goes to a books detail page, they should see a successful page. What does the request/response cycle look like for the nominal case of the show action?
+1. Based off of the last question, what kind of request and response should we expect to test for the nominal case?
+1. What would an edge case for the show action look like?
+
+For now, until we can test a database, it only makes sense for us to write a unit test for the nominal case. We'll come back to fully testing the show action at a later date.
+
+<details>
+
+<summary>
+  Click here for details on the nominal and edge case of the show action
+</summary>
+
+  - Nominal case: this assumes that the specified record (book) is found. Check that the response is with the HTTP response code of 200 ok
+  - Edge case: this assumes that the specified record (book) is not found. Should the controller give back 200 ok? Or should it _redirect_? Or should it return _not found_? Whatever the case, be sure to test this.
+
+</details>
+
+<br/>
+
+For the nominal case, what do we need to _arrange_? What do we do to _act_? What do we do to _assert_?
+
+We will use the hard-coded `BOOKS` array that we defined in the controller. That's because the hard-coded `BOOKS` array defines our "saved data" at the moment. In general, in the near future we will learn better ways to work with databases to avoid doing this, so be prepared to improve this several times.
+
+For the edge case, what do we need to _arrange_? What do we do to _act_? What do we do to _assert_?
+
+<details>
+
+<summary>
+  Show a solution for the show action tests
+</summary>
+
+```ruby
+describe "show" do
+  it "will get show for valid ids" do
+    # Arrange
+    valid_book_id = 1
+
+    # Act
+    get "/books/#{valid_book_id}"
+
+    # Assert
+    must_respond_with :success
+  end
+
+  it "will respond with not_found for invalid ids" do
+    # Arrange
+    invalid_book_id = 999
+
+    # Act
+    get "/books/#{invalid_book_id}"
+
+    # Assert
+    must_respond_with :not_found
+  end
+end
+```
+
+</details>
+
 
 ## Summary
 
