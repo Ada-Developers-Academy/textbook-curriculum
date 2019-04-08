@@ -83,6 +83,50 @@ For now, until we can test a database, it only makes sense for us to write a uni
 
 </details>
 
+<br/>
+
+For the nominal case, what do we need to _arrange_? What do we do to _act_? What do we do to _assert_?
+
+We will use the `.save` method that Rails provides to save something to the database for this method. Saving a new record allows us to test it! However, this saves a new record every time we run the tests! In general, in the near future we will learn better ways to work with databases to avoid doing this. (You may want to delete the data from your database every now and then until we get there.)
+
+For the edge case, what do we need to _arrange_? What do we do to _act_? What do we do to _assert_?
+
+<details>
+
+<summary>
+  Show a solution for the show action tests
+</summary>
+
+```ruby
+describe "show" do
+  it "will get show for valid ids" do
+    # Arrange
+    valid_book = Book.new(title: "Practical Object Oriented Programming in Ruby", author: "Sandi Metz")
+
+    valid_book.save
+    id = valid_book.id
+
+    # Act
+    get book_path(id)
+
+    # Assert
+    must_respond_with :success
+  end
+
+  it "will respond with not_found for invalid ids" do
+    # Arrange
+    invalid_book_id = -1
+
+    # Act
+    get book_path(invalid_book_id)
+
+    # Assert
+    must_respond_with :not_found
+  end
+end
+```
+
+</details>
 
 
 ## Summary
