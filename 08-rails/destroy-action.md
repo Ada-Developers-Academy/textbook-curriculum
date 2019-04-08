@@ -9,7 +9,7 @@
 
 ## The `destroy` Action
 
-The `destroy` action is the last controller action we will define. Its responsibility is, given some information (through route params), find a specific item, and then delete it from the database. **It is the _Delete_ in CRUD.** The `destroy` action is a _Rails convention_, so we will continue to use the name `destroy`.
+The `destroy` action is the last of the RESTful controller actions we will define. Its responsibility is, given some information (through route params), find a specific item, and then delete it from the database. **It is the _Delete_ in CRUD.** The `destroy` action is a _Rails convention_, so we will continue to use the name `destroy`.
 
 ## Testing
 
