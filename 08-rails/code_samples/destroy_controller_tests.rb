@@ -2,7 +2,7 @@ describe "destroy" do
   describe "destroy" do
     it "can destroy a model" do
       # Arrange
-      poodr = Book.new title: "Practical Object Oriented Programming in Ruby", author: "Sandi Metz"
+      poodr = Book.new(title: "Practical Object Oriented Programming in Ruby", author: "Sandi Metz")
 
       poodr.save
       id = poodr.id
