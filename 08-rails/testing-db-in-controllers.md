@@ -13,38 +13,7 @@ It's important to ensure that controller actions appropriately change the relate
 
 `must_change` is called on a block, just like `must_raise`.  We give it a string which it evaluates as Ruby code before and after the block executes.  The second argument is the amount by which the 1st argument changes when the block executes.  
 
-The sample below illustrates testing the `destroy` action and verifies that the database reduces the number of records by one.
-
-```ruby
-describe "destroy" do
-  it "can destroy a model" do
-    # Arrange
-    poodr = Book.new title: "Practical Object Oriented Programming in Ruby", author: "Sandi Metz"
-
-    poodr.save
-    id = poodr.id
-
-    # Act
-    expect {
-      delete book_path(id)
-
-      # Assert
-    }.must_change 'Book.count', -1
-  end
-end
-```
-
-**Question** What other test(s) should we write for the `destroy` action?
-
-<details>
-  <summary>Answer</summary>
-  You should test for a delete request with an invalid or nonexistant id.
-</details>
-
-
-### Sending form params in a controller test
-
-Remember that when we submit a form using `form_with` Rails receives the data as a sub-hash in params.  For our test we can pass such a hash into the request body like this:
+The sample below illustrates testing the `create` action and verifies that the database increases the number of records by one.
 
 ```ruby
 describe "create" do
@@ -72,6 +41,10 @@ describe "create" do
   end
 end
 ```
+
+### Sending form params in a controller test
+
+Remember that when we submit a form using `form_with` Rails receives the data as a sub-hash in params.  For our test we can pass such a hash into the request body as we did above with `book_hash`.
 
 The example above illustrates that the test can pass in a mock-params hash into the request with the `params: params_hash` argument.  Notice we verify that the number of books in the database increases and that the last book in the database has the correct title, author and description.
 

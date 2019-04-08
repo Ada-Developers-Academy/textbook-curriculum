@@ -13,7 +13,7 @@ The `destroy` action is the last of the RESTful controller actions we will defin
 
 ## Testing
 
-Earlier when we looked at [testing database changes in controllers](testing-db-in-controllers.md) we examined a test for the `destroy` action.  
+What should our `destroy` action do?  In our controller tests, we should verify that the record is deleted, and that the number of records decreases by one.  
 
 ```ruby
 describe "destroy" do
@@ -31,6 +31,10 @@ describe "destroy" do
       # Assert
     }.must_change 'Book.count', -1
 
+    poodr = Book.find_by(title: "Practical Object Oriented Programming in Ruby")
+
+    expect(poodr).must_be_nil
+    
     must_respond_with :redirect
     must_redirect_to books_path
   end
