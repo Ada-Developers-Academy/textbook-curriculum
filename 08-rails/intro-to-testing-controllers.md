@@ -57,7 +57,7 @@ For our Ada-Books application we could write the test as:
 ```ruby
 describe BooksController do
   it "should get index" do
-    get books_path
+    get "/"
     must_respond_with :success
   end
 end
