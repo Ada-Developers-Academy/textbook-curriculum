@@ -15,13 +15,14 @@ At the end of this lesson, you should be able to
 The web applications we write will begin to use a [_database_](https://en.wikipedia.org/wiki/Database), or a mechanism to save, update, access, and manage a collection of data. In Ruby on Rails, our preferred database that we will use is [PostgreSQL](https://www.postgresql.org/) (or _Postgres_)
 
 1. In any directory, run `$ brew install postgresql`
+1. Run this command to make postgresql start at login:  `brew services start postgresql`
 1. Verify that it gives a success message
 
 ### Ruby on Rails
 
 [Ruby on Rails](https://en.wikipedia.org/wiki/Ruby_on_Rails) is distributed as a gem!
 
-1. In any directory, run `$ gem install rails`
+1. In any directory, run `$ gem install rails --no-rdoc --no-ri`
 1. Verify that it gives a success message
 
 ## Related Topics

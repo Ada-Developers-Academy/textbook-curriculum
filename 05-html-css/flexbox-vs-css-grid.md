@@ -39,7 +39,6 @@ Consider the following HTML & CSS:
 ```css
 header {
   display: flex;
-  flex-direction: column;
   flex-flow: row wrap;
 }
 img {
