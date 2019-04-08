@@ -63,7 +63,27 @@ Build a `show` view that shows details for this book.
 
 ### Exercise: Test
 
-Write the two tests for the show action. There is a finished solution for the controller tests [here](code_samples/show_controller_test.rb)
+Ask and answer the following questions for testing the show action in the Books Controller:
+
+1. What file should these tests live in?
+1. The nominal case for the show action is that, given a valid, existing book, when a user goes to a books detail page, they should see a successful page. What does the request/response cycle look like for the nominal case of the show action?
+1. Based off of the last question, what kind of request and response should we expect to test for the nominal case?
+1. What would an edge case for the show action look like?
+
+For now, until we can test a database, it only makes sense for us to write a unit test for the nominal case. We'll come back to fully testing the show action at a later date.
+
+<details>
+
+<summary>
+  Click here for details on the nominal and edge case of the show action
+</summary>
+
+  - Nominal case: this assumes that the specified record (book) is found. Check that the response is with the HTTP response code of 200 ok
+  - Edge case: this assumes that the specified record (book) is not found. Should the controller give back 200 ok? Or should it _redirect_? Or should it return _not found_? Whatever the case, be sure to test this.
+
+</details>
+
+
 
 ## Summary
 
