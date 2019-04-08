@@ -13,7 +13,7 @@ The `destroy` action is the last of the RESTful controller actions we will defin
 
 ## Testing
 
-Earlier when we looked at [testing database changes in controllers](`./testing-db-in-controllers.ms`) we examined a test for the `destroy` action.  
+Earlier when we looked at [testing database changes in controllers](`./testing-db-in-controllers.md`) we examined a test for the `destroy` action.  
 
 ```ruby
 describe "destroy" do
