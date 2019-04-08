@@ -81,12 +81,6 @@ For your reference, here are the most common matchers we will use for controller
 |   `must_respond_with`	|   `must_respond_with :success`	|
 |   `must_redirect_to`	|   `must_redirect_to root_path`
 
-### Testing The Edit & New Actions
-
-**Exercise** With your neighbor discuss how many and what tests should the `edit` and `new` actions include.
-
-You can see completed tests for `new` and `edit` actions [here.](code_samples/edit_new_controller_tests.rb)
-
 ## Summary
 
 In this lesson we investigated:
