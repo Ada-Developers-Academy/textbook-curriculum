@@ -80,6 +80,12 @@ In our active site, we will need some way for a user to delete a book.  We can d
 <%= link_to "Delete #{book.title}", book_path(book.id), method: :delete %>
 ```
 
+We will also need to add a route in the `config/routes.rb` file.
+
+```ruby
+delete '/books/:id', to: 'books#destroy'
+```
+
 ### Exercise: Test
 
 Write the two tests for the destroy action. There is a finished solution for the controller tests [here](code_samples/destroy_controller_test.rb)
