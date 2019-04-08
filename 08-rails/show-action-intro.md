@@ -50,12 +50,14 @@ We'll need to add a new method, `show`. Inside that method we'll be able to acce
 ```ruby
 # app/controllers/books_controller.rb
 def show
-  book_id = params[:id]
+  book_id = params[:id].to_i
   @book = BOOKS[book_id]
 end
 ```
 
 Here we read the book ID from the params and store it in a variable `book_id`, then use that as an index into our list of books. As before, we'll use an instance variable to communicate with the view, though this time we've only got one `@book`, not multiple `@books`.
+
+**Note:** In this implementation, we need to explicitly call `.to_i` on `params[:id]` because we need to use `book_id` as an index on the `BOOKS` array. We won't necessarily need to do this `.to_i` call in the future-- stay tuned!
 
 ### Exercise: View
 
@@ -87,7 +89,7 @@ For now, until we can test a database, it only makes sense for us to write a uni
 
 For the nominal case, what do we need to _arrange_? What do we do to _act_? What do we do to _assert_?
 
-We will use the `.save` method that Rails provides to save something to the database for this method. Saving a new record allows us to test it! However, this saves a new record every time we run the tests! In general, in the near future we will learn better ways to work with databases to avoid doing this. (You may want to delete the data from your database every now and then until we get there.)
+We will use the hard-coded `BOOKS` array that we defined in the controller. That's because the hard-coded `BOOKS` array defines our "saved data" at the moment. In general, in the near future we will learn better ways to work with databases to avoid doing this, so be prepared to improve this several times.
 
 For the edge case, what do we need to _arrange_? What do we do to _act_? What do we do to _assert_?
 
@@ -101,13 +103,10 @@ For the edge case, what do we need to _arrange_? What do we do to _act_? What do
 describe "show" do
   it "will get show for valid ids" do
     # Arrange
-    valid_book = Book.new(title: "Practical Object Oriented Programming in Ruby", author: "Sandi Metz")
-
-    valid_book.save
-    id = valid_book.id
+    valid_book_id = 1
 
     # Act
-    get book_path(id)
+    get "/books/#{valid_book_id}"
 
     # Assert
     must_respond_with :success
@@ -115,10 +114,10 @@ describe "show" do
 
   it "will respond with not_found for invalid ids" do
     # Arrange
-    invalid_book_id = -1
+    invalid_book_id = 999
 
     # Act
-    get book_path(invalid_book_id)
+    get "/books/#{invalid_book_id}"
 
     # Assert
     must_respond_with :not_found
