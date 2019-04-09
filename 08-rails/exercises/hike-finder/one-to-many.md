@@ -78,6 +78,11 @@ id  | name   | trailhead_id | length_miles | elevation_gain_feet | max_elevation
     # - or -
     hikes = Trailhead.find_by(name: "Pratt Lake Trailhead").hikes
     ```
+1. How would you load the list of likes for the trailhead with name "Mt. Teneriffe Trailhead" with a rating of 4 into a local variable called `hikes`?
+    ```ruby
+    trailhead = Trailhead.find_by(name: "Mt. Teneriffe Trailhead")
+    hikes = trailhead.hikes.where(rating: 4)
+    ```
 1. Consider the following hike data:
     name   | trailhead_id | length_miles        | elevation_gain_feet | max_elevation_feet | rating
     ---    | ---          | ---                 | ---                 | ---                | ---
@@ -109,3 +114,4 @@ id  | name   | trailhead_id | length_miles | elevation_gain_feet | max_elevation
     hike.trailhead_id = 3
     hike.save
     ```
+
