@@ -64,5 +64,48 @@ id  | name   | trailhead_id | length_miles | elevation_gain_feet | max_elevation
 
 ### Relations
 
+1. How would you load the trailhead for the hike with ID 9 into a local variable called `trailhead`?
+    ```ruby
+    hike = Hike.find(9)
+    trailhead = hike.trailhead
+    # - or -
+    trailhead = Hike.find(9).trailhead
+    ```
+1. How would you load the list of likes for the trailhead with name "Pratt Lake Trailhead" into a local variable called `hikes`?
+    ```ruby
+    trailhead = Trailhead.find_by(name: "Pratt Lake Trailhead")
+    hikes = trailhead.hikes
+    # - or -
+    hikes = Trailhead.find_by(name: "Pratt Lake Trailhead").hikes
+    ```
+1. Consider the following hike data:
+    name   | trailhead_id | length_miles        | elevation_gain_feet | max_elevation_feet | rating
+    ---    | ---          | ---                 | ---                 | ---                | ---
+    Mount Si Via Teneriffe Road Trail | 3 | 9.0 | 2950                | 3900               | 2
 
+    How would you add this data to the database? What are three different ways to set up the relation between this hike and its trailhead?
 
+    ```ruby
+    # Assuming the following setup code:
+    trailhead = Trailhead.find(3)
+    hike_data = {
+      name: "Mount Si Via Teneriffe Road Trail",
+      length_miles: 9.0,
+      elevation_gain_feet: 2950,
+      max_elevation_feet: 3900,
+      rating: 2
+    }
+
+    # Method 1: go through the trailhead
+    hike = trailhead.hikes.create(hike_data)
+
+    # Method 2: set the trailhead
+    hike = Hike.new(hike_data)
+    hike.trailhead = trailhead
+    hike.save
+
+    # Method 3: set the trailhead ID
+    hike = Hike.new(hike_data)
+    hike.trailhead_id = 3
+    hike.save
+    ```
