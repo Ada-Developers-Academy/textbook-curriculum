@@ -87,7 +87,7 @@ Seeds files are just Ruby scripts! Feel free to configure them however you'd lik
 
 ```bash
 $ rails g migration
-add_column :books, :year, :integer
+add_column :books, :publication_date, :integer
 ```
 
 </details>
