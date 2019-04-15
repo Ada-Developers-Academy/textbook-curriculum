@@ -69,7 +69,7 @@ Author.all
 
 Seeds files are just Ruby scripts! Feel free to configure them however you'd like, with as much specificity, output (with `puts`), and ancillary files/gems as you need.
 
-Here is an example seed file that we can use at this moment that assumes the following things:
+[Here is an example seed file that we can use at this moment](code_samples/seeds.rb) that assumes the following things:
 
 - There exists a model named `Book` with the following attributes:
   - `title` of type `string`
