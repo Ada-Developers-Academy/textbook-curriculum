@@ -27,6 +27,7 @@
 
 ## Week 2
 1. [Active Record Relationships](active-record-relationships.md)
+    - [Exercise: Hike Finder One-to-Many](exercises/hike-finder/one-to-many.md)
 1. [DB Seeds](db-seeds.md)
 1. [Rails Debugging](rails-debugging.md)
 1. [Nested Routes](nested-routes.md)
