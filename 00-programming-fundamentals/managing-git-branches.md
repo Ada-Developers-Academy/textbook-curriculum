@@ -151,7 +151,7 @@ Scroll down to the bottom until you get to the "Merge pull request" box.  Click 
 
 ![A screenshot of the PR merging UI.](images/merge-pull-request.png)
 
-Your PR might say that you aren't ready to merge because there are conflicts with the base branch.  In this case you probably need to merge `master` (see [Working with Branches](#working-with-branches).
+Your PR might say that you aren't ready to merge because there are conflicts with the base branch.  In this case you probably need to merge `master` (see [Working with Branches](#working-with-branches)).
 
 ## Resources
 - [Git SCM Documentation](https://git-scm.com/book/ch3-2.html)
