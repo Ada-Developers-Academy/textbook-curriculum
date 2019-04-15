@@ -65,6 +65,53 @@ $ rails console
 Author.all
 ```
 
+## Our More Complex Example
+
+Seeds files are just Ruby scripts! Feel free to configure them however you'd like, with as much specificity, output (with `puts`), and ancillary files/gems as you need.
+
+Here is an example seed file that we can use at this moment that assumes the following things:
+
+- There exists a model named `Book` with the following attributes:
+  - `title` of type `string`
+  - `author_id` as a foreign key to `Author`
+  - `description` of type `string`
+  - `publication_date` of type `integer`
+- There exists a model named `Author` with the following attributes:
+  - `name` of type `string`
+
+<details>
+
+<summary>
+  If you don't yet have the `publication_date` column on the books table, run and commit this migration
+</summary>
+
+```bash
+$ rails g migration
+add_column :books, :year, :integer
+```
+
+</details>
+
+<br/>
+
+This assumes that there are no validations on presence on any field.
+
+**Question:** This specific script requires that `Author`s be seeded before `Book`s. Why does order matter for this script? How could we have avoided this dependency in our seed script?
+
+<details>
+
+<summary>
+  Answer
+</summary>
+
+Our source data (which is a hard-coded array of hashes) says that the books data references authors by name. The script assigns the relationship between a `Book` and an `Author` using the `book.author = Author.find_by(name: ...)` line. Therefore, for `Author.find_by` to not return `nil`, we'd need to create `Author`s first.
+
+If we didn't want this dependency, we could do any of these options or more:
+- restructure our hard-coded data
+- update the script to assign `Author`s to `Book`s after all data was created.
+
+</details>
+
 ## More about Databases: Clearing the Database
 
 Most seed files focus on adding new records of Models. If you want to delete all the data in the database (be very very careful) and reseed ,you can use reset command:
@@ -72,6 +119,10 @@ Most seed files focus on adding new records of Models. If you want to delete all
 ```bash
 $ rails db:reset
 ```
+
+### Stay Up to Date
+
+As a project evolves over time, don't forget that any change to models may mean an update is needed for the seeds file.
 
 ## Resources
 
