@@ -59,7 +59,7 @@ Unless you are making a very small change (like fixing a typo) you probably want
 1. Create a new named branch, depending on the group you are working with you might want to stick your name in the branch.  If you're named Ada you might do something like: `git checkout -b ada/add-controller-tests` to create a new branch and move to it.
 2. Do some work.
 3. Push your code to Github: `git push -u origin ada/add-controller-tests`.
-4. Create a [Pull Request](#pull-requests).
+4. Create a [Pull Request](./pull-requests-for-branches.md).
 
 Generally you will want to keep your branches short lived.  This is so that the repository doesn't change too much under you while you are working.  Even with a short lived branch you should make sure to merge changes in from `master` regularly.
 
