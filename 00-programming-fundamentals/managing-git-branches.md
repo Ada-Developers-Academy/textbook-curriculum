@@ -22,7 +22,7 @@ Much of this discussion is going to happen on the whiteboard with sticky notes a
 $ git merge [branch_name]
 ```
 
-Merges changes _from_ the named branch _into your *current*_ branch.
+Merges changes _**from**_ the named branch _into your **current**_ branch.
 
 This works by finding the last common parent in the histories of the two branches and then adds the commits from the named branch to your current branch in order.
 
@@ -61,22 +61,27 @@ Unless you are making a very small change (like fixing a typo) you probably want
 3. Push your code to Github: `git push -u origin ada/add-controller-tests`.
 4. Create a [Pull Request](./pull-requests-for-branches.md).
 
-Generally you will want to keep your branches short lived.  This is so that the repository doesn't change too much under you while you are working.  Even with a short lived branch you should make sure to merge changes in from `master` regularly.
+Generally you will want to keep your branches short lived.  This is so that the repository doesn't change too much under you while you are working.  Even with a short lived branch you should make sure to merge changes in from `master` regularly.  This won't always be possible in practice but it's a good guiding principle and will make your life easier if you can stick to it as much as possible.
 
-To merge changes from master (using our example branch above):
+To merge changes _from_ `master` (using our example branch above):
 ```sh
 # Commit or stash your changes.
 $ git checkout master
-$ git pull
+$ git pull # Make sure "master" is up to date.
 $ git checkout ada/add-controller-tests
 $ git merge master
-# Fix any merge conflicts.
+# Fix any merge conflicts and commit.
 # Apply any stashed changes.
 ```
 
-**Note**: Depending on your configuration you may need to `git pull origin master` instead of just `git pull`.
+If you want to update directly from Github's master (without updating your own) you can:
 
-This won't always be possible in practice but it's a good guiding principle and will make your life easier if you can stick to it as much as possible.
+```sh
+# Commit or stash your changes.
+git pull origin master
+# Fix any merge conflicts and commit.
+# Apply any stashed changes.
+```
 
 ### Branch Maintenance Commands
 
@@ -85,7 +90,8 @@ These commands allow you to create, switch and delete branches.
 - `git checkout [branch_name]`: switches Git to an _existing_ branch.
 - `git branch [branch_name]`: creates a new branch _but does not switch to it_.
 - `git checkout -b [branch_name]`: creates a new branch and switches Git to this _new_ branch.
-- `git branch -a`: shows a list of all local and remote branches.
+- `git branch`: show a list of all **local** branches.
+- `git branch -a`: shows a list of all **local** _and_ **remote** branches.
 - `git branch -d [branch_name]`: delete the specified local branch.
 
 ### File Commands
