@@ -63,6 +63,8 @@ There's a lot going on in our views! We have HTML that is generated in many diff
 
 ![Many layers come together to make a view](images/rails-view-layers.png)
 
+<!-- https://www.draw.io/#G1EhfQXZ22F17k75J3dANMil2JqsBWmw_0 -->
+
 ## Resources
 [Rails Guides: Layouts and Rendering Using Partials](http://guides.rubyonrails.org/layouts_and_rendering.html#using-partials)  
 [Rails API: Partial Render](http://api.rubyonrails.org/classes/ActionView/PartialRenderer.html)
