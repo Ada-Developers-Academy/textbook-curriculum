@@ -57,6 +57,12 @@ Then, if we want to utilize this `action_name` variable, we can update the submi
 <%= f.submit action_name %>
 ```
 
+### Wrap-up
+
+There's a lot going on in our views! We have HTML that is generated in many different places, all coming together to create a complete page. If we were to diagram this, it might look like the following:
+
+![Many layers come together to make a view](images/rails-view-layers.png)
+
 ## Resources
 [Rails Guides: Layouts and Rendering Using Partials](http://guides.rubyonrails.org/layouts_and_rendering.html#using-partials)  
 [Rails API: Partial Render](http://api.rubyonrails.org/classes/ActionView/PartialRenderer.html)
