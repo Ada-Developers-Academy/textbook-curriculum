@@ -15,7 +15,7 @@ Fortunately Ruby on Rails was built from the ground up with testing in mind. By 
 
 ### Finding the Tests
 
-In the project root is a `test/` directory that houses all of our tests. Inside `test/`, tests are further organized into directories based on what kind of file they're testing. There's a directory for models, controllers, views, mailers, and helpers.
+In the project root is a `test/` directory that houses all of our tests. Inside `test/`, tests are further organized into directories based on what kind of file they're testing. There's a directory for models, and controllers, as well as a few other things we haven't covered yet.
 
 ![Test folder](images/test_folder.png "Rails Test Folder")
 
@@ -69,3 +69,5 @@ Controller testing involves testing the actions end-to-end simulating a full bro
 #### Views
 
 You'll note that Rails does not generate a `test/views` folder. This is because testing generated HTML is really hard! There are tools out there that will aid you in doing so, but they tend to be expensive, hard to set up and fickle to maintain, and are definitely beyond the scope of this course.
+
+The exception to this is view helpers, Ruby methods that generate HTML, like the builtin `link_to` and `form_with`. When we learn how to write these for ourselves, we will talk about how to test them too.
