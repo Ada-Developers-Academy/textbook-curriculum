@@ -161,3 +161,4 @@ So you've been introduced to the concept of TDD and how, without a framework, yo
 ## Resources
 -  [Source of TDD Image](http://luizricardo.org/2014/05/is-tdd-dead/)
 -  [TDD Definition from the Agile Alliance](https://www.agilealliance.org/glossary/tdd/#q=~(filters~(postType~(~'page~'post~'aa_book~'aa_event_session~'aa_experience_report~'aa_glossary~'aa_research_paper~'aa_video)~tags~(~'tdd))~searchTerm~'~sort~false~sortDirection~'asc~page~1))
+-  [Medium Article:  "TDD Changed My Life"](https://medium.com/javascript-scene/tdd-changed-my-life-5af0ce099f80)
