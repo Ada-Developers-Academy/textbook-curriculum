@@ -179,6 +179,13 @@ We've learned about a whole bunch of places to put code: the Controller, the Mod
 | Rendering a small, simple piece of a webpage    | View Helper             | Formatting a date, prefixing the page title with the site title, building a link to a named route |
 | Rendering a big, complicated piece of a webpage | Partial View            | Table of media items, form to create or edit a post |
 
+## Summary
+
+- View helpers are Ruby methods that generate HTML
+- View helpers are most useful for small, targeted pieces of display logic
+- If you want to include tags, you must mark them as trusted using `html_safe`. **Only use `html_safe` on data you actually trust (i.e. string literals)!**
+- Testability is one of the big advantages of view helpers. Take advantage of it!
+
 ## Resources
 - [`html_safe` documentation](http://apidock.com/rails/String/html_safe)
 - [Everything You Know About `html_safe` is Wrong](https://makandracards.com/makandra/2579-everything-you-know-about-html_safe-is-wrong) - excellent resource describing security concerns
