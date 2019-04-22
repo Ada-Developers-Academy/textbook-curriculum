@@ -9,11 +9,47 @@ After this lesson, students will be able to:
 - Identify and test common edge-cases for a view helper
 - Decide whether a view helper is the appropriate tool to solve a given problem
 
-
 ## View Helpers
-We've already seen several built-in view helpers - things like `link_to`, `button_to`, and `form_with`. Rails also allows you to define your own custom view helpers. Custom helpers should be used for similar purposes: generating small amounts of HTML or text to be inserted into a web page.
 
-New helper methods are defined in within the `app/helpers` directory. All of the helper files within `app/helpers` will be available to any page, the only reason to have separate files is to separate concerns. The `application_helper.rb` is a great place to define methods that are not specific to a model.
+A view helper is a Ruby method that generates HTML. We have already worked with many of these,like `link_to`, `image_tag`, and `form_with`. Rails also allows you to define your own custom view helpers. Custom helpers should be used for similar purposes: generating small amounts of HTML or text to be inserted into a web page.
+
+Custom helper methods are defined in within the `app/helpers` directory. Rails will make all view helpers available on any page of your app, but much like with CSS, we will use the different files to separate helpers specific to different parts of the app. The `application_helper.rb` is a great place to define methods that are not specific to a model.
+
+**Question:** Open the file `app/helpers/application_helper.rb`. What does it contain? How might we figure out how to use this file?
+
+### Example: Displaying Timestamps
+
+Consider the problem of displaying timestamps to the user. Most of the time, a human will want to see a time in a human-readable format, like "14 minutes ago" or "2 days from now". However, sometimes we need a more precise time, like `2019-04-21T19:33:26-07:00`.
+
+A common solution to this problem is to display the human-readable date on the page, and include hover text using the HTML `title` attribute for the full timestamp:
+
+```html
+<span class="date" title="2019-04-21T19:33:26-07:00">
+  14 minutes ago
+</span>
+```
+
+Hand-writing all this code every time we need to display a timestamp would be tedious and error-prone, so it makes sense to write a method to do this for us.
+
+**Question:** What options do we have for where this method might live? Which feels like the best fit?
+
+<details>
+<summary>Click here to see the options</summary>
+
+- As a **model method**: no
+    - Many different models might contain dates, so it would be hard to pick one model to put it in
+    - This code is concerned with presentation, and should be associated with the view layer
+- As a **partial view**: no
+    - A partial feels too "big" for what we're doing here - we're generating a small amount of code, not a big chunk of a page
+    - This code is specific enough that it would be worth testing, and there's no way to test a partial
+- As a **view helper**: yes!
+    - We're generating a small amount of generic HTML
+    - The logic is separate from any specific model
+    - View helpers are very testable
+</details>
+
+
+
 
 Let's define a new method that transforms a date object into something readable:
 ```ruby
