@@ -25,3 +25,24 @@ When applying for a junior developer position in Seattle, applicants typically f
 1. In person-interview
 
 Sometimes an applicant may skip a phone screening or a company might require additional interviews, or provide homework in the form of a coding challenge.
+
+### Application
+
+A junior developer can apply for a position in many ways, this can include an online application form on the company website or a job-listing site like [Indeed](https://www.indeed.com/q-Apply-jobs.html).  Sometimes it can also include talking to a recruiter, a colleague at the company, or a hiring manager at a local meet-up.  Universities like the University of Washington hold job-fairs.  There are a lot of ways to get in the door as a junior developer.
+
+### Phone Screen
+
+A phone screen, despite the name might be either on the phone or via an online platform such as Skype or Google Hangout.  You will likely initially talk to a recruiter, but the call may involve a hiring manager.  You may or may not be asked technical questions, but the goal of a phone screen is generally to narrow down the list of candidates for on site interviews.  Generally you should be ready to talk about work experience you have, projects you have worked on and how your interests align with the company and team you are applying for.  
+
+Before a phone screen it is a good idea to:
+
+- Review the job listing and take notes
+- Review your resume as the interviewer will likely ask questions drawn from your experience.
+- Prepare some questions to help you determine if the position is right for you.
+- Find a quiet place with good connectivity.
+
+### In-person Interview
+
+A technical in-person interview can vary greatly in length and process.  Typically however you will have some initial time to greet and introduce yourself to the interviewer(s) with some brief chitchat.  
+
+Then the interviewer will begin the technical portion of the interview.  This is often a _whiteboard interview_, meant to test your ability to solve new problems and communicate your thinking.  You will be given a problem and a whiteboard and asked to develop a solution and explain it to the interviewer.  
