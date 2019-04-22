@@ -50,7 +50,7 @@ Then the interviewer will begin the technical portion of the interview.  This is
 
 ## The Ada Internship-Interview Process
 
-As part of being an Ada student you will be placed in a internship with a sponsoring company.  To help determine placement and to give you practice interviewing you will be assigned a number of Ada sponsors and will over the course of a week interview with each company/team in a 30-minute technical interview.  
+As part of being an Ada student you will be placed in a internship with a sponsoring company.  To help determine placement and to give you practice interviewing, you will be assigned 6 Ada sponsors.  Over the course of a week, you will interview with each of the 6 companies/teams once in 30-minute technical interviews.  
 
 ### Mock Interviews
 
