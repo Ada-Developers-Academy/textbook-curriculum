@@ -48,54 +48,126 @@ Hand-writing all this code every time we need to display a timestamp would be te
     - View helpers are very testable
 </details>
 
+### Writing the Helper
 
-
-
-Let's define a new method that transforms a date object into something readable:
-```ruby
-def readable_date(date)
-  ("<span class='date'>" + date.strftime("%A, %b %d") + "</span>").html_safe
-end
-```
-Then within any view I could use this method, and pass in any date or time object:
-```html
-<h1><%= @book.title %></h1>
-<%= readable_date(@book.created_at) %>
-```
-This would produce the HTML
-```html
-<h1><%= @book.title %></h1>
-<span class='date'>Wednesday, Jan 08</span>
-```
-
-### HTML_SAFE
-The html_safe method lets Rails know to use the HTML tags resulting from the helper.  If that is left off the resulting HTML will be "escaped" printing `&lt;span class='date'&gt;Monday, Jan 01&lt;/span&gt;` in the html instead of the literal tags.  Rails is doing this for security, to ensure that only HTML tags you specify are rendered on the page.
-
-By using html_safe you demonstrate that you are "trusting" the given string to have valid and trustworthy html code.
-
-Another example which generates a random image:
+Now that we've decided on a view helper, we can get to work. The [`time_ago_in_words` method](https://api.rubyonrails.org/v5.1/classes/ActionView/Helpers/DateHelper.html#method-i-time_ago_in_words) provided by Rails might come in handy.
 
 ```ruby
-def random_image(width, height)
-  number = rand(3)
-  url = ""
-  case number
-  when 0
-    url = "https://picsum.photos/"
-  when 1
-    url = "http://www.placecage.com/"
-  when 2
-    url = "http://placekitten.com/"
+# app/helpers/application_helper.rb
+module ApplicationHelper
+  def readable_date(date)
+    return "[unknown]" unless date
+    return (
+      "<span class='date' title='".html_safe +
+      date.to_s +
+      "'>".html_safe +
+      time_ago_in_words(date) +
+      " ago</span>".html_safe
+    )
   end
-  ["<img src='", url, width,"/" ,height, "' alt='random image'>"].join.html_safe
 end
 ```
-And in the view:
-```erb
-<%= random_image(300, 400) %>
+
+When invoked from a view template, this method will generate HTML similar to our example above.
+
+```html+erb
+Added to this site <%= readable_date(@book.created_at) %>
+
+<!-- Generates -->
+
+Added to this site <span class="date" title=""2019-04-21T19:33:26-07:00">14 minutes ago</span>
 ```
 
-### What Goes Where?
+A few things to notice here:
+- We check for `nil` at the top of the method
+- We write our HTML as a sequence of strings concatenated (plussed) together
+- We call the method `html_safe` on some but not all of the strings
+
+### `html_safe`
+
+The `html_safe` method lets Rails know that we trust the HTML in a certain string. Without it the generated HTML will be escaped. In other words, instead of
+
+```html
+<span class="date" title="2019-04-21T19:33:26-07:00">14 minutes ago</span>
+```
+
+we will get
+
+```html
+&lt;span class="date" title="2019-04-21T19:33:26-07:00"&gt;14 minutes ago&lt;/span&gt;
+```
+
+This is rendered by the browser into literal less-than and greater-than characters. In fact, this is true of any string inserted into HTML by an ERB value tag. For example:
+
+```html+erb
+<%= "<p>Test Paragraph</p>" %>
+
+<!-- Generates -->
+
+&lt;p&gt;Test Paragraph&lt;/p&gt;" %>
+```
+
+Ruby has good reason to be so suspicious. Imagine the following scenario: A malicious user creates a new book on our site. Instead of a real description, they write some malicious JavaScript inside of a `<script>` tag. If Rails didn't escape the angle brackets in the tag, then any other browser that viewed that book would immediately begin executing that JavaScript. All of a sudden our site has become an attack vector for someone else!
+
+**Never ever call `html_safe` on content that came from a user!** Usually that means you should only call `html_safe` on string literals.
+
+We can see this rule being followed in the `readable_date` method above:
+
+```ruby
+"<span class='date' title='".html_safe +
+date.to_s +
+"'>".html_safe +
+time_ago_in_words(date) +
+" ago</span>".html_safe
+```
+
+We need to tell Rails to trust all the bits of the `<span>` tag, but we can't trust the `date` since that may have come from the user. Following the rule above, we break the string up into literals that we trust, and variables that we do not.
+
+### Testing
+
+One of the major benefits of view helpers is that they can be tested relatively easily, unlike most of our view code.
+
+Tests for our view helpers will live in the `test/helpers` directory. Rails will not automatically generate test files for some reason, but we can create an empty one:
+
+```ruby
+# test/helpers/application_helper_test.rb
+require "test_helper"
+
+describe ApplicationHelper do
+  describe 'readable_date' do
+  end
+end
+```
+
+**Question:** What interesting test cases exist for our `readable_date` view helper?
+
+View helper tests typically consist of providing a known input and checking against a known output, so we might write the following two cases:
+
+```ruby
+require "test_helper"
+
+describe ApplicationHelper do
+  describe "readable_date" do
+    it "produces a tag with the full timestamp" do
+      date = Date.today - 14
+
+      result = readable_date(date)
+
+      expect(result).must_include date.to_s
+    end
+
+    it "returns [unknown] if the date is nil" do
+      date = nil
+
+      result = readable_date(date)
+
+      expect(result).must_equal "[unknown]"
+    end
+  end
+end
+```
+
+## What Goes Where?
 We've learned about a whole bunch of places to put code: the Controller, the Model, Partials and View Helpers. Why are there so many, and what sorts of things ought to go where?
 
 | Task                                            | Where It Goes           | Examples |
@@ -108,4 +180,6 @@ We've learned about a whole bunch of places to put code: the Controller, the Mod
 | Rendering a big, complicated piece of a webpage | Partial View            | Table of media items, form to create or edit a post |
 
 ## Resources
--  [html_safe](http://apidock.com/rails/String/html_safe)
+- [`html_safe` documentation](http://apidock.com/rails/String/html_safe)
+- [Everything You Know About `html_safe` is Wrong](https://makandracards.com/makandra/2579-everything-you-know-about-html_safe-is-wrong) - excellent resource describing security concerns
+
