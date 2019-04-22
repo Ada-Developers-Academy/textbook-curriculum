@@ -109,6 +109,12 @@ Get the most recent version of the book site code from your instructor, then wor
     </details>
 1. Create the `users#logout` action. This should set `session[:user_id]` to `nil` and redirect the user back to the `root_path`.
 1. Think about other things you could add to improve the user experience. What has worked well on other sites you've visited?
+1. Think about how you could restrict actions based on who is (or isn't) logged in. You don't need to write code for these, just think about how you _might_ do it.
+    - Only logged in users may change data on the site (the C, U and D of CRUD)
+    - Users may mark books as their "favorites", and the current user page includes a list of that user's favorite books
+    - Only the user that added a book to the site may edit or delete that book
+    
+    We will discuss these _authorization_ workflows further in the coming weeks.
 
 ## Key Takeaways
 Rails provides a few special hash-like objects that allow us to go above and beyond local and instance variables in our Rails applications.
