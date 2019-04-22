@@ -36,6 +36,7 @@
 ### Relations
 
 1. Consider the following hike data:
+
     name   | trailhead_id | length_miles        | elevation_gain_feet | max_elevation_feet | rating
     ---    | ---          | ---                 | ---                 | ---                | ---
     Mount Si Via Teneriffe Road Trail | 3 | 9.0 | 2950                | 3900               | 2
