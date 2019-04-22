@@ -15,3 +15,13 @@ By the end of this lesson you should be able to:
   - Interview Loop
   - Whiteboard Interview
   - Coding Challenge
+
+## The Typical Tech Hiring Process
+
+When applying for a junior developer position in Seattle, applicants typically follow these steps.
+
+1. Applying for a position
+1. Phone or video chat screen
+1. In person-interview
+
+Sometimes an applicant may skip a phone screening or a company might require additional interviews, or provide homework in the form of a coding challenge.
