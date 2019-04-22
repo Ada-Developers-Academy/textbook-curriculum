@@ -46,3 +46,16 @@ Before a phone screen it is a good idea to:
 A technical in-person interview can vary greatly in length and process.  Typically however you will have some initial time to greet and introduce yourself to the interviewer(s) with some brief chitchat.  
 
 Then the interviewer will begin the technical portion of the interview.  This is often a _whiteboard interview_, meant to test your ability to solve new problems and communicate your thinking.  You will be given a problem and a whiteboard and asked to develop a solution and explain it to the interviewer.  
+
+
+## The Ada Internship-Interview Process
+
+As part of being an Ada student you will be placed in a internship with a sponsoring company.  To help determine placement and to give you practice interviewing you will be assigned a number of Ada sponsors and will over the course of a week interview with each company/team in a 30-minute technical interview.  
+
+### Mock Interviews
+
+As an Ada student you will be matched up for a practice interview, called a "mock interview" with an experienced hiring manager or engineer.  They will give you a sample interview problem and conduct a practice interview with you.  After the "mock interview" the interviewer will write up a set of feedback for you to help you prepare for your actual internship interviews.
+
+## The Internship Interview
+
+Each internship interview is 30-minutes long and will consist of a few minutes of introduction, followed by a whiteboard question.  Make use of the [whiteboarding strategies](Whiteboarding-Tips.md#3-practice), we discuss in CS Fundamentals.
