@@ -1,10 +1,14 @@
 # Create Custom View Helpers
 
 ## Learning Goals:
-After Reading this you should be able to:
-- Create your own View Helpers to DRY and simplify your views code.
-- Explain how view helpers function.
-- Understand what sorts of problems view helpers are good at solving.
+
+After this lesson, students will be able to:
+
+- Locate view helpers and associated tests within the files and folders of a Rails app
+- Write a view helper
+- Identify and test common edge-cases for a view helper
+- Decide whether a view helper is the appropriate tool to solve a given problem
+
 
 ## View Helpers
 We've already seen several built-in view helpers - things like `link_to`, `button_to`, and `form_with`. Rails also allows you to define your own custom view helpers. Custom helpers should be used for similar purposes: generating small amounts of HTML or text to be inserted into a web page.
