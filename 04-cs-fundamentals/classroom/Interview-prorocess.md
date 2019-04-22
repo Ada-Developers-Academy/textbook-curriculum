@@ -60,6 +60,12 @@ As an Ada student you will be matched up for a practice interview, called a "moc
 
 Each internship interview is 30-minutes long and will consist of a few minutes of introduction, followed by a whiteboard question.  Make use of the [whiteboarding strategies](Whiteboarding-Tips.md#3-practice), we discuss in CS Fundamentals.
 
+## Terminology
+
+- **Whiteboard Interview** - A Whiteboard interview is typically a problem solving exercise where a job applicant is asked to solve a programming or design problem on a whiteboard.  Applicants are assessed both on their _coding skills_ and ability to _communicate_ their reasoning.  Whiteboard interviews can, instead of using a physical whiteboard involve pair programming, or a shared screen environment.
+- **Phone Screen** - An initial telephone or internet chat with a job candidate to ensure the candidate's suitability for an in-peron interview.  This could involve a hiring manager, but is more likely to involve a recruiter.
+- **Coding Challenge** - A "homework" assignment given to job candidates to assess their programming skills and practices such as regularly committing and writing tests.  
+
 ## Resources
 
 - [Google Sample Whiteboard Interview (youtube)](https://youtu.be/XKu_SEDAykw)
