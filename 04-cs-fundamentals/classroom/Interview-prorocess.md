@@ -59,3 +59,9 @@ As an Ada student you will be matched up for a practice interview, called a "moc
 ## The Internship Interview
 
 Each internship interview is 30-minutes long and will consist of a few minutes of introduction, followed by a whiteboard question.  Make use of the [whiteboarding strategies](Whiteboarding-Tips.md#3-practice), we discuss in CS Fundamentals.
+
+## Resources
+
+- [Google Sample Whiteboard Interview (youtube)](https://youtu.be/XKu_SEDAykw)
+- [Cracking the Coding Interview](http://www.crackingthecodinginterview.com/contents.html)
+- [Whiteboarding Tips](Whiteboarding-Tips.md)
