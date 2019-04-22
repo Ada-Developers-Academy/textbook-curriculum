@@ -31,6 +31,7 @@ With **Rails 5** we can run the tests with any of the following commands:
 |-------------------------------------------|------------------------------------|
 | `rails test`                              | Runs all Tests                     |
 | `rails test test/models`                  | Runs tests in `tests/models`       |
+| `rails test test/helpers`                 | Runs tests in `tests/helpers`  |  
 | `rails test test/controllers`             | Runs tests in `tests/controllers`  |
 | `rails test test/controllers test/models` | Runs tests in both                 |
 | `rails test test/models/book_test.rb:14`  | Run test in that file on that line |
