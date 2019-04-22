@@ -71,3 +71,8 @@ Each internship interview is 30-minutes long and will consist of a few minutes o
 - [Google Sample Whiteboard Interview (youtube)](https://youtu.be/XKu_SEDAykw)
 - [Cracking the Coding Interview](http://www.crackingthecodinginterview.com/contents.html)
 - [Whiteboarding Tips](Whiteboarding-Tips.md)
+
+
+## References
+
+- [Don't panic image from Wired.com](https://www.wired.com/2009/05/dont-panic-its-towel-day/)
