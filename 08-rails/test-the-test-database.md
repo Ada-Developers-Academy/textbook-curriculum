@@ -17,7 +17,7 @@ Use `rails db:test:prepare` if the test database seems to be stuck in a broken s
 ## Creating Test Data With _Fixtures_
 Writing tests for objects that interact with a database often involves test data. In Rails, we define _fixtures_--temporary data used to populate models in tests--for test data. _Fixtures_ are kept in `test/fixtures` and are defined as [YAML](http://yaml.org/) files.
 
-Each YAML file defines default data for one model. So we'd use `test/fixtures/artists.yml` to create some test data for use when testing `Artist` models. Here's what YAML looks like:
+Each YAML file defines default data for one model. So we'd use `test/fixtures/authors.yml` to create some test data for use when testing `Author` models. Here's what YAML looks like:
 
 <!-- XXX: for some reason the yml fenced syntax highlighter never ends. Major bummer. While editing, useful to remove the "yml" here. -->
 ```yml
