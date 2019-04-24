@@ -3,7 +3,7 @@
 ## Time Schedule
 
 - 20 mins first partner recorded interview
-- 20 mins second partner recorded interview 
+- 20 mins second partner recorded interview
 - 15 mins to watch your own recording
 - 15 mins debrief with your partner about what you observed
 - 5 mins self-assessment/reflection survey
