@@ -21,6 +21,8 @@ This approach worked great for MediaRanker, but now that we've added OAuth it's 
 
 To resolve these issues, we'll use a strategy known as **mocking**. The basic idea is when we're running our test, instead of going all the way to GitHub for user data we'll short-circuit the process and use some made-up data instead.
 
+As before, we will work through this process in the context of a single test first, then extract it to a helper method.
+
 ### Mocking GitHub OAuth
 
 Here is how we are going to approach this problem:
@@ -180,13 +182,17 @@ end
 
 #### Login Helper
 
-We're going to be using this login functionality a lot, so let's add it as a helper method, available to all our tests. Open up `test/test_helper.rb` again and add the following at the bottom of `class ActiveSupport::TestCase`:
+Now that we've sorted out our new testing procedure for logging in, we should update the existing `perform_login` method so that it's available to all our tests. Open up `test/test_helper.rb` again and add the following at the bottom of `class ActiveSupport::TestCase`:
 
 ```ruby
 # test/test_helper.rb
-def perform_login(user)
+def perform_login(user = nil)
+  user ||= User.first
+
   OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(mock_auth_hash(user))
   get auth_callback_path(:github)
+
+  return user
 end
 ```
 
