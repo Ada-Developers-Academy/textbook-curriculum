@@ -3,11 +3,12 @@
 ## Part 1 - Authentication and Intermediate Rails Topics
 1. [Flash](./flash.md)
 1. [Session](./session.md)
+1. [Testing Session](./testing-session.md)
 1. [Controller Filters](./controller-filters.md)
 1. [View helpers](./view-helpers.md)
 1. [Intro to OAuth](./intro-to-oauth.md)
 1. [OAuth in Rails](./oauth.md)
-1. [Testing Authentication](./testing-login.md)
+1. [Testing Authentication](./testing-oauth.md)
 1. [Testing Authorization](./testing-authorization.md)
 1. [Advanced Validations](./advanced-validations.md)
 
