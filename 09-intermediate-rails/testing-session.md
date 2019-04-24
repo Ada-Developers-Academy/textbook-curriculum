@@ -6,17 +6,14 @@ Our controller tests up to this point have followed a pattern: send one request,
 
 By the end of this lesson, students should be able to...
 
-- Verify `flash` and `session` inside a controller test
-- Define helper methods for tests
 - Write controller tests for a user workflow that spans multiple request/response cycles
+- Define helper methods for tests
 
-## Review: Integration Tests in Rails
+## Review: Controller Tests in Rails
 
-Because our integration tests are going to run code from all areas of our Rails app (models, views, controllers, and routes), we need to write our tests from the perspective of something outside of our application.
+When we write controller tests in Rails, we do so _in the role of the **browser**_. That is, our controller tests simulate a browser accessing our site by making HTTP requests to the server. Just like the browser, our test code is limited to making those requests and asserting various things about the response received back.
 
-Specifically, we need to write our integration tests _in the role of the **browser**_. That is, our integration tests simulate a browser accessing our site by making HTTP requests to the server. Just like the browser, our test code is limited to making those requests and asserting various things about the response received back.
-
-In particular, this means we cannot modify the `session` or `flash` directly from our tests. 
+In particular, this means we cannot modify the `session` or `flash` directly from our tests, since the data stored there is supposed to be opaque to the browser.
 
 <details>
 <summary>
@@ -108,7 +105,7 @@ class ActiveSupport::TestCase
   # ...
 
   # Here's the code we're adding
-  def perform_login(user: nil)
+  def perform_login(user = nil)
     user ||= User.first
 
     user = User.first
@@ -149,3 +146,12 @@ it "returns 200 OK for a logged-in user" do
   must_respond_with :success
 end
 ```
+
+## Summary
+
+- When we write controller tests in Rails, we do so from the perspective of the browser
+    - We cannot set `session` or `flash` directly
+    - We can _read_ this data after it has been set by a controller action
+- If a user workflow requires multiple request/response cycles to complete, our tests for that workflow must send multiple requests
+- It is often useful to extract repeated test code like logging in to a helper method
+    - These helper methods should be added to `test/test_helper.rb`
