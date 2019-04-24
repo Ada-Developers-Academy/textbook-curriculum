@@ -86,3 +86,66 @@ As promised, this test makes two requests against the server: the `post` in the 
 
 The simplest thing to do is to comment out both the `post` request and the following expectation in the _arrange_ step.
 </details>
+
+## Creating a Helper Method
+
+Seeing the details page for the current user is the only workflow in our books app that currently requires multiple request/response cycles to complete. However, we could imagine adding many restrictions about things that can only be done by a logged-in user, or by a specific user.
+
+Every test case for these workflows would need to repeat this work of logging in the user before getting down to business. This work would be spread across different `describe` blocks and possibly even different test files, making DRYing up this code a challenge. Using a `before` block to organize them isn't going to cut it.
+
+Instead, we can add a helper method to our code. Rails provides a convenient place for us to do this: `test/test_helper.rb`. We will move our login code to an instance method inside of `class ActiveSupport::TestCase`.
+
+```ruby
+# test/test_helper.rb
+
+# ...
+# Test setup stuff - don't touch this
+# ...
+
+class ActiveSupport::TestCase
+  # ...
+  # Keep anything that was here before
+  # ...
+
+  # Here's the code we're adding
+  def perform_login(user: nil)
+    user ||= User.first
+
+    user = User.first
+    login_data = {
+      user: {
+        username: user.username,
+      },
+    }
+    post login_path, params: login_data
+
+    # Verify the user ID was saved - if that didn't work, this test is invalid
+    expect(session[:user_id]).must_equal user.id
+
+    return user
+  end
+end
+```
+
+<details>
+<summary>
+<strong>Question:</strong> This code is a little different than our original version. What changed? Why might we have done it this way?
+</summary>
+
+Our helper method takes an optional user, to allow the caller to specify who they want to log in as. If no user is provided, it will pick one from the database. It also returns the user, in case the caller that information.
+</details>
+
+Now that we've written our helper we can shorten and clarify our test for `users#current`:
+
+```ruby
+it "returns 200 OK for a logged-in user" do
+  # Arrange
+  perform_login
+
+  # Act
+  get current_user_path
+
+  # Assert
+  must_respond_with :success
+end
+```
