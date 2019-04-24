@@ -1,6 +1,7 @@
 # Recording yourself Whiteboarding
 
 ## Time Schedule
+
 - 20 mins first partner recorded interview
 - 20 mins second partner recorded interview 
 - 15 mins to watch your own recording
@@ -42,6 +43,4 @@ View markdown when you are ready to ask
 - Are you saying things like "I don't know where this is going" instead of something like "I might rethink this later, but I'll start here"?
 - Are you using technical describing words appropriately or are you saying a lot of "this", "that", etc?
 - Are you making any weird faces?
-
-## Self Assessment
 
