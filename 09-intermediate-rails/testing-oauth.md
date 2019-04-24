@@ -1,29 +1,19 @@
 # Testing OAuth
 
 ## Learning Goals:
-- Better understand integration tests
 - Know how to simulate a multi-request browser session in your tests
 - Write some useful tests for login and logout functionality
 - Set up OmniAuth for testing
 - Understand what test mocking is
 
-## Review: Integration Tests in Rails
-Because our integration tests are going to run code from all areas of our Rails app (models, views, controllers, and routes), we need to write our tests from the perspective of something outside of our application.
-
-Specifically, we need to write our integration tests _in the role of the **browser**_. That is, our integration tests simulate a browser accessing our site by making HTTP requests to the server. Just like the browser, our test code is limited to making those requests and asserting various things about the response received back.
-
-In particular, this means we cannot modify the `session` or `flash` directly from our tests. Instead we do what the browser would do: send another request.
-
-Note that we can *read* `session` and `flash` *after* a request has been sent, to check they were filled in correctly. It is only attempting to *set* them from a controller test that Rails disallows. This will be important later when we're checking error messages.
-
 ## Integration Tests and OAuth
 
-In the context of OAuth, this means every test we write will need to send not one but two requests to the server:
+Since OAuth relies on `session`, every test we write will need to send not one but two requests to the server:
 
 1. A request that logs in the user
 1. The request we're interested in testing
 
-This approach would have worked great for MediaRanker, but now that we've added OAuth it's got some problems:
+This approach worked great for MediaRanker, but now that we've added OAuth it's got some problems:
 
 - Logging in with GitHub OAuth is complicated
 - We'd need real GitHub usernames and passwords for our tests
