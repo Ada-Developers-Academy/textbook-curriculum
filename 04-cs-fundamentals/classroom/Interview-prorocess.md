@@ -70,9 +70,9 @@ After the interviews conclude, both students & interviewers provide feedback to 
 
 ## Terminology
 
-- **Whiteboard Interview** - A Whiteboard interview is typically a problem solving exercise where a job applicant is asked to solve a programming or design problem on a whiteboard.  Applicants are assessed both on their _coding skills_ and ability to _communicate_ their reasoning.  Whiteboard interviews can, instead of using a physical whiteboard involve pair programming, or a shared screen environment.
 - **Phone Screen** - An initial telephone or internet chat with a job candidate to ensure the candidate's suitability for an in-peron interview.  This could involve a hiring manager, but is more likely to involve a recruiter.
-- **Coding Challenge** - A "homework" assignment given to job candidates to assess their programming skills and practices such as regularly committing and writing tests.  
+- **Coding Challenge** - A "homework" assignment given to job candidates to assess their programming skills and practices such as regularly committing and writing tests.
+- **Whiteboard Interview** - A Whiteboard interview is typically a problem solving exercise where a job applicant is asked to solve a programming or design problem on a whiteboard.  Applicants are assessed both on their _coding skills_ and ability to _communicate_ their reasoning.  Whiteboard interviews can, instead of using a physical whiteboard involve pair programming, or a shared screen environment. 
 
 ## Resources
 
