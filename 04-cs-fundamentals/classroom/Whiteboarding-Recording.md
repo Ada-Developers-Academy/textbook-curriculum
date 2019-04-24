@@ -10,6 +10,7 @@
 ## Recording
 Use Photobooth on your own computer to record your interview. You do not need to share this video with anyone, and yes, you can delete it right after if you want.
 
+Use [Photo Booth](https://www.imore.com/how-use-photo-booth-mac) on your own computer to record your interview. You do not need to share this video with anyone, and yes, you can delete it right after if you want.
 ## Questions
 
 ### Partner 1 (choose to ask one of the two)
