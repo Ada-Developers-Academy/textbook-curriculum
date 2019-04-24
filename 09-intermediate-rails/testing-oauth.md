@@ -1,4 +1,4 @@
-# Testing Authentication
+# Testing OAuth
 
 ## Learning Goals:
 - Better understand integration tests
