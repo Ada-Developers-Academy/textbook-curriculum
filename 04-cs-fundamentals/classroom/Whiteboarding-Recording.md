@@ -45,4 +45,3 @@ View markdown when you are ready to ask
 
 ## Self Assessment
 
-https://goo.gl/forms/4KyuYKCUxmJjZQNm1
