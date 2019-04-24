@@ -56,6 +56,12 @@ As part of being an Ada student you will be placed in a internship with a sponso
 
 As an Ada student you will be matched up for a practice interview, called a "mock interview" with an experienced hiring manager or engineer.  They will give you a sample interview problem and conduct a practice interview with you.  After the "mock interview" the interviewer will write up a set of feedback for you to help you prepare for your actual internship interviews.
 
+Remember:  
+
+![don't panic](images/dontpanic.jpg)
+
+How you perform in your mock interview will not affect your internship placement.  The mock interview is designed to give you practice and experience with a technical interview and provide you useful feedback.
+
 ## The Internship Interview
 
 Each internship interview is 30-minutes long and will consist of a few minutes of introduction, followed by a whiteboard question.  Make use of the [whiteboarding strategies](Whiteboarding-Tips.md#3-practice), we discuss in CS Fundamentals.  As a student, you are expected to prepare for each interview and try your upmost.  
