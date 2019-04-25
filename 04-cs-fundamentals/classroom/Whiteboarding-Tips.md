@@ -49,6 +49,9 @@ Technical Questions: Problem Solving approach
 - Practice (more the better) white boarding questions in 20 minute slots with peers, friends and mentors.
 
 ## Slide Deck
-+ Slide Deck used in class</br>
-<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://drive.google.com/file/d/0B__DV26QHsH4dnBwSnpBa1ZQWEU/view?usp=sharing">Whiteboarding interview preparation</a></span></br> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</br>
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /> 
+
+- [Slides on Interview Preparation](https://docs.google.com/presentation/d/1Fkz-SXB8D7BGjaELy9uG4Wke8zSFbUKLe5jexFQ7xa0)
+
+All content is licensed under a [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](http://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+[![Creative Commons License](https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-nd/4.0/)
