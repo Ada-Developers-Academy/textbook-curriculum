@@ -18,7 +18,7 @@ Mar 21  | [Introduction to Data Structures](https://github.com/Ada-Developers-Ac
 Apr 04  | [Understanding function calls](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Understanding%20function%20calls.md)
 Apr 11  |  Solving problems [using Hash tables](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Using%20Hash%20Tables.md)
 Apr 25  | [Whiteboarding tips](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Whiteboarding-Tips.md)
-May 02  | [Whiteboarding tips](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Whiteboarding-Tips.md)
+May 02  | [Interview Process](classroom/Interview-prorocess.md) <br />[Whiteboarding tips](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Whiteboarding-Tips.md)
 **Week of May 05** | **Mock interviews**
 May 09  | [Linked Lists](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Introduction%20to%20Linked%20Lists.md)
 May 16 |  **Community Afirmation Activity**
