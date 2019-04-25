@@ -64,7 +64,7 @@ How you perform in your mock interview will not affect your internship placement
 
 ## The Internship Interview
 
-Each internship interview is 30-minutes long and will consist of a few minutes of introduction, followed by a whiteboard question.  Make use of the [whiteboarding strategies](Whiteboarding-Tips.md#3-practice), we discuss in CS Fundamentals.  As a student, you are expected to prepare for each interview and try your upmost.  
+Each internship interview is 30-minutes long and will consist of a few minutes of introduction, followed by a whiteboard question.  Make use of the [whiteboarding strategies](Whiteboarding-Tips.md#3-practice), we discuss in CS Fundamentals.  As a student, you are expected to prepare for each interview and try your upmost.  Some companies do not follow the whiteboard format, instead asking questions about work-history and projects or a pair-programming exercise.  
 
 After the interviews conclude, both students & interviewers provide feedback to Ada staff which is used to decide placements.  Some feedback from interviewers will also be made available to students after internships begin.
 
