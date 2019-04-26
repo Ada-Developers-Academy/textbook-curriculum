@@ -4,8 +4,8 @@
 
 By the end of this lesson, students should be able to answer the following questions or do the following things:
 
-- What is _authorization_?
-- Why is authorization an interesting problem?
+- What is authentication?
+- Why is authentication an interesting problem?
 - What is _OAuth_, and how do we recognize that we are using an OAuth system as a user?
 - Have exposure to OAuth's process and the following vocab:
   - OAuth Provider
@@ -13,7 +13,7 @@ By the end of this lesson, students should be able to answer the following quest
   - Client (as our Rails application)
 - What are trade-offs between OAuth and building our own system?
 
-## What is authorization?
+## What is Authentication?
 
 We've learned about creating user login functionality in Rails using Rails' `session` hash.
 
@@ -46,7 +46,7 @@ In an OAuth application the following entities play roles in the process:
 * The **Client** is an application which wants access to the user's account. For us this means the Rails server that we have built. Note that the Rails _server_ is an OAuth _client_. Out in the wild, this might be something like Spotify.
 * The **OAuth Provider** is the service providing OAuth access to the client. For us this means GitHub. It hosts the user accounts and provides information about the user to clients. The most common OAuth Provider is currently Facebook.
 
-## Authorization Process
+## Authentication Process
 
 Before the client site can use OAuth from the provider, the client must be registered with the provider.  This is something you as the engineer will do manually by visiting GitHub's website.  When the client registers, they provide a callback URL, a website (for a web app) and an application name.  In return it receives a **Client ID** and **Client Secret**. You may remember something similar from working with Slack's API. 
 
@@ -54,13 +54,13 @@ The **Client ID** is a publicly available string which identifies the service wi
 
 ![OAuth Process](./images/auth_code_flow.png )
 
-### In the authorization process:
+### In the Authentication Process:
 
-1. The User clicks on the link to "login with **Github**" on the Client website (our Rails app). The Client application redirects the user to the **Authorization Server** (part of our OAuth Provider, Github).
-1. The **Authorization Server** (part of our OAuth Provider, Github) responds by asking the user to grant the client (our Rails app) access to the requested data.  This can be as simple as the user's identity and email, but could include other data.
+1. The User clicks on the link to "login with **Github**" on the Client website (our Rails app). The Client application redirects the user to the **Authentication Server** (part of our OAuth Provider, Github).
+1. The **Authentication Server** (part of our OAuth Provider, Github) responds by asking the user to grant the client (our Rails app) access to the requested data.  This can be as simple as the user's identity and email, but could include other data.
 1. If the user grants access the Authentication Server (part of our OAuth Provider, Github) redirects the user to a specific **callback** address on the client (our Rails App).  This redirect includes an **authorization code** from the Authentication Server (Github).
-1. Next the Client (our Rails app) will request an access token from the Authorization Server (Github) using it's **secret key** and **authorization code** to verify it's identity.
-1. The authorization server (Github) responds with an **access token** to use in this session.
+1. Next the Client (our Rails app) will request an access token from the Authentication Server (Github) using it's **secret key** and **authorization code** to verify it's identity.
+1. The Authentication Server (Github) responds with an **access token** to use in this session.
 
 
 Once this is done the Client (our Rails app) can request information from the OAuth provider with it's **access token**. This might be information such as:
@@ -69,9 +69,9 @@ Once this is done the Client (our Rails app) can request information from the OA
 - The user's Profile Picture
 - The user's Email
 
-## After Authorization
+## After Authentication
 
-After the authorization process completes the client (our Rails app) application has access to the requested data from the user's profile and can then associate that user with an account on the client application (our Rails app).  
+After the authentication process completes the client (our Rails app) application has access to the requested data from the user's profile and can then associate that user with an account on the client application (our Rails app).
 
 ## OAuth vs. Building Our Own Login System
 
