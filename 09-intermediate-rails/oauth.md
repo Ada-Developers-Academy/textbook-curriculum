@@ -1,11 +1,12 @@
-# User Authentication and Authorization using OAuth
-## Learning Goals
-At the end of this lesson, students should be able to...
+# Implementing an OAuth Solution in Rails
 
-- Describe what happens when you "Sign in with Facebook" (or any other 3rd party provider)
-- Understand the basic workflow of OAuth, and how it protects users
-- Implement user login/logout using GitHub as an _OAuth provider_
-- Define and use _environment variables_ in Rails
+## Learning Goals
+
+At the end of this lesson, students should be able to
+
+- Have a list of steps to repeat to implement the user login/logout feature using GitHub as an _OAuth provider_ in Rails using `OmniAuth`
+- Practice using environment variables in Rails
+- On a high level, understand the OAuth process
 
 ## Our Approach
 We are going to use a few new tools to accomplish our goal of user authentication and authorization. We are going to work with GitHub as our **provider** which means our users will log in via their GitHub credentials. We will use [OmniAuth](https://github.com/omniauth/omniauth) which is a Ruby gem that standardizes the authentication process. It uses the [OAuth](https://oauth.net/) protocol for authenticating and authorizing users. **OAuth** is an open standard for authorization, commonly used as a way for users to log in websites using 3rd-party credentials (like Google, Facebook, Twitter, etc) without exposing their password.
