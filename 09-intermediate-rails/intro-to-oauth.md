@@ -1,3 +1,36 @@
+# Introduction to Authentication and OAuth
+
+## Learning Goals
+
+By the end of this lesson, students should be able to answer the following questions or do the following things:
+
+- What is _authorization_?
+- Why is authorization an interesting problem?
+- What is _OAuth_, and how do we recognize that we are using an OAuth system as a user?
+- Have exposure to OAuth's process and the following vocab:
+  - Authorization Server
+  - User
+  - Client (as our Rails application)
+- What are trade-offs between OAuth and building our own system?
+
+## What is authorization?
+
+### Authorization != Authentication
+
+## What is OAuth?
+
+### What is OAuth to an end user?
+
+"In product development, an _end user_ is a person who ultimately uses or is intended to ultimately use a product."
+
+### OAuth at Introductory Detail
+
+## OAuth vs. Building Our Own Login System
+
+## Conclusion
+
+## Resources
+
 # Introduction to OAuth
 
 Today we will introduce a technology called *OAuth*, which we will use to allow users to log into our Rails app. OAuth is short for **Open Authentication**, and it is an open standard that describes how users can use one service to log into another. If you've ever logged into a website using Facebook, you've used OAuth.
