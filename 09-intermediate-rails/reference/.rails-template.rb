@@ -55,7 +55,7 @@ unless API_MODE
   end
 
   # Add jquery to application.js to work with foundation-rails
-  inject_into_file "app/assets/javascripts/application.js", after: "// about supported directives." do
+  inject_into_file "app/assets/javascripts/application.js", after: "// about supported directives.\n" do
     <<-'JAVASCRIPT'
 
   //= require jquery3
