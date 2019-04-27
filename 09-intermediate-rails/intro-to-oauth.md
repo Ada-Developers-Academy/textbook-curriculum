@@ -64,23 +64,23 @@ The process of the end user coming across OAuth is usually like this:
 
 Our learning goal is that we get familiar with the details of the authentication process in the beginning. We will practice coding through the details slowly through the next few projects.
 
-## OAuth Roles and Vocabulary
+### OAuth Roles and Vocabulary
 
-In an OAuth application the following entities play roles in the process:
+In an OAuth application, the following entities play roles in the process:
 
 * The **User** is the person using the browser to access the site. Perhaps you.
-* The **Client** is an application which wants access to the user's account. For us this means the Rails server that we have built. Note that the Rails _server_ is an OAuth _client_. Out in the wild, this might be something like Spotify.
+* The **Client** is an application which wants access to the user's account. For us this means the Rails server that we have built. Note that the Rails _server_ is an OAuth _client_. Out in the wild, this might be something like Glitch.
 * The **OAuth Provider** is the service providing OAuth access to the client. For us this means GitHub. It hosts the user accounts and provides information about the user to clients. The most common OAuth Provider is currently Facebook.
 
-## Authentication Process
+### Before the Client can use OAuth
 
 Before the client site can use OAuth from the provider, the client must be registered with the provider.  This is something you as the engineer will do manually by visiting GitHub's website.  When the client registers, they provide a callback URL, a website (for a web app) and an application name.  In return it receives a **Client ID** and **Client Secret**. You may remember something similar from working with Slack's API. 
 
 The **Client ID** is a publicly available string which identifies the service with the API and the **Client Secret** is kept hidden, like a password and used to authenticate with the service.
 
-![OAuth Process](./images/auth_code_flow.png )
-
 ### In the Authentication Process:
+
+![OAuth Process](./images/auth_code_flow.png )
 
 1. The User clicks on the link to "login with **Github**" on the Client website (our Rails app). The Client application redirects the user to the **Authentication Server** (part of our OAuth Provider, Github).
 1. The **Authentication Server** (part of our OAuth Provider, Github) responds by asking the user to grant the client (our Rails app) access to the requested data.  This can be as simple as the user's identity and email, but could include other data.
@@ -95,7 +95,7 @@ Once this is done the Client (our Rails app) can request information from the OA
 - The user's Profile Picture
 - The user's Email
 
-## After Authentication
+### After Authentication
 
 After the authentication process completes the client (our Rails app) application has access to the requested data from the user's profile and can then associate that user with an account on the client application (our Rails app).
 
