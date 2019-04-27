@@ -19,20 +19,6 @@ When we want to implement an OAuth solution for authorization in our Rails apps,
 - we will use [dotenv](https://github.com/bkeepers/dotenv), a Ruby gem to keep client IDs and client secrets hidden
 - we will use a specific pattern of URLs to configure our routes: `get /auth/github` and `get /auth/github/callback`
 
-![OAuth Overview](./images/oauth-overview.png)
-
-Note: This diagram implies that the Rails controller we will used is named `SessionsController`. This is not a hard or fast rule, and it is possible that the example code differs.
-
-## OmniAuth
-The **OmniAuth** gem provides pretty much everything you need to use OAuth to authenticate users. It starts by adding a new route to your application: `/auth/:provider`.
-
-`:provider` is a named parameter that will equal the name of the service we are using (`github`, in this example). When a user visits this route, OmniAuth will redirect the user to GitHub, beginning the authentication process. _All of this is handled automatically by OmniAuth_ - we do not have to define the route or the controller action ourselves.
-
-Once the user has OKed our application, GitHub will redirect the user to `/auth/github/callback`, along with information about who they are. At this point, it's up to our application what to do next. Because the next steps are less prescribed, OmniAuth does not do this for us - _we will need to define the callback route and controller action ourselves_.
-
-The whole thing goes something like this:
-
-
 ## Our Steps to Implementing Our Authentication Feature
 
 In Rails, we will use the following big steps towards building this feature:
@@ -42,11 +28,11 @@ In Rails, we will use the following big steps towards building this feature:
 1. Ensuring that the OmniAuth gem is installed
 1. Ensure that GitHub is expecting requests for Authentication to happen that come from your Rails server  from a specific endpoint `localhost:3000/...SOME ENDPOINT` as an OAuth Application (Client application)
 1. Ensure that your Rails app knows how to talk to GitHub as an OAuth Application, given that it knows the right _secrets_
+1. Change the configurations of Rails to recognize and use OmniAuth, GitHub, the established secrets connected to GitHub when it needs to
 
 ### Teach your Rails app how to do it
 
 1. Add a route that will go to GitHub given a specific path that OmniAuth is looking for
-1. Change the configurations of Rails to recognize and use OmniAuth, GitHub, the established secrets connected to GitHub when it needs to
 1. Add a route to your Rails app that will wait for requests _from_ GitHub at a specific endpoint
 1. Handle and process the information from the request (and the new authenticated user information!) to log in
 1. Update your `User` model's attributes so you can handle, process, and store this information correctly
@@ -69,11 +55,11 @@ Spend five minutes thinking to yourself what the answer is for each step. Then, 
   1. Installing the OmniAuth gem should change the `Gemfile`
   1. We will go to Github.com literally to make some configurations for a new OAuth application
   1. We store our "secrets" using `env`! This means we'll need to make sure that the gem `dotenv` is installed using our `Gemfile`, and we'll need to put new pieces of information in our `Gemfile`
+  1. We will add some new Rails app configurations in a folder called `config/initializers/` in order to teach OmniAuth where to look for our specific secrets in the `.env` file
 
   #### Teach your Rails app how to do it
 
   1. We will add a new special OmniAuth route that a link from our Rails app will _go to_ in order to start the login process in our `routes.rb` file
-  1. We will add some new Rails app configurations in a folder called `config/initializers/` in order to teach OmniAuth where to look for our specific secrets in the `.env` file
   1. We will add a new route that will wait for requests _from_ GitHub at a specific path in our `routes.rb` file
   1. We will handle and process the user information from the request in our controller that handles logging in, continuing to use the `session` hash
   1. We will update our `User` model's attributes using migrations
@@ -81,7 +67,7 @@ Spend five minutes thinking to yourself what the answer is for each step. Then, 
 
 </details>
 
-## Exercise: Implement an Authentication Feature in the Books app!
+# Exercise: Implement an Authentication Feature in the Books app!
 
 Review the following diagram and quickly check it against the flow detailed above.
 
@@ -94,9 +80,9 @@ Now, you and your pair are ready to follow these steps to get GitHub OAuth up an
 1. Work through this with one partner. If both want to follow the steps together, that's great! If one person wants to navigate while the other drives because of computer problems, that is okay too
 1. Don't sweat the details at this moment. Right now, the important thing is getting through the activity in completion and successfully. Please don't focus on committing to memory at this time
 
-### Configuration
+## Configuration
 
-#### 1. Install `OmniAuth`
+### 1. Install `OmniAuth`
 
 Add the following lines to the bottom of the `Gemfile`
 
@@ -134,7 +120,7 @@ After you register your app, you should be taken to the OAuth application detail
 
 You can always go back to this page through the [Developer Settings](https://github.com/settings/developers)
 
-#### 3. Teach Your Rails Apps the _Secrets_
+### 3. Teach Your Rails Apps the _Secrets_
 
 Because they cannot be committed to git, the GitHub application credentials must be loaded external of the Rails application. Similar to the work we've done on previous projects, we will use a `.env` file to store these credentials securely, though the process for using them in Rails will be slightly different.
 
@@ -156,27 +142,64 @@ To use a `.env` file with Rails, you **must** do all of these steps to gain acce
 
 **With that done, the GitHub application credentials will now be available to Rails via the `ENV` constant.**
 
-#### Accessing Credentials
+### 4. Configure Rails to Access Credentials
+
 Now that you have application credentials, let's configure Rails to use them. To do this, create a new _initializer file_. Initializers are files that run as part of the Rails start-up process, which means that **if you change an initializer, you must restart the server**.
 
-Initializers go in the `config/initializers/` directory. From the terminal, create a new initializer with `$ touch config/initializers/omniauth.rb`. Open this file and add the following code:
+Initializers go in the `config/initializers/` directory.
 
-```ruby
-# config/initializers/omniauth.rb
-Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :github, ENV["GITHUB_CLIENT_ID"], ENV["GITHUB_CLIENT_SECRET"], scope: "user:email"
-end
-```
+1. From the terminal, create a new initializer with `$ touch config/initializers/omniauth.rb`
+1. Open this file and add the following code:
 
-This tells Rails to use OmniAuth for authentication. Specifically, it tells Rails that it will be communicating with GitHub, and where it can find the application credentials that GitHub expects: in the `ENV` variable we populated earlier.
+  ```ruby
+  # config/initializers/omniauth.rb
+  Rails.application.config.middleware.use OmniAuth::Builder do
+    provider :github, ENV["GITHUB_CLIENT_ID"], ENV["GITHUB_CLIENT_SECRET"], scope: "user:email"
+  end
+  ```
+1. Restart the server so that the initializer is run
 
-Now restart the server so that the initializer is run.
+This initializer tells Rails to use OmniAuth for authentication. Specifically, it tells Rails that it will be communicating with GitHub, and where it can find the application credentials that GitHub expects: in the `ENV` file we populated earlier with the keys we defined before.
 
-## Let's Test it Out
 
-Start the Rails server and point a browser at `http://localhost:3000/auth/github`. Amazingly, the request is redirected to GitHub to login and grant permission! After authenticating and granting, GitHub redirects the browser to `localhost:3000/auth/github/callback`. Here, you'll see a bunch of information in the url parameters. Let's create a route to better explore this information.
+## Use it in our Rails app!
 
-Open `routes.rb` to add:
+![OAuth Overview](./images/oauth-overview.png)
+
+Note: This diagram implies that the Rails controller we will used is named `SessionsController`. This is not a hard or fast rule, and it is possible that the example code differs.
+
+## OmniAuth
+
+The **OmniAuth** gem provides pretty much everything you need to use OAuth to authenticate users. It starts by adding a new route to your application: `/auth/:provider`.
+
+`:provider` is a named parameter that will equal the name of the service we are using (`github`, in this example). When a user visits this route, OmniAuth will redirect the user to GitHub, beginning the authentication process. _All of this is handled automatically by OmniAuth_ - we do not have to define the route or the controller action ourselves.
+
+Once the user has OKed our application, GitHub will redirect the user to `/auth/github/callback`, along with information about who they are. At this point, it's up to our application what to do next. Because the next steps are less prescribed, OmniAuth does not do this for us - _we will need to define the callback route and controller action ourselves_.
+
+### 1. Add the Rails route that sends users to GitHub
+
+1. In our routes file, add the new following route:
+    ```ruby
+    get '/auth/github', as: 'github_login'
+    ```
+
+    The `get '/auth/github'` is a special path that OmniAuth is looking for. [You can read more details about how and why here](https://github.com/omniauth/omniauth#integrating-omniauth-into-your-application).
+
+    Note: You are free to modify the `, as: 'github_login'` however you'd like
+1. Modify the `app/views/layouts/application.html.erb` file (or whatever view has the existing login button) so that it goes to this new route instead. Your modified login link may look like this:
+    ```ruby
+    <%= link_to("Login with GitHub", github_login_path) %>
+    ```
+
+#### Let's Test it Out
+
+1. Start the Rails server
+1. Navigate on your Rails app and click on the new "Login with GitHub" button. Note the following things:
+    - The server _does_ send you to `localhost:3000/auth/github`
+    - This automatically redirects you to a special Github.com OAuth page that asks the user to login/authorize our GitHub app that we established earlier
+    - After authorizing the app, GitHub redirects back to `localhost:3000`... to a path `http://localhost:300/auth/github/callback`. We haven't made this yet, so this error is good!
+1. Celebrate/high five your pair for getting this far! Let's keep going!
+
 
 ```ruby
 get "/auth/:provider/callback", to: "sessions#create"
