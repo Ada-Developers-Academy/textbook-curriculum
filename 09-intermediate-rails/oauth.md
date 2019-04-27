@@ -33,7 +33,6 @@ Once the user has OKed our application, GitHub will redirect the user to `/auth/
 
 The whole thing goes something like this:
 
-![OmniAuth Dance](./images/omniauth.png)
 
 ## Our Steps to Implementing Our Authentication Feature
 
@@ -47,7 +46,7 @@ In Rails, we will use the following big steps towards building this feature:
 
 ### Teach your Rails app how to do it
 
-1. Add a route that will go to GitHub given a specific end point
+1. Add a route that will go to GitHub given a specific path that OmniAuth is looking for
 1. Change the configurations of Rails to recognize and use OmniAuth, GitHub, the established secrets connected to GitHub when it needs to
 1. Add a route to your Rails app that will wait for requests _from_ GitHub at a specific endpoint
 1. Handle and process the information from the request (and the new authenticated user information!) to log in
@@ -74,9 +73,9 @@ Spend five minutes thinking to yourself what the answer is for each step. Then, 
 
   #### Teach your Rails app how to do it
 
-  1. We will add a new route that a link from our Rails app will _go to_ in order to start the login process in our `routes.rb` file
-  1. We will add some new Rails app configurations in a folder called `config/initializers/`
-  1. We will add a new route that will wait for requests _from_ GitHub at a specific endpoint in our `routes.rb` file
+  1. We will add a new special OmniAuth route that a link from our Rails app will _go to_ in order to start the login process in our `routes.rb` file
+  1. We will add some new Rails app configurations in a folder called `config/initializers/` in order to teach OmniAuth where to look for our specific secrets in the `.env` file
+  1. We will add a new route that will wait for requests _from_ GitHub at a specific path in our `routes.rb` file
   1. We will handle and process the user information from the request in our controller that handles logging in, continuing to use the `session` hash
   1. We will update our `User` model's attributes using migrations
   1. We will implement our logout features with modifying our routes and controllers, continuing to use the `session` hash
@@ -84,6 +83,21 @@ Spend five minutes thinking to yourself what the answer is for each step. Then, 
 </details>
 
 ## Exercise: Implement an Authentication Feature in the Books app!
+
+Review the following diagram and quickly check it against the flow detailed above.
+
+![OmniAuth Dance](./images/omniauth.png)
+
+Now, make sure that you have a fresh, clean, up-to-date clone of the classroom's Books app!
+
+Now, you and your pair are ready to follow these steps to get GitHub OAuth up and running for your app. Here are some following tips:
+
+1. Work through this with one partner. If both want to follow the steps together, that's great! If one person wants to navigate while the other drives because of computer problems, that is okay too
+1. Don't sweat the details at this moment. Right now, the important thing is getting through the activity in completion and successfully. Please don't focus on committing to memory at this time
+
+### Configuration
+
+#### Install `OmniAuth`
 
 ### Installing OmniAuth
 Enough with talking, lets implement this into a quick application. Head over to your sandbox Rails app and open your Gemfile. Add the following lines to it:
