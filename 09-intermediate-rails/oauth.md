@@ -24,7 +24,6 @@ When we want to implement an OAuth solution for authorization in our Rails apps,
 Note: This diagram implies that the Rails controller we will used is named `SessionsController`. This is not a hard or fast rule, and it is possible that the example code differs.
 
 ## OmniAuth
-
 The **OmniAuth** gem provides pretty much everything you need to use OAuth to authenticate users. It starts by adding a new route to your application: `/auth/:provider`.
 
 `:provider` is a named parameter that will equal the name of the service we are using (`github`, in this example). When a user visits this route, OmniAuth will redirect the user to GitHub, beginning the authentication process. _All of this is handled automatically by OmniAuth_ - we do not have to define the route or the controller action ourselves.
@@ -97,46 +96,56 @@ Now, you and your pair are ready to follow these steps to get GitHub OAuth up an
 
 ### Configuration
 
-#### Install `OmniAuth`
+#### 1. Install `OmniAuth`
 
-### Installing OmniAuth
-Enough with talking, lets implement this into a quick application. Head over to your sandbox Rails app and open your Gemfile. Add the following lines to it:
+Add the following lines to the bottom of the `Gemfile`
 
 ```ruby
 gem "omniauth"
 gem "omniauth-github"
 ```
 
-Save your Gemfile, then head over to your terminal, where you'll need to `$ bundle` (and restart your rails server). Notice that there's a specific gem for authenticating with GitHub. Each _provider_ has a small Ruby gem that's responsible for the specifics of how to authenticate with that service.
+Save the file, `bundle install`, and restart the Rails server.
 
-### GitHub Credentials
-Each provider requires you to provide some credentials for your application, so they can keep track of which website is authorizing which user. [Login to GitHub and register a new "application"](https://github.com/settings/applications/new).
+Notice that there's a specific gem for authenticating with GitHub. Each _provider_ has a small Ruby gem that's responsible for the specifics of how to authenticate with that service.
 
-![GitHub Application Registration](./images/github-application.png)
+### 2. Get Credentials: Configure an OAuth Application on Github.com
 
-After registration you will be given a `client id` and a `client secret`:
+Each provider requires you to provide some credentials for your application, so they can keep track of which website is authorizing which user.
 
-![GitHub Application Credentials](./images/github-credentials.png)
+1. Go to Github.com and make sure you're logged in
+1. Go to [your own user settings page](https://github.com/settings/profile) by navigating through the menus in the top right corner
+1. On the left-hand vertical side bar, find an option named [Developer Settings](https://github.com/settings/developers) (towards the bottom)
+1. By default, you should be on a page titled "OAuth Apps" within these Settings / Developer Settings. On the top right side, find the button that says [New OAuth App](https://github.com/settings/applications/new)
+1. On this form to register a new OAuth app, use the following pieces of information in this form:
 
-**Note:** These credentials are the equivalent of passwords to your GitHub account. Keep them safe; never, ever post them in public places or commit them in git.
+    - Application name: whatever you feel like, like "OmniAuth in Books App Test" or "Dee's Books App"
+    - Homepage URL: `http://localhost:3000`
+    - Application description: Leave blank, or fill in whatever you feel like
+    - Authorization callback URL: `http://localhost:3000/auth/github/callback`
 
-#### Storing Credentials
+![GitHub Application Registration](./images/oauth-register-github-app.png)
+
+After you register your app, you should be taken to the OAuth application detail page. This page will tell you what the app's issued Client ID and Client Secret is. **Keep this web page open; you will need to have your Client ID and Client Secret on hand.**
+
+![GitHub Application Credentials](./images/oauth-github-app-creds.png)
+
+**Note:** These credentials are the equivalent of passwords to your GitHub account. Keep them safe; never, ever post them in public places and never commit them in git.
+
+You can always go back to this page through the [Developer Settings](https://github.com/settings/developers)
+
+#### 3. Teach Your Rails Apps the _Secrets_
+
 Because they cannot be committed to git, the GitHub application credentials must be loaded external of the Rails application. Similar to the work we've done on previous projects, we will use a `.env` file to store these credentials securely, though the process for using them in Rails will be slightly different.
 
 To use a `.env` file with Rails, you **must** do all of these steps to gain access to the data you set in the `.env` file.
 
-1. Add `gem 'dotenv-rails'` to the `:development` group in the Gemfile  
+1. Add `gem 'dotenv-rails'` to the `:development` group in the Gemfile, meaning: within the code block of `group :development do` and before its `end`
+1. `$ bundle install`
+1. Add the `.env` file to our `.gitignore`
+1. Create the `.env` file in the root directory
 
-    __QUESTION:__ Why add it to the `:development` group? Why does the group matter?
-
-1. Install the gem using `bundle`
-1. Add the `.env` file to our `.gitignore`  
-
-    This will help prevent us from accidentally publishing it on GitHub.
-
-1. Create the `.env` file in the root directory with `$ touch .env`.
-
-    This file is a collection of key/value pairs. We will add the application credentials from GitHub like this:
+    This file is a collection of key/value pairs. We will choose to put the value of the Client ID (from above) in a key named `GITHUB_CLIENT_ID`. We will choose to put the value of the Client Secret (from above) in a key named `GITHUB_CLIENT_SECRET`. Therefore, our `.env` file should look like this, but with the values replaced with our own from Github.com's registered OAuth app:
 
     ```bash
     GITHUB_CLIENT_ID: fd6XXXXXXXX
