@@ -168,7 +168,7 @@ This initializer tells Rails to use OmniAuth for authentication. Specifically, i
 
 Note: This diagram implies that the Rails controller we will used is named `SessionsController`. This is not a hard or fast rule, and it is possible that the example code differs.
 
-## OmniAuth
+### OmniAuth
 
 The **OmniAuth** gem provides pretty much everything you need to use OAuth to authenticate users. It starts by adding a new route to your application: `/auth/:provider`.
 
@@ -251,34 +251,11 @@ auth_hash["info"]["name"]
 auth_hash["info"]["email"]
 ```
 
-With information returned by GitHub you can create a database record for uniquely identifying a user.
+With this information returned by GitHub, you can create a database record for uniquely identifying a user, so keep these fields from `auth_hash` in mind.
 
-### Modeling Users
-Start with a `User` model and migration: `$ rails generate model user`. Open the generated migration and add some columns to the database table:
+### 3. Handle and Process the Callback
 
-```ruby
-class CreateUsers < ActiveRecord::Migration[5.0]
-  def change
-    create_table :users do |t|
-      t.string :name
-      t.string :email
-      t.integer :uid, null: false # this is the identifier provided by GitHub
-      t.string :provider, null: false # this tells us who provided the identifier
-
-      t.timestamps
-    end
-  end
-end
-```
-
-Remember to migrate the database: `$ rails db:migrate`.
-
-**Question**: What should we do if data is missing from our provider? What data is the most important for the database table we just created?
-
-**Question**: What do we want our controller method to do upon successful or unsuccessful login?
-
-### Handling the Auth Callback
-In the auth callback, we will have access to a bunch of credentials about the user from GitHub. We'll follow this strategy to turn that into a logged in user:
+In the auth callback (the actions kicked off from Github's process returning back to the Rails app), we will have access to a bunch of credentials about the user from GitHub. We'll follow this strategy to turn that into a logged in user:
 
 1. Check if there's already a `User` record matching those credentials in our database
 1. If there is no existing `User`, try to create a new `User`
@@ -306,7 +283,32 @@ class SessionsController < ApplicationController
 end
 ```
 
-Recall that before the `session` is sent to the browser it is encrypted. This means its contents are _opaque_ to the browser. All the browser sees is several KB of garbled nonsense, which it can neither interpret nor change. This makes the `session` ideal for things like storing the ID of an authenticated user, since there's no way for a malicious browser to fake a login.
+Recall that before the `session` is sent to the browser, it is encrypted. This means its contents are _opaque_ to the browser. All the browser sees is several KB of garbled nonsense, which it can neither interpret nor change. This makes the `session` ideal for things like storing the ID of an authenticated user, since there's no way for a malicious browser to fake a login.
+
+### 4. Updating the `User` Model
+
+Start with a `User` model and migration: `$ rails generate model user`. Open the generated migration and add some columns to the database table:
+
+```ruby
+class CreateUsers < ActiveRecord::Migration[5.0]
+  def change
+    create_table :users do |t|
+      t.string :name
+      t.string :email
+      t.integer :uid, null: false # this is the identifier provided by GitHub
+      t.string :provider, null: false # this tells us who provided the identifier
+
+      t.timestamps
+    end
+  end
+end
+```
+
+Remember to migrate the database: `$ rails db:migrate`.
+
+**Question**: What should we do if data is missing from our provider? What data is the most important for the database table we just created?
+
+**Question**: What do we want our controller method to do upon successful or unsuccessful login?
 
 **Exercise**: Let's implement a new class method in our `User` model which will accept the `auth_hash` as a parameter and construct a new `User` and save it to the database using the info from the `auth_hash`. [You can see our solution here](code_samples/oauth_build_from_github.rb).
 
