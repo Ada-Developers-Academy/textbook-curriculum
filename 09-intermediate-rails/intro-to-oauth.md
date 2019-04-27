@@ -36,11 +36,9 @@ These are both processes that deal with users login functionalities. They are bo
 
 ## What is OAuth?
 
-OAuth is an **authentication** framework. OAuth is short for **Open Authentication**, and it is an open standard that describes how users can use one service to log into another.
+[**OAuth**](https://en.wikipedia.org/wiki/OAuth) is an authentication framework. OAuth is short for Open Authentication. It is [an open standard](https://en.wikipedia.org/wiki/Open_standard), and it is a solution beyond one specific technology. It describes how users can log into one service by logging into another service, and allow access.
 
-If you've ever logged into a website using Facebook, you've used OAuth. Using OAuth, a user can securely **authenticate** (log in) to one service like Github, Google or Facebook, and allow a second service, like our Rails App, to access that user's data. 
-
-So users log into one service, and use that account to log into the second service.
+If you've ever logged into a website using Facebook and given that website permissions to look at your Facebook account, you've used OAuth. Using OAuth, a user can securely **authenticate** (log in) to one service like Github, Google or Facebook, and allow a second service, like our Rails App, to access that user's data.
 
 ### What is OAuth to an end user?
 
@@ -48,7 +46,23 @@ So users log into one service, and use that account to log into the second servi
 
 If you've ever followed a link to "log in with Facebook" (or Google, Twitter, GitHub, etc) then you've used OAuth.
 
-![Log in with Facebook button](images/oauth_in_the_wild.png)
+The process of the end user coming across OAuth is usually like this:
+
+1. The user, Dee, is on the website [Glitch.com](https://glitch.com/)
+1. Dee needs to sign-in in order to save their project, and clicks the "sign in" button
+![Glitch before logging in](images/intro-to-oauth/before.png)
+1. Dee doesn't have an account on Glitch, but sees the "Sign in with GitHub" option
+![Glitch's options for logging in](images/intro-to-oauth/login.png)
+1. Dee clicks on it, and is redirected to a page in GitHub styling and branding that asks them to log in to GitHub
+1. Then, after successful login, GitHub automatically goes to another GitHub page that asks Dee to give GitHub permission to authorize Glitch. By agreeing, Dee says "Yes, GitHub, I trust Glitch, and Glitch may use my GitHub user information"
+![GitHub asking the user to authorize Glitch](images/intro-to-oauth/authorize.png)
+1. After Dee clicks on the big green button, Dee is redirected back to Glitch
+1. Dee sees that on Glitch, they are fully logged in, and all of the Glitch UI reflects their user icon and user name
+![Glitch after logging in](images/intro-to-oauth/after.png)
+
+## The Authentication Process Details
+
+Our learning goal is that we get familiar with the details of the authentication process in the beginning. We will practice coding through the details slowly through the next few projects.
 
 ## OAuth Roles and Vocabulary
 
