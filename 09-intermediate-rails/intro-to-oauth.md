@@ -15,12 +15,24 @@ By the end of this lesson, students should be able to answer the following quest
 
 ## What is Authentication?
 
-We've learned about creating user login functionality in Rails using Rails' `session` hash.
+Authentication is a process in web apps which verifies that a user is who truly who they say they are. This process usually comes in when we log in to websites.
+
+We've already learned about creating user login functionality in Rails using Rails' `session` hash. This "login functionality" was really just a person declaring they were a certain user by filling out a name in a form.
+
+However, that person could have been lying. Chris could have gone to a website and filled out the name "Dee," even though Dee is not his name. Currently, we don't have a great way to authenticate, or verify, this fake "Dee" user in Rails, because we don't have an authentication process.
+
+In the web, we'll want to augment our login systems so that they can confirm the identity of a user, whether through some evidence or using some system that knows how to authenticate.
 
 ### Authentication != Authorization
 
-- **Authentication:** Who are you, and how can I trust you?
-- **Authorization:** Are you allowed to do that action?
+The words "authentication" and "authorization" are related, and the words are very similar, so we want to clear up this misunderstanding at the start.
+
+| Vocab | What it is | Example in Web apps |
+| --- | --- | --- |
+| Authentication | a process that asks and answers "Who are you, and how can I trust you?" | If you are the one user claiming to have the name "Ada Lovelace," how does the website know that is true and trust the user?
+| Authorization | a process that asks and answers "Are you allowed to do that action?" | Even if you are the one and only Ada Lovelace, should you be on this web page? Should you have permissions to see this information, edit, delete, etc?
+
+These are both processes that deal with users login functionalities. They are both problems and aspects of web development that we will cover in the Ada curriculum. However, today we will focus on authentication only.
 
 ## What is OAuth?
 
