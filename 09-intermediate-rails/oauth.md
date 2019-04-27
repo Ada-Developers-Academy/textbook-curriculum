@@ -10,16 +10,21 @@ At the end of this lesson, students should be able to
 
 ## Our Approach
 
-[OAuth](https://oauth.net/) is an open standard for authorization, commonly used as a way for users to log in websites using 3rd-party credentials (like Google, Facebook, Twitter, etc) without exposing their password.
+[OAuth](https://oauth.net/) is an open standard for authorization, commonly used as a way for users to log in websites using 3rd-party credentials (like Google, Facebook, Twitter, etc).
 
 When we want to implement an OAuth solution for authorization in our Rails apps, we will use many different tools. Specifically, we are going to make the following decisions:
 
 - we will use GitHub as our **OAuth Provider**, so our users will log in via their GitHub credentials
-- we will use [OmniAuth](https://github.com/omniauth/omniauth), a Ruby gem that standardizes the authentication process using the OAuth protocol and integrates well with Ruby on Rails apps.
+- we will use [OmniAuth](https://github.com/omniauth/omniauth), a Ruby gem that standardizes the authentication process using the OAuth protocol and integrates well with Ruby on Rails apps
+- we will use [dotenv](https://github.com/bkeepers/dotenv), a Ruby gem to keep client IDs and client secrets hidden
+- we will use a specific pattern of URLs to configure our routes: `get /auth/github` and `get /auth/github/callback`
 
 ![OAuth Overview](./images/oauth-overview.png)
 
+Note: This diagram implies that the Rails controller we will used is named `SessionsController`. This is not a hard or fast rule, and it is possible that the example code differs.
+
 ## OmniAuth
+
 The **OmniAuth** gem provides pretty much everything you need to use OAuth to authenticate users. It starts by adding a new route to your application: `/auth/:provider`.
 
 `:provider` is a named parameter that will equal the name of the service we are using (`github`, in this example). When a user visits this route, OmniAuth will redirect the user to GitHub, beginning the authentication process. _All of this is handled automatically by OmniAuth_ - we do not have to define the route or the controller action ourselves.
