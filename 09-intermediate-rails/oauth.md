@@ -197,26 +197,48 @@ Once the user has OKed our application, GitHub will redirect the user to `/auth/
 1. Navigate on your Rails app and click on the new "Login with GitHub" button. Note the following things:
     - The server _does_ send you to `localhost:3000/auth/github`
     - This automatically redirects you to a special Github.com OAuth page that asks the user to login/authorize our GitHub app that we established earlier
-    - After authorizing the app, GitHub redirects back to `localhost:3000`... to a path `http://localhost:300/auth/github/callback`. We haven't made this yet, so this error is good!
+    - After authorizing the app, GitHub redirects back to `localhost:3000`... to a path `http://localhost:3000/auth/github/callback`, and we should see a "No route matches" error. We haven't made this yet, so this error is good!
 1. Celebrate/high five your pair for getting this far! Let's keep going!
 
+### 2. Add the Rails route that GitHub points back to
 
-```ruby
-get "/auth/:provider/callback", to: "sessions#create"
-```
+1. In your routes file, comment out the three routes that were the original `login form`, `login`, and `logout` routes (likely something along the lines of `post "/login", to: "users#login"`)
+1. Go to your Users Controller, or wherever the original `login form`, `login`, and `logout` actions were defined, and comment out those three actions
+1. In our routes file, add the new following route, modifying the controller `users` if that seems necessary:
+    ```ruby
+    get "/auth/:provider/callback", to: "users#create"
+    ```
+1. In the Users Controller, create a new action: `create`! Add in the following code:
+    ```ruby
+    class UsersController < ApplicationController
+    # ...
+      def create
+        auth_hash = request.env['omniauth.auth']
+        raise
+      end
+    # ...
+    end
+    ```
+1. In the browser, navigate back to `localhost:3000` and attempt again to login with GitHub. Notice the following things:
+    - After the user authorizes the GitHub app, now we no longer see the "No route matches" error, because we HAVE defined that route!
+    - Now we see a different error: A runtime error, caused by the `raise` that was in the code we asked you to copy and paste into the Users Controller just now.
+    - This means that our user, who just went from our Books app, TO Github.com, authorized the Books app, was now successfully REDIRECTED BACK to our Books app, and now the user is seeing code that was defined in our Books app... in the `UsersController` `create` action!
+    - Now that we've been redirected back to the Rails app from GitHub, GitHub has given us a present: a bunch of data, in the form of an `auth_hash`
+1. Observe the `auth_hash` by using the error page to print out the result of these expressions:
+    - `auth_hash = request.env["omniauth.auth"]`
+    - `auth_hash["uid"]`
+    - `auth_hash["info"]["name"]`
+    - `auth_hash["info"]["email"]`
 
-This route points to a `create` action in the sessions controller. Note that we are not going to use the login/logout implementation we created in our previous version of the `SessionsController`, so we should comment out the routes and controller actions.  Open the controller in your editor and add a `create` action that looks like this:
+#### What's going on with this `auth_hash`?
 
-```ruby
-class SessionsController < ApplicationController
-  def create
-    auth_hash = request.env['omniauth.auth']
-    raise
-  end
-end
-```
+Our controller code defined the local variable `auth_hash` to the value of `request.env['omniauth.auth']`. This is information stored in the `headers` of the HTTP request that came back from GitHub.
 
-Refresh the page in the browser and have a look at `auth_hash`, the local variable assigned to the value of `request.env['omniauth.auth']`. This is information stored in the `headers` of the HTTP request. This data is a hash that will likely have some combination of the data described in the [OmniAuth README](https://github.com/intridea/omniauth/wiki/Auth-Hash-Schema), but the key/values returned varies by provider. GitHub will return the following important keys:
+This data is a hash that will likely have some combination of the following:
+  - data described in the [OmniAuth README](https://github.com/intridea/omniauth/wiki/Auth-Hash-Schema)
+  - key/value pairs specified by the OAuth provider
+
+GitHub will return the following important keys that we looked at above, and these are the keys that we will pay attention to:
 
 ```ruby
 # the `uid` is an identifier for the user from the provider's system
