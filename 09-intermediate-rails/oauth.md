@@ -395,7 +395,7 @@ As we write this controller code, we get to think about the answers to the follo
 
 #### Our Helper Method `User.build_from_github`
 
-What was the line `user = User.build_from_github(auth_hash)` above about? Observe our own implementation of a helper method to make the User from the `auth_hash`. Feel free to adjust this code with whatever makes sense on your projects.
+What was the line `user = User.build_from_github(auth_hash)` above about? Observe our own implementation of a helper method to make the User from the `auth_hash`. Add this code so that your `User` model resembles this! Feel free to adjust this code with whatever makes sense on your projects.
 
 ```ruby
 class User < ApplicationRecord
@@ -413,39 +413,36 @@ class User < ApplicationRecord
 end
 ```
 
-## Wait!  How Do I Log Out!
+## 5. Wait! How Do I Log Out?!
 
 We have authentication working now, but the user cannot actually log out.  The user is instead permanently logged in.  To log the person out we need to clear the session.
 
-To start with we can add a route for logging out.
+1. Add a route for logging out:
+    ```ruby
+    delete "/logout", to: "users#destroy", as: "logout"
+    ```
+1. In the `UsersController`, add the `destroy` action to handle logout:
+    ```ruby
+    #  app/controllers/sessions_controller.rb
+    class UsersController < ApplicationController
+      # ...
+      def destroy
+        session[:user_id] = nil
+        flash[:success] = "Successfully logged out!"
 
-```ruby
-delete "/logout", to: "sessions#destroy", as: "logout"
-```
-Then in the `SessionsController` we can add a method, `destroy` to handle logout.  
-
-```ruby
-#  app/controllers/sessions_controller.rb
-class SessionsController < ApplicationController
-  ...
-  def destroy
-    session[:user_id] = nil
-    flash[:success] = "Successfully logged out!"
-
-    redirect_to root_path
-  end
-end
-```
-
-Lastly in our `/app/views/layouts/application.html.erb` file we can add links to log in and out.
-
-```erb
-<% if session[:user_id] %>
-  <%= link_to "Log out", logout_path, method: "delete"   %>
-<% else %>
-  <%= link_to "Login with Github", "/auth/github" %>
-<% end %>
-```
+        redirect_to root_path
+      end
+    end
+    ```
+1. Update our application view (`/app/views/layouts/application.html.erb`) to have links for the user to log in and log out:
+    ```erb
+    <% if session[:user_id] %>
+      <%= link_to "Log out", logout_path, method: "delete" %>
+    <% else %>
+      <%= link_to "Login with Github", github_login_path %>
+    <% end %>
+    ```
+1. Test! Restart your server, open up an incognito window in Google Chrome, go to `localhost:3000`, and see what you get! Patiently debug if something goes wrong. Celebrate your victories!
 
 **Question**: How could you display the name or email address of the logged-in user?
 
