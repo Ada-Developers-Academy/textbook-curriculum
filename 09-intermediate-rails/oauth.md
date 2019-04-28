@@ -60,7 +60,7 @@ Spend five minutes thinking to yourself what the answer is for each step. Then, 
 
   1. Installing the OmniAuth gem should change the `Gemfile`
   1. We will go to Github.com literally to make some configurations for a new OAuth application
-  1. We store our "secrets" using `env`! This means we'll need to make sure that the gem `dotenv` is installed using our `Gemfile`, and we'll need to put new pieces of information in our `Gemfile`
+  1. We store our "secrets" using `env`! This means we'll need to make sure that the gem `dotenv` is installed using our `Gemfile`, we'll need to add our `.env` file to `.gitignore`, and we'll need to put new pieces of information in our `.env`
   1. We will add some new Rails app configurations in a folder called `config/initializers/` in order to teach OmniAuth where to look for our specific secrets in the `.env` file
 
   #### Teach your Rails app how to do it
@@ -452,7 +452,28 @@ We have authentication working now, but the user cannot actually log out.  The u
 
 **Question**: How could you display the name or email address of the logged-in user?
 
+## Bonus: Refactor and Clean up!
 
+This exercise has left a bunch of comments in your code. Don't forget to clean up and delete any unused code!
+
+## Conclusion
+
+To use OAuth and implement a logging in and logging out feature, we used the following steps:
+
+### Configuration
+
+1. Installing the OmniAuth gem should change the `Gemfile`
+1. We will go to Github.com literally to make some configurations for a new OAuth application
+1. We store our "secrets" using `env`! This means we'll need to make sure that the gem `dotenv` is installed using our `Gemfile`, we'll need to add our `.env` file to `.gitignore`, and we'll need to put new pieces of information in our `.env`
+1. We will add some new Rails app configurations in a folder called `config/initializers/` in order to teach OmniAuth where to look for our specific secrets in the `.env` file
+
+### Teach your Rails app how to do it
+
+1. We will add a new special OmniAuth route that a link from our Rails app will _go to_ in order to start the login process in our `routes.rb` file
+1. We will add a new route that will wait for requests _from_ GitHub at a specific path in our `routes.rb` file
+1. We will handle and process the user information from the request in our controller that handles logging in, continuing to use the `session` hash
+1. We will update our `User` model's attributes using migrations
+1. We will implement our logout features with modifying our routes and controllers, continuing to use the `session` hash
 
 ## Additional Resources
 - [oauth Overview Notes](https://docs.google.com/presentation/d/1lIQ4F8gpXwaIEBHlsussoIEN31sqCY2upGIV_L81zi4)
