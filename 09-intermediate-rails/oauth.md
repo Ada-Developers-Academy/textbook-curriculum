@@ -232,7 +232,7 @@ Once the user has OKed our application, GitHub will redirect the user to `/auth/
 
 #### What's going on with this `auth_hash`?
 
-Our controller code defined the local variable `auth_hash` to the value of `request.env['omniauth.auth']`. This is information stored in the `headers` of the HTTP request that came back from GitHub.
+Our controller code assigned the local variable `auth_hash` to the value of `request.env['omniauth.auth']`. This is information stored in the `headers` of the HTTP request that came back from GitHub.
 
 This data is a hash that will likely have some combination of the following:
   - data described in the [OmniAuth README](https://github.com/intridea/omniauth/wiki/Auth-Hash-Schema)
@@ -240,16 +240,13 @@ This data is a hash that will likely have some combination of the following:
 
 GitHub will return the following important keys that we looked at above, and these are the keys that we will pay attention to:
 
-```ruby
-# the `uid` is an identifier for the user from the provider's system
-# using it plus the provider type (github in this case),
-# we can uniquely identify a user
-auth_hash["uid"]
-
-# the info hash contains specifics of the user's account
-auth_hash["info"]["name"]
-auth_hash["info"]["email"]
-```
+| Expression/key, if `auth_hash = request.env["omniauth.auth"]` | What it is |
+| --- | --- |
+| `auth_hash` | Information that comes from GitHub |
+| `auth_hash["uid"]` | the `uid` is an identifier for the user from the provider's system. We will use `uid` plus the provider type (`github`) to uniquely identify a user |
+| auth_hash["info"] | a hash that contains specifics of the user's account |
+| auth_hash["info"]["name"] | the name associated with the user's account |
+| auth_hash["info"]["email"] | the email address associated with the user's account |
 
 With this information returned by GitHub, you can create a database record for uniquely identifying a user, so keep these fields from `auth_hash` in mind.
 
