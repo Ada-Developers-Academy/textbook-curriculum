@@ -301,13 +301,25 @@ Recall that before the `session` is sent to the browser, it is encrypted. This m
 
 Our strategy above means that we need to make sure that our `User` model has the attributes `uid` and `provider` saved on them... meaning that every instance of `User` will either have a value for those two things because they logged in with GitHub, or they will be `nil` because they did not log in with GitHub.
 
-1. Generate a new migration with `rails generate migration add_uid_and_provider_to_user`
+Also, while we're here, let's evolve our `User` model so that it can save the `name` and `email` attributes.
+
+1. Generate a new migration with `rails generate migration add_uid_and_provider_to_users`
 1. Modify that migration so that it resembles this code:
     ```ruby
     <!-- ... -->
     def change
       add_column :users, :uid, :integer
       add_column :users, :provider, :string
+    end
+    <!-- ... -->
+    ```
+1. Generate a new migration with `rails generate migration add_name_and_email_to_users`
+1. Modify the migration so that it resembles this code:
+    ```ruby
+    <!-- ... -->
+    def change
+      add_column :users, :name, :string
+      add_column :users, :email, :string
     end
     <!-- ... -->
     ```
