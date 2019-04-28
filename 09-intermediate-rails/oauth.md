@@ -230,6 +230,8 @@ Once the user has OKed our application, GitHub will redirect the user to `/auth/
     - `auth_hash["info"]["name"]`
     - `auth_hash["info"]["email"]`
 
+![image of looking at auth_hash in Rails error page](images/oauth-auth_hash-error.png)
+
 #### What's going on with this `auth_hash`?
 
 Our controller code assigned the local variable `auth_hash` to the value of `request.env['omniauth.auth']`. This is information stored in the `headers` of the HTTP request that came back from GitHub.
@@ -244,9 +246,9 @@ GitHub will return the following important keys that we looked at above, and the
 | --- | --- |
 | `auth_hash` | Information that comes from GitHub |
 | `auth_hash["uid"]` | the `uid` is an identifier for the user from the provider's system. We will use `uid` plus the provider type (`github`) to uniquely identify a user |
-| auth_hash["info"] | a hash that contains specifics of the user's account |
-| auth_hash["info"]["name"] | the name associated with the user's account |
-| auth_hash["info"]["email"] | the email address associated with the user's account |
+| `auth_hash["info"]` | a hash that contains specifics of the user's account |
+| `auth_hash["info"]["name"]` | the name associated with the user's account |
+| `auth_hash["info"]["email"]` | the email address associated with the user's account |
 
 With this information returned by GitHub, you can create a database record for uniquely identifying a user, so keep these fields from `auth_hash` in mind.
 
