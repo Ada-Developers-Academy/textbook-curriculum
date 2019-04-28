@@ -254,17 +254,29 @@ With this information returned by GitHub, you can create a database record for u
 
 ### 3. Handle and Process the Callback
 
-In the auth callback (the actions kicked off from Github's process returning back to the Rails app), we will have access to a bunch of credentials about the user from GitHub. We'll follow this strategy to turn that into a logged in user:
+In the auth callback (the actions kicked off from Github's process returning back to the Rails app), we will have access to a bunch of credentials about the user from GitHub.
 
-1. Check if there's already a `User` record matching those credentials in our database
+Do the following things:
+
+1. Read through the strategy below
+1. Read through the pseudocode below
+
+We'll come back and finish implementing our controller code after we update the model in the next step.
+
+#### Strategy
+
+1. Check if there's already a `User` record matching on the credentials of `uid` and `provider` in our database
 1. If there is no existing `User`, try to create a new `User`
 1. Save the user's ID in the `session` (just like we did previously)
 1. Redirect the user back to the `root_path`
 
+#### Pseudocode
+
 ```ruby
-# app/controllers/sessions_controller.rb
+# app/controllers/users_controller.rb
 # NOTE: this version is not final
-class SessionsController < ApplicationController
+class UsersController < ApplicationController
+  # ...
   def create
     auth_hash = request.env['omniauth.auth']
     user = User.find_by(uid: auth_hash[:uid], provider: 'github')
@@ -279,6 +291,7 @@ class SessionsController < ApplicationController
     session[:user_id] = user.id
     redirect_to root_path
   end
+  # ...
 end
 ```
 
@@ -286,24 +299,19 @@ Recall that before the `session` is sent to the browser, it is encrypted. This m
 
 ### 4. Updating the `User` Model
 
-Start with a `User` model and migration: `$ rails generate model user`. Open the generated migration and add some columns to the database table:
+Our strategy above means that we need to make sure that our `User` model has the attributes `uid` and `provider` saved on them... meaning that every instance of `User` will either have a value for those two things because they logged in with GitHub, or they will be `nil` because they did not log in with GitHub.
 
-```ruby
-class CreateUsers < ActiveRecord::Migration[5.0]
-  def change
-    create_table :users do |t|
-      t.string :name
-      t.string :email
-      t.integer :uid, null: false # this is the identifier provided by GitHub
-      t.string :provider, null: false # this tells us who provided the identifier
-
-      t.timestamps
+1. Generate a new migration with `rails generate migration add_uid_and_provider_to_user`
+1. Modify that migration so that it resembles this code:
+    ```ruby
+    <!-- ... -->
+    def change
+      add_column :users, :uid, :integer
+      add_column :users, :provider, :string
     end
-  end
-end
-```
-
-Remember to migrate the database: `$ rails db:migrate`.
+    <!-- ... -->
+    ```
+1. Run the migrations
 
 **Question**: What should we do if data is missing from our provider? What data is the most important for the database table we just created?
 
