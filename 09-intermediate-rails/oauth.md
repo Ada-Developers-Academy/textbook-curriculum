@@ -313,25 +313,49 @@ Our strategy above means that we need to make sure that our `User` model has the
     ```
 1. Run the migrations
 
-**Question**: What should we do if data is missing from our provider? What data is the most important for the database table we just created?
+### Finish Implementing In `UsersController`
 
-**Question**: What do we want our controller method to do upon successful or unsuccessful login?
+Now everything is here! Our routes are set up, GitHub is giving us back the user information we need, our app can store and find the right users with the right information... High five you and your partners for getting this far!
 
-**Exercise**: Let's implement a new class method in our `User` model which will accept the `auth_hash` as a parameter and construct a new `User` and save it to the database using the info from the `auth_hash`. [You can see our solution here](code_samples/oauth_build_from_github.rb).
+This is the final stretch: Let's tie everything up in our controller code.
 
-Now that we've got this model method, we can implement the final version of our auth callback:
+As we write this controller code, we get to think about the answers to the following questions. Our answers will determine some design decisions we make. Take a few seconds to consider your answers with your team:
+
+- What should we do if data is missing from our provider (GitHub)? What data is the most important for the database table we just created?
+- What do we want our controller method to do upon successful or unsuccessful login?
+- Creating a user from the information in `auth_hash` is going to be complex, and look like this. Where should this code belong? Why?
+    ```ruby
+    user = User.new
+    user.uid = auth_hash[:uid]
+    user.provider = "github"
+    user.name = auth_hash["info"]["name"]
+    user.email = auth_hash["info"]["email"]
+    ```
+
+<details>
+
+  <summary>
+    Consider our answers to the questions above.
+  </summary>
+
+  1. The most important data is `uid` and `provider`. If GitHub fails to give us a `uid`, we may want to declare that the login is unsuccessful. We could do that by creating a validation in the model.
+  1. If the login was successful, we may want to redirect to some page, like the `root_path`, and display a `flash` message that is happy. If the login was unsuccessful, we may want to redirect to some page, like the `root_path`, and display a `flash` message that displays an error or warning.
+  1. Creating a `User` with that complex logic would be a great helper method that lives in the model because it is only relevant to `User`s, and not to controllers. It might work best as a _class_ method, because it doesn't operate off of a single instance. We might design it to take in the `auth_hash` as a parameter, so it doesn't need a reference to the `request`.
+
+</details>
+
+#### Our Final Implementation of `UsersController`'s `create`
 
 ```ruby
-# app/controllers/sessions_controller.rb
-class SessionsController < ApplicationController
+# app/controllers/users_controller.rb
+#  ...
   def create
-    auth_hash = request.env['omniauth.auth']
+    auth_hash = request.env["omniauth.auth"]
 
-    user = User.find_by(uid: auth_hash[:uid], provider: 'github')
+    user = User.find_by(uid: auth_hash[:uid], provider: "github")
     if user
       # User was found in the database
       flash[:success] = "Logged in as returning user #{user.name}"
-
     else
       # User doesn't match anything in the DB
       # Attempt to create a new user
@@ -339,7 +363,6 @@ class SessionsController < ApplicationController
 
       if user.save
         flash[:success] = "Logged in as new user #{user.name}"
-
       else
         # Couldn't save the user for some reason. If we
         # hit this it probably means there's a bug with the
@@ -347,14 +370,33 @@ class SessionsController < ApplicationController
         # be to display error messages to make future
         # debugging easier.
         flash[:error] = "Could not create new user account: #{user.errors.messages}"
-        redirect_to root_path
-        return
+        return redirect_to root_path
       end
     end
 
     # If we get here, we have a valid user instance
     session[:user_id] = user.id
-    redirect_to root_path
+    return redirect_to root_path
+  end
+# ...
+```
+
+#### Our Helper Method `User.build_from_github`
+
+What was the line `user = User.build_from_github(auth_hash)` above about? Observe our own implementation of a helper method to make the User from the `auth_hash`. Feel free to adjust this code with whatever makes sense on your projects.
+
+```ruby
+class User < ApplicationRecord
+  def self.build_from_github(auth_hash)
+    user = User.new
+    user.uid = auth_hash[:uid]
+    user.provider = "github"
+    user.name = auth_hash["info"]["name"]
+    user.email = auth_hash["info"]["email"]
+
+    # Note that the user has not been saved.
+    # We'll choose to do the saving outside of this method
+    return user
   end
 end
 ```
