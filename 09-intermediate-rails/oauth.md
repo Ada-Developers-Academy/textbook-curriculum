@@ -180,7 +180,7 @@ Once the user has OKed our application, GitHub will redirect the user to `/auth/
 
 1. In our routes file, add the new following route:
     ```ruby
-    get '/auth/github', as: 'github_login'
+    get "/auth/github", as: "github_login"
     ```
 
     The `get '/auth/github'` is a special path that OmniAuth is looking for. [You can read more details about how and why here](https://github.com/omniauth/omniauth#integrating-omniauth-into-your-application).
@@ -213,7 +213,7 @@ Once the user has OKed our application, GitHub will redirect the user to `/auth/
     class UsersController < ApplicationController
     # ...
       def create
-        auth_hash = request.env['omniauth.auth']
+        auth_hash = request.env["omniauth.auth"]
         raise
       end
     # ...
@@ -278,8 +278,8 @@ We'll come back and finish implementing our controller code after we update the 
 class UsersController < ApplicationController
   # ...
   def create
-    auth_hash = request.env['omniauth.auth']
-    user = User.find_by(uid: auth_hash[:uid], provider: 'github')
+    auth_hash = request.env["omniauth.auth"]
+    user = User.find_by(uid: auth_hash[:uid], provider: "github")
     if user
       # User was found in the database
       flash[:success] = "Logged in as returning user #{user.name}"
