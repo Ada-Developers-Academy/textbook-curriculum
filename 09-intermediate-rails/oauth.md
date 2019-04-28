@@ -19,6 +19,12 @@ When we want to implement an OAuth solution for authorization in our Rails apps,
 - we will use [dotenv](https://github.com/bkeepers/dotenv), a Ruby gem to keep client IDs and client secrets hidden
 - we will use a specific pattern of URLs to configure our routes: `get /auth/github` and `get /auth/github/callback`
 
+### Tip: Test in Incognito Mode
+
+While we work on this exercise, when you need to check things in the browser, try always your development in an private-browsing session/incognito mode!
+
+If you are making changes and end up getting stuck, you may need to [clear your browser's cookies](https://support.google.com/chrome/answer/95647).
+
 ## Our Steps to Implementing Our Authentication Feature
 
 In Rails, we will use the following big steps towards building this feature:
@@ -446,7 +452,7 @@ We have authentication working now, but the user cannot actually log out.  The u
 
 **Question**: How could you display the name or email address of the logged-in user?
 
-If you are making changes and end up getting stuck, you may need to [clear your browser's cookies](https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DDesktop&hl=en).
+
 
 ## Additional Resources
 - [oauth Overview Notes](https://docs.google.com/presentation/d/1lIQ4F8gpXwaIEBHlsussoIEN31sqCY2upGIV_L81zi4)
