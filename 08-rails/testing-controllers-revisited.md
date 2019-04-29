@@ -56,6 +56,68 @@ Our controller tests _use_ the controller actions we've defined, but also involv
 
 ### Summary: The Components of a Controller Test
 
+Examine the example tests below:
+
+```ruby
+let(:existing_work) { works(:album) }
+
+describe "show" do
+  it "succeeds for an extant work ID" do
+    get work_path(existing_work.id)
+
+    must_respond_with :success
+  end
+
+  it "renders 404 not_found for a bogus work ID" do
+    destroyed_id = existing_work.id
+    existing_work.destroy
+
+    get work_path(destroyed_id)
+
+    must_respond_with :not_found
+  end
+end
+```
+
+The tests have:
+- arranged all of the set up:
+  - It uses a fixture named `album` in `works.yml`
+  - It sets it to a local variable in this test using `let(:existing_work) { works(:album) }`
+- an _act_ step that sends a request: `get work_path(existing_work.id)`
+- an _assert_ step that checks the response with `must_respond_with`
+
+Examine the example test below:
+
+```ruby
+describe "create" do
+  it "creates a work with valid data for a real category" do
+    new_work = { work: { title: "Dirty Computer", category: "album" } }
+
+    expect {
+      post works_path, params: new_work
+    }.must_change "Work.count", 1
+
+    new_work = Work.find_by(title: "Dirty Computer")
+
+    new_work.wont_be_nil
+
+    must_respond_with :redirect
+    must_redirect_to work_path(new_work.id)
+  end
+end
+```
+
+The tests have:
+- arranged all of the set up:
+  - uses a local variable `new_work` that mimics the form data structure that our form sends
+- an _act_ step that sends a request, sending the form data into the request with `params`: `post works_path, params: new_work`
+- an _assert_ step that checks the response with:
+  - checking different aspects of the database:
+    - the number of `Work`s in the database with `expect { ... }.must_change "Work.count", 1`
+    - the work by the new attributes won't be `nil` (it is found in the database)
+  - checking for the right response code with `must_respond_with`
+  - checking for a redirect if there is a redirect with `must_redirect_to`
+
 ### How do I think of test cases for...
 
 #### CRUD
