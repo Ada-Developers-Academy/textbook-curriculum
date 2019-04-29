@@ -120,66 +120,6 @@ The tests have:
 
 **Note:** We do _not_ test details such as if the created work is valid, or if the form data is valid. Those details are reserved for model tests/unit tests.
 
-Examine the example tests below:
-
-```ruby
-describe "going to the detail page of the current user" do
-    it "responds with success if a user is logged in" do
-      perform_login
-
-      get current_user_path
-
-      must_respond_with :success
-    end
-
-    it "responds with a redirect if no user is logged in" do
-      get current_user_path
-      must_respond_with :redirect
-    end
-  end
-end
-```
-
-The tests have:
-- arranged the necessary setup steps to log in a user:
-  - it does a valid login with the request `post login_path, params: login_data`
-  - it organizes this into a helper method named `perform_login` and calls that method
-- an _act_ step that sends a request: `get work_path(existing_work.id)`
-- an _assert_ step that checks the response with `must_respond_with`
-
-<details>
-  <summary>
-    Click here to expand and see our implementation of the `perform_login` helper method
-  </summary>
-
-  Assumes there are fixtures set up for `User`s, and one is named `default`
-
-  Located in `test/test_helper.rb`
-
-  ```ruby
-  class ActiveSupport::TestCase
-
-    # ... other code ...
-
-    def perform_login(user = nil)
-      user ||= users(:default)
-
-      login_data = {
-        user: {
-          username: user.username,
-        },
-      }
-      post login_path, params: login_data
-
-      # Verify the user ID was saved - if that didn't work, this test is invalid
-      expect(session[:user_id]).must_equal user.id
-
-      return user
-    end
-end
-  ```
-</details>
-
 ### How do I think of test cases for...
 
 #### CRUD
@@ -206,6 +146,46 @@ end
 - Every piece of custom controller logic and custom routes (not private) should have tests:
   - Remember to think about nominal cases and edge cases
 
-### A Checklist for Controller Tests
+#### Authentication & Authorization
+
+- Every controller action that has logic requirements around logged-in status should be tested. You should...
+  - test for expected behavior for if a user is logged in
+  - test for expected behavior for if **no user** is logged in at all
+- Every controller action that has logic requirements around authorizing specific types of users should be tested. You should...
+  - test for expected behavior for if an **authorized user** is logged in
+  - test for expected behavior for if an **unauthorized user** is logged in
+
+Examine the example tests below:
+
+```ruby
+describe "going to the detail page of the current user" do
+    it "responds with success if a user is logged in" do
+      perform_login
+
+      get current_user_path
+
+      must_respond_with :success
+    end
+
+    it "responds with a redirect if no user is logged in" do
+      get current_user_path
+      must_respond_with :redirect
+    end
+  end
+end
+```
+
+These tests have:
+- arranged the necessary setup steps to log in a user:
+  - it does a valid login with the request `post login_path, params: login_data`
+  - it organizes this into a helper method named `perform_login` and calls that method
+- an _act_ step that sends a request: `get work_path(existing_work.id)`
+- an _assert_ step that checks the response with `must_respond_with`
+
+The implementation details of what the `perform_login` method looks like depending on if you are mocking OAuth or not.
+
+**If the site uses OAuth, you will need to set up these tests to enable OAuth by _mocking_ OAuth**
+
+
 
 ## Summary
