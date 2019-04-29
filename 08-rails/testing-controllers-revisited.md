@@ -186,6 +186,40 @@ The implementation details of what the `perform_login` method looks like dependi
 
 **If the site uses OAuth, you will need to set up these tests to enable OAuth by _mocking_ OAuth**
 
+### A Checklist for Controller Tests
 
+For each controller action to test, do you have test cases for:
+
+- Every nominal case...
+  - with a logged in, authorized user?
+  - with a logged in, unauthorized user?
+  - with no user logged in?
+- Every edge case...
+  - with a logged in, authorized user?
+  - with a logged in, unauthorized user?
+  - with no user logged in?
+
+For each test case, do you have assertions for (if appropriate):
+
+- The response code?
+- Where it redirects?
+- Any database changes?
+  - Should we test if the count of the model records changed or did not change?
+  - Should we test if a specific model did or did not change?
+- Any flash key/value pairs?
+- Any session key/value pairs?
+
+To set up each test case, do you have the following scaffolding code:
+
+- The correct fixtures?
+- The correct `let` variables and `before` blocks?
+- The correct logging in steps?
+  - The correct logging out steps?
 
 ## Summary
+
+- Unit tests exercise a small part of the application in isolation
+- Integration tests exercise the application as a whole, simulating realistic user workflows
+- In Rails, controller testing is integration testing
+    - Inputs include HTTP verb and path, the request body, cookies, and the state of the database
+    - Outputs include HTTP status code, cookies, and changes to the database
