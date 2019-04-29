@@ -81,8 +81,8 @@ end
 
 The tests have:
 - arranged all of the set up:
-  - It uses a fixture named `album` in `works.yml`
-  - It sets it to a local variable in this test using `let(:existing_work) { works(:album) }`
+  - the test uses a fixture named `album` in `works.yml`
+  - the test sets it to a local variable in this test using `let(:existing_work) { works(:album) }`
 - an _act_ step that sends a request: `get work_path(existing_work.id)`
 - an _assert_ step that checks the response with `must_respond_with`
 
