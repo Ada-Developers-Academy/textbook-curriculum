@@ -2,12 +2,12 @@
 
 ## Learning Goals
 
-By the end of this lesson, students should be able to answer the following questions or do the following things:
+By the end of this lesson, students should be able to answer the following questions:
 
 - What is authentication?
 - Why is authentication an interesting problem?
 - What is _OAuth_, and how do we recognize that we are using an OAuth system as a user?
-- Have exposure to OAuth's process and the following vocab:
+- What do the following terms mean in terms of OAuth?
   - OAuth Provider
   - User
   - Client (as our Rails application)
