@@ -118,6 +118,68 @@ The tests have:
   - checking for the right response code with `must_respond_with`
   - checking for a redirect if there is a redirect with `must_redirect_to`
 
+**Note:** We do _not_ test details such as if the created work is valid, or if the form data is valid. Those details are reserved for model tests/unit tests.
+
+Examine the example tests below:
+
+```ruby
+describe "going to the detail page of the current user" do
+    it "responds with success if a user is logged in" do
+      perform_login
+
+      get current_user_path
+
+      must_respond_with :success
+    end
+
+    it "responds with a redirect if no user is logged in" do
+      get current_user_path
+      must_respond_with :redirect
+    end
+  end
+end
+```
+
+The tests have:
+- arranged the necessary setup steps to log in a user:
+  - it does a valid login with the request `post login_path, params: login_data`
+  - it organizes this into a helper method named `perform_login` and calls that method
+- an _act_ step that sends a request: `get work_path(existing_work.id)`
+- an _assert_ step that checks the response with `must_respond_with`
+
+<details>
+  <summary>
+    Click here to expand and see our implementation of the `perform_login` helper method
+  </summary>
+
+  Assumes there are fixtures set up for `User`s, and one is named `default`
+
+  Located in `test/test_helper.rb`
+
+  ```ruby
+  class ActiveSupport::TestCase
+
+    # ... other code ...
+
+    def perform_login(user = nil)
+      user ||= users(:default)
+
+      login_data = {
+        user: {
+          username: user.username,
+        },
+      }
+      post login_path, params: login_data
+
+      # Verify the user ID was saved - if that didn't work, this test is invalid
+      expect(session[:user_id]).must_equal user.id
+
+      return user
+    end
+end
+  ```
+</details>
+
 ### How do I think of test cases for...
 
 #### CRUD
