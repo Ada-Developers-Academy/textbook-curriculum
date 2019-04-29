@@ -11,7 +11,31 @@ By the end of this lesson, students should be able to...
 
 ## Recontextualize: What is Controller Testing?
 
-[Testing!](intro-to-testing-controllers.md)
+[When we introduced controller testing](intro-to-testing-controllers.md), we established the following things:
+
+When a browser makes a request, the request sends the following information:
+
+- An HTTP Verb & Path (the route)
+- The request body, including any form values
+- Cookie settings (session, to be discussed later)
+
+The Rails server uses these inputs and **the current state of the database** to perform its task.
+
+The controller will then run and provide a combination of the following outputs:
+
+- An HTTP Response code such as 200 OK, 404 Not Found, redirect, etc
+- Cookie settings (session & flash)
+- Changes to the database
+
+![Controller inputs & Outputs](images/TestingControllers2.png)
+
+<!-- Image source:  https://www.draw.io/#G1eHnA4Fko9GRA8wi5fwHs66UKKJv-C_Gz -->
+
+When we test the controller we will provide the given inputs and verify that controller responds with the correct response code, cookie settings and database changes.
+
+However, in some ways, these tests should have felt different compared to the other kinds of testing we've done. They were tests at a "high-level," meaning that we thought about the high-level flow at the app. We did not test certain details, like what was on the views or model logic or model validations.
+
+That's because _controller tests aren't unit tests._
 
 ### Controller Tests are examples of Integration Tests
 
