@@ -1,0 +1,63 @@
+# Testing Controllers Revisited
+
+## Learning Goals
+
+By the end of this lesson, students should be able to...
+
+- Understand that controller tests are an example of integration tests
+- Differentiate between integration tests and unit tests
+- Describe the role of integration tests in Rails
+- Enumerate different expected tests for common controller logic
+
+## Recontextualize: What is Controller Testing?
+
+[Testing!](intro-to-testing-controllers.md)
+
+### Controller Tests are examples of Integration Tests
+
+**Integration testing** is a kind of testing that is distinct from _unit testing_, which is what we've used primarily until now. While unit tests focus on a very specific piece of code, usually a single method, integration tests are about testing how multiple units work together to produce larger-scale program behavior.
+
+Because our ways to test controller action validity requires us to test how the entire Rails system gels together (we send a request, which goes to our router, which leads to the controller, which touches other parts of the app), _controller tests are examples of integration tests_.
+
+|  Test Type  | Test | Scope of the test |
+|:------------|:-----|:------------------|
+| Unit        | Verify that a `Book` model's `valid?` method returns `false` when its `title` attribute is blank. | The test checks the behavior of a single method within a single class. |
+| Integration | Verify that filling out a form to create a new book and leaving the title field empty does not create a new `Book` in the database. | The test checks how the `valid?` method combines with the database persistence code, the routes configuration, and the controller code. |
+
+Unit tests, in comparison, test methods in isolation. Edge cases of unit tests involve different forms of input, but the tests overall are still in isolation. Our _model tests are unit tests_.
+
+Our controller tests _use_ the controller actions we've defined, but also involve testing additional code from the models and routes. Therefore, they are not unit tests, but integration tests.
+
+## The Mega Controller Testing Summary
+
+### Summary: The Components of a Controller Test
+
+### How do I think of test cases for...
+
+#### CRUD
+
+- You should have controller tests for every CRUD operation that exists per controller:
+  - Create
+    - What should happen if the controller executes creation of something with valid data?
+    - ... with invalid data?
+  - Read (Show)
+    - What should happen if the controller tries to read/show an ID of a model that exists in the DB?
+    - ... that doesn't exist in the DB?
+  - Update
+    - What should happen if the controller executes an update of something with valid data?
+    - ... with invalid data?
+  - Delete
+    - What should happen if the controller tries to delete an ID of a model that exists in the DB?
+    - ... that doesn't exist in the DB?
+
+#### Other Pieces of Controller Logic
+
+- Every controller action that has rendering, routing, or HTTP status logic should be tested on those qualities
+- Every controller action that updates a model record should be tested on the updated attributes
+
+- Every piece of custom controller logic and custom routes (not private) should have tests:
+  - Remember to think about nominal cases and edge cases
+
+### A Checklist for Controller Tests
+
+## Summary
