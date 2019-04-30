@@ -10,7 +10,7 @@
     - [Rails Templates](rails-template-setup.md)
     - [Configuring Rails to use Postgres](how-to-use-postgres.md)
     - [Live Code Intro](live-code-intro.md)
-1. [Controllers and the Index Action](routes-controllers.md)
+1. [Controllers and the Index Action](controllers.md)
 1. [ERB & Layouts](ERB-and-Layouts.md)
 1. [Intro to Testing Controllers: Adding Tests to the Index Action](intro-to-testing-controllers.md)
 1. [Route Parameters & the Show Action](route-parameters.md)
