@@ -3,7 +3,8 @@
 ## Learning Goals
 
 - Define what a pull request is
-- Have a strategy 
+- Practice opening PRs
+- Practice reviewing PRs
 
 ## Group Exercise
 
