@@ -13,11 +13,11 @@ By the end of this lesson you should be able to:
 
 ## Hash Tables Overview
 
-In our programs we often need to store data and need a quick way to look up specific items.  We could store elements in an array, but finding specific entries in an array require looping through potentially the entire list an O(n) operation, or maintaining the list in order.
+In our programs we often need to store data with a quick way to look up specific items.  We could store elements in an array, but finding specific entries in an array requires looping through potentially the entire list an O(n) operation, or maintaining the list in order.
 
-A _hash table_, also known as a _dictionary_, is an implementation of an _abstract data type_ known as an _associative array_ a data structure designed to store key-value pairs and provide a method to look up a value from it's key.  
+A _hash table_, is an implementation of an _abstract data type_ known as an _associative array_ a data structure designed to store key-value pairs and provide a method to look up a value from it's key.  
 
-A hash table applies keys to a special method known as a _hash function_ which converts the key into an index in an array.  The hash table then stores the key-value pair into that location.
+A hash table applies keys to a special method known as a _hash function_ which converts the key into an index of an internal array used for storage.  The hash table then stores the key-value pair into that internal array.  Because the hash function can quickly convert a key to an array index this operation can result in very quick lookup times.
 
 <!-- Lucidchart link  https://www.lucidchart.com/invitations/accept/5fdcf503-7d8b-4139-94d4-795bfed27883 -->
 
@@ -103,3 +103,4 @@ Hash Tables are a data structure which allows quick lookup of a value by using a
 
 - [How the hash works in Ruby](https://launchschool.com/blog/how-the-hash-works-in-ruby) - From Lauchschool
 - [Basics of Hash Tables](https://www.hackerearth.com/practice/data-structures/hash-tables/basics-of-hash-tables/tutorial/) - HackerEarth
+- [Hash Tables Slides](https://docs.google.com/presentation/d/1zGTc9jS_z84kpLSvEgqE7eA4REY2Rno2Vlnyw7b1fik/edit?usp=sharing)
