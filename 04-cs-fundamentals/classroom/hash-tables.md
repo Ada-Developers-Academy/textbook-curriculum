@@ -95,9 +95,9 @@ Hash Tables are a data structure which allows quick lookup of a value by using a
 
 | Term | Definition
 |---|---
-| Hash Table | 
-| Hash Function | 
-| Collision | 
+| Hash Table | A Data structure implementing an Associative Array which maps unique key identifiers to values.  A well designed Hash table has an O(1) lookup time.
+| Hash Function | A function used by a hash table to map a key to an index in the array used to store the data.
+| Collision | When multiple keys map to the same element in the Hash Table's internal array.
 
 ## Resources
 
