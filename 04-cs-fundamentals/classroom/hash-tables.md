@@ -8,7 +8,7 @@ By the end of this lesson you should be able to:
   - _hash table_
   - _hash function
   - _collision_
-- Explain why hash tables are useful in many situations
+- Explain at a high-level how Hash Tables work
 - Explain some of the trade-offs involved in using hash tables
 
 ## Hash Tables Overview
@@ -45,56 +45,13 @@ However because there is an enormous list of possible keys and a limited-size ar
 
 There are many ways to resolve a collision, one way is to make each element of the hash array a collection and store new elements in the next field in the collection.
 
-For example if I wrote the following (really bad), hash function in my data structure.
+For example if I calculated a hash function by converting any key to a string and calculated the length, I could use that number to find an index in my array.  However since the length can be of arbitrary size I can divide the length by the size of my array and take the remainder.  Then the number would be between 0 and the length of the array.
 
 ```ruby
-class MyHash
-  def initialize()
-    @array = Array.new(10)
-  end
-
-  def hash_function(key)
+  def hash_code(key)
     return key.to_s.length % @array.length
   end
-
-  def [](key)
-    index = hash_function(key)
-
-    # if the index is occupied
-    if (@array[index])
-      search_results = @array[index].find(key) do |bucket|
-        bucket[0] == key
-      end
-
-      return search_results ? search_results[1] : nil
-    end
-
-    return nil
-  end
-
-  def []=(key, value)
-    index = hash_function(key)
-
-    if (@array[index])
-      item = find_item(key, @array[index])
-      if item.nil?  #if the key does not exist add it to the bucket
-        @array[index] << [key, value]
-      else # if the key exists replace the value
-        item[1] = value
-      end
-    else
-      @array[index] = [[key, value]]
-    end
-    return value
-  end
-
-  private
-  
-  def find_item(key, bucket)
-    return bucket.find(key) do |element|
-      element[0] == key
-    end
-end
+    
 ```
 
 If I attempted the following:
@@ -111,15 +68,36 @@ We will end up with a hash which looks like this:
 
 ![Bad hash function example](images/Example-hash.png)
 
-This implementation resolves collisions by creating an array at each index of the main array and adding the key-value pair to the end of the list.  As you can see if the hash function does not adequately spread values out over the length of the array, this can result in long chains of key-value pairs and an O(n) worst-case.
+In this example we resolve collisions by creating an array at each index of the main array and adding the key-value pair to the end of the list.  As you can see if the hash function does not adequately spread values out over the length of the array, this can result in long chains of key-value pairs and an O(n) worst-case runtime to find items.
 
 Luckily most libraries use well-proven hashing functions which normally prevent high numbers of collisions.  
 
 
 ## How Ruby's Hash Tables Work
 
+Ruby uses the [MurmurHash3](https://github.com/aappleby/smhasher/wiki/MurmurHash3) hash function to convert any key into a number, and divides that number by the length of the array saving the remainder.  That remainder then becomes the index.  
+
+`index = murmur_hash(key) % array.length`
+
+When a Ruby hash has a collision it is chained similar in a manner similar to the example above.  When there are too many collisions (more than 5) Ruby then rebuilds the hash table, making it bigger and then re-hashing (recalculates the index for each key-value pair) all the entries.  This does mean there is some practical performance overhead when a hash reaches a certain size and needs to expand.
+
+For small hashes Ruby simply uses an array because for small numbers of elements, an array is faster than the more complicated hash-table data structure.
+
 ### Ruby's Hash Maintains Order
 
+One neat feature of Ruby hashes since 1.9 is that hashes maintain order.  When you loop through a Ruby hash, you iterate through the key-value pairs in the order they were inserted.  This is very useful for **a number of whiteboarding problems**.
+
+## Summary
+
+Hash Tables are a data structure which allows quick lookup of a value by using a key.  Each key is mapped to an index of an internal array with a special method called a _hash function_.  The average-case lookup is O(1) and worst-case is O(n).  However most good implementations use a _hash function_ which attempts to uniformly distribute elements and prevent collisions.
+
+## Key Terms
+
+| Term | Definition
+|---|---
+| Hash Table | 
+| Hash Function | 
+| Collision | 
 
 ## Resources
 
