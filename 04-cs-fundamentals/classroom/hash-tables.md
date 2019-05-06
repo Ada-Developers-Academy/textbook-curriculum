@@ -17,7 +17,7 @@ In our programs we often need to store data and need a quick way to look up spec
 
 A _hash table_, also known as a _dictionary_, is an implementation of an _abstract data type_ known as an _associative array_ a data structure designed to store key-value pairs and provide a method to look up a value from it's key.  
 
-A hash table takes a key and applies that key to a special method known as a _hash function_ which converts the key into an index in an array.  The hash table then stores the key-value pair into that location.
+A hash table applies keys to a special method known as a _hash function_ which converts the key into an index in an array.  The hash table then stores the key-value pair into that location.
 
 <!-- Lucidchart link  https://www.lucidchart.com/invitations/accept/5fdcf503-7d8b-4139-94d4-795bfed27883 -->
 
@@ -31,13 +31,13 @@ You have already used hashes quite a bit and we know the following runtimes of a
 | remove(key) | O(1) | O(n)
 | insert(key, value) | O(1) | O(n)
 
-Note the **worst-case**  runtimes, because **normally** when we estimate the runtime of a data structure's methods with Big-O we assume the worst-case.  However a well-designed hash table, will attempt to prevent the worst-case scenario from occurring.  Therefore when we work with hash tables we assume the average-case.  The likelyhood of the worst-case from occurring depends on how well the **hash function** is implemented.
+Note the **worst-case**  runtimes, because **normally** when we estimate the runtime of a data structure's methods with Big-O we assume the worst-case.  However a well-designed hash table, will attempt to prevent the worst-case scenario from occurring.  Therefore when we work with hash tables we **assume the average-case**.  The likelyhood of the worst-case from occurring depends on how well the **hash function** is implemented.
 
 ### Hash Function
 
-A __hash function__ is a method which takes an input, called a key, and maps it to an index in a fixed-sized array.  Good hash functions attempt to spread all possible values over the entire data structure and avoid assigning multiple keys to the same index.  
+All __hash functions__ are used to map keys to indices in the storage array.  Good hash functions attempt to spread all possible values over the entire data structure and avoid assigning multiple keys to the same index.
 
-Designing a good hash function is something of a black art as there is no mathematical formula that will work perfectly in all cases.  Instead we use practical general-purpose functions which works well in most cases.  This technique is often called a _heuristic_.
+Designing a good hash function is something of a black art as there is no mathematical formula that will work perfectly in all cases.  Instead we use practical general-purpose functions which work well in most cases.  This type of algorithm is often called a _heuristic_.  A Heuristic in Computer Science is a practical solution which works in most cases, but is not mathematically proven to work well in all cases.
 
 However because there is an enormous list of possible keys and a limited-size array, any hash function will result in some keys mapped to the same index.  When this occurs it is called a _collision_.  
 
