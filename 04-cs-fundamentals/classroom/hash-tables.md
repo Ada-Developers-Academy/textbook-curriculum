@@ -37,7 +37,7 @@ Note the **worst-case**  runtimes, because **normally** when we estimate the run
 
 All __hash functions__ are used to map keys to indices in the storage array.  Good hash functions attempt to spread all possible values over the entire data structure and avoid assigning multiple keys to the same index.
 
-Designing a good hash function is something of a black art as there is no mathematical formula that will work perfectly in all cases.  Instead we use practical general-purpose functions which work well in most cases.  This type of algorithm is often called a _heuristic_.  A Heuristic in Computer Science is a practical solution which works in most cases, but is not mathematically proven to work well in all cases.
+Designing a good hash function is something of a black art as there is no mathematical formula that will work perfectly in all cases.  Instead we use practical general-purpose functions which work well in most cases.  This type of algorithm is often called a _heuristic_.  A heuristic in Computer Science is a practical solution which works in most cases, but is not mathematically proven to work well in all cases.
 
 However because there is an enormous list of possible keys and a limited-size array, any hash function will result in some keys mapped to the same index.  When this occurs it is called a _collision_.  
 
