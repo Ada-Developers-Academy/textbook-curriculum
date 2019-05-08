@@ -99,6 +99,51 @@ Hash Tables are a data structure which allows quick lookup of a value by using a
 | Hash Function | A function used by a hash table to map a key to an index in the array used to store the data.
 | Collision | When multiple keys map to the same element in the Hash Table's internal array.
 
+## Exercises
+
+In class we will work through the following two problems.  You can use the whiteboard or your VS Code editor.
+
+### Find missing elements of a range
+
+Given an array with 0..n-1 of distinct elements and a range low-high, find all numbers that are in range, but not in array. The missing elements should be printed in sorted order.
+
+Examples:
+
+```txt
+Input: array[] = {10, 12, 11, 15},
+       low = 10, hight = 15
+Output: 13, 14
+
+Input: array[] = {1, 14, 11, 51, 15},
+       low = 50, hight = 55
+Output: 50, 52, 53, 54
+```
+
+When you are finished you can see [our solution](examples/missing_in_range.rb)
+
+### Given an array of pairs, find all symmetric pairs in it
+
+Two pairs (a, b) and (c, d) are said to be symmetric if c is equal to b and a is equal to d. For example, (10, 20) and (20, 10) are symmetric. Given an array of pairs find all symmetric pairs in it.
+It may be assumed that the first elements of all pairs are distinct.
+
+Examples:
+
+```txt
+Input: arr[] = {{11, 20}, {30, 40}, {5, 10}, {40, 30}, {10, 5}}
+Output: Following pairs have symmetric pairs
+        (30, 40)
+        (5, 10)  
+
+Input: arr[] = {{"Dan", "Dee"}, {"Lisa", "Val"}, {"Kaida", "Chris"}, {"Devin", "Susan"}, {"Christine", "Jane"}}
+Output: No symmetric pairs
+
+Input: arr[] = {{"Dan", "Dee"}, {"Kaida", "Val"}, {"Kaida", "Chris"}, {"Devin", "Susan"}, {"Dee", "Dan"}, {"Devin", "Susan"}}
+Output: Following pairs have symmetric pairs
+       (Dan, Dee)
+```
+
+When you are finished you can see [our solution](examples/symetric_pairs.rb)
+
 ## Resources
 
 - [How the hash works in Ruby](https://launchschool.com/blog/how-the-hash-works-in-ruby) - From Lauchschool
