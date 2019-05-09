@@ -20,6 +20,7 @@ Programming topics not directly related to Ruby development.
 1. [Introduction to Automated Tests](intro-to-automated-tests.md)
 1. [Debugging with Pry](debugging-with-pry.md)
 1. [Code Coverage & SimpleCov](code-coverage-and-simplecov.md)
+1. [Continuous Integration](continuous-integration.md)
 
 ## Git
 1. [Submitting Projects](submitting-projects-v1.md)
