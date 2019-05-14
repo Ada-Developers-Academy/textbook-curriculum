@@ -8,7 +8,7 @@ Students should be able to...
 - Use HTTP status codes to communicate outcomes
 
 ### Introduction
-Last week, we learned about using APIs that already exist. Now, our goal is to create APIs ourselves.
+Previously, we learned about using APIs that already exist. Now, our goal is to create APIs ourselves.
 
 When creating an API, usually the goal is to provide data to a consumer, whether that be a human (not normally) or another system (usually). This could be a mobile app, a single-page application written in JavaScript, or something else entirely.
 
@@ -22,10 +22,15 @@ When creating an API, usually the goal is to provide data to a consumer, whether
 | Client   | Who- or whatever is consuming our API | A mobile app
 
 ### APIs vs Web Apps
+
+<details>
+<summary>
 When we think about using an API vs using a web application, what is the key difference?
+</summary>
 
 - Web apps produce **HTML** for humans to consume
 - APIs produce **JSON** for machines to consume
+</details>
 
 What are some of the key similarities? They both use **routes** to provide structure, and there is also some sort of **data** involved. Many APIs (including the one we'll build today) provide some sort of CRUD functionality, and our RESTful design principals and general Rails knowledge will continue to serve us well.
 
