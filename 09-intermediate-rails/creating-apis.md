@@ -49,7 +49,7 @@ Given the context of our application, we should have a model and controller that
 To make it go:
 
 ```bash
-$ git clone git@github.com:AdaGold/ada-pets.git
+$ git clone https://github.com/AdaGold/ada-pets.git
 $ cd ada-pets
 $ bundle install
 $ rails db:reset
