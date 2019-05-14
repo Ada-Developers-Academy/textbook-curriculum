@@ -52,7 +52,7 @@ To make it go:
 $ git clone git@github.com:AdaGold/ada-pets.git
 $ cd ada-pets
 $ bundle install
-$ rails db:migrate
+$ rails db:reset
 $ rails server
 ```
 
