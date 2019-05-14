@@ -38,7 +38,7 @@ Before they separate, Katherine and Grace agree on a few rules for how they will
 - The `master` branch is considered "pristine", meaning the test suite on `master` always passes all the tests
 - All new development work, bug fixing, etc. is done on branches
 - The only way for work to come into `master` is via a pull request
-- Every pull request must include thorough tests for any new or changed code, and the entire test suite must pass for the PR to be accepted
+- Every pull request must include thorough tests for any new or changed code, and the entire test suite must pass with coverage > 95% for the PR to be accepted
 
 Katherine has decided to add login functionality via Google to the site, and is working on a branch called `google_oauth`. Once they are ready to integrate their code, they follow the following process:
 
