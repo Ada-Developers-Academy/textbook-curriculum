@@ -19,6 +19,7 @@ Because there are two different contexts that programmers type into frequently (
 For example, a guide may say to do `$ pwd` to print the path of the current directory. What you literally do is type `pwd` and enter into the Terminal.
 
 ## Xcode Command-Line Tools
+
 Xcode is an **integrated development environment** (often called an **IDE**) for creating apps for Mac, iPhone, and iPad. We don't need it in it's entirety, we're just going to download one piece of the whole. _Command Line Tools_ is a component of Xcode that provides a _compiler_ for OS X.
 
 **You should have installed Xcode Command-Line tools in JumpStart.**
@@ -31,7 +32,8 @@ If the Xcode Command-Line tools are not installed you can install it with:
 If the command does not show a directory path and instead something like `xcode-select: error: unable to get active developer directory, use xcode-select --switch to set one (or see man xcode-select)` you can install it with `$ xcode-select --install` select install and then grab coffee because it will take a bit of time.
 
 ## Homebrew
-[Homebrew](http://brew.sh/) is a **package manager** that simplifies installing software on macOS. Package managers are very common, and each language/framework/stack tends to have their own or preferred tool.
+
+[Homebrew](http://brew.sh/) is a **package manager** that simplifies installing software on macOS. Package managers are very common, and each language/framework/stack tends to have their own or preferred tool.  Homebrew should also have been installed in Jumpstart.
 
 To install, copypasta this into your terminal:
 
@@ -39,15 +41,18 @@ To install, copypasta this into your terminal:
 
 You may need to enter your computer password to complete the installation.
 
-### Trust but Verify
+### Trust but Verify Brew
+
 Run `$ brew doctor`. Brew is super great at telling you what else it may need. Sometimes there are file permissions to fix. Sometimes there's a warning that can be ignored. If there's anything ever wrong with Brew, `brew doctor` will usually be able to tell you what it is and how to fix it.
 
 ## RVM
+
 [RVM](http://rvm.io) (Ruby Version Manager) is a command-line tool which allows you to easily install, manage, and work with multiple ruby environments from interpreters to sets of gems. In essence, RVM is a package manager specifically for working with Ruby code.
 
 [**You should have installed RVM in JumpStart.**](https://github.com/Ada-Developers-Academy/jump-start/blob/master/lessons/07-environment-setup/notes/installfest.md)
 
-### Trust but Verify
+### Trust but Verify RVM
+
 - `$ rvm version` should tell you something like _rvm 1.26.11 (latest)..._
 
 ## Upgrade and Use Ruby version 2.5.5
@@ -60,20 +65,20 @@ We will use Ruby version 2.5.5 for the Ada curriculum _(last updated: May 2019)_
 
 **Note:** If you do not set this as the default version now, you will have to run `$ rvm use 2.5.5` every project! So go ahead and set it as default right now. ;)
 
-### Trust but Verify
+### Trust but Verify Ruby Version
+
 - `$ ruby -v` should return _ruby 2.5.5p0_ (your `p` version might be different)
 - `$ which ruby` should return a path like _/Users/ada/.rvm/rubies/ruby-2.5.5/bin/ruby_
 - `$ which gem` should return a path like _/Users/ada/.rvm/rubies/ruby-2.5.5/bin/gem_
 - `$ rvm list` should return the list of Ruby versions installed with rvm, and which version is being used and being used as default
 
 ## Text Editor(s)
+
 There are many options for text editors. _Sublime Text_, _TextMate_, and _Atom_ are popular **Graphic User Interface (GUI)** editors. _vim_ and _emacs_ are popular editors that operate directly on the command line.
 
-Beginning in C11, the Ada Developers Academy classroom portion is converting from using the text editor [Atom](https://atom.io/) to the text editor [VS Code](https://code.visualstudio.com/).
+The Ada Developers Academy classroom portion will use [VS Code](https://code.visualstudio.com/) a popular open-source text editor from Microsoft.  You may use other editors or IDEs in internship or on your Capstone project.
 
 **You should have already installed a text editor in Jump Start, but if you do not have VS Code specifically, please install [VS Code](https://code.visualstudio.com/) now.**
-
-Also, please note that if there are any mentions of `Atom` or the command `atom .`, that the document is outdated.
 
 ## Git
 
@@ -86,6 +91,7 @@ Run the following command to install git onto your machine:
 `$ brew install git`
 
 ### Configuring Git
+
 We need to do some configuration so Git knows who we are, and so that it gives us colorful feedback. After Brew finishes the install, _read through these commands_:
 
 Instead of the literal text `"Your Actual Name"`, you need to input text that is... your actual name. You should keep the quotation marks.
@@ -104,6 +110,7 @@ $ git config --global core.editor "nano"
 ```
 
 ### Trust but Verify
+
 - `$ git config --get user.name` Should show your name
 - `$ git config --get user.email` Should show your email
 
