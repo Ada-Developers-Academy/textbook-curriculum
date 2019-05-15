@@ -50,20 +50,20 @@ Run `$ brew doctor`. Brew is super great at telling you what else it may need. S
 ### Trust but Verify
 - `$ rvm version` should tell you something like _rvm 1.26.11 (latest)..._
 
-## Upgrade and Use Ruby version 2.5.1
+## Upgrade and Use Ruby version 2.5.5
 
-We will use Ruby version 2.5.1 for the Ada curriculum _(last updated: early 2019)_.
+We will use Ruby version 2.5.5 for the Ada curriculum _(last updated: May 2019)_.
 
-- Use rvm to install the Ruby version 2.5.1 onto your computer: `$ rvm install 2.5.1`
+- Use rvm to install the Ruby version 2.5.5 onto your computer: `$ rvm install 2.5.5`
 - Verify that this version of Ruby was installed and that `rvm` recognizes it with `$ rvm list`
-- Use rvm to state that you want to use version 2.5.1 and you want to set it as the default version with `$ rvm use 2.5.1 --default`
+- Use rvm to state that you want to use version 2.5.5 and you want to set it as the default version with `$ rvm use 2.5.5 --default`
 
-**Note:** If you do not set this as the default version now, you will have to run `$ rvm use 2.5.1` every project! So go ahead and set it as default right now. ;)
+**Note:** If you do not set this as the default version now, you will have to run `$ rvm use 2.5.5` every project! So go ahead and set it as default right now. ;)
 
 ### Trust but Verify
-- `$ ruby -v` should return _ruby 2.5.1p0_ (your `p` version might be different)
-- `$ which ruby` should return a path like _/Users/ada/.rvm/rubies/ruby-2.5.1/bin/ruby_
-- `$ which gem` should return a path like _/Users/ada/.rvm/rubies/ruby-2.5.1/bin/gem_
+- `$ ruby -v` should return _ruby 2.5.5p0_ (your `p` version might be different)
+- `$ which ruby` should return a path like _/Users/ada/.rvm/rubies/ruby-2.5.5/bin/ruby_
+- `$ which gem` should return a path like _/Users/ada/.rvm/rubies/ruby-2.5.5/bin/gem_
 - `$ rvm list` should return the list of Ruby versions installed with rvm, and which version is being used and being used as default
 
 ## Text Editor(s)
