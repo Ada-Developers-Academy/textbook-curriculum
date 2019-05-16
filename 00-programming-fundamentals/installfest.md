@@ -33,7 +33,7 @@ If the command does not show a directory path and instead something like `xcode-
 
 ## Homebrew
 
-[Homebrew](http://brew.sh/) is a **package manager** that simplifies installing software on macOS. Package managers are very common, and each language/framework/stack tends to have their own or preferred tool.  Homebrew should also have been installed in Jumpstart.
+[Homebrew](http://brew.sh/) is a [**package manager**](https://en.wikipedia.org/wiki/Package_manager) that simplifies installing software on macOS. Package managers are very common, and each language/framework/stack tends to have their own or preferred tool.  Homebrew should also have been installed in [Jumpstart](https://github.com/Ada-Developers-Academy/jump-start/tree/master/preparing-to-code/environment-setup#installfest).
 
 To install, copypasta this into your terminal:
 
