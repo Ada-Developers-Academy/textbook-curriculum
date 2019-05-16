@@ -37,7 +37,9 @@ If the command does not show a directory path and instead something like `xcode-
 
 To install, copypasta this into your terminal:
 
-`$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+```bash
+$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
 
 You may need to enter your computer password to complete the installation.
 
