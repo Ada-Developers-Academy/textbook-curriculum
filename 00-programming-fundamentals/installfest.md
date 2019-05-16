@@ -22,7 +22,7 @@ For example, a guide may say to do `$ pwd` to print the path of the current dire
 
 Xcode is an **integrated development environment** (often called an **IDE**) for creating apps for Mac, iPhone, and iPad. We don't need it in it's entirety, we're just going to download one piece of the whole. _Command Line Tools_ is a component of Xcode that provides a _compiler_ for OS X.
 
-**You should have installed Xcode Command-Line tools in JumpStart.**
+**You should have installed Xcode Command-Line tools in [JumpStart](https://github.com/Ada-Developers-Academy/jump-start/tree/master/preparing-to-code/environment-setup#installfest).**
 
 ### Trust but Verify
 
