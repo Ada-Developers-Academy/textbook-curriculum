@@ -51,7 +51,7 @@ Run `brew doctor`. Brew is super great at telling you what else it may need. Som
 
 [RVM](http://rvm.io) (Ruby Version Manager) is a command-line tool which allows you to easily install, manage, and work with multiple ruby environments from interpreters to sets of gems. In essence, RVM is a package manager specifically for working with Ruby code.
 
-[**You should have installed RVM in JumpStart.**](https://github.com/Ada-Developers-Academy/jump-start/blob/master/lessons/07-environment-setup/notes/installfest.md)
+[**You should have installed RVM in JumpStart.**](https://github.com/Ada-Developers-Academy/jump-start/tree/master/preparing-to-code/environment-setup#installfest)
 
 ### Trust but Verify RVM
 
