@@ -22,7 +22,7 @@ For example, a guide may say to do `$ pwd` to print the path of the current dire
 
 Xcode is an **integrated development environment** (often called an **IDE**) for creating apps for Mac, iPhone, and iPad. We don't need it in it's entirety, we're just going to download one piece of the whole. _Command Line Tools_ is a component of Xcode that provides a _compiler_ for OS X.
 
-**You should have installed Xcode Command-Line tools in JumpStart.**
+**You should have installed Xcode Command-Line tools in [JumpStart](https://github.com/Ada-Developers-Academy/jump-start/tree/master/preparing-to-code/environment-setup#installfest).**
 
 ### Trust but Verify
 
@@ -45,7 +45,7 @@ You may need to enter your computer password to complete the installation.
 
 ### Trust but Verify Brew
 
-Run `$ brew doctor`. Brew is super great at telling you what else it may need. Sometimes there are file permissions to fix. Sometimes there's a warning that can be ignored. If there's anything ever wrong with Brew, `brew doctor` will usually be able to tell you what it is and how to fix it.
+Run `brew doctor`. Brew is super great at telling you what else it may need. Sometimes there are file permissions to fix. Sometimes there's a warning that can be ignored. If there's anything ever wrong with Brew, `brew doctor` will usually be able to tell you what it is and how to fix it.
 
 ## RVM
 
