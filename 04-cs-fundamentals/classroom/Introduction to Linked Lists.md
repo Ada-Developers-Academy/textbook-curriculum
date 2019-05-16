@@ -21,18 +21,7 @@ Here's the exercises we'll cover in class.
 3. Delete a node from a singly linked list
 4. Count number of nodes in the linked list
 
-## Assignment
-Create .rb file and define the Linked List and Node classes keeping object oriented principles in mind. Author methods to add a value, search for a value, count the number of entries and delete a value from the linked list, assuming that the values in each nodes are integers. Be mindful of when the linked list is empty (before adding the first node, after deleting the last node etc.) in your methods.</br>
-Do the above for a singly linked list and a separate file for a doubly linked list.
-
-## Additional Resources:
-- Read further on [Wikipedia: Memory Leak](https://en.wikipedia.org/wiki/Memory_leak)
-- Video on [Memory Leak explained](https://www.youtube.com/watch?v=hSDAJNCVhjs)
-- More reading on [memory leak on lifehacker.com](https://lifehacker.com/what-it-really-means-when-a-program-leaks-memory-1711957819)
-- Sitepoint reading on [How Ruby uses memory](https://www.sitepoint.com/ruby-uses-memory/)
-- [Introduction to pointers](https://drive.google.com/open?id=0B__DV26QHsH4dHZQNlo4OV80c1E)
-
 ## Slide Deck
 + Slide Deck used in class</br>
 <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://drive.google.com/file/d/0B__DV26QHsH4TnUzdU4zWF85S1k/view?usp=sharing">Introduction to Linked Lists</a></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</br>
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /> 
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />

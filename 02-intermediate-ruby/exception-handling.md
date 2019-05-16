@@ -149,7 +149,7 @@ Like method or block parameters, the rescued exception is a local variable and m
 Setup:
 1. Create a new file called `csv_printer.rb` in your working directory.
 2. Copy the following code into that file.
-3. Review what the code is doing with your seat squad.
+3. Review what the code is doing with your neighbors.
 4. Run the code a few times to exercise each code branch.
 
 ```ruby
@@ -198,7 +198,7 @@ If we expect a method to raise an exception and it doesn't, that's a bug! This m
 
 ```ruby
 it "Raises an ArgumentError when given an invalid word" do
-  proc {
+  expect {
     Scrabble::Scoring.score("1337")
   }.must_raise ArgumentError
 end

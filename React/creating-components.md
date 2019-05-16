@@ -66,7 +66,7 @@ We are going to start small, and our first component will be used to display a s
     export default Student;
     ```
 
-1. **Verify** - You can't fully test it out quite yet, but you can make sure that your React application compiles (check out the terminal where you ran `npm start`) and does not show you any errors in the browser as confirmation of success. Check in with your seat squad to verify that they are at the same place in setting up their component file.
+1. **Verify** - You can't fully test it out quite yet, but you can make sure that your React application compiles (check out the terminal where you ran `npm start`) and does not show you any errors in the browser as confirmation of success. Check in with your neighbors to verify that they are at the same place in setting up their component file.
 
 ### Loading a Component into Another
 For now, we should have filled in a render function and run `npm start` to verify that our application doesn't have lots of errors. We haven't been able to see the results of our component within our app yet. Let's connect it!
@@ -84,7 +84,7 @@ For now, we should have filled in a render function and run `npm start` to verif
 
 Now that we've verified our two components are talking to each other, we can start properly working on the `Student` component.
 
-With your seat squad, modify the JSX returned by the `Student` component. Make that component render some student data, like name, cohort and class, and birthday. Feel free to hard-code some student data and HTML that you think might be relevant.
+With your neighbors, modify the JSX returned by the `Student` component. Make that component render some student data, like name, cohort and class, and birthday. Feel free to hard-code some student data and HTML that you think might be relevant.
 
 ### Wrap-up
 

@@ -34,7 +34,7 @@ module ModuleName
   CONSTANT_NAME = 4
 
   # Define a method
-  def method_name
+  def self.method_name
     # ...
   end
 

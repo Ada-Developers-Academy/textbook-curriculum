@@ -134,8 +134,9 @@ We can simplify this down a bit by creating a `specs/spec_helper.rb`.  So now al
 ```ruby
 # specs/spec_helper.rb
 require 'simplecov'
-SimpleCov.start
-
+SimpleCov.start do
+  add_filter %r{^/specs?/}
+end
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/reporters'
@@ -147,7 +148,7 @@ require 'minitest/pride'
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 ```
 
-Now our spec files can simply `require_relative 'spec_helper'`!  That should DRY up our spec files a bit!
+Now our spec files can simply `require_relative 'spec_helper'`!  That should DRY up our spec files a bit!  We also added a block to `SimpleCov.start` allowing us to filter out any file in our `specs` folder from the coverage report.  This way our spec files themselves are not included in the report.
 
 
 ## Resources

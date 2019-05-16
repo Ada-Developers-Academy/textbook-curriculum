@@ -38,6 +38,7 @@ Compound comparisons often involve a chain of expressions to be evaluated. Ruby 
 
 Here is an abbreviated _Precedence List_ from __highest__ to __lowest__ _precedence_:
 
+1. (things inside parentheses)
 1. `!`, `unary +`
 1. `**`
 1. `unary -`

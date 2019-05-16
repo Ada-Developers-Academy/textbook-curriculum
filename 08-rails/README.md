@@ -1,7 +1,10 @@
 # Rails Index
 
+## Pre-Rails
+1. [Preview of Rails](preview-rails.md)
+1. [Rails Installfest](installfest-rails.md)
+
 ## Week 1
-1. [HTTP & The Internet](http-and-the-internet.md)
 1. [What is Rails?](what-is-ruby-on-rails.md)
 1. Rails Setup
     - [Rails Templates](rails-template-setup.md)
@@ -13,6 +16,7 @@
 1. [Requests and Responses](requests-and-responses.md)
 1. [Active Record Migrations](active-record-migrations.md)
 1. [Active Record Models](active-record-models.md)
+    - [Exercise: Hike Finder Single Model](exercises/hike-finder/single-model.md)
 1. [RESTful Routing](restful-routing.md)
 1. [Safety and Idempotency](safety-idempotency.md)
 1. [View Helpers](common-view-helpers.md)
@@ -23,6 +27,7 @@
 
 ## Week 2
 1. [Active Record Relationships](active-record-relationships.md)
+    - [Exercise: Hike Finder One-to-Many](exercises/hike-finder/one-to-many.md)
 1. [DB Seeds](db-seeds.md)
 1. [Rails Debugging](rails-debugging.md)
 1. [Nested Routes](nested-routes.md)

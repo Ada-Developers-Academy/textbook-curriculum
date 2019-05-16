@@ -132,7 +132,7 @@ Note that we reference a parameter of the outer function. Parameters are a speci
 
 Now that we've explored the concepts behind closures a bit, let's return to our [original example with the buttons](https://codepen.io/adadev/pen/ZmbMdq).
 
-With your seat squad, look at the JavaScript code in that pen, open your Dev Tools to see the console, and answer the following questions:
+With your neighbors, look at the JavaScript code in that pen, open your Dev Tools to see the console, and answer the following questions:
 
 - What is the outer function?
 - What is the inner function?
@@ -147,7 +147,7 @@ Take a look at the following codepens:
 - [Stopwatch](https://codepen.io/adadev/pen/GwpXmJ?editors=1010)
 - [Helpful Hints](https://codepen.io/adadev/pen/EbbVqq?editors=1010)
 
-With your SeatSquad, walk through the code and be able to identify in each example:
+With your neighbors, walk through the code and be able to identify in each example:
 1. Where is the closure?
 1. What does the code do?
 1. How does the closure take advantage of the outer function's variables?

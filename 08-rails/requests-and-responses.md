@@ -1,4 +1,9 @@
 # Requests and Responses: HTTP Verbs, CRUD, and Status Codes
+
+<!-- NB: if you update this text, please also update the similar text in ../02-intermediate-ruby/api-intro.md -->
+
+In this lesson we will revisit the request/response cycle from the perspective of a Rails server.
+
 ## Learning Goals
 
 - Learn about the different kinds of HTTP requests (the HTTP _verbs_)
@@ -8,7 +13,7 @@
 
 ## Introduction
 
-One of the most important ideas in web development is the _request-response cycle_:
+One of the most important ideas in web development is the _request-response cycle_. We've seen this list before, but the examples are slightly different this time.
 
 1. **User** (a human) takes some action in the browser (click a link, submit a form) to begin the cycle
 1. **Client** (the browser) makes a _request_ to the server
@@ -22,7 +27,7 @@ We can shorten this to 3 major steps:
 1. Processing
 1. Response
 
-![Request response overview](images/request_response_overview.png)
+![Request response overview](../02-intermediate-ruby/images/apis/request_response_overview.png)
 <!-- https://www.draw.io/#G17ynKwAoksm5XSU5tqEsDiGuMz_UwZByl -->
 
 In our Rails unit we will mostly be focused on the processing step, but it is important to understand the context in which it occurs. This step is also the main difference between the static _websites_ we built previously and the dynamic _web applications_ we will now build - with a static site, there's no processing.
@@ -148,7 +153,16 @@ Code    | Text             | Meaning
 
 So far, we've let Rails handle sending the response for us, and by default Rails will send back a `200 OK` status code along with the HTML from the view. If we want to send something different, we have to say so explicitly.
 
-**Question:** Which part of Rails should be responsible for setting the status code of a response?
+<details>
+
+  <summary>
+    Which part of Rails should be responsible for setting the status code of a response?
+  </summary>
+
+  The controller!
+
+</details>
+<br/>
 
 There are a few ways to send back a status code from the controller, but here is one:
 
@@ -158,7 +172,7 @@ head :not_found
 
 When added to a controller action, the `head` method indicates that only HTTP headers should be sent back (i.e. no payload). The only argument, the symbol `:not_found`, is the text-version of the status code to use (404).
 
-Typically you would do this inside of a conditional:
+We might not have seen the `show` action yet or route params yet, but it is a case in which we will need to send back a specific status code. During those cases, we will put this inside of a conditional inside of that action:
 
 ```ruby
 def show
@@ -170,7 +184,7 @@ def show
 end
 ```
 
-In this code, if the book we're looking for isn't in the list, then we will return status code 404. If the book is in the list then we won't enter the conditional, and Rails will do its default operation: render the `show` view and send back the result with a 200 status.
+In this code, if the book we're looking for isn't in the list (`if @book.nil?`), then we will return status code 404. If the book is in the list, then we won't enter the conditional, and Rails will do its default operation: render the `show` view and send back the result with a 200 status.
 
 ## Summary
 

@@ -13,7 +13,13 @@ A Rails Controller is the central manager of a Rails application. It takes reque
 
 In Rails, we will build a separate class for each controller. The class is named after the type of resource it controls, and always ends with the word `Controller`. For example, in our books application, we might have a `BooksController` class and an `AuthorsController` class.
 
-The things that a controller can do are called _actions_, and each action will be an instance method on a controller class. For example, our `BooksController` might have an `index` action that sends back a list of books to the browser, and a `show` action that sends back details on one book. Each of those would be an instance method in the `BooksController`.
+The things that a controller can do are called _actions_, and each action will be an instance method on a controller class.
+
+We can, and eventually will, define our own custom _actions_, so that we can define more and more things for our controller to do. However, for today, we will be covering a lot of controller actions that are _Rails conventions_.
+
+The first two controller actions that we will introduce are the _index_ action and the _show_ action. Our _index_ action will usually mean that our controller will send back some important information. Our _show_ action will usually mean that our controller will send back details of one thing.
+
+Our `BooksController` might have an `index` action that sends back a list of books to the browser, and a `show` action that sends back details on one book. Each of those would be an instance method in the `BooksController`.
 
 Many of these actions are so common that we use the same names for them every time - `index` and `show` are examples of this.
 
@@ -43,7 +49,9 @@ Note that while we typed `rails generate controller Books`, Rails called the con
 
 **Question:** What does `< ApplicationController` mean? How might this impact our class?
 
-We've got a controller but no actions yet. To add the `index` action, create an empty method called `index` inside the controller class:
+We've got a controller but no actions yet. **To add any action of any name, we will create a method with that name inside of the controller class.**
+
+Therefore, to add the `index` action, create an empty method called `index` inside the controller class:
 
 ```ruby
 # app/controllers/books_controller.rb
@@ -59,7 +67,7 @@ This method won't stay empty for long, but first we've got a little more work to
 
 We've now created a controller (the `BooksController` class) and given it an action (the `index` method). However, Rails doesn't automatically know how to use this controller; we have to tell it.
 
-To do so, we will introduce a new piece of Rails: the router. The router does its job with the help of a special configuration file that lives at
+To do so, we will introduce a new piece of Rails: the router. The responsibility of the router is to define which requests to this Rails server should go to which controller and which action defined within that controller. The router does its job with the help of a special configuration file that lives at:
 
 ```
 config/routes.rb
@@ -69,7 +77,14 @@ In this file we will tell Rails where to send incoming HTTP requests.
 
 **Question:** What are the parts of an HTTP request?
 
-The two pieces of an HTTP request that our router is interested in are the _verb_ and the _path_. Given those, we can tell it what _controller_ and _action_ to use. It acts kind of like a big `case` statement, though the syntax is a little different.
+<details>
+  <summary>
+    Answer
+  </summary>
+  The two pieces of an HTTP request that our router is interested in are the _verb_ and the _path_.
+</details>
+
+Given the two parts of the http request, Rails can deduce which _controller_ and _action_ to use. The `routes.rb` file acts kind of like a big `case` statement, though the syntax is a little different.
 
 The routefile should have a block of code filled in already. Add a line inside that block so it looks like this:
 

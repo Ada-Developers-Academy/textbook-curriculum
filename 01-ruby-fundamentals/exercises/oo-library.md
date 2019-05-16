@@ -42,7 +42,7 @@ If we want to make a program that tracks all the books in a library, we can make
 Your code does not have to match these tests exactly. This is only an example of what some of your tests might look like.
 
 ```ruby
-sorcers_stone = Book.new({
+sorcers_stone = Book.new(
   title: "Harry Potter and the Sorcer's Stone",
   author: "J. K. Rowling",
   description: "Rescued from the outrageous neglect of his aunt and uncle, a young boy with a great destiny proves his worth while attending Hogwarts School for Witchcraft and Wizardry.",
@@ -50,7 +50,7 @@ sorcers_stone = Book.new({
   year_published: 1998,
   copies_available: 3,
   checked_out_by: []
-  })
+)
 
 puts sorcers_stone.title
 # will output "Harry Potter and the Sorcer's Stone" in terminal
@@ -74,5 +74,4 @@ puts sorcers_stone.checked_out_by
 
 puts sorcers_stone.copies_available
 # will output "5"
-
 ```

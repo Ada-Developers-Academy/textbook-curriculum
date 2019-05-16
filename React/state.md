@@ -57,7 +57,7 @@ class NameDisplay extends React.Component {
   render() {
     let display = 'Sorry, I don\'t know your name.';
     if (this.state.displayName) {
-      display = `Hello, ${ this.state.name}.`;
+      display = `Hello, ${this.state.name}.`;
     }
     return (
       <section>

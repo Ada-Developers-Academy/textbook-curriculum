@@ -82,7 +82,7 @@ onNameChange = (event) => {
 }
 ```
 
-**Exercise:** Take a few minutes with your seat squad to figure out how to access the input box's value (from the  `event` parameter) and use `setState` to update the name accordingly.
+**Exercise:** Take a few minutes with your neighbors to figure out how to access the input box's value (from the  `event` parameter) and use `setState` to update the name accordingly.
 
 
 You can see the final version of this [code here](https://codepen.io/adadev/pen/ELpvyM?editors=0011).

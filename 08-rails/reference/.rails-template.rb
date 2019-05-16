@@ -11,40 +11,41 @@ ADA_RAILS = <<-FIGLET
 FIGLET
 
 # Make $(document).ready work as expected, despite turbolinks weirdness
-gem 'jquery-turbolinks'
+gem "jquery-turbolinks"
 
-gem 'jquery-rails'
+gem "jquery-rails"
 
 gem_group :development, :test do
   # Use pry for rails console, enable binding.pry
-  gem 'pry-rails'
+  gem "pry-rails"
 end
 
 gem_group :development do
   # Improve the error message you get in the browser
-  gem 'better_errors'
+  gem "better_errors"
 
   # Nice interactive terminal when an exception happens
-  gem 'binding_of_caller'
+  gem "binding_of_caller"
 
   # Automatically run our tests
-  gem 'guard'
-  gem 'guard-minitest'
+  gem "guard"
+  gem "guard-minitest"
 end
 
 # Add some extra minitest support
 gem_group :test do
-  gem 'minitest-rails'
-  gem 'minitest-reporters'
+  gem "minitest-rails"
+  gem "minitest-reporters"
+  gem "minitest-skip"
 end
 
 # Don't even install coffeescript
-gsub_file 'Gemfile', /^gem \'coffee-rails\'/ do
+gsub_file "Gemfile", /^gem \'coffee-rails\'/ do
   "\# gem 'coffee-rails'"
 end
 
 ## Add some important things to our gitignore file
-inject_into_file '.gitignore', after: '.byebug_history' do
+inject_into_file ".gitignore", after: ".byebug_history" do
   <<-'RUBY'
 
 /coverage
@@ -54,7 +55,7 @@ end
 
 # Mess with generators to get the behavior we expect around new files
 # For these injections, indentation matters!
-inject_into_file 'config/application.rb', after: "class Application < Rails::Application\n" do
+inject_into_file "config/application.rb", after: "class Application < Rails::Application\n" do
   <<-'RUBY'
     config.generators do |g|
       # Force new test files to be generated in the minitest-spec style
@@ -67,14 +68,13 @@ inject_into_file 'config/application.rb', after: "class Application < Rails::App
 end
 
 # Allow us to use form_with without utilizing the remote form option
-create_file 'config/initializers/action_view.rb' do
+create_file "config/initializers/action_view.rb" do
   <<~INIT
     Rails.application.config.action_view.form_with_generates_remote_forms = false
   INIT
 end
 
-
-create_file 'Guardfile' do
+create_file "Guardfile" do
   <<~GUARDFILE
     guard :minitest, autorun: false, spring: true do
       watch(%r{^app/(.+)\.rb$})                               { |m| "test/\#{m[1]}_test.rb" }
@@ -96,7 +96,7 @@ after_bundle do
   # Add minitest reporters support. This must be run after
   # rails generate minitest:install, because that command
   # changes test/test_helper.rb
-  inject_into_file 'test/test_helper.rb', after: 'require "minitest/rails"' do
+  inject_into_file "test/test_helper.rb", after: 'require "minitest/rails"' do
     <<-'RUBY'
 
 require "minitest/reporters"  # for Colorized output
@@ -109,6 +109,13 @@ Minitest::Reporters.use!(
 )
     RUBY
   end
+
+  puts "======================="
+  print "Postgres status: "
+  system("brew services list | grep postgresql")
+  puts "======================="
+
+  puts ""
 
   puts "Successfully generated a new Rails app using the Ada Developers Academy template"
   puts "This is template version 1 (intro Rails)"

@@ -97,11 +97,7 @@ What is a _template_? For now, just think of it as a way to add some more comple
 
 ### Instructions
 
-1. Download [this template file](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/09-intermediate-rails/reference/.rails-template.rb), and save it as `~/.rails-template.rb`
-1. Run the following command in your terminal
-    ```bash
-    echo "-m ~/.rails-template.rb" >> ~/.railsrc
-    ```
+1. Download [this template file](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/09-intermediate-rails/reference/.rails-template.rb), and replace the existing  `~/.rails-template.rb`.
 
 That's it, you should now be good to go. From now on, every time you type `rails new` Rails will set your project up for spec-style testing. You shouldn't need to repeat these instructions until the next time you buy a computer.
 

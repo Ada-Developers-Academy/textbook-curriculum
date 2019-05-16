@@ -48,7 +48,7 @@ onInputChange = (event) => {
 
 **Question:** Why do we need to use subscript notation (square brackets) to update the state? In the past we used dot notation, which was more concise. What has changed?
 
-Then we can change the `onClick` handlers to use our new consolidated function:
+Then we can change the `onChange` handlers to use our new consolidated function:
 
 ```jsx
 <input

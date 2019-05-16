@@ -186,7 +186,7 @@ puts fruit_prices["orange"]
 - `my_hash.each` provides two iteration variables, the key and the value
 
 ```ruby
-fruit_prices.each |fruit, price| do
+fruit_prices.each do |fruit, price|
   puts "#{fruit} costs $#{price}"
 end
 ```

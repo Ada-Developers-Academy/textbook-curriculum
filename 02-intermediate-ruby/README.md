@@ -15,7 +15,16 @@
 
 ## Week 4
 1. [Object Inheritance](object-inheritance.md)
+1. [Inheritance Idioms](inheritance-idioms.md)
 1. [Exception Handling](exception-handling.md)
 1. [Custom Exceptions](custom-exceptions.md)
 1. [Object Oriented Design](oo-design.md)
 1. [References and Values](references-and-values.md)
+
+## Week 6
+1. [Intro to the web, HTTP and APIs](api-intro.md)
+1. [Consuming an API in Ruby](api-using-httparty.md)
+1. [APIs and Authorization](api-auth.md)
+1. [APIs and Testing](api-testing-vcr.md)
+1. [Sending Data to an API](api-post.md)
+1. [The MVC Pattern](mvc.md)
