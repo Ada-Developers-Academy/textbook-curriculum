@@ -51,27 +51,71 @@ let clicheGoodbye = 'Don\'t forget to like and subscribe';
 ```
 
 ## Variables
-__Declare all variables with the var or let operators!__
+
+> What's the syntax for defining a variable in this language? What's the syntax for accessing them?
+
+> _-- Some cool programmer learning a new language_
+
+In JavaScript, in order to define a variable, we do explicit variable declaration.
+
+There are three keywords to use to declare a variable, all specifying different things:
+
+1. `var`
+1. `let`
+1. `const`
+
+Observe variable declaration and assignment below:
 
 ```javascript
-var five = 5;
-let six  = 6;
+var dees_favorite_color = 'green';
+let dees_favorite_number = 72;
+const dees_favorite_game = 'night in the woods';
 ```
 
-If you omit `var` or `let` you will get a __global__ variable, which can lead to all sorts of problems. __JUST DON'T DO IT!__
+### We Prefer `let` for Reassignable Variables
 
-`var` and `let` mean subtly different things, both having to do with [scope](https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var-to-declare-a-variable) which we'll get to later.  A good rule of thumb is to use `let` unless you are working with an older version of the JavaScript interpreter.
+`var` and `let` declare variables that can be re-assigned. `var` and `let` mean subtly different things, both having to do with [scope](https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var-to-declare-a-variable) which we'll get to later.  **A good rule of thumb and our best practice moving forward is to always use `let` for variables we expect to be re-assigned.**
 
-#### Constants
+It may make sense to use `var` if you are working with an older version of the JavaScript interpreter.
 
-You can declare a constant with the `const` operator.  Constants are like variables declared with `let`, but cannot change their value through reassignment.
+### We Prefer `const` for All Other Variables
 
-```javascript
-const FIVE = 5;
-FIVE = 6;  // TypeError: Assignment to constant variable.
-```
+Constants cannot change their value through reassignment. **Our best practice moving forward is to always use `const` for variables we expect to not be re-assigned.**
 
-**Note** that each line of JavaScript code ends with the `;`. This is optional for the code to work (sometimes, and the rules are inconsistent) but **not** optional when taking into consideration style guidelines.
+In your Node REPL, input these lines. Do you get what you expect?
+
+1. `var dees_favorite_color = 'green';`
+1. `dees_favorite_color;`
+1. `let dees_favorite_number = 72;`
+1. `dees_favorite_number;`
+1. `const dees_favorite_game = 'night in the woods';`
+1. `dees_favorite_game;`
+1. `dees_favorite_number = 16;`
+1. `let dees_favorite_number;`
+1. `dees_favorite_game = 'butterfly soup';`
+
+<details>
+
+  <summary>
+    Compare your answers here
+  </summary>
+
+  1. `undefined`
+  1. `'green'`
+  1. `undefined`
+  1. `72`
+  1. `undefined`
+  1. `'night in the woods'`
+  1. `16`
+  1. `Thrown: SyntaxError: Identifier 'dees_favorite_number' has already been  declared` You only need to do the variable declaration (using `let` or `const`) once. You can just re-assign a `let` variable without the keyword `let`.
+  1. `Thrown: TypeError: Assignment to constant variable.` You can't re-assign a `const` variable.
+
+</details>
+
+### Always Declare!
+
+Declaring a variable without one of these three keywords creates a global variable, which is bad practice and leads to unintended consequences-- don't do it!
+
 
 ### [Conditionals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
 Conditional expressions are surrounded by parenthesis `()` and each block is surrounded by brackets `{}`.
