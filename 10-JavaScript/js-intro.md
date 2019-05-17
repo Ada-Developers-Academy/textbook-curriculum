@@ -73,11 +73,13 @@ Open the `node` REPL and put in the following commands. What do you get?
   1. `'Hello World!'`
   1. `3`
   1. `400`
-  1. '2Hello World!'
+  1. `'2Hello World!'`
   1. `undefined`
   1. `9`
   1. `'number'`
   1. `NaN`
+
+Keep a note of what answers are surprising. We will get into what some of these answers mean, soon.
 
 </details>
 
@@ -129,12 +131,35 @@ this isn't real
 SyntaxError: Unexpected identifier
 ```
 
+### Boolean means `true` or `false`
 
-#### `Boolean` is `true` or `false`
-```javascript
-let t = true;
-let f = false;
-```
+Check in Node REPL that you can evaluate a boolean `true` or `false` and get back what you'd expect, with similar syntax.
+
+In your Node REPL, input these lines. Do you get what you expect?
+
+1. `true;`
+1. `false;`
+1. `true && true;`
+1. `true && false;`
+1. `false || true;`
+1. `false || false;`
+
+<details>
+
+  <summary>
+    Compare your answers here
+  </summary>
+
+  1. `true`
+  1. `false`
+  1. `true`
+  1. `false`
+  1. `true`
+  1. `false`
+
+</details>
+
+</br>
 
 #### `Null` is the value null. This represents an "empty" value.
 ```javascript
