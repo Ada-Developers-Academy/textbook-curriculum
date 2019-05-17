@@ -291,6 +291,18 @@ Before running this code, predict the answers for the following questions:
 
 **Question:** Take one minute. What is one way you could write this in Ruby?
 
-#### [The `forEach` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+### [The `forEach` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
 
-JavaScript has a `forEach` loop that allows you to iterate over the elements of an array, similar to Ruby's `each` loop. However, there are some substantial differences - `forEach` takes a function as an argument. Since we haven't learned about those yet we'll hold off on showing the syntax until later.
+JavaScript has a `forEach` loop that allows you to iterate over the elements of an array, similar to Ruby's `each` loop. However, there are some substantial differences - `forEach` takes a function as an argument.
+
+Since we haven't learned about those yet we'll hold off on showing the syntax until later.
+
+## Summary: The Variables/Conditionals/Iteration Ruby vs. JavaScript Abbreviated List
+
+| Concept | Things to note about Ruby vs. JavaScript |
+| --- | --- |
+| Variable declaration | In JavaScript, we declare each variable them ONCE with the keywords `var`, `let`, and `const`. We prefer `let` and `const`
+| Printing to the terminal | In JavaScript, we use `console.log()` and put in our things to print in the parens `()`
+| Conditionals Syntax | We use `if ... else if ... else` in JavaScript. There are a lot more parentheses and curly braces, too.
+| String Equality | In JavaScript, to check if two strings are equal, we use `===`
+| Iteration Syntax | We will use `for`, `while`, and `forEach` loops in JavaScript to iterate. There are a lot more available, too!
