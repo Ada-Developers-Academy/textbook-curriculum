@@ -51,6 +51,10 @@ JavaScript and Ruby share the following similarities:
 
 ## Using the Node REPL
 
+> I want to learn a new programming language. The best way for me to learn it is by playing with it, seeing what I can do, and seeing what breaks it, in a safe and quick way. What tools can I use?
+
+> _-- Some cool programmer learning a new language_
+
 Instead of `irb` (the interactive ruby shell as a REPL for Ruby), we will use Node's REPL for playing around with JavaScript. Start the REPL with the terminal command `$ node`. You'll get a caret (`>`) prompt. From here, you can enter code and have it evaluated, just like using `irb` or the Rails console.
 
 Open the `node` REPL and put in the following commands. What do you get?
@@ -107,7 +111,7 @@ JavaScript has types that are similar to Ruby:
 - `null`
 
 And also some that are distinct from Ruby:
-- `Undefined`
+- `undefined`
 - `Object`
 - `Function`
   - similar to arrays, technically these aren't a distinct type, but we won't get into that now, and it's worthwhile to separate it on this list
@@ -305,7 +309,7 @@ Take a break! After the break, we'll look at things that aren't so similar to Ru
 
 ---
 
-### `Undefined` is what's returned when a value is undefined
+### `undefined` is what's returned when a value is undefined
 
 When we try to access (retrieve) a variable with no assigned value, JS returns undefined.
 
@@ -399,7 +403,7 @@ We will spend the rest of our time in JavaScript thinking about functions, so st
   - `String`
   - `Array`
   - `null`
-  - `Undefined`
+  - `undefined`
   - `Object`
   - `Function`
 
@@ -412,7 +416,7 @@ We will spend the rest of our time in JavaScript thinking about functions, so st
 | String | We prefer making Strings with single-quotes (`''`). To do string interpolation, we need to use the syntax `${}` and backticks instead of single-quotes
 | Array | -
 | null | -
-| Undefined | Will be useful when we think about variables that may have never been assigned a value
+| undefined | Will be useful when we think about variables that may have never been assigned a value
 | Object | Our base understanding will come from Ruby's hashes, but will soon evolve
 | Function | We will get into this more in-depth later
 
