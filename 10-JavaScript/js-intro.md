@@ -22,22 +22,10 @@ The change of name from LiveScript to JavaScript roughly coincided with Netscape
 
 [Node.js](https://nodejs.org/en/) is an open-source, cross-platform **runtime environment** for developing server-side Web applications. Node.js is not a JavaScript framework... It is a runtime environment that interprets JavaScript using Google's V8 JavaScript engine (same as what's in Chrome).
 
-To get started, let's install node using `$ brew install node`. It should go something like this:
+1. install node using `$ brew install node`
+1. Verify `$ node --version` gives back a node version, and not an error.
 
-```
-$ brew install node
-==> Downloading
-...
-...
-...
-
-Bash completion has been installed to:
-  /usr/local/etc/bash_completion.d
-==> Summary
-🍺  /usr/local/Cellar/node/8.6.0: 3,655 files, 38.8M
-```
-
-Alright. Now, `node --version` should report to you something like `v11.X.X`. Yay! We'll use Node's command line program to do all the same things we did with Ruby's. We can use Node to run JavaScript programs (`$ node my_program.js`) and use Node as a _REPL_ (`$ node`).
+We can use Node to run JavaScript programs (`$ node my_program.js`) and use Node as a _REPL_ (`$ node`).
 
 Node is also packaged with __npm__, the _Node Package Manager_. npm packages are to Node like gems are to Ruby. We'll use npm to define, install, and manage dependencies in our Node applications.
 
