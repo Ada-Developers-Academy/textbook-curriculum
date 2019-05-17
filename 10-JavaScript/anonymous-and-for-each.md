@@ -66,8 +66,37 @@ Answer the following questions:
 
 </details>
 
-#### Practical Example: `forEach` Loops
-JavaScript's `forEach` is an example of a function that takes another function as an argument. Note how it behaves similarly to a block in Ruby.
+### Exercise: Create More Anonymous Math Operation Callbacks
+
+```javascript
+const doMath = function doMath(operation) {
+  for (let i = 0; i < 10; i += 1) {
+    let result = operation(i);
+    console.log(`${i}: ${result}`);
+  }
+};
+
+// doMath(...)
+```
+
+Given the above code, call `doMath()` three more times, with three different anonymous function callbacks.
+
+Each of these anonymous function callbacks should take in 1 number, and return either a number or a string.
+
+Ideas for anonymous functions to write include:
+- Cubing one number
+- Formatting the input like it was currency
+- Multiplying it by 1 million and then formatting it like currency and then adding text saying that it belongs to the Ada instructors
+
+Run your script to make sure it works!
+
+## Practical Example: `forEach` Loops
+
+We've touched on iteration in JavaScript with a regular `for` loop and a `while` loop. However, going forward, `forEach` loops are going to be our most reliable loops to use.
+
+The `forEach` loop in JavaScript is a function that operates off of a collection (like an array). It takes in one argument: a function, which takes in one argument that represents one iteratee item from the array.
+
+Because of the nature of iteration (it's usually an operation we need to do one time, in a very specific manner), we will use an anonymous function.
 
 ```javascript
 let data = [4, 7, 9, 12, 3, 18, 6];
