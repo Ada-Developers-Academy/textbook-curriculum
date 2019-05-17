@@ -5,7 +5,8 @@
 - What is JavaScript? Why is it worth learning?
 - Discover the varying applications of JavaScript
 - Learn where Node and npm fit in all of this
-- What are the different data types in JavaScript?
+- Recognize the different data types in JavaScript
+- Understand that Objects are very different in JavaScript compared to Ruby
 
 ## The Roots of JS
 
@@ -88,34 +89,46 @@ Use `.exit` or ctrl-d to get out of the Node REPL
 
 Now that we've got a REPL available to us, let's jump in with some JavaScript specifics.
 
+## Data Types in JavaScript
 
-### Variables
-__Declare all variables with the var or let operators!__
+> How can I represent data in this language? What are the data types available in this language?
 
-```javascript
-var five = 5;
-let six  = 6;
+> _-- Some cool programmer learning a new language_
+
+JavaScript has types that are similar to Ruby:
+
+- `Boolean`
+- `Number`
+- `String`
+- `null`
+- `Array`
+  - technically these aren't a distinct type, but we won't get into that now
+
+And also some that are distinct from Ruby:
+- `Undefined`
+- `Object`
+- `Function`
+
+The best way for us to get into JavaScript at the moment is to blitz through all of the familiar types. Feel free to follow along in the Node REPL to verify that these these are real things in JavaScript.
+
+#### An Example Error in Node REPL
+
+If something is not real, Node REPL will let us know by _throwing an error._
+
+For example, if we have the Node REPL open and type in something that the Node REPL doesn't recognize, it may have output that looks like any of these options:
+
+```
+> asdf
+Thrown:
+ReferenceError: asdf is not defined
+> this isn't real
+Thrown:
+this isn't real
+     ^^^
+
+SyntaxError: Unexpected identifier
 ```
 
-If you omit `var` or `let` you will get a __global__ variable, which can lead to all sorts of problems. __JUST DON'T DO IT!__
-
-`var` and `let` mean subtly different things, both having to do with [scope](https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var-to-declare-a-variable) which we'll get to later.  A good rule of thumb is to use `let` unless you are working with an older version of the JavaScript interpreter.
-
-#### Constants
-
-You can declare a constant with the `const` operator.  Constants are like variables declared with `let`, but cannot change their value through reassignment.
-
-```javascript
-const FIVE = 5;
-FIVE = 6;  // TypeError: Assignment to constant variable.
-```
-
-**Note** that each line of JavaScript code ends with the `;`. This is optional for the code to work (sometimes, and the rules are inconsistent) but **not** optional when taking into consideration style guidelines.
-
-### Types
-[MDN Data Types and Data Structures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
-
-JavaScript's basic _types_ are similar to Ruby's: `Boolean`, `Null`, `Undefined`, `Number`, `String`, `Array`, `Object`, and `Function`.
 
 #### `Boolean` is `true` or `false`
 ```javascript
@@ -206,6 +219,32 @@ obj.subObject.otherNum; // 4
 obj.foo;    // undefined
 
 ```
+
+### Variables
+__Declare all variables with the var or let operators!__
+
+```javascript
+var five = 5;
+let six  = 6;
+```
+
+If you omit `var` or `let` you will get a __global__ variable, which can lead to all sorts of problems. __JUST DON'T DO IT!__
+
+`var` and `let` mean subtly different things, both having to do with [scope](https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var-to-declare-a-variable) which we'll get to later.  A good rule of thumb is to use `let` unless you are working with an older version of the JavaScript interpreter.
+
+#### Constants
+
+You can declare a constant with the `const` operator.  Constants are like variables declared with `let`, but cannot change their value through reassignment.
+
+```javascript
+const FIVE = 5;
+FIVE = 6;  // TypeError: Assignment to constant variable.
+```
+
+**Note** that each line of JavaScript code ends with the `;`. This is optional for the code to work (sometimes, and the rules are inconsistent) but **not** optional when taking into consideration style guidelines.
+
+### Types
+
 
 ### [Conditionals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
 Conditional expressions are surrounded by parenthesis `()` and each block is surrounded by brackets `{}`.
