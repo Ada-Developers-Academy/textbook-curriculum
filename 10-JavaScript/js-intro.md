@@ -231,6 +231,7 @@ The idea of Strings is the same between JavaScript and Ruby. However, these are 
 - In JavaScript, strings declared with double-quotes and strings declared with single-quotes are the same
 - In those cases, we will standardize on using single-quotes `''`
 - **We can only use backticks for string interpolation**
+  - Backtick (`) is the key above "tab".
 - The syntax for string interpolation is with `${}`
 - JavaScript does not have symbols, and uses strings wherever Ruby would use symbols
 
