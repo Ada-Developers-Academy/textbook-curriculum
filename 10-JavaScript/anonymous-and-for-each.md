@@ -98,18 +98,27 @@ The `forEach` loop in JavaScript is a function that operates off of a collection
 
 Because of the nature of iteration (it's usually an operation we need to do one time, in a very specific manner), we will use an anonymous function.
 
+Observe the following example, which has an array of numbers that represent a collection of cash tips, and then iterates through the array to increment a `sum` variable. Then, we use the sum to calculate the average cash tip.
+
 ```javascript
-let data = [4, 7, 9, 12, 3, 18, 6];
+const cashTips = [4, 7, 9, 12, 3, 18, 6];
 let sum = 0;
 
-// Another anonymous function
-data.forEach(function (num) {
-  sum += num;
+cashTips.forEach( function(tip) {
+  sum += tip;
 });
 
-let average = sum / data.length;
-console.log(`Average is ${average}`);
+const average = sum / cashTips.length;
+console.log(`The average cash tip is ${average}`);
 ```
+
+### Exercise: `forEach`
+
+Complete the following exercises in JavaScript using `forEach` an anonymous functions.
+
+1. Given the array `[ 2, 5, 8, 11, 14 ]`, iterate through the array. For each item `num`, print to the terminal `2 * x + 7`
+1. Given the array `['puppies', 'meerkats', 'red pandas']`, iterate through the array. For each item `critter`, print to the terminal `"I am as amazing as"` critter!
+1. Given the array `['puppies', 'meerkats', 'red pandas']`, iterate through the array. Print out only the longest string in the array.
 
 ### Functional Expressions vs. Function Declarations
 Something that may come up in your exploration of JavaScript is the difference between a functional expression and a function declaration. A functional expression is what we've seen so far:
