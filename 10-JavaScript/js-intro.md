@@ -29,6 +29,8 @@ We can use Node to run JavaScript programs (`$ node my_program.js`) and use Node
 
 Node is also packaged with __npm__, the _Node Package Manager_. npm packages are to Node like gems are to Ruby. We'll use npm to define, install, and manage dependencies in our Node applications.
 
+Also, Node.js gives us a command-line program to help us execute `.js` files. Just like how Ruby gives us a way to run `.rb` files from the terminal with `$ ruby some_file.rb`, we will run JavaScript files using Node.js with `$ node some_file.js`
+
 ## JavaScript and Ruby are like cousins
 
 JavaScript and Ruby share the following similarities:
@@ -43,7 +45,7 @@ JavaScript and Ruby share the following similarities:
 
 > _-- Some cool programmer learning a new language_
 
-Instead of `irb` (the interactive ruby shell as a REPL for Ruby), we will use Node's REPL for playing around with JavaScript. Start the REPL with the terminal command `$ node`. You'll get a caret (`>`) prompt. From here, you can enter code and have it evaluated, just like using `irb` or the Rails console.
+Instead of `irb` or `pry` (or any other REPLs for Ruby), we will use Node's REPL for playing around with JavaScript. Start the REPL with the terminal command `$ node`. You'll get a caret (`>`) prompt. From here, you can enter code and have it evaluated, just like using `irb` or the Rails console.
 
 Open the `node` REPL and put in the following commands. What do you get?
 
@@ -127,7 +129,7 @@ The best way for us to get into JavaScript at the moment is to blitz through all
 
 #### An Example Error in Node REPL
 
-If something is not real, Node REPL will let us know by _throwing an error._
+If something is not a valid expression that can be evaluated, Node REPL will let us know by _throwing an error._
 
 For example, if we have the Node REPL open and type in something that the Node REPL doesn't recognize, it may have output that looks like any of these options:
 
@@ -327,6 +329,8 @@ In your Node REPL, input these lines. Do you get what you expect?
 1. `apple;`
 1. `let apple;`
 1. `apple;`
+1. `['pineapple', 'cherry', 'lemon', 'apple'][0];`
+1. `['pineapple', 'cherry', 'lemon', 'apple'][999];`
 
 <details>
 
@@ -336,6 +340,8 @@ In your Node REPL, input these lines. Do you get what you expect?
 
   1. `Thrown: ReferenceError: apple is not defined`
   1. `undefined`
+  1. `undefined`
+  1. `'pineapple'`
   1. `undefined`
 
 </details>
@@ -356,7 +362,7 @@ Note the following similarities between JavaScript objects and Ruby hashes:
 - You can access properties with bracket notation
 - You can additionally access properties with dot notation
 
-In your Node REPL, copy and paste these lines. Do you get what you expect?
+In your Node REPL, copy-and-paste these lines. Do you get what you expect?
 
 1.
     ```javascript
@@ -374,6 +380,11 @@ In your Node REPL, copy and paste these lines. Do you get what you expect?
 1. `testObj.someStr;`
 1. `testObj.someNestedObj;`
 1. `testObj.someNestedObj.someOtherNum;`
+1. `testObj['someNestedObj'].someOtherNum;`
+1. `testObj['someNestedObj']['someOtherNum'];`
+1. `let key = 'someNestedObj';`
+1. `testObj[key];`
+1. `testObj.key;`
 
 <details>
 
@@ -393,6 +404,11 @@ In your Node REPL, copy and paste these lines. Do you get what you expect?
   1. `'this is a test string'`
   1. `{ someOtherNum: 4 }`
   1. `4`
+  1. `4`
+  1. `4`
+  1. `undefined`
+  1. `{ someOtherNum: 4 }`
+  1. `undefined`
 
 </details>
 

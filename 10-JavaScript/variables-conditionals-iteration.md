@@ -76,11 +76,11 @@ const dees_favorite_game = 'night in the woods';
 
 `var` and `let` declare variables that can be re-assigned. `var` and `let` mean subtly different things, both having to do with [scope](https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var-to-declare-a-variable) which we'll get to later.  **A good rule of thumb and our best practice moving forward is to always use `let` for variables we expect to be re-assigned.**
 
-It may make sense to use `var` if you are working with an older version of the JavaScript interpreter.
+`var` was the normal keyword to use in older versions of JavaScript. It may make sense to use `var` if you are working with an older version of the JavaScript interpreter. You may also see `var` when looking at old Stack Overflow posts.
 
 ### We Prefer `const` for All Other Variables
 
-Constants cannot change their value through reassignment. **Our best practice moving forward is to always use `const` for variables we expect to not be re-assigned.**
+Constants cannot change their value through reassignment. **We will always use `const` for variables we expect to not be re-assigned.** You should _always_ be using `const` by default, unless there's a good reason for that variable to be reassigned. Start every variable as `const`, and then refactor to `let` if you need to.
 
 In your Node REPL, input these lines. Do you get what you expect?
 
@@ -301,7 +301,7 @@ Since we haven't learned about those yet we'll hold off on showing the syntax un
 
 | Concept | Things to note about Ruby vs. JavaScript |
 | --- | --- |
-| Variable declaration | In JavaScript, we declare each variable them ONCE with the keywords `var`, `let`, and `const`. We prefer `let` and `const`
+| Variable declaration | In JavaScript, we declare each variable them ONCE with the keywords `var`, `let`, and `const`.  You should _always_ be using `const` by default, unless there's a good reason for that variable to be reassigned. Start every variable as `const`, and then refactor to `let` if you need to.
 | Printing to the terminal | In JavaScript, we use `console.log()` and put in our things to print in the parens `()`
 | Conditionals Syntax | We use `if ... else if ... else` in JavaScript. There are a lot more parentheses and curly braces, too.
 | String Equality | In JavaScript, to check if two strings are equal, we use `===`
