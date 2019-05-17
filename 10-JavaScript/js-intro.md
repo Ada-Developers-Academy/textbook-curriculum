@@ -48,39 +48,46 @@ JavaScript and Ruby share the following similarities:
 - Both support object-oriented programming
 - Both are dynamically typed
 
-```ruby
-x = 10
-y = 15
-puts x + y
-```
-
-```javascript
-let x = 10;
-let y = 15;
-console.log(x + y);
-```
-
-We'll talk in detail about all the code above, but the similarities are striking. Here's a Ruby array: `[1,2,3,4,5]` and the equivalent array in JavaScript: `[1,2,3,4,5]`. Funny, right?
-
-Ok, don't let these similarities lull you into thinking JS is just like Ruby. While we will reuse much of the language to describe code--functions, objects, variables, arguments, scope, and so on--JavaScript has a different approach to organizing and accessing objects and functions.
-
 ## Using the Node REPL
-Start the REPL by typing `node` in the terminal. You'll get a caret (`>`) prompt. From here, you can enter code and have it evaluated, just like using `irb` or the Rails console:
 
-```
-$ node
-> let x = 7;
-undefined
-> x + 2
-9
-> typeof x
-'number'
->
-```
+Instead of `irb` (the interactive ruby shell as a REPL for Ruby), we will use Node's REPL for playing around with JavaScript. Start the REPL with the terminal command `$ node`. You'll get a caret (`>`) prompt. From here, you can enter code and have it evaluated, just like using `irb` or the Rails console.
 
-__Hint: Use `.exit` or ctrl-d to get out of the Node REPL__
+Open the `node` REPL and put in the following commands. What do you get?
 
-Now that we've got a REPL available to us, let's jump in with some JavaScript specifics. We are going to talk about __variables__, __datatypes__, and __functions__.
+1. `"Hello World!";`
+1. `2 + 1;`
+1. `100 * 4;`
+1. `2 + "Hello World!";`
+1. `let x = 7;`
+1. `x + 2;`
+1. `typeof x;`
+1. `2 - "Hello World!";`
+
+<details>
+
+  <summary>
+    Compare your answers here
+  </summary>
+
+  1. `'Hello World!'`
+  1. `3`
+  1. `400`
+  1. '2Hello World!'
+  1. `undefined`
+  1. `9`
+  1. `'number'`
+  1. `NaN`
+
+</details>
+
+</br>
+
+### Exit the Node REPL
+
+Use `.exit` or ctrl-d to get out of the Node REPL
+
+Now that we've got a REPL available to us, let's jump in with some JavaScript specifics.
+
 
 ### Variables
 __Declare all variables with the var or let operators!__
