@@ -2,16 +2,15 @@
 
 ## Learning Goals
 
-- What is JavaScript? Why is it worth learning?
 - Discover the varying applications of JavaScript
-- Learn where Node and npm fit in all of this
+- Learn where Node and `npm` fit in all of this
 - Apply JavaScript naming conventions and comment syntax
 - Recognize the different data types in JavaScript
 - Understand that Objects are very different in JavaScript compared to Ruby
 
 ## The Roots of JS
 
-JavaScript was originally developed in **ten days** in May 1995 by Brendan Eich, while he was working for Netscape Communications Corporation ([Wikipedia](https://en.wikipedia.org/wiki/JavaScript))
+JavaScript was originally developed in **ten days** in May 1995 ([Wikipedia](https://en.wikipedia.org/wiki/JavaScript)).
 
 Although it was developed under the name Mocha, the language was officially called LiveScript when it first shipped in beta releases of Netscape Navigator 2.0 in September 1995. It was renamed JavaScript when it was deployed in the Netscape browser version 2.0B3.
 
@@ -116,14 +115,13 @@ JavaScript has types that are similar to Ruby:
 - `Number`
 - `String`
 - `Array`
-  - technically these aren't a distinct type, but we won't get into that now
+  - technically these are an object, but we won't get into that now
 - `null`
 
 And also some that are distinct from Ruby:
 - `undefined`
 - `Object`
 - `Function`
-  - similar to arrays, technically these aren't a distinct type, but we won't get into that now, and it's worthwhile to separate it on this list
 
 The best way for us to get into JavaScript at the moment is to blitz through all of the familiar types. Feel free to follow along in the Node REPL to verify that these these are real things in JavaScript.
 
@@ -188,8 +186,8 @@ In your Node REPL, input these lines. Do you get what you expect?
 1. `2.0;`
 1. `4 / 2;`
 1. `4 / 2.0;`
-1. `4.0 + 2.0`
-1. `4 + 2.1`
+1. `4.0 + 2.0;`
+1. `4 + 2.1;`
 1. `Infinity;`
 1. `+Infinity;`
 1. `-Infinity;`
