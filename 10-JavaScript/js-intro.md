@@ -1,19 +1,25 @@
 # Welcome to JavaScript!
+
 ## Learning Goals
-- What & Why JavaScript?
+
+- What is JavaScript? Why is it worth learning?
 - Discover the varying applications of JavaScript
 - Learn where Node and npm fit in all of this
-- Learn about _datatypes_ and _functions_ in JS
+- What are the different data types in JavaScript?
 
-## The roots of JS
-Straight from [Wikipedia](https://en.wikipedia.org/wiki/JavaScript): JavaScript was originally developed in 10 days in May 1995 by Brendan Eich, while he was working for Netscape Communications Corporation.
+## The Roots of JS
 
-Although it was developed under the name Mocha, the language was officially called LiveScript when it first shipped in beta releases of Netscape Navigator 2.0 in September 1995, but it was renamed JavaScript when it was deployed in the Netscape browser version 2.0B3.
+JavaScript was originally developed in **ten days** in May 1995 by Brendan Eich, while he was working for Netscape Communications Corporation ([Wikipedia](https://en.wikipedia.org/wiki/JavaScript))
 
-The change of name from LiveScript to JavaScript roughly coincided with Netscape adding support for Java technology in its Netscape Navigator Web browser. The final choice of name caused confusion, giving the impression that the language was a spin-off of the Java programming language, and the choice has been characterized as a marketing ploy by Netscape to give JavaScript the cachet of what was then the hot new Web programming language.
+Although it was developed under the name Mocha, the language was officially called LiveScript when it first shipped in beta releases of Netscape Navigator 2.0 in September 1995. It was renamed JavaScript when it was deployed in the Netscape browser version 2.0B3.
+
+### JavaScript != Java
+
+The change of name from LiveScript to JavaScript roughly coincided with Netscape adding support for _Java_ technology in its Netscape Navigator Web browser. The final choice of name caused confusion, giving the impression that the language was a spin-off of the Java programming language, and the choice has been characterized as a marketing ploy by Netscape to give JavaScript the cachet of what was then the hot new Web programming language.
 
 ## Node is the name of the game
-[Node.js](https://nodejs.org/en/) is an open-source, cross-platform runtime environment for developing server-side Web applications. Although Node.js is not a JavaScript framework, many of its basic modules are written in JavaScript, and developers can write new modules in JavaScript. The runtime environment interprets JavaScript using Google's V8 JavaScript engine (same as what's in Chrome).
+
+[Node.js](https://nodejs.org/en/) is an open-source, cross-platform **runtime environment** for developing server-side Web applications. Node.js is not a JavaScript framework... It is a runtime environment that interprets JavaScript using Google's V8 JavaScript engine (same as what's in Chrome).
 
 To get started, let's install node using `$ brew install node`. It should go something like this:
 
@@ -30,12 +36,17 @@ Bash completion has been installed to:
 🍺  /usr/local/Cellar/node/8.6.0: 3,655 files, 38.8M
 ```
 
-Alright. Now, `node --version` should report to you something like `v8.X.X`. Yay! We'll use Node's command line program to do all the same things we did with Ruby's. We can use Node to run JavaScript programs (`$ node my_program.js`) and use Node as a _REPL_ (`$ node`).
+Alright. Now, `node --version` should report to you something like `v11.X.X`. Yay! We'll use Node's command line program to do all the same things we did with Ruby's. We can use Node to run JavaScript programs (`$ node my_program.js`) and use Node as a _REPL_ (`$ node`).
 
-Node is also packaged with __npm__, the _Node Package Manager_. npm is to Node like gem is to Ruby. We'll use npm to define, install, and manage dependencies in our Node applications.
+Node is also packaged with __npm__, the _Node Package Manager_. npm packages are to Node like gems are to Ruby. We'll use npm to define, install, and manage dependencies in our Node applications.
 
 ## JavaScript and Ruby are like cousins
-JavaScript is an _interpreted_ language, like Ruby. It's also object oriented and dynamically typed, like Ruby. Syntactically, it is comparable to Ruby, but with some cornerstone differences. Here's an example:
+
+JavaScript and Ruby share the following similarities:
+
+- Ruby and JavaScript are both _interpreted_ languages
+- Both support object-oriented programming
+- Both are dynamically typed
 
 ```ruby
 x = 10
