@@ -159,7 +159,56 @@ In your Node REPL, input these lines. Do you get what you expect?
 
 </details>
 
-</br>
+### `Number` represents a Numeric Value
+
+In JavaScript, the `Number` type includes support for the following kinds of numbers:
+
+- integers (1, 2, 3, etc.)
+- floats (1.4, -40.1)
+- infinity (+Infinity, -Infinity)
+- `NaN` which means "not a number." `NaN` is returned when you do a numeric operation on anything that's not a `Number`.
+
+In your Node REPL, input these lines. Do you get what you expect?
+
+1. `4;`
+1. `2.0;`
+1. `4 / 2;`
+1. `4 / 2.0;`
+1. `4.0 + 2.0`
+1. `4 + 2.1`
+1. `Infinity;`
+1. `+Infinity;`
+1. `-Infinity;`
+1. `Number.MAX_VALUE;`
+1. `Infinity > Number.MAX_VALUE;`
+1. `0.1 + 0.2 == 0.3;`
+1. `0.1 + 0.2;`
+1. `'asdf' - 5;`
+
+<details>
+
+  <summary>
+    Compare your answers here
+  </summary>
+
+  1. `4`
+  1. `2`
+  1. `2`
+  1. `2`
+  1. `6`
+  1. `6.1`
+  1. `Infinity`
+  1. `Infinity`
+  1. `-Infinity`
+  1. `1.7976931348623157e+308`
+  1. `true`
+  1. `false`
+  1. `0.30000000000000004`
+  1. `NaN`
+
+  We will not spend the time to go into the specifics and the "why"s of JavaScript at the moment; for now, be satisfied with the mystery, curiosity, and difference you can see.
+
+</details>
 
 #### `Null` is the value null. This represents an "empty" value.
 ```javascript
@@ -172,25 +221,6 @@ When a variable which has not declared is accessed, JS returns undefined.
 ```javascript
 let u;
 console.log(u); //-> undefined
-```
-
-#### `Number` is a numeric value
-It includes integers (1, 2, 3, etc.), floats (1.4, -40.1), infinity (+Infinity, -Infinity), and `NaN` which means "not a number." `NaN` is returned when you do a numeric operation on anything that's not a `Number`.
-
-```javascript
-let four = 4,     // Note the comma-separated variable declarations
-    two = 2.0;
-
-Infinity < Number.MAX_VALUE  // false
-Infinity > Number.MAX_VALUE  // true
-
-two == four / two; // true
-
-// All JS numbers are floats, and floats are not 100% accurate...
-0.1 + 0.2 == 0.3; // false!
-0.1 + 0.2;
-
-'asdf' - 5; // NaN
 ```
 
 #### `Strings` are declared with `""` or `''` or use backticks `    ``    `.
