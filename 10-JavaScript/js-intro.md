@@ -5,6 +5,7 @@
 - What is JavaScript? Why is it worth learning?
 - Discover the varying applications of JavaScript
 - Learn where Node and npm fit in all of this
+- Apply JavaScript naming conventions and comment syntax
 - Recognize the different data types in JavaScript
 - Understand that Objects are very different in JavaScript compared to Ruby
 
@@ -75,13 +76,33 @@ Keep a note of what answers are surprising. We will get into what some of these 
 
 </details>
 
-</br>
-
 ### Exit the Node REPL
 
 Use `.exit` or ctrl-d to get out of the Node REPL
 
 Now that we've got a REPL available to us, let's jump in with some JavaScript specifics.
+
+## JavaScript: Code Style & Commenting
+
+> One of the first things to learn in a programming language is any naming convention and how to comment code. What are the conventions in JavaScript?
+
+> _-- Some cool programmer learning a new language_
+
+Let's learn some rules about JavaScript's syntax:
+
+1. In order to make a comment, we will use `//`
+1. The naming convention for variables is camelCase
+1. In JavaScript, the semicolon (`;`) is a consistent way to state that a line of code is ending
+
+Compare this to Ruby:
+
+| Ruby | JavaScript |
+| --- | ---
+| Comments are made with a line beginning with `#` | Comments are made with a line beginning with `//`
+| variables are named using snake_case | variables are named using camelCase
+| lines of code can end with `;` and it's valid, but nobody really does this | lines of code can end with `;`, and we will learn JavaScript best practices of doing this
+
+At some point, we may have more nuanced opinions about this; for now, let's go with this :)
 
 ## Data Types in JavaScript
 
