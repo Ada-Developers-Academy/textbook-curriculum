@@ -5,6 +5,7 @@
 - Intro to syntax (defining and calling), exercise, functions with parameters, exercise
 - Learn and practice the syntax for defining and calling/invoking functions in JavaScript
 - Learn and practice the syntax for using functions that have parameters
+- Understand that JavaScript requires explicit `return` calls
 
 <!-- - Write and invoke some JavaScript functions
 - Learn how JavaScript functions are different than Ruby methods
@@ -94,34 +95,103 @@ Create a script that does the following:
 1. Create a third function that prints an animal noise to the terminal
 1. Call that function 5 times!
 
-#### Parameters
-Parameters are very similar to how they work in Ruby:
+## Functions Can Have Parameters
+
+Functions that can take in parameters are very similar to how parameters for methods work in Ruby. To define that a specific function takes in an argument, we define the name of that parameter when we define the function.
+
+Observe the example below, which defines a function named `sayItTwice`. Its responsibility is to take in some input, and then print it to the console twice.
+
+It takes in one argument named `text`. We can use `text` as a local variable within the function.
 
 ```javascript
 const sayItTwice = function sayItTwice(text) {
   console.log(text);
   console.log(text);
 };
-
-sayItTwice('JS is OK!'); // "JS is OK!"
-                         // "JS is OK!"
 ```
 
-#### Default Function arguments
-
-Sometimes, you may want to provide a default value in case a user does not specify an argument.  Just as with Ruby, JavaScript functions can take default Arguments.  You specify the default value for a parameter by setting the variable equal to a value in the function header's parentheses.
+When we invoke the function `sayItTwice`, we pass in an argument in the parentheses:
 
 ```javascript
-const sayItTwice = function sayItTwice(text = 'JS is Awesome') {
-  console.log(text);
-  console.log(text);
-};
-
-sayItTwice();                   // "JS is Awesome"
-                                // "JS is Awesome"
-sayItTwice('JS is wonderful');  // "JS is wonderful"
-                                // "JS is wonderful"
+sayItTwice('JS is OK!');
 ```
+
+We can define a function with multiple parameters by comma-separating them:
+
+```javascript
+const sayCompoundWord = function sayCompoundWord(prefix, suffix) {
+  console.log(`${prefix}-${suffix}`);
+}
+
+sayCompoundWord("jean", "shorts");
+```
+
+## JavaScript Requires Explicit `return`s
+
+Ruby had something called the _implicit_ return, and our best practice was to always explicitly return something with the `return` keyword.
+
+Functions in JavaScript can return things too using the `return` keyword. We'll be using `return` a lot in JavaScript still!
+
+However, **JavaScript requires explicit `return` statements.** If you need to return something out of a function, you must explicitly say `return`.
+
+Open the `node` REPL and copy-and-paste in the following expressions. What do you get?
+
+1.
+    ```javascript
+    const meow = function meow() {
+      return 'mmMMMME-OW!';
+    }
+    ```
+1. `let catNoise;`
+1. `meow();`
+1. `catNoise;`
+1. `catNoise = meow();`
+1. `catNoise;`
+
+<details>
+
+  <summary>
+    Compare your answers here
+  </summary>
+
+  1. `undefined`
+  1. `undefined`
+  1. `'mmMMMME-OW!'`
+  1. `undefined`
+  1. `'mmMMMME-OW!'`
+  1. `'mmMMMME-OW!'`
+</details>
+
+
+## Exercise: Make Calculator Functions
+
+Create a script that does the following:
+
+1. Create a `addNums` function that takes in two parameters (`a` and `b` are decent variable names here).
+    - It prints out `"The value of a is: ${a}"`
+    - It prints out `"The value of b is: ${b}"`
+    - It `return`s the two parameters added together
+1. Outside of the function, create a `const` variable named `sum` and set it to equal the result of `addNums(3, 5);`
+1. After that, print the variable `sum` with the line `console.log(sum);`. Run the script to confirm it runs, and runs as expected.
+1. Create a `subtractNums` function that takes in two parameters.
+    - It prints out `"The value of a is: ${a}"`
+    - It prints out `"The value of b is: ${b}"`
+    - It `return`s the result of `a - b`
+1. Outside of the function, create a `const` variable named `difference` and set it to equal the result of `subtractNums(3, 5);`
+1. After that, print the variable `difference` with the line `console.log(difference);`. Run the script to confirm it runs, and runs as expected.
+1. Create a `multiplyNums` function that takes in two parameters.
+    - It prints out `"The value of a is: ${a}"`
+    - It prints out `"The value of b is: ${b}"`
+    - It `return`s the result of a and b multiplied together
+1. Outside of the function, create a `const` variable named `product` and set it to equal the result of `multiplyNums(3, 5);`
+1. After that, print the variable `product`
+1. Run the script to confirm it runs, and runs as expected
+
+Compare with a neighbor and check you're both in the right direction. Now, refactor:
+
+1. Create a `printInputs` that takes in two parameters. It prints out `"The value of a is: ${a}"`. It prints out `"The value of b is: ${b}"`. It returns `null`.
+1. Refactor the `addNums`, `subtractNums`, and `multiplyNums` functions to call `printInputs()` inside of it.
+1. Delete any redundant code!
 
 #### Attaching Functions to Objects
 Like any other variable, you can include a function as member of an object. Recall: [Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) are similar to Ruby hashes, but much more versatile. They are declared with braces(`{}`). You can access properties in an Object with bracket notation (like an array) or dot notation.
