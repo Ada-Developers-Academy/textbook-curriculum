@@ -145,7 +145,7 @@ Now write your own test in the section provided.
 
 **Optional Exercise**
 
-If this isn't enough practice, create tests for an `isPalindrome` function.  Then write code to solve the problem.  A palindrome is a word or phrase spelled backwards the same as forwards and is further described in the README.
+If you feel you need more practice, create tests for an `isPalindrome` function.  Then write code to solve the problem.  A palindrome is a word or phrase spelled backwards the same as forwards and is further described in the README.
 
 ### Matchers
 
