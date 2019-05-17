@@ -1,18 +1,37 @@
-# Fun with Functions!
+# Intro to Functions!
 
 ## Learning Goals
-- Write and invoke some JavaScript functions
+
+- Intro to syntax (defining and calling), exercise, functions with parameters, exercise
+- Learn and practice the syntax for defining and calling/invoking functions in JavaScript
+- Learn and practice the syntax for using functions that have parameters
+
+<!-- - Write and invoke some JavaScript functions
 - Learn how JavaScript functions are different than Ruby methods
 - Distinguish between a functional _expression_ and a function _declaration_
-- Begin exploring what _higher order_ functions are
+- Begin exploring what _higher order_ functions are -->
 
-## Using Functions in JavaScript
-The syntax for functions is a lot different in JavaScript than in Ruby.
+## Functions in JavaScript are like Methods in Ruby
 
-### Defining Functions
-All functions in JavaScript are variables. Just like any other variable, you declare functions with the `let` or `const` keywords and a name, but you set the value to be a function instead of a number or a string.
+In JavaScript, we can use functions to define reusable behavior.
 
-How do you set the value to be a function? With the `function` keyword of course!
+This should _feel_ similar to methods in Ruby. They're not the same, but we can get into those details later. For now, we'll use functions to name and structure sections of code.
+
+Either way, the syntax for functions is a lot different in JavaScript than in Ruby.
+
+## Functions Are Objects, So We Assign Variables to Them
+
+### Declare
+
+All functions in JavaScript are objects. For now, what that means to us is that we will make sure that variables hold onto these functions. You declare functions with the `let` or `const` keywords and a name.
+
+### Assign
+
+On the right-hand side of the assignment operator, you set the value to be a function, with the `function` keyword.
+
+Let's make a function named `bark`, whose responsibility is to print to the terminal the sound a dog makes.
+
+How do we do that? Let's declare a `const` variable named `bark`, and set its value to the function named `bark`. After we start the function with the words `function bark()`, we open up a block of code with curly braces, and put the inners of the function within the `{}`.
 
 ```javascript
 const bark = function bark() {
@@ -20,14 +39,60 @@ const bark = function bark() {
 };
 ```
 
-**Note** we declared the function `bark` here with `const`.  We could have used `let` or `var`, but because we don't want `bark` to be reassigned, it makes sense to make it a constant.  We also added the function name to the right of the `function` keyword.  This is optional, but it can allow us to provide a [longer-more descriptive name for the stack trace](https://github.com/airbnb/javascript/issues/794).
+Open the `node` REPL and copy-and-paste in the following expressions. What do you get?
 
-#### Calling a Function
-Unlike in Ruby, JavaScript requires you to type in parentheses if you want to invoke a function. You can access functions like you would any other variable:
+1.
+    ```javascript
+    const bark = function bark() {
+      console.log('Woof!');
+    };
+    ```
+1. `bark;`
+
+<details>
+
+  <summary>
+    Compare your answers here
+  </summary>
+
+  1. `undefined`
+  1. `[Function: bark]`
+</details>
+
+### Calling a Function
+
+We've defined a function, so how do we call it?
+
+Unlike in Ruby, JavaScript requires you to type in parentheses if you want to invoke a function:
 
 ```javascript
-bark(); // "Woof!"
+bark();
 ```
+
+### The Finer Details About Defining Functions
+
+When we defined the function, we gave it the variable keyword `const`. We could have used `let` or `var`, but in general, we don't need any variable named `bark` to be reassigned. Because we don't need `bark` to every be reassigned, it makes sense to make it a constant.
+
+On another note, what's up with `const bark = function bark() { ... }`? In Ruby, we've never had to write the method name more than once, _do we need to write `bark` so many times?_  This is optional, but it can allow us to provide a [longer-more descriptive name for the stack trace](https://github.com/airbnb/javascript/issues/794). **This form is going to be our best practice moving forward.**
+
+### Exercise: Make An Animal Noise Function
+
+Given the `bark` function as a model:
+
+```javascript
+const bark = function bark() {
+  console.log('Woof!');
+};
+```
+
+Create a script that does the following:
+
+1. Create a `ribbit` function that prints a frog noise to the terminal
+1. Call the `ribbit` function
+1. Create an `oink` function that prints a pig noise to the terminal
+1. Call the `oink` function
+1. Create a third function that prints an animal noise to the terminal
+1. Call that function 5 times!
 
 #### Parameters
 Parameters are very similar to how they work in Ruby:
