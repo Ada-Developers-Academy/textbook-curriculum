@@ -145,7 +145,7 @@ Read through the couple of implemented tests in `is_pangram.spec.js` and the stu
 
 Now use a test-driven development workflow to implement the `isPangram()` function and complete the stubbed-out tests. Remember the TDD cycle: pseudocode-red-green-refactor!
 
-### Going Further 
+### Going Further
 
 Now write your own test in the section provided.
 
