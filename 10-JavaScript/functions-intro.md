@@ -66,7 +66,7 @@ bark();
 
 ### The Finer Details About Defining Functions
 
-When we defined the function, we gave it the variable keyword `const`. We could have used `let` or `var`, but in general, we don't need any variable named `bark` to be reassigned. Because we don't need `bark` to every be reassigned, it makes sense to make it a constant.
+When we defined the function, we gave it the variable keyword `const`. We could have used `let`, but in general, we don't need any variable named `bark` to be reassigned. Because we don't need `bark` to ever be reassigned, it makes sense to make it a constant.
 
 On another note, what's up with `const bark = function bark() { ... }`? In Ruby, we've never had to write the method name more than once, _do we need to write `bark` so many times?_  This is optional, but it can allow us to provide a [longer-more descriptive name for the stack trace](https://github.com/airbnb/javascript/issues/794). **This form is going to be our best practice moving forward.**
 
