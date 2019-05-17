@@ -24,28 +24,121 @@ let testObj = {
 We will be applying this idea of an object to much more realistic use-cases of organizing data:
 
 ```javascript
-const task = {
+let task = {
   name: 'practice iteration in JavaScript',
   dueDate: 'end of the week',
-  owner: 'dee'
+  owner: 'dee',
+  isComplete: false
 }
 ```
 
-Like any other variable, you can include a function as member of an object. Recall: [Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) are similar to Ruby hashes, but much more versatile. They are declared with braces(`{}`). You can access properties in an Object with bracket notation (like an array) or dot notation.
+And we access _members_ of this JavaScript object with bracket or dot notation:
+
+```javascript
+task.owner;
+task.isComplete;
+```
+
+We can attach _behavior_ to an object by making it a member, using this syntax:
+
+```javascript
+let task = {
+  name: 'practice iteration in JavaScript',
+  dueDate: 'end of the week',
+  owner: 'dee',
+  isComplete: false,
+  markComplete() {
+    console.log('Wow...');
+    console.log('This task is complete!');
+    console.log('Congratulations! You won!');
+  },
+}
+```
+
+We have given the object `task` the method `markComplete()` by:
+- continuing to comma-separate it on the same level as the other members of the object
+- not following the `name: value` pattern
+- giving it the name `markComplete` and with the `() { ... }` syntax
+    - Note: The syntax _inside_ the function is the same as regular JavaScript syntax-- nothing special here, still semi-colons and all
+    - If I need to add something after the `markComplete()` function inside the `task` object, I'll need to continue to comma-separate
+
+Now, with `markComplete()` defined, we can call this behavior off of `task` with the following syntax:
+
+```javascript
+task.markComplete();
+```
+
+### A Function Accesses Other Members With `this`
+
+Our new `task` object with the `markComplete()` behavior is cool, but doesn't make sense. Our next step is for the `task` object's value of `isComplete` to change from `false` to `true`. But how do we access the other member of the object?
 
 Within an object itself, other members (such as properties) can be accessed through the `this` keyword, similar to Ruby's `self`.
 
 ```javascript
-const animal = {
-  species: 'dog',
-  sound: 'woof',
-  describe() {
-    console.log(`A ${this.species} goes ${this.sound}`);
-  }
-};
+let task = {
+  name: 'practice iteration in JavaScript',
+  dueDate: 'end of the week',
+  owner: 'dee',
+  isComplete: false,
+  markComplete() {
+    console.log('Wow...');
+    console.log(`The task "${this.name}" is complete!`);
+    console.log('Congratulations! You won!');
+    this.isComplete = true;
+    return true;
+  },
+}
 
-animal.describe(); // "A dog goes woof"
+console.log(task.isComplete);
+task.markComplete();
+console.log(task.isComplete);
 ```
+
+#### Exercise: Write More Behavior for the `task` Object
+
+Given this base code for an object named `task`, make another method on it:
+
+1. Name the method `describe`
+1. The method should print out the text `"The task name is"` and then the task name
+1. Then it should print out the text `"The task owner is"` and then the task owner
+1. It should return `true` (Why? Just to practice returning things.)
+1. At the end of the script, call the method with `task.describe();` and verify
+
+<details>
+
+  <summary>
+    Compare your implementation with ours!
+  </summary>
+
+  ```javascript
+  let task = {
+    name: 'practice iteration in JavaScript',
+    dueDate: 'end of the week',
+    owner: 'dee',
+    isComplete: false,
+    markComplete() {
+      console.log('Wow...');
+      console.log(`The task "${this.name}" is complete!`);
+      console.log('Congratulations! You won!');
+      this.isComplete = true;
+      return true;
+    },
+    describe() {
+      console.log(`The task name is ${this.name}`);
+      console.log(`The task owner is ${this.owner}`);
+      return true;
+    }
+  }
+
+  task.describe();
+  ```
+
+</details>
+<br/>
+
+Is there bonus time? If there is, add a new member named `daysExtended` with a value of `0`. Then, add a new member that is a function named `extendDueDate`. The function `extendDueDate` takes in one parameter: a number of days to increment `daysExtended` by.
+
+#### Notable Things About Syntax
 
 <details>
 
@@ -67,8 +160,6 @@ animal.describe(); // "A dog goes woof"
 
 </details>
 <br/>
-
-While reviewing the first syntax, **ask yourself:** What is the value of the variable `animal`? What properties does it have? What is the value of those properties? In the code snippet `A ${this.species} goes ${this.sound}`, what is the value of `this.species` and the value of `this.sound`?
 
 Be aware that JavaScript's `this` keyword has some strange behavior. Many times it won't refer to quite what you'd expect. This can be one of the most frustrating things about JavaScript, especially for a beginner, and we'll have more to say about it later. For now, just know that it's a thing that might come up.
 
