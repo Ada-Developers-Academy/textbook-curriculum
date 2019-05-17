@@ -250,6 +250,9 @@ In your Node REPL, input these lines. Do you get what you expect?
 
 1. `[1, 2, 3, 4];`
 1. `['foo', 1, 2, 'bar', 'baz'];`
+1. `['foo', 1, 2, 'bar', 'baz'][0];`
+1. `['foo', 1, 2, 'bar', 'baz'][3];`
+1. `['foo', 1, 2, 'bar', 'baz'][-1];`
 1. `['foo', 1, 2, 'bar', 'baz'].length;`
 1. `['foo', ['this', 'is', 'a', 'nested', 'array'], 1, 2];`
 1. `['foo', ['this', 'is', 'a', 'nested', 'array'], 1, 2].length;`
@@ -262,6 +265,9 @@ In your Node REPL, input these lines. Do you get what you expect?
 
   1. `[ 1, 2, 3, 4 ]`
   1. `[ 'foo', 1, 2, 'bar', 'baz' ]`
+  1. `'foo'`
+  1. `'bar'`
+  1. `undefined` (we will get into what this means in a minute, but know that it means that we can't index by `-1` in JavaScript)
   1. `5`
   1. `[ 'foo', [ 'this', 'is', 'a', 'nested', 'array' ], 1, 2 ]`
   1. `4`
@@ -292,32 +298,95 @@ In your Node REPL, input these lines. Do you get what you expect?
 
 </details>
 
-#### `Undefined` is the value undefined.
-When a variable which has not declared is accessed, JS returns undefined.
+---
 
-```javascript
-let u;
-console.log(u); //-> undefined
-```
+Take a break! After the break, we'll look at things that aren't so similar to Ruby
 
-#### Objects
-[Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) are similar to Ruby hashes, but much more versatile. They are declared with braces(`{}`). You can access properties in an Object with bracket notation (like an array) or dot notation.
+---
 
-```javascript
-let obj = {     // We can span lines; whitespace is mostly ignored.
-  num: 5,
-  str: 'This is a string',
-  subObject: {
-    otherNum: 4
-  }
-};
+### `Undefined` is what's returned when a value is undefined
 
-obj.num;    // 5
-obj['num']; // 5; note we use a string!
-obj.subObject.otherNum; // 4
-obj.foo;    // undefined
+When we try to access (retrieve) a variable with no assigned value, JS returns undefined.
 
-```
+We don't know how to define (declare and assign) a variable yet, but just go with us on this one:
+
+In your Node REPL, input these lines. Do you get what you expect?
+
+1. `apple;`
+1. `let apple;`
+1. `apple;`
+
+<details>
+
+  <summary>
+    Compare your answers here
+  </summary>
+
+  1. `Thrown: ReferenceError: apple is not defined`
+  1. `undefined`
+  1. `undefined`
+
+</details>
+
+<br/>
+
+What is our takeaway? When we work with variables in JavaScript, if we work with a variable with no defined value (as in, it's never been assigned a value with the assignment operator (`=`)), then we might see `undefined`.
+
+### Objects are Everything
+
+In JavaScript, [objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) are things that have name/value pairs.
+
+We will begin our understanding of objects in JavaScript by comparing them to hashes in Ruby. **However, it is crucial to know that JavaScript objects are very different from hashes in Ruby.** We will discover those differences later.
+
+Note the following similarities between JavaScript objects and Ruby hashes:
+
+- They are both declared (set-up) using curly braces (`{}`)
+- You can access properties with bracket notation
+- You can additionally access properties with dot notation
+
+In your Node REPL, copy and paste these lines. Do you get what you expect?
+
+1.
+    ```javascript
+    let testObj = {
+      someNum: 5,
+      someStr: 'this is a test string',
+      someNestedObj: {
+        someOtherNum: 4,
+      }
+    };
+    ```
+1. `testObj;`
+1. `testObj['someNum'];`
+1. `testObj.someNum;`
+1. `testObj.someStr;`
+1. `testObj.someNestedObj;`
+1. `testObj.someNestedObj.someOtherNum;`
+
+<details>
+
+  <summary>
+    Compare your answers here
+  </summary>
+
+  1. `undefined`
+  1. 
+      ```javascript
+      { someNum: 5,
+        someStr: 'this is a test string',
+        someNestedObj: { someOtherNum: 4 } }
+      ```
+  1. `5`
+  1. `5`
+  1. `'this is a test string'`
+  1. `{ someOtherNum: 4 }`
+  1. `4`
+
+</details>
+
+### Functions
+
+We will spend the rest of our time in JavaScript thinking about functions, so stay tuned. ;)
 
 ### Variables
 __Declare all variables with the var or let operators!__
