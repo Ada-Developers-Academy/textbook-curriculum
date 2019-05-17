@@ -55,14 +55,14 @@ Instead of `irb` (the interactive ruby shell as a REPL for Ruby), we will use No
 
 Open the `node` REPL and put in the following commands. What do you get?
 
-1. `"Hello World!";`
+1. `'Hello World!';`
 1. `2 + 1;`
 1. `100 * 4;`
-1. `2 + "Hello World!";`
+1. `2 + 'Hello World!';`
 1. `let x = 7;`
 1. `x + 2;`
 1. `typeof x;`
-1. `2 - "Hello World!";`
+1. `2 - 'Hello World!';`
 
 <details>
 
@@ -102,9 +102,9 @@ JavaScript has types that are similar to Ruby:
 - `Boolean`
 - `Number`
 - `String`
-- `null`
 - `Array`
   - technically these aren't a distinct type, but we won't get into that now
+- `null`
 
 And also some that are distinct from Ruby:
 - `Undefined`
@@ -210,10 +210,87 @@ In your Node REPL, input these lines. Do you get what you expect?
 
 </details>
 
-#### `Null` is the value null. This represents an "empty" value.
-```javascript
-let empty = null; // similar to Ruby's nil
-```
+### `Strings` are declared with `""`, `''`, or backticks `    ``    `.
+
+The idea of Strings is the same between JavaScript and Ruby. However, these are the following differences we will highlight:
+
+- In JavaScript, strings declared with double-quotes and strings declared with single-quotes are the same
+- In those cases, we will standardize on using single-quotes `''`
+- **We can only use backticks for string interpolation**
+- The syntax for string interpolation is with `${}`
+- JavaScript does not have symbols, and uses strings wherever Ruby would use symbols
+
+In your Node REPL, input these lines. Do you get what you expect?
+
+1. `"Hello World!";`
+1. `'Hello World!';`
+1. `'Hello World!'.length`;
+1. `'A triangle has ${ 2 + 1 } sides.';`
+1. `` `A triangle has ${ 2 + 1 } sides` ``
+
+<details>
+
+  <summary>
+    Compare your answers here
+  </summary>
+
+  1. `Hello World!`
+  1. `Hello World!`
+  1. `12`
+  1. `'A triangle has ${ 2 + 1 } sides.'`
+  1. `'A triangle has 3 sides'`
+
+</details>
+
+### Arrays
+
+[Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) are similar to Ruby arrays. They are declared and accessed with square brackets ([]).
+
+In your Node REPL, input these lines. Do you get what you expect?
+
+1. `[1, 2, 3, 4];`
+1. `['foo', 1, 2, 'bar', 'baz'];`
+1. `['foo', 1, 2, 'bar', 'baz'].length;`
+1. `['foo', ['this', 'is', 'a', 'nested', 'array'], 1, 2];`
+1. `['foo', ['this', 'is', 'a', 'nested', 'array'], 1, 2].length;`
+
+<details>
+
+  <summary>
+    Compare your answers here
+  </summary>
+
+  1. `[ 1, 2, 3, 4 ]`
+  1. `[ 'foo', 1, 2, 'bar', 'baz' ]`
+  1. `5`
+  1. `[ 'foo', [ 'this', 'is', 'a', 'nested', 'array' ], 1, 2 ]`
+  1. `4`
+
+</details>
+
+### `null` represents an empty value
+
+Similar to Ruby's `nil`, JavaScript's `null` represents an empty value.
+
+In your Node REPL, input these lines. Do you get what you expect?
+
+1. `null;`
+1. `null == true;`
+1. `null == false;`
+1. `null.length;`
+
+<details>
+
+  <summary>
+    Compare your answers here
+  </summary>
+
+  1. `null`
+  1. `false`
+  1. `false`
+  1. `Thrown: TypeError: Cannot read property 'length' of null`
+
+</details>
 
 #### `Undefined` is the value undefined.
 When a variable which has not declared is accessed, JS returns undefined.
@@ -221,39 +298,6 @@ When a variable which has not declared is accessed, JS returns undefined.
 ```javascript
 let u;
 console.log(u); //-> undefined
-```
-
-#### `Strings` are declared with `""` or `''` or use backticks `    ``    `.
-The first two are the same. Pick one and stick with it!
-
-Using backticks will allow you to do string interpolation, but some browsers may not have implemented it yet.
-
-```javascript
-let str = "This is a string";
-str.length;      // 16 - access the length property
-str.substr(2,5); // "is is" - call the substr function
-
-let e = "elephant";
-console.log("${e} hotdog"); // "${e} hotdog" js doesn't do interpolation with ""
-console.log(`${e} hotdog`);  // `elephant hotdog`
-```
-
-**Note** JavaScript uses `${}` for string interpolation instead of Ruby's `#{}`
-**Note Note** We will standardize on using single quotes `' '` for strings, except in cases of string interpolation (where backticks are required).
-
-JavaScript does not have symbols, and uses strings wherever Ruby would use symbols.
-
-#### Arrays
-[Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) are similar to Ruby arrays. They are declared and accessed with square brackets ([]).
-
-```javascript
-let arr = [1, 2, 3, 4];
-arr.length;  // 4 - access the length property
-             // Note this *cannot* be accessed like a method with parentheses
-arr[0];      // 1
-arr.pop()    // 4 - call the pop() function
-             // Note this method *cannot* be used without the parentheses
-arr;         // [1, 2, 3]; pop() mutates the array
 ```
 
 #### Objects
