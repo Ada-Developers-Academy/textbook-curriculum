@@ -247,18 +247,49 @@ Before running this code, predict the answers for the following questions:
 
 **Question:** Take one minute. What is one way you could write this in Ruby?
 
-#### `while` Loop
-JavaScript also uses the `while` loop in a similar way to the way we use it in Ruby. The following code does the same thing as the `for` loop above, more verbosely.
+### `while` Loop
+
+JavaScript also uses the `while` loop in a similar way to the way we use it in Ruby.
 
 ```javascript
 let i = 0;
 while (i < 10) {
-    console.log(`Iteration ${i}`);
-    i++;
+  console.log(`Iteration ${i}`);
+  i++;
 }
 ```
 
-Like in Ruby, `while` loops are commonly used when you don't know quite how many iterations you need. This commonly comes up when interacting with humans or other things outside your program.
+Before running this code, predict the answers for the following questions:
+
+1. How many times will this for loop run? How do you know this?
+1. What will it print out?
+
+<details>
+
+  <summary>
+    Now run it, and compare your answers here!
+  </summary>
+
+  1. `i` will start at zero. It will go up by one with each iteration. The for loop goes as long as `i` is less than ten. The loop will go ten times.
+  1.
+      ```bash
+      Iteration 0
+      Iteration 1
+      Iteration 2
+      Iteration 3
+      Iteration 4
+      Iteration 5
+      Iteration 6
+      Iteration 7
+      Iteration 8
+      Iteration 9
+      ```
+
+</details>
+
+<br/>
+
+**Question:** Take one minute. What is one way you could write this in Ruby?
 
 #### [The `forEach` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
 
