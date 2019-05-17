@@ -2,15 +2,9 @@
 
 ## Learning Goals
 
-- Intro to syntax (defining and calling), exercise, functions with parameters, exercise
 - Learn and practice the syntax for defining and calling/invoking functions in JavaScript
 - Learn and practice the syntax for using functions that have parameters
 - Understand that JavaScript requires explicit `return` calls
-
-<!-- - Write and invoke some JavaScript functions
-- Learn how JavaScript functions are different than Ruby methods
-- Distinguish between a functional _expression_ and a function _declaration_
-- Begin exploring what _higher order_ functions are -->
 
 ## Functions in JavaScript are like Methods in Ruby
 
