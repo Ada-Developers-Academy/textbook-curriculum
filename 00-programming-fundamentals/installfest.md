@@ -65,7 +65,7 @@ We will use Ruby version 2.5.5 for the Ada curriculum _(last updated: May 2019)_
 - Verify that this version of Ruby was installed and that `rvm` recognizes it with `$ rvm list`
 - Use rvm to state that you want to use version 2.5.5 and you want to set it as the default version with `$ rvm use 2.5.5 --default`
 
-**Note:** If you do not set this as the default version now, you will have to run `$ rvm use 2.5.5` every project! So go ahead and set it as default right now. ;)
+**Note:** If you do not set this as the default version, you will have to run `$ rvm use 2.5.5` every project! So go ahead and set it as default right now. ;)
 
 ### Trust but Verify Ruby Version
 
