@@ -9,7 +9,46 @@
 - Gain exposure in how to do conditional logic in JavaScript
 - Gain exposure to how to do some kinds of iteration in JavaScript with `for` and `while`
 
-## Variables are Declared, then Assigned, then Maybe Re-Assigned
+## We Declare Variables, Then Assign (Then Maybe Re-Assign)
+
+We've dealt with variables in Ruby plenty! We've made them, assigned them a value using the assignment operator (`=`), and modified them.
+
+```ruby
+my_favorite_greeting = "Hello World!"
+```
+
+All of those concepts hold up in JavaScript. We will continue to declare variables, assign values to these variables, re-assign them.
+
+However, in JavaScript, it's worth it to know that we have two distinct steps when dealing with variables: **declaration** and **assignment.** There are formal definitions of _declaration_ we could get into, but for now, let's think of it this way:
+
+In JavaScript, when we create a new variable with a new name, we need to declare it first. When we declare it, we want to give it two things:
+1. A unique name for the variable
+1. A variable keyword that will determine some of its properties around scope and re-assignment
+
+This is an example of variable declaration:
+
+```javascript
+let myFavoriteGreeting;
+```
+
+Giving a variable a unique name is something we do all the time in Ruby. The second principle is a detail that we'll get into soon.
+
+To _use_ this declared variable, we can _assign_ a value to it using the assignment operator (`=`), just like in Ruby. We can continue to re-assign its value using the assignment operator.
+
+```javascript
+let myFavoriteGreeting; // <- declaration
+myFavoriteGreeting = 'Hello World'; // <- assignment
+```
+
+We only need to declare a variable once. We never need to re-declare it.
+
+### We Can Do Declaration and Assignment Together
+
+By the way, we can do declaration and initial assignment on one line:
+
+```javascript
+let clicheGoodbye = 'Don\'t forget to like and subscribe';
+```
 
 ## Variables
 __Declare all variables with the var or let operators!__
