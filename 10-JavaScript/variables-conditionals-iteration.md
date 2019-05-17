@@ -188,15 +188,17 @@ const isAdult = (someonesAge > 18) ? 'yes' : 'no';
 console.log(`Are they an adult?: ${isAdult}`);
 ```
 
-### Iterators
-There are three main types of loop in JavaScript: `for` loops, `forEach` loops and `while` loops.
+## Iteration
 
-#### `for` Loop
+How do we iterate over data in JavaScript? We will begin to learn about iteration in JavaScript with `for` loops and `while` loops.
+
+### `for` Loop
+
 [The basic `for` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for) looks something like this:
 
 ```javascript
 for (initialization; condition; increment) {
-  // do work!
+  // do iteration work!
 }
 ```
 
@@ -218,9 +220,32 @@ To point out the three components:
 - **Condition:** `i < 5`
 - **Increment:** `i += 1`
 
-**Question:** What would the above loop print out?
+Before running this code, predict the answers for the following questions:
 
-**Question:** What Ruby code could you use to achieve the same thing?
+1. How many times will this for loop run? How do you know this?
+1. What will it print out?
+
+<details>
+
+  <summary>
+    Now run it, and compare your answers here!
+  </summary>
+
+  1. `i` will start at zero. It will go up by one with each iteration. The for loop goes as long as `i` is less than five. The loop will go five times.
+  1.
+      ```bash
+      Iteration 0
+      Iteration 1
+      Iteration 2
+      Iteration 3
+      Iteration 4
+      ```
+
+</details>
+
+<br/>
+
+**Question:** Take one minute. What is one way you could write this in Ruby?
 
 #### `while` Loop
 JavaScript also uses the `while` loop in a similar way to the way we use it in Ruby. The following code does the same thing as the `for` loop above, more verbosely.
