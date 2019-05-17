@@ -116,28 +116,76 @@ In your Node REPL, input these lines. Do you get what you expect?
 
 Declaring a variable without one of these three keywords creates a global variable, which is bad practice and leads to unintended consequences-- don't do it!
 
+## Playing with Multi-Line JavaScript
 
-### [Conditionals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
-Conditional expressions are surrounded by parenthesis `()` and each block is surrounded by brackets `{}`.
+We are now in the zone where what we want to learn about JavaScript is going to take multiple lines, so working with the Node REPL will be frustrating.
+
+From now on:
+
+1. We'll be making JavaScript files with a `.js` extension
+1. Running these files from the terminal with `$ node file.js`
+1. Printing to the terminal using `console.log()` (much like `puts`)
+
+Observe the following:
+
+```bash
+$ touch intro-to-javascript.js
+```
+
+Copy and paste the following code into `intro-to-javascript.js`:
 
 ```javascript
-let name = 'kittens';
+const testVariable = 'Hello World!';
+console.log(testVariable);
+```
 
-if (name === 'puppies') {
-  name += '!';
-} else if (name === 'kittens') {
-  name += '!!';
+```bash
+$ node intro-to-javascript.js
+```
+
+## Conditionals
+
+[We can do `if ... else` logic in JavaScript!](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
+
+We use the keywords `if`, `else if`, and `else`. Note `else if` instead of `elsif` like in Ruby!
+
+Conditional expressions are surrounded by parenthesis `()` and each block is surrounded by brackets `{}`.
+
+To test equality between strings, we use `===`. Note triple instead of `==` like in Ruby!
+
+```javascript
+const babyAnimal = 'kitten';
+let animal;
+
+console.log(`What's the adult name for a ${babyAnimal}?`);
+
+if (babyAnimal === 'puppy') {
+  animal = 'dog';
+} else if (babyAnimal === 'kitten') {
+  animal = 'cat';
 } else {
-  name = `!${name}`;
+  animal = `I have no idea what ${babyAnimal} is!`;
 }
 
-console.log(name);
+console.log(animal);
 ```
+
+### Exercise
+
+Based off of the `babyAnimal` code above, copy and paste it into your own file on your own machine and run it.
+
+Then, change the value of `babyAnimal` in line 1 so it is not `'kitten'`, but so it prints out `'dog'`.
+
+Then, change the value of `babyAnimal` in line 1 so it prints out the `'I have no idea what'` line.
+
+### Ternary
 
 JavaScript also has the ternary operator, which we all adore, amirite?
 
 ```javascript
-let adult = (age > 18) ? 'yes' : 'no';
+const someonesAge = 50;
+const isAdult = (someonesAge > 18) ? 'yes' : 'no';
+console.log(`Are they an adult?: ${isAdult}`);
 ```
 
 ### Iterators
