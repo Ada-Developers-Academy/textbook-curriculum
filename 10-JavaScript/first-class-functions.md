@@ -163,31 +163,80 @@ Is there bonus time? If there is, add a new member named `daysExtended` with a v
 
 Be aware that JavaScript's `this` keyword has some strange behavior. Many times it won't refer to quite what you'd expect. This can be one of the most frustrating things about JavaScript, especially for a beginner, and we'll have more to say about it later. For now, just know that it's a thing that might come up.
 
-### Passing Functions as Arguments
-One of the big differences between Ruby and JavaScript is that in JavaScript, functions are objects. That means **you can pass functions as arguments to other functions.** A function that is passed as an argument is often referred to as a _callback function_, or sometimes just a _callback_.
+## We Can Pass Functions as Arguments
+
+Remember how functions can take in arguments? We can define parameters, which is our way of defining inputs. Those arguments can be numbers, strings, other objects, and so on. We can read them, modify them, and return them as output.
+
+In JavaScript, functions are objects. That means **you can pass functions as arguments to other functions.**
+
+Let's look at the following example:
+
+We are defining two functions:
+1. A function named `doMath` whose responsibility is to do some generic math operation 10 times, with the numbers 0 through 9
+1. A function named `doubleNum` whose responsibility is to represent a specific math operation: doubling a number
+
+`doubleNum` is written so that it takes in a number as an argument. For any given input number, it will double it and return that value.
+
+`doMath` is written so that it takes in a function as an argument. This function it takes in will be the generic math operation. No matter what the generic math operation function is, it will do that operation 10 times, with the numbers 0 through 9.
 
 ```javascript
-// Invoke the callback function on every number from 0 through 9,
-// and print the results to the command line
-const doMath = function doMath(callback) {
+const doMath = function doMath(operation) {
   for (let i = 0; i < 10; i += 1) {
-    let result = callback(i);
+    let result = operation(i);
     console.log(`${i}: ${result}`);
   }
 };
 
-const double = function double(number) {
-  return number + number;
+const doubleNum = function doubleNum(num) {
+  return num * 2;
 };
 
-// Pass the function by name
-doMath(double);
-// Prints out:
-// 1: 2
-// 2: 4
-// 3: 6
-// ...
+doMath(doubleNum);
 ```
+
+Answer the following questions:
+
+1. For the `doubleNum` function, how many parameters does it take in, what are the names of the parameters, and what data type are we expecting for each parameters?
+1. For the `doMath` function, how many parameters does it take in, what are the names of the parameters, and what data type are we expecting for each parameters?
+1. What line _invokes_ the `doMath` function? What do we pass in as an argument? What data type is that argument?
+1. In the `doMath` function, how do we use the variable `operation`?
+1. What does running this script print out?
+
+<details>
+
+  <summary>
+    Check your answers here!
+  </summary>
+
+  1. 1 parameter named `num` that is a number
+  1. 1 parameter named `operation` that is a function
+  1. `doMath(doubleNum)`. We pass in the `doubleNum` function as an argument.
+  1. Because `operation` is a function, we _invoke_ the `operation` function with `let result = operation(i);`
+  1.
+      ```bash
+      0: 0
+      1: 2
+      2: 4
+      3: 6
+      4: 8
+      5: 10
+      6: 12
+      7: 14
+      8: 16
+      9: 18
+      ```
+
+</details>
+
+<br/>
+
+A function that is passed as an argument is often referred to as a _callback function_, or sometimes just a _callback_.
+
+In this case, we can colloquially refer to the variable `operation` as a callback function.
+
+## Summary
+
+Objects can have functions in them. Within an object, we can reference other members of the object with `this`. `this` will end up being a very complex subject; for now, our one use of `this` will be in this context!
 
 A programming language that allows you to pass functions around like this is said to support _higher order_ or _first-class_ functions. C, JavaScript and Python are examples of languages that support first-class functions; Ruby and Java are examples of languages that do not.
 
