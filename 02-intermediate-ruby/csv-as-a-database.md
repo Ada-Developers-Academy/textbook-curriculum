@@ -141,5 +141,5 @@ In our example:  `CSV.read('planet_data.csv', headers: true)[0]` is `{"id" => "1
 **Challenge** Write a method to find all the planets with a smaller mass than earth (1.0).
 
 # Resources
--   [CSV Documentation](https://ruby-doc.org/stdlib-2.5.5/libdoc/csv/rdoc/CSV.html)
+-   [CSV Documentation](https://ruby-doc.org/stdlib/libdoc/csv/rdoc/CSV.html)
 -   [Sitepoint CSV Tutorial](https://www.sitepoint.com/guide-ruby-csv-library-part/)
