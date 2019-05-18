@@ -27,7 +27,7 @@ The change of name from LiveScript to JavaScript roughly coincided with Netscape
 
 We can use Node to run JavaScript programs (`$ node my_program.js`) and use Node as a _REPL_ (`$ node`).
 
-Node is also packaged with __npm__, the _Node Package Manager_. npm packages are to Node like gems are to Ruby. We'll use npm to define, install, and manage dependencies in our Node applications.
+Node is also packaged with __npm__, the _Node Package Manager_. npm packages are to Node like gems are to Ruby. We'll use npm to define, install, and manage dependencies in our Node applications. It can feel a lot like bundler in Ruby!
 
 Also, Node.js gives us a command-line program to help us execute `.js` files. Just like how Ruby gives us a way to run `.rb` files from the terminal with `$ ruby some_file.rb`, we will run JavaScript files using Node.js with `$ node some_file.js`
 

@@ -170,11 +170,13 @@ if (babyAnimal === 'puppy') {
 console.log(animal);
 ```
 
+**Note:** `==` _does_ exist in JavaScript, but it doesn't do exactly the same thing that `==` does in Ruby. Again: to test equality between strings, we use `===`. Do some research as to _why_!
+
 ### Exercise
 
 Based off of the `babyAnimal` code above, copy and paste it into your own file on your own machine and run it.
 
-Then, change the value of `babyAnimal` in line 1 so it is not `'kitten'`, but so it prints out `'dog'`.
+Then, change the value of `babyAnimal` in line 1 so it is not `'kitten'`, but so the overall script prints out `'dog'` when we run it.
 
 Then, change the value of `babyAnimal` in line 1 so it prints out the `'I have no idea what'` line.
 
@@ -233,7 +235,7 @@ Before running this code, predict the answers for the following questions:
 
   1. `i` will start at zero. It will go up by one with each iteration. The for loop goes as long as `i` is less than five. The loop will go five times.
   1.
-      ```bash
+      ```
       Iteration 0
       Iteration 1
       Iteration 2
@@ -272,7 +274,7 @@ Before running this code, predict the answers for the following questions:
 
   1. `i` will start at zero. It will go up by one with each iteration. The for loop goes as long as `i` is less than ten. The loop will go ten times.
   1.
-      ```bash
+      ```
       Iteration 0
       Iteration 1
       Iteration 2
