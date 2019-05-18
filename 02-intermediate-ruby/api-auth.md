@@ -94,7 +94,7 @@ $ pry
 [3] pry(main)> ENV['HOME']
 => "/Users/droberts"
 [4] pry(main)> ENV['RUBY_VERSION']
-=> "ruby-2.5.1"
+=> "ruby-2.5.5"
 ```
 
 Things to notice:

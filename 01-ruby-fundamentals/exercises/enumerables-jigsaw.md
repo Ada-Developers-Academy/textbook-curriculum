@@ -14,7 +14,7 @@ You will be learning and teaching each other about other `Enumerable` methods be
 
 ### Where to Start
 
-You will want to start [with the official Ruby docs for `Enumerable`](https://ruby-doc.org/core-2.5.1/Enumerable.html#method-i-map). You will want to answer the questions:
+You will want to start [with the official Ruby docs for `Enumerable`](https://ruby-doc.org/core/Enumerable.html#method-i-map). You will want to answer the questions:
 
 1. What does this method do on a high level?
 1. What does it return?

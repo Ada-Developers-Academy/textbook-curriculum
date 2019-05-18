@@ -67,7 +67,7 @@ To get you started, here are a couple resources:
     language: ruby
 
     rvm:
-      - 2.5.1
+      - 2.5.5
 
     services:
       - postgresql

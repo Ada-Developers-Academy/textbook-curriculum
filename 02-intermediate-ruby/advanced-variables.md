@@ -264,7 +264,7 @@ Try refactoring the code found in `source/global_variable_example.rb` to use ins
 #### Predefined Global Variables
 Ruby creates and maintains a lot of global variables for managing its internal configuration. It's good to know these exist, but you won't interact with them often.
 
-The complete list of Ruby's predefined global variables is [here](https://ruby-doc.org/core-2.1.1/doc/globals_rdoc.html).
+The complete list of Ruby's predefined global variables is [here](https://ruby-doc.org/core/doc/globals_rdoc.html).
 
 ### Constants
 - Constants are all uppercase with using underscores to separate words

@@ -214,7 +214,7 @@ production:
 
 ### Update the `.ruby-version` file
 
-App Engine tries to get the version of ruby from the `.ruby-version` file, but requires just the straight number without `ruby-` in front.  Change `ruby-2.5.3` in the file to `2.5.3`.
+App Engine tries to get the version of ruby from the `.ruby-version` file, but requires just the straight number without `ruby-` in front.  Change `ruby-2.5.5` in the file to `2.5.5`.
 
 ### Create an `app.yaml` file
 
