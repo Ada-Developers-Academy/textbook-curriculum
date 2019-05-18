@@ -51,7 +51,7 @@ Answer the following questions:
   1. The anonymous function squares the number (multiplies it with itself)
   1. Because `operation` is a function, we _invoke_ the `operation` function with `let result = operation(i);`
   1.
-      ```bash
+      ```
       0: 0
       1: 1
       2: 4
