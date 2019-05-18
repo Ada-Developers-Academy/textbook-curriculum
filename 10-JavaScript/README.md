@@ -4,7 +4,11 @@
 1. [Welcome to JS](welcome-to-js.md)
     - [Worksheet: Ruby to JS Practice](exercises/ruby-to-js-worksheet.md)
 1. [Setup Linting](exercises/setup-linting.md)
-1. [Fun with Functions](fun-with-functions.md)
+1. [Functions in JavaScript](functions-intro.md)
+1. [First-Class Functions](first-class-functions.md)
+1. [Anonymous Functions and `forEach` Loops](anonymous-and-for-each.md)
+1. [Functional Expressions vs. Function Declarations](functional-expressions.md)
+1. Functions Exercises
     - [Worksheet: Functions Practice](exercises/functions-worksheet.md)
     - [Exercise: JS Calculator](exercises/calculator.md)
 1. [Arrow Functions](arrow-functions.md)
