@@ -47,10 +47,9 @@ Our first testing exercise will consist of writing tests for the Pangram whitebo
 
 #### Questions
 
-With a neighbor devise the following:
+With a neighbor devise the following testing scenarios in English:
 
 1.  Create a nominal success-case input for a Pangram function? (A google search for "What is a pangram?" may be helpful.)
-1.  Create a edge-case success for a Pangram function?  A successful edge case should be exactly what you need for a pangram, with nothing extra.
 1.  Create a nominal failure case for a Pangram function.  This should be an input which is clearly not a pangram.
 1.  Create an edge-case failure case for a Pangram function.  This should be "almost" a Pangram.
 1.  Come up with an additional input you should test.
@@ -105,7 +104,7 @@ Similar to what you have in Minitest you can use `it`, in place of `test` if `it
 
 Expectations should be the "meat and potatoes" of your tests, inside of your `test` blocks. Each test has at least one `expect` statement to ensure the behavior is as expected.
 
-The syntax of `describe` and `test` is pretty similar to Minitest (at least as similar as Ruby and JS can be), but the **expectation** methods are named a little differently.  These methods like `toBeDefined` function serve the same role as the matchers in Minitest.  They define the condition your test is looking to ensure.  `toBeDefined` is used to ensure that the argument to `expect` is not `undefined`.  You can find a table of expectations below.
+The syntax of `describe` and `test` is pretty similar to Minitest (at least as similar as Ruby and JS can be), but the **expectation** methods are named a little differently.  These methods like `toBeDefined` function serve the same role as the matchers in Minitest.  They define a condition your test is looking to ensure.  `toBeDefined` is used to ensure that the argument to `expect` is not `undefined`.  You can find a table of expectations below.  There may be times where you have **no** expectations in a test and your test is simply verifying that a set of commands function without an error.
 
 ```javascript
 describe('isPangram function',  () =>  {
