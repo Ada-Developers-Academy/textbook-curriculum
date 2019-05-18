@@ -27,7 +27,7 @@ doMath(function(num) {
 });
 ```
 
-Note the weird `});` on the last line. As with most syntactic sugar, anonymous functions can quickly become difficult to read, so use them judiciously.
+Note the weird `});` on the last line. Anonymous functions can quickly become difficult to read, so use them judiciously.
 
 
 Answer the following questions:
