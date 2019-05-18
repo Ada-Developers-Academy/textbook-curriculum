@@ -167,7 +167,7 @@ Be aware that JavaScript's `this` keyword has some strange behavior. Many times 
 
 Remember how functions can take in arguments? We can define parameters, which is our way of defining inputs. Those arguments can be numbers, strings, other objects, and so on. We can read them, modify them, and return them as output.
 
-In JavaScript, functions are objects. That means **you can pass functions as arguments to other functions.**
+In JavaScript, functions are objects. That means **you can pass functions as arguments to _other functions_.**
 
 Let's look at the following example:
 
