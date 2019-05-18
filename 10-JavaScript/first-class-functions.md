@@ -55,7 +55,7 @@ let task = {
 }
 ```
 
-We have given the object `task` the method `markComplete()` by:
+We have given the object `task` the **method** `markComplete()` by:
 - continuing to comma-separate it on the same level as the other members of the object
 - not following the `name: value` pattern
 - giving it the name `markComplete` and with the `() { ... }` syntax
