@@ -213,7 +213,7 @@ Answer the following questions:
   1. `doMath(doubleNum)`. We pass in the `doubleNum` function as an argument.
   1. Because `operation` is a function, we _invoke_ the `operation` function with `let result = operation(i);`
   1.
-      ```bash
+      ```
       0: 0
       1: 2
       2: 4
