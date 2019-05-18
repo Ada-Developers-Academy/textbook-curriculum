@@ -1,4 +1,4 @@
-# More Intro to JavaScript!
+# More Intro to JavaScript: Variables, Conditionals, and Iteration
 
 ## Learning Goals
 
