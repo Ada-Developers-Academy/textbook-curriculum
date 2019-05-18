@@ -16,7 +16,7 @@ You will be practicing and teaching each other **how to read through the Ruby do
 
 ### Where to Start
 
-You will want to start with the official Ruby docs for your given method. To find the right web page, you may want to directly use a search engine, or you can look through the Ruby docs for [String](https://ruby-doc.org/core-2.5.1/String.html), [Array](https://ruby-doc.org/core-2.5.1/Array.html), and [Hash](https://ruby-doc.org/core-2.5.1/Hash.html). You will want to answer the questions:
+You will want to start with the official Ruby docs for your given method. To find the right web page, you may want to directly use a search engine, or you can look through the Ruby docs for [String](https://ruby-doc.org/core/String.html), [Array](https://ruby-doc.org/core/Array.html), and [Hash](https://ruby-doc.org/core/Hash.html). You will want to answer the questions:
 
 1. What does this method do on a high level?
 1. What does it return?
