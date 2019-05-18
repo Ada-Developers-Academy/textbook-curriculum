@@ -27,7 +27,7 @@ doMath(function(num) {
 });
 ```
 
-Note the weird `});` on the last line. As with most syntactic sugar, anonymous functions can quickly become difficult to read, so use them judiciously.
+Note the weird `});` on the last line. Anonymous functions can quickly become difficult to read, so use them judiciously.
 
 
 Answer the following questions:
@@ -51,7 +51,7 @@ Answer the following questions:
   1. The anonymous function squares the number (multiplies it with itself)
   1. Because `operation` is a function, we _invoke_ the `operation` function with `let result = operation(i);`
   1.
-      ```bash
+      ```
       0: 0
       1: 1
       2: 4

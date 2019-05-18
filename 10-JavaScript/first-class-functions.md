@@ -55,7 +55,7 @@ let task = {
 }
 ```
 
-We have given the object `task` the method `markComplete()` by:
+We have given the object `task` the **method** `markComplete()` by:
 - continuing to comma-separate it on the same level as the other members of the object
 - not following the `name: value` pattern
 - giving it the name `markComplete` and with the `() { ... }` syntax
@@ -167,7 +167,7 @@ Be aware that JavaScript's `this` keyword has some strange behavior. Many times 
 
 Remember how functions can take in arguments? We can define parameters, which is our way of defining inputs. Those arguments can be numbers, strings, other objects, and so on. We can read them, modify them, and return them as output.
 
-In JavaScript, functions are objects. That means **you can pass functions as arguments to other functions.**
+In JavaScript, functions are objects. That means **you can pass functions as arguments to _other functions_.**
 
 Let's look at the following example:
 
@@ -213,7 +213,7 @@ Answer the following questions:
   1. `doMath(doubleNum)`. We pass in the `doubleNum` function as an argument.
   1. Because `operation` is a function, we _invoke_ the `operation` function with `let result = operation(i);`
   1.
-      ```bash
+      ```
       0: 0
       1: 2
       2: 4
