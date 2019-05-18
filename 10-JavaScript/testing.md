@@ -91,7 +91,7 @@ describe('isPangram()', () => {
 `test` blocks should define one distinct test. The description that goes along with the `test` block should describe the specific scenario that you are testing.
 
 ```javascript
-describe('isPangram function',  () =>  {
+describe('isPangram()',  () =>  {
   test('isPangram is defined', () => {
 
   }
