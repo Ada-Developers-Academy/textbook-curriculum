@@ -1,7 +1,9 @@
 # JavaScript
 
 ## Introduction
-1. [Welcome to JS](welcome-to-js.md)
+1. [Welcome to JavaScript!](js-intro.md)
+1. [Variables, Conditionals, and Iteration](variables-conditionals-iteration.md)
+1. Introduction to JS
     - [Worksheet: Ruby to JS Practice](exercises/ruby-to-js-worksheet.md)
 1. [Setup Linting](exercises/setup-linting.md)
 1. [Functions in JavaScript](functions-intro.md)
