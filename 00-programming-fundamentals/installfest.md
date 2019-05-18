@@ -57,7 +57,7 @@ Run `brew doctor`. Brew is super great at telling you what else it may need. Som
 
 - `$ rvm version` should tell you something like _rvm 1.26.11 (latest)..._
 
-## Upgrade and Use Ruby version 2.5.5
+## Upgrade and Use Ruby
 
 We will use Ruby version 2.5.5 for the Ada curriculum _(last updated: May 2019)_.
 
@@ -70,8 +70,8 @@ We will use Ruby version 2.5.5 for the Ada curriculum _(last updated: May 2019)_
 ### Trust but Verify Ruby Version
 
 - `$ ruby -v` should return _ruby 2.5.5p0_ (your `p` version might be different)
-- `$ which ruby` should return a path like _/Users/ada/.rvm/rubies/ruby-2.5.5/bin/ruby_
-- `$ which gem` should return a path like _/Users/ada/.rvm/rubies/ruby-2.5.5/bin/gem_
+- `$ which ruby` should return a path like _/Users/ada/.rvm/rubies/ruby/bin/ruby_
+- `$ which gem` should return a path like _/Users/ada/.rvm/rubies/ruby/bin/gem_
 - `$ rvm list` should return the list of Ruby versions installed with rvm, and which version is being used and being used as default
 
 ## Text Editor(s)

@@ -16,7 +16,7 @@ You've seen exceptions before.  If you run the following in irb Ruby will _raise
 >  puts some_variable_without_a_value
 # Output:
 # Traceback (most recent call last):
-#        2: from /Users/cheezitman/.rvm/rubies/ruby-2.5.5/bin/irb:11:in `<main>'
+#        2: from /Users/cheezitman/.rvm/rubies/ruby/bin/irb:11:in `<main>'
 #        1: from (irb):1
 # NameError (undefined local variable or method `some_variable_without_a_value' for main:Object)
 ```
