@@ -65,4 +65,4 @@ Mixins are what make things like `Enumerable` work. They are very powerful, but 
 
 ## Additional Resources
 - For more information on Enumerable, read up on it in [our chapter on Enumerable](enumerable.md) and [more Enumerable](more-enumerable.md)
-- For another interesting Mixin, look up [Comparable](https://ruby-doc.org/core-2.4.0/Comparable.html)
+- For another interesting Mixin, look up [Comparable](https://ruby-doc.org/core/Comparable.html)
