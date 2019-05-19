@@ -63,7 +63,7 @@ Then, make many instances of the `Zine` class. Make an instance of `Zine`s with 
 
 You should get input that looks like this:
 
-```javascript
+```bash
 const wizardZine = new Zine('So you want to be a wizard');
 > undefined
 wizardZine
