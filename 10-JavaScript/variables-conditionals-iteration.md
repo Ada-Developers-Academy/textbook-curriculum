@@ -263,7 +263,7 @@ while (i < 10) {
 
 Before running this code, predict the answers for the following questions:
 
-1. How many times will this for loop run? How do you know this?
+1. How many times will this while loop run? How do you know this?
 1. What will it print out?
 
 <details>
@@ -272,7 +272,7 @@ Before running this code, predict the answers for the following questions:
     Now run it, and compare your answers here!
   </summary>
 
-  1. `i` will start at zero. It will go up by one with each iteration. The for loop goes as long as `i` is less than ten. The loop will go ten times.
+  1. `i` will start at zero. It will go up by one with each iteration. The while loop goes as long as `i` is less than ten. The loop will go ten times.
   1.
       ```
       Iteration 0
