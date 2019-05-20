@@ -257,7 +257,7 @@ JavaScript also uses the `while` loop in a similar way to the way we use it in R
 let i = 0;
 while (i < 10) {
   console.log(`Iteration ${i}`);
-  i++;
+  i += 1;
 }
 ```
 
