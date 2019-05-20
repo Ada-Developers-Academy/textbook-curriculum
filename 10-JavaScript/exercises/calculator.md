@@ -12,6 +12,11 @@ Build a calculator command line interface (CLI) that allows a user to perform ar
   ```javascript
   'use strict';
   const prompt = require('prompt');
+  
+  const calculator = function calculator(error, result) {
+    console.log(result);
+  }  
+  
 
   //start the prompt
   prompt.start();
@@ -19,10 +24,6 @@ Build a calculator command line interface (CLI) that allows a user to perform ar
   //collect two numbers (num1 and num2) and an operation
   //then call the function `calculator` with the results
   prompt.get(['num1','num2','operation'], calculator);
-
-  function calculator(error, result) {
-    console.log(result);
-  }
   ```
 - Run your program with `$ node calculator.js`. What happens? What do you see? How do you interact with the program?
 
