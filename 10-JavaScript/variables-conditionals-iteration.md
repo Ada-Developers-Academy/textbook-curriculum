@@ -84,15 +84,15 @@ Constants cannot change their value through reassignment. **We will always use `
 
 In your Node REPL, input these lines. Do you get what you expect?
 
-1. `var dees_favorite_color = 'green';`
-1. `dees_favorite_color;`
-1. `let dees_favorite_number = 72;`
-1. `dees_favorite_number;`
-1. `const dees_favorite_game = 'night in the woods';`
-1. `dees_favorite_game;`
-1. `dees_favorite_number = 16;`
-1. `let dees_favorite_number;`
-1. `dees_favorite_game = 'butterfly soup';`
+1. `var deesFavoriteColor = 'green';`
+1. `deesFavoriteColor;`
+1. `let deesFavoriteNumber = 72;`
+1. `deesFavoriteNumber;`
+1. `const deesFavoriteGame = 'night in the woods';`
+1. `deesFavoriteGame;`
+1. `deesFavoriteNumber = 16;`
+1. `let deesFavoriteNumber;`
+1. `deesFavoriteGame = 'butterfly soup';`
 
 <details>
 
@@ -107,7 +107,7 @@ In your Node REPL, input these lines. Do you get what you expect?
   1. `undefined`
   1. `'night in the woods'`
   1. `16`
-  1. `Thrown: SyntaxError: Identifier 'dees_favorite_number' has already been  declared` You only need to do the variable declaration (using `let` or `const`) once. You can just re-assign a `let` variable without the keyword `let`.
+  1. `Thrown: SyntaxError: Identifier 'deesFavoriteNumber' has already been  declared` You only need to do the variable declaration (using `let` or `const`) once. You can just re-assign a `let` variable without the keyword `let`.
   1. `Thrown: TypeError: Assignment to constant variable.` You can't re-assign a `const` variable.
 
 </details>
@@ -170,7 +170,7 @@ if (babyAnimal === 'puppy') {
 console.log(animal);
 ```
 
-**Note:** `==` _does_ exist in JavaScript, but it doesn't do exactly the same thing that `==` does in Ruby. Again: to test equality between strings, we use `===`. Do some research as to _why_!
+**Note:** `==` does_ exist in JavaScript, but it doesn't do exactly the same thing that `==` does in Ruby. Again: to test equality between strings, we use `===`. Do some research as to _why_!
 
 ### Exercise
 
