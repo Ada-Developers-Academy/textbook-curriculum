@@ -12,7 +12,7 @@
 Recall our brief introductions to objects in JavaScript; objects are name/value pairs that can hold other pieces of data, including other objects.
 
 ```javascript
-let testObj = {
+const testObj = {
   someNum: 5,
   someStr: 'this is a test string',
   someNestedObj: {
@@ -24,7 +24,7 @@ let testObj = {
 We will be applying this idea of an object to much more realistic use-cases of organizing data:
 
 ```javascript
-let task = {
+const task = {
   name: 'practice iteration in JavaScript',
   dueDate: 'end of the week',
   owner: 'dee',
@@ -42,7 +42,7 @@ task.isComplete;
 We can attach _behavior_ to an object by making it a member, using this syntax:
 
 ```javascript
-let task = {
+const task = {
   name: 'practice iteration in JavaScript',
   dueDate: 'end of the week',
   owner: 'dee',
@@ -75,7 +75,7 @@ Our new `task` object with the `markComplete()` behavior is cool, but doesn't ma
 Within an object itself, other members (such as properties) can be accessed through the `this` keyword, similar to Ruby's `self`.
 
 ```javascript
-let task = {
+const task = {
   name: 'practice iteration in JavaScript',
   dueDate: 'end of the week',
   owner: 'dee',
@@ -111,7 +111,7 @@ Given this base code for an object named `task`, make another method on it:
   </summary>
 
   ```javascript
-  let task = {
+  const task = {
     name: 'practice iteration in JavaScript',
     dueDate: 'end of the week',
     owner: 'dee',
@@ -182,7 +182,7 @@ We are defining two functions:
 ```javascript
 const doMath = function doMath(operation) {
   for (let i = 0; i < 10; i += 1) {
-    let result = operation(i);
+    const result = operation(i);
     console.log(`${i}: ${result}`);
   }
 };
