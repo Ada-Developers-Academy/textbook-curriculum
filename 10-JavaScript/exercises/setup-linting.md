@@ -17,7 +17,7 @@ Many software teams adhere to a set of rules which serve as guidelines for how t
 
 __Why use a style guide?__  Style guides are a common way for a group of people to create consistently formatted documents. Like MLA or the Chicago Manual of Style, a code style guide helps us find the information we are looking for as quickly as possible.
 
-In a large team, with programmers from a lot of different language backgrounds, it's easy to fall into whatever habits your frist programming language encouraged. A Python whiz might default to using indentation alone to show where a code block begins and ends, where a C programmer at heart might feel more comfortable surrounding code blocks in curly braces. With small differences like these, one slight difference between two programmers may go unnoticed, but as teams get bigger and more and more styles mix, code becomes increasingly ugly and unreadable. 
+In a large team, with programmers from a lot of different language backgrounds, it's easy to fall into whatever habits your first programming language encouraged. A Python whiz might default to using indentation alone to show where a code block begins and ends, where a C programmer at heart might feel more comfortable surrounding code blocks in curly braces. With small differences like these, one slight difference between two programmers may go unnoticed, but as teams get bigger and more and more styles mix, code becomes increasingly ugly and unreadable. 
 
 Simply put, style guides help us keep code formatted consistently between developers, making for fewer context switches, and hopefully fewer dumb mistakes.
 
@@ -68,25 +68,13 @@ Add this file `~/.eslintrc`
 
 ## Install `Linter-Eslint`
 
-Head to VS Code!  Now we can install the extenstion for eslint and get it set up.
+Head to VS Code!  Now we can install the extension for eslint and get it set up.
 
 In VS Code open the Extensions tab and search for `ESLint`.
 
 Extensions Tab:
 
 ![extensions tab](images/extensions_linter.png)
-
-## Settings
-
-Once the new extension is installed, go to VS Code's Preferences->Settings. Open the settings JSON and add the following at the end of the file:
-
-```json
-"eslint.options": { "configFile":".eslintrc" }
-```
-
-To get to the JSON file that holds your settings click on the curly brace icon once you have opened your settings:
-
-![the curly brace icon](images/linter_settings.png)
 
 ## Trust But Verify!
 
