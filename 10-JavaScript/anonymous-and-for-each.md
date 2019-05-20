@@ -17,7 +17,7 @@ You can do this by defining an anonymous callback function inside the argument l
 ```javascript
 const doMath = function doMath(operation) {
   for (let i = 0; i < 10; i += 1) {
-    let result = operation(i);
+    const result = operation(i);
     console.log(`${i}: ${result}`);
   }
 };
@@ -71,7 +71,7 @@ Answer the following questions:
 ```javascript
 const doMath = function doMath(operation) {
   for (let i = 0; i < 10; i += 1) {
-    let result = operation(i);
+    const result = operation(i);
     console.log(`${i}: ${result}`);
   }
 };
