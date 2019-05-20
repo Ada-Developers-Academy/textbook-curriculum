@@ -67,9 +67,9 @@ There are three keywords to use to declare a variable, all specifying different 
 Observe variable declaration and assignment below:
 
 ```javascript
-var dees_favorite_color = 'green';
-let dees_favorite_number = 72;
-const dees_favorite_game = 'night in the woods';
+var deesFavoriteColor = 'green';
+let deesFavoriteNumber = 72;
+const deesFavoriteGame = 'night in the woods';
 ```
 
 ### We Prefer `let` for Reassignable Variables
@@ -170,7 +170,7 @@ if (babyAnimal === 'puppy') {
 console.log(animal);
 ```
 
-**Note:** `==` does_ exist in JavaScript, but it doesn't do exactly the same thing that `==` does in Ruby. Again: to test equality between strings, we use `===`. Do some research as to _why_!
+**Note:** `==` _does_ exist in JavaScript, but it doesn't do exactly the same thing that `==` does in Ruby. Again: to test equality between strings, we use `===`. Do some research as to _why_!
 
 ### Exercise
 
