@@ -61,7 +61,8 @@ Add this file `~/.eslintrc`
     "browser": true,
     "commonjs": true,
     "jquery": true,
-    "jest/globals": true
+    "jest/globals": true,
+    "es6": true
   }
 }
 ```
