@@ -36,7 +36,7 @@ console.log(foo());
 > bar
 ```
 
-So what have we done?  We've gotten rid of the `function` keyword and placed a 'arrow' to the right of the function parameters.  This lets us create a function with less typing, but we can do this with even less code.
+So what have we done?  We've gotten rid of the `function` keyword and placed an 'arrow' (`=>`) to the right of the function parameters.  This lets us create a function with less typing, but we can do this with even less code.
 
 **Note**:  The arrow must be on the same line as the parentheses.  If they are on separate lines, it will generate a syntax error.
 
@@ -67,20 +67,31 @@ const hello = function hello() {
 
 ## Syntax with Parameters
 
-```javascript
-const squarer = (number) => {
-  return number * number;
-}
-```
-This arrow function takes a single number and returns that number squared.  Like normal functions arrow functions have their parameters listed in the parentheses.
-
 ### With Multiple Parameters or Zero Parameters
+
+Like normal functions, arrow functions have their parameters listed in the parentheses.
+
+With zero parameters, we leave the parens empty:
+
+```javascript
+const sayHelloWorld = () => 'Hello World!';
+```
+
+With multiple parameters, they are comma-separated.
 
 ```javascript
 const add = (x, y) => x + y;
 ```
 
 ### With One Parameter
+
+This arrow function takes a single number and returns that number squared.
+
+```javascript
+const squarer = (number) => {
+  return number * number;
+}
+```
 
 So this is a pretty compact syntax, but... we're not done.  Because this function takes a **single** argument, we can dispense with the parentheses around `number`.
 
@@ -128,4 +139,6 @@ When you have a function that returns an object like above you can also use the 
 const makePerson = (id, name) => ({ id, name });
 ```
 
+## Summary
 
+To convert a traditional-style syntax to an arrow function, we rid of the `function` keyword and placed a 'arrow' to the right of the function parameters.
