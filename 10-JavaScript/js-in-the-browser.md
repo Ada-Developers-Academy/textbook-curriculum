@@ -28,6 +28,8 @@ alert('four score and seven years ago...');
 
 Pops right up! Can't do that in the terminal!
 
+[Where did the `alert` method come from? Who defined it?](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert) `Window` is something that the browser makes available to us. When we write JavaScript that runs in the browser, we can predict that the `alert` method will be available to us.
+
 What happens if we make a mistake? Let's reference an undefined variable.
 
 ```javascript
@@ -38,78 +40,95 @@ OK, so that's what an error looks like. If you double click on the message or cl
 
 The Chrome console is kind of like the rails console. It gives you access to all the variables you've defined in your scripts, allowing you to write JavaScript live and see the effects immediately. Use it well.
 
-### In a Real Web Site
-Obviously we don't expect users to type out all their own JavaScript by hand. Instead, we'll add a link to our JavaScript file in our HTML, similar to the way we included CSS before.
+## Running JavaScript on Websites
 
-Our browser will request an HTML page which will contain references to our JavaScript as well as CSS. These files will be loaded into the browser.
+Obviously we don't expect users to type out all their own JavaScript by hand. How do we get a website to connect to a JavaScript file? We'll add a link to our JavaScript file in our HTML, similar to the way we included CSS before.
+
+When our user goes to a website using their browser, the browser will make a request for an HTML page. This HTML page contains references to our CSS and JavaScript files. Then, these files will be loaded into the browser.
 <!-- Diagram located here: https://drive.google.com/a/adadevelopersacademy.org/file/d/0B6Pq6XZ1hzv1WHcyUnZZREtadDg/view?usp=sharing -->
 ![JS and CSS in the browser](images/js-css-browser.png)
 
 
-Now, we're going to set this up for ourselves to try it out.
-Create a new directory called `browser-js`, with two files: `index.html` and `index.js`:
-```bash
-$ mkdir browser-js
-$ cd browser-js
-$ touch index.html
-$ touch index.js
-$ ls
-    index.html
-    index.js
-```
+### Try It
 
-Add some basic HTML to `index.html`:
+1. Create a new directory called `browser-js`, with two files: `index.html` and `index.js`:
 
-```html
-<!-- index.html -->
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>JavaScript Test Page</title>
-  </head>
-  <body>
-    <h1>Test page for JavaScript in the Browser</h1>
+    ```bash
+    $ mkdir browser-js
+    $ cd browser-js
+    $ touch index.html
+    $ touch index.js
+    ```
+1. Add this basic HTML to `index.html`:
 
-    <div id="js-lecture-target"></div>
-  </body>
-</html>
-```
+    ```html
+    <!-- index.html -->
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>JavaScript Test Page</title>
+      </head>
+      <body>
+        <h1>Test page for JavaScript in the Browser</h1>
 
-And finally, add some JavaScript to `index.js`:
+        <div id="js-lecture-target"></div>
+      </body>
+    </html>
+    ```
 
-```javascript
-// index.js
-console.log('This is a test');
-```
+1. And finally, add this JavaScript to `index.js`:
 
-#### Linking Them Together
-To run your JavaScript file from your webpage, add a `<script>` tag at the end of `<body>`, before the closing `</body>` tag:
+    ```javascript
+    // index.js
+    console.log('This is a test');
+    ```
 
-```html
-<!-- index.html -->
-...
-<body>
-  ...
+1. Modify your HTML page `index.html` by adding this `<script>` tag at the end of `<body>`, RIGHT before the closing `</body>` tag:
 
-  <script src="index.js" type="text/javascript"></script>
-</body>
-```
+    ```html
+    <!-- index.html -->
+    ...
+    <body>
+      ...
+
+      <script src="index.js" type="text/javascript"></script>
+    </body>
+    ```
+
+1. Ensure all files are saved
+1. Open up the Chrome Dev Tools and switch to the Console tab
+1. Reload the page (refresh the page)
+1. Observe that the test text `This is a test` from the JavaScript prints out!
+
+#### Extend This Example
+
+1. Check that you and your neighbor are on the right track
+1. Modify your `index.js` file so it prints to the console some other text
+1. Reload your HTML page and make sure you see that new text!
+1. Modify your `index.js` file so it prints out this text five times
+
+### Side Note: About `<script>`
 
 Just like CSS links, you can include multiple `<script>`s in your page, and they'll be loaded in order.
 
-Reload your page, open up Chrome's developer tools, and click on the `Console` tab. You should see your test message there.
+#### Where Should `<script>` Go?
 
-#### Side Note: Where Should `<script>` Go?
-Believe it or not, people have lots of opinions on this topic.
+Believe it or not, people have a lot of opinions on this topic.
 
-The reason it's so contentious is, when the browser encounters a `<script>` tag, it stops loading the HTML document. It goes and downloads your _entire_ script, which might be quite large and hosted halfway across the internet. Only once the script has finished downloading does it continue rendering the page. That means if you put your `<script>` tags before your content, the user gets to look at an empty white screen for a while while your scripts load. Not a great user experience.
+<details>
+
+  <summary>
+    In this class we'll always load our scripts at the end of the body. If you'd like to learn more, click here to expand and see our thoughts.
+  </summary>
+
+The reason why JS loading is so contentious is, when the browser encounters a `<script>` tag, it stops loading the HTML document. It goes and downloads your _entire_ script, which might be quite large and hosted halfway across the internet. Only once the script has finished downloading does it continue rendering the page. That means if you put your `<script>` tags before your content, the user gets to look at an empty white screen for a while while your scripts load. Not a great user experience.
 
 The easiest way to deal with this is to always place your scripts at the bottom of your `<body>` section. That way, the browser renders the whole page first, then goes and gets your scripts.
 
 Out in the wild you'll see other techniques, like downloading the scripts asynchronously and not running them until the page has finished loading. This is cool, and you should definitely know that it's a thing, but it takes some work to set up.
 
-To keep things simple, **in this class we'll always load our scripts at the end of the body.**
+</details>
 
 ## Manipulating the DOM
 Logging to the console is alright, but the true power of JavaScript is that it can dynamically change the contents of the webpage. The interface the browser provides for dynamically changing the page's content, behavior, and appearance is called the _DOM_.
