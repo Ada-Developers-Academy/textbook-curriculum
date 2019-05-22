@@ -72,7 +72,7 @@ When our user goes to a website using their browser, the browser will make a req
       <body>
         <h1>Test page for JavaScript in the Browser</h1>
 
-        <div id="js-lecture-target"></div>
+        <div id="js-lecture-target">This is text that lives inside a div element with an id "js-lecture-target"!</div>
       </body>
     </html>
     ```
@@ -164,28 +164,57 @@ We will find and practice methods for DOM manipulation that will allow us to do 
 
 ### Exercise
 
-The DOM is accessed through an object called `document`.
+The DOM is accessed through an object called `document`. Therefore, we will start DOM manipulation through this `document` object, since it is the broadest object that holds the DOM.
 
-Let's update our `index.js` to use it:
+1. In the Dev Tools Console, type into the console `document`. What do you get? When you expand it, what details do you see? What does it represent?
+1. Draw a representation of the DOM as a tree with a partner
+
+#### Finding an Existing Node and Modifying It
+
+We can find an existing node on the DOM in a sleuth of ways. We will explore one way:
+
+1. In the Dev Tools Console, enter into the console `document.getElementById('');` What do you get?
+1. In the Dev Tools Console, enter into the console `document.getElementById('js-lecture-target');` What do you get? What details do you see? What does it represent?
+1. Where is an element with the id `js-lecture-target` defined?
+
+Now let's try looking at these details and manipulating them.
+
+1. In the Dev Tools Console, enter in the following line:
+    ```javascript
+    document.getElementById('js-lecture-target').innerHTML;
+    ```
+
+    What do you get back? What does it represent? Does it have the tags included?
+1. In the Dev Tools Console, enter in the following line:
+    ```javascript
+    document.getElementById('js-lecture-target').innerHTML = 'I can change website text with JavaScript!';
+    ```
+
+    What do you get back? What do you see on the website (HTML)?
+1. Refresh the page. Do you continue to see the changes that you made?
+
+Now that we've tried it in the console, let's update our `index.js` to use this new knowledge.
+
+Replace the contents of your `index.js` file with the following:
 
 ```javascript
 // index.js
 console.log('This is a test');
 
-let target = document.getElementById('js-lecture-target');  // Find the HTML element where the ID is js-lecture-target
+const target = document.getElementById('js-lecture-target');  // Find the HTML element where the ID is js-lecture-target
 target.innerHTML = '<p>I give you... content!</p>'; // Put this HTML inside the div we retrieved above
 ```
 
-Now we have modified the DOM using JavaScript Code. That is the only instance of direct DOM manipulation we'll ever do in this class. Now that you know that it _can_ be done, we'll skip right to a neat library called `jQuery` that smooths out many of the issues outlined above. But that is a subject for another lecture.
+## Conclusion
+
+We have modified the DOM using JavaScript code! We should be able to extend this knowledge and imagine the possibilities of what we can do with DOM manipulation:
+
+- If we select the correct elements, we can change how something looks dynamically
+- If we select the correct elements, we can define new behaviors for our website
 
 ## Out-of-the-Box DOM Manipulation is Clunky
 
-It's worth noting that the raw interface for DOM manipulation in JavaScript isn't great. It's clunky, and lots of pieces are slightly different in different browsers. In the next lecture, we'll talk about what solutions we have.
-
-## What did we Accomplish?
-* Run some JavaScript in the browser
-* Use the DOM to change the content of our web page
-* Understand that we'll never use the DOM directly again
+It's worth noting that the raw interface for DOM manipulation in JavaScript isn't great. It's clunky, and lots of pieces are slightly different in different browsers. There are plenty of popular JavaScript libraries out there that can make this code less clunky.
 
 ## Additional Resources
 * [MDN on the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
