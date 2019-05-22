@@ -205,6 +205,8 @@ const target = document.getElementById('js-lecture-target');  // Find the HTML e
 target.innerHTML = '<p>I give you... content!</p>'; // Put this HTML inside the div we retrieved above
 ```
 
+Now that all of the files are saved, reload your HTML page. When your HTML page loads, as the browser reads through the HTML, it comes across the `<script>` tag, which loads and runs the appropriate JavaScript code in `index.js`. Therefore, when everything is all finished loading and executing, we already see that the JS has run!
+
 ## Conclusion
 
 We have modified the DOM using JavaScript code! We should be able to extend this knowledge and imagine the possibilities of what we can do with DOM manipulation:
