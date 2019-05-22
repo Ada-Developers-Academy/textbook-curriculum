@@ -1,19 +1,18 @@
 # JavaScript in the Browser
 
-## Motivation
-* So far, we've only run JavaScript in the terminal
-* JavaScript is the language of the web
-  * It's chief advantage is that it's the one language every browser understands
-* Let's get JavaScript running in the browser!
-
 ## Learning Goals
-* Get JavaScript running in the browser
-* Define the _DOM_
-* Understand the basics of _DOM manipulation_
+By the end of this lesson, students will be able to...
 
-## Running JavaScript In the Browser
-### Via the Developer Console
-In your browser, open a new empty tab, and pull up your developer tools. Click on the `Console` tab. This is where calls to `console.log()` will end up. It's also where you'll see any errors that occur.
+- Practice evaluating JavaScript in the Chrome Dev Tools -> Console
+- Connect a JavaScript script to a website
+- Define the DOM
+- Do basic manipulation of the DOM
+
+## Running JavaScript in the Developer Console
+
+Our first step is to prove that our browser Google Chrome can read and execute JavaScript.
+
+In your browser, open a new empty tab, and pull up your developer tools. Click on the Console tab. This is where calls to `console.log()` will end up. It's also where you'll see any errors that occur.
 
 Notice also that there is something that looks like a command prompt. Let's see what it does.
 
