@@ -66,7 +66,7 @@ finds all elements with the class `dynamic-list`, and adds our new jQuery list e
 Change the above CodePen in the following ways:
 
 1. On line 4 in the js, the jQuery function (`$()`) is a method that takes in a CSS selector as a parameter, and it will give back a collection of all elements that match that selector. Fill in the blank: `$('.dynamic-list')` selects all elements that have the following attribute: __
-1. On line 4 in the JavaScript, change the parameter to the jQuery function on line 4 in the JavaScript from `$('.dynamic-list') to `$('#dynamic-list')`. What changed? Why?
+1. On line 4 in the JavaScript, change the parameter to the jQuery function on line 4 in the JavaScript from `$('.dynamic-list')` to `$('#dynamic-list')`. What changed? Why?
 1. In the HTML, copy this HTML and paste this below the last section:
     ```html
     <section>
