@@ -1,16 +1,19 @@
 # Rails Intermediate Index
 
-## Part 1 - Authentication and Intermediate Rails Topics
+## More Ruby on Rails
 1. [Flash](./flash.md)
 1. [Session](./session.md)
 1. [Testing Session](./testing-session.md)
 1. [Controller Filters](./controller-filters.md)
 1. [View helpers](./view-helpers.md)
-1. [Intro to OAuth](./intro-to-oauth.md)
-1. [OAuth in Rails](./oauth.md)
+1. [Advanced Validations](./advanced-validations.md)
+1. [Testing Controllers: Revisited](testing-controllers-revisited.md)
+
+## Authentication
+1. [Intro to Authentication and OAuth](./intro-to-oauth.md)
+1. [Implementing an OAuth Solution in Rails](./oauth.md)
 1. [Testing Authentication](./testing-oauth.md)
 1. [Testing Authorization](./testing-authorization.md)
-1. [Advanced Validations](./advanced-validations.md)
 
 ## Part 2 - APIs
 1. [Web API 101](./web-api-101.md)  
