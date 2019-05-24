@@ -1,19 +1,18 @@
 # JavaScript in the Browser
 
-## Motivation
-* So far, we've only run JavaScript in the terminal
-* JavaScript is the language of the web
-  * It's chief advantage is that it's the one language every browser understands
-* Let's get JavaScript running in the browser!
-
 ## Learning Goals
-* Get JavaScript running in the browser
-* Define the _DOM_
-* Understand the basics of _DOM manipulation_
+By the end of this lesson, students will be able to...
 
-## Running JavaScript In the Browser
-### Via the Developer Console
-In your browser, open a new empty tab, and pull up your developer tools. Click on the `Console` tab. This is where calls to `console.log()` will end up. It's also where you'll see any errors that occur.
+- Practice evaluating JavaScript in the Chrome Dev Tools -> Console
+- Connect a JavaScript script to a website
+- Define the DOM
+- Do basic manipulation of the DOM
+
+## Running JavaScript in the Developer Console
+
+Our first step is to prove that our browser Google Chrome can read and execute JavaScript.
+
+In your browser, open a new empty tab, and pull up your developer tools. Click on the Console tab. This is where calls to `console.log()` will end up. It's also where you'll see any errors that occur.
 
 Notice also that there is something that looks like a command prompt. Let's see what it does.
 
@@ -29,6 +28,8 @@ alert('four score and seven years ago...');
 
 Pops right up! Can't do that in the terminal!
 
+[Where did the `alert` method come from? Who defined it?](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert) `Window` is something that the browser makes available to us. When we write JavaScript that runs in the browser, we can predict that the `alert` method will be available to us.
+
 What happens if we make a mistake? Let's reference an undefined variable.
 
 ```javascript
@@ -39,117 +40,183 @@ OK, so that's what an error looks like. If you double click on the message or cl
 
 The Chrome console is kind of like the rails console. It gives you access to all the variables you've defined in your scripts, allowing you to write JavaScript live and see the effects immediately. Use it well.
 
-### In a Real Web Site
-Obviously we don't expect users to type out all their own JavaScript by hand. Instead, we'll add a link to our JavaScript file in our HTML, similar to the way we included CSS before.
+## Running JavaScript on Websites
 
-Our browser will request an HTML page which will contain references to our JavaScript as well as CSS. These files will be loaded into the browser.
+Obviously we don't expect users to type out all their own JavaScript by hand. How do we get a website to connect to a JavaScript file? We'll add a link to our JavaScript file in our HTML, similar to the way we included CSS before.
+
+When our user goes to a website using their browser, the browser will make a request for an HTML page. This HTML page contains references to our CSS and JavaScript files. Then, these files will be loaded into the browser.
 <!-- Diagram located here: https://drive.google.com/a/adadevelopersacademy.org/file/d/0B6Pq6XZ1hzv1WHcyUnZZREtadDg/view?usp=sharing -->
 ![JS and CSS in the browser](images/js-css-browser.png)
 
 
-Now, we're going to set this up for ourselves to try it out.
-Create a new directory called `browser-js`, with two files: `index.html` and `index.js`:
-```bash
-$ mkdir browser-js
-$ cd browser-js
-$ touch index.html
-$ touch index.js
-$ ls
-    index.html
-    index.js
-```
+### Try It
 
-Add some basic HTML to `index.html`:
+1. Create a new directory called `browser-js`, with two files: `index.html` and `index.js`:
 
-```html
-<!-- index.html -->
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>JavaScript Test Page</title>
-  </head>
-  <body>
-    <h1>Test page for JavaScript in the Browser</h1>
+    ```bash
+    $ mkdir browser-js
+    $ cd browser-js
+    $ touch index.html
+    $ touch index.js
+    ```
+1. Add this basic HTML to `index.html`:
 
-    <div id="js-lecture-target"></div>
-  </body>
-</html>
-```
+    ```html
+    <!-- index.html -->
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>JavaScript Test Page</title>
+      </head>
+      <body>
+        <h1>Test page for JavaScript in the Browser</h1>
 
-And finally, add some JavaScript to `index.js`:
+        <div id="js-lecture-target">This is text that lives inside a div element with an id "js-lecture-target"!</div>
+      </body>
+    </html>
+    ```
 
-```javascript
-// index.js
-console.log('This is a test');
-```
+1. And finally, add this JavaScript to `index.js`:
 
-#### Linking Them Together
-To run your JavaScript file from your webpage, add a `<script>` tag at the end of `<body>`, before the closing `</body>` tag:
+    ```javascript
+    // index.js
+    console.log('This is a test');
+    ```
 
-```html
-<!-- index.html -->
-...
-<body>
-  ...
+1. Modify your HTML page `index.html` by adding this `<script>` tag at the end of `<body>`, RIGHT before the closing `</body>` tag:
 
-  <script src="index.js" type="text/javascript"></script>
-</body>
-```
+    ```html
+    <!-- index.html -->
+    ...
+    <body>
+      ...
+
+      <script src="index.js" type="text/javascript"></script>
+    </body>
+    ```
+
+1. Ensure all files are saved
+1. Open up the Chrome Dev Tools and switch to the Console tab
+1. Reload the page (refresh the page)
+1. Observe that the test text `This is a test` from the JavaScript prints out!
+
+#### Extend This Example
+
+1. Check that you and your neighbor are on the right track
+1. Modify your `index.js` file so it prints to the console some other text
+1. Reload your HTML page and make sure you see that new text!
+1. Modify your `index.js` file so it prints out this text five times
+
+### Side Note: About `<script>`
 
 Just like CSS links, you can include multiple `<script>`s in your page, and they'll be loaded in order.
 
-Reload your page, open up Chrome's developer tools, and click on the `Console` tab. You should see your test message there.
+#### Where Should `<script>` Go?
 
-#### Side Note: Where Should `<script>` Go?
-Believe it or not, people have lots of opinions on this topic.
+Believe it or not, people have a lot of opinions on this topic.
 
-The reason it's so contentious is, when the browser encounters a `<script>` tag, it stops loading the HTML document. It goes and downloads your _entire_ script, which might be quite large and hosted halfway across the internet. Only once the script has finished downloading does it continue rendering the page. That means if you put your `<script>` tags before your content, the user gets to look at an empty white screen for a while while your scripts load. Not a great user experience.
+<details>
+
+  <summary>
+    In this class we'll always load our scripts at the end of the body. If you'd like to learn more, click here to expand and see our thoughts.
+  </summary>
+
+The reason why JS loading is so contentious is, when the browser encounters a `<script>` tag, it stops loading the HTML document. It goes and downloads your _entire_ script, which might be quite large and hosted halfway across the internet. Only once the script has finished downloading does it continue rendering the page. That means if you put your `<script>` tags before your content, the user gets to look at an empty white screen for a while while your scripts load. Not a great user experience.
 
 The easiest way to deal with this is to always place your scripts at the bottom of your `<body>` section. That way, the browser renders the whole page first, then goes and gets your scripts.
 
 Out in the wild you'll see other techniques, like downloading the scripts asynchronously and not running them until the page has finished loading. This is cool, and you should definitely know that it's a thing, but it takes some work to set up.
 
-To keep things simple, **in this class we'll always load our scripts at the end of the body.**
+</details>
 
-## Manipulating the DOM
-Logging to the console is alright, but the true power of JavaScript is that it can dynamically change the contents of the webpage. The interface the browser provides for dynamically changing the page's content, behavior, and appearance is called the _DOM_.
+## Manipulating a Website is Through the DOM
 
-When we say that it _dynamically_ changes the page, we mean that the changes are made to the "living" copy of the page that the browser has in its memory. Until now our web applications have rendered _static_ HTML which defines a webpage. They have then sent it to the browser which in turn builds the DOM from that HTML.
+Logging to the console is alright, but the true power of JavaScript is that it can dynamically change the contents of the webpage.
+
+Browsers have already defined a way (an interface) to represent, access, and modify the contents of a website. This interface is called **the DOM**. When we use this interface, we can dynamically change the page using JS.
+
+Until now our web applications have rendered _static_ HTML which defines a webpage. They have then sent it to the browser which in turn "builds the DOM" from that HTML.
 
 When we use JavaScript to manipulate the DOM, we do not change the original HTML that was sent to the browser, instead we change the browser's internal representation of that same webpage. An important consequence of this distinction is that all of our changes disappear as soon as the browser forgets about that webpage (e.g. if we close the tab or the whole browser).
 
-### What Is the DOM?
+### What is the DOM?
+
+**The DOM** is the interface the browser provides for dynamically changing the page's content, behavior, and appearance. We can think of it as a representation of the site's content that the browser gives us.
+
 _DOM_ stands for Document Object Model. The document in question is our web page! The "Object Model" part is for distinguishing the DOM approach from other ways of accessing a document (which are not available in the browser). You can see the DOM for any webpage your browser has loaded by opening the developer tools and selecting the Elements tab (in Chrome).
 
 The DOM is effectively a tree, like the ones we've learned about in CS fundamentals. In general each node in the tree matches up to an individual HTML tag such as `div` or `img`.
 
+![dom as represented as a tree](images/dom.gif)
+
 Nodes in the DOM have properties that match the attributes set on them in the HTML (e.g. an `img` node might have `src` and `id` properties). DOM nodes also have children, which are all of the other nodes nested within them (e.g. a `div` node might have a `table` child node).
 
-### JavaScript and the DOM
-In JavaScript, the DOM is exposed through a set of objects and methods that provide access to the HTML structure of the webpage. These act sort of like the Ruby gems we've seen in the past, an extension rather than a core part of the language. The only difference is, when running JS in the browser, you get access to these DOM functions automatically - no `require`s necessary.
+## Using JavaScript and the DOM
 
-The methods for DOM manipulation in JavaScript allow you to add and remove nodes from the DOM tree, change the attributes of a node, and enable interactions from the user such as clicking on a button (or any other type of HTML tag).
+In JavaScript, the DOM is exposed through a set of objects and methods that provide access to the HTML structure of the webpage.
 
-Before we go on, it's worth noting that the raw interface JavaScript provides for the DOM isn't great. It's clunky, and lots of pieces are slightly different in different browsers. In the next lecture, we'll talk about what to do about that.
+We will find and practice methods for DOM manipulation that will allow us to do things like:
+- add a node (element) to the DOM
+- remove a node (element) from the DOM
+- change attributes of a node
+- enable interactions from a user, such as clicking a node (element)
 
-### Changing the DOM From Our Script
-The DOM is accessed through an object called `document`. Let's update our `index.js` to use it:
+### Exercise
+
+The DOM is accessed through an object called `document`. Therefore, we will start DOM manipulation through this `document` object, since it is the broadest object that holds the DOM.
+
+1. In the Dev Tools Console, type into the console `document`. What do you get? When you expand it, what details do you see? What does it represent?
+1. Draw a representation of the DOM as a tree with a partner
+
+#### Finding an Existing Node and Modifying It
+
+We can find an existing node on the DOM in a sleuth of ways. We will explore one way:
+
+1. In the Dev Tools Console, enter into the console `document.getElementById('');` What do you get?
+1. In the Dev Tools Console, enter into the console `document.getElementById('js-lecture-target');` What do you get? What details do you see? What does it represent?
+1. Where is an element with the id `js-lecture-target` defined?
+
+Now let's try looking at these details and manipulating them.
+
+1. In the Dev Tools Console, enter in the following line:
+    ```javascript
+    document.getElementById('js-lecture-target').innerHTML;
+    ```
+
+    What do you get back? What does it represent? Does it have the tags included?
+1. In the Dev Tools Console, enter in the following line:
+    ```javascript
+    document.getElementById('js-lecture-target').innerHTML = 'I can change website text with JavaScript!';
+    ```
+
+    What do you get back? What do you see on the website (HTML)?
+1. Refresh the page. Do you continue to see the changes that you made?
+
+Now that we've tried it in the console, let's update our `index.js` to use this new knowledge.
+
+Replace the contents of your `index.js` file with the following:
 
 ```javascript
 // index.js
 console.log('This is a test');
 
-let target = document.getElementById('js-lecture-target');  // Find the HTML element where the ID is js-lecture-target
+const target = document.getElementById('js-lecture-target');  // Find the HTML element where the ID is js-lecture-target
 target.innerHTML = '<p>I give you... content!</p>'; // Put this HTML inside the div we retrieved above
 ```
 
-Now we have modified the DOM using JavaScript Code. That is the only instance of direct DOM manipulation we'll ever do in this class. Now that you know that it _can_ be done, we'll skip right to a neat library called `jQuery` that smooths out many of the issues outlined above. But that is a subject for another lecture.
+Now that all of the files are saved, reload your HTML page. When your HTML page loads, as the browser reads through the HTML, it comes across the `<script>` tag, which loads and runs the appropriate JavaScript code in `index.js`. Therefore, when everything is all finished loading and executing, we already see that the JS has run!
 
-## What did we Accomplish?
-* Run some JavaScript in the browser
-* Use the DOM to change the content of our web page
-* Understand that we'll never use the DOM directly again
+## Conclusion
+
+We have modified the DOM using JavaScript code! We should be able to extend this knowledge and imagine the possibilities of what we can do with DOM manipulation:
+
+- If we select the correct elements, we can change how something looks dynamically
+- If we select the correct elements, we can define new behaviors for our website
+
+## Out-of-the-Box DOM Manipulation is Clunky
+
+It's worth noting that the raw interface for DOM manipulation in JavaScript isn't great. It's clunky, and lots of pieces are slightly different in different browsers. There are plenty of popular JavaScript libraries out there that can make this code less clunky.
 
 ## Additional Resources
 * [MDN on the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
