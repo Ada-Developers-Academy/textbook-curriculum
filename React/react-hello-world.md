@@ -37,7 +37,7 @@ Next, take a look at the `App.js` file that was created. Some questions for you 
 
 #### Functional Components
 
-This code contains a function! However this function looks like it returns HTML!  It also starts with a capital letter.  In React functional components always start with a capital letter.
+This code contains a function! However this function looks like it returns HTML!  It also starts with a capital letter.  In React, component names always start with a capital letter.
 
 In React, you can build a component as either a class or a function. We will be sticking with functional components to start, and `create-react-app` will start with a function for the top-level `App` component. For now, we will work with that function.
 
