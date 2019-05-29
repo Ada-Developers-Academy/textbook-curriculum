@@ -1,6 +1,7 @@
 # Prop Types
 
 ## Learning Goals
+
 By the end of this lesson you should be able to:
 
 - Explain the use of `PropTypes`
@@ -86,9 +87,11 @@ A `defaultProp` attribute like above ensures that every time the given props hav
 You can also create a custom validator which you can look up along with more examples of using `PropTypes` on the [PropTypes github page](https://github.com/facebook/prop-types).
 
 ## Key Takeaway
+
 `propTypes` is an attribute you can define in a React component which lists the props the component can take along with their types.  Mismatches or missing props will generate error messages in the browser console.  PropTypes help you document the props a component can take and help prevent the wrong types of props being passed accidentally.
 
 ## Resources
+
 - [Why you should use PropTypes in React Native (works for React in general)](https://codeburst.io/why-you-should-use-proptypes-in-react-native-e6f5ef78e7dd)
 - [React Documentation: Typechecking with PropTypes](https://www.npmjs.com/package/prop-types)
 - [Validating Props easily with React PropTypes](https://codeburst.io/validating-props-easily-with-react-proptypes-96e80208207)
