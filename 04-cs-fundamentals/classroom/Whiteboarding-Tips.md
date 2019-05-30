@@ -55,3 +55,12 @@ Technical Questions: Problem Solving approach
 All content is licensed under a [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](http://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 [![Creative Commons License](https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+## Previous Interview Questions
+
+- [C3 Compiled Questions](https://docs.google.com/spreadsheets/d/1t-kN_dFZp2OJQJI9yJW8JrS1c_aK-Hi6k9DWP1bw_40/edit?ts=56a027f7#gid=570475651)
+- [C4 Compiled Questions](https://docs.google.com/spreadsheets/d/1pnWSQHcvV8rQ1R-e_D7uTO-YF3cfCmrK6SteoiWwTzM/edit#gid=479496602)
+- [C5 Compiled Questions](https://docs.google.com/spreadsheets/d/1nBLF_YGHmkqP6xb6QfJKrOBtqa2ZA0YpuRltI1wU_bE/edit#gid=0)
+- [C7 Compiled Questions](https://docs.google.com/spreadsheets/d/1ZJ_gL2oidqdYzgL5lk0Ew-KyFm_yK5J8SZmD-sW-G0U/edit#gid=0)
+- [C8 Compiled Questions](https://docs.google.com/spreadsheets/d/1fEDgUvF3e7VVVzlkrV2X6_5nqFA7_34B7FdWsZUDxZc/edit?usp=sharing
+)
