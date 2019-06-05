@@ -43,9 +43,3 @@ Rails test test/models/genre_test.rb
    `<%= link_to “login”, login_path %>`
 1. Explain the differences between flash and session.  When are each used?
 1. Complete this method to log in a user, creating a new User if necessary.
-   <details>
-     <summary>
-       See an answer here
-     </summary>
-     ![login method](images/login.png)
-   </details>
