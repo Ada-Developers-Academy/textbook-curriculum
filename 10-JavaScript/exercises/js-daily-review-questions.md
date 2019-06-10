@@ -3,7 +3,7 @@
 1. Take a look at  [translate_me.rb](code-samples/translate_me.rb) and convert the Ruby sample code into JavaScript. 
 1. Take a look at [functions_first_class.js](code-samples/functions_first_class.js)
    - Predict the output of the code sample.
-   - In `getResume()`  what does this refer to?
+   - In `getResume()`  what does `this` refer to?
    - With your neighbor try to convert the for loop into a forEach loop.
 ![broken loop example](images/brokenloop.png)
 1. What is wrong with the code above?
