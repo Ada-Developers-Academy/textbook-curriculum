@@ -4,7 +4,10 @@
    1. Controllers
    1. Models
    1. Views
-   1. Router
+   - Controllers
+   - Models
+   - Views
+   - Router
 1. How do you create a new Rails application?
 1. How do you create a controller?
 1. What does ERB stand for?
