@@ -19,7 +19,19 @@ By the end of this lesson you should be able to:
 
 A Finite State Machine is a relatively simple model of computation.  An FSA is a model of a machine which can be in exactly *one* of a limited (i.e. finite) set of states.  The machine can take in input which causes the machine to change from one state to another.  Moving from one state to another is called a **transition**.  An FSA always has one state in which it starts and one or more states which are valid end-points.  If a FSA takes in input and ends at a valid end-point, the input is considered valid.  Otherwise the input is considered invalid and rejected.  
 
-### Ok That's What it is, why learn about'em
+Below is a state machine that takes in input consisting of zeros (0) or ones (1), and is satisfied if the input ends with a zero.
+
+![Finite State Machine example 1](fsm-images/fsa1.png)
+
+The machine starts in state **A** and if it receives an input of `0` it will move to state **B**.  If the machine is in state **A** and receives a `1` it will remain in state **A**.  If the machine is in state **B** and receives a `1` it will move to state **A**.  If it is in state **B**, and recieves a `0` it will remain in state **B**.  State **B** is an **End-State** which is indicated by the two circles around it.  
+
+So given the input:  `1010` the FSM will end in state **B** and accept the input.  If the input was `1011` the machine will end in state **A** and not accept the input.  
+
+It's important to note, **a Finite State Machine can only remember it's current state**.  An FSM does not remember previous actions and only consideres it's *current* state and the input when deciding which state to transition into.  This is a limiting factor as we shall see, but it makes the system easier to model, test and understand.
+
+### Ok That's What an FSM is, why learn about'em
+
+Good question!
 
 Finite State Machines are used in a wide variety of applications including:
 
@@ -30,9 +42,17 @@ Finite State Machines are used in a wide variety of applications including:
 - Developing compilers and interpreters like the Ruby interpreter
 - Modeling simple patterns of events, think of the checkout process in bEtsy
 
-FSAs can make an effective tool to help design systems which have a limited number of states, like authenticating into a website, or processing information from an API.
+FSAs can make an effective tool to help design systems which have a limited number of states, like authenticating into a website, or processing a credit card purchase.
+
+When you are building a system it can be a very good idea to look at the problem and see if it can be modeled as a FSM.  By doing so you can acquire a more solid understanding of the application and more easily track and identify how the application or feature can flow.
 
 ## Definitions
+
+There are several terms we use when talking about Finite Automata.  
+
+Term | Symbol | Definition
+--- | --- | ---
+Alphabet | \Sigma | def
 
 ## Writing a State Machine for an Input Pattern
 
