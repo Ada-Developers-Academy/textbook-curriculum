@@ -24,7 +24,7 @@ Take a look at the following example:
 ```javascript
 import React from 'react';
 
-const Link = () => {
+const Link = (props) => {
   const linkStyle = {
     color: 'purple',
     fontFamily: 'monospace',
@@ -32,7 +32,7 @@ const Link = () => {
 
   return (
     <div style={linkStyle}>
-      Link: <a href={this.props.url}>{this.props.text}</a>
+      Link: <a href={props.url}>{props.text}</a>
     </div>
   );
 };
