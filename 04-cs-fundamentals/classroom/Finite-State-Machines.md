@@ -52,9 +52,39 @@ There are several terms we use when talking about Finite Automata.
 
 Term | Symbol | Definition
 --- | --- | ---
-Alphabet | \Sigma | def
+Alphabet | &Sigma; | The list of symbols the machine can take as input.  This must be a finite list.
+States | _S_ | The list of states the FSM can be in.
+Start State | S<sub>0</sub> | The single starting state for the FSM.
+Transition Function | 	&Delta; | A function which takes in the current state, the input and returns the next FSM's next state.
 
 ## Writing a State Machine for an Input Pattern
+
+### Example 1
+
+If we have an alphabet  &Sigma; consisting of {0, 1}, and need to design an FSM to determine of the input has the pattern 1111, 1011 or 101?
+
+![Solution to example 1](fsm-images/fsm-example2.png)
+
+### Example 2
+
+Now try draw a FSM which determines if 1111, 1011, 101 are contained in the input string.  You can assume the same alphabet.  
+
+<details>
+    <summary>Solution</summary>  
+    ![fsm solution](fsm-images/fsm-example2.png)
+    You can find the solution [here](fsm-images/fsm-example2.png)
+  </details>
+
+### A Real-Life Example
+
+Consider a tennis game, there are a finite number of states a tennis game can be in and for each round two possible results, the server wins, or the opponent wins.
+
+![Tennis Match FSM](fsm-images/tennis-fsm.png)
+
+Knowing the rules of tennis doesn't matter, at the start the state is `Love` (score 0 for both), and if the server wins, the state becomes `15 / Love`.  If the server wins again the state becomes `30 / Love`.  Then if the opponent wins the state becomes `30 / 15`.  If the server wins twice more the state will go to `40 / 15` and then `Server Wins`.  
+
+Take a look at the state diagram, even with only 2 possible inputs at each state and a limited number of states, as the number of states increases the machine grows in complexity.  
+
 
 ## A State Machine in a Table
 
