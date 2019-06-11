@@ -89,10 +89,10 @@ import React from 'react';
 
 import './Link.css';
 
-const Link = () => {
+const Link = (props) => {
   return (
     <div className='link-container'>
-      <a href={this.props.url}>{this.props.text}</a>
+      <a href={props.url}>{props.text}</a>
     </div>
   );
 };
