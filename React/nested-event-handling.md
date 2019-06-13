@@ -156,10 +156,14 @@ Create the event handler function with an initial logging statement to get us st
 ```javascript
 // Student.js
 
-onPresentButtonClick = () => {
-  console.log(this);
+const createPresentButtonClickHandler = (props) => {
+  return () => {
+    console.log(props);
+  }
 }
 ```
+
+Note that this function returns a _new_ function that we will use as our click handler.  We need to do this so that we can capture `props`.
 
 Then we tie the button to the event handler function:
 
@@ -167,8 +171,8 @@ Then we tie the button to the event handler function:
 // Student.js
 
 <button
-  disabled={ this.props.isPresent }
-  onClick={ this.onPresentButtonClick }
+  disabled={ props.isPresent }
+  onClick={ createPresentButtonClickHandler(props) }
   >Mark Present</button>
 ```
 
@@ -218,9 +222,11 @@ Now, in the `Student` component, we can call this callback function within our e
 ```javascript
 // Student.js
 
-onPresentButtonClick = () => {
-  console.log(this);
-  this.props.markPresentCallback(this.props.index);
+const createPresentButtonClickHandler = (props) => {
+  return () => {
+    console.log(props);
+    props.markPresentCallback(props.index);
+  }
 }
 ```
 
