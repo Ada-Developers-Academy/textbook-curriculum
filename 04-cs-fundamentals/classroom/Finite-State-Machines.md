@@ -13,7 +13,7 @@ By the end of this lesson you should be able to:
 - Explain what a Finite State Machine (FSM) is
 - Identify the languages a FSM can solve
 - Design a FSM to solve for a specific language pattern
-- Explain what kinds of problems a DFA cannot solve
+- Explain what kinds of problems a FSM cannot solve
 
 ## What is a Finite State Machine
 
