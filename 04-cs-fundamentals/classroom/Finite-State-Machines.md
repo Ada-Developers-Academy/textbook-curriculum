@@ -156,11 +156,11 @@ An FSM isn't a complete computational system.  Full computers can **remember** m
 
 ### Nondeterministic Finite State Machines
 
-A nondeterministic finite state machine is a machine which can take multiple paths given a specific input.  The machine will accept input if there is *at least* one path it can follow to accept the input.  The FSMs we've been using are called Deterministic Finite State Machines as they can only take one path for each given input.  It's been shown that you can build a deterministic finite state machine that is equivalent to a nondeterministic state machine.
+A Nondeterministic Finite State Machine (NFSM) is a more convient way to write a FSM.  A nondeterministic finite state machine is a machine which can take multiple paths given a specific input.  The machine will accept input if there is *at least* one path it can follow to accept the input.  The FSMs we've been using are called Deterministic Finite State Machines as they can only take one path for each given input.  It's been shown that you can build a deterministic finite state machine that is equivalent to a nondeterministic state machine, but requires potentially exponentially more states.  However since you can build a FSM to solve the same languages as a nondeterministic one, it can be more convient to draw a NFSM just because of the fewer number of states.  
 
 ### Pushdown Automata
 
-A Pushdown Automata is a finite state machine that also has access to a **stack**.  Because it can access the stack to remember past inputs or states a Pushdown Automata is more powerful than a finite state machine.
+A Pushdown Automata is a finite state machine that also has access to a **stack**.  Because it can access the stack to remember past inputs or states a Pushdown Automata is more powerful than a finite state machine.  Because a pushdown atomata can remember things in a last-in-first-out it can solve problems like identifying a palindrome that a FSM cannot.
 
 ### Turing Machines
 
