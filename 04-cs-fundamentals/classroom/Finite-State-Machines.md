@@ -101,17 +101,17 @@ B | A | B
 
 1. Given an alphabet of {a, b} design a FSM which will determine if the input contains `aabaa`.
 
-1. Given an alphabet of {A, C, D, G, O, T}  design a FSM which will accepts CAT or DOG alone.
+2. Given an alphabet of {A, C, D, G, O, T}  design a FSM which will accepts CAT or DOG alone.
 
-1. Given an alphabet of {a, b}, design an FSM which will determine if the input has an even number of `b`s.
+3. Given an alphabet of {a, b}, design an FSM which will determine if the input has an even number of `b`s.
 
-1. Given an alphabet of {BCOTY} construct an FSM which accepts CYBOT followed by any number of characters.  
+4. Given an alphabet of {BCOTY} construct an FSM which accepts CYBOT followed by any number of characters.  
 
-1. Given an alphabet of {a, b} design a FSM which will accept an only inputs with an equal number of `a`s and `b`s.
+5. Given an alphabet of {a, b} design a FSM which will accept an only inputs with an equal number of `a`s and `b`s.
 
-1. Given an alphabet of {0, 1} design an FSM which will accept any input which does not contain `100`.
+6. Given an alphabet of {0, 1} design an FSM which will accept any input which does not contain `100`.
 
-1. Chris has decided to go into the smart-lock business with a keypad consisting of only 1s and 0s, along with a reset button.  He's provided the following FSM diagram to show how his lock works.
+7. Chris has decided to go into the smart-lock business with a keypad consisting of only 1s and 0s, along with a reset button.  He's provided the following FSM diagram to show how his lock works.
   ![lock fsm](fsm-images/lock.png)
 
   - What is the shortest combination of keys which will open the lock?
