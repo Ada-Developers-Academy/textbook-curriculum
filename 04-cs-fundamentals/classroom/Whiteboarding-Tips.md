@@ -64,3 +64,4 @@ All content is licensed under a [Creative Commons Attribution-NonCommercial-NoDe
 - [C7 Compiled Questions](https://docs.google.com/spreadsheets/d/1ZJ_gL2oidqdYzgL5lk0Ew-KyFm_yK5J8SZmD-sW-G0U/edit#gid=0)
 - [C8 Compiled Questions](https://docs.google.com/spreadsheets/d/1fEDgUvF3e7VVVzlkrV2X6_5nqFA7_34B7FdWsZUDxZc/edit?usp=sharing
 )
+- [C12 Compiled Questions](https://docs.google.com/spreadsheets/d/12gxQs2zFe9cbGrRhEkewAwEh7cgEKqREguzpkoO6aBA/edit#gid=0)
