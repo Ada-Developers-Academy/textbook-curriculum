@@ -122,7 +122,10 @@ B | A | B
   ![life Finite state machine diagram](fsm-images/life.png)
 
 9. A farm road and a highway intersect as shown below.  Detectors are placed along the farmroad to signal a vehicle is waiting to cross the highway. The traffic light controller should operate as follows. As long as no vehicle is detected on the farmroad, the lights should remain green in the highway direction. If a vehicle is detected on the farmroad, the highway lights should change from yellow to red, allowing the farmroad lights to become green. The farmroad lights stay green only as long as a vehicle is detected on the farmroad and never longer than a set interval to allow the traffic to flow along the highway. If these conditions are met, the farmroad lights change from green to yellow to red, allowing the highway lights to return to green. Even if vehicles are waiting to cross the highway, the highway should remain green for a set interval.  Design a FSM for this problem.
-  States
+
+![Intersection](./fsm-images/intersection.png)
+
+**States**
 
   Current State | State symbols
   --- | --- 
