@@ -136,7 +136,7 @@ B | A | B
 
   Inputs (Alphabet)
 
-  Input | State symbols
+  Input | Input symbols
   --- | --- 
   Farm Sensor - Timer Expired | FS - TEX
   Farm Sensor - Timer Running | FS - TR
