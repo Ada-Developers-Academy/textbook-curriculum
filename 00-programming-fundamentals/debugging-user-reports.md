@@ -48,7 +48,7 @@ As you can see above the repro steps for this example bug are much more detailed
 
 * The repro steps should be as exact as possible. For the first step we didn't say "Open the website in a browser" -- this is important to minimize the variation between how you or the QA person reproduced the bug and how the developer fixing it is reproducing the bug.
 
-  Sometimes if a developer receives an issue ticket (how bugs and feature work are tracked) with some lenience or variation in how the repro steps could be followed they will try it one way and not trigger the bug, and then they will mark the issue as resolved because it's not a real bug.
+  Sometimes if a developer receives an issue ticket (how bugs and feature work are tracked) with some lenience or variation in how the repro steps could be followed they will try it one way and not trigger the bug, and then they will mark the issue as resolved because it's "not a real bug".
 * The repro steps should involve the original report's details to the greatest extent possible. In these repro steps we continued to use the dog massager item, even though this bug might affect other items.
 
   While you can sometimes generalize the repro steps, it's not always obvious when that is possible or not. In those cases err on the side of caution and re-use the details from the initial report -- they might be critical to diagnosing the underlying bug.
