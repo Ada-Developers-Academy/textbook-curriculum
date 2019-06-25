@@ -28,9 +28,13 @@ Currently there is no way for us to change the student data. If we want to be ab
 
 **Question:** Where should our application's state live? What are our options?
 
+<details>
+<summary>Our Approach</summary>
+
 We could keep the state for each student in the corresponding `Student` component, initializing it from `prop`s in the constructor. For this limited example, that would work fine. However, if we were to add event handling on the whole collection (sort, add/remove, etc.), it would reset all the state on the individual `Student`s! Not so good.
 
 Instead, we will _lift_ the state out of the `Student` component into the `StudentCollection`. This is a very common technique when managing a list of components in React: all the state lives in the parent component. This will also line up well with the code we've already written.
+</details>
 
 #### Classical Component
 
@@ -56,11 +60,11 @@ export default StudentCollection;
 
 Verify that this was a true refactor, in other words that your app still runs and looks exactly the same.
 
-#### Adding State
+#### Adding State to `<StudentCollection />`
 
 Our component is now a class, but it still doesn't keep track of any state. Let's fix that.
 
-As we saw in previous lessons, `state` should be set initially in the constructor. For our `StudentComponent`'s initial state, we'll use the list of students. We'll add an extra field to our students here, `isPresent`, which we'll be using in a bit.
+As we saw in previous lessons, `state` should be set initially in the constructor. For our `StudentCollection`'s initial state, we'll use the list of students. We'll add an extra field to our students here, `isPresent`, which we'll be using in a bit.
 
 Set up a constructor in the `StudentCollection` component. Don't forget your call to `super();` which is always required in a component constructor!
 
@@ -124,6 +128,43 @@ Now let's take a look at an updated version of the diagram that we created in ou
 
 Note that we're passing in a new `isPresent` prop here. How could we modify our `Student` component to reflect this information?
 
+#### Removing State From `<Student />`
+
+Part of the concept of 'lifting state' is removing any state that is no longer relevant to the child element. 
+
+**Question:** What pieces of state still need to keep inside of the `Student`?
+
+<details>
+  <summary>Answer</summary>
+
+  Actually, none! While we _could_ make a working app that uses a class based component in the `Student` and the `StudentCollection`, it will be cleaner to read and update in the future if we turn the classical version of `Student` back into a functional component!
+</details>
+
+Ultimately, we can refactor the code to look like this:
+
+```javascript
+  // Student.js
+  const Student = (props) => {
+  return (
+    <section>
+      <h3>Student Component</h3>
+      <h4 className={attendanceClass}>Name {props.fullName} </h4>
+      <p>Email: {props.email} </p>
+    </section>
+  );}
+```
+
+```css
+   /*Student.css*/
+  .absent {
+    color: red;
+  }
+
+  .present {
+    color: green;
+  }
+```
+
 ## Modify `state` using an event
 Listing out our students is great, but what if we could also track attendance? Let's do it! We'll set up a button for each student. When pressed, this button will update the `state` data for that student to mark them as "present". Additionally, we'll add some CSS so that students who have been marked "present" will be identified to the user.
 
@@ -134,16 +175,25 @@ There are a few things to consider when making this change to our application. T
 
 If you answered NO to question #3, you're on to something big. The data related to the students is tracked in the `StudentCollection` while the button to mark an individual student "present" should really be on each individual `Student` component. Our challenge then is to use the tools we have been given to _propagate_ the button press event from one component to another.
 
-#### The button
+#### The Button
 Let's start by updating the `render` function of the `Student` component to include the `isPresent` property, and a button.
 
 ```js
-<p>
-  { this.props.isPresent ? 'Present' : 'Absent' } today
-  <button
+// Student.js
+const Student = (props) => {
+
+return (
+  <section>
+    <h3>Student Component</h3>
+    <h4 className={(props.isPresent) ? 'present' : 'absent'}>Name {props.fullName} </h4>
+    <p>Email: {props.email} </p>
+
+
+    <button
     disabled={ this.props.isPresent }
     >Mark Present</button>
-</p>
+  </section>
+);}
 ```
 
 Change the initial state in the `StudentCollection` to verify this works as intended.
@@ -151,34 +201,54 @@ Change the initial state in the `StudentCollection` to verify this works as inte
 #### The Event Handler
 Next, let's explore the event handler setup. What data do we need from the button click event to appropriately change the overall student's state?
 
-Create the event handler function with an initial logging statement to get us started. We'll follow the same pattern as before for a DOM event handler: start with `on`, then indicate what element and what event are being handled.
+1. An Event Handler in the `Student.js` file
+1. A function that has access to the data (`this.state`) inside of `StudentCollection.js`
+
+First we'll create the event handler function with an initial logging statement. We'll follow the same pattern as before for a DOM event handler: start with `on`, then indicate what element and what event are being handled.
 
 ```javascript
 // Student.js
-
-onPresentButtonClick = () => {
-  console.log(this);
-}
+const Student = (props) => {
+  const onPresentButtonClick = () => {
+    console.log(props);
+  }
+// ... the middle of Student.js
 ```
 
 Then we tie the button to the event handler function:
 
-```javascript
+```js
 // Student.js
-
+//...
+return (
 <button
   disabled={ this.props.isPresent }
   onClick={ this.onPresentButtonClick }
-  >Mark Present</button>
+  >Mark Present </button>
+);}
 ```
 
-Test it out and see what gets logged in the console. What piece of data is going to help us determine exactly which student should be updated?
+Test it out and see what gets logged in the console.
+
+**Question:** What piece of data is going to help us determine exactly which student should be updated?
+
+<details>
+<summary>Answer</summary>
+The student we are interested in updating is something we can match using `props.index`. 
+</details>
+
+**Question:** Wait, why does this work at all? Shouldn't we lose access to `props` once the component is rendered?
+
+<details>
+<summary>Answer</summary>
+`onPresentButtonClick` is closed around `props`, so the `props` variable is still accessible!
+</details>
 
 #### Callback from the Parent
 
-Next, we must consider that the `state` of the students is not stored within this component. In order to update this, we'll need to call some code within the `StudentCollection` component which will change the state.
+Next, we must consider that the `state` of the students is not stored within this component. In order to update this, we'll need to _implement_ some code within the `StudentCollection` component which will change the state, and then _call_ that code inside the `Student`
 
-Let's create a new event handler function in the `StudentCollection` component. This even handler should take in one parameter which represents the unique identifier for the given student whom we want to mark "present".
+Let's create a new function in the `StudentCollection` component. This function should take in one parameter which represents the unique identifier for the `<Student />` whom we want to mark "present".
 
 ```javascript
 //StudentCollection.js
@@ -190,11 +260,14 @@ markPresent = (studentIndex) => {
 
 **Question:**  What way do we have to pass data from a parent component to a child component.
 
-If you answered `props` you're correct!
+<details>
+<summary>Answer</summary>
+If you answered `props`, you're correct!
 
-We are going to send _a callback function_ as `props` from the `StudentCollection` component to the `Student` component. Once the event occurs in the child component, we can then get the data we need from the child, and pass that to the parent to update the `state`.
+We are going to send _a callback function_ as a part of `props` from the `StudentCollection` component to the `Student` component. Once the event occurs in the child component, we can then get the data we need from the child, and pass that to the parent to update the `state`.
+</details>
 
-Update the `render` function in the `StudentCollection` component to pass in a new `prop` to `Student`, the callback function. Note: We are passing this as a function not _calling_ the function, so we leave the parenthesis off.
+Update the `render` function in the `StudentCollection` component to pass in a new `prop` to `Student`, the callback function. Note: We are _passing_ this as a function not _calling_ the function, so we leave the parenthesis off.
 
 ```javascript
 // StudentCollection.js
@@ -217,10 +290,14 @@ Now, in the `Student` component, we can call this callback function within our e
 
 ```javascript
 // Student.js
+const Student = (props) => {
+  const onPresentButtonClick = () => {
+    console.log(this);
+    this.props.markPresentCallback(this.props.index);
+  }
 
-onPresentButtonClick = () => {
-  console.log(this);
-  this.props.markPresentCallback(this.props.index);
+  // The rest of the file
+  // ...
 }
 ```
 
