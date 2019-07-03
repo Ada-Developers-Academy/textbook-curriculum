@@ -12,15 +12,17 @@ By the end of this lesson, students should be able to...
 
 ## Introduction: How do you Debug?
 
+Many programmers, especially early in their careers, take an ad-hoc approach to debugging. This works fine for simple bugs, but is likely to fall apart as programs become more and more complex. The goal of this lesson is to define a process to make debugging efficient, repeatable and scalable.
+
 **Think/pair/share** (5/5/10 minutes): Spend some time reflecting on your debugging process. When you discover a bug in your code, how do you proceed? What steps do you follow to fix it?
 
 ## Example Problem: Pyramid
 
-As a running example we will use the following problem (this is a classic interview question):
+As a running example we will use the following problem (a classic interview question):
 
 Write a program that, given a number `N`, prints a pyramid of octothorps (`#`) where the bottom layer of the pyramid has width `N`, and each layer above that has two fewer. The pyramids should be centered.
 
-Example runs of the program:
+Example runs of a correct implementation of the program:
 
 ```
 $ ruby pyramid.rb 6
@@ -80,17 +82,20 @@ If you think you've found the source of the bug, don't fix it yet - the point of
 
 <!-- https://www.draw.io/#G19_rauxdM4HH3kXGK4_vM2FO-5CG7JnYV -->
 
-[Wikipedia](https://simple.wikipedia.org/wiki/Scientific_method) describes the scientific method as:
+[Wikipedia](https://simple.wikipedia.org/wiki/Scientific_method) has this definition for the scientific method:
 
 > Scientific method refers to ways to investigate phenomena, get new knowledge, correct errors and mistakes, and test theories.
 
 Sounds like a perfect tool to use in debugging!
 
-The scientific method is by design a fluid process with many interpretations, but we'll walk through the big pieces of it step by step.
+Two things to remember as we go forward:
+
+- The scientific method is an iterative process, which means that as new information is revealed it's common to go back to a previous step
+- The scientific method is fluid and has many interpretations, but its goal is always a methodical, evidence-based pursuit of understanding
 
 ### 1. Observation
 
-Debugging is almost always rooted in observation. We see something we don't expect, and wonder why it happened and how we can fix it.
+Debugging (and science in general) is almost always rooted in observation. We see something we don't expect, and wonder why it happened and how we can fix it.
 
 It can be valuable to refine this further:
 - What specifically went wrong?
@@ -308,7 +313,27 @@ In addition, if you haven't yet written a test case for this bug, now is the tim
 
 ## Summary
 
+Debugging is tricky, but we can use the scientific method to inform a process that will work for complex programs and subtle bugs.
 
+Scientific debugging follows these steps:
+
+1. Observation
+    - What specifically is the problem?
+    - What behavior did you expect?
+1. Investigation
+    - Develop a _repro_, or way to consistently make the bug occur
+    - Automate the repro with a test if possible
+1. Hypothesis
+    - Make an educated guess about where the problem lies
+    - Focus on one hypothesis at a time
+1. Prediction / Experiment
+    - Attempt to prove or disprove the hypothesis
+    - Use the hypothesis to make a prediction, then run an experiment to verify or falsify the prediction
+    - Think about _cost_ and _risk_ when deciding what experiments to run
+    - Practice _controlled experimentation_ to reduce risk
+    - Use the results of experiments to refine your hypothesis
+1. Communicate
+    - Write a comment, test, email or blog post
 
 ## Additional Resources
 
@@ -319,5 +344,5 @@ On the scientific method in general:
 
 On debugging with the scientific method:
 
-- [Video: Debugging with the Scientific Method - Stuart Halloway](https://www.youtube.com/watch?v=FihU5JxmnBg)
+- [Video: Debugging with the Scientific Method](https://www.youtube.com/watch?v=FihU5JxmnBg) (50 minutes)
 - [Debugging software using the scientific method](https://medium.com/@guilhermereiscampos/debugging-software-using-the-scientific-method-6d00d22092bf)
