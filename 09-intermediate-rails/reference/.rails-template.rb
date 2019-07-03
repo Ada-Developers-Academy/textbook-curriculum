@@ -1,5 +1,5 @@
 puts "Executing the Rails template"
-API_MODE = ARGV.include? '--api'
+API_MODE = ARGV.include? "--api"
 puts "API mode: #{API_MODE}"
 
 # Generated with figlet
@@ -14,48 +14,48 @@ FIGLET
 
 unless API_MODE
   # jQuery is cool
-  gem 'jquery-rails'
+  gem "jquery-rails"
 
   # Make $(document).ready work as expected, despite turbolinks weirdness
-  gem 'jquery-turbolinks'
+  gem "jquery-turbolinks"
   # Bootstrap CSS Library
-  gem 'bootstrap', '~> 4.1.3'
-  gem 'sass-rails'
+  gem "bootstrap", "~> 4.1.3"
+  gem "sass-rails"
 end
 
 gem_group :development, :test do
   # Use pry for rails console, enable binding.pry
-  gem 'pry-rails'
+  gem "pry-rails"
 end
 
 unless API_MODE
   gem_group :development do
     # Improve the error message you get in the browser
-    gem 'better_errors'
+    gem "better_errors"
 
     # Nice interactive terminal when an exception happens
-    gem 'binding_of_caller'
+    gem "binding_of_caller"
 
     # Automatically run our tests
-    gem 'guard'
-    gem 'guard-minitest'
+    gem "guard"
+    gem "guard-minitest"
   end
 end
 
 # Add some extra minitest support
 gem_group :test do
-  gem 'minitest-rails'
-  gem 'minitest-reporters'
+  gem "minitest-rails"
+  gem "minitest-reporters"
 end
 
 unless API_MODE
   # Don't even install coffeescript
-  gsub_file 'Gemfile', /^gem \'coffee-rails\'/ do
+  gsub_file "Gemfile", /^gem \'coffee-rails\'/ do
     "\# gem 'coffee-rails'"
   end
 
   # Add jquery to application.js to work with foundation-rails
-  inject_into_file 'app/assets/javascripts/application.js', after: '// about supported directives.' do
+  inject_into_file "app/assets/javascripts/application.js", after: "// about supported directives.\n" do
     <<-'JAVASCRIPT'
 
   //= require jquery3
@@ -64,7 +64,7 @@ unless API_MODE
     JAVASCRIPT
   end
 
-  append_to_file 'app/assets/stylesheets/application.css' do
+  append_to_file "app/assets/stylesheets/application.css" do
     <<-'SCSS'
 
 /* Custom bootstrap variables must be set or imported *before* bootstrap. */
@@ -76,18 +76,17 @@ unless API_MODE
 end
 
 unless API_MODE
-
-  gsub_file 'app/assets/stylesheets/application.css', / \*= require_tree .\n/ do
-  ""
+  gsub_file "app/assets/stylesheets/application.css", / \*= require_tree .\n/ do
+    ""
   end
-  gsub_file 'app/assets/stylesheets/application.css', / \*= require_self\n/ do
-  ""
+  gsub_file "app/assets/stylesheets/application.css", / \*= require_self\n/ do
+    ""
   end
   run "mv app/assets/stylesheets/application.css app/assets/stylesheets/application.scss"
 end
 # Mess with generators to get the behavior we expect around new files
 # For these injections, indentation matters!
-inject_into_file 'config/application.rb', after: "class Application < Rails::Application\n" do
+inject_into_file "config/application.rb", after: "class Application < Rails::Application\n" do
   <<-'RUBY'
   config.generators do |g|
     # Force new test files to be generated in the minitest-spec style
@@ -99,13 +98,13 @@ inject_into_file 'config/application.rb', after: "class Application < Rails::App
 end
 
 # Allow us to use form_with without utilizing the remote form option
-create_file 'config/initializers/action_view.rb' do
+create_file "config/initializers/action_view.rb" do
   <<~INIT
     Rails.application.config.action_view.form_with_generates_remote_forms = false
   INIT
 end
 
-create_file 'Guardfile' do
+create_file "Guardfile" do
   <<~GUARDFILE
     guard :minitest, autorun: false, spring: true do
       watch(%r{^app/(.+)\.rb$})                               { |m| "test/\#{m[1]}_test.rb" }
@@ -125,8 +124,9 @@ after_bundle do
   # Add minitest reporters support. This must be run after
   # rails generate minitest:install, because that command
   # changes test/test_helper.rb
-  inject_into_file 'test/test_helper.rb', after: 'require "minitest/rails"' do
+  inject_into_file "test/test_helper.rb", after: 'require "minitest/rails"' do
     <<-'RUBY'
+
 require "minitest/reporters"  # for Colorized output
 #  For colorful output!
 Minitest::Reporters.use!(
@@ -136,6 +136,13 @@ Minitest::Reporters.use!(
 )
     RUBY
   end
+
+  puts "======================="
+  print "Postgres status: "
+  system("brew services list | grep postgresql")
+  puts "======================="
+
+  puts ""
 
   puts "Successfully generated a new Rails app using the Ada Developers Academy template"
   puts "This is template version 2 (intermediate Rails)"

@@ -16,7 +16,7 @@ By the end of this project, students should be able to...
 Given the following array of wonders:
 
 ```javascript
-seven_wonders = [
+sevenWonders = [
   "Great Pyramid of Giza",
   "Hanging Gardens of Babylon",
   "Colossus of Rhodes",
@@ -27,6 +27,6 @@ seven_wonders = [
 ]
 ```
 
-Build a web page to display the list of wonders along with their locations. Your page should include an HTML file and a JavaScript file. The JavaScript should take the list of wonders, run them through the Google Maps API, and add a DOM element to the page for each including its name and coordinates.
+Build a web page to display the list of wonders along with their locations. Your page should include an HTML file and a JavaScript file. The JavaScript should take the list of wonders, run them through the [Location IQ](https://locationiq.com/) API, and add a DOM element to the page for each including its name and coordinates.
 
 Feel free to use your Ruby solution as a starting point. The learning goal here is working with axios and rendering the results in a web page, not deciphering the Google Maps API.

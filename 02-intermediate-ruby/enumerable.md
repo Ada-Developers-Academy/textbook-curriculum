@@ -94,4 +94,4 @@ Let's take what we just learned about `Enumerable` and apply that to the [Loop P
 
 ## Additional Resources
 - For more information on Mixins, read up on it in [this chapter](mixins.md)
-- For another interesting Mixin, look up [Comparable](https://ruby-doc.org/core-2.4.0/Comparable.html)
+- For another interesting Mixin, look up [Comparable](https://ruby-doc.org/core/Comparable.html)

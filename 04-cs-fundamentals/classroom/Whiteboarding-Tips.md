@@ -49,6 +49,19 @@ Technical Questions: Problem Solving approach
 - Practice (more the better) white boarding questions in 20 minute slots with peers, friends and mentors.
 
 ## Slide Deck
-+ Slide Deck used in class</br>
-<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://drive.google.com/file/d/0B__DV26QHsH4dnBwSnpBa1ZQWEU/view?usp=sharing">Whiteboarding interview preparation</a></span></br> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</br>
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /> 
+
+- [Slides on Interview Preparation](https://docs.google.com/presentation/d/1Fkz-SXB8D7BGjaELy9uG4Wke8zSFbUKLe5jexFQ7xa0)
+
+All content is licensed under a [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](http://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+[![Creative Commons License](https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+## Previous Interview Questions
+
+- [C3 Compiled Questions](https://docs.google.com/spreadsheets/d/1t-kN_dFZp2OJQJI9yJW8JrS1c_aK-Hi6k9DWP1bw_40/edit?ts=56a027f7#gid=570475651)
+- [C4 Compiled Questions](https://docs.google.com/spreadsheets/d/1pnWSQHcvV8rQ1R-e_D7uTO-YF3cfCmrK6SteoiWwTzM/edit#gid=479496602)
+- [C5 Compiled Questions](https://docs.google.com/spreadsheets/d/1nBLF_YGHmkqP6xb6QfJKrOBtqa2ZA0YpuRltI1wU_bE/edit#gid=0)
+- [C7 Compiled Questions](https://docs.google.com/spreadsheets/d/1ZJ_gL2oidqdYzgL5lk0Ew-KyFm_yK5J8SZmD-sW-G0U/edit#gid=0)
+- [C8 Compiled Questions](https://docs.google.com/spreadsheets/d/1fEDgUvF3e7VVVzlkrV2X6_5nqFA7_34B7FdWsZUDxZc/edit?usp=sharing
+)
+- [C10 Compiled Questions](https://docs.google.com/spreadsheets/d/12gxQs2zFe9cbGrRhEkewAwEh7cgEKqREguzpkoO6aBA/edit#gid=0)

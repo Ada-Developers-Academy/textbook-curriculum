@@ -53,7 +53,7 @@ Let's now take a second to consider an alternative way to solving this problem. 
 
 The `map` method will operate on an array, go through each element in the array, perform some operation defined in a code block for each element on the array, and return an array of the same size with the operation performed for each element.
 
-[This is Ruby's documentation for the `map` method](https://ruby-doc.org/core-2.5.1/Enumerable.html#method-i-map). A skill we will learn as developers is to always check documentation as a source of truth for learning what methods are available, what they do, what they take in as parameters, and what they return.
+[This is Ruby's documentation for the `map` method](https://ruby-doc.org/core/Enumerable.html#method-i-map). A skill we will learn as developers is to always check documentation as a source of truth for learning what methods are available, what they do, what they take in as parameters, and what they return.
 
 Let's refactor our code above to use `map` instead of `each`:
 
@@ -124,7 +124,7 @@ end
 
 Solve this first using an each loop, then refactoring it to use `map`.
 
-1. Given the following hash `students`, assign to a new variable a new array `formatted_names`. In the new array, each element should be hash with the same key, but the value in [upcase (CAPITAL) letters](https://ruby-doc.org/core-2.2.3/String.html#method-i-upcase).
+1. Given the following hash `students`, assign to a new variable a new array `formatted_names`. In the new array, each element should be hash with the same key, but the value in [upcase (CAPITAL) letters](https://ruby-doc.org/core/String.html#method-i-upcase).
 
 ```ruby
 students = {

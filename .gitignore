@@ -1,2 +1,6 @@
 .DS_Store
 .vscode/*
+*_BACKUP_[0-9]*
+*_BASE_[0-9]*
+*_LOCAL_[0-9]*
+*_REMOTE_[0-9]*

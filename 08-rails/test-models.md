@@ -34,16 +34,21 @@ end
 ```
 
 **Question:** based on the guidelines above, what test cases will we need to write for this model?
-
-We will need to write tests that ask the following questions:
+<details>
+<summary>We will need to write tests that ask the following questions:</summary>
+  
 - If you create an instance of the model with all fields, do validations pass?
 - Do validations fail when the `title` field is missing?
 - Do validations fail when the book has the same `title` as another book in the database?
 - Can you access the book's `author` property?
 
+</details>
+
 ## Test Files
 
 **Question:** When we generated our `Book` model, Rails generated some tests as well. Where do they live?
+
+<details><summary>Answer</summary> [project_root]/tests/models</details>
 
 If you generated this model after switching to spec-style testing, it should look something like this:
 
@@ -139,7 +144,9 @@ Run the tests again - this one should also pass, because we're doing our testing
 An ActiveRecord model might have many different validations, and if any one of them fails then the whole model is considered invalid. Some completely different validation could be making this test pass, even if our validation isn't doing what we think.
 
 **Question:** Once validations have been run on a model, how can you find out what caused them to fail? How can we use this to make our test more precise?
-
+<details>
+<summary>Example</summary>
+  
 ```ruby
 # test/models/book_test.rb
 it 'is invalid without a title' do
@@ -154,6 +161,7 @@ it 'is invalid without a title' do
   expect(@book.errors.messages).must_include :title
 end
 ```
+</details>
 
 ### Exercise: Testing the `uniqueness` Validation
 

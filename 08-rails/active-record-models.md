@@ -71,7 +71,7 @@ Book.where(author: "Ta-Nehisi Coates")
 becomes
 
 ```sql
-SELECT * FROM "students" WHERE "author" = "Ta-Nehisi Coates";
+SELECT * FROM "books" WHERE "author" = "Ta-Nehisi Coates";
 ```
 
 ## AR Class Methods: Finding and Organizing Records

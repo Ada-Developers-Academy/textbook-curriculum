@@ -63,7 +63,7 @@ Then, make many instances of the `Zine` class. Make an instance of `Zine`s with 
 
 You should get input that looks like this:
 
-```javascript
+```bash
 const wizardZine = new Zine('So you want to be a wizard');
 > undefined
 wizardZine
@@ -255,12 +255,12 @@ Classes can be subclassed using the `extends` keyword.
 ```javascript
 class Zine {
   constructor(title, contributor) {
-    this._title = title;
-    this._contributor = contributor;
+    this.title = title;
+    this.contributor = contributor;
   }
 
   toString() {
-    return `${this._title} by ${this._contributor}`;
+    return `${this.title} by ${this.contributor}`;
   }
 
 }
@@ -270,10 +270,10 @@ class Fanzine extends Zine {
   constructor(title, contributor, subject) {
     super(title, contributor);
 
-    this._subject = subject;
+    this.subject = subject;
   }
   toString() {
-    return `${super.toString()} about: ${this._subject}`;
+    return `${super.toString()} about: ${this.subject}`;
   }
 
 }

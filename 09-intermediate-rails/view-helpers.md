@@ -1,61 +1,173 @@
 # Create Custom View Helpers
 
 ## Learning Goals:
-After Reading this you should be able to:
-- Create your own View Helpers to DRY and simplify your views code.
-- Explain how view helpers function.
-- Understand what sorts of problems view helpers are good at solving.
+
+After this lesson, students will be able to:
+
+- Locate view helpers and associated tests within the files and folders of a Rails app
+- Write a view helper
+- Identify and test common edge-cases for a view helper
+- Decide whether a view helper is the appropriate tool to solve a given problem
 
 ## View Helpers
-We've already seen several built-in view helpers - things like `link_to`, `button_to`, and `form_with`. Rails also allows you to define your own custom view helpers. Custom helpers should be used for similar purposes: generating small amounts of HTML or text to be inserted into a web page.
 
-New helper methods are defined in within the `app/helpers` directory. All of the helper files within `app/helpers` will be available to any page, the only reason to have separate files is to separate concerns. The `application_helper.rb` is a great place to define methods that are not specific to a model.
+A view helper is a Ruby method that generates HTML. We have already worked with many of these,like `link_to`, `image_tag`, and `form_with`. Rails also allows you to define your own custom view helpers. Custom helpers should be used for similar purposes: generating small amounts of HTML or text to be inserted into a web page.
 
-Let's define a new method that transforms a date object into something readable:
-```ruby
-def readable_date(date)
-  ("<span class='date'>" + date.strftime("%A, %b %d") + "</span>").html_safe
-end
-```
-Then within any view I could use this method, and pass in any date or time object:
+Custom helper methods are defined in within the `app/helpers` directory. Rails will make all view helpers available on any page of your app, but much like with CSS, we will use the different files to separate helpers specific to different parts of the app. The `application_helper.rb` is a great place to define methods that are not specific to a model.
+
+**Question:** Open the file `app/helpers/application_helper.rb`. What does it contain? How might we figure out how to use this file?
+
+### Example: Displaying Timestamps
+
+Consider the problem of displaying timestamps to the user. Most of the time, a human will want to see a time in a human-readable format, like "14 minutes ago" or "2 days from now". However, sometimes we need a more precise time, like `2019-04-21T19:33:26-07:00`.
+
+A common solution to this problem is to display the human-readable date on the page, and include hover text using the HTML `title` attribute for the full timestamp:
+
 ```html
-<h1><%= @book.title %></h1>
-<%= readable_date(@book.created_at) %>
-```
-This would produce the HTML
-```html
-<h1><%= @book.title %></h1>
-<span class='date'>Wednesday, Jan 08</span>
+<span class="date" title="2019-04-21T19:33:26-07:00">
+  14 minutes ago
+</span>
 ```
 
-### HTML_SAFE
-The html_safe method lets Rails know to use the HTML tags resulting from the helper.  If that is left off the resulting HTML will be "escaped" printing `&lt;span class='date'&gt;Monday, Jan 01&lt;/span&gt;` in the html instead of the literal tags.  Rails is doing this for security, to ensure that only HTML tags you specify are rendered on the page.
+Hand-writing all this code every time we need to display a timestamp would be tedious and error-prone, so it makes sense to write a method to do this for us.
 
-By using html_safe you demonstrate that you are "trusting" the given string to have valid and trustworthy html code.
+**Question:** What options do we have for where this method might live? Which feels like the best fit?
 
-Another example which generates a random image:
+<details>
+<summary>Click here to see the options</summary>
+
+- As a **model method**: no
+    - Many different models might contain dates, so it would be hard to pick one model to put it in
+    - This code is concerned with presentation, and should be associated with the view layer
+- As a **partial view**: no
+    - A partial feels too "big" for what we're doing here - we're generating a small amount of code, not a big chunk of a page
+    - This code is specific enough that it would be worth testing, and there's no way to test a partial
+- As a **view helper**: yes!
+    - We're generating a small amount of generic HTML
+    - The logic is separate from any specific model
+    - View helpers are very testable
+</details>
+
+### Writing the Helper
+
+Now that we've decided on a view helper, we can get to work. The [`time_ago_in_words` method](https://api.rubyonrails.org/v5.1/classes/ActionView/Helpers/DateHelper.html#method-i-time_ago_in_words) provided by Rails might come in handy.
 
 ```ruby
-def random_image(width, height)
-  number = rand(3)
-  url = ""
-  case number
-  when 0
-    url = "https://picsum.photos/"
-  when 1
-    url = "http://www.placecage.com/"
-  when 2
-    url = "http://placekitten.com/"
+# app/helpers/application_helper.rb
+module ApplicationHelper
+  def readable_date(date)
+    return "[unknown]" unless date
+    return (
+      "<span class='date' title='".html_safe +
+      date.to_s +
+      "'>".html_safe +
+      time_ago_in_words(date) +
+      " ago</span>".html_safe
+    )
   end
-  ["<img src='", url, width,"/" ,height, "' alt='random image'>"].join.html_safe
 end
 ```
-And in the view:
-```erb
-<%= random_image(300, 400) %>
+
+When invoked from a view template, this method will generate HTML similar to our example above.
+
+```html+erb
+Added to this site <%= readable_date(@book.created_at) %>
+
+<!-- Generates -->
+
+Added to this site <span class="date" title=""2019-04-21T19:33:26-07:00">14 minutes ago</span>
 ```
 
-### What Goes Where?
+A few things to notice here:
+- We check for `nil` at the top of the method
+- We write our HTML as a sequence of strings concatenated (plussed) together
+- We call the method `html_safe` on some but not all of the strings
+
+### `html_safe`
+
+The `html_safe` method lets Rails know that we trust the HTML in a certain string. Without it the generated HTML will be escaped. In other words, instead of
+
+```html
+<span class="date" title="2019-04-21T19:33:26-07:00">14 minutes ago</span>
+```
+
+we will get
+
+```html
+&lt;span class="date" title="2019-04-21T19:33:26-07:00"&gt;14 minutes ago&lt;/span&gt;
+```
+
+This is rendered by the browser into literal less-than and greater-than characters. In fact, this is true of any string inserted into HTML by an ERB value tag. For example:
+
+```html+erb
+<%= "<p>Test Paragraph</p>" %>
+
+<!-- Generates -->
+
+&lt;p&gt;Test Paragraph&lt;/p&gt;" %>
+```
+
+Ruby has good reason to be so suspicious. Imagine the following scenario: A malicious user creates a new book on our site. Instead of a real description, they write some malicious JavaScript inside of a `<script>` tag. If Rails didn't escape the angle brackets in the tag, then any other browser that viewed that book would immediately begin executing that JavaScript. All of a sudden our site has become an attack vector for someone else!
+
+**Never ever call `html_safe` on content that came from a user!** Usually that means you should only call `html_safe` on string literals.
+
+We can see this rule being followed in the `readable_date` method above:
+
+```ruby
+"<span class='date' title='".html_safe +
+date.to_s +
+"'>".html_safe +
+time_ago_in_words(date) +
+" ago</span>".html_safe
+```
+
+We need to tell Rails to trust all the bits of the `<span>` tag, but we can't trust the `date` since that may have come from the user. Following the rule above, we break the string up into literals that we trust, and variables that we do not.
+
+### Testing
+
+One of the major benefits of view helpers is that they can be tested relatively easily, unlike most of our view code.
+
+Tests for our view helpers will live in the `test/helpers` directory. Rails will not automatically generate test files for some reason, but we can create an empty one:
+
+```ruby
+# test/helpers/application_helper_test.rb
+require "test_helper"
+
+describe ApplicationHelper do
+  describe 'readable_date' do
+  end
+end
+```
+
+**Question:** What interesting test cases exist for our `readable_date` view helper?
+
+View helper tests typically consist of providing a known input and checking against a known output, so we might write the following two cases:
+
+```ruby
+require "test_helper"
+
+describe ApplicationHelper do
+  describe "readable_date" do
+    it "produces a tag with the full timestamp" do
+      date = Date.today - 14
+
+      result = readable_date(date)
+
+      expect(result).must_include date.to_s
+    end
+
+    it "returns [unknown] if the date is nil" do
+      date = nil
+
+      result = readable_date(date)
+
+      expect(result).must_equal "[unknown]"
+    end
+  end
+end
+```
+
+## What Goes Where?
 We've learned about a whole bunch of places to put code: the Controller, the Model, Partials and View Helpers. Why are there so many, and what sorts of things ought to go where?
 
 | Task                                            | Where It Goes           | Examples |
@@ -67,5 +179,14 @@ We've learned about a whole bunch of places to put code: the Controller, the Mod
 | Rendering a small, simple piece of a webpage    | View Helper             | Formatting a date, prefixing the page title with the site title, building a link to a named route |
 | Rendering a big, complicated piece of a webpage | Partial View            | Table of media items, form to create or edit a post |
 
+## Summary
+
+- View helpers are Ruby methods that generate HTML
+- View helpers are most useful for small, targeted pieces of display logic
+- If you want to include tags, you must mark them as trusted using `html_safe`. **Only use `html_safe` on data you actually trust (i.e. string literals)!**
+- Testability is one of the big advantages of view helpers. Take advantage of it!
+
 ## Resources
--  [html_safe](http://apidock.com/rails/String/html_safe)
+- [`html_safe` documentation](http://apidock.com/rails/String/html_safe)
+- [Everything You Know About `html_safe` is Wrong](https://makandracards.com/makandra/2579-everything-you-know-about-html_safe-is-wrong) - excellent resource describing security concerns
+

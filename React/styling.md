@@ -1,10 +1,10 @@
 # Using CSS in React Components
 
 ## Learning Goals
+
 - See options for how to include CSS in React components
 - Show how to use `const`s and `style` directly in component files to store CSS data
 - Use and load external CSS files to store CSS data
-
 
 ## How to include CSS
 
@@ -24,7 +24,7 @@ Take a look at the following example:
 ```javascript
 import React from 'react';
 
-const Link = () => {
+const Link = (props) => {
   const linkStyle = {
     color: 'purple',
     fontFamily: 'monospace',
@@ -32,7 +32,7 @@ const Link = () => {
 
   return (
     <div style={linkStyle}>
-      Link: <a href={this.props.url}>{this.props.text}</a>
+      Link: <a href={props.url}>{props.text}</a>
     </div>
   );
 };
@@ -51,6 +51,7 @@ If we look at the actually rendered page that renders this component, we see tha
 ```
 
 Now that we've seen an example, note the following things:
+
 - `linkStyle` is a `const` var
 - the value of `linkStyle` is an object, so items are comma-separated
 - the names of CSS properties are camelCase here, so in JavaScript it's `fontFamily` and turns into the CSS `font-family`
@@ -88,10 +89,10 @@ import React from 'react';
 
 import './Link.css';
 
-const Link = () => {
+const Link = (props) => {
   return (
     <div className='link-container'>
-      <a href={this.props.url}>{this.props.text}</a>
+      <a href={props.url}>{props.text}</a>
     </div>
   );
 };

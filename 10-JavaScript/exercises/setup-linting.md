@@ -1,12 +1,12 @@
-# Set Up Atom for Linting
+# Linting Setup for Javascript
 
-This walkthrough will help you set up Atom's `eslint` linter to use the ESLint recommended settings globally and help you write cleaner JavaScript.  Many developers use specific linter configurations to enforce coding style guides.
+This walkthrough will help you set up the `eslint` linter to use the ESLint recommended settings globally and help you write cleaner JavaScript.  Many developers use specific linter configurations to enforce coding style guides.
 
 ## Learning Goals:
 
 After this walkthrough you should be able to:
 - Explain what a code style guide is
-- Write JavaScript in Atom with a JavaScript linter highlighting errors and warnings
+- Write JavaScript with a linter highlighting errors and warnings
 
 ![coding standards](images/coding-standards.png)
 [Source](https://xkcd.com/927/)
@@ -15,8 +15,11 @@ After this walkthrough you should be able to:
 
 Many software teams adhere to a set of rules which serve as guidelines for how to write and organize code.  Linters can be an integral part of a team's style conventions.
 
-__Why use a style guide?__  Without a good style guide that all parties adhere to, inevitably ugly, inconsistent code creeps in.  Agreeing on a coding standard helps keep the codebase readable, and encourage best practices.  You can read more on it [here](https://medium.freecodecamp.org/adding-some-air-to-the-airbnb-style-guide-3df40e31c57a).  Using a Linter is one way of enforcing a coding standard, the text editor reminds you when you veer off the road.
+__Why use a style guide?__  Style guides are a common way for a group of people to create consistently formatted documents. Like MLA or the Chicago Manual of Style, a code style guide helps us find the information we are looking for as quickly as possible.
 
+In a large team, with programmers from a lot of different language backgrounds, it's easy to fall into whatever habits your first programming language encouraged. A Python whiz might default to using indentation alone to show where a code block begins and ends, where a C programmer at heart might feel more comfortable surrounding code blocks in curly braces. With small differences like these, one slight difference between two programmers may go unnoticed, but as teams get bigger and more and more styles mix, code becomes increasingly ugly and unreadable. 
+
+Simply put, style guides help us keep code formatted consistently between developers, making for fewer context switches, and hopefully fewer dumb mistakes.
 
 - [AirBNB](https://github.com/airbnb/javascript) has a well documented coding standard that is very popular.
 - [Google](https://google.github.io/styleguide/jsguide.html) also has a popular coding style guide.
@@ -58,42 +61,21 @@ Add this file `~/.eslintrc`
     "browser": true,
     "commonjs": true,
     "jquery": true,
-    "jest/globals": true
+    "jest/globals": true,
+    "es6": true
   }
 }
 ```
 
 ## Install `Linter-Eslint`
 
-Back to Atom!  Now we can install Atom's linter and get it set up.
+Head to VS Code!  Now we can install the extension for eslint and get it set up.
 
-In Atom go to preferences-->install and install `linter-eslint`.
+In VS Code open the Extensions tab and search for `ESLint`.
 
-Preferences:
+Extensions Tab:
 
-![preferences](images/preferences.png)
-
-Install
-
-![install](images/install.png)
-
-### Atom Linter-ESLint Settings
-
-Then go to the settings and add these settings.
-
-Settings:
-
-![settings](images/search-packages.png)
-
-1. .eslintrc path to: `~/.eslintrc`
-
-![.eslintrc path](images/eslintrc-path.png)
-
-2. Check `Use Global ESLint Installation`
-
-![use global eslint install](images/use-global.png)
-
-3. Also make sure that `Disable when no ESLint config is found (in package.json or .eslintrc)` is **unchecked**.
+![extensions tab](images/extensions_linter.png)
 
 ## Trust But Verify!
 
@@ -107,11 +89,11 @@ You should get a warning (Unexpected var) about declaring a variable with var, t
 
 ![no-var](images/verify-linting.png)
 
-Notice the link on the right-side of the message.  That will take you to an eslint page about the rule.  If you get this message, it worked!
+Notice the `Quick Fix` link on the right-side of the message.  That will open a sub-menu that can take you to an eslint page about the rule.  If you get this message, it worked!
 
 ## Summary
 
-In this exercise we set up Atom to use the ESLint recommended coding standards by default in any JavaScript file we create (ending with .js).  To do so we had to install some node modules (like Ruby Gems) and install the `linter-eslint` package in Atom.
+In this exercise we set up VS Code to use the ESLint recommended coding standards by default in any JavaScript file we create (ending with .js).  To do so we had to install some node modules (like Ruby Gems) and install `ESLint` extension in VS Code.
 
 ## Resources
 - [AirBNB JavaScript Style Guide](https://github.com/airbnb/javascript)

@@ -14,12 +14,14 @@ Programming topics not directly related to Ruby development.
 1. [Introduction to Agile](intro-to-agile.md)
 1. [Pair Programming](programming-techniques-pairs-or-solo.md)
 1. [What is Pseudocode?](pseudocode.md)
+1. [Scientific Debugging](scientific-debugging.md)
 1. [User Stories](user-stories.md)
 
 ## Tools
 1. [Introduction to Automated Tests](intro-to-automated-tests.md)
 1. [Debugging with Pry](debugging-with-pry.md)
 1. [Code Coverage & SimpleCov](code-coverage-and-simplecov.md)
+1. [Continuous Integration](continuous-integration.md)
 
 ## Git
 1. [Submitting Projects](submitting-projects-v1.md)
@@ -28,8 +30,9 @@ Programming topics not directly related to Ruby development.
 1. [Diff Pull & Merge](git-diff-pull-and-merge.md)
 1. [Managing Git branches](managing-git-branches.md)
 1. [Merge Conflicts](git-merge-conflicts.md)
+1. [Pull Requests Exercise](exercises/git-pull-requests.md)
 
 ## Miscellaneous
 1. [Intro to Scripting](intro-to-scripts.md)
 1. [Intro to Regular Expressions](intro-to-regex.md)
-1. [Scientific Debugging](scientific-debugging.md)
+1. [Commands and Queries](commands-queries.md)

@@ -9,6 +9,7 @@ For this worksheet practice, you should create a new React project with `create-
 Once the project has been created, make a new directory within the project called `src/components`. This is where you will create each new component's JavaScript and CSS files. It's totally fine to put all of these components into the same React project, even though they don't all interact with each other.
 
 There are two kinds of components in this practice worksheet: **basic** and **nested**:
+
 * Basic components receive `props` and return pure HTML that will be part of the page.
 * Nested components are very similar, except part of their function includes other React components.
 
@@ -19,16 +20,16 @@ In this worksheet the nested components are built using the basic components -- 
 ## Basic Components
 
 1. Create an **Avatar** component which takes an image URL and presents that image with a border.
-    
+
     Examples:
     ![Avatar component example](./images/example-component-avatar.png)
 1. Create a **Badge** component which takes a number and displays that number in a circle. Bonus: have the circle change color based on the value of the number (e.g. red if it's < 50, green otherwise).
-    
+
     Example (the badge is the part with the 88 or 888):
 
     ![Badge component example](./images/example-component-badge.png)
 1. Create a **Product** component, which takes a name, a product photo URL, a standard price, and a discount price. If the discounted price is less than the standard price then the component should display the discounted price with some visual indicator (e.g. the price text is red).
-    
+
     Example:
 
     ![Product component example](./images/example-component-product.png)
@@ -36,6 +37,7 @@ In this worksheet the nested components are built using the basic components -- 
 ## Nested Components
 
 1. Create a **UserCard** component which takes a user object. The user object has properties for:
+
     - User name
     - Avatar image URL
     - Rank - A role or title in the community represented by text e.g. Super Moderator

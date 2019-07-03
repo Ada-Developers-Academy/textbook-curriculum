@@ -50,7 +50,7 @@ Once you open a new terminal you should now be able to type `demo-script.rb` no 
 
 ## Execute Permission
 
-Unfortunately just adding the shebang to the top of your file isn't enough, you also need to tell the macOS that you want to be able to run it as a command.
+Unfortunately just adding the script to your path isn't enough to make it run, you also need to tell the macOS that you want to be able to run it as a command.
 
 Consider `demo-script.rb`:
 
@@ -61,8 +61,8 @@ puts "Hello, scripting!"
 ```
 
 ```
-$ demo-script.rb
--bash: demo-script.rb: Permission denied
+$ ~/bin/demo-script.rb
+-bash: /Users/kaida/bin/demo-script.rb: Permission denied
 ```
 
 To give your script permission to run you need to give it execute permission.  You can do this with:

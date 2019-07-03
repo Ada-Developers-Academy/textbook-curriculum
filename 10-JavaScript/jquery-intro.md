@@ -48,7 +48,7 @@ Next we've got a regular old JavaScript for loop. You already know all about tho
 Inside the for loop, we have two lines that both work with jQuery. The first,
 
 ```javascript
-let listItem = $('<li>' + i + '</li>');
+const listItem = $('<li>' + i + '</li>');
 ```
 
 creates a jQuery representation of an HTML element, in this case a list item. At this point the element hasn't been added to our document yet - it only exists in our JavaScript variable.
@@ -61,7 +61,22 @@ $('.dynamic-list').append(listItem);
 
 finds all elements with the class `dynamic-list`, and adds our new jQuery list element to their contained HTML.
 
-Note that in this example, there is only one element with the `dynamic-list` class. What happens when we add another?
+#### Exercise on Selectors
+
+Change the above CodePen in the following ways:
+
+1. On line 4 in the js, the jQuery function (`$()`) is a method that takes in a CSS selector as a parameter, and it will give back a collection of all elements that match that selector. Fill in the blank: `$('.dynamic-list')` selects all elements that have the following attribute: __
+1. On line 4 in the JavaScript, change the parameter to the jQuery function on line 4 in the JavaScript from `$('.dynamic-list')` to `$('#dynamic-list')`. What changed? Why?
+1. In the HTML, copy this HTML and paste this below the last section:
+    ```html
+    <section>
+      <p class="dynamic-list">
+      </p>
+    </section>
+    ```
+    What changed? Why?
+1. In the HTML, add an id to the `<ul class="dynamic-list">`: change the tag to `<ul class="dynamic-list" id="numeric-list">`. Then, change the parameter to the jQuery function on line 4 in the JavaScript from `$('#dynamic-list')` to `$('#numeric-list')`. What changed? Why?
+
 
 ### jQuery Documentation
 
@@ -73,13 +88,24 @@ The following functions are of practical value. Look 'em up!
 
 * .append()
 * .prepend()
-* .css()
 * .html()
+* .css()
 * .click()
 * .submit()
 
+### Exercise
+
+Change the above CodePen in the following ways:
+
+1. Change `append` on line 4 to `prepend`. What changed? Why?
+1. Change `prepend` on line 4 to `html`. What changed? Why?
+1. Change the `html` on line 4 back to `append`. Confirm that it went back to the original ordering of the list.
+1. Below line 4, add a new line: `$('.dynamic-list').css('color', 'tomato');`. What changed? Why?
+
 ## Getting jQuery Into Your Web Page
-In the CodePen example above, we used the `$` and things just worked. This is because CodePen can include it for us.
+In the CodePen example above, we used the jQuery function `$`. However, jQuery (and its functions) shouldn't be available unless we load it in. If jQuery was not loaded into our script and we used a jQuery method, then we should have received an Error thrown, saying that `$` is not defined.
+
+Then how did the example above work? This is because CodePen can be configured to load the jQuery library for us.
 
 Getting jQuery to work in a web page you've published is a little more work, but not that much.
 

@@ -20,13 +20,14 @@ Apr 03       | Submit PR for [Ada-C11/palindrome_check](https://github.com/Ada-C
 Apr 03       | Submit PR for [Ada-C11/integer_palindrome_check](https://github.com/Ada-C11/integer_palindrome_check)
 Apr 10       | Understand the code and predict what you should see in the console output. Try it out to confirm. [Understanding Function Calls](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Understanding%20function%20calls.md#assignments)
 Apr 10       | Submit PR for [Ada-C11/factorial](https://github.com/Ada-C11/factorial)
-Apr 17       | Submit PR for [Ada-C11/fibonacci](https://github.com/Ada-C11/fibonacci)
-Apr 17       | Submit PR for [Ada-C11/array_intersection](https://github.com/Ada-C11/array_intersection)
+Apr 25       | Submit PR for [Ada-C11/fibonacci](https://github.com/Ada-C11/fibonacci)
+Apr 25       | Submit PR for [Ada-C11/array_intersection](https://github.com/Ada-C11/array_intersection)
 May 01       | Submit PR for [Ada-C11/matrix_convert_to_zero](https://github.com/Ada-C11/matrix_convert_to_zero)
 May 01       | Submit PR for [Ada-C11/matrix_check_sum](https://github.com/Ada-C11/matrix_check_sum)
 May 30       | Define terms, practice tracing and deduce the time and space complexities for some <b>recursive</b> problems. [Ada-C11/recursion-tracing](https://github.com/Ada-C11/recursion-tracing). Answer key for reference can be found [here](https://github.com/Ada-C11/recursion-tracing/tree/solutions)
 
 <b>Notes</b>: Dates are subjected to change based on changes to class scheduling due to unexpected cancellations or delays.
+See optional interview practice problem [here](#optional-interview-practice-problems)
 
 ---
 ## Homework details
@@ -189,7 +190,6 @@ Further essential reading links:
 ---
 
 ### Interview practice problems
-#### String manipulation practice problems
 Solve the following string manipulation practice problems:
 - [Ada-C11/string_reverse](https://github.com/Ada-C11/string_reverse)
 - [Ada-C11/reverse_words](https://github.com/Ada-C11/reverse_words)
@@ -198,9 +198,11 @@ Solve the following string manipulation practice problems:
 - [Ada-C11/encode_repeating](https://github.com/Ada-C11/encode_repeating)
 - Check if two strings are anagrams of each other: [anagram solved](http://www.geeksforgeeks.org/check-whether-two-strings-are-anagram-of-each-other/)
 
-[Optional] Here are some additional interview practice problems:
+#### Optional interview practice problems
+Here are some additional interview practice problems:
 1. Submit PR for [Ada-C11/encode_repeating](https://github.com/Ada-C11/encode_repeating)
 1. Submit PR for [Ada-C11/digit_match](https://github.com/Ada-C11/digit_match)
+1. Submit PR for [Ada-C11/string_anagrams](https://github.com/Ada-C11/string_anagrams)
 ---
 
 ## Books

@@ -27,9 +27,11 @@ If you remember back to Ruby, we built objects which combined data, which could 
 
 ## Class Components
 
-We have already seen a class component `create-react-app` generates one for us called `App`.
+We could rewrite the `App` component `create-react-app` generates one for us like this.
 
 ```javascript
+import React, { Component } from 'react';
+
 class App extends Component {
   render() {
     return (
@@ -41,7 +43,7 @@ class App extends Component {
 }
 ```
 
-This class extends `Component` a class defined in the React library and inherits a bunch of functionality we will go into further in following lectures.  All classes **must** have a `render` method which returns a block of JSX like the functional components we have created thus far.
+This class extends `Component` a class defined in the React library and inherits a bunch of functionality we will go into further in following lectures.  All class components **must** have a `render` method which returns a block of JSX like the functional components we have created thus far.
 
 ### What about `props`
 

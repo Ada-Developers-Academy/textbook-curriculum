@@ -18,7 +18,7 @@ brew services restart postgresql
 
 ###### Sauces:
 https://stackoverflow.com/questions/14225038/postgresql-adapter-pg-could-not-connect-to-server
-
+  
 
 ###### Error Message:
 >PG::ConnectionBad could not connect to server Is the server running on host **something** and accepting
@@ -39,3 +39,37 @@ brew info postgresql
 //look in caveats for migration instructions. currently: 
 brew postgresql-upgrade-database
 ```
+
+
+### Heroku Using `GET` rather than `POST`
+
+###### Error Message:
+"The page you are looking for doesn't exist"
+
+###### Solution:
+This is what the problem looks like:
+```
+/app/assets/javascripts/application.js
+
+// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
+// about supported directives. //= require jquery3
+  //= require popper
+  //= require bootstrap-sprockets
+```
+There is a missing newline. Corrected code looks like this:
+```
+/app/assets/javascripts/application.js
+
+// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
+// about supported directives. 
+  //= require jquery3
+  //= require popper
+  //= require bootstrap-sprockets
+```
+
+**However, the problem is in the .rails-template**
+```
+.rails-template.rb
+inject_into_file "app/assets/javascripts/application.js", after: "// about supported directives.\n" do
+```
+add the newine after `// about supported directives.`

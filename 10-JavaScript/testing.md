@@ -1,6 +1,7 @@
 # JavaScript Unit Testing with Jest
 
 ## Learning Goals
+
 By the end of this lesson, students should be able to...
 
 - Describe what makes testing JavaScript web apps complex
@@ -32,43 +33,55 @@ To get around this, there are basically two strategies to follow:
 
 We'll start testing using the second technique. It will be very reminiscent of model testing in Rails, and in fact we will focus our JavaScript testing on business logic methods. The testing techniques we learn here will also transfer directly to any command-line JavaScript programs you write, including something like a Node-Express server.
 
-As an aside, Selenium is a *really* cool technology, we just don't have the time to do it justice. Maybe it would make a good piece of a capstone project...?
-
 ### Setup
-We will start writing tests with a sample whiteboarding problem.
 
-1. Install the Jest Command-line Interface `npm install -g jest-cli`
-1. Clone this repo: [`https://github.com/AdaGold/TextBlock`](https://github.com/AdaGold/TextBlock)
-1.  Examine the README and follow the instructions to install the Jest command-line tools and node modules needed to run the app.
+We will install the Jest Command-line Interface globally.  This will allow us to run our tests from the terminal similar to how we tested in Ruby.  To install the Jest CLI execute the command:
 
-**Question**: In testing a `isPangram`, what edge-cases would you have?
+```bash
+$ npm install -g jest-cli
+```
 
-Now look through the code in the `src/textblock.spec.js` file, and see if the tests described match your predictions. To run the tests, type `npm test` at the console.
+### Exercise
 
-Similar to Rails, the `spec` directory has the same structure as the `src` directory. Each file `src/dir/name.js` may have a corresponding `spec/dir/name.spec.js`.
+Our first testing exercise will consist of writing tests for the Pangram whiteboarding problem.  A Pangram is a sentence which uses every letter of the alphabet at least once.
+
+#### Questions
+
+With a neighbor devise the following testing scenarios in English:
+
+1.  Create a nominal success-case input for a Pangram function? (A google search for "What is a pangram?" may be helpful.)
+1.  Create a nominal failure case for a Pangram function.  This should be an input which is clearly not a pangram.
+1.  Create an edge-case failure case for a Pangram function.  This should be "almost" a Pangram.
+1.  Come up with an additional input you should test.
+
+Next we will write tests for our `isPangram` function.
+
+1. Clone this repo: [`https://github.com/AdaGold/JS-Testing`](https://github.com/AdaGold/JS-Testing)
+1.  Examine the README and follow the instructions to install the Jest and node modules needed to run the app.
+
+Then look through the code in the `src/is_pangram.spec.js` file, and see if the tests described match your predictions. To run the tests, type `npm test` at the console.
+
+Similar to Rails, the `spec` directory has the same structure as the `src` directory. Each file `src/name.js` may have a corresponding `spec/name.spec.js`.
 
 ### Anatomy of a Test
 
-There are already some tests written for the `isPangram` method, so let's begin there. Open up `spec/textblock.spec.js`.
+There are already some tests written for the `isPangram` method, so let's begin there. Open up `spec/is_pangram.spec.js`.
 
 Because Jest is a behavior-driven testing language, testing using Jest for JavaScript is fairly similar to what we saw using Minitest for Ruby and Rails. As always, there are some specific differences.
 
 Each test should have these components to describe the test behavior.
 
 #### `describe` Blocks
+
 Describe blocks should create test groupings based on _objects_ and _functions_.  They are optional, but provide some readability and organization.  Like Minitest you can also nest `describe` blocks.
 
-We will use one `describe` block for our overall `TextBlock` class, and another nested one for the `isPangram` method.
+We will use one `describe` block for our overall `isPangram` function.
 
 Each `describe` function has two parameters. The first is the description of the `describe` block and the second is the function which contains the actions/logic. Note that we add a `;` at the end of each `describe` block.
 
 ```javascript
-describe('TextBlock class',  () =>  {
+describe('isPangram()', () => {
 
-
-  describe('isPangram()', () => {
-
-  });
 });
 ```
 
@@ -77,14 +90,11 @@ describe('TextBlock class',  () =>  {
 `test` blocks should define one distinct test. The description that goes along with the `test` block should describe the specific scenario that you are testing.
 
 ```javascript
-describe('TextBlock class',  () =>  {
-  test('TextBlock is defined', function() {
+describe('isPangram()',  () =>  {
+  test('isPangram is defined', () => {
 
   }
-
-  describe('isPangram()', () => {
-
-  });
+  ...
 });
 ```
 
@@ -94,17 +104,15 @@ Similar to what you have in Minitest you can use `it`, in place of `test` if `it
 
 Expectations should be the "meat and potatoes" of your tests, inside of your `test` blocks. Each test has at least one `expect` statement to ensure the behavior is as expected.
 
-The syntax of `describe` and `test` is pretty similar to Minitest (at least as similar as Ruby and JS can be), but `expect` is somewhat different. `expect` takes an argument and returns an object with a number of methods called __expectations__.  These methods like `toBeDefined` function like the matchers in Minitest.  They define the condition your test is looking to ensure.  `toBeDefined` is used to ensure that the argument to `expect` is not `undefined`.  You can find a table of expectations below.
+The syntax of `describe` and `test` is pretty similar to Minitest (at least as similar as Ruby and JS can be), but the **expectation** methods are named a little differently.  These methods like `toBeDefined` function serve the same role as the matchers in Minitest.  They define a condition your test is looking to ensure.  `toBeDefined` is used to ensure that the argument to `expect` is not `undefined`.  You can find a table of expectations below.  There may be times where you have **no** expectations in a test and your test is simply verifying that a set of commands function without an error.
 
 ```javascript
-describe('TextBlock class',  () =>  {
-  test('TextBlock is defined', function() {
-    expect(TextBlock).toBeDefined();
+describe('isPangram function',  () =>  {
+  test('isPangram is defined', function() {
+    expect(isPangram).toBeDefined();
   });
 
-  describe('isPangram()', () => {
-
-  });
+  ...
 });
 ```
 
@@ -126,19 +134,20 @@ to:
 
 ## Exercise With A Neighbor
 
-Read through the couple of implemented tests in `textblock.spec.js` and the stubbed out tests.
+Read through the couple of implemented tests in `is_pangram.spec.js` and the stubbed out tests.
 
-Now use a test-driven development workflow to implement the `TextBlock.isPangram()` method and complete the stubbed-out tests. Remember the TDD cycle: pseudocode-red-green-refactor!
+Now use a test-driven development workflow to implement the `isPangram()` function and complete the stubbed-out tests. Remember the TDD cycle: pseudocode-red-green-refactor!
 
-### Going Further 
+### Going Further
 
 Now write your own test in the section provided.
 
 **Optional Exercise**
 
-If this isn't enough practice, create tests for an `isPalindrome` method.  Then write code to solve the problem.  A palindrome is a word or phrase spelled backwards the same as forwards and is further described in the README.
+If you feel you need more practice, create tests for an `isPalindrome` function.  Then write code to solve the problem.  A palindrome is a word or phrase spelled backwards the same as forwards and is further described in the README.
 
 ### Matchers
+
 Just like in testing with Ruby and Rails, Jest has a number of **matchers** that allow us to construct our tests. Below are the most common:
 
 | Code | Meaning     |

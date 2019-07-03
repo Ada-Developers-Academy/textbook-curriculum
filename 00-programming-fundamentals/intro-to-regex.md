@@ -366,3 +366,4 @@ There a number of tools you can use to compose regular expressions.
 ## Resources
 -  [Regex in Wikipedia](https://en.wikipedia.org/wiki/Regular_expression)
 -  [Regular Expressions in rubylearning.com](http://rubylearning.com/satishtalim/ruby_regular_expressions.html)
+-  [Freecodecamp Course on Regex (uses JavaScript)](https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/regular-expressions/using-the-test-method)

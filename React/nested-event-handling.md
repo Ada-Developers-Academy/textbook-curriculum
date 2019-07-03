@@ -198,7 +198,7 @@ Update the `render` function in the `StudentCollection` component to pass in a n
 
 ```javascript
 // StudentCollection.js
-this.state.students.map((student, index) => {
+this.state.students.map((student, i) => {
   return (
     <li key={ i }>
       <Student

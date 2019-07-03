@@ -1,23 +1,28 @@
 # Passing data using `props`
 
 ## Learning Goals
+
 - Examine how React allows components to manage data
 - Use `props` between components
 - Examine how `props` impact component rendering
 
 ## Overview
+
 Props is one of the two ways that React components manage and share their data. `props` is short for _properties_.
 
 Props are **passed from the outside of the component** into the component as an argument. Props cannot be changed from within the component. The closest parallel that we can see for `props` is constructor method parameters - props act like parameters being sent into Components when they are created.
 
 In short, props:
+
 - Can be assigned to any variable name you want
 - Can contain any object or function you would like
 
 ### Syntax
 
 Component A's `render` function contains the following JSX:
+
 `<ComponentB varName='value goes here'/>`
+
 ```javascript
 // components/ComponentA.js
 import React from 'react';
@@ -33,6 +38,7 @@ export default ComponentA;
 ```
 
 From within Component B, you can now access this data using the `props.varName` variable.
+
 ```javascript
 // components/ComponentB.js
 import React from 'react';
@@ -55,6 +61,7 @@ A fairly common thing to do is to utilize `props` to pass an event handler from 
 ## Try it!
 
 ### One Component
+
 First, we want to use the `Student` component we already created, but we want to allow this to load data dynamically.
 
 To do this, we will pass in the data from the `App` component to the `Student` component. Within the `Student` component, we will use the code tags to pull in the data that was passed in.
@@ -66,17 +73,18 @@ To do this, we will pass in the data from the `App` component to the `Student` c
     - This shouldn't change anything yet in our application, so save the file and refresh the browser to verify that the data still looks like the original hard-coded data.
 
 1. Update the `Student` component function to take one argument, called `props`:
+
     ```js
     const Student = (props) => {
       // ...
     }
     ```
+
     All the data we passed in from the parent component will be stored inside the `props` argument
 
 1. Update the JSX returned by the `Student` function to replace the hard-coded values with code tags `{ }` which contains the `prop` that came in from the parent component.
     - It should now contain `{ props.fullName }` and `{ props.email }`
     - Verify that the content displayed is now coming from the values in the `App` component
-
 
 If we identify each individual piece of the component rendered, we'll see:
 
@@ -189,5 +197,6 @@ Replace `<Student fullName="Improved Ada" email="improved-ada@ada.co" />` with t
 Using `props` within your React application allows you to pass data from a parent component into a child component.
 
 ## Additional Resources
+
 - [React Docs: Components and props](https://reactjs.org/docs/components-and-props.html)
 - [MDN: JS map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
