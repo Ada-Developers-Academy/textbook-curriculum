@@ -285,7 +285,7 @@ The first option is as much work as testing the changes one by one would have be
 
 **You should make one change at a time, and if it doesn't solve the problem change it back**. It is OK to make multiple observations in one experiment, printing out multiple values or stopping at several breakpoints with the debugger, but each experiment should be isolated.
 
-Source control can be a great tool to make controlled experiments easier to run. Commit immediately before beginning to debug and you make all sorts of changes, then quickly jump back to your code's original state.
+Source control can be a great tool to make controlled experiments easier to run. Commit immediately before beginning to debug and you can make all sorts of changes, then quickly jump back to your code's original state.
 
 #### Pyramid
 
