@@ -33,7 +33,7 @@ Controller | One class to keep track of models and program state. Typically ther
 View | A method or class to handle interacting with the user. For a CLI program, typically this is a command loop full of `puts` and `gets`. | The `main` method in `slack.rb`
 
 This categorization is not unique to the Slack CLI project.
-- OO Ride Share's , and `TripDispatcher` is a Controller, and `Trip`, `Driver` and `Passenger` are all Models
+- In OO Ride Share `TripDispatcher` is a Controller, and `Trip`, `Driver` and `Passenger` are all Models
 - Most Hotel designs contain a Controller (something like `Hotel` or `BookingSystem`) and several Models (`Room`, `Reservation`, `Block`)
 
 (In both Hotel and OO Ride Share we skipped the View component)
