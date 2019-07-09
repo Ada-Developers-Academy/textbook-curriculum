@@ -195,3 +195,7 @@ Remember:
 1. Configure the Debugger
 1. Set Breakpoints
 1. Step Through Your Code 
+
+A more complete debugging json:
+
+[Grab me for debugging spec files](source/sample_launch.json)
