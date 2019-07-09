@@ -88,7 +88,7 @@ Open the debugger by using `⇧⌘D`, and look near the top left of the viewport
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug Local File",
+            "name": "Debug Open File",
             "type": "Ruby",
             "request": "launch",
             "cwd": "${workspaceRoot}",
