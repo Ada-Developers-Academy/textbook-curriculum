@@ -1,0 +1,44 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Open File",
+      "type": "Ruby",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "program": "${file}"
+    },
+    {
+      "name": "All Spec Files",
+      "type": "Ruby",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "program": "/usr/bin/rspec",
+      "args": [
+        "--require", "spec_helper",
+        "--require", "rails_helper",
+        "--format", "documentation"
+      ]
+    },
+    {
+      "name": "Debug Open Test File",
+      "type": "Ruby",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",           
+      "program": "${file}",
+      "includes": ["test", "lib"]
+    },
+    {
+      "name": "Debug Selected Test",
+      "type": "Ruby",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",           
+      "program": "${file}",
+      "includes": ["test", "lib"],
+      "args": [
+        "-n",
+        "${selectedText}"
+      ]
+    }
+  ]
+}
