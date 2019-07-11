@@ -88,7 +88,7 @@ Open the debugger by using `⇧⌘D`, and look near the top left of the viewport
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug Local File",
+            "name": "Debug Open File",
             "type": "Ruby",
             "request": "launch",
             "cwd": "${workspaceRoot}",
@@ -106,7 +106,7 @@ Now that we have the debugger prepped, we need to add a `breakpoint`. Breakpoint
 
 We add them in VS Code by clicking on a line number that we want to stop on. In our current file, lines 4 and 7 are potentially interesting to us. Click to the left of the line number, or get the cursor to the line and use `f9` to add the breakpoint. When you've finished, you should see 2 red circles near the code, and the text next to the green play button should read "Debug Local File", see below:
 
-![In the editor, lines four and seven have bright red circles in front, indicating that have breakpoints set](images/breakpoints_VS_Code.png "In the editor, lines 4 and seven have bright red circles in front, indicating that have breakpoints set")
+![In the editor, lines four and seven have bright red circles in front, indicating that have breakpoints set](images/breakpoints_vs_code.png "In the editor, lines 4 and seven have bright red circles in front, indicating that have breakpoints set")
 
 ## Running the Debugger
 
@@ -169,6 +169,22 @@ Okay, so we have stepped forward, and we've seen a change right before our eyes.
 
 At this point, we would use the information we gathered during our debugging to fix the code, or, if the problem didn't arise, we might try again with new parameters.
 
+## Make it Portable
+
+So, this is very powerful functionality, but if we leave our configuration in the `launch.json` we aren't going to have access to them whenever we start a new project. As things are set up right now, we would need to copy this `launch.json` into every project, forever. 
+
+We are going to fix this by making a change to the settings in VS Code. Using `⌘,` or  the drop down menu as seen below, open the settings menu.
+
+![Drop down Code, drop down Preferences, click Settings.](images/debug_settings_1.png "Drop down Code, drop down Preferences, click Settings.")
+
+When you have opened the settings, the bar at the top will have a curly brace icon as seen below. Clicking on it will open your `settings.json` for VS Code.
+
+![The settings page has a pair of curly braces to the right {}.](images/debug_settings_2.png "The settings page has a pair of curly braces to the right {}.")
+
+With the `settings.json` open, we can now add the contents of our original `launch.json` as follows.
+
+![The functional part of the original json is now in a new field called 'launch'.](images/debug_settings_3.png "The functional part of the original json is now in a new field called 'launch'.")
+
 ## Wrapping Up
 
 Hopefully at this point you feel comfortable enough with VS Code's debugger that you could set it up on your own machine and get started the next time you run into issues. 
@@ -179,3 +195,7 @@ Remember:
 1. Configure the Debugger
 1. Set Breakpoints
 1. Step Through Your Code 
+
+A more complete debugging json:
+
+[Grab me for debugging spec files](source/sample_launch.json)
