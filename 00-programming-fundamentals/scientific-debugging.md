@@ -16,6 +16,8 @@ Many programmers, especially early in their careers, take an ad-hoc approach to 
 
 **Think/pair/share** (5/5/10 minutes): Spend some time reflecting on your debugging process. When you discover a bug in your code, how do you proceed? What steps do you follow to fix it?
 
+As a concrete example, imagine a bug you see when something gets printed to the console twice when you expected it to be printed once. How do you figure out what's wrong?
+
 ## Example Problem: Pyramid
 
 As a running example we will use the following problem (a classic interview question):
