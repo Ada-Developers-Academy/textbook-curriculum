@@ -54,6 +54,7 @@ The Movie DB requires an authentication token (what they call an "API key") befo
     - Click on the picture of you in the upper right-hand corner
     - In the drop-down menu, click `Settings`
     - On the left, click `API`
+    - Click the button to generate a new API Key ksjhdkfjhsdkh
     - Your key is under `API Key (v3 auth)`. Copy it to your clipboard now.
 
 Now we can update the URL we used before with an extra `api_key` query parameter:
