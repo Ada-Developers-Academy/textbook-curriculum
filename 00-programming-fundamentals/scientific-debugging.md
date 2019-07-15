@@ -176,6 +176,12 @@ end
 
 </details>
 
+---
+
+If you're working through this in the classroom, this would be a great spot to take a break!
+
+---
+
 ### 3. Hypothesis
 
 Now that you can consistently reproduce the bug, the next step is to come up with a hypothesis (an educated guess) about what caused the bug. The hypothesis doesn't have to be correct, but it should be reasonable given what you know so far.
