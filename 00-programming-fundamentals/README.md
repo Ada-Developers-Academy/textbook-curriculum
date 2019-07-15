@@ -14,6 +14,7 @@ Programming topics not directly related to Ruby development.
 1. [Introduction to Agile](intro-to-agile.md)
 1. [Pair Programming](programming-techniques-pairs-or-solo.md)
 1. [What is Pseudocode?](pseudocode.md)
+1. [Scientific Debugging](scientific-debugging.md)
 1. [User Stories](user-stories.md)
 
 ## Tools
