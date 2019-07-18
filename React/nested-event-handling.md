@@ -194,7 +194,8 @@ return (
     disabled={ this.props.isPresent }
     >Mark Present</button>
   </section>
-);}
+  );
+}
 ```
 
 Change the initial state in the `StudentCollection` to verify this works as intended.
