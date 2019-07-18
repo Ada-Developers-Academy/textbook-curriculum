@@ -156,14 +156,14 @@ const Student = (props) => {
 ```
 
 ```css
-   /*Student.css*/
-  .absent {
-    color: red;
-  }
+/*Student.css*/
+.absent {
+  color: red;
+}
 
-  .present {
-    color: green;
-  }
+.present {
+  color: green;
+}
 ```
 
 ## Modify `state` using an event
