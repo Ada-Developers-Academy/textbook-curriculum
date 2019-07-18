@@ -143,7 +143,7 @@ Part of the concept of 'lifting state' is removing any state that is no longer r
 Ultimately, we can refactor the code to look like this:
 
 ```javascript
-  // Student.js
+// Student.js
 const Student = (props) => {
   return (
     <section>
