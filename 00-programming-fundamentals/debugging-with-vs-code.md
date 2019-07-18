@@ -74,7 +74,7 @@ Please run them now.
 
 ## Configuring the Debugger
 
-VS Code has a very bare-bones debugger that comes with it, but it doesn't know how to talk to every language out of the box. When we set up projects in VS Code, we create a series of configurations that VS Code stores in a file called `launch.json` in a folder called `.vscode`.
+VS Code, being language agnostic, doesn't have an internally implemented script that knows how to launch, run and hook into every single kind of program. Instead, it talks to other scripts and tools like the gems we just downloaded, and has generic functionality which those external tools can hook into. When we set up projects in VS Code, we create a series of configurations that VS Code stores in a file called `launch.json` in a folder called `.vscode`.
 
 _Note:_ Make sure that you open VS Code using `code .` rather than `code my-efficient-and-clever-program.rb`, as the latter doesn't afford you the options we need later on.
 
@@ -171,7 +171,7 @@ At this point, we would use the information we gathered during our debugging to 
 
 ## Make it Portable
 
-So, this is very powerful functionality, but if we leave our configuration in the `launch.json` we aren't going to have access to them whenever we start a new project. As things are set up right now, we would need to copy this `launch.json` into every project, forever. 
+So, this is very powerful functionality, but if we leave our configuration in the `launch.json` we aren't going to have access to them whenever we start a new project. As things are set up right now, we would need to copy this `launch.json` into every project, forever.  
 
 We are going to fix this by making a change to the settings in VS Code. Using `⌘,` or  the drop down menu as seen below, open the settings menu.
 
