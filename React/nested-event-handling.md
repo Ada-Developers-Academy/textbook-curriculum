@@ -151,7 +151,8 @@ const Student = (props) => {
       <h4 className={attendanceClass}>Name {props.fullName} </h4>
       <p>Email: {props.email} </p>
     </section>
-  );}
+  );
+}
 ```
 
 ```css
