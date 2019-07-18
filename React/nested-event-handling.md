@@ -144,7 +144,7 @@ Ultimately, we can refactor the code to look like this:
 
 ```javascript
   // Student.js
-  const Student = (props) => {
+const Student = (props) => {
   return (
     <section>
       <h3>Student Component</h3>
