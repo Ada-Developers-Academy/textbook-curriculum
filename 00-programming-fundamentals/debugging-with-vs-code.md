@@ -126,7 +126,7 @@ Finally the lower left of the pane shows us a list of all the breakpoints we hav
 
 In the top right of our screen, we see a new drop-down tray:
 
-![A new tray of options. Fron left to right, the buttons mean 'Move This Panel', 'Continue', 'Step Over', 'Step Into Function', 'Step Out', 'Restart Program' and 'Stop Program'](images/debug_tray.png "A new tray of options. Fron left to right, the buttons mean 'Move This Panel', 'Continue', 'Step Over', 'Step Into Function', 'Step Out', 'Restart Program' and 'Stop Program'")
+![A new tray of options. From left to right, the buttons mean 'Move This Panel', 'Continue', 'Step Over', 'Step Into Function', 'Step Out', 'Restart Program' and 'Stop Program'](images/debug_tray.png "A new tray of options. Fron left to right, the buttons mean 'Move This Panel', 'Continue', 'Step Over', 'Step Into Function', 'Step Out', 'Restart Program' and 'Stop Program'")
 
 From Left to Right, here's what they do, and a hotkey to do them without clicking:
 
