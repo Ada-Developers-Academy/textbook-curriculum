@@ -227,7 +227,8 @@ return (
   disabled={ this.props.isPresent }
   onClick={ this.onPresentButtonClick }
   >Mark Present </button>
-);}
+  );
+}
 ```
 
 Test it out and see what gets logged in the console.
