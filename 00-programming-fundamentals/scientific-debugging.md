@@ -66,8 +66,8 @@ def build_pyramid(width)
 end
 
 def main
-  height = ARGV[0].to_i
-  pyramid = build_pyramid(height)
+  width = ARGV[0].to_i
+  pyramid = build_pyramid(width)
   puts pyramid
 end
 
