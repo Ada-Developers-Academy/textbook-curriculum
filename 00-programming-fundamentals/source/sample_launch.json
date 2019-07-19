@@ -2,37 +2,29 @@
   "version": "0.2.0",
   "configurations": [
   {
-      "name": "Debug Open File",
+      "name": "Debug Open Ruby File",
       "type": "Ruby",
       "request": "launch",
       "cwd": "${workspaceRoot}",
       "program": "${file}"
   },
   {
-      "name": "Debug Open Test File",
-      "type": "Ruby",
-      "request": "launch",
-      "cwd": "${workspaceRoot}",           
-      "program": "${file}",
-      "includes": ["test", "lib"]
+    "name": "Debug Ruby Test File",
+    "type": "Ruby",
+    "request": "launch",
+    "cwd": "${workspaceRoot}",           
+    "program": "${file}",
+    "includes": ["test", "lib"]
   },
   {
-      "name": "Debug Test On this Line",
-      "type": "Ruby",
-      "request": "launch",
-      "cwd": "${workspaceRoot}",           
-      "program": "${file}",
-      "args": [
-           "-n", "test_${input:testNo}_${selectedText}"
-      ]
+    "name": "Debug Highlighted Ruby Test",
+    "type": "Ruby",
+    "request": "launch",
+    "cwd": "${workspaceRoot}",           
+    "program": "${file}",
+    "args": [
+         "-n", "/test_[0-9]{4}_${selectedText}/"
+    ]
   }
-  ],
-  "inputs": [
-      {
-          "type": "promptString",
-          "id": "testNo",
-          "description": "Enter the four digit id of your test",
-          "default": "0001"
-      }
-  ]
+]
 }

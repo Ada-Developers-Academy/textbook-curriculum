@@ -74,31 +74,42 @@ Please run them now.
 
 ## Configuring the Debugger
 
-VS Code, being language agnostic, doesn't have an internally implemented script that knows how to launch, run and hook into every single kind of program. Instead, it talks to other scripts and tools like the gems we just downloaded, and has generic functionality which those external tools can hook into. When we set up projects in VS Code, we create a series of configurations that VS Code stores in a file called `launch.json` in a folder called `.vscode`.
+VS Code, being language agnostic, doesn't have an internally implemented script that knows how to launch, run and hook into every single kind of program. Instead, it talks to other scripts and tools like the gems we just downloaded, and has generic functionality which those external tools can hook into. When we set up projects in VS Code, we create a series of configurations that VS Code stores in a file called `launch.json` in a folder called `.vscode`. However, if we set our project up this way, we would need to add that `.vscode` folder to every project we ever make. Nobody would do it. Instead, we will set up a global set of configurations in our VS Code settings.
 
-_Note:_ Make sure that you open VS Code using `code .` rather than `code my-efficient-and-clever-program.rb`, as the latter doesn't afford you the options we need later on.
+Open the debugger by using `⇧⌘D`, and look near the top left of the viewport to find a green triangle button that likely reads "No Configurations". When we are done, this list will be filled in with the names of our launch options.
 
-Open the debugger by using `⇧⌘D`, and look near the top left of the viewport to find a green triangle button that likely reads "No Configurations". Click on the text and select "Add Configuration" from the drop down menu. It doesn't matter what you pick after this, as we will be filling in the file for ourselves from this point forward. When you have finished selecting a pre-generated option, a new pane should open called `launch.json`. Replace the file with the following:
+Using `⌘,` or  the drop down menu as seen below, open the settings menu.
 
-```javascript
-{
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Debug Open File",
-            "type": "Ruby",
-            "request": "launch",
-            "cwd": "${workspaceRoot}",
-            "program": "${file}"
-        }
-    ]
+![Drop down Code, drop down Preferences, click Settings.](images/debug_settings_1.png "Drop down Code, drop down Preferences, click Settings.")
+
+When you have opened the settings, the bar at the top will have a curly brace icon as seen below. Clicking on it will open your `settings.json` for VS Code.
+
+![The settings page has a pair of curly braces to the right {}.](images/debug_settings_2.png "The settings page has a pair of curly braces to the right {}.")
+
+The code below represents a way in which we can launch our debugger on a ruby file that we have in focus, i.e. the last ruby file that you clicked on. Copy the text and paste it into your `settings.json` so that the launch keyword is at the same 'level' as the rest of your settings.
+
+```json
+"launch":{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Open Ruby File",
+      "type": "Ruby",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "program": "${file}"
+    }
+  ]
 }
 ```
 
-Once you have done so (and saved the `launch.json`) you will be able to select "Debug Local File" from the drop down. Additionally, when you go to add configurations in the future, it may show up as an option after selecting to debug in Ruby. 
+when you are finished, it should look approximately like this:
+
+![The functional part of the json is in a field called 'launch' within the settings json.](images/debug_settings_3.png "The functional part of the json is in a field called 'launch' within the settings json")
+
+As you work in new languages and with new tools, you will add more debugging configs to this file. As you can see, the image above is truncated, as the instructors already have a variety of debugging configurations. 
+
+Once you have done so (and saved the `settings.json`) you will be able to select "Debug Local File" from the drop down. Additionally, when you go to add configurations in the future, it may show up as an option after selecting to debug in Ruby. 
 
 ## Setting A Breakpoint 
 
@@ -168,22 +179,6 @@ Okay, so we have stepped forward, and we've seen a change right before our eyes.
 `Step Into` is great when we call a lot of functions in our code. As long as you have the source file for the function being called, you should be able to look at the code that is being executed. **NOTE:** If more than one function is being called on the same line, debuggers `Step Into` functions in the order that they are called, from inner-most to outer-most. Usually, this means that if you are interested in the outer most nested function, you will either need to step in and out of the line several times, or set a breakpoint inside the function that you actually care about.
 
 At this point, we would use the information we gathered during our debugging to fix the code, or, if the problem didn't arise, we might try again with new parameters.
-
-## Make it Portable
-
-So, this is very powerful functionality, but if we leave our configuration in the `launch.json` we aren't going to have access to them whenever we start a new project. As things are set up right now, we would need to copy this `launch.json` into every project, forever.  
-
-We are going to fix this by making a change to the settings in VS Code. Using `⌘,` or  the drop down menu as seen below, open the settings menu.
-
-![Drop down Code, drop down Preferences, click Settings.](images/debug_settings_1.png "Drop down Code, drop down Preferences, click Settings.")
-
-When you have opened the settings, the bar at the top will have a curly brace icon as seen below. Clicking on it will open your `settings.json` for VS Code.
-
-![The settings page has a pair of curly braces to the right {}.](images/debug_settings_2.png "The settings page has a pair of curly braces to the right {}.")
-
-With the `settings.json` open, we can now add the contents of our original `launch.json` as follows.
-
-![The functional part of the original json is now in a new field called 'launch'.](images/debug_settings_3.png "The functional part of the original json is now in a new field called 'launch'.")
 
 ## Wrapping Up
 
