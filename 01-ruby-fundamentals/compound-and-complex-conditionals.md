@@ -55,7 +55,13 @@ When evaluating a complex compound conditional expression, it is nice to visuali
 
 Here is an example parse tree for the expression `4 + 1 % 2 > 2 * 3 && true`
 
-![compound parse tree example](images/condition-parse-tree.png)
+  <details>
+  <summary>
+	Parse Tree
+    </summary>
+  <img src="images/condition-parse-tree.png" alt="condition-parse-tree">
+  </details>
+
 
 ### Using Compound Conditions
 
