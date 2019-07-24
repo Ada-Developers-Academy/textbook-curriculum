@@ -27,6 +27,27 @@ Beginning in C11, the Ada Developers Academy classroom portion is converting fro
 
 Please note that if there are any mentions of `Atom` or the command `atom .`, that the document is outdated. With a few exceptions, you should be able to think of them interchangeably.
 
+## VS Code Must Live in `Applications`
+
+In macOS systems, these things are true:
+
+- By default, files downloaded from the Internet get put into your Downloads folder, which is a folder that is located at the path `~/Downloads`. You can navigate to the Downloads folder using the Finder application.
+- Certain features in macOS rely on all apps/programs being located in the Applications folder. You can navigate to the Applications folder using the Finder application.
+
+For some things to work correctly, **you must make sure that your installation of the VS Code app is moved to the Applications folder.**
+
+If your VS Code app is in the Downloads folder:
+
+1. Ensure that the VS Code app is not open. If it is open, quit out of it using `cmd+Q`.
+1. Open your Downloads folder in Finder
+1. Find the icon of VS Code in your Downloads folder
+1. Drag that icon to the Applications folder in Finder
+
+Everyone should verify the location of their VS Code installation with the following steps:
+
+1. Open your Applications folder and look for VS Code (by default, the Applications folder is alphabetically sorted).
+1. Check your Downloads folder. If there's any copy of VS Code in the Downloads folder, **delete it.**
+
 ## Installing the `code` command to open VS Code
 
 It will be powerful for us to master the flow of going from our Terminal to going to our text editor, and back.
