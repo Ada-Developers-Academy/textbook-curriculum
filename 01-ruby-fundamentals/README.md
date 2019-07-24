@@ -1,7 +1,7 @@
 ## Ruby Fundamentals
 
-1. [Compound Conditionals](compound-and-complex-conditionals.md)
-    - [Worksheet: Conditions](./exercises/conditions-worksheet.md)
+1. [Compound Conditionals: Truth Tables and Parse Trees](compound-and-complex-conditionals.md)
+1. [Conditional Control Structures](conditional-control-structures.md)
 1. [Methods](methods.md)
     - [Activity: Built-in Ruby Methods Jigsaw](./exercises/built-in-ruby-methods-jigsaw.md)
     - [Activity: Friendship Note](./exercises/friendship-note.md)
