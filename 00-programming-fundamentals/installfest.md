@@ -108,7 +108,7 @@ $ git config --global color.diff auto
 $ git config --global color.status auto
 $ git config --global color.branch auto
 $ git config --global push.default current
-$ git config --global core.editor "nano"
+$ git config --global core.editor "code --wait"
 ```
 
 ### Trust but Verify

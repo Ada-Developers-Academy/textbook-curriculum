@@ -27,6 +27,27 @@ Beginning in C11, the Ada Developers Academy classroom portion is converting fro
 
 Please note that if there are any mentions of `Atom` or the command `atom .`, that the document is outdated. With a few exceptions, you should be able to think of them interchangeably.
 
+## VS Code Must Live in `Applications`
+
+In macOS systems, these things are true:
+
+- By default, files downloaded from the Internet get put into your Downloads folder, which is a folder that is located at the path `~/Downloads`. You can navigate to the Downloads folder using the Finder application.
+- Certain features in macOS rely on all apps/programs being located in the Applications folder. You can navigate to the Applications folder using the Finder application.
+
+For some things to work correctly, **you must make sure that your installation of the VS Code app is moved to the Applications folder.**
+
+If your VS Code app is in the Downloads folder:
+
+1. Ensure that the VS Code app is not open. If it is open, quit out of it using `cmd+Q`.
+1. Open your Downloads folder in Finder
+1. Find the icon of VS Code in your Downloads folder
+1. Drag that icon to the Applications folder in Finder
+
+Everyone should verify the location of their VS Code installation with the following steps:
+
+1. Open your Applications folder and look for VS Code (by default, the Applications folder is alphabetically sorted).
+1. Check your Downloads folder. If there's any copy of VS Code in the Downloads folder, **delete it.**
+
 ## Installing the `code` command to open VS Code
 
 It will be powerful for us to master the flow of going from our Terminal to going to our text editor, and back.
@@ -111,12 +132,8 @@ Sometimes the functionality that ships with VS Code doesn't quite get us where w
 Currently, the our Auto-Indent functionality doesn't know how to indent Ruby, so we need to fix that.
 
 1. Use `⌘⇧X` to open the extensions bar.
-1. Search for RuFo (ruby formatter). The result we are looking for has about 14k downloads.
+1. Search for "Reindent On Save", developed by Ada Developers Academy.
 1. Install the extension using the green install button.
-1. Open your terminal and download the rufo gem using `gem install rufo`
-1. Once both have finished installing, you should have the option to reload your current VS Code window. From that point on, formatting should be as easy as `⇧⌥F`!!
-
-Automatic indentation isn't just to make code look good, it's also a powerful tool that allows your human eyes to find problems like a forgotten `end` statement. Use it regularly, and please don't turn in assignments with sloppy indentation!
 
 ### Mandatory Plugins
 
@@ -124,11 +141,12 @@ Below are plugins we at Ada feel are very important to programming productively 
 
 | Plugin Name  |  Plugin Description  |
 |---|---|
-| [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby)  | Visual Studio Code Ruby Extension  |
-| [erb](https://marketplace.visualstudio.com/items?itemName=CraigMaslowski.erb)  | A syntax highlighting plugin useful with Rails ERB files.  |
-| [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)  | Syntax highlighting and style guide for JavaScript  |
-| [Markdown Preview Github Styling](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-preview-github-styles) | A plugin to help you write markdown and preview how it will appear on Github. |
-| [HTML CSS Support](https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css) | A handy plugin to help with syntax highlighting for HTML and CSS documents
+| [Ruby, developed by Peng Lv](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby)  | Visual Studio Code Ruby Extension  |
+| [erb, developed by Craig Maslowski](https://marketplace.visualstudio.com/items?itemName=CraigMaslowski.erb)  | A syntax highlighting plugin useful with Rails ERB files.  |
+| [Eslint, developed by Dirk Baeumer](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)  | Syntax highlighting and style guide for JavaScript  |
+| [Reindent On Save, developed by Ada Developers Academy](https://marketplace.visualstudio.com/items?itemName=adadevelopersacademy.reindent-on-save) | Formats and reindents files at the time of saving the file
+| [Markdown Preview Github Styling, developed by Matt Bierner](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-preview-github-styles) | A plugin to help you write markdown and preview how it will appear on Github. |
+| [HTML CSS Support, developed by ecmel](https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css) | A handy plugin to help with syntax highlighting for HTML and CSS documents
 
 ### Optional Plugins
 
@@ -145,9 +163,7 @@ Below are plugins we at Ada feel can be very helpful using VS Code, but are not 
 
 ## Resources
   - [Egghead.io Video on VS Code](https://egghead.io/lessons/egghead-vs-code-for-javascript-with-burke-holland)
-<!-- -  [Atom & Sublime Compared](https://www.codementor.io/mattgoldspink/best-text-editor-atom-sublime-vim-visual-studio-code-du10872i7) -->
-Some decent text editors:
-  <!-- - [Microsoft's Visual Studio Code](https://code.visualstudio.com/) -->
+
+Some other great text editors:
   - [Sublime Text](https://www.sublimetext.com/)
   - [Atom](https://atom.io/)
-<!-- -  [Youtube video on 10 Essential Atom Packages](https://www.youtube.com/watch?v=aiXNKHKWlmY) -->
