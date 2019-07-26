@@ -129,16 +129,64 @@ coffee_price(:latte, :venti, 3, false)
 coffee_price(:drip, :tall, 0, true)
 ```
 
-There are a few problems with this:
-- The caller has to remember the order of the arguments
-- When reading the call, there's no way to tell which argument is which
-- The caller must provide values for all arguments, even for the "standard" way of doing things (i.e. no extra shots)
+Having so many parameters on one method introduces several issues:
+1. The caller must remember the order of the arguments
+2. When reading the call, there's no way to tell which argument is which
+3. The caller must provide values for all arguments, even for the "standard" way of doing things (i.e. no extra shots)
 
 All of these put the onus on the caller to do things right, which is just asking for trouble. **A well-written method is easy to use right and hard to use wrong** - by that standard, this is not good code.
 
+### Optional Arguments
+
+We're going to tackle #3 on the above list first by introducing ruby's support of **Optional Arguments**
+
+Optional arguments enable you to set default values when defining a function so that the caller doesn't need to pass them unless the value varies from the default. 
+
+```ruby
+# Define the method
+def coffee_price(type, size, extra_shots = 0, cold = false)
+  # ... calculate price, same code as before ...
+  return price
+end
+
+# Price for a venti latte with 3 extra shots
+coffee_price(:latte, :venti, 3)
+
+# Price for a tall iced drip
+coffee_price(:drip, :tall, 0, true)
+
+# Price for a grande cappuccino
+coffee_price(:cappuccino, :grande)
+```
+
 ### Keyword Arguments
 
-One way to address these problems is with a technique called _keyword arguments_. Here's what they look like:
+We can address issues #1 & #2 with a technique called _keyword arguments_. Here's what they look like:
+
+```ruby
+# Define the method
+def coffee_price(type, size, extra_shots:, cold:)
+  # ... calculate price, same code as before ...
+  return price
+end
+
+# Price for a venti latte with 3 extra shots
+coffee_price(:latte, :venti, extra_shots: 3, cold: false)
+
+# Price for a tall iced drip
+coffee_price(:drip, :tall, extra_shots: 0, cold: true)
+
+# Price for a grande cappuccino
+coffee_price(:cappuccino, :grande, extra_shots: 0, cold: false)
+```
+
+There are a few things to note here:
+- When a method is invoked, any keyword arguments are passed by name (a.k.a. _keyword_)
+- Keyword arguments can be passed in any order. (ie. `coffee_price(:drip, :tall, cold: true, extra_shots:2`))
+
+### Optional Keyword Arguments
+
+Why not utilize both concepts? We can also make keyword arguments optional by simply adding a default value after the colon. 
 
 ```ruby
 # Define the method
@@ -157,39 +205,38 @@ coffee_price(:drip, :tall, cold: true)
 coffee_price(:cappuccino, :grande)
 ```
 
-The only things we've changed are the parameters in the method signature, the body of the method remains the same. The end result should resemble [this gist](https://gist.github.com/droberts-ada/07714ad0e2a3bc5a60c50d6a78e02f15).
+In each of these iterations, the only things we've changed are the parameters in the method signature, the body of the method remains the same. The end result should resemble [this gist](https://gist.github.com/droberts-ada/07714ad0e2a3bc5a60c50d6a78e02f15).
 
-There are a few things to note here:
-- In the method signature, each keyword argument comes with a _default value_
-  - The syntax is similar to keys and values in a hash
-- When you invoke a method, keyword arguments are optional
-  - If you omit one, the value from the method signature will be used instead
-- When a method is invoked, any keyword arguments are passed by name (a.k.a. _keyword_)
-- Keyword arguments can be passed in any order.
-- Keyword arguments can co-exist with regular arguments (also called _positional arguments_)
-  - Positional arguments must come first, both in the definition and when the method is called
-  - All positional arguments must be supplied for every call
+### When to use which argument types
 
-### When to use Keyword Arguments
-
-Keyword arguments aren't always the right choice.
+**Optional arguments** are handy but aren't always the right choice.
 
 - Sometimes an argument doesn't have a clear default value
   - For `type`, should the default be `:drip`, `:latte` or `:cappuccino`?
 - Sometimes a method doesn't make sense without one of the arguments
   - How can you price coffee if you don't know the size?
 
-In these cases, positional arguments are usually the right choice. Keyword arguments are useful when a method has an alternate way of behaving, or a long list of optional arguments.
+**Keyword arguments** are mostly useful when the number of arguments becomes more than 2 or 3.
 
-The difference between the two is similar to the difference between options (flags) and arguments to a command-line program. Options change _how_ the program behaves, arguments change _what_ it acts on.
+When you make a method, and you write code to call it, ask yourself, "is it hard remember or understand which argument is which?" or conversely "is it more trouble than it's worth to type out the keywords?"
 
 ## Summary
 
+|   | Required | Optional |
+|---|----------|----------|
+| **Positional** | coffee_price(type, size, extra_shots, cold) | coffee_price(type, size, extra_shots = 0, cold = false) |
+| **Keyword** | coffee_price(type:, size:, extra_shots:, cold:) | coffee_price(type, size, extra_shots: 0, cold: false) |
+
 - **Positional arguments** are the type of method arguments we've seen so far
-- **Keyword arguments** are given by name, and have a default value
-- Keyword arguments can make calling a method easier
-- Keyword arguments aren't the right solution to every problem
-  - If an argument is required or there's no clear default, positional arguments are often better
+- **Keyword arguments** 
+  - are given by name
+  - can make calling a method easier when there are several arguments
+- **Optional arguments** 
+  - default to a specified value if not given by the caller
+  - both Positional and Keyword Arguments can be made Optional
+
+- Keyword Arguments and Optional Arguments can co-exist with Positional Arguments
+  - Positional arguments must come first, both in the definition and when the method is called
 
 ## Additional Resources
 * [Ruby 2 Keyword Arguments](https://robots.thoughtbot.com/ruby-2-keyword-arguments)
