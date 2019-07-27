@@ -1,18 +1,17 @@
 # Intro to Data Structures: Arrays and Hashes
 
-<!--
-Instructor notes: May want to assign the first half
-of this as flipped classroom pre-reading, since it's
-mostly review of what they've seen in JSL.
--->
-
 ## Learning Goals
 By the end of this lesson, students should be able to...
 
-- Store collections of values using arrays and hashes
-- Use loops to iterate through an array or hash
+- Understand how to create a new array
+- Understand how to assign an array to a variable
+- Understand how to access an element from an array
+- Understand how to put a new element into an array
+- Understand how to create a new hash
+- Understand how to assign a hash to a variable
+- Understand how to put something into a hash
+- Understand how to access a value in a hash using a key
 - Decide whether an array or a hash is appropriate for a given problem
-- Combine arrays and hashes into more complex data structures
 
 ## Review: Collections
 
