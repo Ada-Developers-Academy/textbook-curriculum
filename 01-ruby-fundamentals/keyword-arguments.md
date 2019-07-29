@@ -4,7 +4,7 @@
 - Use _optional arguments_ to simplify method signatures
 - Add _default values_ to method parameters
 
-## Keyword Arguments
+## Keyword and Optional Arguments
 
 ### Introduction: Coffee Price
 Imagine we are building a point-of-sale system for a local coffee shop. Our program needs to be able to calculate the price for various caffeinated beverages. Because this is one specific behavior, we have decided to encapsulate it in a method.
@@ -131,10 +131,12 @@ coffee_price(:drip, :tall, 0, true)
 
 Having so many parameters on one method introduces several issues:
 1. The caller must remember the order of the arguments
-2. When reading the call, there's no way to tell which argument is which
-3. The caller must provide values for all arguments, even for the "standard" way of doing things (i.e. no extra shots)
+1. When reading the call, there's no way to tell which argument is which
+1. The caller must provide values for all arguments, even for the "standard" way of doing things (e.g. no extra shots)
 
 All of these put the onus on the caller to do things right, which is just asking for trouble. **A well-written method is easy to use right and hard to use wrong** - by that standard, this is not good code.
+
+To address these issues, we will introduce two new concepts: optional arguments and keyword arguments. We'll use each by itself first, then show how they can be used together to create clean, readable code.
 
 ### Optional Arguments
 
@@ -159,8 +161,10 @@ coffee_price(:drip, :tall, 0, true)
 coffee_price(:cappuccino, :grande)
 ```
 
-It's worth pointing out that not all the arguments are optional. Optional Arguments can co-exist with Positional Arguments.
-Positional arguments must come first, both in the definition and when the method is called
+Notice that not all the arguments in the method above are optional. Optional Arguments can co-exist with Positional Arguments (and often do).
+Positional arguments must come first, both in the definition and when the method is called.
+
+Optional arguments can help make method invocations easier to read and write, and you'll see them frequently in Ruby, particularly when working with gems or other peoples' code. However, issues #1 & #2 above are still unaddressed.
 
 ### Keyword Arguments
 
@@ -189,9 +193,11 @@ There are a few things to note here:
 - Keyword Arguments can also co-exist with Positional Arguments
   - Positional arguments must come first, both in the definition and when the method is called
 
+So new we've learned how to solve issue #3 and issues #1 & #2, but we haven't solved them all at once.
+
 ### Optional Keyword Arguments
 
-Why not utilize both concepts? We can also make keyword arguments optional by simply adding a default value after the colon. 
+Why not utilize both concepts? We can also make keyword arguments optional by adding a default value after the colon. 
 
 ```ruby
 # Define the method
