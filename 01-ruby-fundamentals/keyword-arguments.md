@@ -159,6 +159,9 @@ coffee_price(:drip, :tall, 0, true)
 coffee_price(:cappuccino, :grande)
 ```
 
+It's worth pointing out that not all the arguments are optional. Optional Arguments can co-exist with Positional Arguments.
+Positional arguments must come first, both in the definition and when the method is called
+
 ### Keyword Arguments
 
 We can address issues #1 & #2 with a technique called _keyword arguments_. Here's what they look like:
@@ -183,6 +186,8 @@ coffee_price(:cappuccino, :grande, extra_shots: 0, cold: false)
 There are a few things to note here:
 - When a method is invoked, any keyword arguments are passed by name (a.k.a. _keyword_)
 - Keyword arguments can be passed in any order. (ie. `coffee_price(:drip, :tall, cold: true, extra_shots:2`))
+- Keyword Arguments can also co-exist with Positional Arguments
+  - Positional arguments must come first, both in the definition and when the method is called
 
 ### Optional Keyword Arguments
 
