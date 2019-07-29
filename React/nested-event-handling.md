@@ -146,23 +146,12 @@ Ultimately, we can refactor the code to look like this:
 // Student.js
 const Student = (props) => {
   return (
-    <section>
+    <section className= 'student'>
       <h3>Student Component</h3>
-      <h4 className={attendanceClass}>Name {props.fullName} </h4>
+      <h4 >Name {props.fullName} </h4>
       <p>Email: {props.email} </p>
     </section>
   );
-}
-```
-
-```css
-/*Student.css*/
-.absent {
-  color: red;
-}
-
-.present {
-  color: green;
 }
 ```
 
@@ -176,15 +165,30 @@ There are a few things to consider when making this change to our application. T
 
 If you answered NO to question #3, you're on to something big. The data related to the students is tracked in the `StudentCollection` while the button to mark an individual student "present" should really be on each individual `Student` component. Our challenge then is to use the tools we have been given to _propagate_ the button press event from one component to another.
 
+#### The CSS
+
+The CSS is the most straightforward thing on our todo list, so let's get that out of the way by adding the following to our `Student.css`:
+
+```css
+/*Student.css*/
+.student .absent {
+  color: red;
+}
+
+.student .present {
+  color: green;
+}
+```
+
 #### The Button
-Let's start by updating the `render` function of the `Student` component to include the `isPresent` property, and a button.
+Next, let's modify the `Student` component to include the `isPresent` property, and a button.
 
 ```js
 // Student.js
 const Student = (props) => {
 
 return (
-  <section>
+  <section className='student'>
     <h3>Student Component</h3>
     <h4 className={(props.isPresent) ? 'present' : 'absent'}>Name {props.fullName} </h4>
     <p>Email: {props.email} </p>
@@ -225,7 +229,7 @@ Then we tie the button to the event handler function:
 return (
 <button
   disabled={ this.props.isPresent }
-  onClick={ this.onPresentButtonClick }
+  onClick={ onPresentButtonClick }
   >Mark Present </button>
   );
 }
@@ -244,7 +248,15 @@ The student we are interested in updating is something we can match using `props
 
 <details>
 <summary>Answer</summary>
-`onPresentButtonClick` is closed around `props`, so the `props` variable is still accessible!
+`onPresentButtonClick` is closed around `props`, so the `props` variable is still accessible! Remember, all we need to close is three things:
+
+1. Nest a function inside a function
+1. Reference a variable from the outer function in the inner function
+1. Make the inner function available outside the outer function
+
+1. `onPresentButtonClick` is nested inside of `Student`
+1. We reference `props` inside of `onPresentButtonClick`
+1. We hand `onPresentButtonClick` to the `<button>`, where it lives on after `Student` has finished running!
 </details>
 
 #### Callback from the Parent
@@ -261,10 +273,10 @@ markPresent = (studentIndex) => {
 }
 ```
 
-**Question:**  What way do we have to pass data from a parent component to a child component.
 
 <details>
-<summary>Answer</summary>
+<summary><b>Question:</b>  What way do we have to pass data from a parent component to a child component.
+</summary>
 If you answered `props`, you're correct!
 
 We are going to send _a callback function_ as a part of `props` from the `StudentCollection` component to the `Student` component. Once the event occurs in the child component, we can then get the data we need from the child, and pass that to the parent to update the `state`.
@@ -295,8 +307,8 @@ Now, in the `Student` component, we can call this callback function within our e
 // Student.js
 const Student = (props) => {
   const onPresentButtonClick = () => {
-    console.log(this);
-    this.props.markPresentCallback(this.props.index);
+    console.log(props);
+    props.markPresentCallback(props.index);
   }
 
   // The rest of the file
