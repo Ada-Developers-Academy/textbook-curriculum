@@ -210,7 +210,7 @@ coffee_price(:drip, :tall, cold: true)
 coffee_price(:cappuccino, :grande)
 ```
 
-In each of these iterations, the only things we've changed are the parameters in the method signature, the body of the method remains the same. The end result should resemble [this gist](https://gist.github.com/droberts-ada/07714ad0e2a3bc5a60c50d6a78e02f15).
+In each of these iterations, the only things we've changed are the parameters in the method signature, the body of the method remains the same. The end result should resemble [this code](source/CoffeePrice.rb).
 
 ### When to use which argument types
 
