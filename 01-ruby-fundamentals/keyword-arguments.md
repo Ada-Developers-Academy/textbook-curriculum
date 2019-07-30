@@ -138,10 +138,11 @@ All of these put the onus on the caller to do things right, which is just asking
 
 To address these issues, we will introduce two new concepts: optional arguments and keyword arguments. We'll use each by itself first, then show how they can be used together to create clean, readable code.
 
+Also now that we're introducing a different type of argument, it's important that we recognize that the type of argument we've seen so far is generally referred to as a **Positional Argument**. The name will hopefully make more sense later on in the lesson, but for now you just need to know that's what it's called.
+
 ### Optional Arguments
 
 We're going to tackle #3 on the above list first by introducing ruby's support of **Optional Arguments**.
-Also now that we're introducing a different type of argument, it's important that we recognize that the type of argument we've seen so far is generally referred to as a **Positional Argument**. The name will hopefully make more sense later on in the lesson, but for now you just need to know that's what it's called.
 
 Optional arguments enable you to set default values when defining a function so that the caller doesn't need to pass them unless the value varies from the default. 
 
