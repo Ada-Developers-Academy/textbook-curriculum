@@ -235,10 +235,10 @@ When you make a method, and you write code to call it, ask yourself, "is it hard
 
 ## Summary
 
-|   | Required | Optional |
-|---|----------|----------|
+|                | Required                                    | Optional                                  |
+|----------------|---------------------------------------------|-------------------------------------------|
 | **Positional** | coffee_price(type, size, extra_shots, cold) | coffee_price(type, size, extra_shots = 0, cold = false) |
-| **Keyword** | coffee_price(type:, size:, extra_shots:, cold:) | coffee_price(type, size, extra_shots: 0, cold: false) |
+| **Keyword**    | coffee_price(type:, size:, extra_shots:, cold:) | coffee_price(type, size, extra_shots: 0, cold: false) |
 
 - **Positional arguments** are the type of method arguments we've seen so far
 - **Keyword arguments** 
