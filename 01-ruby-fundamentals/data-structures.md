@@ -123,7 +123,7 @@ Here are some facts about hashes.
 #### Creation
 
 - Hashes are created by putting curly braces `{}` around a list of `key: value` pairs
-  - The list can be empty
+  - The hash can be empty
 - Since a hash is an object, we can store it in a variable
 - You can get the number of key/value pairs with `my_hash.length`
 - The hash does **not** keep track of the order of its key/value pairs*
