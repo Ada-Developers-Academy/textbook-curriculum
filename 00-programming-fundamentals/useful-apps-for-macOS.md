@@ -29,7 +29,7 @@ Below are some useful macOS apps for productivity as a developer.
 | Extension Name  | Description  |
 |---|---|
 | **Security and Privacy** |
-| [AdRemover](https://chrome.google.com/webstore/detail/ad-remover/pogpkmdlehipcepphjbogapenmkbimpo) | Ads aren't just annoying, they cause websites to load slower and are a common attack vector for hackers. This addon blocks them. It's your computer - only run the code you want!
+| [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm) | Ads aren't just annoying, they cause websites to load slower and are a common attack vector for hackers. This addon blocks them. It's your computer - only run the code you want!
 | [Privacy Badger](https://chrome.google.com/webstore/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp?hl=en-US) | Agressively prevents websites (and their advertisers) from tracking you.
 | [HTTPS Everywhere](https://chrome.google.com/webstore/detail/https-everywhere/gcbommkclmclpchllfjekcdonpmejbdp?hl=en) | Always use a secure connection, if the site you're connecting to supports it.
 | Password Manager ([LastPass](https://www.lastpass.com/) or many others) | Find yourself writing down passwords or reusing the same ones over and over? Use a password manager instead! Secure and simple.
