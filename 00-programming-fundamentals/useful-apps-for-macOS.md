@@ -41,4 +41,4 @@ Below are some useful macOS apps for productivity as a developer.
 
 ---
 ## Resources
-*  [Jeri's Guide to Going from PC to Mac](https://gist.github.com/drvonnjerryxlii/9898254abef2d184c659)
+*  [Apple's tips for Going from PC to Mac](https://support.apple.com/en-us/HT204216)
