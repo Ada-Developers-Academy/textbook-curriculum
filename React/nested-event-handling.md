@@ -228,7 +228,7 @@ Then we tie the button to the event handler function:
 //...
 return (
 <button
-  disabled={ this.props.isPresent }
+  disabled={ props.isPresent }
   onClick={ onPresentButtonClick }
   >Mark Present </button>
   );
