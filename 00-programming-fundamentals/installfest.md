@@ -47,17 +47,43 @@ You may need to enter your computer password to complete the installation.
 
 Run `brew doctor`. Brew is super great at telling you what else it may need. Sometimes there are file permissions to fix. Sometimes there's a warning that can be ignored. If there's anything ever wrong with Brew, `brew doctor` will usually be able to tell you what it is and how to fix it.
 
-## RVM
-
+<!-- !--## RVM
 [RVM](http://rvm.io) (Ruby Version Manager) is a command-line tool which allows you to easily install, manage, and work with multiple ruby environments from interpreters to sets of gems. In essence, RVM is a package manager specifically for working with Ruby code.
 
-[**You should have installed RVM in JumpStart.**](https://github.com/Ada-Developers-Academy/jump-start/tree/master/preparing-to-code/environment-setup#installfest)
+[**You should have installed RVM in JumpStart.**](https://github.com/Ada-Developers-Academy/jump-start/blob/master/lessons/07-environment-setup/notes/installfest.md)
 
-### Trust but Verify RVM
+### Trust but Verify
+- `$ rvm version` should tell you something like _rvm 1.26.11 (latest)..._ -->
 
-- `$ rvm version` should tell you something like _rvm 1.26.11 (latest)..._
+## rbenv
 
-## Upgrade and Use Ruby
+[rbenv](https://github.com/rbenv/rbenv) (**R**u**B**y **ENV**ironment) is a command line tool designed to help developers maintain a production level Ruby Environment on their personal machine. In essence, `rbenv` helps manage all of the extra bits and bobs we add into Ruby through extensions.
+
+Run:
+```bash
+$ brew install rbenv
+$ rbenv install 2.5.5
+$ # This will take about a good youtube video.
+$ rbenv global 2.5.5
+$ echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+$ source ~/.bash_profile
+$ gem pristine -a
+$ # This _might_ take a while, but it might not.
+```
+
+## Trust but Verify 
+
+Run:
+```bash
+$ ruby -v
+$ # This should tell us 2.5.5
+$ which ruby
+$ # /Users/[your-name-here]/.rbenv/shims/ruby
+$ which gem
+$ # /Users/[your-name-here]/.rbenv/shims/gem
+```
+
+<!-- ## Upgrade and Use Ruby
 
 We will use Ruby version 2.5.5 for the Ada curriculum _(last updated: May 2019)_.
 
@@ -72,7 +98,7 @@ We will use Ruby version 2.5.5 for the Ada curriculum _(last updated: May 2019)_
 - `$ ruby -v` should return _ruby 2.5.5p0_ (your `p` version might be different)
 - `$ which ruby` should return a path like _/Users/ada/.rvm/rubies/ruby/bin/ruby_
 - `$ which gem` should return a path like _/Users/ada/.rvm/rubies/ruby/bin/gem_
-- `$ rvm list` should return the list of Ruby versions installed with rvm, and which version is being used and being used as default
+- `$ rvm list` should return the list of Ruby versions installed with rvm, and which version is being used and being used as default -->
 
 ## Text Editor(s)
 
