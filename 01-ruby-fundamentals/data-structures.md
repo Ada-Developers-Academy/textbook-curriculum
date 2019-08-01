@@ -144,6 +144,7 @@ puts fruit_prices.length
 #### Keys and Values
 
 - Any `"string"` or `:symbol` is a valid key
+  - We will generally use symbols for keys
 - Any object can be a value in a hash
 - You can add a new key/value pair to the hash by setting the value of a key that's not in the hash
 - Values can be read using square brackets `[]` an the corresponding key
