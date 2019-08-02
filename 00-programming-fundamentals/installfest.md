@@ -94,11 +94,12 @@ Run the following command to install git onto your machine:
 
 ### Configuring Git
 
-We need to do some configuration so Git knows who we are, and so that it gives us colorful feedback. After Brew finishes the install, _read through these commands_:
+We need to do some configuration so Git knows who we are, and so that it gives us colorful feedback. After Brew finishes the install, _read through these directions, **and then** input the commands listed below_:
 
-Instead of the literal text `"Your Actual Name"`, you need to input text that is... your actual name. You should keep the quotation marks.
-
-Similarly, instead of the literal text `"The Email Associated with Your Github Account"`, please put in... your actual email address. You should keep the quotation marks.
+Directions:
+1. Figure out what your name is. We're going to ask you to input a command, and the example command says `"Your Actual Name"`. Instead of the literal text `"Your Actual Name"`, you need to input text that is... your actual name. You should keep the quotation marks.
+1. Next, figure out what the email address associated with your GitHub account is. (Yes, you're going to need to remember how to log into your GitHub account). Similar to above, instead of the literal text `"The Email Associated with Your Github Account"`, please put in **the email address associated with your GitHub account.** You should keep the quotation marks.
+1. Finally, input the following commands:
 
 ```bash
 $ git config --global user.name "Your Actual Name"
@@ -114,21 +115,21 @@ $ git config --global core.editor "code --wait"
 ### Trust but Verify
 
 - `$ git config --get user.name` Should show your name
-- `$ git config --get user.email` Should show your email
+- `$ git config --get user.email` Should show the email address associated with your GitHub account
 
 <!-- We now need to verify that github is set up properly.
 
 **Exercise**
 - [Complete the Github-Git Verification Exercise](exercises/github-verification.md)  -->
 
-## It's All About Communication!
+## It's All About Communication! Slack
 
-Lastly we you should already have Ada's primary mode of communication installed... [**Slack!**](https://slack.com/downloads/osx).  While it is **possible** to get by using the Slack website.  We recommend **strongly** to use the Desktop client.  Simply follow the link above and install it, or go to the Mac Appstore and install Slack that way.
+Lastly we you should already have Ada's primary mode of communication installed... [**Slack!**](https://slack.com/downloads/osx). While it is **possible** to get by using the Slack website.  We recommend **strongly** to use the Desktop client.  Simply follow the link above and install it, or go to the Mac Appstore and install Slack that way.
 
 When Ada has announcements or students want to share general information, we will generally use Slack.  If we have updates to projects or homework, we will use Slack.  We only use e-mail for personal communication and things we need to keep a record of (like absences).
 
 That being said, please get familiar and comfortable with Slack, and make it your own space to build special-interest channels and discussion spaces.
 
-It's also critically important to use Emoji's (not really, but it's fun!).  So once you have Slack running  follow the directions [**here**](https://get.slack.help/hc/en-us/articles/206870177-Create-custom-emoji) to install a Slack Emoji of your choice.
+It's also critically important to use emojis (not really, but it's fun!).  So once you have Slack running follow the directions [**here**](https://get.slack.help/hc/en-us/articles/206870177-Create-custom-emoji) to install a Slack Emoji of your choice.
 
 You can find a great site for Slack Emoji's [**here**](https://slackmojis.com/).
