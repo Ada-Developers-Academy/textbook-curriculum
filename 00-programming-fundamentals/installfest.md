@@ -27,7 +27,7 @@ Xcode is an **integrated development environment** (often called an **IDE**) for
 ### Trust but Verify
 
 If the Xcode Command-Line tools are not installed you can install it with:
-`$ xcode-select -p` If the command shows a directory path like `/Applications/Xcode.app/Contents/Developer` then it's installed properly.
+`$ xcode-select -p` If the command shows a directory path like `/Library/Developer/CommandLineTools` or `/Applications/Xcode.app/Contents/Developer` then it's installed properly.
 
 If the command does not show a directory path and instead something like `xcode-select: error: unable to get active developer directory, use xcode-select --switch to set one (or see man xcode-select)` you can install it with `$ xcode-select --install` select install and then grab coffee because it will take a bit of time.
 
