@@ -7,7 +7,7 @@ Programming topics not directly related to Ruby development.
 1. [Useful Apps for macOS](useful-apps-for-macOS.md)
 1. [Installfest](installfest.md)
 1. [Get to know your Text Editor](get-to-know-your-text-editor.md)
-
+1. [Study Like a Programmer](study-like-a-programmer.md)
 
 ## Process
 1. [What is a retrospective?](retrospectives.md)
