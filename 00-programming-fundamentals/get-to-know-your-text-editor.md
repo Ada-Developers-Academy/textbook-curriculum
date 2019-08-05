@@ -68,6 +68,8 @@ To "restart the terminal," you can just quit (or `⌘Q`) the terminal applicatio
 Now, you can navigate back to your cool folder that has `assignment.rb` in the Terminal, and then use the command `code .` to use the `code` command and give it the parameter of the current directory (`.`)!
 
 ## Awesome Keyboard Shortcuts
+To view all the keyboard shortcuts, navigate to `Code > Preferences > Keyboard Shortcuts`
+Below are a few you'll likely use.
 
 Shortcut | Effect
 ---      | ---
@@ -80,7 +82,7 @@ Shortcut | Effect
 `⇧⌘E` | Show Explorer
 `⇧⌘D` | Show Debug
 `⌘B`  | Hide Sidebar Elements
-`⌘K V`  | Toggle Zen Mode (just the editor)
+`⌘K Z`  | Toggle Zen Mode (just the editor)
 **`⇧⌥F`**   | **Auto Fix Your Indentation**
 `⌘K`  `V`  | Open Markdown Preview
 `⌘⇧K`    | Delete the current line
