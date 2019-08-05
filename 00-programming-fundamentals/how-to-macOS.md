@@ -3,6 +3,7 @@
 The mouse is slow, especially on a laptop. There are *a lot* of hotkeys, tricks, and techniques, to make your usage fast and efficient with just the keyboard. You will certainly learn many of these during your career, we'll start by learning just a few.
 
 ## Learning Goals
+
 By the end of this you should:
 *  Be able to explain the important modifier keys such as control, shift, command, option on the macOS keyboard.
 *  Use the keyboard alone to close windows, quit applications, switch applications and switch tabs within a browser.
@@ -87,6 +88,10 @@ When you write code on a laptop, it is often important to be able to see documen
 There are a number of other ways to accomplish this same behavior, so be sure to play around with this. **It will be necessary**, so if it's challenging now, just keep practicing!
 
 ## Taking Screenshots
+
+As of macOS Mojave there is a handy Screenshot.app that you can run in your Applications folder.  (It's inside Utilities.)  
+
+### Screenshot Keyboard Shotcuts
 
 Screenshots on a Mac are very cool. By default, they save a file to the desktop. If you add Control (⌃) to the shortcut, the screenshot will be copied to the clipboard instead.
 
