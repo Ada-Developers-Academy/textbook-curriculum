@@ -39,12 +39,33 @@ Studying, especially if you have not been in the classroom in a while, is really
 
 In general, if there is a gap in knowledge that you want to tackle, it helps to know what level of learning may require further inspection.
 
-1. **Knowledge:** Do you know what all of the vocabulary means? Do you have definitions for different pieces of vocabulary? Can you recite the definition if someone asked you? Do you know the standard syntax of this concept? Which websites and resources and notes have the definitions to the relevant vocabulary?
-2. **Understand:** Do you have examples about this concept? Can you recognize when this concept is relevant? Can you recognize when this concept is not relevant? Can you recognize the standard syntax of this concept, and its variations? Which websites, resources, notes, and projects have example syntax?
-3. **Apply:** Can you create examples of this concept? Can you repeat and modify any examples? If someone says that this concept is relevant, can you find a way to apply this concept and fit it into the bigger picture? Can you write, look up, and research the standard syntax of this concept, and its variations?
-4. **Analyze:** On a bigger scale of systems... Can you recognize what different factors impact this concept? Can you recognize what consequences this concept can imply? What are the technical trade-offs for this programming concept?
-5. **Evaluate:** On a bigger scale of systems... Can you recognize when to use, defend, or critique this concept? Can you figure out when to use this programming concept/technique versus a different programming concept/technique?
-6. **Create:** On a bigger scale of systems... Can you determine how to orchestrate this concept in combination with other concepts? Can you create a program that may or may not utilize this concept?
+1. **Knowledge:**
+    - Do you know what all of the vocabulary means?
+    - Do you have definitions for different pieces of vocabulary?
+    - Can you recite the definition if someone asked you?
+    - Do you know the standard syntax of this concept?
+    - Which websites and resources and notes have the definitions to the relevant vocabulary?
+2. **Understand:**
+    - Do you have examples about this concept?
+    - Can you recognize when this concept is relevant?
+    - Can you recognize when this concept is not relevant?
+    - Can you recognize the standard syntax of this concept, and its variations?
+    - Which websites, resources, notes, and projects have example syntax?
+3. **Apply:**
+    - Can you create examples of this concept?
+    - Can you repeat and modify any examples?
+    - If someone says that this concept is relevant, can you find a way to apply this concept and fit it into the bigger picture?
+    - Can you write, look up, and research the standard syntax of this concept, and its variations?
+4. **Analyze:** On a bigger scale of systems...
+    - Can you recognize what different factors impact this concept?
+    - Can you recognize what consequences this concept can imply?
+    - What are the technical trade-offs for this programming concept?
+5. **Evaluate:** On a bigger scale of systems...
+    - Can you recognize when to use, defend, or critique this concept?
+    - Can you figure out when to use this programming concept/technique versus a different programming concept/technique?
+6. **Create:** On a bigger scale of systems...
+    - Can you determine how to orchestrate this concept in combination with other concepts?
+    - Can you create a program that may or may not utilize this concept?
 
 If this looks a lot like a programmer-specific version of the [general Bloom's Taxonomy model](https://en.wikipedia.org/wiki/Bloom%27s_taxonomy), then you're totally spot on :)
 
