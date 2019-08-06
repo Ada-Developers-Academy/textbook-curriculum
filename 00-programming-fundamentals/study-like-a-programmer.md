@@ -71,7 +71,7 @@ If this looks a lot like a programmer-specific version of the [general Bloom's T
 
 ## Past Adie Study-Skills Testimonials
 
-Every now and then we collect testimonials from graduated Adies who reflected on transitioning from having zero study skills to forging their study patterns. They are collectively located [here](https://drive.google.com/open?id=1KLo3mgEoH0xttFiieM-ngh_oEuxAwWDLf7hdHzXxZCk).
+Every now and then we collect testimonials from graduated Adies who reflected on transitioning from having zero study skills to forging their study patterns. They are collectively located [here](https://drive.google.com/drive/folders/16TXs8qJ61KaNs8AmAdrQb8t4uX4OPnf5).
 
 ## General Study Techniques
 
