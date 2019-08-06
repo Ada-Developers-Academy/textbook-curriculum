@@ -130,7 +130,7 @@ Execute the iterator `while` the condition is true.
 
 **Think Pair Share** 
 
-Use a `while` loop to print out the numbers 1 though 4.
+Use a `while` loop to print out the numbers 0 though 3.
 
 <details>
 
