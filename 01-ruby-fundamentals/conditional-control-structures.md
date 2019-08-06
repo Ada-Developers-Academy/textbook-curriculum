@@ -10,9 +10,9 @@
 
 ```ruby
 puts "How many cities have you been to?"
-city_count = gets.chomp
+city_count = gets.chomp.to_i
 puts "How many countries have you been to?"
-country_count = gets.chomp
+country_count = gets.chomp.to_i
 
 # without compound conditions
 if city_count > 8
