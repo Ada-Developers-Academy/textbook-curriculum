@@ -9,21 +9,21 @@
 ### Using Compound Conditions
 
 ```ruby
-puts "What is your first name?"
-first_name = gets.chomp
-puts "What is your last name?"
-last_name = gets.chomp
+puts "How many cities have you been to?"
+city_count = gets.chomp
+puts "How many countries have you been to?"
+country_count = gets.chomp
 
 # without compound conditions
-if first_name.length > 8
-  if last_name.length > 10
-    puts "Your name is considerable!"
+if city_count > 8
+  if country_count > 2
+    puts "Wow! You're a world traveler!"
   end
 end
 
 # This is the same as the above, with compound conditions
-if first_name.length > 8 && last_name.length > 10
-  puts "Your name is considerable!"
+if city_count > 8 && country_count > 2
+    puts "Wow! You're a world traveler!"
 end
 ```
 
