@@ -3,7 +3,7 @@
 ### Lessons and Activities
 - [Compound Conditionals: Truth Tables and Parse Trees](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/01-ruby-fundamentals/compound-and-complex-conditionals.md)
 - [Conditional Control Structures](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/01-ruby-fundamentals/conditional-control-structures.md)
-- [Methods] (https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/01-ruby-fundamentals/methods.md)
+- [Methods](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/01-ruby-fundamentals/methods.md)
 - [Friendship Note](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/01-ruby-fundamentals/exercises/friendship-note.md)
 
 ### Warm-up Exercises
