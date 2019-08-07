@@ -1,5 +1,37 @@
 # About Weekly Problem-Solving Exercises
 
+## Introduction
+
+For the first week of PSEs, instructors should cover:
+
+- What are PSEs?
+- What are the weekly online classroom assessments?
+- What is the PSE schedule?
+- What is the PSE format?
+- What tips do we have for PSEs?
+- What does an example PSE and submission look like? How does it get reviewed?
+- What's the first PSE?
+
+## Overview
+
+In general, at the end of every week, instructors will give out two activities: one problem-solving exercise (PSE), and one online assessment through our LMS (at the time of writing this, Schoology).
+
+The problem-solving exercise will have a time-boxed exercise. The exercises will touch on problem-solving skills on coding problems we've seen in the past.
+
+The online assessment will be between 5-15 questions, and will touch on the content covered in the classroom in the past week.
+
+Every week, the instructors will collect the PSE at the beginning of the next lesson.
+
+## Why?
+
+These problem-solving exercises may feel weird, and often challenging. They exercise parts of the brain that aren't often activated.
+
+These exercises will get easier and more familiar over time. There will be patterns in answers, repetition, and using similar techniques between different problems on different weeks. These exercises will become more smooth as problem-solving skills grow, more context with programming problems increases, and more tools, techniques, and experimentation happens.
+
+## Schedule
+
+Subject to change, we will give a PSE and an online assessment every week.
+
 Our Weekly PSE schedule is currently scheduled as such:
 
 | Week | Notes | Feedback by |
@@ -19,13 +51,11 @@ Our Weekly PSE schedule is currently scheduled as such:
 | 13 | Instructors reach out to students about retake on week 14 | -
 | 14 | Retake, only classroom content assessment | Instructor or Completion
 
-# Example Problem-Solving Exercises
-
-## Format
+# Format of Problem-Solving Exercises
 
 Given this problem prompt:
 
-> If you're given this vague description of an input, write code that gives solves this kind of output
+> If you're given a vague description of some type of input, write code that gives a specific kind of output
 
 Answer the following prompts:
 
@@ -35,7 +65,7 @@ Answer the following prompts:
 4. Pick one of those problems from #3 and write a numbered list explaining how to solve that problem without using full lines of code
 5. Write down on paper a solution for your answer in #4 in code
 
-### Notes
+## Notes & Tips
 
 - This is open note. You are free to use your notes, the Internet, your past projects and assignments, etc!
 - For question #1, you will need to list at least five questions. This should feel like a stretch! It should feel really strange and creative to think of this many questions, or more. Sometimes, you'll come up with very weird questions, and that is totally fine, as long as the questions challenge assumptions and are relevant to the problem. Later on in the program, we will encourage you all to aim for 6, 7, or 8 questions.
@@ -49,8 +79,10 @@ Answer the following prompts:
 - For question #3, your two sub-problems that you list do not need to make up the entire problem.
 - For question #5, you are free to write down code that you are seeing from your previous notes, projects, Internet, etc.
 - Answer question #5 last. If you need to leave an answer blank, let it be #5.
+- These are challenging exercises!
+- If your answers from last week seem similar to your answers for this week, that is okay.
 
-## Example: Ratings
+## Example Problem-Solving Exercise: Ratings
 
 Given this problem prompt:
 
