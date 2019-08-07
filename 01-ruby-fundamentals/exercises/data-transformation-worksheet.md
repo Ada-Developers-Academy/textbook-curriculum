@@ -30,7 +30,7 @@ For each of the following problems, write the code to solve the problem. Each so
 1. Given this array of `String` names, return an array of Hashes. Each Hash should have the keys `name` and `id`, which will represent their unique identifier in the form of an integer. The ids can start at `1` and then go up by one.
 
 ```ruby
-names = ['Grumpy', 'Happy', 'Sleepy', 'Bashful', 'Sneezy', 'Dopey', 'Doc']
+NAMES = ['Grumpy', 'Happy', 'Sleepy', 'Bashful', 'Sneezy', 'Dopey', 'Doc']
 
 # => [{:name=>"Grumpy", :id=>1},
 # {:name=>"Happy", :id=>2},
@@ -44,8 +44,8 @@ names = ['Grumpy', 'Happy', 'Sleepy', 'Bashful', 'Sneezy', 'Dopey', 'Doc']
 2. Given this array of `String` names and this array of `String` specialties, return an array of Hashes. Each Hash should have the keys `name`, `specialty`, and `id`, which will represent their unique identifier in the form of an integer. The ids can start at `1` and then go up by one.
 
 ```ruby
-names = ['Grumpy', 'Happy', 'Sleepy', 'Bashful', 'Sneezy', 'Dopey', 'Doc']
-specialties = ['grump', 'smile', 'nap', 'blush', 'sneeze', 'goof', 'contemplate']
+NAMES = ['Grumpy', 'Happy', 'Sleepy', 'Bashful', 'Sneezy', 'Dopey', 'Doc']
+SPECIALTIES = ['grump', 'smile', 'nap', 'blush', 'sneeze', 'goof', 'contemplate']
 
 # => [{:name=>"Grumpy", :specialty=>"grump", :id=>1},
 # {:name=>"Happy", :specialty=>"smile", :id=>2},
@@ -59,8 +59,8 @@ specialties = ['grump', 'smile', 'nap', 'blush', 'sneeze', 'goof', 'contemplate'
 3. Given these two arrays of strings, write code that returns an array of arrays. Each element in the larger array should have two elements: the first element is the name, and the second element is the specialty.
 
 ```ruby
-names = ['Grumpy', 'Happy', 'Sleepy', 'Bashful', 'Sneezy', 'Dopey', 'Doc']
-specialties = ['grump', 'smile', 'nap', 'blush', 'sneeze', 'goof', 'contemplate']
+NAMES = ['Grumpy', 'Happy', 'Sleepy', 'Bashful', 'Sneezy', 'Dopey', 'Doc']
+SPECIALTIES = ['grump', 'smile', 'nap', 'blush', 'sneeze', 'goof', 'contemplate']
 
 # => [["Grumpy", "grump"], ["Happy", "smile"], ["Sleepy", "nap"], ["Bashful", "blush"], ["Sneezy", "sneeze"], ["Dopey", "goof"], ["Doc", "contemplate"]]
 ```
@@ -70,7 +70,7 @@ specialties = ['grump', 'smile', 'nap', 'blush', 'sneeze', 'goof', 'contemplate'
 1. Given this array of hashes, iterate through the array and return an array of strings. Each string should be in the following format: `Grumpy's specialty is to GRUMP`, where `Grumpy` is replaced with each name and `GRUMP` is the specialty in capital letters.
 
 ```ruby
-characters = [{:name=>"Grumpy", :specialty=>"grump", :id=>1},
+CHARACTERS = [{:name=>"Grumpy", :specialty=>"grump", :id=>1},
  {:name=>"Happy", :specialty=>"smile", :id=>2},
  {:name=>"Sleepy", :specialty=>"nap", :id=>3},
  {:name=>"Bashful", :specialty=>"blush", :id=>4},
