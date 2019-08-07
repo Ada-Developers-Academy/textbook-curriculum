@@ -14,7 +14,7 @@ At this very moment, we will not go into the full definition of a module. Instea
 
 `Enumerable` itself describes a set of methods that can be used on "things that can be counted." More specifically, it is likely that Ruby things that have a `.each` method on them can also access the other Enumerable methods.
 
-Just as we've been using `.each` to iterate over items in an array or a hash, we're going to explore other methods that do _iteration and more_ that are defined in Enumerable.
+`Enumerable` provides us with lots of methods similar to `.each` that do _iteration_ (similar to `.each`) AND MORE!
 
 ## `map`
 
