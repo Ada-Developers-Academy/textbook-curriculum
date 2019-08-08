@@ -43,9 +43,12 @@ A third method is called [_mob programming_](https://en.wikipedia.org/wiki/Mob_p
 
 Both mob programming and pair programming can also be done remotely using software such as [Visual Studio's Liveshare extension](https://code.visualstudio.com/blogs/2017/11/15/live-share).  They also have the advantage of a very short feedback loop, while a more common pull request review happens asynchronouslly and can happen hours or even days later.  
 
-## What To Look For In A Code Review?
 
 ## How to Review Code
+
+In this section we will walk through the code review process using Github pull requests.  Git is the most common version control system and Github the largest hosting service for git repositories.  Thus Github makes a good starting point for practicing code reviews.  
+
+Much of the steps and etiquite of a code review apply across systems however.
 
 ### The Mechanics of a Github PR Review
 
