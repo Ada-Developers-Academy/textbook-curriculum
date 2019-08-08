@@ -166,7 +166,7 @@ No. 1 is used to stretch minds. It should feel like a lot of questions, and it s
 The point of this exercise is not fully check if the code is correct at the moment, but to let them practice writing code with their hands.
 
 - The answer is wrong if it is blank
-- The answer is wrong if it is obviously incorrect code (ie they wrote `puts "Oops!"` for their entire response)
+- The answer is wrong if it is obviously incorrect code (ie you wrote `puts "Oops!"` for your entire response)
 
 ---
 
