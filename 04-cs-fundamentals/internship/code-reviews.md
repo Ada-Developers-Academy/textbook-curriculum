@@ -52,9 +52,9 @@ Much of the steps and etiquite of a code review apply across systems however.
 
 ### The Mechanics of a Github PR Review
 
-Before the PR, use Linters and style guides
+#### Requesting a PR
 
-How to make a PR
+As you begin working on a feature [start the feature on as branch](https://githowto.com/creating_a_branch).  It's also a good idea to check and make sure you are using linters and tools to help enforce your team's adopted style guide.  This will prevent stylelistic errors and help reviewers focus on what the code is doing.  You should also try to keep the changes as small and focused as possible.  It is much easier for reviewers to understand and evaluate changes when they are of modest size.
 
 Hwo to review the PR and add Feedback
 
