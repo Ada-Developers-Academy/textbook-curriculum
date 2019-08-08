@@ -127,7 +127,7 @@ puts "Sounds like you're a big fan of #{dessert}!"
 2. Uncomment the line under #2 (aka `puts "The value of score: #{score}"`). Given the input `5`, `9`, `1`, what is the output for #2 or what happens when the code for #2 tries to execute?
 3. Comment the line under #2 again. Given the input the input `5`, `9`, `1`, what is the output for #3?
 4. ... for #4?
-5. Uncomment the line under #5 (aka `puts "The value of dessert: #{dessert}"`). Given the input `5`, `9`, `1`, what is the output for #2 or what happens when the code for #5 tries to execute?
+5. Uncomment the line under #5 (aka `puts "The value of dessert: #{dessert}"`). Given the input `5`, `9`, `1`, what is the output for #5 or what happens when the code for #5 tries to execute?
 6. Comment the line under #5 again. Given the input the input `5`, `9`, `1`, what is the output for #6?
 
 **Hint:** Use a whiteboard, write out the code line by line, and mark and color-code the scope of each variable.
