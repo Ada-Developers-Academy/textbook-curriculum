@@ -27,6 +27,7 @@ Code reviews provide the following benefits.
 
 ## Types Of Code Reviews
 
+There are several different ways to review code.
 
 ### Pull Requests
 
