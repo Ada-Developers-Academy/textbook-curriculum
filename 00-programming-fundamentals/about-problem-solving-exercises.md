@@ -107,18 +107,18 @@ Answer the following prompts:
     1. What else is included in each hash?
     1. Will there ever be 0 restaurants? What should happen?
     1. What should I do if there is no rating?
-1. 2 examples
+2. 2 examples
     1. `[{name: "Grillby's", rating: 1}, {name: "Crow's Nest", rating: 5}]`, `{name: "Crow's Nest", rating: 5}`
     1. `[{name: "Crow's Nest", rating: 1}]`, `{name: "Crow's Nest", rating: 1}`
-1. 2 sub-problems
+3. 2 sub-problems
     1. How do you check/iterate over all of the restaurants?
     1. How do you compare the ratings between restaurants?
-1. How to solve "How do you compare the ratings between restaurants"
+4. How to solve "How do you compare the ratings between restaurants"
     1. Have a variable that stores the highest rating named `highest_rating`
     1. Have a variable that stores the rating of a specific restaurant named `rating`
     1. Use the comparison operators to find out if the new restaurant is more highly rated `rating > highest_rating`
     1. If `rating > highest_rating` is `true`, then the rating of this restaurant is rated more highly
-1. 
+5. 
     ```ruby
     restaurants = `[{name: "Grillby's", rating: 1}, {name: "Crow's Nest", rating: 5}]`
 
