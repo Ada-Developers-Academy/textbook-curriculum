@@ -115,9 +115,10 @@ In a code review you should be looking for:
 - Do them!  
 - Two developers will sometimes have two conflicting opinions.  Get a 3rd opinion
 - Keep changes small (small branches)
-- Don't trust the dev, challenge them
-- Use your fav tool (TODO: look up PR review in VS Code)
+- Don't trust the developer, challenge them respectfully
+- Use your favorite tool to do code reviews.  [VS Code has a PR review tool!](https://code.visualstudio.com/blogs/2018/09/10/introducing-github-pullrequests)
 - Shared vision
+  - Make sure the team has a shared understanding of where the application is moving and the short and long term goals.  
 
 ## Beyond The Code Review
 
