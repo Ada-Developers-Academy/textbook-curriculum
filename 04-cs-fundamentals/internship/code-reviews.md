@@ -56,13 +56,64 @@ Much of the steps and etiquite of a code review apply across systems however.
 
 As you begin working on a feature [start the feature on as branch](https://githowto.com/creating_a_branch).  It's also a good idea to check and make sure you are using linters and tools to help enforce your team's adopted style guide.  This will prevent stylelistic errors and help reviewers focus on what the code is doing.  You should also try to keep the changes as small and focused as possible.  It is much easier for reviewers to understand and evaluate changes when they are of modest size.
 
-Hwo to review the PR and add Feedback
+When your feature is ready push all changes up to github:
 
-Be generous with merging on the team
+```bash
+$ git push origin <BRANCH_NAME>
+```
 
-Tips for success
-- Code & Functional Reviews (TODO: Look up functional reviews)
-- Get a 3rd opinion
+Then go to github and find your branch and click on the `New Pull Request` button.
+
+![New Pull Request Button](images/new-pull-request.png)
+
+Then add a description to your PR describing the feature and rationale for the changes.  Communicate the changes clearly.  Then you can use gear icon under reviewers to request a code review.
+
+![Request Code Review](images/request-reviewers.png)
+
+#### Reviewing Code in Github
+
+To review a pull request on the github webpage first click on the `files changed` tab.  
+
+![files changed tab](images/files-changed.png)
+
+Then you can examine the proposed changes.  You can click on a `+` sign next to any line of code to add inline comments.  The comments are in [markdown](https://guides.github.com/features/mastering-markdown/) format.  
+
+Good code review comments can be:
+
+-  Questions to the author about the purpose or need for the code.
+-  Suggestions for improvements
+-  Compliments
+
+It is important to remember that the code belongs to the team, use the word "We" over "You" and feel free to criticise the code, while being respectful of the author.  
+
+When you have finished reviewing the PR, click on the `Review Changes` button and leave a summary of your impressions and either approve or request changes for the review
+
+![Review Changes Button and summary textbox](images/review-changes.png)
+
+### What to Look For In A Review
+
+In a code review you should be looking for:
+
+- Edge Cases
+  - Are there circumstances that will cause this code to fail unexpectedly?  
+- Did they test the code adequately?
+  - Is there good test coverage?
+  - For areas the tests do not cover, is this a concern?
+- Does it match requirements
+  - Look at the feature requirements and compare it to the code submitted.  
+    - Is there anything missing from the submission or functionality not found in the requirements?
+- Performance
+  - Is this code efficient?
+  - Do you do performance testing?  Can you automate performance and load testing?
+- Security
+  - Are there security advisories for libraries being used?
+  - Does this safeguard data adequately?
+
+
+### Code Review Tips for Success
+
+- Do them!  
+- Two developers will sometimes have two conflicting opinions.  Get a 3rd opinion
 - Keep changes small (small branches)
 - Don't trust the dev, challenge them
 - Use your fav tool (TODO: look up PR review in VS Code)
