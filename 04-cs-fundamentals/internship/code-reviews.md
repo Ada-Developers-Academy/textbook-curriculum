@@ -122,15 +122,13 @@ In a code review you should be looking for:
 
 ## Beyond The Code Review
 
+There may come a time where you notice architectural issues with the application **beyond** the code being submitted in a specific PR.  Maybe your app is reaching the limits of it's scalability or the application is less flexible than it could be.  You may have ideas to address these issues.  This is **not** something to discuss in a code review.  Instead, a broader architectural exploration is something to discuss with a team lead and, if justified, scheduling a timeboxed team meeting to present and discuss your ideas.  
 
 ## Summary
-
-### Code Review Etiquette
-
-
 
 
 ## Sources For This Lesson
 
 - [The Science of Code Reviews Video](https://www.youtube.com/watch?v=EyL7mqwpZhk)
 - [The Psycology of Computer Programming](https://leanpub.com/thepsychologyofcomputerprogramming) - The 1st book on the human factors of computer programming, and the 1st to mention Egoless programming.
+- [Pull Request Review in VS Code](https://code.visualstudio.com/blogs/2018/09/10/introducing-github-pullrequests)
