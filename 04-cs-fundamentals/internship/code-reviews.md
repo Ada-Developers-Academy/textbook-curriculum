@@ -17,12 +17,12 @@ A Code Review is a process in which one or more developers review code written b
 Code reviews provide the following benefits.
 
 - **Readability & Consistent Style** - By ensuring that code is reviewed before it is merged into the main project, team members can ensure that the code is understandable by others beyond the author and adheres to coding standards that the team has adopted.
-- **Knowledge Transfer** - When a team makes code reviews part of the development process they ensure that knowledge of each feature is shared among multiple members of the team.  
+- **Knowledge Transfer** - When a team makes code reviews part of the development process they ensure knowledge of each feature is shared among multiple members of the team.  
   - This minimizes disruption when a member transfers, finds new employment, retires etc.  
   - It also makes it easier for other team members to adapt or adjust the feature under review in the future.
   - Code reviews provide a useful tool for newer team members to explore and learn about the codebase.  That said, a new team member should **not** be the only reviewer.
   - Finally this allows developers to learn techniques, libraries and tricks from other members of the team.
-- **Architecture** - By involving several team members in a proposed change or feature a code review allows the team to examine the architecture of a feature and judge it in the larger context of the application.  Will the change scale?  Does it match or integrate with the architecture of the larger application.
+- **Architecture** - By involving several team members in a proposed change or feature a code review allows the team to examine the architecture of a feature and judge it in the larger context of the application.  Will the change scale?  Is it flexible and extensible?  Does it match or integrate with the architecture of the larger application.
 - **Finding Bugs** - As you might expect, having more eyes on code early in development allows the team to catch more bugs **before** they enter production, lowering costs and speeding up development time.  
 
 ## Types Of Code Reviews
