@@ -51,6 +51,10 @@ Our Weekly PSE schedule is currently scheduled as such:
 | 13 | Instructors reach out to students about retake on week 14 | -
 | 14 | Retake, only classroom content assessment | Instructor or Completion
 
+### About The Scheduled Retake
+
+On week 10, we will give a PSE. If the instructor wants to invite the student to redo the PSE, retakes will be scheduled on weeks 14 and 15. An instructor will invite a student to redo a PSE after week 10 if it's an area of focus of learning for the student.
+
 # Format of Problem-Solving Exercises
 
 Given this problem prompt:
