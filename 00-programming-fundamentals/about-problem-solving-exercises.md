@@ -146,7 +146,7 @@ Answer the following prompts:
 
 No. 1 is used to stretch minds. It should feel like a lot of questions, and it should be really hard! Most questions are still valid even if these questions challenge very basic assumptions, like "is this a running Ruby script?" or "is this on a computer?"
 
-- The answer is wrong if there aren't 6 questions
+- The answer is wrong if there aren't 5 questions
 - The answer is wrong if there were no questions clarifying the structure of the restaurant hash (what are the keys in each hash, etc.)
 
 #### Reviewing #2 (2 example input/output):
