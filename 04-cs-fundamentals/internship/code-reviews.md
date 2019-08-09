@@ -24,6 +24,7 @@ Code reviews provide the following benefits.
   - Finally this allows developers to learn techniques, libraries and tricks from other members of the team.
 - **Architecture** - By involving several team members in a proposed change or feature a code review allows the team to examine the architecture of a feature and judge it in the larger context of the application.  Will the change scale?  Is it flexible and extensible?  Does it match or integrate with the architecture of the larger application.
 - **Finding Bugs** - As you might expect, having more eyes on code early in development allows the team to catch more bugs **before** they enter production, lowering costs and speeding up development time.  
+- **Verify Against Requirements** - The team can also check the submission against the requirements and verify that the code satisfies them.
 
 ## Types Of Code Reviews
 
