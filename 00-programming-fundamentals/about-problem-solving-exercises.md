@@ -124,17 +124,20 @@ Answer the following prompts:
     1. If `rating > highest_rating` is `true`, then the rating of this restaurant is rated more highly
 5. 
     ```ruby
-    ratings = [1, 5]
+    def find_highest_rating(ratings)
+      highest_rating = 0
 
-    highest_rating = 0
-
-    ratings.each do |rating|
-      if rating > highest_rating
-        highest_rating = rating
+      ratings.each do |rating|
+        if rating > highest_rating
+          highest_rating = rating
+        end
       end
-    end
 
-    return highest_rating
+      return highest_rating
+    end
+    
+    ratings = [1, 5]
+    highest_rating = find_highest_rating(ratings) 
     ```
 
 ### How to Give Feedback on the Ratings PSE
