@@ -73,7 +73,7 @@ Then go to github and find your branch and click on the `New Pull Request` butto
 
 ![New Pull Request Button](images/new-pull-request.png)
 
-Then add a description to your PR describing the feature and rationale for the changes.  Communicate the changes clearly.  Then you can use gear icon under reviewers to request a code review.
+Then add a description to your PR describing the feature and rationale for the changes.  Communicate the changes clearly.  Add any open questions you still have about the feature.  Then you can use gear icon under reviewers to request a code review.
 
 ![Request Code Review](images/request-reviewers.png)
 
