@@ -178,7 +178,7 @@ Given this problem prompt:
 
 Answer the following prompts:
 
-1. List 6 questions whose answers would clarify the problem statement
+1. List at least 5 questions whose answers would clarify the problem statement
 2. List 2 sets of example inputs and their expected output
 3. Divide the project prompt into at least 2 different sub-problems
 4. Pick one of those problems from #3 and write a numbered list explaining how to solve that problem without using full lines of code
