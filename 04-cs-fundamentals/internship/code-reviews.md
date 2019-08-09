@@ -129,6 +129,8 @@ As an author it's important to respond in a timely fashion to each actionable co
 - Use your favorite tool to do code reviews.  [VS Code has a PR review tool!](https://code.visualstudio.com/blogs/2018/09/10/introducing-github-pullrequests)
 - Shared vision
   - Make sure the team has a shared understanding of where the application is moving and the short and long term goals.  
+  - Don't review code for more than an hour.  Few can stay focused that long.
+  - It can be helpful to give your reviewers a checklist of things to look at.
 
 ## Beyond The Code Review
 
