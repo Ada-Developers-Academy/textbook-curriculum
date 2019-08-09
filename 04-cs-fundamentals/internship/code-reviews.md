@@ -6,13 +6,12 @@ By the end of this lesson you should be able to:
 
 - Explain the purposes of a code review
 - Use Github Pull Requests to provide feedback on a code review
-- Practice giving feedback on a PR
 
-## What Is A Code Review?
+## What Is A Code Review
 
 A Code Review is a process in which one or more developers review code written by another developer as part of the quality assurance process.  This is usually done before changes are merged into production and is done by reading the source code and providing comments and suggestions.  The people checking and commenting are called _Reviewers_.
 
-## Why Do Code Reviews?
+## Why Do Code Reviews
 
 Code reviews provide the following benefits.
 
@@ -33,7 +32,7 @@ There are several different ways to review code.
 
 Github and other version management software sytems provide methods to review suggested changes before accepting them into the master or main branch.  This is called a _Pull Request_ or PR.  A PR allows team members to comment on and propose changes on a branch before it is merged in.  
 
-### Pull Requests
+### Pair Programming
 
 Another way to provide a review on code is through _pair programming_.  In pair programming two developers work on the feature as a team.  The developers take turns with one _driving_, or writing the code and focusing on the immediate task at hand.  Meanwhile the second developer _navigates_ or looks at the work from a higher level guiding around complications and obsticals the driver cannot focus on in the moment.
 
