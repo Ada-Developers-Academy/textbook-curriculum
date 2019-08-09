@@ -118,7 +118,7 @@ In a code review you should be looking for:
 
 ### Code Reviews Are A Discussion
 
-As an author it's important to respond in a timely fashion to each actionable comment on your pull request, but there may be suggestions or requests the reviewer makes that you disagree with or need more clarity on.  It's important to challenge comments or suggestions that you disagree with or need more clarity on.  Sometimes the reviewer will lack the context behind a coding decision and a simple explanation from you will resolve it.  If you both continue to disagree, it can be helpful to get input from another team member.  
+As an author it's important to respond in a timely fashion to each actionable comment on your pull request, but there may be suggestions or requests the reviewer makes that you disagree with or need more clarity on.  It's important to challenge comments or suggestions that you disagree with or need more clarity on.  Sometimes the reviewer will lack the context behind a coding decision and a simple explanation from you will resolve it.  If you both continue to disagree, it can be helpful to get input from another team member.  Remember that a code review is a discussion, not a dictated list of required changes.
 
 ### Code Review Tips for Success
 
