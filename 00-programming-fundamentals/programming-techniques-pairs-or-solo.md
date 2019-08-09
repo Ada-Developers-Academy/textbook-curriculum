@@ -133,3 +133,5 @@ On large software development teams, the presence of one or more knowledge silos
 *[(Source)](https://spin.atomicobject.com/2015/11/12/software-silos/)*
 
 Pair programming is one technique that directly combats these problems and tendencies, through sharing knowledge in a productive way.
+
+[Google Slides](https://drive.google.com/open?id=1dEts6h0YaC1xdMxEG-rK9A6JqPEibgdQ5HfrlO2Kopk)
