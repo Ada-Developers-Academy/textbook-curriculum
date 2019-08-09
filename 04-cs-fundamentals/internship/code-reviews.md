@@ -81,11 +81,11 @@ Then you can examine the proposed changes.  You can click on a `+` sign next to 
 
 Good code review comments can be:
 
--  Questions to the author about the purpose or need for the code.
--  Suggestions for improvements
--  Compliments
+- Questions to the author about the purpose or need for the code.
+- Suggestions for improvements
+- Compliments
 
-It is important to remember that the code belongs to the team, use the word "We" over "You" and feel free to criticise the code, while being respectful of the author.  
+It is important to remember that the code belongs to the team, use the word "We" over "You" and feel free to criticise the code, while being respectful of the author.  **Be specific** in your comments or questions.  You can add code samples to illustrate your point.
 
 When you have finished reviewing the PR, click on the `Review Changes` button and leave a summary of your impressions and either approve or request changes for the review
 
