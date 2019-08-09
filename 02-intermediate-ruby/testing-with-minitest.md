@@ -19,11 +19,11 @@ Our starter code has 2 files we will focus on.
 
 ### Before We Get Started
 
-Because colored output is so much nicer we'll add a gem called [minitest-reporters.](https://github.com/kern/minitest-reporters)
-
-Run this command in your terminal.
+Run these commands in your terminal.
 
 ```bash
+$  gem install minitest
+$  gem install minitest-skip
 $  gem install minitest-reporters
 ```
 

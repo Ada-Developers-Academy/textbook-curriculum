@@ -22,7 +22,9 @@ Then in your spec file add the following lines **to the top** of the file.
 
 ```ruby
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start do
+  add_filter 'test/' # Tests should not be checked for coverage.
+end
 ```
 
 Finally, add the `coverage` directory to your `.gitignore` file:
@@ -66,7 +68,9 @@ And this testing suite:
 
 ```ruby
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start do
+  add_filter 'test/' # Tests should not be checked for coverage.
+end
 
 require 'minitest/pride'
 require 'minitest/autorun'
@@ -120,7 +124,9 @@ You may have noticed that you have a lot of repeated require statements at the t
 ```ruby
 # any_spec.rb
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start do
+  add_filter 'test/' # Tests should not be checked for coverage.
+end
 
 require 'minitest'
 require 'minitest/autorun'
@@ -135,7 +141,7 @@ We can simplify this down a bit by creating a `specs/spec_helper.rb`.  So now al
 # specs/spec_helper.rb
 require 'simplecov'
 SimpleCov.start do
-  add_filter %r{^/specs?/}
+  add_filter 'test/' # Tests should not be checked for coverage.
 end
 require 'minitest'
 require 'minitest/autorun'

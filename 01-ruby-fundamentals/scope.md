@@ -84,12 +84,12 @@ Now look at this exercise version of the above code. There are comments that cor
 
 ```ruby
 def find_favorite_dessert(dessert_list)
-
+  
   favorite_dessert = nil
   # 1:
   puts "The value of favorite_dessert: #{favorite_dessert}"
   best_score = 0
-
+  
   dessert_list.each do |dessert|
     puts "On a scale of 1 to 10, how much do you like #{dessert}?"
     score = gets.chomp.to_i
@@ -98,22 +98,22 @@ def find_favorite_dessert(dessert_list)
       best_score = score
     end
   end
-
+  
   # 2:
-  puts "The value of score: #{score}"
-
+  # puts "The value of score: #{score}"
+  
   # 3:
   puts "The value of best_score: #{best_score}"
-
+  
   # 4:
   puts "The value of favorite_dessert: #{favorite_dessert}"
-
+  
   return favorite_dessert
-
+  
 end
 
 # 5:
-puts "The value of dessert: #{dessert}"
+# puts "The value of dessert: #{dessert}"
 
 dessert = find_favorite_dessert(['pie', 'cake', 'ice cream'])
 
@@ -124,11 +124,11 @@ puts "Sounds like you're a big fan of #{dessert}!"
 ```
 
 1. Given the input `5`, `9`, `1`, what is the output for #1 or what happens when the code for #1 tries to execute?
-2. Given the input `5`, `9`, `1`, what is the output for #2 or what happens when the code for #2 tries to execute?
-3. ... for #3?
+2. Uncomment the line under #2 (aka `puts "The value of score: #{score}"`). Given the input `5`, `9`, `1`, what is the output for #2 or what happens when the code for #2 tries to execute?
+3. Comment the line under #2 again. Given the input the input `5`, `9`, `1`, what is the output for #3?
 4. ... for #4?
-5. ... for #5?
-6. ... for #6?
+5. Uncomment the line under #5 (aka `puts "The value of dessert: #{dessert}"`). Given the input `5`, `9`, `1`, what is the output for #5 or what happens when the code for #5 tries to execute?
+6. Comment the line under #5 again. Given the input the input `5`, `9`, `1`, what is the output for #6?
 
 **Hint:** Use a whiteboard, write out the code line by line, and mark and color-code the scope of each variable.
 
