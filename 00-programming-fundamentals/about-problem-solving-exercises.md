@@ -124,7 +124,7 @@ Answer the following prompts:
     1. If `rating > highest_rating` is `true`, then the rating of this restaurant is rated more highly
 5. 
     ```ruby
-    ratings = `[1, 5]`
+    ratings = [1, 5]
 
     highest_rating = 0
 
