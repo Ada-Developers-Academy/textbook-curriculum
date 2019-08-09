@@ -1,14 +1,50 @@
 # Linked Lists
-## Goal
-+ Singly linked list, doubly linked lists
-+ Design a singly linked list with object oriented principles
-+ Algorithms on singly linked lists. See exercises below.
 
-## Required
-Go through what you've already learned in the CS Fundamentals classroom curriculum:
-+ [Linked List](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Introduction%20to%20Linked%20Lists.md)
+## Learning Goals
+
+By the end of this lesson students should be able to:
+
+- Describe the structure of a singly linked list, and doubly linked list
+- Compare and contrast the a advantages and disadvantages of singly and doubly linked lists.
+- Design an Object Oriented Singly Linked List
+- Write methods to perform a variety of tasks on a singly linked list
+
+## Overview
+
+### Singly Linked Lists
+
+### Doubly Linked Lists
+
+## Advantages & Disadvantages
+
+## Object Oriented Design of a Linked List
+
+### Encapsulation
+
+### Node Class
+
+### Linked List Class
+
+
+## Supplemental Concepts
+
+### Memory Leaks
+
+Removing a Node from a Linked List in Ruby
+
+```ruby
+
+```
+
+Removing a Node from a Linked List in C
+
+```c
+
+```
+
 
 ## Exercises
+
 Design an algorithm, deduce the space and time complexity and then, author functions to do the following:
 For each of the problems below: Assume you are given a singly linked list where each node in the linked list has integer data and a link to the next node.
   1. Add a new node with the specific input data value in the linked list. Insert the new node at the beginning of the linked list
@@ -27,7 +63,6 @@ For each of the problems below: Assume you are given a singly linked list where 
   12. Find the nth node from the end of the linked list and return its value. Assume indexing starts at 0 while counting to n.
   13. Check if the linked list has a cycle. A cycle exists if any node in the linked list links to a node already visited. Returns true if a cycle is found, false otherwise.
 
-## Slide Deck
-+ Slide Deck used in class</br>
-<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://drive.google.com/file/d/0B__DV26QHsH4bFczWXBXdGtHYkE/view?usp=sharing">Linked Lists</a></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</br>
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />
+## Resources
+
+- [Past Slide Deck Used In Class](https://drive.google.com/file/d/0B__DV26QHsH4bFczWXBXdGtHYkE/view?usp=sharing)
