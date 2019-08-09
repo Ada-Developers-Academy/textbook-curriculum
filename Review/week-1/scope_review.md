@@ -27,6 +27,8 @@ def find_line_equation(x1, y1, x2, y2)
   # -- 2 -- 
   # puts "The equation of the line through point (#{x1},#{y1}) and (#{x2},#{y2}) is: "
   
+  m = nil
+  b = nil
   
   if x2 != x1
     m = (y2-y1)/(x2-x1)
