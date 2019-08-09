@@ -18,7 +18,7 @@ Review the code below. What do you notice? What do you wonder?
 ```ruby
 
 # find the equation of a line given two points
-def find_line_equation_(x1, y1, x2, y2)
+def find_line_equation(x1, y1, x2, y2)
 
   # -- 1 -- 
   # puts "The slope is #{m}."
@@ -51,7 +51,7 @@ def find_line_equation_(x1, y1, x2, y2)
   return {slope: m, y_intercept: b}
 end
 
-result = equation(2, 4, 3, 5)
+result = find_line_equation(2, 4, 3, 5)
 
 # -- 4 --
 # puts "The slope is #{result[:slope]}."
