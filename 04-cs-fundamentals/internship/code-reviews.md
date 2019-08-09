@@ -57,6 +57,12 @@ Much of the steps and etiquite of a code review apply across systems however.
 
 As you begin working on a feature [start the feature on as branch](https://githowto.com/creating_a_branch).  It's also a good idea to check and make sure you are using linters and tools to help enforce your team's adopted style guide.  This will prevent stylelistic errors and help reviewers focus on what the code is doing.  You should also try to keep the changes as small and focused as possible.  It is much easier for reviewers to understand and evaluate changes when they are of modest size.
 
+Before you make a pull request make sure that:
+
+1. The code compiles/executes successfully
+1. The code is adequately tested
+1. You have examined the changes yourself one final time.
+
 When your feature is ready push all changes up to github:
 
 ```bash
