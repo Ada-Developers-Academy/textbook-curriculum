@@ -282,7 +282,7 @@ puts table
 #  +-------------------+----------------+--------------------+
 #  | 1st row left-side | 1st row middle | 1st row right-side |
 #  | 2nd row left-side | 2nd row middle | 2nd row right-side |
-#  | 2nd row left-side | 2nd row middle | 2nd row right-side |
+#  | 3rd row left-side | 3rd row middle | 3rd row right-side |
 #  +-------------------+----------------+--------------------+
 ```
 
