@@ -5,10 +5,12 @@ By the end of this lesson you should:
 - Be able to add a gem to your computer.
 - `require` a gem and use it in your projects
 - Have a basic grasp of how to use:
-  - Awesome Print
-  - Colorize
-  - Pry
-  - Faker
+  - [Awesome Print](https://rubygems.org/gems/awesome_print/versions/1.8.0)
+  - [Pry](https://rubygems.org/gems/pry/versions/0.11.3)
+  - [Faker](https://rubygems.org/gems/faker/versions/1.8.7)
+  - [Chronic](https://github.com/mojombo/chronic)
+  - [Money](http://rubymoney.github.io/money/)
+  - [Terminal Table](https://github.com/tj/terminal-table)
 
 ## Introduction
 Gems are what other languages call a library. They are packaged code that can be shared and distributed. Most gems are distributed using [RubyGems.org](https://rubygems.org/). A Gem will contain one or more
