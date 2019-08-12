@@ -14,7 +14,7 @@ This lesson consists of three sections.
 - Third we'll use git to track the changes we make to our local copy of the repository
 
 ### Version Control
-Git is a "distributed version control" system:
+Git is a "distributed version control" system (VCS):
 
 - **Distributed**: used in opposition to Centralized. This means that there is no single "correct" computer for the source code to exist upon. Each person who uses or writes the code will have their own copy of the code and its history.
 - **Version**: This refers to the idea that source code files change over time. When you save a file, that is a single version of the file. When you add a new line of code and save it again, that is a new version of the file.
@@ -32,7 +32,7 @@ As an analogy, it might help to consider the case of a group of artists working 
 More concretely, you can consider it similar to Google Drive. It's important to be able to get consistently updated versions of what people have done.
 
 #### 2. Organizing changes into concrete pieces
-Even when working on a short-term project alone, developers often choose to use version control because it enables them to go back to a previous reliable working state if they ever break something. Using VCS is analogous to saving "project_v1.rb", "project_v2.rb", etc. every time we add something significant to our software but cleaner and more thorough.
+Even when working on a short-term project alone, developers often choose to use version control because it enables them to go back to a previous reliable working state if they ever break something. Using a VCS (Version Control System) is analogous to saving "project_v1.rb", "project_v2.rb", etc. every time we add something significant to our software but cleaner and more thorough.
 
 ## Cloning a GitHub Repository
 
