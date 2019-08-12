@@ -38,11 +38,11 @@ A Doubly Linked List extends this by adding a `previous` reference to each node.
 
 You can use a doubly or singly linked list in any place you could use an array, but they have specific advantages depending on the use-case.
 
-Doubly linked lists take up additional memory, due to the additional references, but it is possible to iterate through in reverse, and to delete nodes, after the nodes-to-delete are found O(1).
+Doubly linked lists take up additional memory, due to the additional references, but it is possible to iterate through in reverse, and it can be a little easier to add or remove elements in the middle of the list.
 
 ### Over Arrays
 
-Both Arrays & Linked Lists are linear data structures and both have a clearly defined order with first and last elements.  An arrow however has the ability to use an _index_ to select any element in constant time, while to find an arbitrary element in a linked list requires you to start at the head and iterate through the links until you find the element.  You can visualize and explore linked list operations on [visualgo.net](https://visualgo.net/en/list).
+Both Arrays & Linked Lists are linear data structures and both have a clearly defined order with first and last elements.  An array however has the ability to use an _index_ to select any element in constant time, while to find an arbitrary element in a linked list requires you to start at the head and iterate through the links until you find the element.  You can visualize and explore linked list operations on [visualgo.net](https://visualgo.net/en/list).
 
 Big-O For Linked Lists & Arrays
 
