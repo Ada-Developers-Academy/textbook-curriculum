@@ -142,16 +142,45 @@ end
 
 ### Memory Leaks
 
-Removing a Node from a Linked List in Ruby
+Is a bug in how a program manages memory.  A _memory leak_ occurs when memory that is no longer needed by the program is not released back to the operating system.  Over time, if memory is used, and not returned to the system less and less memory is available to other programs and eventually not enough memory is available to run applications.  Modern operating systems return all system memory allocated to a program when it ends.  Thus memory leaks in long-running processes like daemons can cause a system to run out of memory.
+
+In Ruby the ruby interpreter manages memory for developers.  Ruby uses a [garbage collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)) system which identifies memory no longer used by the application and returns it.
+
+Consider when a node is removed from a Linked List:
+
+![Removing a node](images/linked-list-remove-node.png)
+<!-- source:  https://stackoverflow.com/questions/41474163/singly-linked-list-remove -->
+
+
+When no variable refers to a node (holding 99 in the image above) the ruby garbage collector will eventually return the memory to the operating system.  
 
 ```ruby
+def remove_first()
+  if @head == nil
+    return false
+  end
 
+  value = @head.value
+  head = head.next_node
+
+  return value;
+end
 ```
+
+Some languages however, place memory management on the developer.  C is one such language.  These lower-level languages give a developer more flexibility and control over low-level operations, at the cost of more responsibility and a greater likelyhood of errors.
 
 Removing a Node from a Linked List in C
 
 ```c
-
+void removeFirst(struct node **headRef) {
+  if (*head != NULL) {
+    struct node* temp = *head;
+    int value = (*temp)->value;
+    head = (*head)->next;
+    free(temp);  // <-- Give back memory to the OS
+    return value;
+  }
+}
 ```
 
 
