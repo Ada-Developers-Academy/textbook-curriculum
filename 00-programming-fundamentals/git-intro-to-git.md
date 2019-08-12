@@ -243,6 +243,7 @@ command                 | description
 `git add $FILE`         | Stage changes to `$FILE` (add to the next commit).
 `git add .`             | Stage changes to all files in this folder and its children.
 `git commit`            | Create a new commit with all of your staged changes.
+`git log`               | Show the history of the repository.  (Remember `q` quits this view!)
 
 ## Commit Early, Commit Often
 Commits, ideally, should be _atomic_. That is, any single commit should include changes that encompass a single idea. This is a habit that must be built. It's easy to "get in the zone" while programming and, before, you know it, you've got fifty changes in ten files and you're not sure how you ended up there. Making _commits_ is fast and provides you a history of how you got from there to here. Here's some good examples of when to _commit_:
