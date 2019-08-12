@@ -96,7 +96,47 @@ end
 
 ### Linked List Class
 
+```ruby
+# Defines the singly linked list
+class LinkedList
+  def initialize
+    @head = nil # keep the head private. Not accessible outside this class
+  end
+  
+  # method to add a new node with the specific data value in the linked list
+  # insert the new node at the beginning of the linked list
+  def add_first(value)
+    new_node = Node.new(value)
 
+    # if the head is nil new_node becomes head
+    # Then head becomes the new node.
+  end
+  
+  # returns the value in the first node
+  # returns nil if the list is empty
+  def get_first
+    # return the value of the 1st node in the list
+  end
+
+  # method that returns the value of the last node in the linked list
+  # returns nil if the linked list is empty
+  def get_last
+    # return nil if the list is empty
+    # otherwise traverse the list to the end
+    # Then return the last node's value
+  end
+  
+  # method that returns the value at a given index in the linked list
+  # index count starts at 0
+  # returns nil if there are fewer nodes in the linked list than the index value
+  def get_at_index(index)
+    # traverse the list, 
+    #  index, number of times or
+    #  until the end is reach
+    #  Then return the current node's value
+  end
+end
+```
 
 ## Supplemental Concepts
 
