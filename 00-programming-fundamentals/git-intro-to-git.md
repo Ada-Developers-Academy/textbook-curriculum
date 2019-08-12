@@ -234,6 +234,16 @@ With these two lines Git is showing us first what file we have modified in our p
 
 If we were to run `git log` again, we would see our new commit at the top of the list.
 
+## Summary
+
+command                 | description
+------------------------|-----------------------------------------------------
+`git clone $GITHUB_URI` | Make a local copy of `$GITHUB_URI` from github.
+`git status`            | Check the status of the repository you are inside of.
+`git add $FILE`         | Stage changes to `$FILE` (add to the next commit).
+`git add .`             | Stage changes to all files in this folder and its children.
+`git commit`            | Create a new commit with all of your staged changes.
+
 ## Commit Early, Commit Often
 Commits, ideally, should be _atomic_. That is, any single commit should include changes that encompass a single idea. This is a habit that must be built. It's easy to "get in the zone" while programming and, before, you know it, you've got fifty changes in ten files and you're not sure how you ended up there. Making _commits_ is fast and provides you a history of how you got from there to here. Here's some good examples of when to _commit_:
 
