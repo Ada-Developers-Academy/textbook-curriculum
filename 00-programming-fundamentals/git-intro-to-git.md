@@ -21,9 +21,18 @@ Git is a "distributed version control" system:
 - **Control**: The Git system is used to control or manage the process of creating new Versions of source code files, and the process of distributing those versions to other people.
 
 ### But Why???
+
+Two primary reasons:
+
+#### 1. Coordination of development
 _Version Control_ is used in software development because we have multiple people working together to build a single project, and we need to coordinate that process of working together to ensure it is reliable and efficient. While most of our work until now has been individual, it's important to recognize that the "multiple people" in the above statement may also refer to you and yourself *in the future*.
 
 As an analogy, it might help to consider the case of a group of artists working on a gigantic mural. To ensure that the overall design and intention of the mural is achieved, the artists must coordinate amongst themselves to avoid painting over each others' work. A similar dynamic exists for multiple programmers working on a set of files for a programming project.
+
+More concretely, you can consider it similar to Google Drive. It's important to be able to get consistently updated versions of what people have done.
+
+#### 2. Organizing changes into concrete pieces
+Even when working on a short-term project alone, developers often choose to use version control because it enables them to go back to a previous reliable working state if they ever break something. Using VCS is analogous to saving "project_v1.rb", "project_v2.rb", etc. every time we add something significant to our software but cleaner and more thorough.
 
 ## Cloning a GitHub Repository
 
