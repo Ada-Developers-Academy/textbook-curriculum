@@ -11,9 +11,9 @@ By the end of this lesson students should be able to:
 
 ## Overview
 
-An Array is an ordered, linear collection of data where each element sits next to the previous element.
+An Array is an ordered, linear collection of data where each element sits next to the previous element.  Because each element is of uniform size, and adjacent to it's neighboring elements, with some basic math, the interpreter or compiler can jump to any element in the array immediately.  The interpreter takes the memory address of the 1st element of the array and adds the size of each element plus the index number of the sought element.  
 
-![TODO Array Image]()
+![ Array ](images/array.png)
 
 A Linked List is also a linear collection where one element is first, another second etc, but each element instead contans a _reference_ to the next element in the list.  In that manner you could say that an element _points_ to the next item.  A Linked List forms a series of nodes linked together like a chain in memory.  
 
