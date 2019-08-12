@@ -237,6 +237,24 @@ end
 
 ## Supplemental Concepts
 
+### Pointers & References
+
+You will often hear the terms _pointer_ and _reference_ in relation to dynamic data structures like LinkedLists.  Both terms refer to a variable which **points** to data in memory, or holds the address of another varaible in memory.  The concept is similar to a home.  The home is an object in memory, while the home's address is a _reference_ which indicates where to find the home.
+
+In some languages like C/C++ you can manipulate memory addresses and memory directly.  In other languages, like Ruby, you have references which refer to objects in memory, but you cannot directly work with the memory addresses.  
+
+An example in C++
+
+```c++
+  int x = 5;
+  int *ptr_x;
+  ptr_x = &x;  // Assign ptr_x the value of the memory address of x.
+```
+
+We use references in Ruby whenever we use a Linked List since each node _refers_ to the next node in the chain and `head` refers to the 1st node in the chain.
+
+![Singly Linked List](images/singly-linked-list2.png)
+
 ### Memory Leaks
 
 Is a bug in how a program manages memory.  A _memory leak_ occurs when memory that is no longer needed by the program is not released back to the operating system.  Over time, if memory is used, and not returned to the system less and less memory is available to other programs and eventually not enough memory is available to run applications.  Modern operating systems return all system memory allocated to a program when it ends.  Thus memory leaks in long-running processes like daemons can cause a system to run out of memory.
