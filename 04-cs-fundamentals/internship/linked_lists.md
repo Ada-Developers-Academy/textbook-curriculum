@@ -11,11 +11,63 @@ By the end of this lesson students should be able to:
 
 ## Overview
 
+An Array is an ordered, linear collection of data where each element sits next to the previous element.
+
+![TODO Array Image]()
+
+A Linked List is also a linear collection where one element is first, another second etc, but each element instead contans a _reference_ to the next element in the list.  In that manner you could say that an element _points_ to the next item.  A Linked List forms a series of nodes linked together like a chain in memory.  
+
+![Linked List Image](images/singly-linked-list.png)
+<!-- Image from https://en.wikipedia.org/wiki/Linked_list -->
+
 ### Singly Linked Lists
+
+A Singly Linked List is the most basic form of a Linked List.  The data structure maintains a reference, typically called `head` which references the first node in a list.  That node maintains a field, typically called `next`, which reference the next node etc.  The last node in a linked list, sometimes called the `tail`, has `null` or `nil` as it's `next` reference.  
+
+![Singly Linked List](images/singly-linked-list2.png)
+
+<!-- image from https://www.geeksforgeeks.org/difference-between-a-static-queue-and-a-singly-linked-list/ -->
 
 ### Doubly Linked Lists
 
+A Doubly Linked List extends this by adding a `previous` reference to each node.  That `previous` reference points to the prior node.  The `head` node's `previous` field will be `nil` or `null`.
+
+![Doubly Linked List](images/doubly-linked-list.png)
+
 ## Advantages & Disadvantages
+
+You can use a doubly or singly linked list in any place you could use an array, but they have specific advantages depending on the use-case.
+
+### Over Arrays
+
+Both Arrays & Linked Lists are linear data structures and both have a clearly defined order with first and last elements.  An arrow however has the ability to use an _index_ to select any element in constant time, while to find an arbitrary element in a linked list requires you to start at the head and iterate through the links until you find the element.  You can visualize and explore linked list operations on [visualgo.net](https://visualgo.net/en/list).
+
+Big-O For Linked Lists & Arrays
+
+| Operation 	| Linked Lists 	|  Array 	|
+|---	|---	|---	|
+| access | O(n) | O(1) |
+| search | O(n) | O(n) |
+| insertion | O(1) | O(n) |
+| deletion | O(1) 	| O(1) |
+
+As you can see above, Linked Lists perform in constant time to insert values into or remove values from a list, because it only requires a few reference to be changed.  Array, on the other hand, can require shifting numerous elements into new indices with each insertion or deletion.
+
+Further most runtimes allocate more memory to an array than is being used because if the array grows, the interpreter needs to request new memory from the environment and copy the entire array into the new, larger, space.  By starting with extra space available an array can grow as required for some time.  A LinkedList by contrast only uses memory as required for the nodes available.  An array also requires each element to be adjacent in memory.  When available memory is limited, this can be problematic.  So in some memory restrictive environments a Linked List could be attractive.  
+
+Linked Lists have the following advantages:
+
+- **Dynamic Size** Linked Lists are of dynamic size, a Linked List only uses the memory required for it's current nodes.
+- **Insertion/Deletion** Because each element does not need to be adjacent in a LinkedList it is easier to insert or remove element by adjusting the links, O(1).  
+  - Arrays require shifting adjacent elements on insertion or deletion, O(n).
+
+Arrays have the following advantages:
+
+- **Random Access** Using by using the index you can quickly access any element in an array, O(1).  A Linked List requires you to traverse the list until you find the element, O(n).
+- **The References** Each node in a Linked List requires, at least, a reference to the next node.  This is an additional complication and a bit of extra memory usage.
+- **Caching** Because the memory is colocated, it's easier to move an array into faster system cache memory.
+
+### Doubly Linked Lists & Singly Linked Lists
 
 ## Object Oriented Design of a Linked List
 
@@ -66,3 +118,5 @@ For each of the problems below: Assume you are given a singly linked list where 
 ## Resources
 
 - [Past Slide Deck Used In Class](https://drive.google.com/file/d/0B__DV26QHsH4bFczWXBXdGtHYkE/view?usp=sharing)
+- [Linked Lists from Geeks for Geeks](https://www.geeksforgeeks.org/data-structures/linked-list/) - Lots of articles & practice problems
+- [Stanford LinkedList Basics](http://cslibrary.stanford.edu/103/LinkedListBasics.pdf)
