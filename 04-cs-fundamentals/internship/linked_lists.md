@@ -66,8 +66,41 @@ Linked Lists have the following advantages:
 Arrays have the following advantages:
 
 - **Random Access** Using by using the index you can quickly access any element in an array, O(1).  A Linked List requires you to traverse the list until you find the element, O(n).
-- **The References** Each node in a Linked List requires, at least, a reference to the next node.  This is an additional complication and a bit of extra memory usage.
+- **No next/previous References** Each node in a Linked List requires, at least, a reference to the next node.  This is an additional complication and a bit of extra memory usage.
 - **Caching** Because the memory is colocated, it's easier to move an array into faster system cache memory.
+
+### Questions
+
+<details>
+<summary>Suppose you have an online store and need to lookup and access product descriptions by an id (index) number.  What would you pick, LinkedList or Array?</summary>
+  
+An Array because looking up items by index is much faster O(1) vs O(n) with an Array.
+</details>
+
+<details>
+<summary>You need to look up orders by customer name and the list is maintained in order by the customer name.  What would you pick, LinkedList or Array?</summary>
+  
+An Array because you can search for elements in an Array using binary search O(log n) vs an Array with linear search O(n).
+</details>
+
+<details>
+<summary>You need to regularly add orders to the end of a list and remove orders from the front to process them.  What would you pick, LinkedList or Array?</summary>
+  
+A Linked List because you can add and remove elements from the ends in constant time O(1) vs an Array where you have to shift all elements over causing it to run in O(n) time.
+</details>
+
+<details>
+<summary>You need to regularly look up students from an unordered list and remove them from the list.  What would you pick a LinkedList or an Array?</summary>
+  
+Either could work as finding an element will take O(n) for an unordered list in both cases.  Granted removing an element in a LinkedList will take O(1) vs O(n) for an Array.
+</details>
+
+<details>
+<summary>Your low memory capacity smart lightbulb needs to store a list of data?  What would you pick, LinkedList or Array?</summary>
+  
+A Linked List because it does not require the items to be adjacent and will only use as much memory as it requires in the moment.
+</details>
+
 
 ## Object Oriented Design of a Linked List
 
