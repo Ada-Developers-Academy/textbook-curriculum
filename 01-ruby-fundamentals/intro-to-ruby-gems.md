@@ -13,8 +13,7 @@ By the end of this lesson you should:
   - [Terminal Table](https://github.com/tj/terminal-table)
 
 ## Introduction
-Gems are what other languages call a library. They are packaged code that can be shared and distributed. Most gems are distributed using [RubyGems.org](https://rubygems.org/). A Gem will contain one or more
-Ruby Classes, just like the ones you've been creating.
+Gems are what other languages call a library. They are packaged code that can be shared and distributed. Most gems are distributed using [RubyGems.org](https://rubygems.org/). A Gem will contain some files with ruby code, just like the ones you've been creating.
 
 The pages linked above are the rubygems sites for the gems, and you can sometimes find useful documentation here, but more often the updated documentation is on their github pages.
 
