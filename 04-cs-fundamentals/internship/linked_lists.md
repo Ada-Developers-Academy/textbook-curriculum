@@ -69,15 +69,33 @@ Arrays have the following advantages:
 - **The References** Each node in a Linked List requires, at least, a reference to the next node.  This is an additional complication and a bit of extra memory usage.
 - **Caching** Because the memory is colocated, it's easier to move an array into faster system cache memory.
 
-### Doubly Linked Lists & Singly Linked Lists
-
 ## Object Oriented Design of a Linked List
 
 ### Encapsulation
 
+When designing a data structure like a Linked List, we typically design the data structure as abstract, hiding implementation.  So the designer could switch a LinkedList into an ArrayList without impacting user functionality.  They could also transition into a DoublyLinkedList without impacting users.  
+
 ### Node Class
 
+The node class encapsulates each element of the LinkedList..  It provides an attribute to store data and a node referencing the next node in the chain.  It provides an interface for our LinkedList to deal with the data and connect nodes.
+
+```ruby
+# Defines a node in the singly linked list
+class Node
+  attr_reader :data # allow external entities to read value but not write
+  attr_accessor :next # allow external entities to read or write next node
+
+  def initialize(value)
+    @data = value
+    @next = nil
+  end
+end
+```
+
+![Linked List Node](images/nodeLinkedList.png)
+
 ### Linked List Class
+
 
 
 ## Supplemental Concepts
