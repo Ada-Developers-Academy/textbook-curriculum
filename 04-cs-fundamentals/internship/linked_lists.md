@@ -171,6 +171,70 @@ class LinkedList
 end
 ```
 
+### Adding A Node
+
+Adding a node to the front of the LinkedList class above is relatively straightforward.  You:
+
+- Create a new Node
+- Make the new node's next field be the current `head` of the list
+- Set the `head` to become the new node
+
+Step 1:
+
+![add-first-1](images/add-first-1.png)
+
+Step 2:
+
+![add-first-2](images/add-first-2.png)
+
+Step 3:
+
+![add-first-3](images/add-first-3.png)
+
+Step 4:
+
+![add-first-4](images/add-first-4.png)
+
+```ruby
+def add_first(value)
+  new_node = Node.new(value, nil, nil)
+  new_node.next_node = @head
+  @head = new_node
+end
+```
+
+### Removing a node at a specific index
+
+To remove a node at a specific index, you first have to traverse the list until you find the index before the node to delete.  If the node to remove is the head, then the head becomes the next element.  Then adjust the prior node's `next` reference to point **past** the node you are removing.  
+
+![remove a node #1](images/remove-node-1.png)
+![remove a node #2](images/remove-node-2.png)
+![remove a node #3](images/remove-node-3.png)
+![remove a node #4](images/remove-node-4.png)
+
+```ruby
+def remove(index)
+  return if @head.nil?
+
+  if index == 0
+    @head = head.next_node
+  else
+    # Traverse the list until you find the node at index -1
+    current = @head
+    current_index = 0
+    while current.next_node != nil && current_index < index - 1
+      current = current.next_node
+      current_index += 1
+    end
+
+    # if the node exists
+    if !current.next.nil?
+      current.next_node = current.next_node.next_node
+    end
+  end
+end
+```
+
 ## Supplemental Concepts
 
 ### Memory Leaks
