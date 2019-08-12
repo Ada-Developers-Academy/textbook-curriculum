@@ -118,7 +118,9 @@ Removing a Node from a Linked List in C
 ## Exercises
 
 Design an algorithm, deduce the space and time complexity and then, author functions to do the following:
+
 For each of the problems below: Assume you are given a singly linked list where each node in the linked list has integer data and a link to the next node.
+
   1. Add a new node with the specific input data value in the linked list. Insert the new node at the beginning of the linked list
   2. Check if the linked list contains a node with specified input value. Returns true if found, false otherwise.
   3. Return the max value in the linked list. Returns the data value and not the node.
