@@ -49,7 +49,7 @@ With code that we've already written in a file, we can use a Pry command to paus
 
 ### How to get started
 
-1. You should already have the gem installed, but if you don't, you can run `gem install pry`.
+1. You may already have these gems installed, but just to be safe run `gem install pry pry-byebug`.
 1. Require the gem at the top of the file you'd like to debug: `require 'pry'`.
 1. In your code, write `binding.pry` anywhere you want to pause the code that's being run. Doing so will allow you to evaluate what code is doing up to that point, like checking what what a variable equals while being changed in a loop.
 
@@ -89,14 +89,22 @@ end
 puts add_5_years(50)
 ```
 
+### Stepping through your program
+
+You can move through your program using the following commands.
+
+- `next`, run the next line of your program, jumping over any methods.
+- `step`, run the next line of your program, descending into any methods.
+- `finish`, run until this method returns.
+- `continue`, run until the next `binding.pry` or the end of the program.
+
 ### What else can Pry do!?
 I'm so glad you asked!
 
 Pry also has the following handy commands that let you see what objects are currently available in your program to focus on and interact directly with.
 
-- ``ls``,  shows you the local variables defined in the current context, and any public methods or instance variables defined on the current object.
-- ``cd``, command is used to move into a new object (or scope) inside a Pry session. When inside the new scope it becomes the self for the session and all commands and methods will operate on this new self.
-
+- `ls`,  shows you the local variables defined in the current context, and any public methods or instance variables defined on the current object.
+- `cd`, command is used to move into a new object (or scope) inside a Pry session. When inside the new scope it becomes the self for the session and all commands and methods will operate on this new self.
 
 ### Try it out!
 Open your current project and inspect functionality of your code using PRY! Practice using the ls and cd commands.
@@ -106,5 +114,6 @@ Debugging your code is a critical skill to establish in your programming career.
 
 ## Additional Resources
 - [Debugging with Pry](https://learn.co/lessons/debugging-with-pry)
+* [Pry Byebug](https://github.com/deivid-rodriguez/pry-byebug)
 - Dig into [Pry's documentation](http://pryrepl.org/) (with screencasts) to learn even more
 - Here's a handy list of more [Pry commands](https://github.com/pry/pry/wiki/State-navigation#Ls)!
