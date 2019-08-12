@@ -64,7 +64,7 @@ Neat!  Adding `.colorize` to a string in a `puts` statement styles the output.
 
 ## Gems Jigsaw
 
-Next we will break into teams to investigate various gems.  Each time will create a **5 minute** presentation on their assigned gem(s).  In this activity, we will be learning and then teaching each other, in the format of two rounds: the research round and the teaching round.
+Next we will break into teams to investigate various gems.  Each team will create a **5 minute** presentation on their assigned gem(s).  In this activity, we will be learning and then teaching each other, in the format of two rounds: the research round and the teaching round.
 
 In the research round, you will meet with your first assigned group to learn about an assigned topic.
 
