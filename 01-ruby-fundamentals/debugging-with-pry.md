@@ -13,7 +13,7 @@ When an exception is raised, it immediately stops the current method, just like 
 
 A stack trace contains a ton of useful information, including a list of methods and blocks that Ruby was inside when the exception was raised. Being able to quickly read a complex stack trace is a super useful skill, so let's examine one now.
 
-First, take a look at the following stack trace that running this new test on the code from the clock example in the [Testing With Minitest](../02-intermediate-ruby/testing-with-minitest.md) lesson.
+First, take a look at the following stack trace that came from running this new test on the code from the clock example in the [Testing With Minitest](../02-intermediate-ruby/testing-with-minitest.md) lesson.
 
 ![A stack trace; it shows a test failure and several lines of output.](images/test-stack-trace.png)
 
@@ -190,6 +190,6 @@ Debugging your code is a critical skill to establish in your programming career.
 
 ## Additional Resources
 - [Debugging with Pry](https://learn.co/lessons/debugging-with-pry)
-* [Pry Byebug](https://github.com/deivid-rodriguez/pry-byebug)
+* [Pry Byebug](https://github.com/deivid-rodriguez/pry-byebug) documentation for debugging commands (step, next, etc).
 - Dig into [Pry's documentation](http://pryrepl.org/) (with screencasts) to learn even more
 - Here's a handy list of more [Pry commands](https://github.com/pry/pry/wiki/State-navigation#Ls)!
