@@ -55,7 +55,7 @@ With code that we've already written in a file, we can use a Pry command to paus
 
 ### Test it out
 
-Because programs are read from top to bottom, any code that is after a `binding.pry` command will not be read. Run the code in the exercise below, as you would normally. To exit, type 'exit'.
+Because programs are read from top to bottom, any code that is after a `binding.pry` command will not be read. Run the code in the exercise below, as you would normally. To exit, type 'exit-program'.
 
 ```ruby
 require 'pry'
