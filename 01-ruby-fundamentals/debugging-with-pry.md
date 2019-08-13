@@ -165,7 +165,7 @@ puts add_5_years(50)
 
 </details>
 
-### Stepping through your program
+### Handy Command-ies
 
 You can move through your program using the following commands.
 
@@ -174,13 +174,9 @@ You can move through your program using the following commands.
 - `finish`, run until this method returns.
 - `continue`, run until the next `binding.pry` or the end of the program.
 
-### What else can Pry do!?
-I'm so glad you asked!
-
-Pry also has the following handy commands that let you see what objects are currently available in your program to focus on and interact directly with.
+Pry also has the following handy command(ie):
 
 - `ls`,  shows you the local variables defined in the current context, and any public methods or instance variables defined on the current object.
-- `cd`, command is used to move into a new object (or scope) inside a Pry session. When inside the new scope it becomes the self for the session and all commands and methods will operate on this new self.
 
 ### Try it out!
 Open your current project and inspect functionality of your code using PRY! Practice using the ls and cd commands.
