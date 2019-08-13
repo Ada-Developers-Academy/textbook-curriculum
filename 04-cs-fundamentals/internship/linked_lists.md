@@ -1,5 +1,9 @@
 # Linked Lists
 
+## Video Lesson
+
+- [The Video for this lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7d5d5d84-a85e-4c5d-aaab-aaa8016736aa)
+
 ## Learning Goals
 
 By the end of this lesson students should be able to:
