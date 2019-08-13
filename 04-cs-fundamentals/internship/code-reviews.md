@@ -1,5 +1,9 @@
 # Code Reviews
 
+## Video Lesson
+
+- [The Video for this lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=db636763-2c2f-4969-b7a1-aaa80055e5fe)
+
 ## Learning Goals
 
 By the end of this lesson you should be able to:
