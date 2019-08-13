@@ -143,6 +143,11 @@ There may come a time where you notice architectural issues with the application
 
 ## Summary
 
+Code Reviews are a standard way to ensure code quality and share knowledge of the codebase.  It's important to remember that a code review is a discussion between peers about the **team's** code.  Like many things remembering to communicate like a human with kindness, frankness and with specificity is very helpful for a successful review. 
+
+## Exercises
+
+In class students will perform the [code review exercise](https://github.com/Ada-C11/code-reviews)
 
 ## Sources For This Lesson
 
