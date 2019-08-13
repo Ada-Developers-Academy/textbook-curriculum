@@ -3,17 +3,17 @@
 ## Learning Goals
 - Understand how to add new debug configurations to VS Code
 - See how testing tests is different than testing code
-- Be able to run and debug a single test in a spec file
+- Be able to run and debug a single test in a test file
 
 You've gained confidence debugging using VS Code. You know all about looking for weird data in your variables, you have watched your execution pointer jump around to different parts of a file, perhaps you've even set a watch! But now you want more. More tools, more debugging, more POWER.
 
-It's time to be able to debug a Minitest Spec file.
+It's time to be able to debug a Minitest test file.
 
 ## Setup
 
-Open up your Adagrams project and navigate over to one of the spec files. Open up [this link](source/sample_launch.json) and copy the whole of the file.
+Open up your Adagrams project and navigate over to one of the test files. Open up [this link](source/sample_launch.json) and copy the whole of the file.
 
-Recall back to when we [first set up debugging](debugging-with-vs-code.md), and open up the settings json. Navigate down to the `launch` field, pasting in the whole of what we copied into the field. Save it, and bring up the spec file again.
+Recall back to when we [first set up debugging](debugging-with-vs-code.md), and open up the settings json. Navigate down to the `launch` field, pasting in the whole of what we copied into the field. Save it, and bring up the test file again.
 
 The structure of the Adagrams project is such that we are only really able to check what is going on by running the tests we wrote for it. In other words, it has no driver code that runs the functions we are writing. Our old debugging tricks therefore don't work; no code that calls the function means that Debugging the Open Ruby file will do nothing. We _could_ write driver code that calls the functions we want to test at the bottom of the Adagrams file, but this is blasphemy, and a really poor habit to get into. Instead, we will debug by running our test file.
 
@@ -59,6 +59,6 @@ And that's all there is to it! With this under your belt, you're going to be set
 
 Remember:
 
-1. `Debug Ruby Test File` will debug the entirety open spec file.
+1. `Debug Ruby Test File` will debug the entirety open test file.
 1. `Debug Highlighted Test` will debug only the test whose name you've highlighted.
 1. You can set breakpoints in the files that the tests are testing, and those breakpoints will be hit.

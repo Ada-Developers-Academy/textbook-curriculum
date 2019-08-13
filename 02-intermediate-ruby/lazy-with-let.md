@@ -72,7 +72,7 @@ If you recall, when using `attr_reader :name`, you pass in a _symbol_ (:name), a
 The **first** time ruby encounters the variable in a test, it will execute the given block to give the variable an initial value.  Subsequently it will function as a regular local variable.
 
 ```ruby
-# pet_spec.rb
+# pet_test.rb
 require 'minitest/autorun'
 require 'minitest/reporters'
 require 'pet'
@@ -102,7 +102,7 @@ In the first example here, when using `before` the statement "Creating a pet nam
 #### Using `before`
 
 ```ruby
-# sample_spec.rb
+# sample_test.rb
 require 'minitest/autorun'
 require 'minitest/reporters'
 require 'pet'
@@ -130,7 +130,7 @@ end
 Output:
 
 ```bash
-$  ruby specs/sample_spec.rb
+$  ruby test/sample_test.rb
 Run options: --seed 62527
 
 # Running:
@@ -149,7 +149,7 @@ Finished in 0.011018s, 272.2817 runs/s, 272.2817 assertions/s.
 But if we use let instead the statement is only printed **once** because `pet` is only referenced in one test.
 
 ```ruby
-require_relative "spec_helper"
+require_relative "test_helper"
 
 describe "Pet" do
   let (:pet) {
@@ -173,7 +173,7 @@ end
 ```
 
 ```bash
-ruby specs/sample_spec.rb
+ruby test/sample_test.rb
 Run options: --seed 49538
 
 # Running:
