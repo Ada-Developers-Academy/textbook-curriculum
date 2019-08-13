@@ -38,7 +38,7 @@ A Doubly Linked List extends this by adding a `previous` reference to each node.
 
 You can use a doubly or singly linked list in any place you could use an array, but they have specific advantages depending on the use-case.
 
-Doubly linked lists take up additional memory, due to the additional references, but it is possible to iterate through in reverse, and it can be a little easier to add or remove elements in the middle of the list.
+Doubly linked lists take up additional memory, due to the additional references, but it is possible to iterate through in reverse, and it can be a little easier to sort or add/remove elements in the middle of the list more easily.
 
 ### Over Arrays
 
