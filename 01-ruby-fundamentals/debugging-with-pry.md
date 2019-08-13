@@ -13,11 +13,12 @@ When an exception is raised, it immediately stops the current method, just like 
 
 A stack trace contains a ton of useful information, including a list of methods and blocks that Ruby was inside when the exception was raised. Being able to quickly read a complex stack trace is a super useful skill, so let's examine one now.
 
-First, take a look at the following stack trace that came from running some of the tests within the grocery store project.
+First, take a look at the following stack trace that running this new test on the code from the clock example in the [Testing With Minitest](../02-intermediate-ruby/testing-with-minitest.md) lesson.
 
-![test stack trace](images/test-stack-trace.png)
+![A stack trace; it shows a test failure and several lines of output.](images/test-stack-trace.png)
 
-**Activity**: Now, with your pair, spend a few minutes looking at this error in detail. We know you don't have access to the code, but try anyway to answer the following questions:
+
+**Activity**: Now, with your neighbors, spend a few minutes looking at this error in detail. Try anyway to answer the following questions:
 1. What file has the code that was _originally called_ to create the error?
 2. What file has the code where the _error is located_? (Is this different than your answer to the question above?)
 3. Without seeing the code but using the error details, what do you think the code in question could look like?
@@ -26,18 +27,69 @@ First, take a look at the following stack trace that came from running some of t
 
 First, let's look at each piece of the provided error.
 
-![test stack trace errors](images/test-stack-trace-markup-p1.png)
+![The earlier stack trace; marked up to highlight the test description, exception type, exception message and which portion is the stack trace.](images/test-stack-trace-markup-exception.png)
 
 Next, we'll take a look at all of the details of the stack trace itself.
 
-![test stack trace details](images/test-stack-trace-markup-p2.png)
+![The earlier stack trace; marked up to highlight the file paths and the line numbers](images/test-stack-trace-markup-trace.png)
 
 With this information, now we can more confidently answer our questions above:
-1. `online_order_spec.rb` - line 65 specifically
-2.  `order.rb` - line 20 specifically within the `add_product` method
-3. Trying to use the `[]` Array syntax to access an element on a variable that does not have an Array value
+1. `clock_test.rb` - line 15 specifically
+2.  `clock.rb` - line 9 specifically within the `each` method
+3. The code is checking that there are only 59 seconds in a minute.
 
 The questions that we've asked you to answer about this error message are not arbitrary. Whenever you get an error, you should be overjoyed! It provides you with this extremely useful information and should never be ignored.
+
+<details>
+<summary>Here are the <code>clock.rb</code> and <code>clock_test.rb</code> that we used above.  Did they look like what you expected?</summary>
+<br>
+
+```ruby
+# clock_test.rb
+
+require 'minitest/autorun'
+require 'minitest/reporters'
+require_relative 'clock'
+
+Minitest::Reporters.use!
+
+describe "clock" do
+  # other tests omitted.
+
+  it "handles the leap second" do
+    # https://en.wikipedia.org/wiki/Leap_second
+
+    expect(clock(23, 59, 60)).must_equal "23:59:60"
+  end
+end
+```
+
+```ruby
+# clock.rb
+
+def clock(hours, minutes, seconds)
+  time_fields = [hours, minutes, seconds]
+  max_values = [23, 59, 59]
+
+  time_fields.each_with_index do |field, index|
+    if field > max_values[index]
+      raise ArgumentError.new("#{field} is too large")
+    end
+  end
+
+  time_fields.map! do |field|
+    if field < 10
+      "0#{field}"
+    else
+      "#{field}"
+    end
+  end
+
+  return "#{time_fields[0]}:#{time_fields[1]}:#{time_fields[2]}"
+end
+```
+
+</details>
 
 ### Using `pry`
 
@@ -63,7 +115,9 @@ require 'pry'
 def useful_method
   first_variable = "Something useful"
   puts first_variable
+
   binding.pry
+
   another_variable = "Where am I!?"
   puts another_variable
   first_variable = "Time for change"
@@ -73,7 +127,7 @@ end
 useful_method
 ```
 Your terminal should open in interactive environment that looks something like this:
-![binding.pry in terminal](./images/pry.png)
+![Pry running in the terminal; the code is on line 9 and there are commands showing the values of a couple of variables before exiting.](./images/pry.png)
 
 
 ### Debug Code
@@ -89,6 +143,27 @@ end
 
 puts add_5_years(50)
 ```
+
+<details>
+<summary>What do we need to change to use Pry in this file.</summary>
+
+``` Ruby
+require 'pry'
+
+def add_5_years(age)
+  5.times do
+    age + 1
+  end
+
+  binding.pry
+  return age
+end
+
+binding.pry
+puts add_5_years(50)
+```
+
+</details>
 
 ### Stepping through your program
 
