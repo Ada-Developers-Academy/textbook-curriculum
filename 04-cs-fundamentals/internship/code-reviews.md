@@ -7,6 +7,7 @@ By the end of this lesson you should be able to:
 - Define what a code review is
 - Explain the purposes of a code review
 - Use Github Pull Requests to provide feedback on a code review
+- Use good code review ettiquite
 
 ## What Is A Code Review
 
@@ -91,7 +92,7 @@ Good code review comments can be:
 - Suggestions for improvements
 - Compliments
 
-It is important to remember that the code belongs to the team, use the word "We" over "You" and feel free to criticise the code, while being respectful of the author.  **Be specific** in your comments or questions.  You can add code samples to illustrate your point.
+It is important to remember that the code belongs to the team, use the word "We" over "You" and feel free to criticise the code, while being respectful of the author.  **Be specific** in your comments or questions.  You can add code samples to illustrate your point.  Remember that your comments in a code review are **suggestions** and not commands.  
 
 When you have finished reviewing the PR, click on the `Review Changes` button and leave a summary of your impressions and either approve or request changes for the review
 
