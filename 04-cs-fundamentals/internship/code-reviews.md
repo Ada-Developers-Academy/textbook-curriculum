@@ -144,3 +144,4 @@ There may come a time where you notice architectural issues with the application
 - [The Science of Code Reviews Video](https://www.youtube.com/watch?v=EyL7mqwpZhk)
 - [The Psycology of Computer Programming](https://leanpub.com/thepsychologyofcomputerprogramming) - The 1st book on the human factors of computer programming, and the 1st to mention Egoless programming.
 - [Pull Request Review in VS Code](https://code.visualstudio.com/blogs/2018/09/10/introducing-github-pullrequests)
+- [Slides on Code Reviews](https://docs.google.com/presentation/d/1BKR11TrXwRD3nysF9yt1GnWFX4V2h79U0qe7fhgI_Gs/edit?usp=sharing)
