@@ -346,7 +346,7 @@ For example, what if we wanted a method that, given an array of `Song`s, picks t
 
 Work with a partner to implement `Song.most_played`. As you write the method, think about how you would test it - what interesting scenarios can you imagine?
 
-Once you've come up with an version you're happy with, [you can see ours here](https://gist.github.com/droberts-ada/8f3e70aa8dd05450f8c8b41692e206fc).
+Once you've come up with an version you're happy with, [you can see ours here](source/song.rb).
 
 ## Conclusion
 
