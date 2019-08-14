@@ -1,6 +1,5 @@
 # Debugging Warmup
 
-In pairs, on one machine, copy and paste the code into VSCode.
 Without editing the file at all, use pry to do the following:
 - output value of "thing" before do_part_1
 - output value of "thing" before do_part_2
