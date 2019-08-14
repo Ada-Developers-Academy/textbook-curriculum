@@ -29,6 +29,14 @@ When you finish CS Fundamentals we want you to be able to:
 - Explain how binary numbers work
 - Discuss how a CPU and computer are structured at a high-level
 
+## Motivation
+
+**Question** So why study CS Fundamentals?  
+
+As you may have discovered there are always many ways to solve any problem, but some solutions may prove more or less optimal than others.  A solution that works for 100 users might not work as well with 1 million.  Identifying areas of your application which scale poorly, and developing more scalable applications and picking more efficient data structures can make an enormous difference in performance.
+
+A more directly applicable point is the fact that traditional technical interviews focus heavily on cs fundamentals questions.  Traditional whiteboarding involves writing efficent code and identifying it's runtime efficiency.
+
 ## Course Methodology
 
 Computer Science fundamentals can seem very abstract and difficult to understand.  The class only meets 2 hours per week and only have 10 sessions (20 hours) of classtime.  Therefore we will operate primarily as a [Flipped Classroom](https://www.blendedlearning.org/models/?gclid=Cj0KCQjwv8nqBRDGARIsAHfR9wAcM6swwFYULVLgf782OrWhek4U5eTkxxWt0Zt8MzXNne701u7lIhkaAouaEALw_wcB#flip).  In our flipped classroom students will watch video lessons and read course material as homework.  In class we will discuss the concepts, answer questions and work on exercises.  In that manner you can get help from classmates and the instructor as you work on assignments.  The goal is that most coursework can be done in class.
