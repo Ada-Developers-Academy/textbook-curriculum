@@ -67,7 +67,7 @@ That said:
 
 You can find the schedule for CS Fundamentals & other events on Thursdays on the [Ada Pedagogy Repository](https://github.com/Ada-Developers-Academy/pedagogy/blob/master/cs-fundamentals-classroom.md)
 
-## Tips for Success
+## Tips For Success
 
 1. Make sure to read the curriculum and watch the videos before class
 1. Ask questions!
@@ -75,9 +75,9 @@ You can find the schedule for CS Fundamentals & other events on Thursdays on the
 1. Take advantage of Office Hours and TAs
 1. Do the exercises and review your project feedback
 
-## Open curriculum & Document
+## Open Curriculum & Document
 
-The curriculum and even this document are **not** set in stone.  If you want to suggest a change in a curriculum document, feel free to edit the markdown and open a pull request.  
+The curriculum and even this document are **not** set in stone.  If you want to suggest a change in a curriculum document, feel free to edit the markdown and open a pull request.  This includes **this** document.
 
 ## Outside Resources
 
