@@ -11,8 +11,8 @@ Welcome to Computer Science Fundamentals!  In this class you will study classic 
 - **Interview Preparation** - How to be successful in a technical interview.
   - This includes the interview process, typical types of questions and interview strategies for success.  
 - **Various Computer Science Topics**  - A variety of techniques and concepts.
-  - Recursion
-  - Binary Numbers
+  - _Recursion_
+  - _Binary Numbers_
   - Memory & Computer Internals
 
 ## Goals for the Course
