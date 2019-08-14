@@ -63,6 +63,10 @@ That said:
 - Feel free to get up and stretch, but avoid blocking others
 - Headphones are fine for independent practice
 
+## Schedule
+
+You can find the schedule for CS Fundamentals & other events on Thursdays on the [Ada Pedagogy Repository](https://github.com/Ada-Developers-Academy/pedagogy/blob/master/cs-fundamentals-classroom.md)
+
 ## Tips for Success
 
 1. Make sure to read the curriculum and watch the videos before class
