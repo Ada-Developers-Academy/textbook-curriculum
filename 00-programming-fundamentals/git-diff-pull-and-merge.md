@@ -182,6 +182,7 @@ Follow the link in the calendar to the Git Pull Activity, and follow the instruc
 ## Git Commands
 
 Here's a handy table of all the git commands we've learned so far.
+
 | Command             | Description |
 |---------------------|-------------|
 | `git clone <URI>`   | Initialize a git repository from the GitHub repository at the URI
