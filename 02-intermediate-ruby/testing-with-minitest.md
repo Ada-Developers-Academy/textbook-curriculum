@@ -259,7 +259,15 @@ You may remember from the [Introduction to Automated Testing](../00-programming-
 1. The seconds are greater than or equal to 60, should raise an error
 1. Any parameter is less than 0, should raise an error
 
-**Question** Are there other edge-cases we should test for?  Do any other inputs cause different behaviors in the method?  Talk about it with your SeatSquad members.  If you are unsure check [here](https://gist.github.com/ada-instructor-1/27c2cb78b177a6139241860a6bc54712).
+<details>
+<summary>
+<b>Question:</b> Are there other edge-cases we should test for?  Do any other inputs cause different behaviors in the method?  Talk about it with your SeatSquad members, and click here for an answer if you are still unsure.
+</summary>
+
+- You should also test numbers less than 10
+- Numbers smaller than 10 should include a leading zero
+
+</details>
 
 We will choose to ignore for now cases where the user passes a non-integer in as a parameter.  In that case it should cause a runtime error.
 
