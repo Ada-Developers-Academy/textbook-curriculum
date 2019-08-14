@@ -8,6 +8,7 @@ Without editing the file at all, use pry to do the following:
 - output the value of "value" within do_part_2
 - before my_number is multiplied by "value", change "value" to 0
 
+In pairs, on one machine, copy and paste the code into VSCode.
 ```ruby
 
 require 'pry'
