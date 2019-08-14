@@ -42,7 +42,7 @@ You should see two identical entries, one for `fetch` and one for `push`. The UR
 
 Now it's time for the rubber to meet the road.
 
-1. Check your work
+1. Check your work (remember, press `q` to exit)
     ```bash
     git log   # should show your recent commit
     ```
