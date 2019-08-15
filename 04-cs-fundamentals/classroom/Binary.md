@@ -49,10 +49,30 @@ So RAM cells are maintaining an electrical charge to store information.  That is
 
 Interestingly as people research [quantum computing](https://www.newscientist.com/article/dn17575-ditching-binary-will-make-quantum-computers-more-powerful/) we might move to a base-5 or more system as each qubits can represent multiple states.  
 
-## Slide Deck
+## Computer Organization
 
-+ Slide Deck used in class</br>
+You can think of a modern computer as having one central processing unit (CPU) which does the calculations and manages the sytem, system memory (RAM) and an I/O Bus which connects the computer to other devices, hard drives, printers, network etc.
+
+![computer org](images/computer-system.png)
+
+As programs run information is pulled from memory across a set of wires known as the _system bus_ into storage spaces on the CPU known as registers.  The CPU will perform operations on data in the registers and transfer data back across the system bus to memory.  It will also use the bus to communicate to other components.  The transfer of information to and from RAM is relatively fast, but saving information to long-term storage (think hard drives, disks, DVDs etc), is orders of magnitude slower.
+
+Naturally things are a lot more complicated with each computer having numerous "cores" (CPUs), different levels of memory and a large variety of devices.
+
+<details>
+  <summary>If a system is 16-bit how many addressible memory locations can it have?</summary>
+
+  2<sup>16 = 65536
+</details>
+
+
+## Former Slide Deck
+
+- Former Slide Deck used in class</br>
 <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://drive.google.com/file/d/0B__DV26QHsH4YzhFWFVnbEp2akU/view?usp=sharing">A brief introduction to Binary and Memory</a></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</br>
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />
 
 ## Resources
+
+- [Geeks for Geeks Representing a Binary Number](https://www.geeksforgeeks.org/binary-representation-of-a-given-number/)
+- [Khan Academy: Binary Numbers & AP CS](https://www.khanacademy.org/computing/ap-computer-science-principles/computers-101/digital-data-representation/a/bits-and-binary)
