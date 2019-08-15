@@ -39,9 +39,9 @@ Computers organize binary digits into units called _Bits_.  A _Bit_ is one binar
 
 From there bytes are gouped into larger and larger groups.  You may have heard about _Kilobytes_, _Megabytes_, and _Terabytes_ etc.  A KiloByte is 2<sup>10</sup> Bytes or 1024.  A Megabyte is 2<sup>20</sup> Bytes, and so on. 
 
-When you see a system labeled 32-bit or 64-bit, etc that is the number of individual addresses in memory.  So a 64-bit system can have more memory to store information.
+When you see a system labeled 32-bit or 64-bit, etc that is the number of individual addresses in memory.  So a 64-bit system can have more memory to store information, there are 2<sup>64</sup> different memory addresses and for a 32-bit system there would be 2<sup>32</sup>.
 
-## Why Do Computers Use Binary?
+## Why Do Computers Use Binary
 
 The computer provides, what you can think of as a vast array of bytes called the _System Memory_.  The most basic unit of memory is the aforementioned _memory cell_.  When the cell has no electrical charge, it's considered off or 0.  When it does have an electrical charge, it's considered on, or a 1.  
 
