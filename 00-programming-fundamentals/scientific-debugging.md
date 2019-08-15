@@ -147,7 +147,7 @@ Encoding the repro as a test forces you to isolate the problem is a specific par
 You can use this boilerplate for your test file:
 
 ```ruby
-# pyramid_spec.rb
+# pyramid_test.rb
 require "minitest"
 require "minitest/autorun"
 require "minitest/reporters"

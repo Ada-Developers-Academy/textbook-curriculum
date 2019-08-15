@@ -1,5 +1,5 @@
 # Testing with Guard and Minitest
-We've already seen how to use Minitest to make spec files and write automated tests to verify the behavior of our Ruby code. Now we will build on this foundation of automated tests to improve our "development workflow", using a tool called [Guard](https://github.com/guard/guard).
+We've already seen how to use Minitest to make test files and write automated tests to verify the behavior of our Ruby code. Now we will build on this foundation of automated tests to improve our "development workflow", using a tool called [Guard](https://github.com/guard/guard).
 
 ## Learning Goals
 - Install Guard
@@ -8,7 +8,7 @@ We've already seen how to use Minitest to make spec files and write automated te
     - Learn how Guard can increase the value of your automated tests
 
 ## What is Guard?
-[Guard](https://github.com/guard/guard) is a _task runner_ which means that it's primary role is to automatically perform a task, such as have Minitest run our full test suite, or possibly a subset of it. In particular, Guard is a kind of task runner that is based on file watching -- it "watches" the files in our project, and runs tasks when they are changed. For Ada's projects we have configured Guard to run your tests whenever a code or spec file is changed.
+[Guard](https://github.com/guard/guard) is a _task runner_ which means that it's primary role is to automatically perform a task, such as have Minitest run our full test suite, or possibly a subset of it. In particular, Guard is a kind of task runner that is based on file watching -- it "watches" the files in our project, and runs tasks when they are changed. For Ada's projects we have configured Guard to run your tests whenever a code or test file is changed.
 
 **NOTE**: Guard will only notice that your file has changed when you _save_ it in your editor.
 
@@ -30,9 +30,9 @@ Now that we know the purpose of the Guard tool, how can we use it to run our tes
 ```ruby
 guard :minitest, bundler: false, autorun: true, rubygems: false do
   # With Minitest Reporters
-  watch(%r{^spec/(.*)_spec\.rb$})
-  watch(%r{^lib/(.+)\.rb$})         { |m| "spec/#{m[1]}_spec.rb" }
-  watch(%r{^spec/spec_helper\.rb$}) { 'spec' }
+  watch(%r{^test/(.*)_test\.rb$})
+  watch(%r{^lib/(.+)\.rb$})         { |m| "test/#{m[1]}_test.rb" }
+  watch(%r{^test/test_helper\.rb$}) { 'test' }
 end
 ```
 
@@ -40,12 +40,12 @@ While it's not important to understand all of this code (it's written using a Gu
 
 In particular, we have a line that says `guard :minitest`. This is how we indicate to Guard that one of its tasks is to run Minitest. The lines inside of the `do ... end` block attached to the Minitest line are how we tell Guard what files to watch.
 
-The above example tells Guard to watch the `spec/` and `lib/` folders, and to only run _relevant_ tests whenever a file is changed. Additionally, we tell Guard to run _all_ tests whenever the `spec_helper.rb` file is changed.
+The above example tells Guard to watch the `test/` and `lib/` folders, and to only run _relevant_ tests whenever a file is changed. Additionally, we tell Guard to run _all_ tests whenever the `test_helper.rb` file is changed.
 
-An example of a useful `spec/spec_helper.rb` file would be:
+An example of a useful `test/test_helper.rb` file would be:
 
 ```ruby
-# spec/spec_helper.rb
+# test/test_helper.rb
 require 'minitest/reporters'
 require 'minitest/autorun'
 

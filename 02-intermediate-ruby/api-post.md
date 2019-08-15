@@ -71,10 +71,10 @@ In this lesson we will build a method for sending messages to Slack in a TDD fas
 
 ### What Do We Have?
 
-In this repository we have a `Rakefile` to run our tests with, a `run_chatstream.rb` file to run our finished application, and a `specs` folder with the following files:
+In this repository we have a `Rakefile` to run our tests with, a `run_chatstream.rb` file to run our finished application, and a `test` folder with the following files:
 
-- `spec_helper.rb`
-- `slack_api_wrapper_spec.rb`
+- `test_helper.rb`
+- `slack_api_wrapper_test.rb`
 
 The `lib` directory also has a `slack_api_wrapper.rb` file with the following code inside:
 
@@ -94,10 +94,10 @@ In this exercise we will build some tests for a `send_msg` method in the `SlackA
 
 ### Our First Test - Nominal Case
 
-For our first test we will build a test case for sending a message to Slack successfully.  We will need to set up the testing first.  Add the following to `specs/spec_helper.rb`
+For our first test we will build a test case for sending a message to Slack successfully.  We will need to set up the testing first.  Add the following to `test/test_helper.rb`
 
 ```ruby
-# spec_helper.rb
+# test_helper.rb
 require 'dotenv'
 Dotenv.load
 
@@ -110,7 +110,7 @@ require_relative '../lib/slack_api_wrapper'
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 VCR.configure do |config|
-  config.cassette_library_dir = 'specs/cassettes' # folder where casettes will be located
+  config.cassette_library_dir = 'test/cassettes' # folder where casettes will be located
   config.hook_into :webmock # tie into this other tool called webmock
   config.default_cassette_options = {
     record: :new_episodes,    # record new data when we don't have it yet
@@ -136,8 +136,8 @@ SLACK_TOKEN=<TOKEN_GOES_HERE>
 Next we can write our first test using VCR.
 
 ```ruby
-# slack_api_wrapper_spec.rb
-require_relative 'spec_helper'
+# slack_api_wrapper_test.rb
+require_relative 'test_helper'
 
 describe SlackApi do
   it "can send a valid message" do
@@ -225,7 +225,7 @@ What should we do when the channel does not exist?  We have a few options.
 1. We could return a string describing the error, which could work, but a user of our method would need to know to check for the return value to know that the message did not work, and strings are truthy values, which could be misleading.
 1. We could raise an error.  This is what we will do instead.  By raising an error we can describe the problem, and alert any user of our method of the problem, making it clear that the API call did not work while making it easier to debug with an error message and stack trace.  We can create a new exception class with: `class SlackApiError < StandardError; end` and use it to indicate problems Slack tells us.  
 
-Add the following test to `specs/slack_api_wrapper_spec.rb`.
+Add the following test to `test/slack_api_wrapper_test.rb`.
 
 ```ruby
   it "will raise an error when given an invalid channel" do
