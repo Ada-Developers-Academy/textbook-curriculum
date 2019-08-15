@@ -55,9 +55,9 @@ Big-O For Linked Lists & Arrays
 | access | O(n) | O(1) |
 | search | O(n) | O(n) |
 | insertion | O(1) | O(n) |
-| deletion | O(1) 	| O(1) |
+| deletion | O(1) 	| O(n)* |
 
-As you can see above, Linked Lists perform in constant time to insert values into or remove values from a list, because it only requires a few reference to be changed.  Arrays, on the other hand, can require shifting numerous elements into new indices with each insertion or deletion.
+As you can see above, Linked Lists perform in constant time to insert values into or remove values from a list, because it only requires a few reference to be changed.  Arrays, on the other hand, can require shifting numerous elements into new indices with each insertion or deletion. * O(n) for deletion except for at the end of an array.
 
 Further most runtimes allocate more memory to an array than is being used because if the array grows, the interpreter needs to request new memory from the environment and copy the entire array into the new, larger, space.  By starting with extra space available an array can grow as required for some time.  A LinkedList by contrast only uses memory as required for the nodes available.  An array also requires each element to be adjacent in memory.  When available memory is limited, this can be problematic.  So in some memory restrictive environments a Linked List could be attractive.  
 
