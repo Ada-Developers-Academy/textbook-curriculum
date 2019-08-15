@@ -88,7 +88,7 @@ puts our_string.class
 puts ruby_string.class
 ```
 
-The two `String` classes can work alongside each other.  This is because we _namespaced_ our `String` class under the `CraftSTore` Module.
+The two `String` classes can work alongside each other.  This is because we _namespaced_ our `String` class under the `CraftStore` Module.
 
 The `::` operator looks up objects and classes within a module, in this case we use it to look up the `CraftStore` Module's `String` class.
 
