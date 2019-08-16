@@ -21,11 +21,16 @@ By the end of this lesson you should be able to:
 - Algorithm to convert from binary to decimal and vice versa
 - Give a high-level overview of memory organization on computers
 
-## Binary Numbers
+## Typical Computer Structure
 
-Computers work with binary numbers.  Our number system is the _decimal_ system where there are 10 symbols 0-9, and each digit represents that value times a power of 10.
+A _Computer_ is a device for storing and processing data according to a series of commands or instructions provided to it.
 
-So 135 = (5 * 10<sup>0</sup>) + (3 * 10<sup>1</sup>) + (5 * 10<sup>2</sup>)
+| Term 	| Definition 	|
+|---	|---	|
+| Cache 	| A type of very fast memory, close to or on the CPU chip which is used to store information the CPU will likely need to access soon.  It can also be a term for storing information likely to be used in a location which can be quickly accessed.  This technique of pre-staging information likely to be used in proximate locations is called _caching_. 	|
+| CPU 	| The **C**entral **P**rocessing **U**nit of a computer.  This is the main processor which executes program instructions, performs arithmetic and coordinates the other components of a computer.  The most basic components include _control unit_ which pulls instructions from memory, executes them and calls on the other typical component the _arithmetic logic unit_ (ALU) which performs arithmetic and logical operations. 	|
+| Peripherals 	| External components to a computer which can provide input and/or output.  An example is a monitor or keyboard. 	|
+|  	|  	|
 
 Binary numbers work off powers of 2 with two symbols 0 and 1.
 
