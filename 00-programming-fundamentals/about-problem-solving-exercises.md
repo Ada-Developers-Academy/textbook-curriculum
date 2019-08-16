@@ -74,6 +74,7 @@ Answer the following prompts:
 - This is open note. You are free to use your notes, the Internet, your past projects and assignments, etc!
 - For question #1, you will need to list at least five questions. This should feel like a stretch! It should feel really strange and creative to think of this many questions, or more. Sometimes, you'll come up with very weird questions, and that is totally fine, as long as the questions challenge assumptions and are relevant to the problem. Later on in the program, we will encourage you all to aim for 6, 7, or 8 questions.
 - For questions #2, #3, #4, and #5, **you will need to make assumptions, and that is okay.**
+- Your assumptions should be consistent throughout the assessment
 - What is a sub-problem? Every problem has sub-problems, or smaller problems that need to be solved as part of the original problem.
   - For example, in math, for solving the problem `x = ((8 + 3) * 72) / 2`, some sub-problems would be:
     - How do you isolate problems in parentheses?
@@ -124,20 +125,9 @@ Answer the following prompts:
     1. If `rating > highest_rating` is `true`, then the rating of this restaurant is rated more highly
 5. 
     ```ruby
-    def find_highest_rating(ratings)
-      highest_rating = 0
-
-      ratings.each do |rating|
-        if rating > highest_rating
-          highest_rating = rating
-        end
-      end
-
-      return highest_rating
+    if rating > highest_rating
+      highest_rating = rating
     end
-    
-    ratings = [1, 5]
-    highest_rating = find_highest_rating(ratings) 
     ```
 
 ### How to Give Feedback on the Ratings PSE
@@ -146,7 +136,7 @@ Answer the following prompts:
 
 No. 1 is used to stretch minds. It should feel like a lot of questions, and it should be really hard! Most questions are still valid even if these questions challenge very basic assumptions, like "is this a running Ruby script?" or "is this on a computer?"
 
-- The answer is wrong if there aren't 5 questions
+- The answer is wrong if there aren't at least 5 questions
 - The answer is wrong if there were no questions clarifying the structure of the restaurant hash (what are the keys in each hash, etc.)
 
 #### Reviewing #2 (2 example input/output):
