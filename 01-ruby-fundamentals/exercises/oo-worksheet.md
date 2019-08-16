@@ -104,13 +104,70 @@ With the two files in this state, ask yourself the following questions:
 - All instances of Superhero can perform the behavior named `say_cool_speech`. How does that get defined?
 - All instances of Superhero can perform the behavior named `say_cool_speech`. How does that get called/invoked?
 
-2. Create a `Celsius` class:
-  - Should be instantiated with a temperature
-  - Should have one method called `to_farenheit` which will convert the original temperature to Farenheit. The formula to convert Celsius to Fahrenheit is the temperature in Celsius times 1.8 plus 32
+## Celsius
 
-  The following code should successfully execute once you have completed your `Celsius` class:
+Define a class that represents the state and behavior of the temperature unit Celsius, named `Celsius`.
+
+Before we get into code, first let's predict. We want the following to be true about our `Celsius` class:
+
+1. Every instance of `Celsius` should be instantiated with `temperature`. What syntax do we use to define that?
+2. Every instance of `Celsius` should keep track of its own temperature. What syntax do we use to define that, and assign it to the temperature we passed in?
+3. Every instance of `Celsius` has the behavior of returning its temperature as Fahrenheit. What syntax do we use to define behavior?
+
+<details>
+
+  <summary>Check your answers here:
+
+  1. We define the parameters for a class in its `initialize` method, as part of its method signature. When we create instances of `Celsius`, we pass in the parameters by doing `Celsius.new(temperature)`
+  2. We use instance variables (variables inside of classes that start with `@`) to keep track of data/state inside of an instance. We can assign it to the passed in temperature inside the `initialize` method.
+  3. We define behavior in a class by making a method inside of it.
+
+</details>
+
+### Let's Begin!
+
+1. Create a file `celsius.rb`
+1. Define a class named `Celsius` inside of that file
+1. Create a `main.rb` file and paste this in:
+    ```ruby
+    require_relative "celsius"
+
+    nice_temp = Celsius.new
+    ```
+    Run it and ensure that the Terminal does not say you have any syntax errors
+1. Define the `initialize` method inside of the `Celsius` class definition. Say that it needs one parameter named `temperature`
+1. Update `main.rb` to say `nice_temp = Celsius.new(22)` instead. Run the code to verify that there are no syntax errors
+1. Inside of the `initialize` method, say that there is an instance variable named `@temperature` and assign it to the passed in temperature by writing this line: `@temperature = temperature`
+1. Define a new method named `to_fahrenheit` inside of the `Celsius` class.
+1. Update `main.rb` so it has these contents:
+    ```ruby
+    require_relative "celsius"
+
+    degrees = 22
+    nice_temp = Celsius.new( degrees )
+    puts "Right now the temperature is #{degrees}°C, or #{ nice_temp.to_fahrenheit}°F"
+    ```
+    Run `main.rb` to ensure you do not have any syntax errors
+1. Finally, implement the `to_fahrenheit` method! The formula to convert Celsius to Fahrenheit is the temperature in Celsius times 1.8 plus 32
+
+
+<details>
+
+  <summary>
+    Compare your answer against ours
+  </summary>
+
   ```ruby
-  celly = Celsius.new(10)
-  celly.to_farenheit
-  => 50
+  class Celsius
+
+    def initialize(temperature)
+      @temperature = temperature
+    end
+
+    def to_fahrenheit
+      return ( @temperature * 1.8 ) + 32
+    end
+
+  end
   ```
+</details>
