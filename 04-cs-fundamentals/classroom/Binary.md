@@ -1,8 +1,8 @@
 # Introduction to Binary & Memory
 
-## Required work before this class
+## Prerequisites
 
-Before this first CS Fundamentals class, please read, view and complete the exercises on the following links:
+Before this first CS Fundamentals lesson, please read, view and complete the exercises on the following items:
 
 - [Essential Mathematics for Software Engineers](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Essential%20Mathematics.md)
 - [Computer Data Basics](https://docs.google.com/document/d/1g-Dxn1rVTChBs9ZZSOgmohjP_RoWNyPJTE-m_n35aZ0/edit)
