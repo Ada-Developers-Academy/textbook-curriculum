@@ -171,3 +171,71 @@ Before we get into code, first let's predict. We want the following to be true a
   end
   ```
 </details>
+
+## Optional: CoffeeOrder
+
+Define a class called `CoffeeOrder` that has a lot of parameters. Maintain the practice of using `main.rb` to catch your syntax errors and practice making and using instances of classes.
+
+1. Define a class called `CoffeeOrder` in a file `coffee_order.rb`
+1. Every instance of `CoffeeOrder` should be instantiated with `type`, `size`, `extra_shots`, and `cold`
+1. Every instance of `CoffeeOrder` should track using instance variables `type`, `size`, `extra_shots`, and `cold`
+1. `CoffeeOrder` should have the behavior `calculate_price`. This method takes in one parameter named `tip_percentage`
+1. Read through this code, and inspect how the method parameter `tip_percentage` gets used differently compared to the instance variables. Update your `calculate_price` method to look like this:
+    <details>
+
+      <summary>
+        Code
+      </summary>
+
+      ```ruby
+      def calculate_price(tip_amount)
+          case @type
+          when :drip
+            price = 1.5
+          when :latte
+            price = 3.7
+          when :cappuccino
+            price = 3.2
+          else
+            puts "Invalid coffee type: #{type}"
+            return
+          end
+
+          case @size
+          when :tall
+            # No change
+          when :grande
+            price *= 1.3
+          when :venti
+            price *= 1.6
+          else
+            puts "Invalid size: #{size}"
+            return
+          end
+
+          price += @extra_shots * 0.5
+
+          if @cold
+            price += 1
+          end
+
+          price *= 1 + tip_amount
+
+          return price
+        end
+      ```
+    </details>
+
+    <br/>
+
+1. Update `main.rb` to look like this:
+  ```ruby
+  require_relative "coffee_order"
+
+  my_coffee = CoffeeOrder.new(:drip, :tall, 2, true)
+
+  puts "The price when I type 15% is #{ my_coffee.calculate_price( 0.15 ) }"
+  puts "The price when I type 18% is #{ my_coffee.calculate_price( 0.18 ) }"
+  puts "The price when I type 20% is #{ my_coffee.calculate_price( 0.20 ) }"
+  ```
+  Run it and observe that we can still pass in different parameters to these instance methods
