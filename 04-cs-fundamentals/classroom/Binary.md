@@ -11,13 +11,15 @@ If you have any questions, please email or slack your instructor.
 
 ## Learning Goals
 
-- High level understanding of binary numbers
+By the end of this lesson you should be able to:
+
+- Explain the core parts of a computer and what they do
+- Describe the structure of a computer
+- Compare binary numbers to decimal numbers
+- Convert between binary and decimal numbers
+- Explain why computers use binary numbers
 - Algorithm to convert from binary to decimal and vice versa
-- High level overview of memory organization on computers
-  - Bits
-  - Bytes
-  - Computer organization: CPU-memory-buses
-  - Memory address
+- Give a high-level overview of memory organization on computers
 
 ## Binary Numbers
 
