@@ -32,11 +32,17 @@ A _Computer_ is a device for storing and processing data according to a series o
 | Peripherals 	| External components to a computer which can provide input and/or output.  An example is a monitor or keyboard. 	|
 |  	|  	|
 
-Binary numbers work off powers of 2 with two symbols 0 and 1.
+## So What Are Binary Numbers
 
-So for the binary number 1101
+Our number system is the _decimal_ system where there are 10 symbols 0-9, and each digit represents a value (0-9) times a power of 10.
 
-1101<sub>2</sub> = (1 * 2<sup>0</sup>) + (0 * 2<sup>1</sup>) + (1 * 2<sup>2</sup>) + (1 * 2<sup>3</sup>)
+For Example: 135 = (5 * 10<sup>0</sup>) + (3 * 10<sup>1</sup>) + (5 * 10<sup>2</sup>)
+
+Binary numbers work off powers of 2 with two symbols 0 and 1.  A binary number is one or more digits composed of only 0s and 1s, each digit representing a power of two.
+
+For Example: 1101<sub>2</sub> = (1 * 2<sup>0</sup>) + (0 * 2<sup>1</sup>) + (1 * 2<sup>2</sup>) + (1 * 2<sup>3</sup>)
+
+### A Note On Subscripts
 
 When we use subscripts like the 2 in 1101<sub>2</sub> to indicate that the number is a binary number.  Likewise we could use 10 as a subscript for a decimal number. 135<sub>10</sub>
 
