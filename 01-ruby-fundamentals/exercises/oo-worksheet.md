@@ -116,7 +116,7 @@ Before we get into code, first let's predict. We want the following to be true a
 
 <details>
 
-  <summary>Check your answers here:
+  <summary>Check your answers here</summary>
 
   1. We define the parameters for a class in its `initialize` method, as part of its method signature. When we create instances of `Celsius`, we pass in the parameters by doing `Celsius.new(temperature)`
   2. We use instance variables (variables inside of classes that start with `@`) to keep track of data/state inside of an instance. We can assign it to the passed in temperature inside the `initialize` method.
