@@ -100,7 +100,7 @@ Either could work as finding an element will take O(n) for an unordered list in 
 </details>
 
 <details>
-<summary>Your low memory capacity smart lightbulb needs to store a list of data?  What would you pick, LinkedList or Array?</summary>
+<summary>Your low memory capacity smart lightbulb needs to store a list of data.  What would you pick, LinkedList or Array?</summary>
   
 A Linked List because it does not require the items to be adjacent and will only use as much memory as it requires in the moment.
 </details>
