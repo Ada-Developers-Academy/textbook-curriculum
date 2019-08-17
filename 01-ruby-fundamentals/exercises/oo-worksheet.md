@@ -239,3 +239,67 @@ Define a class called `CoffeeOrder` that has a lot of parameters. Maintain the p
   puts "The price when I type 20% is #{ my_coffee.calculate_price( 0.20 ) }"
   ```
   Run it and observe that we can still pass in different parameters to these instance methods
+
+## Optional: ProfessionalYeller
+
+Prove to yourself that values of instance variables can be modified within an instance of a class, but instance variables between different instances do not interact.
+
+Read the following pieces of code, and predict the answers to the following questions:
+
+1. Does a `ProfessionalYeller` take in any arguments whenever a new instance is made?
+1. What does a `ProfessionalYeller` keep track of as pieces of state (as instance variables)?
+1. What does the behavior (instance method) `yell` do?
+1. What should we see in the Terminal when we run `main.rb`?
+
+`professional_yeller.rb`
+```ruby
+class ProfessionalYeller
+
+  def initialize(favorite_phrase)
+    @phrase = favorite_phrase
+    @count = 1
+  end
+
+  def yell
+    scream = @phrase * @count
+    @count += 1
+    return scream
+  end
+
+end
+```
+
+`main.rb`
+```ruby
+require_relative "professional_yeller"
+
+yeller_of_a = ProfessionalYeller.new( "A" )
+yeller_of_love = ProfessionalYeller.new( "LOVE" )
+yeller_of_peace = ProfessionalYeller.new( "PEACE" )
+
+puts yeller_of_a.yell
+puts yeller_of_love.yell
+puts yeller_of_peace.yell
+
+puts yeller_of_love.yell
+puts yeller_of_peace.yell
+
+puts yeller_of_love.yell
+
+puts yeller_of_peace.yell
+puts yeller_of_peace.yell
+puts yeller_of_peace.yell
+
+puts yeller_of_love.yell
+puts yeller_of_peace.yell
+puts yeller_of_love.yell
+
+puts yeller_of_a.yell
+puts yeller_of_a.yell
+puts yeller_of_a.yell
+puts yeller_of_a.yell
+puts yeller_of_a.yell
+
+```
+
+Copy this code and verify your answers.
