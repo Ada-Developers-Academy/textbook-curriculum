@@ -9,7 +9,50 @@ By the end of this lesson, students should be able to...
 
 ## The Story So Far
 
+So far, our code has usually been written like this:
+
+1. We receive a problem statement
+1. We make usually one `.rb` file
+1. We write our code as a sequence of instructions to execute in this one file, working with numbers, strings, booleans, arrays, hashes, and symbols
+1. Sometimes we use git to track our changes over time
+1. Sometimes we install gems and load them into our Ruby files to use them
+1. Sometimes we use tests in different files to check the correctness of our code
+
+While we've gotten some interesting and useful tools (such as TDD and git), we haven't necessarily gotten strategies to re-think or re-organize our code.
+
+Think back to our ride-share project. Imagine that we had a much larger dataset to work with, with more rides, drivers, passengers, and details. Imagine that we had to calculate more complex equations, with more complex relationships between concepts.
+
+Our one file `worksheet.rb` would be so long, difficult to navigate, difficult to read, and difficult to understand. And working with the data would be more annoying to parse through and deal with!
+
 ## Introduce: Objects
+
+Ruby, as a programming language, decided that the data types Numbers, Strings, Booleans, Arrays, Hashes, and Symbols, were interesting, useful, and common enough, that Ruby defined them. Numbers, Strings, Booleans, Arrays, Hashes, and Symbols, all have something unique that they represent. They also all have some unique behavior that is meaningful to them. For example, Numbers know how to be subtracted from each other. Strings can't be subtracted from each other, but strings know how to be concatenated together. Booleans can't be concatenated, but they can be flipped!
+
+Just in this way that these types have their unique state and behavior, **Ruby allows us to define our own representations of ideas within a program using object-oriented programming.**
+
+When we have the ability to define our own representations of ideas, we will define a **class**, which will let us create the template for this idea. Here, we will define the idea's (or class's) **state and behavior.**
+
+After we've defined the idea by defining a **class**, we will use this template/blueprint to create manifestations, or **instances** of this class. These instances are also known as **objects.**
+
+The programming language features and design patterns that enable these patterns is called **object-oriented programming.**
+
+#### Examples
+
+For the third and fourth example, let's create an idea that isn't pre-defined by Ruby.
+
+Idea to represent | Class | Instances of the class
+--- | --- | ---
+A class that describes the idea of a sequence of text | String | `"Hello World! I am an instance of a String!"`
+A class that describes an ordered list | Array | `["red", "orange", "yellow"]`
+A class that describes a driver working at a ride-share app, who has a ride history and a vehicle | Driver | A driver with a driver ID of `DR0004`
+A class that describes a music album sold at a music store, and all its data | Album | Dirty Computer (2018)
+
+#### Vocab
+
+Term | Definition | Analogy
+--- | --- | ---
+[Class](https://en.wikipedia.org/wiki/Class_(computer_programming)) | Code that defines a _template_ for creating similar objects, namely by defining generic state and behavior | A blueprint; A cookie cutter that defines a very specific shape
+[Object](https://en.wikipedia.org/wiki/Object_(computer_science)) | An instance of a class; a literal manifestation of a class; data that was created by class instantiation | A house made from a blueprint for a house; a cookie made from a cookie cutter
 
 ### State and Behavior
 
