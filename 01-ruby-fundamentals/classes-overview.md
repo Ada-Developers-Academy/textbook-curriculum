@@ -53,6 +53,7 @@ Term | Definition | Analogy
 --- | --- | ---
 [Class](https://en.wikipedia.org/wiki/Class_(computer_programming)) | Code that defines a _template_ for creating similar objects, namely by defining generic state and behavior | A blueprint; A cookie cutter that defines a very specific shape
 [Object](https://en.wikipedia.org/wiki/Object_(computer_science)) | An instance of a class; a literal manifestation of a class; data that was created by class instantiation | A house made from a blueprint for a house; a cookie made from a cookie cutter
+[Object-Oriented Programming](https://en.wikipedia.org/wiki/Object-oriented_programming) | A programming paradigm that says data can be described as "objects," or things that have their own state and behavior
 
 ### State and Behavior
 
@@ -73,67 +74,55 @@ Album | Dirty Computer (2018), which has 14 tracks in a certain order, was relea
 
 ## OOP Means Defining Blueprints, And Using Instances
 
+Because Ruby allows for OOP, we will start approaching software problems by considering the objects in play.
+
+We should take care to differentiate how we use classes (blueprints) and instances of classes (objects).
+
+Using the blueprint analogy, our process will be this:
+
+1. Consider the problem, and come up with options about different _things_, _ideas_, _nouns_ etc that are relevant
+1. Create a blueprint, or class in a blank Ruby file. This blueprint should describe the generic pieces of state and behavior of this idea
+
+![blueprint of a lego person](images/lego-blueprint.jpg)
+
+Then, to _use_ the blueprint, we will follow these steps:
+
+1. In a different Ruby file, first we need to load the class file using `require_relative`
+1. Then we need to use Ruby syntax to say "let's make a new one of these, and here are all of the specifics to put into the blueprint." If we were working with the `Driver` class, this is where we would say a driver's id is `DR0004`. If we were working with the `Album` class, this is where we would say that an album's title is `"Dirty Computer"`.
+
+![image of a lego person](images/lego-person.jpg)
+
+Consider: Imagine a software problem for a library tracking system. The library has so much data, and it wants to re-organize how it keeps track of audiobooks. If we wanted to make a class `Audiobook`, what generic state and behavior should it have? What could an _instance_ of Audiobook be?
+
 ## In Ruby, OOP Means Classes and Relationships
+
+Just as strings, arrays, hashes, booleans, numbers, etc., may or may not have relationships with each other (for example, an array of arrays, a hash with strings in it), classes and objects may have relationships with each other.
+
+We should look forward to learning more deeply how to define relationships between classes.
 
 ### We've Seen Classes
 
-### What to Look Forward to
+We may have seen classes before!
 
-## Objects So Far
+Let's look at a few examples:
 
-An `object` is the representation of an idea within a program. Let's look at a common type of object we've used already: `Time`.
+If you've ever worked with time in Ruby, you'll have learned that Ruby describes time with the `Time` class. By making instances of the `Time` class, you can have an object that represents a specific Time, and can do cool time behaviors, like find out if that time was on a Wednesday.
 
 ![variable-assignment](images/variable-assignment.png)
 
-A class can be identified by its __capitalized first letter__. In the above snippet `Time` is a class. When you call `.new` on a class, you get an _instance_ of that class. In any program, there may be zero, one or many instances of any given class.
+If you've ever used `Array.new` to make an empty array, or `Hash.new` to make an empty hash, you've utilized the formal class syntax in Ruby to create a new instance of those classes!
 
-Now let's examine another class we're familiar with: `String`
+We'll get more into the syntax about classes shortly!
 
-```ruby
-my_animal = "elephant"
-your_animal = "giraffe"
-empty_string = ""
-```
+## What to Look Forward to
 
-Turns out every string we've ever used is an instance of the class `String`. Because strings are so common, Ruby lets us use _string literals_ like `""` or `"elephant"` to create a new one. If feeling verbose, you could also call the `.new` method on the `String` class to create a new string object:
+We should be focusing on developing the following three skills in our futures:
 
-```ruby
-my_animal = String.new("elephant")
-```
+1. Learning and practicing the syntax for **defining classes** and their state, behavior, and relationships
+2. Learning and practicing the syntax for using classes to **create and use instances of classes**
+3. Learning and practicing designing classes, in a way that is relevant to our problem at hand, without being overly complex
 
-The same is true for arrays and hashes. `[]` is short for `Array.new`, and `{}` for `Hash.new`. `""`, `[]`, and `{}` are syntactic sugar; using _literals_ to _initialize_ a new _instance_ of an _object type_. Most classes do **NOT** have this kind of convenience.
-
-In general, using the syntactic sugar is the right way to go. `"elephant"` is much easier to read than `String.new("elephant")`, and there's rarely a reason to use longer version.
-
-## State and Behavior
-
-Objects are used to tie together _state_ and _behavior_.
-- **State:** data or attributes the object will keep track of
-    - _the letters "a", "b" and "c" in a string `"abc"`_
-- **Behavior:** methods that rely upon or modify the state
-    - _the String `upcase` method_
-
-```ruby
-# state
-my_animal = "elephant"
-your_animal = "giraffe"
-
-# behavior - same method but results vary based on state
-my_animal.upcase # "ELEPHANT
-your_animal.upcase # GIRAFFE
-```
-
-In Ruby, state will be represented using _attributes_, also known as _instance variables_, and behavior will be defined using _methods_.
-
-## What Are Objects Used For?
-
-It can be intimidating to look at `String`, `Hash` or `Array` when learning about objects for the first time. These are fundamental programming concepts that get used in almost every program, how can we ever hope to build or reason about something as complex as that?
-
-Although any abstract idea can be represented as an object, it's sometimes more approachable to think of a physical object to get the idea. Let's imagine a program designed to keep track of a library catalogue, which might have a class called `Book`.
-
-**Question:** what _state_ and _behavior_ might a `Book` class need?
-
-Note that all this state and behavior is for a particular instance of a `Book`. Think about the abstract concept of a book, what is its title or author? That doesn't make any sense. Only when we create an instance do these properties come into focus.
+Objects and classes can represent things that are like physical objects (like Albums, Drivers, or Users), or more abstract (like Time, or True)
 
 When modeling a real-world object like a book or a person, it's important to remember that you don't need to track everything about it, only what's important to your program. You certainly could include information about the color of the book's cover or how tall it is in your catalogue, but you should only do so if that information is useful to you.
 
@@ -155,4 +144,4 @@ Object            | A representation of an idea within a program. Ties together 
 Class             | A type of object. A class is _abstract_ in that it defines what those objects will look like, but doesn't itself have state. | `Array`, `Time`
 Instance          | One particular object. Follows the format defined by its class, but has state that makes it specific. | `[1, 2, 3]`, `Time.new(2017, 'jul', 29)`
 State             | Data or attributes an object will keep track of | The elements of an array, the days and years stored in a `Time` object
-Behavior          | Methods that rely upon or modify state | `Array#sort`, `Time#friday?`
+Behavior          | Methods that rely upon or modify state | `Array`s can be sorted with a `sort` method, `Time` instances can check if it is on a Friday with a `friday?` method
