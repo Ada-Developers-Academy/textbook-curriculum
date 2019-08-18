@@ -1,9 +1,27 @@
-# Object Orientation: Overview
+# Object-Oriented Design in Programming: Overview
+
 ## Learning Goals
+
 By the end of this lesson, students should be able to...
 - Describe the role that _classes_ fill in Ruby
 - Differentiate between _classes_ and _instances_
 - Identify the _state_ and _behavior_ of an _object_
+
+## The Story So Far
+
+## Introduce: Objects
+
+### State and Behavior
+
+### What is Object-Oriented Programming?
+
+## OOP Means Defining Blueprints, And Using Instances
+
+## In Ruby, OOP Means Classes and Relationships
+
+### We've Seen Classes
+
+### What to Look Forward to
 
 ## Objects So Far
 
