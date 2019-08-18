@@ -24,7 +24,7 @@ Think back to our ride-share project. Imagine that we had a much larger dataset 
 
 Our one file `worksheet.rb` would be so long, difficult to navigate, difficult to read, and difficult to understand. And working with the data would be more annoying to parse through and deal with!
 
-## Introduce: Objects
+## Introduce: Classes and Objects
 
 Ruby, as a programming language, decided that the data types Numbers, Strings, Booleans, Arrays, Hashes, and Symbols, were interesting, useful, and common enough, that Ruby defined them. Numbers, Strings, Booleans, Arrays, Hashes, and Symbols, all have something unique that they represent. They also all have some unique behavior that is meaningful to them. For example, Numbers know how to be subtracted from each other. Strings can't be subtracted from each other, but strings know how to be concatenated together. Booleans can't be concatenated, but they can be flipped!
 
@@ -56,7 +56,20 @@ Term | Definition | Analogy
 
 ### State and Behavior
 
-### What is Object-Oriented Programming?
+When we start defining our own classes, we will define their generic **state** and their generic **behavior.**
+
+**State** describes any data or attributes that should be kept over its lifetime.
+
+**Behavior** describes any actions that objects of this class should be able to do.
+
+#### Examples
+
+Class | Instances | Something Kept in State | Behavior it Can Do
+--- | --- | --- | ---
+String | `"Hello World! I am an instance of a String!"` | These specific characters, in this specific order | become CAPITALIZED if it needs to
+Array | `["red", "orange", "yellow"]` | These specific items, in this specific order | change the order of its items randomly, by shuffling
+Driver | A driver with ID `DR0004`, 3 rides, who has earned $35, has an average rating of 4.67 | Its ID, number of rides, total amount of money earned, and total average rating | Calculate its own average rating, tell you the number of rides it has
+Album | Dirty Computer (2018), which has 14 tracks in a certain order, was released April 2018, has a total album length of 48:42 | Tracks (number and order), release date, total album length | Can give you the audio data for any specific track it has
 
 ## OOP Means Defining Blueprints, And Using Instances
 
