@@ -11,7 +11,7 @@ By the end of this lesson you should be able to:
 - Define what a code review is
 - Explain the purposes of a code review
 - Use Github Pull Requests to provide feedback on a code review
-- Use good code review etiquette
+- Write reviews with proper etiquette
 
 ## What Is A Code Review
 
