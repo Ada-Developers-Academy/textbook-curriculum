@@ -188,7 +188,7 @@ Define a class called `CoffeeOrder` that has a lot of parameters. Maintain the p
       </summary>
 
       ```ruby
-      def calculate_price(tip_amount)
+      def calculate_price(tip_percentage)
           case @type
           when :drip
             price = 1.5
@@ -219,7 +219,7 @@ Define a class called `CoffeeOrder` that has a lot of parameters. Maintain the p
             price += 1
           end
 
-          price *= 1 + tip_amount
+          price *= 1 + tip_percentage
 
           return price
         end
