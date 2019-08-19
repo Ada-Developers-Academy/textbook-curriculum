@@ -55,7 +55,7 @@ By collecting groups of these 0 or 1 values the computer can represent numbers b
 
 Our number system is the _decimal_ system where there are 10 symbols 0-9, and each digit represents a value (0-9) times a power of 10.
 
-For Example: 135 = (5 * 10<sup>0</sup>) + (3 * 10<sup>1</sup>) + (5 * 10<sup>2</sup>)
+For Example: 135 = (5 * 10<sup>0</sup>) + (3 * 10<sup>1</sup>) + (1 * 10<sup>2</sup>)
 
 Binary numbers work off powers of 2 with two symbols 0 and 1.  A binary number is one or more digits composed of only 0s and 1s, each digit representing a power of two.
 
