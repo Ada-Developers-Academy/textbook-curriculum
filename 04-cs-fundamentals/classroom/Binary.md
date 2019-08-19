@@ -255,6 +255,11 @@ In this lesson we have
   - Looked at how Hexidecimal can be convenient with binary.
 - Explained how computers languages add levels of abstractions to make programming easier.
 
+## Classwork
+
+- Complete [The Binary and Decimal assignment](https://github.com/Ada-C12/binary-and-decimal)
+- Complete [The Array Equals Assignment](https://github.com/Ada-C12/array-equals)
+
 ## Former Slide Deck
 
 - Former Slide Deck used for this lesson</br>
