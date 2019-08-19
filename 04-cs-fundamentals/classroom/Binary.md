@@ -186,6 +186,22 @@ D|1101
 E|1110
 F|1111
 
+<details>
+  <summary> So what is AF<sub>16</sub> in binary?</summary>
+
+  Looking it up from the table:  1010 1111<sub>2</sub>
+
+</details>
+
+<details>
+  <summary> What is 1011<sub>2</sub> in Hex?</summary>
+
+  B<sub>16</sub>
+
+</details>
+
+
+
 ## Levels of Abstraction
 
 Writing code in binary numbers or even hexidecimial numbers would be a tedious undertaking.  Therefore over time, programmers have added levels of abstraction to make programming easier.
@@ -229,9 +245,18 @@ int main()
 
 Other languages like Ruby or Python are [interpreted languages](https://en.wikipedia.org/wiki/Interpreted_language) these languages are run by a special program called an _[interpreter](https://en.wikipedia.org/wiki/Interpreter_(computing))_ which reads the program and tells the computer what to do.  Because compiled languages are executed in machine-code form, they are often faster than interpreted languages, but an interpreted language does not need to be compiled for a specific type of computer.  An interpreted language can run on any computer with a valid interpreter.
 
+## Summary
+
+In this lesson we have
+
+- Introduced how computers are organized
+- Introduced binary numbers
+  - Practiced converting from binary to decimal
+  - Practiced converting 
+
 ## Former Slide Deck
 
-- Former Slide Deck used in class</br>
+- Former Slide Deck used for this lesson</br>
 <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://drive.google.com/file/d/0B__DV26QHsH4YzhFWFVnbEp2akU/view?usp=sharing">A brief introduction to Binary and Memory</a></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</br>
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />
 
