@@ -15,11 +15,10 @@ By the end of this lesson you should be able to:
 
 - Explain the core parts of a computer and what they do
 - Describe the structure of a computer
+- Explain why computers use binary numbers
 - Compare binary numbers to decimal numbers
 - Convert between binary and decimal numbers
-- Explain why computers use binary numbers
-- Algorithm to convert from binary to decimal and vice versa
-- Give a high-level overview of memory organization on computers
+- Explain how high-level languages like Ruby add a level of abstraction to make programming easier.
 
 ## Typical Computer Structure
 
@@ -252,7 +251,9 @@ In this lesson we have
 - Introduced how computers are organized
 - Introduced binary numbers
   - Practiced converting from binary to decimal
-  - Practiced converting 
+  - Practiced converting from decimal to binary
+  - Looked at how Hexidecimal can be convenient with binary.
+- Explained how computers languages add levels of abstractions to make programming easier.
 
 ## Former Slide Deck
 
