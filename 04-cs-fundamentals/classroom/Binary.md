@@ -164,9 +164,10 @@ Today ASCII and other encodings have largely been replaced by [Unicode](https://
 
 **Sorting** Usually when you compare English strings in a programming language you end up comparing the numeric codes of each letter.  So "A" will be consider less than "a" (65 compared to 97).
 
-## Hexidecimal
+## Hexadecimal
 
-Because binary numbers can be a hassle to write because even a small number can require many digits, sometimes programmers will use base 16, or hexidecimal numbers.  Because 16 is 2<sup>4</sup>, each Hexidecimal digit can be represented by 4 binary digits.
+Because binary numbers can be a hassle to write because even a small number can require many digits, sometimes programmers will use base 16, or hexadecimal numbers.  Because 16 is 2<sup>4</sup>, each 
+decimal digit can be represented by 4 binary digits.
 
 **Decimal**|**Hex**|**Binary**|
 :-----:|:-----:|:-----:
@@ -205,7 +206,7 @@ Because binary numbers can be a hassle to write because even a small number can 
 
 ## Levels of Abstraction
 
-Writing code in binary numbers or even hexidecimial numbers would be a tedious undertaking.  Therefore over time, programmers have added levels of abstraction to make programming easier.
+Writing code in binary numbers or even hexadecimial numbers would be a tedious undertaking.  Therefore over time, programmers have added levels of abstraction to make programming easier.
 
 ![Types of Languages](images/types-of-languages.png)
 
@@ -256,7 +257,8 @@ In this lesson we have
 - Introduced binary numbers
   - Practiced converting from binary to decimal
   - Practiced converting from decimal to binary
-  - Looked at how Hexidecimal can be convenient with binary.
+  - Looked at how Hexa
+  decimal can be convenient with binary.
 - Explained how computers languages add levels of abstractions to make programming easier.
 
 ## Classwork
