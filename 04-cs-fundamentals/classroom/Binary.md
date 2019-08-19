@@ -31,7 +31,7 @@ A _Computer_ is a device for storing and processing data according to a series o
 | CPU 	| The **C**entral **P**rocessing **U**nit of a computer.  This is the main processor which executes program instructions, performs arithmetic and coordinates the other components of a computer. 	|
 | Peripherals 	| External components to a computer which can provide input and/or output.  An example is a monitor or keyboard. 	|
 | MAR 	| The Memory Address Register is where the CPU stores an address of an instruction or data in memory.  When a page is transferred to or from RAM this is the address used by the CPU.  |
-| MDR | The Memory Data Register is where the CPU stores an information while it is transferred to or from RAM.  |
+| MDR | The Memory Data Register is where the CPU stores a page while it is transferred to or from RAM.  |
 | IR 	| The Instruction Register is where the CPU stores the current command to execute.  |
 | PC 	| The Program Counter is where the CPU stores the address of the next instruction to execute.  |
 | Cache 	| A type of very fast memory, close to or on the CPU chip which is used to store information the CPU will likely need to access soon.  It can also be a term for storing information likely to be used in a location which can be quickly accessed.  This technique of pre-staging information likely to be used in proximate locations is called _caching_. 	|
