@@ -161,6 +161,72 @@ If everything in a computer is a binary number, how does a computer handle text?
 
 Originally these were the standard characters a computer could represent.  The table was limited in size because characters were assumed to be 1 byte in length.  Today ASCII has largely been replaced by [Unicode](https://home.unicode.org/) a which much larger set of characters and multiple methods of encoding which allows a variety of languages and even emojis.  ASCII however lives on as a subset of Unicode & in [wonderful ASCII Art](https://www.asciiart.eu/).
 
+## Hexidecimal
+
+Because binary numbers can be a hassle to write because even a small number can require many digits, sometimes programmers will use base 16, or hexidecimal numbers.  Because 16 is a power of 2, each Hexidecimal digit can be represented by 4 binary digits.
+
+**Hex**|**Binary**
+:-----:|:-----:
+0|0000
+1|0001
+2|0010
+3|0011
+4|0100
+5|0101
+6|0110
+7|0111
+8|1000
+9|1001
+A|1010
+B|1011
+C|1100
+D|1101
+E|1110
+F|1111
+
+## Levels of Abstraction
+
+Writing code in binary numbers or even hexidecimial numbers would be a tedious undertaking.  Therefore over time, programmers have added levels of abstraction to make programming easier.
+
+![Types of Languages](images/types-of-languages.png)
+
+<!-- Image source https://blog.malwarebytes.com/security-world/2012/09/so-you-want-to-be-a-malware-analyst/ -->
+
+The first level of abstraction is Assembly language.  In Assembly language each basic command the machine can understand is given a human readable name and commands have some basic formatting.  This is however very low level.  Below is an x86 hellow world assembly language program taken from [Loyola Marymount University](https://cs.lmu.edu/~ray/notes/x86assembly/).  Assembly code is run through an assembler which converts the text into machine code which can be executed.
+
+```asm
+
+          global    _start
+
+          section   .text
+_start:   mov       rax, 1                  ; system call for write
+          mov       rdi, 1                  ; file handle 1 is stdout
+          mov       rsi, message            ; address of string to output
+          mov       rdx, 13                 ; number of bytes
+          syscall                           ; invoke operating system to do the write
+          mov       rax, 60                 ; system call for exit
+          xor       rdi, rdi                ; exit code 0
+          syscall                           ; invoke operating system to exit
+
+          section   .data
+message:  db        "Hello, World", 10      ; note the newline at the end
+```
+
+From assembly programmers write the first high-level languages like C and Fortran.  These languages must be run through a _[compiler](https://en.wikipedia.org/wiki/Compiler)_ which is a program which translates the code into machine code.  A compiler differs from an assembler in that an assembler converts each command in a 1-to-1 manner.  Each assembly command cooresponds to a command the hardware understands.  In a compiled language however a single line may, like a loop, may represent multiple commands at the machine-code level.  
+
+Compare the following hello world C program with the above assembly program?  Which would you like to write?
+
+```c
+#include <stdio.h>
+int main()
+{
+   printf("Hello, World!");
+   return 0;
+}
+```
+
+Other languages like Ruby or Python are [interpreted languages](https://en.wikipedia.org/wiki/Interpreted_language) these languages are run by a special program called an _[interpreter](https://en.wikipedia.org/wiki/Interpreter_(computing))_ which reads the program and tells the computer what to do.  Because compiled languages are executed in machine-code form, they are often faster than interpreted languages, but an interpreted language does not need to be compiled for a specific type of computer.  An interpreted language can run on any computer with a valid interpreter.
+
 ## Former Slide Deck
 
 - Former Slide Deck used in class</br>
