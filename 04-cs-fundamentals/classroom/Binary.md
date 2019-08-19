@@ -166,24 +166,24 @@ Originally these were the standard characters a computer could represent.  The t
 
 Because binary numbers can be a hassle to write because even a small number can require many digits, sometimes programmers will use base 16, or hexidecimal numbers.  Because 16 is 2<sup>4</sup>, each Hexidecimal digit can be represented by 4 binary digits.
 
-**Hex**|**Binary**
-:-----:|:-----:
-0|0000
-1|0001
-2|0010
-3|0011
-4|0100
-5|0101
-6|0110
-7|0111
-8|1000
-9|1001
-A|1010
-B|1011
-C|1100
-D|1101
-E|1110
-F|1111
+**Decimal**|**Hex**|**Binary**|
+:-----:|:-----:|:-----:
+0|0|0000
+1|1|0001
+2|2|0010
+3|3|0011
+4|4|0100
+5|5|0101
+6|6|0110
+7|7|0111
+8|8|1000
+9|9|1001
+10|A|1010
+11|B|1011
+12|C|1100
+13|D|1101
+14|E|1110
+15|F|1111
 
 <details>
   <summary> So what is AF<sub>16</sub> in binary?</summary>
