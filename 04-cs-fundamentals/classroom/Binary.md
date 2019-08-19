@@ -45,7 +45,7 @@ This may amaze you but modern computers use electricity to function.  Power is r
 
 ![Dram cell](images/dram-cell.png)
 
-<!-- Original Image at https://www.lucidchart.com/invitations/accept/95d52db7-653f-442c-afc6-6239c84c3090 >
+<!-- Original Image at https://www.lucidchart.com/invitations/accept/95d52db7-653f-442c-afc6-6239c84c3090 -->
 
 For example in the image above, if electricity is provided via the Bit Line, the capacitor will charge up until it can hold a certain voltage.  When the computer wants to read the value the transistor can connect the word line and electricity will flow from the capacitor to the Word Line.  If the capacitor is empty, or close to it, a zero is registered, if the capacitor provides an electrical charge the value is considered a one.  This is actually a simplified description of how the RAM in your laptop functions.
 
