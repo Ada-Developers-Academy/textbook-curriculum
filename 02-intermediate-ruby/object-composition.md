@@ -30,7 +30,6 @@ One-to-many is one of the most common relations between different classes. In a 
 
 We've already seen this relation in the Solar System project, where one `SolarSystem` had many `Planet`s. Here are a few other examples:
 
-- On an e-commerce site, one merchant might offer many different products
 - In a gradebook application, one class might have many students and many assignments
 - On a social media platform, one user might have many posts, and one post might have many comments
 
