@@ -109,7 +109,7 @@ Converting a binary number to decimal is relatively straightforward.  Multiply e
 
 Converting the other way is a bit more tricky
 
-- Take the decimial number `num` and the current binary digit, starting at the least significant position.
+- Take the decimal number `num` and the current binary digit, starting at the least significant position.
 - Repeat until `num` is 0
   - Divide the `num` by 2
   - Place the remainder in the current digit of the binary number.
