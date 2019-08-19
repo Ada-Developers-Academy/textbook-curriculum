@@ -36,7 +36,7 @@ A _Computer_ is a device for storing and processing data according to a series o
 | PC 	| The Program Counter is where the CPU stores the address of the next instruction to execute.  |
 | Cache 	| A type of very fast memory, close to or on the CPU chip which is used to store information the CPU will likely need to access soon.  It can also be a term for storing information likely to be used in a location which can be quickly accessed.  This technique of pre-staging information likely to be used in proximate locations is called _caching_. 	|
 | Accumulator 	| The accumulator is used to store an input or output operand during execution of the instructions. Operand is the data to be operated by the computer. 	|
-| Register 	| A type of very fast memory, close to or on the CPU chip which is used to store information the CPU will likely need to access soon.  It can also be a term for storing information likely to be used in a location which can be quickly accessed.  This technique of pre-staging information likely to be used in proximate locations is called _caching_. 	|
+| Register 	| A type of very small and fast memory on the CPU chip which is used to store information the CPU is currently using. |
 
 ## Electical Circuits
 
