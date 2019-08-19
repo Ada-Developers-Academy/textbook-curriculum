@@ -165,7 +165,7 @@ Originally these were the standard characters a computer could represent.  The t
 
 ## Hexidecimal
 
-Because binary numbers can be a hassle to write because even a small number can require many digits, sometimes programmers will use base 16, or hexidecimal numbers.  Because 16 is a power of 2, each Hexidecimal digit can be represented by 4 binary digits.
+Because binary numbers can be a hassle to write because even a small number can require many digits, sometimes programmers will use base 16, or hexidecimal numbers.  Because 16 is 2<sup>4</sup>, each Hexidecimal digit can be represented by 4 binary digits.
 
 **Hex**|**Binary**
 :-----:|:-----:
