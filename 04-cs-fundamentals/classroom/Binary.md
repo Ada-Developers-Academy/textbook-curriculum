@@ -77,22 +77,89 @@ When you see a system labeled 32-bit or 64-bit, that refers to the number of ind
 
 Interestingly as people research [quantum computing](https://www.newscientist.com/article/dn17575-ditching-binary-will-make-quantum-computers-more-powerful/) we might move to a base-5 or more system each qubits can represent multiple states.  
 
-## Computer Organization
+## Converting Binary Numbers to Decimal
 
-You can think of a modern computer as having one central processing unit (CPU) which does the calculations and manages the sytem, system memory (RAM) and an I/O Bus which connects the computer to other devices, hard drives, printers, network etc.
+Converting a binary number to decimal is relatively straightforward.  Multiply each digit by it's cooresponding power of 2.  Then add all the results together.
 
-![computer org](images/computer-system.png)
+1101<sub>2</sub> = 1 * 2<sup>3</sup> + 1 * 2<sup>2</sup> + 0 * 2<sup>1</sup> + 1 * 2<sup>0</sup>
 
-As programs run information is pulled from memory across a set of wires known as the _system bus_ into storage spaces on the CPU known as registers.  The CPU will perform operations on data in the registers and transfer data back across the system bus to memory.  It will also use the bus to communicate to other components.  The transfer of information to and from RAM is relatively fast, but saving information to long-term storage (think hard drives, disks, DVDs etc), is orders of magnitude slower.
+= 8 + 4 + 0 + 1 
 
-Naturally things are a lot more complicated with each computer having numerous "cores" (CPUs), different levels of memory and a large variety of devices.
+= 13
 
 <details>
-  <summary>If a system is 16-bit how many addressible memory locations can it have?</summary>
-
-  2<sup>16 = 65536
+  <summary>What is 111<sub>2</sub> in decimal?</summary>
+  1 * 2<sup>2</sup> + 1 * 2<sup>1</sup> + 1 * 2<sup>0</sup> = 7
 </details>
 
+<details>
+  <summary>What is 1001<sub>2</sub> in decimal?</summary>
+  1 * 2<sup>3</sup> + 0 * 2<sup>2</sup> + 0 * 2<sup>1</sup> + 1 * 2<sup>0</sup> = 9
+</details>
+
+<details>
+  <summary>What is 1011<sub>2</sub> + 0111<sub>2</sub> in decimal?</summary>
+  1 * 2<sup>3</sup> + 0 * 2<sup>2</sup> + 1 * 2<sup>1</sup> + 1 * 2<sup>0</sup> = 11
+
+  0 * 2<sup>4</sup> + 1 * 2<sup>3</sup> + 1 * 2<sup>2</sup> + 1 * 2<sup>0</sup> = 7
+
+  11 + 7 = 18
+</details>
+
+### Converting From Decimal to Binary
+
+Converting the other way is a bit more tricky
+
+- Take the decimial number `num` and the current binary digit, starting at the least significant position.
+- Repeat until `num` is 0
+  - Divide the `num` by 2
+  - Place the remainder in the current digit of the binary number.
+  - `num` becomes `num / 2`
+
+For example for 13<sub>10</sub>
+
+| Step 	| `num` 	| Current binary number |
+|---	|---	|--- |
+| 0 	| 13 	|
+| 1 	| 6 	| 1
+| 2 	| 3 	| 01
+| 3 	| 1 	| 101
+| 4 	| 0 	| 1101
+
+**Exercises**
+
+<details>
+  <summary>What is 5<sub>10</sub> in binary?</summary>
+
+| Step 	| `num` 	| Current binary number |
+|---	|---	|--- |
+| 0 	| 5 	|
+| 1 	| 2 	| 1
+| 2 	| 1 	| 01
+| 3 	| 0 	| 101
+
+</details>
+
+<details>
+  <summary>What is 14<sub>10</sub> in binary?</summary>
+
+| Step 	| `num` 	| Current binary number |
+|---	|---	|--- |
+| 0 	| 14 	|
+| 1 	| 7 	| 0
+| 2 	| 3 	| 10
+| 3 	| 1 	| 110
+| 4 	| 0 	| 1110
+
+</details>
+
+## ASCII & Unicode
+
+If everything in a computer is a binary number, how does a computer handle text?  Enter ASCII & Unicode.  [ASCII or the American Standard Code for Information Exchange](https://en.wikipedia.org/wiki/ASCII) was published in 1963 and is a table with text characters represented by a number.  In the early days of comptuters when the sizes of variables were small, there were a very limited number of possible characters which could be represented resulting in this table.
+
+![ASCII Table](images/ascii-table.png)
+
+Originally these were the standard characters a computer could represent.  The table was limited in size because characters were assumed to be 1 byte in length.  Today ASCII has largely been replaced by [Unicode](https://home.unicode.org/) a which much larger set of characters and multiple methods of encoding which allows a variety of languages and even emojis.  ASCII however lives on as a subset of Unicode & in [wonderful ASCII Art](https://www.asciiart.eu/).
 
 ## Former Slide Deck
 
