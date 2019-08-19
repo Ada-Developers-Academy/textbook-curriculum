@@ -246,6 +246,8 @@ int main()
 
 Other languages like Ruby or Python are [interpreted languages](https://en.wikipedia.org/wiki/Interpreted_language) these languages are run by a special program called an _[interpreter](https://en.wikipedia.org/wiki/Interpreter_(computing))_ which reads the program and tells the computer what to do.  Because compiled languages are executed in machine-code form, they are often faster than interpreted languages, but an interpreted language does not need to be compiled for a specific type of computer.  An interpreted language can run on any computer with a valid interpreter.
 
+These categories are a bit fuzzy as some languages like Java can be compiled into a language _closer_ to machine language which is then interpreted.  Just remember, these are broad categories.
+
 ## Summary
 
 In this lesson we have
