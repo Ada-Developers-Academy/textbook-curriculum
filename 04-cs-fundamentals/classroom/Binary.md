@@ -30,7 +30,7 @@ A _Computer_ is a device for storing and processing data according to a series o
 |---	|---	|
 | CPU 	| The **C**entral **P**rocessing **U**nit of a computer.  This is the main processor which executes program instructions, performs arithmetic and coordinates the other components of a computer. 	|
 | Peripherals 	| External components to a computer which can provide input and/or output.  An example is a monitor or keyboard. 	|
-| MAR 	| The Memory Address Register is where the CPU stores an address of an instructor or data in memory.  When data is transferred to or from RAM this is the address used by the CPU.  |
+| MAR 	| The Memory Address Register is where the CPU stores an address of an instruction or data in memory.  When a page is transferred to or from RAM this is the address used by the CPU.  |
 | MDR | The Memory Data Register is where the CPU stores an information while it is transferred to or from RAM.  |
 | IR 	| The Instruction Register is where the CPU stores the current command to execute.  |
 | PC 	| The Program Counter is where the CPU stores the address of the next instruction to execute.  |
