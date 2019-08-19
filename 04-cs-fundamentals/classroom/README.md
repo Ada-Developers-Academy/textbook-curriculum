@@ -55,7 +55,7 @@ Be aware that we have 49 students, and you will likely get a faster response by 
 
 ## Course Norms
 
-This course requires more attention and focus due to it's abstact nature, 48 students and 2-hour blocks.  You will want to avoid using:
+This course requires more attention and focus due to it's abstract nature, 48 students and 2-hour blocks.  You will want to avoid using:
 
 - Email
 - Chatting
