@@ -238,3 +238,7 @@ Other languages like Ruby or Python are [interpreted languages](https://en.wikip
 - [Geeks for Geeks Representing a Binary Number](https://www.geeksforgeeks.org/binary-representation-of-a-given-number/)
 - [Khan Academy: Binary Numbers & AP CS](https://www.khanacademy.org/computing/ap-computer-science-principles/computers-101/digital-data-representation/a/bits-and-binary)
 - [Converting Base 2 to Base 10 (video)](https://www.youtube.com/watch?v=jdfrwxUkXOk)
+
+## Sources
+
+- [Levels of programming image](https://blog.malwarebytes.com/security-world/2012/09/so-you-want-to-be-a-malware-analyst/)
