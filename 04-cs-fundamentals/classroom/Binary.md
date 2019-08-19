@@ -161,6 +161,8 @@ If everything in a computer is a binary number, how does a computer handle text?
 
 Originally these were the standard characters a computer could represent.  The table was limited in size because characters were assumed to be 1 byte in length.  Today ASCII has largely been replaced by [Unicode](https://home.unicode.org/) a which much larger set of characters and multiple methods of encoding which allows a variety of languages and even emojis.  ASCII however lives on as a subset of Unicode & in [wonderful ASCII Art](https://www.asciiart.eu/).
 
+**Sorting** Usually when you compare strings in a programming language you end up comparing the numeric codes of each letter.  So "A" will be consider less than "a" (65 compared to 97).
+
 ## Hexidecimal
 
 Because binary numbers can be a hassle to write because even a small number can require many digits, sometimes programmers will use base 16, or hexidecimal numbers.  Because 16 is a power of 2, each Hexidecimal digit can be represented by 4 binary digits.
