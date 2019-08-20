@@ -141,7 +141,7 @@ On the other hand this is an unbalanced tree.
   O(n)
 </details>
 
-Notice if a tree is balanced, you are essentially doing **binary search.**  If the tree is unbalanced, it more resembles linear search.  In general you can assume a tree is balanced given no other information just because if elements are inserted randomly, the resultant tree is likely to be more or less balanced.
+Notice if a tree is balanced, when you move left or right, you eliminate half of the possible nodes.  This means you are essentially doing **binary search.**  If the tree is unbalanced, it more resembles linear search.  In general you can assume a tree is balanced given no other information just because if elements are inserted randomly, the resultant tree is likely to be more or less balanced.
 
 **Self-Balancing Trees** There are a lot of algorithms for [keeping a tree balanced](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree).  These are wonderful things to learn, but beyond the scope of this class.
 
