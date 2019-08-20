@@ -1,4 +1,4 @@
-# Trees
+# Binary Search Trees
 
 ## Learning Goals
 
