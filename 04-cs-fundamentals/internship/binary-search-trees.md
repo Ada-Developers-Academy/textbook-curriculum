@@ -37,11 +37,16 @@ These nodes are arrange with one node known as the **root** which is where the t
 
 ```
 Method add:
-  if the root is nil set the root to be a new node with the given value.
+  if the root is nil set the root to be a new node with the given value and return the node.
 
-  Otherwise if the value is less than the root, call add on the l
+  Otherwise 
+    if the value is less than the root, call add on the left node.
+    Otherwise call add on the right node
+
 
 ```
+
+You can observe this in the [Binary Tree Visualizer](http://btv.melezinek.cz/binary-search-tree.html)
 
 ## Exercises
 
