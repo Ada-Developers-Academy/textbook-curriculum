@@ -53,7 +53,7 @@ class TreeNode
 end
 ```
 
-These nodes are arrange with one node known as the **root** which is where the tree begins.  New nodes as they are added are placed to the left, if they are less than the current node, and to the right if they are greater than the current node.  This is a natually recursive process.
+These nodes are arranged with one node known as the **root** which is where the tree begins.  New nodes as they are added are placed to the left, if they are less than the current node, and to the right if they are greater than the current node.  This is a natually recursive process.
 
 ```
 Method add:
