@@ -207,7 +207,7 @@ For the above Binary Search Tree
 
 ### Why Do Traversals
 
-There are a few use-cases for each of the depth-first traversals.
+There are a few common use-cases for each of the depth-first traversals.
 
 - **Pre-order** If you need to save a tree data structure to disk, or send it across the network and maintain the structure, pre-order traversals can be useful.
 - **In-Order**: If you need to print all the nodes of a tree in order.
