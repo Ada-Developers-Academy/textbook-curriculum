@@ -15,6 +15,12 @@ By the end of this lesson you should be able to:
     - Depth first traversals: pre-order, in-order, post-order
     - Breadth first traversal
 
+## Video Lesson
+
+- [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d9746397-8a10-43be-b1cc-aaaf00720b31)
+- [Slide Deck](https://docs.google.com/presentation/d/1jE2bQDXkoCIJmqBgFXuripXftzrijuSY1JRKf2Ln7MY/edit#slide=id.p)
+
+
 ## Limitations of Linked Lists
 
 Remember that finding an element in a Linked List requires a runtime of O(n).  This is because any search in a Linked List requires a linear search.  However once a Linked List node is found, removing or adding a node is O(1).  It would be ideal to combine the binary search O(log<sub>n</sub>) or a sorted array with the O(1) runtime to remove or add nodes.  This is what Binary Search Trees give us.
