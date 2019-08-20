@@ -132,7 +132,12 @@ Notice that each time the loop iterates `planet` is a hash with the header value
 
 So `CSV.read('planet_data.csv', headers: true)` is returning an array where each element of the array is a hash with keys matching the file's header and values matching the cooresponding row & column in the file.
 
-In our example:  `CSV.read('planet_data.csv', headers: true)[0]` is `{"id" => "1", "name" => "Mercury", "mass" => "0.055", "distance" => "0.4"}`.  
+In our example:  `CSV.read('planet_data.csv', headers: true)[0]` is `{"id" => "1", "name" => "Mercury", "mass" => "0.055", "distance" => "0.4"}`.
+
+## CSV::Table vs. Array
+
+The data returned from `CSV.read` looks like an array of arrays or an array of hashes, but is infact a `CSV::Table`. To transform this data into an array of hashes we need to add the following onto our `.read` method: `CSV.read('planet_data.csv', headers: true).map(&:to_h)` when using headers and `CSV.read('planet_data.csv').map(&:to_a)` when not using headers.
+
 
 **Queastions** 
 -   Why is index 0 Mercury?  It's not the 1st line of the file.
