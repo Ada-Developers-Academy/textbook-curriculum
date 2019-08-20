@@ -19,7 +19,8 @@ Our class will have a couple helper methods. We'll talk together about what thes
 
 Let's build our class and instantiate a few `Animals` to practice what we've learned:
   * the constructor
-  * helper methods
+  * instance methods
+  * instance variables
   * attr_reader, attr_writer, attr_accessor
   * self
   * file organization
