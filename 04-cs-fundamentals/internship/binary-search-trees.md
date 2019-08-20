@@ -13,6 +13,36 @@ Get familiar with Binary Search Trees and the following algorithms related to it
 
 We'll be covering BSTs in two parts. In the first session, we'll cover the recursive approach. In a later session, we'll cover the iterative approach.
 
+## Limitations of Linked Lists
+
+Remember that finding an element in a Linked List requires a runtime of O(n).  This is because any search in a Linked List requires a linear search.  However once a Linked List node is found, removing or adding a node is O(1).  It would be ideal to combine binary search O(log<sub>n</sub>) with the O(1) runtime to remove or add nodes.  This is what Binary Search Trees give us.
+
+## Binary Search Tree Node
+
+Just like a Linked List node, a tree node has a data field, and links to other nodes.  However instead of linking to previous and next nodes, the links are to nodes less than and greater than the value in the data field.
+
+```ruby
+class TreeNode
+  attr_reader :data
+  attr_accessor :left, :right
+
+  def initialize(data)
+    @data = data
+    @left = @right = nil
+  end
+end
+```
+
+These nodes are arrange with one node known as the **root** which is where the tree begins.  New nodes as they are added are placed to the left, if they are less than the current node, and to the right if they are greater than the current node.  This is a natually recursive process.
+
+```
+Method add:
+  if the root is nil set the root to be a new node with the given value.
+
+  Otherwise if the value is less than the root, call add on the l
+
+```
+
 ## Exercises
 
 Design a recursive algorithm, deduce the space and time complexity and then, author functions to do the following. For each of the problems below, assume you are given a Binary Search Tree where each node contains an integer data and links to the left and right children nodes.
