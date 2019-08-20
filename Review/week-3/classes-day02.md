@@ -2,7 +2,7 @@
 
 ## Yesterday's Lessons and Activities
 * [Object-Oriented Design in Programming: Overview](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/01-ruby-fundamentals/classes-overview.md)
-* [Object Orientation: Classes in Ruby](Description:https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/01-ruby-fundamentals/classes-in-ruby.md)
+* [Object Orientation: Classes in Ruby](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/01-ruby-fundamentals/classes-in-ruby.md)
 * [Defining Classes Worksheet](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/01-ruby-fundamentals/exercises/oo-worksheet.md)
 * [Helper methods and self](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/01-ruby-fundamentals/classes-part-2.md)
 * [Solar System Project](https://github.com/Ada-C12/solar-system)
