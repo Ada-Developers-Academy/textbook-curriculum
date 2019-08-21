@@ -83,7 +83,7 @@ In a _Binary Search Tree_ each node's left pointer points to all elements smalle
 
 ![Binary Search Tree Vocabular](images/TreeVocabulary.png)
 
-Notice that nodes 43 and 86, both form subtrees of the larger tree data structure.  A _subtree_ is the tree formed by the child nodes of a node.  This enables you to use **recursion** on most tree methods because each child node forms a subtree.
+Notice that nodes 43 and 86, both form subtrees of the larger tree data structure.  A _subtree_ is the tree formed by the child nodes of a node.  This enables you to use **recursion** on most tree methods because each child node forms a subtree.  The _height_ of a tree is defined as the maximum distance from the root to a bottommost node, known as a _leaf_.
 
 ### Binary Search Tree Node
 
