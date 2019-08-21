@@ -15,10 +15,11 @@ By the end of this lesson you should be able to:
     - Depth first traversals: pre-order, in-order, post-order
     - Breadth first traversal
 
-## Video Lesson
+## Video Lesson & Exercises
 
 - [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d9746397-8a10-43be-b1cc-aaaf00720b31)
 - [Slide Deck](https://docs.google.com/presentation/d/1jE2bQDXkoCIJmqBgFXuripXftzrijuSY1JRKf2Ln7MY/edit#slide=id.p)
+- [Binary Trees Practice](https://github.com/Ada-C11/tree-practice)
 
 ## Sample Problem
 
