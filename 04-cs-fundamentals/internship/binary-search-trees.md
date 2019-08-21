@@ -334,6 +334,19 @@ In this lesson we looked at the advantages a Binary Search Tree provides over a 
 
 We also examined different methods to traverse a Tree.  Unlike a LinkedList where there is only one method to traverse a tree has multiple ways to traverse.
 
+## Big-O Comparison
+
+As you can see below a balanced Binary Search Tree provides good performance while maintaining elements in order.  
+
+**#**|**Data Structure**|**Access By Key**|**Search**|**Insertion (Middle)**|**Deletion (Middle)**|**Add First**|**Add Last**
+:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:
+1|Unsorted Array|O(1)|O(n)|O(n)|O(n)|O(n)|O(1)
+2|Sorted Array|O(1)|O(log n)|O(n)|O(n)|O(n)|O(1)
+3|Linked List|O(n)|O(n)|O(n)|O(n)|O(1)|O(1)
+4|Binary Tree (balanced)|O(log n)|O(log n)|O(log n)|O(log n)|NA|NA
+5|Hash Table|O(1)|O(1)|O(1)|O(1)|NA|NA
+
+
 ## Terminology
 
 We will use the following terms in the lesson.
