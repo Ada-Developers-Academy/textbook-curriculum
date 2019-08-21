@@ -76,17 +76,13 @@ end
 
 The `ListNode` class was used in a larger `LinkedList` class which maintained a chain of `ListNode` objects starting with a node pointed to by an instance variable called `@head`.
 
-```
-Method add:
-  if the root is nil set the root to be a new node with the given value and return the node.
+### Consider A Nonlinear Structure...
 
-  Otherwise 
-    if the value is less than or equal to the current root's value, make root's left be the result of calling add on root's left.
-    otherwise make root's right be the result of calling add on root's right.
-```
+In a _Binary Search Tree_ each node's left pointer points to all elements smaller than or equal to the node's key.  The right pointer points to all nodes greater than the given node's key.   Each node can refer to other nodes.  A Tree is hierarchical with certain nodes acting as parents to others.  A node above another is the node's _parent_.  The node(s) below a node are it's _children_.  The topmost node in a tree is known as the _root_.  The nodes with no children are called _leaves_.
 
-You can observe this in the [Binary Tree Visualizer](http://btv.melezinek.cz/binary-search-tree.html)
+![Binary Search Tree Vocabular](images/TreeVocabulary.png)
 
+Notice that nodes 43 and 86, both form subtrees of the larger tree data structure.  This enables you to use **recursion** on most tree methods because each child node forms a subtree.
 
 ## The Tree Class
 
