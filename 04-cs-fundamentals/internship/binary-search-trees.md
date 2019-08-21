@@ -54,27 +54,27 @@ If need 1 is maintained an array will struggle to add and delete items, and a Li
 
 So is Ada stuck with O(n) operations?  No!  Enter Binary Search Trees!
 
-## Binary Search Tree Node
+## Enter Binary Trees
 
-Just like a Linked List node, a tree node has a data field, and links to other nodes.  However instead of linking to previous and next nodes, the links are to nodes less than and greater than the value in the data field.
+Our Linked Lists are a linear structure with each node linking to the next node in the structure.
 
-![Binary Search Tree Example](images/bst1.png)
+![Linked List Diagram](images/linked-list-vocab.png)
 
-The Node class for a Binary Search Tree (BST) could look like this:
+Our ListNode looked like this:
 
 ```ruby
-class TreeNode
+class Node
   attr_reader :data
-  attr_accessor :left, :right
+  attr_accessor :next
 
-  def initialize(data)
-    @data = data
-    @left = @right = nil
+  def initialize(value, next = nil)
+    @next = next
+    @data = value
   end
 end
 ```
 
-These nodes are arranged with one node known as the **root** which is where the tree begins.  New nodes as they are added are placed to the left, if they are less than the current node, and to the right if they are greater than the current node.  This is a natually recursive process.
+The `ListNode` class was used in a larger `LinkedList` class which maintained a chain of `ListNode` objects starting with a node pointed to by an instance variable called `@head`.
 
 ```
 Method add:
