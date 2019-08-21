@@ -116,13 +116,33 @@ class Tree
 end
 ```
 
+**Exercise**
+
+Given the following values draw a binary search tree:
+
+"Ringo", "John", "Paul", "George" sorted alphabetically.
+
+The _root_ is where the tree begins, the topmost node.  New nodes as they are added are placed to the left or a given node, if they are less than or equal to the current node, and to the right if they are greater than the current node.  This is a natually recursive process.
+
+```
+Method add:
+  if the root is nil set the root to be a new node with the given value and return the node.
+
+  Otherwise:
+    if the value is less than or equal to the current node's value, make the current node's left be the result of calling add on root's left.
+    otherwise make node's right be the result of calling add on node's right.
+```
+
+You can observe this in the [Binary Tree Visualizer](http://btv.melezinek.cz/binary-search-tree.html)
+
 ## Finding a Value
 
 You can try to search to find a value in a Binary Search Tree Like this:
 
 ```
-If root is nil return nil
-If the root equals the value being searched for return the root's data
+Start the current node at the root
+If the current node is nil return nil
+If the current node equals the value being searched for return the current node's data
 
 If the value is less than the root return search on root's left side
 If the value is greater than the root return search on root's right side
