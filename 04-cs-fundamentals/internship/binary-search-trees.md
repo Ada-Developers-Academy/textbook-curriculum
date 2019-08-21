@@ -200,7 +200,7 @@ On the other hand this is an unbalanced tree.
 Create a tree with one node.  Then double the number of nodes, but keep the tree balanced.  Then double the number of nodes again, maintaining balance.  How does the height change?
 
 <details>
-  <summary>What standard Big-O time complexity does this match</summary>
+  <summary>What standard Big-O time complexity does this match?</summary>
   O(log n) when you double the number of nodes, the height increases by 1.
 </details>
 
