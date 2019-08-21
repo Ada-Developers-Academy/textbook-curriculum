@@ -351,13 +351,14 @@ woodland_library.tagline
 
 <details>
 <summary> What the heck is this doing? </summary>
-This code outputs the following:
-  <code>
-Welcome to all of the libraries: Woodland Library
-Welcome to all of the libraries: Woodland Library Northview Library
-Welcome to all of the libraries: Woodland Library Northview Library
-  </code>
+This code outputs the following:<br><br>
 
+```
+Welcome to all of the libraries: Woodland Library
+Welcome to all of the libraries: Woodland Library Northview Library 
+Welcome to all of the libraries: Woodland Library Northview Library
+```
+  </code>
 Here, we observe that all `Library`s can access and change the same `@@tagline` variable. This is useful in some cases, but can be confusing and obscure in most cases.
 </details>
 
