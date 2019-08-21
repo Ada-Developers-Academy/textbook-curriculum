@@ -144,21 +144,15 @@ Start the current node at the root
 If the current node is nil return nil
 If the current node equals the value being searched for return the current node's data
 
-If the value is less than the root return search on root's left side
-If the value is greater than the root return search on root's right side
+If the value is less than the current node return search on current node's left side
+If the value is greater than the root return search on current node's right side
 ```
 
 **Exercise** 
 
 Try this out on the [Binary Tree Visualizer](http://btv.melezinek.cz/binary-search-tree.html).
 
-**Question**:  What's the worst-case for finding a value in the tree?
-
-**Question**:  What's the best-case for finding a value in the tree?
-
-**Question**:  What would you guess is the average case for finding a node in a tree?
-
-We will answer these questions in a bit.
+**Question**:  If you have a tree of height 5, what's the worst-case for finding a value in the tree?  What affects the number of comparisons you need to make?
 
 ## Balanced Trees & Unbalanced Trees
 
@@ -183,18 +177,25 @@ On the other hand this is an unbalanced tree.
 <br />
 
 <details>
-  <summary>Based on your expert knowledge of Big-O.  What's the time complexity to look up a node in a balanced tree?</summary>
+  <summary>With the visualizer, build a balanced tree with a height of 5 levels.  How many comparisons do you need to make to find a particular leaf node?</summary>
 
-  O(log n)
+  Answer: 5
 </details>
 
 <details>
-  <summary>What about an unbalanced tree?</summary>
-
-  O(n)
+  <summary>Add 5 more nodes to the balanced tree, maintaining the balance.  How many comparisons do you need to make now to find a particular leaf node?</summary>
+  Answer: 6 (at most)
 </details>
 
-Notice if a tree is balanced, when you move left or right, you eliminate half of the possible nodes.  This means you are essentially doing **binary search.**  If the tree is unbalanced, it more resembles linear search.  In general you can assume a tree is balanced given no other information just because if elements are inserted randomly, the resultant tree is likely to be more or less balanced.
+
+<details>
+  <summary>Build a completely unbalanced tree with 5 levels.  How many comparisons to find a leaf node?  What if you added 4 nodes and kept the tree unbalanced.  How many more comparisons would you need to make?</summary>
+
+  Answer #1:  5
+  Answer #2: 9
+</details>
+
+Notice if a tree is balanced, when you move left or right, you eliminate half of the possible nodes.  This means you are essentially doing **binary search.**  If the tree is unbalanced, you are performing a linear search.
 
 **Self-Balancing Trees** There are a lot of algorithms for [keeping a tree balanced](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree).  These are wonderful things to learn, but beyond the scope of this class.
 
