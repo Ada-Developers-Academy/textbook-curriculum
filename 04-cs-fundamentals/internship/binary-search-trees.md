@@ -357,7 +357,7 @@ We will use the following terms in the lesson.
 | Root Node |  The starting node in a Binary Search Tree 	|
 | Leaf Node |  A node in a binary search tree with no children (left & right are `nil`) 	|
 | Unbalanced Tree 	|  A BST where each node has 0 or 1 children (it looks like a linked list) 	|
-| Balanced Tree 	|  The starting node in a Binary Search Tree 	|
+| Balanced Tree 	| A tree with subtrees with heights within 1 of each other	|
 | Traversal 	|  A method of visiting each node in a BST	|
 | Depth-First Traversal 	|  Explore the children and grandchildren nodes before moving to sibling nodes	|
 | Breadth-first traversal 	|  Explore in level order.   Hit nodes in the root level then all the root's children, then all their children etc. 	|
