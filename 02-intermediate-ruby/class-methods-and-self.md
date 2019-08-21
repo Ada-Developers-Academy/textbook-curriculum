@@ -191,7 +191,44 @@ class ClassName
 end
 ```
 
-### Class Variables
+## Adding Class Methods to `Song`
+
+Now that we see the syntax for how we'd use a **class method** versus an **instance method**, let's see why we'd want to use one over the other.
+
+Let's think back to the `Song` class we created earlier. We'll start with tracking the total number of plays across all songs. For this, we'll use a strategy to allow the `Song` class to manage this tracking. We'll create a _class variable_, `@@total_plays`, as well as a method to read its value, `Song.total_plays`.
+
+```ruby
+class Song
+  attr_reader :title, :artist, :filename, :play_count
+
+  def initialize(title, artist, filename)
+    @title = title
+    @artist = artist
+    @filename = filename
+    @play_count = 0
+  end
+
+  def summary
+    return "#{@title}, by #{@artist}"
+  end
+
+  def play
+    @play_count += 1
+    # ... load the song data from the file and send it to the speakers ...
+  end
+
+  # Define a class method 
+  def self.definition
+    return "A song is a short poem or other set of words set to music or meant to be sung."
+  end
+
+end
+```
+
+```ruby
+puts Song.definition
+```
+## Class Variables
 
 While we are discussing class methods, now seems like a good time to also introduce class variables. Class methods and class variables are about as related to each other as instance methods and instance variables are related to each other... There is no strict relationship, but their concepts in how they relate to object-oriented programming are similar.
 
@@ -201,6 +238,90 @@ While we are discussing class methods, now seems like a good time to also introd
 - Class variables will raise an error if they are read before they're created
 - Class variables can cause problems later, so **avoid using them**
 - Class variables are sometimes used for application configuration
+
+## Adding Class Variables to `Song`
+
+```ruby
+class Song
+  attr_reader :title, :artist, :filename, :play_count
+
+  # Initialize our total play count
+  # This will be set to 0 when the program is loaded
+  @@total_plays = 0
+
+  def initialize(title, artist, filename)
+    @title = title
+    @artist = artist
+    @filename = filename
+    @play_count = 0
+  end
+
+  def summary
+    return "#{@title}, by #{@artist}"
+  end
+
+  def play
+    @play_count += 1
+    @@total_plays += 1
+    # ... load the song data from the file and send it to the speakers ...
+  end
+
+  # Define a class method to access the class variable
+  def self.total_plays
+    return @@total_plays
+  end
+end
+```
+
+```ruby
+# No instances required!
+puts "total: #{Song.total_plays} plays"
+
+respect = Song.new("Respect", "Aretha Franklin", "songs/respect.mp3")
+moonlight = Song.new("What a Little Moonlight Can Do", "Billie Holiday", "songs/moonlight.mp3")
+
+3.times do
+  respect.play
+end
+
+5.times do
+  moonlight.play
+end
+
+# No instances required!
+puts "total: #{Song.total_plays} plays"
+
+# Respect: 3 plays
+# What a Little Moonlight Can Do: 5 plays
+# total: 8 plays
+```
+
+All that `total_plays` does is return the value of `@@total_plays`. If `@@total_plays` were an instance method, we would use the `attr_reader` helper method to accomplish the same thing. Unfortunately there's no equivalent to `attr_reader` for class variables, so we have to do the work ourselves.
+
+#### Questions
+- Consider the class variable `@@total_plays`
+  - Where is `@@total_plays` initialized?
+  - How would our program change if we did not initialize this variable?
+  - How would our program change if we initialized this variable in the `initialize` method?
+- Why is `total_plays` a class method? How would our program change if it was an instance method?
+
+#### Assess
+
+1. What's the syntax to define a class method? Where are class methods defined?
+1. What's the syntax to invoke a class method?
+1. What's the syntax to define a class variable? Where are class variables defined?
+
+## Activity: `Song.most_played`
+
+In the previous example, we used a class method to access a class variable. Another common use of a class method is to work with a collection of instances of that class.
+
+For example, what if we wanted a method that, given an array of `Song`s, picks the one with the most plays? Since the argument is a collection of `Song`s, it doesn't make sense to require the method to be called on one particular instance. In this case, a class method is a good choice.
+
+Work with a partner to implement `Song.most_played`. As you write the method, think about how you would test it - what interesting scenarios can you imagine?
+
+Once you've come up with an version you're happy with, [you can see ours here](source/song.rb).
+
+## A cautionary tale - one use of class variables.
 
 Let's glance at one example of using class variables:
 
@@ -239,11 +360,7 @@ Here, we observe that all `Library`s can access and change the same `@@tagline` 
 
 We could go deeper into class variables. However, in general, we will discourage the use of class variables because of their usually unintended side-effects.
 
-#### Assess
 
-1. What's the syntax to define a class method? Where are class methods defined?
-1. What's the syntax to invoke a class method?
-1. What's the syntax to define a class variable? Where are class variables defined?
 
 <details>
   <summary>
@@ -255,76 +372,7 @@ We could go deeper into class variables. However, in general, we will discourage
   1. `@@variable_name`. Class variables are defined within a class.
 </details>
 
-## Adding Class Methods to `Song`
 
-Now that we see the syntax for how we'd use a **class method** versus an **instance method**, let's see why we'd want to use one over the other.
-
-Let's think back to the `Song` class we created earlier. We'll start with tracking the total number of plays across all songs. For this, we'll use a strategy to allow the `Song` class to manage this tracking. We'll create a _class variable_, `@@total_plays`, as well as a method to read its value, `Song.total_plays`.
-
-```ruby
-class Song
-  attr_reader :title, :artist, :filename, :play_count
-
-  # Initialize our total play count
-  # This will be set to 0 when the program is loaded
-  @@total_plays = 0
-
-  def initialize(title, artist, filename)
-    @title = title
-    @artist = artist
-    @filename = filename
-    @play_count = 0
-  end
-
-  def summary
-    return "#{@title}, by #{@artist}"
-  end
-
-  def play
-    @play_count += 1
-    @@total_plays += 1
-    # ... load the song data from the file and send it to the speakers ...
-  end
-
-  # Define a class method to access the class variable
-  def self.total_plays
-    return @@total_plays
-  end
-end
-```
-
-```ruby
-# No instances required!
-puts Song.total_plays
-# => 0
-
-respect = Song.new("Respect", "Aretha Franklin", "songs/respect.mp3")
-moonlight = Song.new("What a Little Moonlight Can Do", "Billie Holiday", "songs/moonlight.mp3")
-
-3.times do
-  respect.play
-end
-
-5.times do
-  moonlight.play
-end
-
-puts "#{respect.title}: #{respect.play_count} plays"
-puts "#{moonlight.title}: #{moonlight.play_count} plays"
-puts "total: #{Song.total_plays} plays"
-# Respect: 3 plays
-# What a Little Moonlight Can Do: 5 plays
-# total: 8 plays
-```
-
-All that `total_plays` does is return the value of `@@total_plays`. If `@@total_plays` were an instance method, we would use the `attr_reader` helper method to accomplish the same thing. Unfortunately there's no equivalent to `attr_reader` for class variables, so we have to do the work ourselves.
-
-#### Questions
-- Consider the class variable `@@total_plays`
-  - Where is `@@total_plays` initialized?
-  - How would our program change if we did not initialize this variable?
-  - How would our program change if we initialized this variable in the `initialize` method?
-- Why is `total_plays` a class method? How would our program change if it was an instance method?
 
 #### Writing About Methods in Documentation
 
@@ -337,16 +385,6 @@ ClassName#method_name
 The octothorp indicates that the method is an instance method. In the case of our `Song` class, we have `Song#play` and `Song#summary`.
 
 When writing about a class method, we use a dot instead of a pound sign: `ClassName.class_method`. Note that this matches the way the method is called.
-
-## Activity: `Song.most_played`
-
-In the previous example, we used a class method to access a class variable. Another common use of a class method is to work with a collection of instances of that class.
-
-For example, what if we wanted a method that, given an array of `Song`s, picks the one with the most plays? Since the argument is a collection of `Song`s, it doesn't make sense to require the method to be called on one particular instance. In this case, a class method is a good choice.
-
-Work with a partner to implement `Song.most_played`. As you write the method, think about how you would test it - what interesting scenarios can you imagine?
-
-Once you've come up with an version you're happy with, [you can see ours here](source/song.rb).
 
 ## Conclusion
 
