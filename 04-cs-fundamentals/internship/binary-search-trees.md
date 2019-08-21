@@ -203,30 +203,41 @@ Notice if a tree is balanced, when you move left or right, you eliminate half of
 
 A _traversal_ is an action visiting each node in a graph such as a tree.  There are several kinds of traversals, Breadth First Traversals which visit each node level, by level and Depth First Traversals which visit a node's children before it's siblings.
 
-### Breadth first Traversals
-
-When you conduct a _breadth-first traversal_ you visit each node by level.  In other words you explore nodes on a given level before exploring their children.  
-
-![Binary Search Tree 2](images/bst2.png)
-
-A Breadth First Traversal on the above tree could look like:
-
-[50, 25, 75, 10, 30, 60, 100]
-
-**Exercise**
-
-Do a breadth first traversal on the tree you created for:  
-"Ringo", "John", "Paul", and "George"
-
 ### Depth First Traversals
 
-In a _Depth-first traversal_ you explore the children and grandchildren of a node before moving to it's sibling.
+Unlike linear data structures like arrays or linked list which have only one logical way to traverse them, trees can be traversed in different ways.  In a _Depth-first traversal_ you explore the children and grandchildren of a node before moving to it's sibling.
 
 There are three standard types of depth-first traversals:
 
-- **Pre-Order**:  Root, Left, Right
-- **In-Order**: Left, Root, Right
-- **Post-Order**: Left, Right, Root
+- **Pre-Order**:  Current, Left, Right
+- **In-Order**: Left, Current, Right
+- **Post-Order**: Left, Right, Current
+
+In a **Pre-Order** traversal you execute the algorithm in this manner:
+
+```
+visit the current node
+traverse the left subtree
+traverse the right subtree
+```
+
+In a **In-Order** traversal you execute the algorithm in this manner:
+
+```
+traverse the left subtree
+visit the current node
+traverse the right subtree
+```
+
+In a **Post-Order** traversal you execute the algorithm in this manner:
+
+```
+traverse the left subtree
+traverse the right subtree
+visit the current node
+```
+
+Notice that all of the algorithms are recursive in structure because each node can be treated as it's own subtree.
 
 ![Binary Search Tree 2](images/bst2.png)
 
@@ -240,7 +251,7 @@ For the above Binary Search Tree
 ![bst3](images/bst3.png)
 
 <details>
-  <summary>In what order are the nodes in this tree encountered for each type of traversal
+  <summary>In what order are the nodes in this tree visited for each type of traversal
   </summary>
     Pre-Order  [17, 14, 20, 19, 52]
     In-Order: [14, 17, 19, 20, 52]
@@ -264,7 +275,7 @@ For the above Binary Search Tree
 There are a few common use-cases for each of the depth-first traversals.
 
 - **Pre-order** If you need to save a tree data structure to disk, or send it across the network and maintain the structure, pre-order traversals can be useful.
-- **In-Order**: If you need to print all the nodes of a tree in order.
+- **In-Order**: If you need to print or otherwise visit all the nodes of a tree in order.
 - **Post-Order**: If you need to delete all the nodes in a BST.
 
 ### Binary Expression Trees
@@ -278,7 +289,7 @@ There is also a kind of tree called a [Binary Expression Tree](https://www.geeks
 To find the height of a binary search tree you can do the following:
 
 ```
-If the node is nil return 0
+If the current node is nil return 0
 
 Otherwise return 1 plus the maximum of the heights of the right and left subtrees
 ```
