@@ -349,6 +349,8 @@ northview_library.tagline
 woodland_library.tagline
 ```
 
+<details>
+<summary> What the heck is this doing? </summary>
 This code outputs the following:
 ```
 Welcome to all of the libraries: Woodland Library
