@@ -359,6 +359,7 @@ Welcome to all of the libraries: Woodland Library Northview Library
 ```
 
 Here, we observe that all `Library`s can access and change the same `@@tagline` variable. This is useful in some cases, but can be confusing and obscure in most cases.
+</details>
 
 We could go deeper into class variables. However, in general, we will discourage the use of class variables because of their usually unintended side-effects.
 
