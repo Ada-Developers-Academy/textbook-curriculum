@@ -323,7 +323,7 @@ Once you've come up with an version you're happy with, [you can see ours here](s
 
 ## A cautionary tale - one use of class variables.
 
-Let's glance at one example of using class variables:
+Let's glance at one final example of using class variables:
 
 ```ruby
 class Library
