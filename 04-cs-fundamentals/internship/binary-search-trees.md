@@ -195,6 +195,14 @@ On the other hand this is an unbalanced tree.
   Answer #2: 9
 </details>
 
+
+Create a tree with one node.  Then double the number of nodes, but keep the tree balanced.  Then double the number of nodes again, maintaining balance.  How does the height change?
+
+<details>
+  <summary>What standard Big-O time complexity does this match</summary>
+  O(log n) when you double the number of nodes, the height increases by 1.
+</details>
+
 Notice if a tree is balanced, when you move left or right, you eliminate half of the possible nodes.  This means you are essentially doing **binary search.**  If the tree is unbalanced, you are performing a linear search.
 
 **Self-Balancing Trees** There are a lot of algorithms for [keeping a tree balanced](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree).  These are wonderful things to learn, but beyond the scope of this class.
