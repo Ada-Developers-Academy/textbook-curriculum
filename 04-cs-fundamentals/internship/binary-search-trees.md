@@ -20,24 +20,39 @@ By the end of this lesson you should be able to:
 - [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d9746397-8a10-43be-b1cc-aaaf00720b31)
 - [Slide Deck](https://docs.google.com/presentation/d/1jE2bQDXkoCIJmqBgFXuripXftzrijuSY1JRKf2Ln7MY/edit#slide=id.p)
 
+## Sample Problem
 
-## Limitations of Linked Lists
+Ada is working on software powering an online store.  Their application needs to maintian a list of products in memory and maintain them in order by price.  The app should be able to list all the products sorted by price, and look up individual items at a particular price.  The application will also need to add products as they are added to inventory and remove them when they are sold out.
 
-Remember that finding an element in a Linked List requires a runtime of O(n).  This is because any search in a Linked List requires a linear search.  However once a Linked List node is found, removing or adding a node is O(1).  It would be ideal to combine the binary search O(log<sub>n</sub>) or a sorted array with the O(1) runtime to remove or add nodes.  This is what Binary Search Trees give us.
+They could maintain a sorted array.  It's very quick to find individual elements by executing a binary search O(log n), and because the list is in order, simply traversing the array will display the items sorted by price.
 
-Instead of a node with one link to a next node, we can create nodes with 2 pointers, left and right.  Each node is not allowed to point back to a parent or grandparent.   So you can arrive at a child by following the links of it's parents, but there is no path from a child to a parent.  This ends up forming a tree like shape with each node having 0, 1 or 2 "children".  This is called a _Binary Tree_.  In this way a binary tree is an _acyclic, connected graph_.  It forms no cycles or loops of links, and each node is connected to others in the data structure.
+However removing an element requires all the elements to the right of the deleted item to be shifted left one position.  This means that deleting an element requires a time complexity of O(n).
 
-In a special type of Binary Tree, called a _Binary Search Tree_ the left pointer points to all elements smaller than the node.  The right pointer points to all nodes greater than the given node.   Each node can refer to other nodes, but there is no way to go from a child node to a parent.  The links go in one direction.  A Tree is hierarchical with certain nodes acting as parents to others.  
+![Deleting an element from an array](images/deleting-array-element.png)
 
-![bst.png](images/bst.png)
+<!-- Image at:  https://drive.google.com/file/d/1PeYa3z7mgVxy6jOPqS7brL09u2Vq_nFW/view?usp=sharing -->
 
-Notice that nodes 61 and 77, both form subtrees of the larger tree data structure.  This enables you to use **recursion** on most tree methods because each child node forms a subtree.
+Adding an element to a sorted list similarly requires each item to be shifted before a new item can be inserted.  
 
-**Exercise**
+![Adding an element to a sorted array](images/adding-sorted-array-element.png)
 
-Given the following values draw a binary search tree:
+<!-- Image source:  https://www.draw.io/#G1j_vbvEN5UgNSszrKSPgwA7agvgQdhs1r -->
 
-"Ringo", "John", "Paul", "George"
+### What About a Linked List
+
+Likewise we could use a Linked List, but we cannot do a binary search on a Linked List.  Any search in a Linked List requires a time complexity of O(n).
+
+Further maintaining a list in order requires Ada's application to **find** the location in the list to do the insertion.  So while adjusting the links to insert a new node in a Linked List is O(1), finding the place to do the insertion would be O(n).  **Doh!**
+
+So while we want to:
+
+1. Maintain a list of items in order.
+1. Add and delete elements in better than O(n) time
+1. Find elements with an O(log n) time
+
+If need 1 is maintained an array will struggle to add and delete items, and a Linked List will require O(n) for all operations because you have to traverse the sorted list to do anything. 
+
+So is Ada stuck with O(n) operations?  No!  Enter Binary Search Trees!
 
 ## Binary Search Tree Node
 
