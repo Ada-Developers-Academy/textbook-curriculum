@@ -311,6 +311,16 @@ All that `total_plays` does is return the value of `@@total_plays`. If `@@total_
 1. What's the syntax to invoke a class method?
 1. What's the syntax to define a class variable? Where are class variables defined?
 
+<details>
+  <summary>
+  Answers
+  </summary>
+  
+  1. `def self.class_method`. Class methods are defined within a class.
+  1. with a dot, off of the class name (with the proper capitalization, because this must match the name of the class)
+  1. `@@variable_name`. Class variables are defined within a class.
+</details>
+
 ## Activity: `Song.most_played`
 
 In the previous example, we used a class method to access a class variable. Another common use of a class method is to work with a collection of instances of that class.
@@ -363,20 +373,6 @@ Here, we observe that all `Library`s can access and change the same `@@tagline` 
 </details>
 
 We could go deeper into class variables. However, in general, we will discourage the use of class variables because of their usually unintended side-effects.
-
-
-
-<details>
-  <summary>
-  Answers
-  </summary>
-  
-  1. `def self.class_method`. Class methods are defined within a class.
-  1. with a dot, off of the class name (with the proper capitalization, because this must match the name of the class)
-  1. `@@variable_name`. Class variables are defined within a class.
-</details>
-
-
 
 #### Writing About Methods in Documentation
 
