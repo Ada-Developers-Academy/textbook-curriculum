@@ -84,16 +84,32 @@ In a _Binary Search Tree_ each node's left pointer points to all elements smalle
 
 Notice that nodes 43 and 86, both form subtrees of the larger tree data structure.  This enables you to use **recursion** on most tree methods because each child node forms a subtree.
 
-## The Tree Class
+### Binary Search Tree Node
 
-You can build a `Tree` class in a manner similar to how we created a `LinkedList` class.
+Instead of a node with one link to a next node, we can create nodes with 2 pointers, left and right.  Since each node can have 2 successors or "children", it forms a binary structure as opposed to the linear structure of a Linked List.
+
+```ruby
+class TreeNode
+  attr_reader :key, :data
+  attr_accessor :left, :right
+
+  def initialize(data)
+    @data = data
+    @left = @right = nil
+  end
+end
+```
+
+### The Tree Class
+
+Just like the `LinkedList` class discussed above, we can create a `Tree` class to represent the full data structure, using the `TreeNode` class to create nodes and build the tree.
 
 ```ruby
 class Tree
-  attr_reader :root
 
   def initialize
-    @root = nil
+    @root = nil # The root is the starting
+                # node in the Tree
   end
 
   # Tree methods go here...
