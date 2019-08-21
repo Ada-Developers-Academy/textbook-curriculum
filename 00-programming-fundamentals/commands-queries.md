@@ -82,7 +82,6 @@ The distinction between queries and commands applies to other aspects of softwar
 Now a "state change" refers to the state of the entire program, not a single object. `exit` is a particularly interesting case here, since it quits the program. Quite a state change! As developers, we can use this table to reason about how our program might behave.
 
 You could create a table like this for any interface that includes multiple actions. Other examples include:
-- Endpoints for an API
 - Interactions with the filesystem from the terminal
 - Git commands
 
@@ -112,14 +111,15 @@ For a _command_, the important part is the method's effect on the state of the o
 - Is the planet added to the end of the list?
 - Assuming that adding a duplicate planet produces an exception, if you attempt to add a duplicate planet, in addition to getting an error, what happens to the list?
 
-## Exercise: Commands and Queries in the Slack CLI project
+## Exercise: Commands and Queries in this week's project
 
-With your partner, revisit the requirements for the Slack CLI project, and do the following:
+With a partner, revisit the requirements for the project, and do the following:
 
 - Make a table similar to the one we made for SolarSystem above for the different actions the user can take
 - Make a similar table for each public instance method on each of your classes
   - Is your test coverage appropriate for these commands and queries?
-- Make a similar table for the endpoints you're using from the Slack API
+- Make a similar table for the endpoints you're using from your current project
+
 
 ## Summary
 
