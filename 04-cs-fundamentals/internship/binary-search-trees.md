@@ -327,6 +327,13 @@ Design a recursive algorithm, deduce the space and time complexity and then, aut
 Design an iterative algorithm for the first seven exercises above, deduce the space and time complexity and author the functions to implement them. You may use additional data structures.
  -->
 
+
+## Summary
+
+In this lesson we looked at the advantages a Binary Search Tree provides over a sorted array or LinkedList.  Binary Search trees provide an O(log n) time to add, remove and find elements because searching a tree performs a binary search.  This performance however depends on the tree being **balanced**.  A balanced tree has subtrees of height within 1 of each other.
+
+We also examined different methods to traverse a Tree.  Unlike a LinkedList where there is only one method to traverse a tree has multiple ways to traverse.
+
 ## Terminology
 
 We will use the following terms in the lesson.
