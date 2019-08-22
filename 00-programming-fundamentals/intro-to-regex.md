@@ -167,6 +167,8 @@ There a number of tools you can use to compose regular expressions.
 
 ## List of Regex Special Characters
 
+A few of this symbols are explained in the following lesson [More Regular Expressions](more-regular-expressions.md)
+
 | Character | Name  |  Description |
 | --- | --- | --- |
 |   \	|   Backslash	|   The backslash gives special meaning to the character following it. For example, the combination "\n" stands for the newline, one of the control characters. 	|
