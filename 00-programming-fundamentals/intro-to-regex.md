@@ -146,7 +146,7 @@ Write a regex that will match only strings without any leading whitespace.
 
 [Check your answer here](solutions/regex.md#Start%20and%20End)
 
-### Follow-up Lesson: [More Regular Expression](more-regular-expressions.md)
+### Follow-up Lesson: [More Regular Expressions](more-regular-expressions.md)
 
 ## Conclusion
 
