@@ -23,7 +23,7 @@ By the end of this lesson you should be able to:
 - Explain why computers use binary numbers
 - Compare binary numbers to decimal numbers
 - Convert between binary and decimal numbers
-- Explain how high-level languages like Ruby add a level of abstraction to make programming easier.
+- Explain how high-level languages like Ruby add a level of abstraction to make programming easier
 
 ## Typical Computer Structure
 
