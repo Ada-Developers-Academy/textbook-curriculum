@@ -89,7 +89,7 @@ Sometimes you want to exclude a certain group of characters, or sometimes it's e
 
 For example:  `/[^abc]/` excludes a, b and c.
 
-Another example would be `/[^0-9]/` which would exclude any digit or `/Ada is number [^2-9^a-z^A-Z^0]` which would exclude any letter or digit, except `1`.
+Another example would be `/[^0-9]/` which would exclude any digit or `/Ada is number [^2-9a-zA-Z0]` which would exclude any letter or digit, except `1`.
 
 ### Practice
 
