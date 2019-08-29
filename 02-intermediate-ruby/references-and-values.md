@@ -13,52 +13,24 @@ We're going to start today with some Ruby code that does something a little unex
 
 ```ruby
 def short_strings(input)
-  result = []
-  input.each do |word|
+  input.each_with_index do |word, i|
     # Slice characters 0 to 2
-    result << word[0..2]
+    input[i] = word[0..2]
   end
-  input = result
+  return input
 end
 
 pets = ['dog', 'parrot', 'cat', 'llama']
-short_strings(pets)
-puts "#{pets}"
+shortened_pets = short_strings(pets)
+puts "pets: #{pets}"
+puts "shortened_pets: #{shortend_pets}" 
 
 ```
 
-Running this code results in `["dog", "parrot", "cat", "llama"]`. The array in unchanged! Let's do some debugging:
-
-```ruby
-def short_strings(input)
-  result = []
-  input.each do |word|
-    # Slice characters 0 to 2
-    result << word[0..2]
-  end
-  input = result
-  puts "Inside short_strings, input is"
-  puts "#{input}"
-end
-
-pets = ['dog', 'parrot', 'cat', 'llama']
-short_strings(pets)
-puts "After calling short_strings"
-puts "#{pets}"
-```
-
-The results:
-
-```
-Inside short_strings, input is
-["dog", "par", "cat", "lla"]
-After calling short_strings
-["dog", "parrot", "cat", "llama"]
-```
-
-`short_strings` is indeed creating a list of shortened words and storing it under the name `input`, but our outer variable `pets` isn't being updated. The reason why has to do with references and values, and how data is stored in a computer.
-
-As an aside: one way to fix our method is to return the new array, and when calling it say `pets = short_strings(pets)`. However, sometimes this isn't an option, or isn't what you want.
+Running this code results in 
+`pets: ["dog", "par", "cat", "lla"]`
+`shortened_pets: ["dog", "par", "cat", "lla"]`
+The pets array is changed! Why? I thought the input was copied over when given to a method!
 
 ## References and Values
 
@@ -228,21 +200,55 @@ This is exactly the same behavior we saw before, when we had two variables refer
 The answer is to modify the underlying object, rather than reassigning the parameter. Here's what the resulting code might look like:
 
 ```ruby
+
 def short_strings(input)
-  input.each_with_index do |word, i|
+  result = []
+  input.each do |word|
     # Slice characters 0 to 2
-    input[i] = word[0..2]
+    result << word[0..2]
   end
+  return result
 end
 
 pets = ['dog', 'parrot', 'cat', 'llama']
-short_strings(pets)
+shortened_strings = short_strings(pets)
 puts "#{pets}"
 ```
 
-This produces the expected output. Note that we can't just say `word = word[0..2]`, for the same reason as above: that reassigns the block parameter `word` to a new string containing just the first 3 letters, but neither modifies nor reassigns the string in the array. Instead we reassign `input[i]`, which does what we want: change the value stored in the array.
+This WILL preserve pets as is was while giving us the shortened_pets value we want.
 
-We could also use the `map!` enumerable method, since that modifies the original. `map` (without a `!`) would not work, because it creates a new array.
+Now that we've solved it, check just how well we understand references, values, and reassignment.
+What output do we expect if we for some reason update input at the end?
+
+```ruby
+
+def short_strings(input)
+  result = []
+  input.each do |word|
+    # Slice characters 0 to 2
+    result << word[0..2]
+  end
+  input = result
+  return input
+end
+
+pets = ['dog', 'parrot', 'cat', 'llama']
+shortened_strings = short_strings(pets)
+puts "pets: #{pets}"
+puts "shortened_pets: #{shortened_pets}"
+```
+
+
+<details>
+<summary>What output do we expect here?</summary>
+
+`pets: ['dog', 'parrot', 'cat', 'llama']`
+`shortened_pets: ['dog', 'par', 'cat', 'lla']`
+Why? The reassignment was on the input reference rather than on the underlying object like our original code did.
+
+</details>
+
+It's also worth noting that there are methods like map! that intentionally change the underlying object, so now we now how to confidently write methods like that if we ever need to. (In built-in ruby methods, these always have a `!` at the end of the name.)
 
 ## Other Objects
 
