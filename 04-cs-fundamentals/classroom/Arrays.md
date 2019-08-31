@@ -10,8 +10,7 @@ By the end of this lesson you should be able to:
   - Binary Search
   - Reversing an Array in place vs creating a new array
 - Write methods to perform searches on an array
-- Explain how the time and space complexity of an algorithm is measured with Big-O
-- Deduce the algorithmic complexity of an algorithm involving an array
+- Begin to be able to discuss how a particular algorithm scales with larger datasets.
 
 ## Video Lesson & Exercises
 
@@ -21,7 +20,7 @@ By the end of this lesson you should be able to:
 
 ## Introduction
 
-Before computers entered the marketplace companies hired [human computers](https://www.newscientist.com/article/2118526-when-computers-were-human-the-black-women-behind-nasas-success/) to perform calculations.  These mathematicians contributed greatly to finance, science and even the space race.  Over time they were replaced by machines because electronic computers can repeatably process huge blocks of data efficiently without becoming bored.  For example the College Board processes millions of answers on it's SAT & ACT tests performing statistical analysis to identify outlier questions and identifying pass-rates and grades.
+Before computers entered the marketplace companies hired [human computers](https://www.newscientist.com/article/2118526-when-computers-were-human-the-black-women-behind-nasas-success/) to perform calculations.  These mathematicians contributed greatly to finance, science and even the space race.  Over time they were replaced by machines because electronic computers can repeatably process huge blocks of data efficiently without becoming bored.  For example the College Board processes millions of answers on it's SAT & ACT tests performing statistical analysis to identify outlier questions and identifying pass-rates and grades.  Datasets of this size are impractical for humans to work with and unless structured well, can be troublesome for machines.  For example unless the ACT data is sorted, it is problematic to discover the percentile of a particular student.
 
 A core problem in Computer Science is organizing and performing operations on huge datasets.  How a developer chooses to organize their data strongly impacts performance both in the amount of time operations take to complete and the amount of memory needed to solve them. **Data Structures** provide well-known ways to organize data. Each data structure follows its own set of rules on how the data should get organized. The study of data structures is to understand these rules, the benefits they provide, and the limitations of each data structure. Alongside these governing rules, we are also looking to understand how different common operations like insert, delete and search work on each of these data structures and understand the average and worst case efficiency for the common operations. Knowledge of well-known data structures allows us come up with optimal designs to our real world, practical coding projects. The first data structure we will consider is the **Array data structure**.
 
@@ -99,8 +98,8 @@ Because elements in an array are **homogenous**, every element at each index in 
 
 **Approach**: It's a good practice to **always validate or check the input** provided to any method. e.g. if the input is an object, always check if the input object value is `nil`. Similarly, if the input is a string, always check if the string is empty. For the problem at hand, to check if a given value exists in the array, it seems useful to check if the array has at least one element. Otherwise, there are no elements in the array and we can safely conclude that the value we are looking for is not in the array and return `false`.  Once we have checked the input validity, we could start looking for the value in the array. We can do this by comparing each value in the array one by one with the value we are looking for. If we ever find a match, we can immediately return `true`. If we reach the end of the array and no match was found, then we can return `false`. With that, here's what our solution would look like (in pseudo code):
     
-```c
-bool search(array, value_to_find)
+```
+search(array, value_to_find)
   // i is an index into the first element in the array
   i = 0 
   repeat while i < array's length
@@ -163,8 +162,8 @@ We begin again, with **gathering the requirements**. Here's what we know:
 
 Once we know the expected inputs and outputs it is time to think about our **algorithmic approach**. How do we find the largest value in a list of unsorted integer values? One way is to assume that the first value we see if the largest value. Then, we compare this, so far largest known value with the next value in the array. If we find a value that is greater than the largest known value thus far, we update the largest known value. Once we have reached the end of the array, we have found the largest value in the array. Here's what the pseudo code may look like:
 
-```c
-int largest_value(array)
+```
+largest_value(array)
   if array's length == 0
     return nil
 
@@ -223,8 +222,8 @@ The **binary search** algorithm leverages the sorted property while searching fo
 
 Here's the pseudo code for binary search algorithm. As you read through it, try the algorithm on different set of input arrays and value to find.
 
-```c
-bool binary_seach(array, value_to_find)
+```
+binary_seach(array, value_to_find)
   if array length == 0
     return false
 
@@ -290,7 +289,7 @@ One approach to solve this problem would be create a new array of the same size 
 
 Here's what the pseudo code for this approach look like:
 
-```c
+```
 // array is the input integer array to the algorithm
 if array.length <= 1
   return // nothing to reverse
@@ -334,7 +333,7 @@ You'll notice that the solution above has two `while` loops in addition to a set
 Is there any algorithmic approach where we can avoid creating an additional array of the same size as the input array? In order to reverse the elements in the array, we could consider swapping the element at index 0 with the element at index *n*-1, where *n* is the number of elements in the input array. Then, we could swap the element at index *n*-2 with the element at index 1, and so on.
 Here's what the pseudo code for this approach would look like:
 
-```c
+```
 // array is the input integer array to the algorithm
 
 if array.length <= 1
@@ -360,3 +359,16 @@ You'll notice that the loop in this approach will run roughly half the number of
   <summary>What about the trend, what happens to this algorithm if you double the number of elements in the array?</summary>
   The reverse in place method above, still doubles the number of iterations when you double the number of elements in the array.  In other words, it faster than the 1st solution, but scales similarly.
 </details>
+
+## Terms & Definitions
+
+| Term 	| Definition 	
+|---	|---	|
+| Data Structure | A method of organizing data and providing methods to interact with the data.
+| Static Data Structure | A data structure which is fixed in size and cannot automatically resize
+| Dynamic Data Structure | A data structure which can automatically resize as elements are added and removed.
+| Linear Search |  An algorithm for finding an element in an array, starting with the first element and checking elements sequentially until found or the end of the array is reached.
+| Binary Search |  An algorithm for finding an element in an **sorted** array, starting with the middle element using the ordered property of the array to, with each iteration, eliminate 1/2 of the remaining elements to be searched.
+
+
+## Summary
