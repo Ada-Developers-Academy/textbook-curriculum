@@ -13,6 +13,13 @@ By the end of this lesson you should be able to:
 - Explain how the time and space complexity of an algorithm is measured with Big-O
 - Deduce the algorithmic complexity of an algorithm involving an array
 
+## Video Lesson & Exercises
+
+- [Video Lesson]()
+- [Slide Deck used in video](https://drive.google.com/file/d/0B__DV26QHsH4eHJqTWttLUdNZk0/view?usp=sharing)</br>
+- [**Exercise**: Arrays and efficiency and algorithms](../homeworks.md#arrays-and-efficiency-of-algorithms)
+
+
 ## Introduction
 
 A common problem in Computer Science is managing large amounts of data and performing different operations on them. **Data Structures** provide different well-known ways to organize data. Each data structure follows its own set of rules on how the data should get organized. The study of data structures is to understand these rules the benefits they provide and the limitations of each data structure. Alongside these governing rules, we are also looking to understand how different common operations like insert, delete and search work on each of these data structures and understand the average and worst case efficiency for the common operations. Knowledge of well-known data structures allows us come up with optimal designs to our real world, practical coding projects. The first data structure we will consider is the **Array data structure**.
@@ -352,13 +359,3 @@ You'll notice that the loop in this approach will run roughly half the number of
   <summary>What about the trend, what happens to this algorithm if you double the number of elements in the array?</summary>
   The reverse in place method above, still doubles the number of iterations when you double the number of elements in the array.  In other words, it faster than the 1st solution, but scales similarly.
 </details>
-
-## Exercises
-
-Continue learning about [efficieny of algorithms](Efficiency%20of%20algorithms.md). Then, complete the assignments listed in the section [Arrays and efficiency and algorithms](../homeworks.md#arrays-and-efficiency-of-algorithms)
-
-## Slide Deck
-
-+ Slide Deck used in class</br>
-<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://drive.google.com/file/d/0B__DV26QHsH4eHJqTWttLUdNZk0/view?usp=sharing">Array data structure and Introduction to Efficiency of Algorithms</a></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</br>
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />
