@@ -1,9 +1,17 @@
-# Array data structure, Introduction to efficiency of algorithms
+# Array Data Structure & Intro To Algorithmic Efficiency
 
-## Pre-requisite
-Before this lesson, you should have gotten familiar with:
-- [Essential mathematics for software engineers](Essential%20Mathematics.md)
-- [Computer basics and binary](Binary.md)
+## Learning Goals
+
+By the end of this lesson you should be able to:
+
+- Explain how arrays in Ruby differ from arrays in lower-level languages and strongly typed languages
+- Explain how array algorithms work including
+  - Linear Search
+  - Binary Search
+  - Reversing an Array in place vs creating a new array
+- Write methods to perform searches on an array
+- Explain how the time and space complexity of an algorithm is measured with Big-O
+- Deduce the algorithmic complexity of an algorithm involving an array
 
 ## Introduction
 A common problem in Computer Science is managing large amounts of data and performing different operations on them. <b>Data Structures</b> provide different well-known ways to organize data. Each data structure follows its own set of rules on how the data should get organized. The study of data structures is to understand these rules. Alongside these governing rules, we are also looking to understand how different common operations like insert, delete and search work on each of these data structures and understand the average and worst case efficiency for the common operations. Knowledge of well-known data structures allows us come up with optimal designs to our real world, practical coding projects. The first data structure we will consider is the <b>Array data structure</b>.
