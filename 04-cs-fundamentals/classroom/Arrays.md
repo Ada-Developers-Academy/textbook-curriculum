@@ -46,8 +46,9 @@ How does Ruby do it?  Ruby's interpreter is written in C.  When an array is crea
 
 Ruby Arrays are also _heterogenous_ in that each element is not required to be of the same type.  Ruby does this by making each element a reference to the value in memory.
 
-<!-- TODO Add Ruby Array drawing -->
+![Ruby Array Diagram](images/ruby-arrays.png)
 
+In the above diagram we have a 5-element array.  Each element of the array is a reference to a memory location containing a string.
 
 ### Example Static Array
 
