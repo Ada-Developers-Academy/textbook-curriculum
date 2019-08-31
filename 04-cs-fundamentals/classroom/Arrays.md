@@ -109,12 +109,32 @@ bool search(array, value_to_find)
 
 **Exercise**: Try the above algorithm on a sample array and sample value to find. e.g. {4, 8, 0, 3, 9} and value to find is 3. You may try the algorithm on any other sample inputs.
 
-**Number of operations**: How many times will the instructions inside the while loop in the code above run?
+**Number of operations**:
 
 <details>
-    <summary>Counting the number of operations in an algorithm and comparing it with the size and value of input
-    </summary>
-        In the best case scenario, the input array is empty and we immediately return false. Another relatively quick execution would be if the value to find is at index 0 in the array.In the worst case scenario, the value we are looking for is not found in the array. In this case, the instructions inside the loop will get executed as many times as the number of elements in the array. If there are n elements in the array, then the loop will execute n number of times. In the average cases, the loop will execute somewhere in between the best case and worst case.
+  <summary>With an array of size 5, what situations will require the loop to execute the least times?</summary>
+  
+  In the best case, the value being sought is in the array at index 0 and the loop will execute only one time before returning `true`.
+</details>
+
+<details>
+  <summary>With an array of size 5, what situations will require the loop to execute the **most** times?</summary>
+  
+  In the worst case, the value being sought is not in the array or it is in the last element of the array and the loop will execute a number of times equal to the array's length before returning.  In this case 5 times.
+</details>
+
+<details>
+  <summary>Now double the size of the array.  What happens to the number of times the loop executes in the best, and worst cases?</summary>
+
+  In the best-case the item being sought is at index 0, and thus the loop executes 1 time and doubling the size of the array does not change this.
+
+  On the other hand, in the worst case doubling the number of elements from 5 to 10, also doubles the number of times the loop executes.
+</details>
+
+<details>
+  <summary>Assuming the element **is** in the array, on average how many times will the loop execute for a 10 element array?  How about a 20 element array?  How does the average case change as you increase the array's size?</summary>
+
+  On average you would traverse 1/2 way through the array before finding the element being sought.  So for a 10 element array it would take 5 iterations of the loop.  For a 20 element array it would take 10 iterations.  Every time you increase the size of the array the number of iterations would be 1/2 the new size.
 </details>
 
 ### Minimum and Maximum
