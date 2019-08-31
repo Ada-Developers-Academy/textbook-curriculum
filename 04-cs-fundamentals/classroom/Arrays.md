@@ -69,24 +69,27 @@ Value | 8 | 3 | 5 | 2 | 6 | 8 | 4 | 1 | 7 | 2
 
 Because elements in an array are **homogenous**, every element at each index in the array takes up the same amount of space in memory. As we learned earlier, arrays are always **allocated in a contiguous block of memory** such that the array element at index `i` i.e. `array[i]` is always next to and at a lower address than the array element at index `i + 1`. The index `i` into the array has a range such that **0 <= `i` < array's length**.
 
-<img src="images/array-indexing.png">
+![Array indexing](images/array-indexing.png)
 
 **Number of operations**: No matter how long the array is, indexing into an array is a really fast operation. The time it takes to index into an array does not depend on the length of the array. This is because the indexing operation leverages the homogenous nature of array elements along with the fact that the array elements are allocated in contiguous blocks of memory.
 
 ### Search
 
-**Exercise**: Given an unsorted integer array and its length, devise an algorithm to find if a given value is in the array or not. The algorithm should return `true` if the value is found in the array, and return `false` otherwise. How would you design this algorithm? 
+**Exercise**: Given an unsorted integer array and its length, devise an algorithm to find if a given value is in the array or not. The algorithm should return `true` if the value is found in the array, and return `false` otherwise. How would you design this algorithm?
+
 **Requirements' gathering**: Before we get to considering the actual steps in an algorithm, let us consider our requirements. Here's what we know:
+
 - Inputs to the method being designed:
-    - Integer array
-    - Length of the array
-    - an integer value to find
+  - Integer array
+  - Length of the array
+  - an integer value to find
 - Output from the method:
-    - `true`, if value is found in the array
-    - `false`, if value is not found in the array
+  - `true`, if value is found in the array
+  - `false`, if value is not found in the array
+
 **Aside note**: Requirements' gathering is an important step before we get to algorithm design. This steps helps us confirm that we have captured all of the essentials and there is no ambiguity or misunderstanding in capturing the requirments.
 
-**Approach**: It's a good practice to **always check the input** provided to any method. e.g. if the input is an object, always check if the input object value is `nil`. Similarly, if the input is a string, always check if the string is empty. For the problem at hand, to check if a given value exists in the array, it seems useful to check if the array has at least one element. Otherwise, there are no elements in the array and we can safely conclude that the value we are looking for is not in the array and return `false`. Once we have checked the input validity, we could start looking for the value in the array. We can do this by comparing each value in the array one by one with the value we are looking for. If we ever find a match, we can immediately return `true`. If we reach the end of the array and no match was found, then we can return `false`. With that, here's what our solution would look like (in pseudo code):
+**Approach**: It's a good practice to **always validate or check the input** provided to any method. e.g. if the input is an object, always check if the input object value is `nil`. Similarly, if the input is a string, always check if the string is empty. For the problem at hand, to check if a given value exists in the array, it seems useful to check if the array has at least one element. Otherwise, there are no elements in the array and we can safely conclude that the value we are looking for is not in the array and return `false`.  Once we have checked the input validity, we could start looking for the value in the array. We can do this by comparing each value in the array one by one with the value we are looking for. If we ever find a match, we can immediately return `true`. If we reach the end of the array and no match was found, then we can return `false`. With that, here's what our solution would look like (in pseudo code):
     
 ```c
         bool search(array, value_to_find)
