@@ -52,6 +52,7 @@ Ruby Arrays are also _heterogenous_ in that each element is not required to be o
 ### Example Static Array
 
 Consider the following C code defining two integer variables and an array of integers of size 10:
+
 ```c
 // Create an integer x and assign it 1
 int x = 1;
