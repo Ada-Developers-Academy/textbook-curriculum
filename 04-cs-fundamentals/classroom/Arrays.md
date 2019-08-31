@@ -180,6 +180,12 @@ int largest_value(array)
     Because there is no code to break out of the loop early, the number of iterations is **always** equal to the length of the array minus 1.
 </details>
 
+<details>
+    <summary> Do you notice any similarities in the number of iterations between the `find_largest` and the linear search further above?
+    </summary>
+    Because this algorithm starts at the beginning and repeats until it reaches the end of the array, it behaves in a very similar pattern with the average and worst-case scenarios of linear search.  Doubling the number of elements causes the number of loop iterations to similarly double.
+</details>
+
 **Exercise**: Modify the algorithm above to devise an algorithm that would return the minimum value in the input array. Try this algorithm and the one above on sample input values.
 
 ### Sorted Arrays
@@ -190,14 +196,15 @@ There are several real world scenarios where we want our data to be ordered in a
 - Sort song playtime in descending way
 - Sort identification numbers in ascending way
 - Sort names from *A* to *Z* (ascending way) like in the contacts' list on the phone.
+- Sort prices in an online search from least to most expensive.
 
 Having the data sorted, simplifies some of the algorithms.
 
 **Question**: If the array is sorted in ascending manner, how would you find the min value, or max value?
+
 <details>
-    <summary> Minimum and maximum value in a sorted array
-    </summary>
-        The algorithms for finding the minimum and maximum values get simplified if the array is sorted. The **minimum value** in an array that is sorted in an ascending manner will always be the first entry in the array i.e. array[0]. The **maximum value** in an array that is sorted in an ascending manner will always be the last entry in the array i.e. array[*n*-1], where *n* is the length of the array. If you compare the number of steps needed in this approach, with the approach needed for unsorted arrays, you'll find that the algorithm is significantly simpler and faster if the array is sorted.
+  <summary> Minimum and maximum value in a sorted array</summary>
+  The algorithms for finding the minimum and maximum values get simplified if the array is sorted. The **minimum value** in an array that is sorted in an ascending manner will always be the first entry in the array i.e. array[0]. The **maximum value** in an array that is sorted in an ascending manner will always be the last entry in the array i.e. array[*n*-1], where *n* is the length of the array. If you compare the number of steps needed in this approach, with the approach needed for unsorted arrays, you'll find that the algorithm is significantly simpler and faster if the array is sorted.
 </details>
 
 You'll learn more about [algorithms to sort an array](Sorting.md) soon. For now, we can already see how having the array sorted makes finding the maximum and minimum value a faster and simplified algorithm. With that, let's consider searching for a value in a sorted array.
