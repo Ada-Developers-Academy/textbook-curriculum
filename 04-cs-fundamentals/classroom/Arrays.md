@@ -15,15 +15,15 @@ By the end of this lesson you should be able to:
 
 ## Introduction
 
-A common problem in Computer Science is managing large amounts of data and performing different operations on them. **Data Structures** provide different well-known ways to organize data. Each data structure follows its own set of rules on how the data should get organized. The study of data structures is to understand these rules. Alongside these governing rules, we are also looking to understand how different common operations like insert, delete and search work on each of these data structures and understand the average and worst case efficiency for the common operations. Knowledge of well-known data structures allows us come up with optimal designs to our real world, practical coding projects. The first data structure we will consider is the **Array data structure**.
+A common problem in Computer Science is managing large amounts of data and performing different operations on them. **Data Structures** provide different well-known ways to organize data. Each data structure follows its own set of rules on how the data should get organized. The study of data structures is to understand these rules the benefits they provide and the limitations of each data structure. Alongside these governing rules, we are also looking to understand how different common operations like insert, delete and search work on each of these data structures and understand the average and worst case efficiency for the common operations. Knowledge of well-known data structures allows us come up with optimal designs to our real world, practical coding projects. The first data structure we will consider is the **Array data structure**.
 
 ## Properties
 
-**Arrays** or **Array data structures** have the following properties:
+In traditional languages **Arrays** or **Array data structures** have the following properties:
 
-1. Arrays are **homogeneous data structure**. This means that all the elements in the array are of the same type. E.g. integer array, character array etc. (Aside: a string is really an array of characters).
-1. Elements in an array are allocated in a **contiguous block of memory**. This means that the array element at index `i + 1` will always be next to (and at a higher memory address than the) array element at index `i`, where `i` is an index into the array such that `i` is greater than or equal to 0 and less than the length of the array.
-1. Array is a **static data structure**. Once created, the size of an array is fixed throughout its lifetime. This means the array length is fixed once the array is created. We cannot add more items to the array than the array length allows.
+1. **Homogeneous data structure**:  All the elements in the array are of the same type. E.g. integer array, character array etc. (Aside: a string is really an array of characters).
+1. **Contiguous block of memory**:  Elements in an array are allocated in a block of memory with each element adjacent to the next. This means that the array element at index `i + 1` will always be next to (and at a higher memory address than the) array element at index `i`, where `i` is an index into the array such that `i` is greater than or equal to 0 and less than the length of the array.
+1. **Static data structure**:  Once created, the size of an array is fixed throughout its lifetime. This means the array length is fixed once the array is created. We cannot add more items to the array than the array length allows.
 
 ### Arrays In Ruby
 
@@ -31,24 +31,28 @@ A common problem in Computer Science is managing large amounts of data and perfo
 
 1. **Not homogenous**: Objects of the Array class in Ruby are not confined to elements of the same type. Element at one index may be a string, while the next could be an integer. You could even have some intermediate element be `nil`.
 1. Array class in Ruby makes no claims about where the objects in the Array will be located in memory. Therefore, the elements in a Ruby Array object are not guaranteed to be in a **contiguous block of memory** with the elements next to each other.
-1. The objects of the Ruby Array class can be resized. We can add more elements than the initial size with which we created an Array object in Ruby. Ruby Arrays behave more like **dynamic data structures** rather than **static data structures**.
+1. The objects of the Ruby Array class can dynamically resize. We can add more elements than the initial size with which we created an Array object in Ruby. Ruby Arrays behave more like **dynamic data structures** rather than **static data structures**.  In other words, an array in Ruby is dynamic in that it can adjust it's size as more elements are added whereas a static array, like in Java or C has a fixed size.
+
+Ruby's interpreter does this by building on top of a static array.
 
 ### Example
 
 Consider the following C code defining two integer variables and an array of integers of size 10:
-    
-        int x = 1; 
-        int y = 2; 
-        int z[10];
-    
+```c
+int x = 1;
+int y = 2;
+// An array of only integers in C
+int z[10];
+```
 
 Here's an imagination of how this may look like in memory:
-<img src="images/arrays-in-memory.png">
+
+![An array in memory](images/arrays-in-memory.png)
 
 In the example code and imagination of memory above;
 
 - `x` is a variable of type integer. If integers take up 2 bytes on an example system, then `x` takes 2 bytes in memory.
-- `y` also takes 2 bytes in memory.
+- `y` is also an integer variable and takes 2 bytes in memory.
 - `z` is an array of ten integers. The array `z` is allocated in a contiguous space in memory. This array will take up 10 times the size of integer number of bytes. In our example system, `z` will take 10 × 2 bytes i.e. 20 bytes.
 
 ### Indexing
