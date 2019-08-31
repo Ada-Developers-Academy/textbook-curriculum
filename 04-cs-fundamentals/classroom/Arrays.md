@@ -57,6 +57,8 @@ In the example code and imagination of memory above;
 - `y` is also an integer variable and takes 2 bytes in memory.
 - `z` is an array of ten integers. The array `z` is allocated in a contiguous space in memory. This array will take up 10 times the size of integer number of bytes. In our example system, `z` will take 10 × 2 bytes i.e. 20 bytes.
 
+So the `z` array could **only** contain 10 elements and each element **must** be an integer.  With Ruby, an array can contain a variety of elements and each element could be of a different type.  The 1st element might be an integer, while the second a float, and the third another object or even another array.
+
 ### Indexing
 
 If there are *n* elements in an integer array `z`, then the first integer value is said to be at index 0, the second element is at index 1 and so on. The last element in the array is at index _n - 1_.
