@@ -27,7 +27,7 @@ A core problem in Computer Science is organizing and performing operations on hu
 
 ## Properties
 
-In traditional languages **Arrays** or **Array data structures** have the following properties:
+In traditional and low-level languages **Arrays** or **Array data structures** have the following properties:
 
 1. **Homogeneous data structure**:  All the elements in the array are of the same type. E.g. integer array, character array etc. (Aside: a string is really an array of characters).
 1. **Contiguous block of memory**:  Elements in an array are allocated in a block of memory with each element adjacent to the next. This means that the array element at index `i + 1` will always be next to (and at a higher memory address than the) array element at index `i`, where `i` is an index into the array such that `i` is greater than or equal to 0 and less than the length of the array.
