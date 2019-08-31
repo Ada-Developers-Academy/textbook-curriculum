@@ -33,13 +33,15 @@ In traditional languages **Arrays** or **Array data structures** have the follow
 1. Array class in Ruby makes no claims about where the objects in the Array will be located in memory. Therefore, the elements in a Ruby Array object are not guaranteed to be in a **contiguous block of memory** with the elements next to each other.
 1. The objects of the Ruby Array class can dynamically resize. We can add more elements than the initial size with which we created an Array object in Ruby. Ruby Arrays behave more like **dynamic data structures** rather than **static data structures**.  In other words, an array in Ruby is dynamic in that it can adjust it's size as more elements are added whereas a static array, like in Java or C has a fixed size.
 
-Ruby's interpreter does this by building on top of a static array.
+Ruby's interpreter does this by building on top of a static array.  You can read more about how [Ruby's static arrays work on Medium.](https://medium.com/@glayatle/the-magic-of-arrays-in-ruby-59ae2cc9ff8b)
 
-### Example
+### Example Static Array
 
 Consider the following C code defining two integer variables and an array of integers of size 10:
 ```c
+// Create an integer x and assign it 1
 int x = 1;
+// Create an integer y and assign it 2
 int y = 2;
 // An array of only integers in C
 int z[10];
