@@ -387,7 +387,15 @@ You'll notice that the loop in this approach will run roughly half the number of
 
 ## Summary
 
-An array is an ordered data structure with each element identified by an index number.  The first element is at index 0, the second at index 1 and so on.  A _static array_ is an array of fixed size and each element being the same type.  Typically computers allocate a block of space for an array with the first element at the starting memory address, the second at the next available memory address etc.  Ruby builds on the basic static array, providing a dynamic Array class which can reference elements of varying types and can grow or shink as demands change.  
+An array is an ordered data structure with each element identified by an index number.  The first element is at index 0, the second at index 1 and so on.  A _static array_ is an array of fixed size and each element being the same type.  Typically computers allocate a block of space for an array with the first element at the starting memory address, the second at the next available memory address etc.  By using the starting memory address of the array and the size of each element, programs can quickly jump to any element in an array by use of it's index number.
+
+Ruby builds on the basic static array, providing a dynamic Array class which can reference elements of varying types and can grow or shink as demands change.
+
+We also looked at several algorithms which progress through the array from the first to last index searching for the min, max and specific values.  We observed that increasing the number of elements in the array caused these algorithms to take proportionally longer in the average and worst cases.
+
+Next we ovserved how organizing an array in sorted order allowed us to use the _binary search_ algorithm to search for values in the array with much better performance which scales much better.
+
+Lastly we looked at how an array can be reversed either through an auxiliary array or by reversing the elements in place.  
 
 ## Terminology
 
@@ -402,3 +410,6 @@ An array is an ordered data structure with each element identified by an index n
 | Binary Search |  An algorithm for finding an element in an **sorted** array, starting with the middle element using the ordered property of the array to, with each iteration, eliminate 1/2 of the remaining elements to be searched.
 | In-place Operation | An operation or method which is performed on a data structure without using an auxiliary data structure.  For example sorting an array without creating a new array to store the sorted results.
 
+## Resources
+
+- [Geeks for Geeks on Arrays](https://www.geeksforgeeks.org/array-data-structure/)
