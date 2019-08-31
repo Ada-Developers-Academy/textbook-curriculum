@@ -89,6 +89,7 @@ Ruby Arrays are also _heterogenous_ in that each element is not required to be o
 
 In the above diagram we have a 5-element array.  Each element of the array is a reference to a memory location containing a string.
 
+## Array Algorithms
 
 ### Search
 
