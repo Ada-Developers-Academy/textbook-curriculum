@@ -105,7 +105,7 @@ Because elements in an array are **homogenous**, every element at each index in 
 **Aside note**: Requirements' gathering is an important step before we get to algorithm design. This steps helps us confirm that we have captured all of the essentials and there is no ambiguity or misunderstanding in capturing the requirments.
 
 **Approach**: It's a good practice to **always validate or check the input** provided to any method. e.g. if the input is an object, always check if the input object value is `nil`. Similarly, if the input is a string, always check if the string is empty. For the problem at hand, to check if a given value exists in the array, it seems useful to check if the array has at least one element. Otherwise, there are no elements in the array and we can safely conclude that the value we are looking for is not in the array and return `false`.  Once we have checked the input validity, we could start looking for the value in the array. We can do this by comparing each value in the array one by one with the value we are looking for. If we ever find a match, we can immediately return `true`. If we reach the end of the array and no match was found, then we can return `false`. With that, here's what our solution would look like (in pseudo code):
-    
+
 ```
 search(array, value_to_find)
   // i is an index into the first element in the array
@@ -271,7 +271,23 @@ After each iteration through the loop, we eliminate half of the remaining elemen
 
 Eventually, one or no elements will be left and we'll exit the loop.
 
-Such a change is known as logarithmic change. As we saw in [essential mathematics](Essential%20Mathematics.md#exponents-and-logarithms), logarithmic change is related to exponential. _Log<sub>2</sub> n_ means at each step the value reduces by half of the remaining.
+<details>
+  <summary>With a 5-element array like `[1, 2, 3, 4, 5]`, what is the worst-case number of comparisons you would need to make to find an element in the array?</summary>
+  If you were looking for `5` in the array, you would first compare 3, find out it's too small and search from index 3 to 4.  Next you would compare 4, and find it's also too small, and then finally compare 5, find the value and return true.  So **worst-case you would need 3 comparisions**.
+
+  ![Binary Search Loop Table](images/binary-search-loop-table-5-elements.png)
+</details>
+
+
+<details>
+  <summary>What if you went from a 5-element array to a 10 element array?  How does the number of comparisons change?</summary>
+  For example with the array `[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]` if you were looking for 10, you would first compare 5 to 10 discover it's too small and then search through indices 5 - 9.  Then you compare 8 to 10 and discover 8 is too small and search through indicides 8-9.  Next you compare 9 to 10 and discover it's too small, and then do a search on index 9.  Then you find the element you are searching for and return.  So with a 10 element array you need only 4 comparisons.  By doubling the number of elements only increase the number of comparisons by 1.  Not bad!
+
+  ![Binary Search Loop Table](images/binary-search-loop-table.png)
+
+</details>
+
+The scaling trend you are seeing here is called a _logarithmic change_. As we saw in [essential mathematics](Essential%20Mathematics.md#exponents-and-logarithms), logarithmic change is related to exponential. _Log<sub>2</sub> n_ means at each step the value reduces by half of the remaining.  It also means that as the size of the array doubles, the number of iterations only increases by _1_.
 
 The main loop in binary seach runs **_log<sub>2</sub> n_** number of times where *n* is the number of elements in the input array.
 
