@@ -32,24 +32,6 @@ In traditional and low-level languages **Arrays** or **Array data structures** h
 1. **Contiguous block of memory**:  Elements in an array are allocated in a block of memory with each element adjacent to the next. This means that the array element at index `i + 1` will always be next to (and at a higher memory address than the) array element at index `i`, where `i` is an index into the array such that `i` is greater than or equal to 0 and less than the length of the array.
 1. **Static data structure**:  Once created, the size of an array is fixed throughout its lifetime. This means the array length is fixed once the array is created. We cannot add more items to the array than the array length allows.
 
-### Arrays In Ruby
-
- Since Ruby is the primary language we will be using at Ada, it is important to note that the **Array class in Ruby** does not implement the Generic **Array data structure**. Let's contrast the above properties of the array data structure with the objects of the Ruby Array class:
-
-1. **Not homogenous**: Objects of the Array class in Ruby are not confined to elements of the same type. Element at one index may be a string, while the next could be an integer. You could even have some intermediate element be `nil`.
-1. Array class in Ruby makes no claims about where the objects in the Array will be located in memory. Therefore, the elements in a Ruby Array object are not guaranteed to be in a **contiguous block of memory** with the elements next to each other.
-1. The objects of the Ruby Array class can dynamically resize. We can add more elements than the initial size with which we created an Array object in Ruby. Ruby Arrays behave more like **dynamic data structures** rather than **static data structures**.  In other words, an array in Ruby is dynamic in that it can adjust it's size as more elements are added whereas a static array, like in Java or C has a fixed size.
-
-Ruby's interpreter does this by building on top of a static array.  You can read more about how [Ruby's static arrays work on Medium.](https://medium.com/@glayatle/the-magic-of-arrays-in-ruby-59ae2cc9ff8b).
-
-How does Ruby do it?  Ruby's interpreter is written in C.  When an array is created initially Ruby allocates an array of a fixed size to work with.  When elements are inserted into the array with the `add` method the interpreter checks the current array size vs it's capacity and if the capcity is exceeded, the interpreter creates a new static array with twice the capacity as the old array.  Then it copies each element over.
-
-Ruby Arrays are also _heterogenous_ in that each element is not required to be of the same type.  Ruby does this by making each element a reference to the value in memory.
-
-![Ruby Array Diagram](images/ruby-arrays.png)
-
-In the above diagram we have a 5-element array.  Each element of the array is a reference to a memory location containing a string.
-
 ### Example Static Array
 
 Consider the following C code defining two integer variables and an array of integers of size 10:
@@ -88,6 +70,25 @@ Because elements in an array are **homogenous**, every element at each index in 
 ![Array indexing](images/array-indexing.png)
 
 **Number of operations**: No matter how long the array is, indexing into an array is a really fast operation. The time it takes to index into an array does not depend on the length of the array. This is because the indexing operation leverages the homogenous nature of array elements along with the fact that the array elements are allocated in contiguous blocks of memory.
+
+### Arrays In Ruby
+
+ Since Ruby is the primary language we will be using at Ada, it is important to note that the **Array class in Ruby** does not implement the Generic **Array data structure**. Let's contrast the above properties of the array data structure with the objects of the Ruby Array class:
+
+1. **Not homogenous**: Objects of the Array class in Ruby are not confined to elements of the same type. Element at one index may be a string, while the next could be an integer. You could even have some intermediate element be `nil`.
+1. Array class in Ruby makes no claims about where the objects in the Array will be located in memory. Therefore, the elements in a Ruby Array object are not guaranteed to be in a **contiguous block of memory** with the elements next to each other.
+1. The objects of the Ruby Array class can dynamically resize. We can add more elements than the initial size with which we created an Array object in Ruby. Ruby Arrays behave more like **dynamic data structures** rather than **static data structures**.  In other words, an array in Ruby is dynamic in that it can adjust it's size as more elements are added whereas a static array, like in Java or C has a fixed size.
+
+Ruby's interpreter does this by building on top of a static array.  You can read more about how [Ruby's static arrays work on Medium.](https://medium.com/@glayatle/the-magic-of-arrays-in-ruby-59ae2cc9ff8b).
+
+How does Ruby do it?  Ruby's interpreter is written in C.  When an array is created initially Ruby allocates an array of a fixed size to work with.  When elements are inserted into the array with the `add` method the interpreter checks the current array size vs it's capacity and if the capcity is exceeded, the interpreter creates a new static array with twice the capacity as the old array.  Then it copies each element over.
+
+Ruby Arrays are also _heterogenous_ in that each element is not required to be of the same type.  Ruby does this by making each element a reference to the value in memory.
+
+![Ruby Array Diagram](images/ruby-arrays.png)
+
+In the above diagram we have a 5-element array.  Each element of the array is a reference to a memory location containing a string.
+
 
 ### Search
 
