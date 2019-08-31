@@ -137,49 +137,47 @@ bool search(array, value_to_find)
   On average you would traverse 1/2 way through the array before finding the element being sought.  So for a 10 element array it would take 5 iterations of the loop.  For a 20 element array it would take 10 iterations.  Every time you increase the size of the array the number of iterations would be 1/2 the new size.
 </details>
 
+This algorithm is known as a _Linear Search_ because it traverses the array in order searching for `value_to_find` until it is found or the end of the list is encountered.  Notice that the number of iterations of the loop increases proportionally with the size of the list.  So if the array doubles in length, the average and worst-cases scenarios will take roughly twice as long.  We will discuss this more later.
+
 ### Minimum and Maximum
 
 **Exercise**: Given an unsorted integer array and its length, devise an algorithm to find the largest integer value is in the array and return it. Following the approach we applied to the search exercise above, use a paper and pencil to gather the requirements, check the input and author the main algorithm.
 
 We begin again, with **gathering the requirements**. Here's what we know:
+
 - Inputs to the method being designed:
-    - Integer array
-    - Length of the array
+  - Integer array
+  - Length of the array
 - Output from the method:
-    - largest integer value in the array
+  - largest integer value in the array
 
-Next, we **check the input**. **Question**: What should the algorithm return if the array is empty? This is a requirement that is missing in the specification above. Let's say, we want to return `nil` if the array is empty.
+**Question**: What should the algorithm return if the array is empty? This is a requirement that is missing in the specification above. Let's say, we want to return `nil` if the array is empty.
 
-Next, let's think about our **algorithmic approach**. How do we find the largest value in a list of unsorted integer values? One way is to assume that the first value we see if the largest value. Then, we compare this, so far largest known value with the next value in the array. If we find a value that is greater than the largest known value thus far, we update the largest known value. Once we have reached the end of the array, we have found the largest value in the array. Here's what the pseudo code may look like:
+Once we know the expected inputs and outputs it is time to think about our **algorithmic approach**. How do we find the largest value in a list of unsorted integer values? One way is to assume that the first value we see if the largest value. Then, we compare this, so far largest known value with the next value in the array. If we find a value that is greater than the largest known value thus far, we update the largest known value. Once we have reached the end of the array, we have found the largest value in the array. Here's what the pseudo code may look like:
 
 ```c
-        int largest_value(array)
-        {
-            if array's length == 0
-            {
-                return nil
-            }
+int largest_value(array)
+  if array's length == 0
+    return nil
 
-            largest_value = array[0]
-            i = 1
-            while i < array's length
-            {
-                if array[i] > largest_value
-                {
-                    largest_value = array[i]
-                }
-                i = i + 1
-            }
+  largest_value = array[0]
+  i = 1
+  while i < array's length
+    if array[i] > largest_value
+      largest_value = array[i]
 
-            return largest_value
-        }
+    i = i + 1
+  end loop
+
+  return largest_value
 ```
 
-**Number of operations**: How many times will the operations inside the loop get executed?
 <details>
-    <summary> Counting the number of operations in an algorithm and comparing it with the size and value of input
+    <summary> If the array is of length 5, how many times will the loop execute?  Are there some situations where it will run more or less times?
     </summary>
-    The comparison inside the loop will happen exactly one less time than the number of elements in the input array. If there are 10 elements in the input array, then the instructions within the loop will run 9 times. If there are 101 elements in the input array, then the instructions within the loop will run 100 times. 
+    The comparison inside the loop will happen exactly one less time than the number of elements in the input array. If there are 5 elements in the input array, then the instructions within the loop will run 4 times. If there are 101 elements in the input array, then the instructions within the loop will run 100 times.  
+
+    Because there is no code to break out of the loop early, the number of iterations is **always** equal to the length of the array minus 1.
 </details>
 
 **Exercise**: Modify the algorithm above to devise an algorithm that would return the minimum value in the input array. Try this algorithm and the one above on sample input values.
