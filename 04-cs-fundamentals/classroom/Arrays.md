@@ -292,6 +292,8 @@ The scaling trend you are seeing here is called a _logarithmic change_. As we sa
 
 The main loop in binary seach runs **_log<sub>2</sub> n_** number of times where *n* is the number of elements in the input array.
 
+**Important Note**  Notice that the way we organized our data and conducted our search resulted in an algorithm that scales much more effectively as the size of the array increases.
+
 ### Reverse
 
 **Exercise**: Devise an algorithm to reverse the elements in the input array _in-place_. e.g. If the input array is:
@@ -394,9 +396,9 @@ Ruby builds on the basic static array, providing a dynamic Array class which can
 
 We also looked at several algorithms which progress through the array from the first to last index searching for the min, max and specific values.  We observed that increasing the number of elements in the array caused these algorithms to take proportionally longer in the average and worst cases.
 
-Next we ovserved how organizing an array in sorted order allowed us to use the _binary search_ algorithm to search for values in the array with much better performance which scales much better.
+Next we ovserved how organizing an array in sorted order allowed us to use the _binary search_ algorithm to search for values in the array with much better performance which scales much better.  This illustrated how data organization can affect performance.
 
-Lastly we looked at how an array can be reversed either through an auxiliary array or by reversing the elements in place.  
+Lastly we looked at how an array can be reversed either through an auxiliary array or by reversing the elements in place.
 
 ## Terminology
 
