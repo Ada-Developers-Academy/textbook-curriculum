@@ -92,29 +92,22 @@ Because elements in an array are **homogenous**, every element at each index in 
 **Approach**: It's a good practice to **always validate or check the input** provided to any method. e.g. if the input is an object, always check if the input object value is `nil`. Similarly, if the input is a string, always check if the string is empty. For the problem at hand, to check if a given value exists in the array, it seems useful to check if the array has at least one element. Otherwise, there are no elements in the array and we can safely conclude that the value we are looking for is not in the array and return `false`.  Once we have checked the input validity, we could start looking for the value in the array. We can do this by comparing each value in the array one by one with the value we are looking for. If we ever find a match, we can immediately return `true`. If we reach the end of the array and no match was found, then we can return `false`. With that, here's what our solution would look like (in pseudo code):
     
 ```c
-        bool search(array, value_to_find)
-        {
-            i = 0 
-            // i is an index into the first element in the array
+bool search(array, value_to_find)
+  // i is an index into the first element in the array
+  i = 0 
+  repeat while i < array's length
+    // check if value_to_find is the same as value at index i
+    if value_to_find == array[i]
+      return true
+    // increment i
+    i = i + 1
+  end loop
 
-            while i < array's length
-            {
-                // check if value_to_find is the same as value at index i
-                if value_to_find == array[i]
-                {
-                    return true
-                }
-
-                // increment i
-                i = i + 1
-            }
-
-            // value_to_find not in array
-            return false
-        }
+  // value_to_find is not in array
+  return false
 ```
 
-**Exercise**: Try the above algorithm on a sample array and sample value to find. e.g. {4, 8, 0, 3, 9} and value to find is 3. You may try the algoirthm on any other sample inputs.
+**Exercise**: Try the above algorithm on a sample array and sample value to find. e.g. {4, 8, 0, 3, 9} and value to find is 3. You may try the algorithm on any other sample inputs.
 
 **Number of operations**: How many times will the instructions inside the while loop in the code above run?
 
