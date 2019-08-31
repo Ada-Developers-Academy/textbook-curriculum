@@ -283,37 +283,32 @@ One approach to solve this problem would be create a new array of the same size 
 Here's what the pseudo code for this approach look like:
 
 ```c
-        // array is the input integer array to the algorithm
-        
-        if array.length <= 1
-        {
-            return // nothing to reverse
-        }
+// array is the input integer array to the algorithm
+if array.length <= 1
+  return // nothing to reverse
 
-        i = 0
-        j = array.length - 1
+i = 0
+j = array.length - 1
 
-        // create a new array of the same size as input array
-        temp_array = new array of size array.length
+// create a new array of the same size as input array
+temp_array = new array of size array.length
 
-        while i < array.length
-        {
-            // copy over the values in input array 
-            // into the temp array in reverse order
-            temp_array[i] = array[j]
-            increment i
-            decrement j
-        }
+while i < array.length
+  // copy over the values in input array 
+  // into the temp array in reverse order
+  temp_array[i] = array[j]
+  increment i
+  decrement j
+end while loop
 
-        i = 0
-        while i < array.length
-        {
-            // copy over values from the temp array 
-            // into the input array
-            array[i] = temp_array[i]
-        }
+i = 0
+while i < array.length
+  // copy over values from the temp array 
+  // into the input array
+  array[i] = temp_array[i]
+end while loop
 
-        // array is reversed
+// array is reversed
 ```
 
 You'll notice that the solution above has two `while` loops in addition to a set of single line code instructions. The two while loops are one after the other.
@@ -321,35 +316,42 @@ You'll notice that the solution above has two `while` loops in addition to a set
 - The first while loop copies over each of the elements in the input array into a new array in reverse order of their position. The means, if there are 100 elements in the input array, then the loop will execute 100 times. If there are 700,000 elements in the input array, then the loop will execute 700,000 times and so on. Therefore, we can conclude that in the instructions in the first loop run as many times as the number of elements in the input array.
 - The second loop copies for each element of the temporary array back into the input array. So, the second loop will also run as many times as the number of elements in the input array.
 
+<details>
+  <summary>What happens to the number of loop iterations if you go from 100 nodes to 200?  What about from 700,000 to 1,400,000?</summary>
+  With 200 nodes, the first loop will execute 100 times, and the second loop 100 times for a total of 200 iterations.  When the array becomes 200, the loops will execute 200 and 200 times, doubling when the length of the array doubles.  The same applies from 700K to 1.4 million elements.  This is a very similar effect to linear search.
+</details>
+
 #### Reverse solution 2 - using swap
 
 Is there any algorithmic approach where we can avoid creating an additional array of the same size as the input array? In order to reverse the elements in the array, we could consider swapping the element at index 0 with the element at index *n*-1, where *n* is the number of elements in the input array. Then, we could swap the element at index *n*-2 with the element at index 1, and so on.
 Here's what the pseudo code for this approach would look like:
 
 ```c
-        // array is the input integer array to the algorithm
+// array is the input integer array to the algorithm
 
-        if array.length <= 1
-        {
-            return // nothing to reverse
-        }
+if array.length <= 1
+  return // nothing to reverse
 
-        i = 0
-        j = array.length - 1
+i = 0
+j = array.length - 1
 
-        while i < j
-        {
-            // swap values at i and j
-            temp = array[i]
-            array[i] = array[j]
-            array[j] = temp
+while i < j
+  // swap values at i and j
+  temp = array[i]
+  array[i] = array[j]
+  array[j] = temp
 
-            increment i
-            decrement j
-        }
+  increment i
+  decrement j
+end while
 ```
 
 You'll notice that the loop in this approach will run roughly half the number of times as the number of elements in the input array.
+
+<details>
+  <summary>What about the trend, what happens to this algorithm if you double the number of elements in the array?</summary>
+  The reverse in place method above, still doubles the number of iterations when you double the number of elements in the array.  In other words, it faster than the 1st solution, but scales similarly.
+</details>
 
 ## Exercises
 
