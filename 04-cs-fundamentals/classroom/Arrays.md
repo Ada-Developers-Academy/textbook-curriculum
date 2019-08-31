@@ -211,54 +211,41 @@ You'll learn more about [algorithms to sort an array](Sorting.md) soon. For now,
 
 ### Binary Search
 
-The **binary search** algorithm leverages the sorted property while searching for a value in the array. Instead of comparing with each value in the array from index 0 to *n*-1, (where *n* is the number of elements in the array), we can be more methodic in eliminating where the value we are searching for will not be. We already apply the binary approach in our everyday life. E.g. Let's say we are looking for a word in dictionary, or while look for a name in the physical phone book. If the word/name starts with 'h', it will likely be in the first half of the book. We open the book to somewhere in the middle, compare the beginnig letter on that page to the word/name we are looking for. After comparing, we can safely eliminate the second half of the book. We keep eliminating half of the remaining pages in each step after repeating the process of opening a page to somewhere in the middle of valid pages and comparing. Unlike [linear search](#search), where after each comparison, one element is eliminated, with binary search, after each comparison, half of the remaining elements are eliminated.
+The **binary search** algorithm leverages the sorted property while searching for a value in the array. Instead of comparing with each value in the array from index 0 to *n*-1, (where *n* is the number of elements in the array), we can be more methodical in eliminating where the value we are searching for will not be. We already apply the binary approach in our everyday life. E.g. Let's say we are looking for a word in dictionary, or while looking up a name in the physical phone book. If the word/name starts with 'h', it will likely be in the first half of the book. We open the book to somewhere in the middle, compare the beginnig letter on that page to the word/name we are looking for. After comparing, we can safely eliminate the second half of the book. We keep eliminating half of the remaining pages in each step after repeating the process of opening a page to somewhere in the middle of valid pages and comparing. Unlike [linear search](#search), where after each comparison, one element is eliminated, with binary search, after each comparison, half of the remaining elements are eliminated.
 
 Here's the pseudo code for binary search algorithm. As you read through it, try the algorithm on different set of input arrays and value to find.
 
 ```c
-        bool binary_seach(array, value_to_find)
-        {
-            if array length == 0
-            {
-                return false
-            }
+bool binary_seach(array, value_to_find)
+  if array length == 0
+    return false
 
-            low = 0 
-            // initialized to the index of the first element in the array
+  low = 0
+  // initialized to the index of the first element in the array
 
-            high = array length - 1 
-            // initialized to the index of the last element in the array
+  high = array length - 1
+  // initialized to the index of the last element in the array
 
-            while low < high
-            {
-                mid = (low + high) / 2
-                // calculate the index value between low and high
+  while low <= high
+    mid = (low + high) / 2
+    // calculate the index value between low and high
 
-                if array[mid] == value_to_find
-                { // compare the element at index mid with the value to find
-                    return true
-                }
-                else if array[mid] > value_to_find
-                { // value to find is less than the value at mid index
-                    // eliminate the second half
-                    high = mid - 1
-                }
-                else // array[mid] < value_to_find
-                { // value to find is greater than the value at mid index
-                    // eliminate the first half
-                    low = mid + 1
-                }
-            }
+    if array[mid] == value_to_find
+      // compare the element at index mid with the value to find
+      return true
+    else if array[mid] > value_to_find
+      // value to find is less than the value at mid index
+      // eliminate the second half
+      high = mid - 1
+    else // array[mid] < value_to_find
+      // value to find is greater than the value at mid index
+      // eliminate the first half
+      low = mid + 1
+    end if-else block
 
-            // consider for arrays with only one element
-            if array[low] == value_to_find
-            {
-                return true
-            }
-
-            // value not found in the array
-            return false
-        }
+  end loop
+  // value not found in the array
+  return false
 ```
 
 After each iteration through the loop, we eliminate half of the remaining elements in the array:
@@ -267,7 +254,7 @@ After each iteration through the loop, we eliminate half of the remaining elemen
 1. After the first iteration, i.e. after one comparison, we eliminate either the top half or the bottom half of the array and the value could be somewhere in the remaining *n*/2 elements in the array.
 1. After the second iteration, i.e. after one more comparison, we eliminate half of the remaining values, thereby reducing the scope of where the value could be to *n*/4 elements.
 
-Eventually, one or no elements will be left and we'll exit the loop. 
+Eventually, one or no elements will be left and we'll exit the loop.
 
 Such a change is known as logarithmic change. As we saw in [essential mathematics](Essential%20Mathematics.md#exponents-and-logarithms), logarithmic change is related to exponential. _Log<sub>2</sub> n_ means at each step the value reduces by half of the remaining.
 
@@ -277,15 +264,15 @@ The main loop in binary seach runs **_log<sub>2</sub> n_** number of times where
 
 **Exercise**: Devise an algorithm to reverse the elements in the input array _in-place_. e.g. If the input array is:
 
-Index | 0 | 1 | 2 | 3 | 4 
+Index | 0 | 1 | 2 | 3 | 4
 ------|---|---|---|---|---
-Value | 8 | 3 | 5 | 2 | 6 
+Value | 8 | 3 | 5 | 2 | 6
 
 then, after the algorithm is complete, the same array should look like:
 
-Index | 0 | 1 | 2 | 3 | 4 
+Index | 0 | 1 | 2 | 3 | 4
 ------|---|---|---|---|---
-Value | 6 | 2 | 5 | 3 | 8 
+Value | 6 | 2 | 5 | 3 | 8
 
 **Note**: _in-place_ means the updates should happen in the same location in memory i.e. in the same location as the original array.
 
