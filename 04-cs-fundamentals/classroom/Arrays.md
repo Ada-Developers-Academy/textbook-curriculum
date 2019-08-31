@@ -368,7 +368,11 @@ You'll notice that the loop in this approach will run roughly half the number of
   The reverse in place method above, still doubles the number of iterations when you double the number of elements in the array.  In other words, it faster than the 1st solution, but scales similarly.
 </details>
 
-## Terms & Definitions
+## Summary
+
+An array is an ordered data structure with each element identified by an index number.  The first element is at index 0, the second at index 1 and so on.  A _static array_ is an array of fixed size and each element being the same type.  Typically computers allocate a block of space for an array with the first element at the starting memory address, the second at the next available memory address etc.  Ruby builds on the basic static array, providing a dynamic Array class which can reference elements of varying types and can grow or shink as demands change.  
+
+## Terminology
 
 | Term 	| Definition 	
 |---	|---	|
