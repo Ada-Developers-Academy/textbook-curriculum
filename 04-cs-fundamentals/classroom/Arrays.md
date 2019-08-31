@@ -379,8 +379,9 @@ An array is an ordered data structure with each element identified by an index n
 | Data Structure | A method of organizing data and providing methods to interact with the data.
 | Static Data Structure | A data structure which is fixed in size and cannot automatically resize
 | Dynamic Data Structure | A data structure which can automatically resize as elements are added and removed.
+| Homogenous Data Structure | A data structure in which all elements are of the same type
+| Heterogenous Data Structure | A data structure in which elements can be of different types.
 | Linear Search |  An algorithm for finding an element in an array, starting with the first element and checking elements sequentially until found or the end of the array is reached.
 | Binary Search |  An algorithm for finding an element in an **sorted** array, starting with the middle element using the ordered property of the array to, with each iteration, eliminate 1/2 of the remaining elements to be searched.
+| In-place Operation | An operation or method which is performed on a data structure without using an auxiliary data structure.  For example sorting an array without creating a new array to store the sorted results.
 
-
-## Summary
