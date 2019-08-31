@@ -337,7 +337,8 @@ You'll notice that the solution above has two `while` loops in addition to a set
 
 #### Reverse solution 2 - using swap
 
-Is there any algorithmic approach where we can avoid creating an additional array of the same size as the input array? In order to reverse the elements in the array, we could consider swapping the element at index 0 with the element at index *n*-1, where *n* is the number of elements in the input array. Then, we could swap the element at index *n*-2 with the element at index 1, and so on.
+Is there any algorithmic approach where we can avoid creating an additional array of the same size as the input array? In order to reverse the elements in the array, we could consider swapping the element at index 0 with the element at index *n*-1, where *n* is the number of elements in the input array. Then, we could swap the element at index *n*-2 with the element at index 1, and so on.  This is an _in place_ operation which performs the reversal without creating an another a data structure.
+
 Here's what the pseudo code for this approach would look like:
 
 ```
