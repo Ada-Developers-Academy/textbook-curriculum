@@ -155,6 +155,8 @@ search(array, value_to_find)
   On average you would traverse 1/2 way through the array before finding the element being sought.  So for a 10 element array it would take 5 iterations of the loop.  For a 20 element array it would take 10 iterations.  Every time you increase the size of the array the number of iterations would be 1/2 the new size.
 </details>
 
+#### Linear Search
+
 This algorithm is known as a _Linear Search_ because it traverses the array in order searching for `value_to_find` until it is found or the end of the list is encountered.  Notice that the number of iterations of the loop increases proportionally with the size of the list.  So if the array doubles in length, the average and worst-cases scenarios will take roughly twice as long.  We will discuss this more later.
 
 ### Minimum and Maximum
