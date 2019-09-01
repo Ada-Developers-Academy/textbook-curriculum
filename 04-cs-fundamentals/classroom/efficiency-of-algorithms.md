@@ -233,8 +233,80 @@ Consider a physical phone book as an example to illustrate Big O notation for al
 - _O(n)_ – Find all people whose phone numbers contain the digit "5". This will require _linear_ scaning through the phone book.
 - _O(n log n)_ – Sort a phone book’s pages by looking at the first name on each page. See [the merge sort](Sorting.md) for understanding this further.
 
+## Exercises
+
+Look at the following code segments and try to identify the Big-O time & space complexities.
+
+
+```ruby
+def find_max(array)
+  return nil if array.nil?  || array.length == 0
+
+  max = array[0]
+  (1...array.length).each do |index|
+    if array[index] > max
+      max = array[index]
+    end
+  end
+
+  return max
+end
+```
+
+<details>
+  <summary>What is the runtime & space complexity of the above code segment?</summary>
+  The above segment has 1 loop which runs a number of times equal to the size of the input.  All the other code segments run regardless of the input, so the Big-O is O(n).
+
+  The method does only use two local integer variables (index & max) no matter the input size, so the space complexity is O(1).
+</details>
+
+
+```ruby
+def greater_than(array, value)
+  return nil if array.nil?  || array.length == 0
+
+  temp = []
+  array.each do |element|
+    if element > value
+      temp << element
+    end
+  end
+
+  return temp
+end
+```
+
+<details>
+  <summary>What is the runtime & space complexity of the above code segment?</summary>
+  The above segment has 1 loop which runs a number of times equal to the size of the input.  All the other code segments run regardless of the input, so the Big-O is O(n).
+
+  The method has an array which in the worst-case scenario will be equal to the length of the input array, so the algorithm has a space-complexity of O(n).
+</details>
+
+```ruby
+def bubble_sort(array)
+   n = array.length
+   n.times do
+     (n - 1).times do |i|
+       if array[i] > array[i + 1]
+         array[i], array[i + 1] = array[i + 1], array[i]
+       end
+     end
+   end
+   return array
+end
+```
+
+<details>
+  <summary>What is the runtime & space complexity of the above code segment?</summary>
+  The above segment has 2 loops one nested inside the other.  The outer loop runs n times and the inner loop runs n-1 times.  Because the outer loop will cause the inner loop to execute with each iteration, the runtime would be `n * (n-1) = n^2 - n`, which leads to O(n^2) runtime.
+
+  The method does only use one local integer variable no matter the input size, so the space complexity is O(1).
+</details>
 
 ## Summary
+
+In this lesson we examined how computer scientists evaluate an algorithm's efficiency in terms of _time complexity_ and _space complexity_.  For both criteria we use a notation called Big-O notation.  Big-O notation gives us a way to describe changes in the performance in an algorithm as the size of the input changes.  
 
 ## Common Terms
 
