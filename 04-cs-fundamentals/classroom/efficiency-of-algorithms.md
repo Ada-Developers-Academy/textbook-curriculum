@@ -140,43 +140,39 @@ Consider the same problem of reversing the values in an input integer array. Her
 
 ### Algorithm 2
 
-```    
-        // array is the input integer array to the algorithm
-        
-        if array.length <= 1
-        {
-            return // nothing to reverse
-        }
+```
+// array is the input integer array to the algorithm
 
-        i = 0
-        j = array.length - 1
+if array.length <= 1
+  return // nothing to reverse
 
-        // create a new array of the same size as input array
-        temp_array = new array of size array.length
+i = 0
+j = array.length - 1
 
-        while i < array.length
-        {
-            // copy over the values in input array 
-            // into the temp array in reverse order
-            temp_array[i] = array[j]
-            increment i
-            decrement j
-        }
+// create a new array of the same size as input array
+temp_array = new array of size array.length
 
-        i = 0
-        while i < array.length
-        {
-            // copy over values from the temp array 
-            // into the input array
-            array[i] = temp_array[i]
-        }
+while i < array.length
+  // copy over the values in input array 
+  // into the temp array in reverse order
+  temp_array[i] = array[j]
+  increment i
+  decrement j
 
-        // array is reversed
+
+i = 0
+while i < array.length
+  // copy over values from the temp array 
+  // into the input array
+  array[i] = temp_array[i]
+
+// array is reversed
 ```
 
 **Exercise**: Examine the algorithm above to count the number of operations it will perform. Do the number of operations change as the input array size changes?
 
 You'll notice that the solution above has two `while` loops in addition to a set of single line code instructions. The two while loops are one after the other.
+
 - The first while loop copies over each of the elements in the input array into a new array in reverse order of their position. The means, if there are 100 elements in the input array, then the loop will execute 100 times. If there are 700,000 elements in the input array, then the loop will execute 700,000 times and so on. Therefore, we can conclude that in the first loop, _the number of operations performed are linearly changing in accordance with the size of the input_.
 - The second loop copies for each element of the temporary array back into the input array. Following the same logic, in the second loop, _the number of operations performed are linearly changing in accordance with the size of the input_.
 - The time complexity of each loop is linear, or _O(n)_ where *n* is the number of elements in the input array. Together, since they perform the operations one after another, the _time complexity of the overall algorithm is linear or O(n), where n is the number of elements in the input array_.
