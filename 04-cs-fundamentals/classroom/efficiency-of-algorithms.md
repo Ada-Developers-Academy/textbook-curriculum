@@ -315,8 +315,11 @@ In this lesson we examined how computer scientists evaluate an algorithm's effic
 | ----------- | ----------- |
 | **Time Complexity**      | A measurement of how the amount of time an algorithm takes to run as the size of the input changes.       |
 | **Space Complexity**   |  A measurement of how much memory algorithm uses as the size of the input changes        |
-| **Big-O Notation**   |  A symbolism used in complexity theory, computer science, and mathematics to describe the asymptotic behavior of functions. Basically, it tells you how the runtime or memory usage changes as the input grows.       |
-
+| **Constant Complexity O(1)**   |  A term used to describe an algorithm which will take the same amount of time to execute regardless of the size of the input.  For example selecting the smallest value in an array which is already sorted.       |
+| **Logirithmic Complexity O(log n)**   |  A term used to describe an algorithm which will grow in time or space complexity proportional to the log of the input size.  Logorithmic algorithms increase **very** slowly as the size of the input increases.  They usually involve an algorithm which excludes 1/2 of the input with each iteration of a loop.      |
+| **Linear Complexity O(n)**   |  A term used to describe an algorithm which take proprotionately longer or more memory as the size of the input increases.  For example selecting a linear search runs in linear time because it has to check all elements of the array.  A method to duplicate an array would likewise have linear space complexity because the return array is of equal size to the original.       |
+| **Quadratic Complexity O(n<sup>2</sup>)**   |  A term used to describe an algorithm which will have a runtime or memory usage proportional to the size of the input squared.  This often involves 2 nested loops.       |
+| **Exponential Complexity O(2<sup>n</sup>)**   |  A term used to describe an algorithm which will have a runtime or memory usage which doubles each time the input size increases by one.        |
 
 
 ## Resources
