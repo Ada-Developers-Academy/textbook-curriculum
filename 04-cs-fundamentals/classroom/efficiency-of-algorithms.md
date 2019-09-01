@@ -38,11 +38,11 @@ _In Computer Science, we care about worst case and average case._  This is becau
 
 Improvements in algorithmic efficiency can lead to drastic improvements in real-life performance.  So we need a metric to compare algorithms.  This is known as _Big-O Notation_.
 
-## Quantitative analysis of efficiency
+## Quantitative Analysis of Efficiency
 
 So, we are interested in the efficiency of the algorithm in terms of the algorithm's **speed** and the algorithm's **memory utilization**. These are measured and described in terms known as **time complexity** and **space complexity** respectively.
 
-Typically, we are interested in doing this analysis before a single line of code is written. Because it's expensive to change the approach after having invested a time and effort in implementing or deploying a solution.  However as applications change and demands grow being able to examine existing code for efficiencies often helps identify and solve performance issues.
+Typically, we are interested in doing this analysis before a single line of code is written. Because it's expensive to change the approach after having invested a time and effort in implementing or deploying a solution.  However as applications change and demands grow, being able to examine existing code for efficiencies often helps identify and solve performance issues.
 
 It stands to reason to ask **why** we are interested in deducing and quantitatively representing the efficiency of the algorithm. Here are the reasons:
 
