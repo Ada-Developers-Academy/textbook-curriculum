@@ -95,13 +95,17 @@ Let's consider this for the algorithm above:
 1. The main algorithm has a loop. For any loop, we want to consider how many times all of the operations insider the loop will get executed, and if this number of operations is dependent in any way on the value or size of the input. For quick reference, here's the loop (written in pseudo code)
 
 ```
+i = 0
+j = array.length - 1
 while i < j 
   swap array[i] and array[j]
   increment i
   decrement j
 ```
 
-`i` is initialized to `0`. `j` is initialized to `array length - 1`. In each iteration of the loop, `i` increments and `j` decrements by one. The loop terminates when `i` becomes equal to, or greater than `j`. Hence, we can conclude that the three statements inside the loop will get executed half the number of times as the length of the array. If the input array had 500 elements, the loop would execute 250 times. If the array instead had the length of 600,000, the loop would execute 300,000 number of times. That means if the number of elements in the array were *n*, then the loop would execute _n / 2_ number of times. As we will learn [later](#big-o-notation), we will drop the constant i.e. 1/2 and say that the time complexity of the reverse algorithm is _linear_ or _order of n_ or _O(n)_.  When we increase the size of the array by some number, the number of loop executions will increase proportionally.
+`i` is initialized to `0`. `j` is initialized to `array length - 1`. In each iteration of the loop, `i` increments and `j` decrements by one. The loop terminates when `i` becomes equal to, or greater than `j`. Hence, we can conclude that the three statements inside the loop will get executed half the number of times as the length of the array. 
+
+If the input array had 500 elements, the loop would execute 250 times. If the array instead had the length of 600,000, the loop would execute 300,000 number of times. That means if the number of elements in the array were *n*, then the loop would execute _n / 2_ number of times. As we will learn [later](#big-o-notation), we will drop the constant i.e. 1/2 and say that the time complexity of the reverse algorithm is _linear_ or _order of n_ or _O(n)_.  When we increase the size of the array by some number, the number of loop executions will increase proportionally.  For example if we triple the size of the array, the loop will execute 3 times the number of iterations.
 
 ## Space complexity
 
