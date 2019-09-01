@@ -136,7 +136,7 @@ search(array, value_to_find)
 </details>
 
 <details>
-  <summary>With an array of size 5, what situations will require the loop to execute the **most** times?</summary>
+  <summary>With an array of size 5, what situations will require the loop to execute the most times?</summary>
   
   In the worst case, the value being sought is not in the array or it is in the last element of the array and the loop will execute a number of times equal to the array's length before returning.  In this case 5 times.
 </details>
