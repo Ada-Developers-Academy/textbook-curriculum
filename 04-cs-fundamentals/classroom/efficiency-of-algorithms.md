@@ -228,6 +228,13 @@ Consider a physical phone book as an example to illustrate Big O notation for al
 
 ## Common Terms
 
+| Term      | Description |
+| ----------- | ----------- |
+| **Time Complexity**      | A measurement of how the amount of time an algorithm takes to run as the size of the input changes.       |
+| **Space Complexity**   |  A measurement of how much memory algorithm uses as the size of the input changes        |
+| **Big-O Notation**   |  A symbolism used in complexity theory, computer science, and mathematics to describe the asymptotic behavior of functions. Basically, it tells you how the runtime or memory usage changes as the input grows.       |
+
+
 
 ## Resources
 
