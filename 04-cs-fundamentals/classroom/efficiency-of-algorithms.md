@@ -42,11 +42,13 @@ Improvements in algorithmic efficiency can lead to drastic improvements in real-
 
 So, we are interested in the efficiency of the algorithm in terms of the algorithm's **speed** and the algorithm's **memory utilization**. These are measured and described in terms known as **time complexity** and **space complexity** respectively.
 
-Typically, we are interested in doing this analysis before a single line of code is written. Because it's too expensive to change the approach after having invested a time and effort in implementing or deploying a solution.
+Typically, we are interested in doing this analysis before a single line of code is written. Because it's expensive to change the approach after having invested a time and effort in implementing or deploying a solution.  However as applications change and demands grow being able to examine existing code for efficiencies often helps identify and solve performance issues.
 
 It stands to reason to ask **why** we are interested in deducing and quantitatively representing the efficiency of the algorithm. Here are the reasons:
+
 1. To make quantitative judgments about the value of one algorithm over another.
 1. To allow us to predict whether the software will meet any efficiency constraints that exist.
+1. To help us identify areas in our code responsible for slow downs or bottlenecks in performance.
 
 ## Time complexity
 
