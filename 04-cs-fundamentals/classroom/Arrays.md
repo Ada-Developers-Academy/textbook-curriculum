@@ -49,6 +49,8 @@ Here's an imagination of how this may look like in memory:
 
 ![An array in memory](images/arrays-in-memory.png)
 
+<!-- Arrays in memory source: https://drive.google.com/file/d/10jXmKawt3PaDvyTdnUgH9h_Cpd42q00s/view?usp=sharing -->
+
 In the example code and imagination of memory above;
 
 - `x` is a variable of type integer. If integers take up 2 bytes on an example system, then `x` takes 2 bytes in memory.
