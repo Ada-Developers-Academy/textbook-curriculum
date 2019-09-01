@@ -17,13 +17,13 @@ By the end of this lesson you should be able to:
 
 One of the amazing things about programming is that there are many ways to solve any problem.  That does lead to a question however.  How does one decide between the many potential solutions?  When two developers propose differing solutions to a problem, how does the team evaluate them?
 
-There are a few criteria we have discussed:
+There are a few criteria we have discussed previously:
 
 - **Clarity** - How easy is the solution to understand
 - **Flexibilty** - How easy is the solution to modify in the future
 - **Modularity** - How easy is it to use the solution in other contexts
 
-Another criteria however is the efficiency of the solution.
+Another criteria however is the **efficiency** of the solution.
 
 An _efficient algorithm_ is one that runs as _fast_ as possible and _requires as little computer memory_ as possible. We often have to settle for a trade-off between these two goals, compromising memory to make things faster, or speed to use less memory.
 
