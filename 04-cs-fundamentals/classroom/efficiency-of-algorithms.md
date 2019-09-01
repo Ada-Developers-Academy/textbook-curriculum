@@ -59,7 +59,7 @@ Example; if the input array is:
 
 Values  | 4 | 8 | 0 | 3 | 9
 --------|---|---|---|---|---
-Indices | 0 | 1 | 2 | 3 | 4 
+Indices | 0 | 1 | 2 | 3 | 4
 
 the algorithm should change the input array to look like:
 
