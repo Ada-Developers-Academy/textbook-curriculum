@@ -15,15 +15,28 @@ By the end of this lesson you should be able to:
 
 ## Introduction
 
+One of the amazing things about programming is that there are many ways to solve any problem.  That does lead to a question however.  How does one decide between the many potential solutions?  When two developers propose differing solutions to a problem, how does the team evaluate them?
+
+There are a few criteria we have discussed:
+
+- **Clarity** - How easy is the solution to understand
+- **Flexibilty** - How easy is the solution to modify in the future
+- **Modularity** - How easy is it to use the solution in other contexts
+
+Another criteria however is the efficiency of the solution.
+
 An _efficient algorithm_ is one that runs as _fast_ as possible and _requires as little computer memory_ as possible. We often have to settle for a trade-off between these two goals, compromising memory to make things faster, or speed to use less memory.
 
-We consider performance of an algorithm in three different scenarios: best-case, worst-case and average case.
+We could consider performance of an algorithm in three different scenarios: best-case, worst-case and average case.
 
 Consider the task of performing a sequential search on some sort of list, i.e. an array. Best-case would be that your target value was found in the first element. Worst-case would be that the value was not there at all (so all elements would have to be compared and tested, including the last). Average-case would be mid-way between the two, and still dependent on the length of the list.
 
-_In Computer Science, we care about worst case and average case._ This is because we need to plan our software systems that are used to control the infrastructures of our society to be performant in the worst case and average case scenarios.
+_In Computer Science, we care about worst case and average case._  This is because we rely on our software systems to run our lives and infrastructure and we need applications which perform well under difficult circumstances.  Further most solutions will perform well in best-case scenarios.  The differences become noticable under average and worst-case scenarios.
+
 - **Worst case consideration**: It is important to consider the worst case scenario when the response time is critical. e.g. the shutdown program for a nuclear power plant.
 - **Average case consideration**: If an algorithm is to be used many times on many different instances, it may be more important to know the average execution time. e.g. calculating total cost for all the items in the shopping cart for a user for an e-commerce website like etsy.com or amazon.com
+
+Improvements in algorithmic efficiency can lead to drastic improvements in real-life performance.  So we need a metric to compare algorithms.  This is known as _Big-O Notation_.
 
 ## Quantitative analysis of efficiency
 
