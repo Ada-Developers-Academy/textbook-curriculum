@@ -150,7 +150,7 @@ search(array, value_to_find)
 </details>
 
 <details>
-  <summary>Assuming the element **is** in the array, on average how many times will the loop execute for a 10 element array?  How about a 20 element array?  How does the average case change as you increase the array's size?</summary>
+  <summary>Assuming the element <strong>is</strong> in the array, on average how many times will the loop execute for a 10 element array?  How about a 20 element array?  How does the average case change as you increase the array's size?</summary>
 
   On average you would traverse 1/2 way through the array before finding the element being sought.  So for a 10 element array it would take 5 iterations of the loop.  For a 20 element array it would take 10 iterations.  Every time you increase the size of the array the number of iterations would be 1/2 the new size.
 </details>
