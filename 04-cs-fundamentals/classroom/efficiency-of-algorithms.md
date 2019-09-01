@@ -111,26 +111,24 @@ Let's continue considering the example of reversing an array in place. Here's ou
 
 ### Algorithm 1
 
-        // array is the input integer array to the algorithm
+```
+// array is the input integer array to the algorithm
 
-        if array.length <= 1
-        {
-            return // nothing to reverse
-        }
+if array.length <= 1
+  return // nothing to reverse
 
-        i = 0
-        j = array.length - 1
+i = 0
+j = array.length - 1
 
-        while i < j
-        {
-            // swap values at i and j
-            temp = array[i]
-            array[i] = array[j]
-            array[j] = temp
+while i < j
+  // swap values at i and j
+  temp = array[i]
+  array[i] = array[j]
+  array[j] = temp
 
-            increment i
-            decrement j
-        }
+  increment i
+  decrement j
+```
 
 **Exercise**: Examine the algorithm above. Can you call out all the extra, new memory allocations the algorithm performs?
 
