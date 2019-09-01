@@ -61,45 +61,47 @@ Values  | 4 | 8 | 0 | 3 | 9
 --------|---|---|---|---|---
 Indices | 0 | 1 | 2 | 3 | 4
 
-the algorithm should change the input array to look like:
+The algorithm should change the input array to look like:
 
 Values  | 9 | 3 | 0 | 8 | 4
 --------|---|---|---|---|---
-Indices | 0 | 1 | 2 | 3 | 4 
+Indices | 0 | 1 | 2 | 3 | 4
 
 One approach to solve this problem is the following algorithm which swaps values within the array.
 
 **Check the input**:
+
 - If the array has no more than one element, then we are all done!
 
 **Initialize variables**:
+
 - `i` is an index for the first element in the array (`i` = 0)
 - `j` is an index for the last element in the array, set to the value of array length minus one.
 
 **Algorithm steps**:
+
 - While `i` is less than `j`, perform the steps below in a loop:
-    - Swap the values at index `i` and at index `j` in the array.
-    - Increment `i`.
-    - Decrement `j`.
+  - Swap the values at index `i` and at index `j` in the array.
+  - Increment `i`.
+  - Decrement `j`.
 - The array is reversed.
 
-For the problem of reversing an array in-place, we have an algorithmic solution to consider. Without writing any code, how do we determine the performance of this algorithm? We are looking to the quantitatively represent the speed of this algorithm. To do this, we evaluate _how the number of steps in the algorithm would change as the value or size of the input changes_. 
+For the problem of reversing an array in-place, we have an algorithmic solution to consider. Without writing any code, how do we determine the performance of this algorithm? We are looking to the quantitatively represent the speed of this algorithm. To do this, we evaluate _how the number of steps in the algorithm would change as the value or size of the input changes_.
 
-Let's consider this for the algorithm above
+Let's consider this for the algorithm above:
+
 1. To _check the input_, the algorithm performs one comparison operation. This single comparison will be performed regardless of the size or value of the input.
-1. Next, the algorithm initializes two integer variables to index into the array. These two steps will always be performed, if the array has at least , two elements in it. Furthermore, there will be exactly two steps, regardless of the size of the array. i.e. Regardless of whether the array has 200 elements or 700,000 elements, the initializations will always need exactly two operations to be complete.
+1. Next, the algorithm initializes two integer variables to index into the array. These two steps will always be performed, if the array has at least , two elements in it. Furthermore, there will be exactly two steps, regardless of the size of the array. i.e. Regardless of whether the array has 200 elements or 700,000 elements, the **initializations will always need exactly two operations** to be complete.
 1. The main algorithm has a loop. For any loop, we want to consider how many times all of the operations insider the loop will get executed, and if this number of operations is dependent in any way on the value or size of the input. For quick reference, here's the loop (written in pseudo code)
 
-    ```
-        while i < j 
-        {
-            swap array[i] and array[j]
-            increment i
-            decrement j
-        }
-    ```
+```
+while i < j 
+  swap array[i] and array[j]
+  increment i
+  decrement j
+```
 
-`i` is initialized to `0`. `j` is initialized to `array length - 1`. In each iteration of the loop, `i` increments and `j` decrements by one. The loop terminates when `i` becomes equal to, or greater than `j`. Hence, we can conclude that the three statements inside the loop will get executed half the number of times as the length of the array. If the input array had 500 elements, the loop would execute 250 times. If the array instead had the length of 600,000, the loop would execute 300,000 number of times. That means if the number of elements in the array were *n*, then the loop would execute _n / 2_ number of times. As we will learn [later](#big-o-notation), we will drop the constant i.e. 1/2 and say that the time complexity of the reverse algorithm is _linear_ or _order of n_ or _O(n)_.
+`i` is initialized to `0`. `j` is initialized to `array length - 1`. In each iteration of the loop, `i` increments and `j` decrements by one. The loop terminates when `i` becomes equal to, or greater than `j`. Hence, we can conclude that the three statements inside the loop will get executed half the number of times as the length of the array. If the input array had 500 elements, the loop would execute 250 times. If the array instead had the length of 600,000, the loop would execute 300,000 number of times. That means if the number of elements in the array were *n*, then the loop would execute _n / 2_ number of times. As we will learn [later](#big-o-notation), we will drop the constant i.e. 1/2 and say that the time complexity of the reverse algorithm is _linear_ or _order of n_ or _O(n)_.  When we increase the size of the array by some number, the number of loop executions will increase proportionally.
 
 ## Space complexity
 
