@@ -188,16 +188,23 @@ To compare and contrast two algorithms which solve the same problem, we evaluate
 - **Space complexity**: We noted that **Algorithm 1** above has a space complexity of _O(1)_ or constant, since the amount of additional memory used does not change as the size of the input array changes. In contrast, **Algorithm 2** creates a new array. The size of this new array created is the same as the input array. Therefore, **Algorithm 2** has a space complexity of _O(n)_, where *n* is the number of elements in the input array. Comparing **Algorithm 1**'s constant space complexity with **Algorithm 2**'s linear space complexity, we can conclude that **Algorithm 1** is more space efficient than **Algorithm 2**.
 - In conclusion, although the two algorithms are equally time efficient, **Algorithm 1** is more space efficient as compared to **Algorithm 2** and hence, **Algorithm 1** is a better choice.
 
+**Notice** that the loops dominate the time complexity of a given algorithm.  If there are no loops, the algorithm likely runs in constant O(1) time.  One loop which runs proportionately to the size of the input will result in a linear runtime O(n), while a loop which will repeatably excludes 1/2 of the input will result in Log<sub>2</sub> n runtime.  When looking for time complexity it is very helpful to focus on the algorithm's loops, if any.
+
+Similarly an algorithm using only individual variables of fixed size like integers will result in a constant O(1) space complexity, while using a data structure  like the auxiliary array above resulted in a linear space complexity O(n).  So when deducing an algorithm's space complexity, focus on any data structures used in the solution.
+
 ## Big O notation
+
 To quantitatively represent the worst case performance for **speed** and **memory utilization** of an algorithm, we use the **Big O notation**, pronounced "big oh notation" or the **asymptotic notation**.
 
 Leveraging the big O notation, we can:
+
 1. Make quantitative judgments about the value of one algorithm over another.
 1. Predict whether the software will meet any efficiency constraints that exist.
 
 ![Big O and Meaning](images/big-o-meaning.png)
 
 Here are the commonly seen big O terms:
+
 - _O(1)_ is the no-growth curve. An _O(1)_ algorithm's performance is conceptually independent of the size of the data set on which it operates. Such an algorithm is said to have _constant_ time complexity. e.g. Indexing into an array to retrieve a value at a particular index is _O(1)_.
 - _O(log n)_ means that the data set size affects the efficiency of the algorithm in a _logarithmic_ fashion. The key thing to note is that _log (base 2) n_ grows slowly. Doubling _n_ has a relatively small effect. Logarithmic curves flatten out nicely. e.g. Searching for a value in a sorted array using _binary search_ is of _O(log n)_ time complexity.
 - _O(n)_ says that the algorithm's performance is directly proportional to the size of the data set being processed. Such an algorithm is said to have _linear_ time complexity. e.g. Searching for a value in an unsorted array takes _O(n)_ or _linear_ time.
