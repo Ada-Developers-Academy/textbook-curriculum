@@ -242,6 +242,10 @@ On paper draw out a circular buffer of size 6 and perform the following operatio
 - enqueue('Y')
 - enqueue('Z')
 
+In class we will compare our answers.  
+
+Using a circular buffer overcomes some of the limitations of an array, and enables efficient operations on the ends of the data structure.  The array size however remains a limitation and resizing the data structure is an expensive O(n) operation.
+
 ## Exercises
 
 1. Given a Binary Search Tree where each node contains links to the left and right children and an integer value. Implement pre-order traversal for a binary search tree using **iterative** approach.
