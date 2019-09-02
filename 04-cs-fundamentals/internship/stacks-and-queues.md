@@ -293,6 +293,8 @@ end
 
 ## Summary
 
+Stacks and queues are standard computer science data structures.  They provide a well-understood interface without perscribing a specific implementation.  We explored how a stack & queue could be implemented with either a linked list or an array.  
+
 ## Terms & Terminology
 
 | Term      | Description |
