@@ -125,9 +125,116 @@ A Queue provides the following methods:
 
 ### Queue Implementation Considerations
 
-Linked Lists
+Like a stack a queue can be implemented several ways and the implementation should be hidden from the user.  One way would be to implement a queue with a linked list like this:
 
-Arrays
+```ruby
+class Queue
+
+  def initialize
+    @list = LinkedList.new
+  end
+
+  def enqueue(item)
+    @list.add_last(item)
+  end
+
+  def dequeue
+    return nil if self.is_empty
+
+    return @list.remove_first
+  end
+
+  def is_empty
+    return @list.empty?
+  end
+end
+```
+
+<details>
+  <summary>What would be the Big-O here of enqueue and dequeue?</summary>
+  If the Linked List has a tail reference, and is a doubly linked list, then both enqueue and dequeue can be done in O(1) time.  If there is no tail reference then enqueue should perform in O(n) time.
+</details>
+
+This implementation has a number of advantages, it's easy to read, fairly performant, but the data is a bit fragmented.  If you had a queue with a fixed maximum size, how would you use an Array to implement it?
+
+#### Implementing a Queue With an Array
+
+Remember that inserting or removing an element at index 0 of an array can be expensive as all items to the left of the item inserted or deleted would need to be shifted over 1.  
+
+However this can be overcome by maintaining a reference to the front index of the queue and the rear index and treating the array as a circular data structure.  For example, as elements are dequeued the front index would increase by 1 each time.  Then as elements are added the rear of the queue would also increase by 1.  If the end of the array is encountered (rear becomes the length of the array), the rear can be set to 0, if the front is greater than 0.  
+
+![Queue implemented with a circular array](images/circular-array.png)
+
+<!-- Image saved at: https://drive.google.com/file/d/1sr3vY5AC4p_9HJKqCPdEvYl_TWZLXGVz/view?usp=sharing -->
+
+You can picture it as a circle like below, with several operations illustrated.
+
+![Circular Buffer Diagram](images/circular-buffer.png)
+
+<!-- Image source:  https://drive.google.com/file/d/1K4oSf3uaTd0MMxZsv8nn65wnC3LnY5uW/view?usp=sharing -->
+
+Below is a pseudocode implementation of the circular buffer.
+
+```
+Method enqueue(value)
+  if ((front == 0 && rear == array.length - 1) OR
+      (rear == (front-1)%(size-1))) 
+        //  The Queue is full
+        raise an error
+  else if (front == -1) // Queue is empty
+    set front & rear to 0
+    array[rear] = value
+  else if (rear == array.length - 1 && front != 0) // rear needs to wrap around
+    rear = 0
+    array[rear] = value
+  else
+    rear = rear + 1
+    array[rear] = value
+  endif
+end method
+
+Method dequeue
+  if (front == -1) // Queue is empty
+    raise an error
+  endif
+  
+  data = array[front]
+  // overwrite the element being deleted
+  array[front] = null
+
+  // if the queue is now empty
+  if (front == rear)
+    front = -1
+    rear = -1
+  else if (front == size-1) // if front needs to wrap around
+    front = 0
+  else
+    front = front + 1
+  endif
+
+  return data
+end method
+```
+
+This strategy of using floating front and rear references is known as a _circular buffer_.  It allows you to work around the need to shift elements left and right when adding and removing to the front of a list.  It can, however be more difficult to understand.  This kind of buffer is used for things like round-robin scheduling of tasks, like in the CPU and for storing in-memory logs.  
+
+**Exercise**
+
+On paper draw out a circular buffer of size 6 and perform the following operations on it.  Then trace through what happens to it as these operations are performed.
+
+- enqueue('A')
+- enqueue('B')
+- enqueue('D')
+- enqueue('E')
+- enqueue('F')
+- enqueue('G')
+- dequeue
+- dequeue
+- enqueue('X')
+- dequeue
+- dequeue
+- enqueue('Y')
+- enqueue('Z')
 
 ## Exercises
 
