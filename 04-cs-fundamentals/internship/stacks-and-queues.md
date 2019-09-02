@@ -9,6 +9,11 @@ By the end of this lesson you should be able to:
 - Implement a Stack and a Queue using a linked list or an array
 - Use Stacks and Queues to solve problems
 
+## Video Lesson & Slides
+
+- [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=28f18a83-0f48-4350-a44e-aabc0138eb7d)
+- [Slides](https://docs.google.com/presentation/d/1aKqaO5q5gtuw31eGDvK47IleU5-XOCJKnbj4UjHmh9I/edit?usp=sharing)
+
 ## Introduction
 
 At Ada we have often talked about hiding implementation details behind a public interface.  In this lesson we will look at two common data types which can be implemented in a variety of ways, Stacks and Queues.  Both data structures are described by what they do, rather than how they are written.  This is different from a linked list in that they key feature of a linked list is that it is implemented by linking nodes together into a chain.  A Stack on the other hand is a set of methods and how they behave.  The internals of a stack can be done in any number of ways.  So this lesson could be called an introduction to abstract data types.  
