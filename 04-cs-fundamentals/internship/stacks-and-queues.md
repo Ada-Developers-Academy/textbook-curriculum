@@ -73,6 +73,37 @@ You could later change the implementation of Stack to use an Array, but the user
 
 ### The Function Stack
 
+As methods get called in an application, the system stores the current instruction addresses, local variables etc on a stack known as the _system call stack_.  Then when a method ends, the topmost method is popped off the stack allowing the system to resume execution.
+
+![Memory Layout Diagram](images/memory-layout.png)
+
+The diagram below shows the memory used by a running application.  At the top, the text in the application, and global variables are stored.  Below them is the dyanmic data allocated.  At the bottom the system stack stores the functions called.
+
+```ruby
+def function_a(x)
+{
+   y = 4
+   z = function_b(x, y)
+   puts “The number is #{z}"
+}
+
+def function_b(int x, int y)
+  # pause application
+  return x + y;
+end
+
+x = 3
+function_a(x)
+```
+
+For the code snippet above, the stack frame at the `# pause application` line would look like this:
+
+![Stack frame example](images/call-stack.png)
+
+As the application starts the system puts the main part of the application on the stack, and then main calls `function_a`.  So the system saves the arguments to `function_a` onto the stack, the address to return to (Main) when the method is finished and the local variabes in `function_a`.  Then `function_b` is called and the system saves the arguments to `function_b` onto the stack, the return address (function_a) and any local variables in `function_b`.  When function_b finishes, it's stack frame is popped off the stack, and the return address is used to resume `function_a`.  When `function_a` finishes the same pop operation is performed and the application returns to main.  When the main part of the application is finished, it's stack frame is popped off and the application terminates.  
+
+When an error is raised, the stack is popped until the error is rescued in the current method, or the application terminates and a trace of all the elements on the stack at the time of the error is reported.
+
 ## Queues
 
 **Exercise**: Implement a `front` method which returns the item at the front, but leaves the Queue unchanged without directly accessing any methods of the Queue except `dequeue`, `enqueue` and `empty?`.  Feel free to use any other data structures.
