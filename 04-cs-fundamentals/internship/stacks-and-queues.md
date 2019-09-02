@@ -248,7 +248,9 @@ Using a circular buffer overcomes some of the limitations of an array, and enabl
 
 ## Exercises
 
-1. Given a Binary Search Tree where each node contains links to the left and right children and an integer value. Implement pre-order traversal for a binary search tree using **iterative** approach.
+Complete the following exercises with a partner.
+
+1. Given a Binary Search Tree where each node contains links to the left and right children and an integer value. Implement pre-order traversal for a binary search tree using an **iterative** approach.
 
 Note the recursive solution to preorder is as follows:
 
@@ -263,6 +265,26 @@ def preorder(current_node, list)
   return list
 end
 ```
+
+<details>
+  <summary>If you need a hint, click here for pseudocode steps.</summary>
+  <ul>
+    <li> If the tree is empty, all done return. </li>
+    <li>Create an empty stack of Node objects</li>
+    <li>Push ‘root’ to the stack</li>
+    <li>Do the following while the stack is not empty
+      <ul>
+        <li>Pop the node from the stack and print its value</li>
+        <li>Push right child of popped node to the stack, if not NULL</li>
+        <li>Push left child of popped node to the stack, if not NULL</li>
+        <li><strong>Note:</strong> Right child is pushed before Left child to ensure that the Left subtree is processed first.</li>
+      </ul>
+    </li>
+  </ul>
+</details>
+
+<br />
+<br />
 
 2. Write a function to print all integer values in a binary tree in breadth first traversal iteratively. (Hint: Use a Queue.)
 3. Describe how you would implement a Queue using 2 Stacks.
