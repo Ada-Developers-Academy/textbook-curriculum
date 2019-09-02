@@ -293,7 +293,7 @@ end
 
 ## Summary
 
-Stacks and queues are standard computer science data structures.  They provide a well-understood interface without perscribing a specific implementation.  We explored how a stack & queue could be implemented with either a linked list or an array.  
+Stacks and queues are standard computer science data structures.  They provide a well-understood interface without perscribing a specific implementation.  We explored how a stack & queue could be implemented with either a linked list or an array.  A stack is relatively straightforward to implement with either a linked list or an array, but to implement a queue with an array requires either high overhead caused by needing to shift elements, or use of a circular buffer.  The circular buffer solution uses two references to record the front and rear of the queue and treat the array as an object that be wrapped around.  For a queue, this provides the same time complexity as an implementation using a linked list, without the fragmentation of the data in memory.
 
 ## Terms & Terminology
 
