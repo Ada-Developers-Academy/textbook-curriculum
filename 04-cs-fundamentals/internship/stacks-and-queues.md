@@ -108,7 +108,8 @@ When an error is raised, the stack is popped until the error is rescued in the c
 
 ## Queues
 
-**Exercise**: Implement a `front` method which returns the item at the front, but leaves the Queue unchanged without directly accessing any methods of the Queue except `dequeue`, `enqueue` and `empty?`.  Feel free to use any other data structures.
+A queue unlike a stack operates in a first-in-first out order.  Like a line of people at a concert, the first element to enter the queue is the first element removed.  
+![Queue Diagram](images/queue.png)
 
 
 ### Queue Implementation Considerations
