@@ -5,7 +5,7 @@
 By the end of this lesson you should be able to:
 
 - Explain the concept of algorithm analysis
-- Describe how Big-O is derivied on an algorithm
+- Describe how Big-O is derived on an algorithm
 - Compare algorithms based on their runtime and space complexity
 
 
