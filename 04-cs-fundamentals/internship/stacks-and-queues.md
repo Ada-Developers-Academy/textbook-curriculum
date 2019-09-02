@@ -216,9 +216,15 @@ Method dequeue
 end method
 ```
 
+<details>
+  <summary>What is the Big-O of each method?</summary>
+  Since a fixed number of comamnds are executed no matter the size of the queue, the Big-O of enqueue and dequeue are both O(1)
+</details>
+
+
 This strategy of using floating front and rear references is known as a _circular buffer_.  It allows you to work around the need to shift elements left and right when adding and removing to the front of a list.  It can, however be more difficult to understand.  This kind of buffer is used for things like round-robin scheduling of tasks, like in the CPU and for storing in-memory logs.  
 
-**Exercise**
+**Try it Out!**
 
 On paper draw out a circular buffer of size 6 and perform the following operations on it.  Then trace through what happens to it as these operations are performed.
 
