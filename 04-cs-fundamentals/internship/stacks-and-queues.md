@@ -111,6 +111,17 @@ When an error is raised, the stack is popped until the error is rescued in the c
 A queue unlike a stack operates in a first-in-first out order.  Like a line of people at a concert, the first element to enter the queue is the first element removed.  
 ![Queue Diagram](images/queue.png)
 
+As shown above elements are added to the back of the queue in an operation called _enqueue_ and removed with an operation called _dequeue_.  
+
+Queues are great for any operation that needs to work with data in a first-in-first-out order.  For example some systems have worker processes which can be assigned tasks to work on and these worker processes take on jobs assigned to them in the order they appeared, completing one before taking on the next.
+
+**Exercise**: With pseudocode implement a `front` method which returns the item at the front, but leaves the Queue unchanged without directly accessing any methods of the Queue except `dequeue`, `enqueue` and `empty?`.  Feel free to use any other data structures.
+
+A Queue provides the following methods:
+
+- **enqueue(item)** - This method puts an item into the back of the queue.
+- **dequeue** - This method removes and returns the item at the front of the queue.
+- **is_empty** - This method returns true if the queue is empty and false otherwise.
 
 ### Queue Implementation Considerations
 
