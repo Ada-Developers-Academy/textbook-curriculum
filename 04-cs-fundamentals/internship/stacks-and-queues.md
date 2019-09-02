@@ -268,8 +268,14 @@ end
 | Abstract Data Type (AD)      |  A type of data structure described by a set of operations it can perform.  It is abstract because the details of implementation are not included.  Thus for example, one developer could implement a Stack ADT with a linked list and another could use an array.       |
 | Stack   | An Abstract Data Type which stores data in a Last-in-first-out (LIFO) order.  The first element added will always be the last element removed, and the most recent element added will be the first removed.         |
 | Queue   | An Abstract Data Type which stores data in a First-In-First-Out (FIFO) order.  The first element stored in the data structure will be the first element removed.  You can think of a Queue as a line, where the first person to get in line is the person served first.         |
+| LIFO | Last-In-First-Out, the order in which items are inserted and removed from a stack. |
+| FIFO | First-In-First-Out, the order in which items are inserted and removed from a queue |
+| Circular Buffer | A circular buffer, circular queue, cyclic buffer or ring buffer is a data structure that uses a single, fixed-size array as if it were connected end-to-end.  Very useful for tasks which repeatably add/remove elements from the front and rear of a list. |
 
 ## Resources
 
 - [Geeks for Geeks on Queue Implementation with a circular array](https://www.geeksforgeeks.org/implementation-deque-using-circular-array/)
 
+## References
+
+- [Stack Diagram from wikipedia](Sources: https://simple.wikipedia.org/wiki/Stack_(data_structure))
