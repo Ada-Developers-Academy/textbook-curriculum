@@ -19,6 +19,54 @@ An _Abstract Data Type_, is a type of object which is described by the methods i
 
 ## Stacks
 
+A Stack is a data structure which stores a list of data and only provides access in a Last-In-First-Out (LIFO) order.  You've seen stacks before at Ada.  When we discussed recursion we noted that function calls are saved on the system stack.  This is so the most recent function called is the first function returned to when the current function ends.
+
+A Stack provides the following methods:
+
+- **push(item)** - This method puts an item into the stack at the top.
+- **pop** - This method removes and returns the item on the top of the stack.
+- **is_empty** - This method returns true if the stack is empty and false otherwise.
+
+A Stack might also implement a `peek` method which returns, but does not remove the item on top of the stack, and `size` which would return the number of items on the stack.
+
+You can picture a Stack like a stack of plates where new plates can be added and removed from the top, but cannot be removed from the middle or bottom of the structure.
+
+![Stack Diagram](images/stack.png)
+
+### Implementation of a Stack
+
+You can use any linear data structure to implement a stack.  For example you could implement a `Stack` class like this:
+
+```ruby
+class Stack
+  
+  def initialize
+    @list = LinkedList.new
+  end
+
+  def push(item)
+    @list.add_front(item)
+  end
+
+  def pop()
+    return nil if self.empty?
+
+    item = list.remove_front
+
+    return item
+  end
+
+  def empty?()
+    return @list.empty?
+  end
+end
+```
+
+You could later change the implementation of Stack to use an Array, but the users of the class would not need to change anything of their code.  This is because the implementation is hidden behind a public interface.
+
+**Stack ADT**
+![Stack ADT](images/stackADT.png)
+
 **Exercise**:  Implement a `top` method which returns the top of the stack without changing the stack.
 
 **Exercise**:  Write a method which takes a string as an argument.  Return the string reversed using a Stack.
