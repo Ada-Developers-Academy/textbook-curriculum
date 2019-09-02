@@ -11,7 +11,7 @@ By the end of this lesson you should be able to:
 
 ## Video Lesson & Exercises
 
-- [Video Lesson]()
+- [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5dee2653-5d8c-40f9-a30c-aabc01162548)
 - [Slides in the video](https://docs.google.com/presentation/d/1Y4x50roheuZ40QYmZGjguZIjb0Xjd3YNbvfq65rwg88/edit?usp=sharing)
 - [Arrays and efficiency and algorithms Classwork](../homeworks.md#arrays-and-efficiency-of-algorithms)
 
