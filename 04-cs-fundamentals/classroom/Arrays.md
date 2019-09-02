@@ -71,6 +71,8 @@ Because elements in an array are **homogenous**, every element at each index in 
 
 ![Array indexing](images/array-indexing.png)
 
+Taking advantage of this, the system can find the memory address an element at index `k` by multiplying `k` by the size of each element and adding it to the memory address at the start of the array.
+
 **Number of operations**: No matter how long the array is, indexing into an array is a really fast operation. The time it takes to index into an array does not depend on the length of the array. This is because the indexing operation leverages the homogenous nature of array elements along with the fact that the array elements are allocated in contiguous blocks of memory.
 
 ### Arrays In Ruby
