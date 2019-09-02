@@ -16,7 +16,6 @@ By the end of this lesson you should be able to:
 
 - [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5dee2653-5d8c-40f9-a30c-aabc01162548)
 - [Slide Deck used in video](https://drive.google.com/file/d/0B__DV26QHsH4eHJqTWttLUdNZk0/view?usp=sharing)</br>
-- [**Exercise**: Arrays and efficiency and algorithms](../homeworks.md#arrays-and-efficiency-of-algorithms)
 
 ## Introduction
 
