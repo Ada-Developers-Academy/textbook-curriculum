@@ -15,6 +15,8 @@ At Ada we have often talked about hiding implementation details behind a public 
 
 ## Abstract Data Types (ADT)
 
+An _Abstract Data Type_, is a type of object which is described by the methods it has and how they perform.  Implementation details are not included.  You could for example create a `List` class.  You can provide methods to add elements and even retriveve elements at a given index.  The user of your class never needs know if you used an array or linked list to store the information internally.  The class is called _abstract_ because the data structure's description is independent from it's implementation.  The process of providing only the public interface and hiding implementation details is known as _abstraction_.  We will examine & implement 2 different ADTs known as Stacks and Queues.
+
 ## Stacks
 
 **Exercise**:  Implement a `top` method which returns the top of the stack without changing the stack.
