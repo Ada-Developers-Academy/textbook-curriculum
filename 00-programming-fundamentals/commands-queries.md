@@ -118,7 +118,7 @@ With a partner, revisit the requirements for the project, and do the following:
 - Make a table similar to the one we made for SolarSystem above for the different actions the user can take
 - Make a similar table for each public instance method on each of your classes
   - Is your test coverage appropriate for these commands and queries?
-- Make a similar table for the endpoints you're using from your current project
+- Make a similar table for the endpoints you're using from your current project (if they exist)
 
 
 ## Summary
