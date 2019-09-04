@@ -14,11 +14,11 @@ Preceding Lesson: [Introduction to Regular Expressions](introduction-to-regex.md
 
 The `*` and `+` characters allow a token to be repeated, but often, such as for a zip code, you will want to limit a token to a specific number of repetitions.  For that you can use the curly braces (`{}`).  A number placed in the curly braces will indicate how many times the preceding token can be repeated.  So for example `/[abc]{3}/` will allow the letters `a`, `b` or `c` to be repeated three times, so `"aaa"` would match, as would `"abc"` and `"cab"`.
 
-A range of repetitions can also be repeated by using two parameters in the curly braces.  For example `/[abc]{3, 5}/` would allow the characters to repeat between 3 and 5 times.
+A range of repetitions can also be repeated by using two parameters in the curly braces.  For example `/[abc]{3,5}/` would allow the characters to repeat between 3 and 5 times.
 
 An example using repetitions in our phone number example would include:  `/\(\d{3}\) \d{3}\-\d{4}/`
 
-If you want to match a token a variable number of times you can place a comma inside the `{ }`. So `/a{2, 3}/` would match 2 to 3 `"a"`'s.
+If you want to match a token a variable number of times you can place a comma inside the `{ }`. So `/a{2,3}/` would match 2 to 3 `"a"`'s.
 
 ## Capture Groups
 
