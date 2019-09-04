@@ -1,310 +1,425 @@
-# Array data structure, Introduction to efficiency of algorithms
+# Array Data Structure & Intro To Algorithmic Efficiency
 
-## Pre-requisite
-Before this lesson, you should have gotten familiar with:
-- [Essential mathematics for software engineers](Essential%20Mathematics.md)
-- [Computer basics and binary](Binary.md)
+## Learning Goals
+
+By the end of this lesson you should be able to:
+
+- Explain how arrays in Ruby differ from arrays in lower-level languages and strongly typed languages
+- Explain how array algorithms work including
+  - Linear Search
+  - Binary Search
+  - Reversing an Array in place vs creating a new array
+- Write methods to perform searches on an array
+- Begin to be able to discuss how a particular algorithm scales with larger datasets.
+
+## Video Lesson & Exercises
+
+- [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5dee2653-5d8c-40f9-a30c-aabc01162548)
+- [Slide Deck used in video](https://docs.google.com/presentation/d/1Y4x50roheuZ40QYmZGjguZIjb0Xjd3YNbvfq65rwg88/edit?usp=sharing)
 
 ## Introduction
-A common problem in Computer Science is managing large amounts of data and performing different operations on them. <b>Data Structures</b> provide different well-known ways to organize data. Each data structure follows its own set of rules on how the data should get organized. The study of data structures is to understand these rules. Alongside these governing rules, we are also looking to understand how different common operations like insert, delete and search work on each of these data structures and understand the average and worst case efficiency for the common operations. Knowledge of well-known data structures allows us come up with optimal designs to our real world, practical coding projects. The first data structure we will consider is the <b>Array data structure</b>.
+
+Before computers entered the marketplace companies hired [human computers](https://www.newscientist.com/article/2118526-when-computers-were-human-the-black-women-behind-nasas-success/) to perform calculations.  These mathematicians contributed greatly to finance, science and even the space race.  Over time they were replaced by machines because electronic computers can repeatably process huge blocks of data efficiently without becoming bored.  For example the College Board processes millions of answers on it's SAT & ACT tests performing statistical analysis to identify outlier questions and identifying pass-rates and grades.  Datasets of this size are impractical for humans to work with and unless structured well, can be troublesome for machines.  For example unless the ACT data is sorted, it is problematic to discover the percentile of a particular student.
+
+A core problem in Computer Science is organizing and performing operations on huge datasets.  How a developer chooses to organize their data strongly impacts performance both in the amount of time operations take to complete and the amount of memory needed to solve them. **Data Structures** provide well-known ways to organize data. Each data structure follows its own set of rules on how the data should get organized. The study of data structures is to understand these rules, the benefits they provide, and the limitations of each data structure. Alongside these governing rules, we are also looking to understand how different common operations like insert, delete and search work on each of these data structures and understand the average and worst case efficiency for the common operations. Knowledge of well-known data structures allows us come up with optimal designs to our real world, practical coding projects. The first data structure we will consider is the **Array data structure**.
 
 ## Properties
-<b>Arrays</b> or <b>Array data structures</b> have the following properties:
-1. Arrays are <b>homogeneous data structure</b>. This means that all the elements in the array are of the same type. E.g. integer array, character array etc. (Aside: a string is really an array of characters).
-1. Elements in an array are allocated in a <b>contiguous block of memory</b>. This means that the array element at index `i + 1` will always be next to (and at a higher memory address than the) array element at index `i`, where `i` is an index into the array such that `i` is greater than or equal to 0 and less than the length of the array.
-1. Array is a <b>static data structure</b>. Once created, the size of an array is fixed throughout its lifetime. This means the array length is fixed once the array is created. We cannot add more items to the array than the array length allows.
 
-<b>Aside</b>: Since Ruby is the primary language we will be using at Ada, it is important to note that the <b>Array class in Ruby</b> does not implement the <b>Array data structure</b>. Let's contrast the above properties of the array data structure with the objects of the Ruby Array class:
-1. <b>Not homogenous</b>: Objects of the Array class in Ruby are not confined to elements of the same type. Element at one index may be a string, while the next could be an integer. You could even have some intermediate element be `nil`.
-1. Array class in Ruby makes no claims about where the objects in the Array will be located in memory. Therefore, the elements in a Ruby Array object are not guaranteed to be in a <b>contiguous block of memory</b> with the elements next to each other.
-1. The objects of the Ruby Array class can be resized. We can add more elements than the initial size with which we created an Array object in Ruby. Ruby Arrays behave more like <b>dynamic data structures</b> rather than <b>static data structures</b>.
+In traditional and low-level languages **Arrays** or **Array data structures** have the following properties:
 
-### Example
+1. **Homogeneous data structure**:  All the elements in the array are of the same type. E.g. integer array, character array etc. (Aside: a string is really an array of characters).
+1. **Contiguous block of memory**:  Elements in an array are allocated in a block of memory with each element adjacent to the next. This means that the array element at index `i + 1` will always be next to (and at a higher memory address than the) array element at index `i`, where `i` is an index into the array such that `i` is greater than or equal to 0 and less than the length of the array.
+1. **Static data structure**:  Once created, the size of an array is fixed throughout its lifetime. This means the array length is fixed once the array is created. We cannot add more items to the array than the array length allows.
+
+### Example Static Array
+
 Consider the following C code defining two integer variables and an array of integers of size 10:
-    
-        int x = 1; 
-        int y = 2; 
-        int z[10];
-    
+
+```c
+// Create an integer x and assign it 1
+int x = 1;
+// Create an integer y and assign it 2
+int y = 2;
+// An array of only integers in C
+int z[10];
+```
 
 Here's an imagination of how this may look like in memory:
-<img src="images/arrays-in-memory.png">
+
+![An array in memory](images/arrays-in-memory.png)
+
+<!-- Arrays in memory source: https://drive.google.com/file/d/10jXmKawt3PaDvyTdnUgH9h_Cpd42q00s/view?usp=sharing -->
 
 In the example code and imagination of memory above;
+
 - `x` is a variable of type integer. If integers take up 2 bytes on an example system, then `x` takes 2 bytes in memory.
-- `y` also takes 2 bytes in memory.
+- `y` is also an integer variable and takes 2 bytes in memory.
 - `z` is an array of ten integers. The array `z` is allocated in a contiguous space in memory. This array will take up 10 times the size of integer number of bytes. In our example system, `z` will take 10 × 2 bytes i.e. 20 bytes.
 
+So the `z` array could **only** contain 10 elements and each element **must** be an integer.  With Ruby, an array can contain a variety of elements and each element could be of a different type.  The 1st element might be an integer, while the second a float, and the third another object or even another array.
+
 ### Indexing
+
 If there are *n* elements in an integer array `z`, then the first integer value is said to be at index 0, the second element is at index 1 and so on. The last element in the array is at index _n - 1_.
 
 Index | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 ------|---|---|---|---|---|---|---|---|---|---
 Value | 8 | 3 | 5 | 2 | 6 | 8 | 4 | 1 | 7 | 2
 
-Because elements in an array are <b>homogenous</b>, every element at each index in the array takes up the same amount of space in memory. As we learned earlier, arrays are always <b>allocated in a contiguous block of memory</b> such that the array element at index `i` i.e. `array[i]` is always next to and at a lower address than the array element at index `i + 1`. The index `i` into the array has a range such that <b>0 <= `i` < array's length</b>.
+Because elements in an array are **homogenous**, every element at each index in the array takes up the same amount of space in memory. As we learned earlier, arrays are always **allocated in a contiguous block of memory** such that the array element at index `i` i.e. `array[i]` is always next to and at a lower address than the array element at index `i + 1`. The index `i` into the array has a range such that **0 <= `i` < array's length**.
 
-<img src="images/array-indexing.png">
+![Array indexing](images/array-indexing.png)
 
-<b>Number of operations</b>: No matter how long the array is, indexing into an array is a really fast operation. The time it takes to index into an array does not depend on the length of the array. This is because the indexing operation leverages the homogenous nature of array elements along with the fact that the array elements are allocated in contiguous blocks of memory.
+Taking advantage of this, the system can find the memory address an element at index `k` by multiplying `k` by the size of each element and adding it to the memory address at the start of the array.
+
+**Number of operations**: No matter how long the array is, indexing into an array is a really fast operation. The time it takes to index into an array does not depend on the length of the array. This is because the indexing operation leverages the homogenous nature of array elements along with the fact that the array elements are allocated in contiguous blocks of memory.
+
+### Arrays In Ruby
+
+ Since Ruby is the primary language we will be using at Ada, it is important to note that the **Array class in Ruby** does not implement the Generic **Array data structure**. Let's contrast the above properties of the array data structure with the objects of the Ruby Array class:
+
+1. **Not homogenous**: Objects of the Array class in Ruby are not confined to elements of the same type. Element at one index may be a string, while the next could be an integer. You could even have some intermediate element be `nil`.
+1. Array class in Ruby makes no claims about where the objects in the Array will be located in memory. Therefore, the elements in a Ruby Array object are not guaranteed to be in a **contiguous block of memory** with the elements next to each other.
+1. The objects of the Ruby Array class can dynamically resize. We can add more elements than the initial size with which we created an Array object in Ruby. Ruby Arrays behave more like **dynamic data structures** rather than **static data structures**.  In other words, an array in Ruby is dynamic in that it can adjust it's size as more elements are added whereas a static array, like in Java or C has a fixed size.
+
+Ruby's interpreter does this by building on top of a static array.  You can read more about how [Ruby's static arrays work on Medium.](https://medium.com/@glayatle/the-magic-of-arrays-in-ruby-59ae2cc9ff8b).
+
+How does Ruby do it?  When an array is created initially Ruby allocates an array of a fixed size to work with.  When elements are inserted into the array with the `add` method the interpreter checks the current array size vs it's capacity and if the capcity is exceeded, the interpreter creates a new static array with twice the capacity as the old array.  Then it copies each element over.
+
+Ruby Arrays are also _heterogenous_ in that each element is not required to be of the same type.  Ruby does this by making each element a reference to the value in memory.
+
+![Ruby Array Diagram](images/ruby-arrays.png)
+
+In the above diagram we have a 5-element array.  Each element of the array is a reference to a memory location containing a string.
+
+## Array Algorithms
 
 ### Search
-<b>Exercise</b>: Given an unsorted integer array and its length, devise an algorithm to find if a given value is in the array or not. The algorithm should return `true` if the value is found in the array, and return `false` otherwise. How would you design this algorithm? 
-<b>Requirements' gathering</b>: Before we get to considering the actual steps in an algorithm, let us consider our requirements. Here's what we know:
+
+**Exercise**: Given an unsorted integer array and its length, devise an algorithm to find if a given value is in the array or not. The algorithm should return `true` if the value is found in the array, and return `false` otherwise. How would you design this algorithm?
+
+**Requirements' gathering**: Before we get to considering the actual steps in an algorithm, let us consider our requirements. Here's what we know:
+
 - Inputs to the method being designed:
-    - Integer array
-    - Length of the array
-    - an integer value to find
+  - Integer array
+  - Length of the array
+  - an integer value to find
 - Output from the method:
-    - `true`, if value is found in the array
-    - `false`, if value is not found in the array
-<b>Aside note</b>: Requirements' gathering is an important step before we get to algorithm design. This steps helps us confirm that we have captured all of the essentials and there is no ambiguity or misunderstanding in capturing the requirments.
+  - `true`, if value is found in the array
+  - `false`, if value is not found in the array
 
-<b>Approach</b>: It's a good practice to <b>always check the input</b> provided to any method. e.g. if the input is an object, always check if the input object value is `nil`. Similarly, if the input is a string, always check if the string is empty. For the problem at hand, to check if a given value exists in the array, it seems useful to check if the array has at least one element. Otherwise, there are no elements in the array and we can safely conclude that the value we are looking for is not in the array and return `false`. Once we have checked the input validity, we could start looking for the value in the array. We can do this by comparing each value in the array one by one with the value we are looking for. If we ever find a match, we can immediately return `true`. If we reach the end of the array and no match was found, then we can return `false`. With that, here's what our solution would look like (in pseudo code):
-    
-        bool search(array, value_to_find)
-        {
-            i = 0 
-            // i is an index into the first element in the array
+**Aside note**: Requirements' gathering is an important step before we get to algorithm design. This steps helps us confirm that we have captured all of the essentials and there is no ambiguity or misunderstanding in capturing the requirments.
 
-            while i < array's length
-            {
-                // check if value_to_find is the same as value at index i
-                if value_to_find == array[i]
-                {
-                    return true
-                }
+**Approach**: It's a good practice to **always validate or check the input** provided to any method. e.g. if the input is an object, always check if the input object value is `nil`. Similarly, if the input is a string, always check if the string is empty. For the problem at hand, to check if a given value exists in the array, it seems useful to check if the array has at least one element. Otherwise, there are no elements in the array and we can safely conclude that the value we are looking for is not in the array and return `false`.  Once we have checked the input validity, we could start looking for the value in the array. We can do this by comparing each value in the array one by one with the value we are looking for. If we ever find a match, we can immediately return `true`. If we reach the end of the array and no match was found, then we can return `false`. With that, here's what our solution would look like (in pseudo code):
 
-                // increment i
-                i = i + 1
-            }
+```
+search(array, value_to_find)
+  // i is an index into the first element in the array
+  i = 0 
+  repeat while i < array's length
+    // check if value_to_find is the same as value at index i
+    if value_to_find == array[i]
+      return true
+    // increment i
+    i = i + 1
+  end loop
 
-            // value_to_find not in array
-            return false
-        }
-    
-<b>Exercise</b>: Try the above algorithm on a sample array and sample value to find. e.g. {4, 8, 0, 3, 9} and value to find is 3. You may try the algoirthm on any other sample inputs.
+  // value_to_find is not in array
+  return false
+```
 
-<b>Number of operations</b>: How many times will the instructions inside the while loop in the code above run?
+**Exercise**: Try the above algorithm on a sample array and sample value to find. e.g. {4, 8, 0, 3, 9} and value to find is 3. You may try the algorithm on any other sample inputs.
+
+**Number of operations**:
+
 <details>
-    <summary>Counting the number of operations in an algorithm and comparing it with the size and value of input
-    </summary>
-        In the best case scenario, the input array is empty and we immediately return false. Another relatively quick execution would be if the value to find is at index 0 in the array.In the worst case scenario, the value we are looking for is not found in the array. In this case, the instructions inside the loop will get executed as many times as the number of elements in the array. If there are n elements in the array, then the loop will execute n number of times. In the average cases, the loop will execute somewhere in between the best case and worst case.
+  <summary>With an array of size 5, what situations will require the loop to execute the least times?</summary>
+  
+  In the best case, the value being sought is in the array at index 0 and the loop will execute only one time before returning `true`.
 </details>
+
+<details>
+  <summary>With an array of size 5, what situations will require the loop to execute the most times?</summary>
+  
+  In the worst case, the value being sought is not in the array or it is in the last element of the array and the loop will execute a number of times equal to the array's length before returning.  In this case 5 times.
+</details>
+
+<details>
+  <summary>Now double the size of the array.  What happens to the number of times the loop executes in the best, and worst cases?</summary>
+
+  In the best-case the item being sought is at index 0, and thus the loop executes 1 time and doubling the size of the array does not change this.
+
+  On the other hand, in the worst case doubling the number of elements from 5 to 10, also doubles the number of times the loop executes.
+</details>
+
+<details>
+  <summary>Assuming the element <strong>is</strong> in the array, on average how many times will the loop execute for a 10 element array?  How about a 20 element array?  How does the average case change as you increase the array's size?</summary>
+
+  On average you would traverse 1/2 way through the array before finding the element being sought.  So for a 10 element array it would take 5 iterations of the loop.  For a 20 element array it would take 10 iterations.  Every time you increase the size of the array the number of iterations would be 1/2 the new size.
+</details>
+
+#### Linear Search
+
+This algorithm is known as a _Linear Search_ because it traverses the array in order searching for `value_to_find` until it is found or the end of the list is encountered.  Notice that the number of iterations of the loop increases proportionally with the size of the list.  So if the array doubles in length, the average and worst-cases scenarios will take roughly twice as long.  We will discuss this more later.
 
 ### Minimum and Maximum
-<b>Exercise</b>: Given an unsorted integer array and its length, devise an algorithm to find the largest integer value is in the array and return it. Following the approach we applied to the search exercise above, use a paper and pencil to gather the requirements, check the input and author the main algorithm.
 
-We begin again, with <b>gathering the requirements</b>. Here's what we know:
+**Exercise**: Given an unsorted integer array and its length, devise an algorithm to find the largest integer value is in the array and return it. Following the approach we applied to the search exercise above, use a paper and pencil to gather the requirements, check the input and author the main algorithm.
+
+We begin again, with **gathering the requirements**. Here's what we know:
+
 - Inputs to the method being designed:
-    - Integer array
-    - Length of the array
+  - Integer array
+  - Length of the array
 - Output from the method:
-    - largest integer value in the array
+  - largest integer value in the array
 
-Next, we <b>check the input</b>. <b>Question</b>: What should the algorithm return if the array is empty? This is a requirement that is missing in the specification above. Let's say, we want to return `nil` if the array is empty.
+**Question**: What should the algorithm return if the array is empty? This is a requirement that is missing in the specification above. Let's say, we want to return `nil` if the array is empty.
 
-Next, let's think about our <b>algorithmic approach</b>. How do we find the largest value in a list of unsorted integer values? One way is to assume that the first value we see if the largest value. Then, we compare this, so far largest known value with the next value in the array. If we find a value that is greater than the largest known value thus far, we update the largest known value. Once we have reached the end of the array, we have found the largest value in the array. Here's what the pseudo code may look like:
+Once we know the expected inputs and outputs it is time to think about our **algorithmic approach**. How do we find the largest value in a list of unsorted integer values? One way is to assume that the first value we see if the largest value. Then, we compare this, so far largest known value with the next value in the array. If we find a value that is greater than the largest known value thus far, we update the largest known value. Once we have reached the end of the array, we have found the largest value in the array. Here's what the pseudo code may look like:
 
-        int largest_value(array)
-        {
-            if array's length == 0
-            {
-                return nil
-            }
+```
+largest_value(array)
+  if array's length == 0
+    return nil
 
-            largest_value = array[0]
-            i = 1
-            while i < array's length
-            {
-                if array[i] > largest_value
-                {
-                    largest_value = array[i]
-                }
-                i = i + 1
-            }
+  largest_value = array[0]
+  i = 1
+  while i < array's length
+    if array[i] > largest_value
+      largest_value = array[i]
 
-            return largest_value
-        }
-    
+    i = i + 1
+  end loop
 
-<b>Number of operations</b>: How many times will the operations inside the loop get executed?
+  return largest_value
+```
+
 <details>
-    <summary> Counting the number of operations in an algorithm and comparing it with the size and value of input
+    <summary> If the array is of length 5, how many times will the loop execute?  Are there some situations where it will run more or less times?
     </summary>
-    The comparison inside the loop will happen exactly one less time than the number of elements in the input array. If there are 10 elements in the input array, then the instructions within the loop will run 9 times. If there are 101 elements in the input array, then the instructions within the loop will run 100 times. 
+    The comparison inside the loop will happen exactly one less time than the number of elements in the input array. If there are 5 elements in the input array, then the instructions within the loop will run 4 times. If there are 101 elements in the input array, then the instructions within the loop will run 100 times.  
+
+    Because there is no code to break out of the loop early, the number of iterations is **always** equal to the length of the array minus 1.
 </details>
 
-<b>Exercise</b>: Modify the algorithm above to devise an algorithm that would return the minimum value in the input array. Try this algorithm and the one above on sample input values.
+<details>
+    <summary> Do you notice any similarities in the number of iterations between the `find_largest` and the linear search further above?
+    </summary>
+    Because this algorithm starts at the beginning and repeats until it reaches the end of the array, it behaves in a very similar pattern with the average and worst-case scenarios of linear search.  Doubling the number of elements causes the number of loop iterations to similarly double.
+</details>
 
-### Sorted arrays
+**Exercise**: Modify the algorithm above to devise an algorithm that would return the minimum value in the input array. Try this algorithm and the one above on sample input values.
+
+### Sorted Arrays
+
 There are several real world scenarios where we want our data to be ordered in ascending or descending way. Example:
+
 - Sort test scores in descending way
 - Sort song playtime in descending way
 - Sort identification numbers in ascending way
 - Sort names from *A* to *Z* (ascending way) like in the contacts' list on the phone.
+- Sort prices in an online search from least to most expensive.
 
 Having the data sorted, simplifies some of the algorithms.
 
-<b>Question</b>: If the array is sorted in ascending manner, how would you find the min value, or max value?
+**Question**: If the array is sorted in ascending manner, how would you find the min value, or max value?
+
 <details>
-    <summary> Minimum and maximum value in a sorted array
-    </summary>
-        The algorithms for finding the minimum and maximum values get simplified if the array is sorted. The <b>minimum value</b> in an array that is sorted in an ascending manner will always be the first entry in the array i.e. array[0]. The <b>maximum value</b> in an array that is sorted in an ascending manner will always be the last entry in the array i.e. array[*n*-1], where *n* is the length of the array. If you compare the number of steps needed in this approach, with the approach needed for unsorted arrays, you'll find that the algorithm is significantly simpler and faster if the array is sorted.
+  <summary> Minimum and maximum value in a sorted array</summary>
+  The algorithms for finding the minimum and maximum values get simplified if the array is sorted. The **minimum value** in an array that is sorted in an ascending manner will always be the first entry in the array i.e. array[0]. The **maximum value** in an array that is sorted in an ascending manner will always be the last entry in the array i.e. array[*n*-1], where *n* is the length of the array. If you compare the number of steps needed in this approach, with the approach needed for unsorted arrays, you'll find that the algorithm is significantly simpler and faster if the array is sorted.
 </details>
 
 You'll learn more about [algorithms to sort an array](Sorting.md) soon. For now, we can already see how having the array sorted makes finding the maximum and minimum value a faster and simplified algorithm. With that, let's consider searching for a value in a sorted array.
 
 ### Binary Search
-The <b>binary search</b> algorithm leverages the sorted property while searching for a value in the array. Instead of comparing with each value in the array from index 0 to *n*-1, (where *n* is the number of elements in the array), we can be more methodic in eliminating where the value we are searching for will not be. We already apply the binary approach in our everyday life. E.g. Let's say we are looking for a word in dictionary, or while look for a name in the physical phone book. If the word/name starts with 'h', it will likely be in the first half of the book. We open the book to somewhere in the middle, compare the beginnig letter on that page to the word/name we are looking for. After comparing, we can safely eliminate the second half of the book. We keep eliminating half of the remaining pages in each step after repeating the process of opening a page to somewhere in the middle of valid pages and comparing. Unlike [linear search](#search), where after each comparison, one element is eliminated, with binary search, after each comparison, half of the remaining elements are eliminated.
+
+The **binary search** algorithm leverages the sorted property while searching for a value in the array. Instead of comparing with each value in the array from index 0 to *n*-1, (where *n* is the number of elements in the array), we can be more methodical in eliminating where the value we are searching for will not be. We already apply the binary approach in our everyday life. E.g. Let's say we are looking for a word in dictionary, or while looking up a name in the physical phone book. If the word/name starts with 'h', it will likely be in the first half of the book. We open the book to somewhere in the middle, compare the beginnig letter on that page to the word/name we are looking for. After comparing, we can safely eliminate the second half of the book. We keep eliminating half of the remaining pages in each step after repeating the process of opening a page to somewhere in the middle of valid pages and comparing. Unlike [linear search](#search), where after each comparison, one element is eliminated, with binary search, after each comparison, half of the remaining elements are eliminated.
 
 Here's the pseudo code for binary search algorithm. As you read through it, try the algorithm on different set of input arrays and value to find.
 
-        bool binary_seach(array, value_to_find)
-        {
-            if array length == 0
-            {
-                return false
-            }
+```
+binary_seach(array, value_to_find)
+  if array length == 0
+    return false
 
-            low = 0 
-            // initialized to the index of the first element in the array
+  low = 0
+  // initialized to the index of the first element in the array
 
-            high = array length - 1 
-            // initialized to the index of the last element in the array
+  high = array length - 1
+  // initialized to the index of the last element in the array
 
-            while low < high
-            {
-                mid = (low + high) / 2
-                // calculate the index value between low and high
+  while low <= high
+    mid = (low + high) / 2
+    // calculate the index value between low and high
 
-                if array[mid] == value_to_find
-                { // compare the element at index mid with the value to find
-                    return true
-                }
-                else if array[mid] > value_to_find
-                { // value to find is less than the value at mid index
-                    // eliminate the second half
-                    high = mid - 1
-                }
-                else // array[mid] < value_to_find
-                { // value to find is greater than the value at mid index
-                    // eliminate the first half
-                    low = mid + 1
-                }
-            }
+    if array[mid] == value_to_find
+      // compare the element at index mid with the value to find
+      return true
+    else if array[mid] > value_to_find
+      // value to find is less than the value at mid index
+      // eliminate the second half
+      high = mid - 1
+    else // array[mid] < value_to_find
+      // value to find is greater than the value at mid index
+      // eliminate the first half
+      low = mid + 1
+    end if-else block
 
-            // consider for arrays with only one element
-            if array[low] == value_to_find
-            {
-                return true
-            }
-
-            // value not found in the array
-            return false
-        }
-    
+  end loop
+  // value not found in the array
+  return false
+```
 
 After each iteration through the loop, we eliminate half of the remaining elements in the array:
+
 1. In the beginning the value we are looking for could be anywhere amongst the *n* elements in the array.
 1. After the first iteration, i.e. after one comparison, we eliminate either the top half or the bottom half of the array and the value could be somewhere in the remaining *n*/2 elements in the array.
 1. After the second iteration, i.e. after one more comparison, we eliminate half of the remaining values, thereby reducing the scope of where the value could be to *n*/4 elements.
 
-Eventually, one or no elements will be left and we'll exit the loop. 
+Eventually, one or no elements will be left and we'll exit the loop.
 
-Such a change is known as logarithmic change. As we saw in [essential mathematics](Essential%20Mathematics.md#exponents-and-logarithms), logarithmic change is related to exponential. _Log<sub>2</sub> n_ means at each step the value reduces by half of the remaining.
+<details>
+  <summary>With a 5-element array like `[1, 2, 3, 4, 5]`, what is the worst-case number of comparisons you would need to make to find an element in the array?</summary>
+  If you were looking for `5` in the array, you would first compare 3, find out it's too small and search from index 3 to 4.  Next you would compare 4, and find it's also too small, and then finally compare 5, find the value and return true.  So **worst-case you would need 3 comparisions**.
 
-The main loop in binary seach runs <b>_log<sub>2</sub> n_</b> number of times where *n* is the number of elements in the input array.
+  ![Binary Search Loop Table](images/binary-search-loop-table-5-elements.png)
+</details>
+
+
+<details>
+  <summary>What if you went from a 5-element array to a 10 element array?  How does the number of comparisons change?</summary>
+  For example with the array `[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]` if you were looking for 10, you would first compare 5 to 10 discover it's too small and then search through indices 5 - 9.  Then you compare 8 to 10 and discover 8 is too small and search through indicides 8-9.  Next you compare 9 to 10 and discover it's too small, and then do a search on index 9.  Then you find the element you are searching for and return.  So with a 10 element array you need only 4 comparisons.  By doubling the number of elements only increase the number of comparisons by 1.  Not bad!
+
+  ![Binary Search Loop Table](images/binary-search-loop-table.png)
+
+</details>
+
+The scaling trend you are seeing here is called a _logarithmic change_. As we saw in [essential mathematics](Essential%20Mathematics.md#exponents-and-logarithms), logarithmic change is related to exponential. _Log<sub>2</sub> n_ means at each step the value reduces by half of the remaining.  It also means that as the size of the array doubles, the number of iterations only increases by _1_.
+
+The main loop in binary seach runs **_log<sub>2</sub> n_** number of times where *n* is the number of elements in the input array.
+
+**Important Note**  Notice that the way we organized our data and conducted our search resulted in an algorithm that scales much more effectively as the size of the array increases.
 
 ### Reverse
-<b>Exercise</b>: Devise an algorithm to reverse the elements in the input array _in-place_. e.g. If the input array is:
 
-Index | 0 | 1 | 2 | 3 | 4 
+**Exercise**: Devise an algorithm to reverse the elements in the input array _in-place_. e.g. If the input array is:
+
+Index | 0 | 1 | 2 | 3 | 4
 ------|---|---|---|---|---
-Value | 8 | 3 | 5 | 2 | 6 
+Value | 8 | 3 | 5 | 2 | 6
 
 then, after the algorithm is complete, the same array should look like:
 
-Index | 0 | 1 | 2 | 3 | 4 
+Index | 0 | 1 | 2 | 3 | 4
 ------|---|---|---|---|---
-Value | 6 | 2 | 5 | 3 | 8 
+Value | 6 | 2 | 5 | 3 | 8
 
-<b>Note</b>: _in-place_ means the updates should happen in the same location in memory i.e. in the same location as the original array.
+**Note**: _in-place_ means the updates should happen in the same location in memory i.e. in the same location as the original array.
 
 #### Reverse solution 1 - using an auxiliary array
+
 One approach to solve this problem would be create a new array of the same size as the input array. We copy over the element at index 0 in the original array over to index *n*-1 in the new array, where *n* is length of the input array. Then we copy over the element at index 1 in the original array over to index *n*-2 in the new array. We keep repeating the process until all values are copied over. Then, we copy the elements from the new array sequentially from index 0 to *n*-1 to the same index in the original array.
 
 Here's what the pseudo code for this approach look like:
 
-        // array is the input integer array to the algorithm
-        
-        if array.length <= 1
-        {
-            return // nothing to reverse
-        }
+```
+// array is the input integer array to the algorithm
+if array.length <= 1
+  return // nothing to reverse
 
-        i = 0
-        j = array.length - 1
+i = 0
+j = array.length - 1
 
-        // create a new array of the same size as input array
-        temp_array = new array of size array.length
+// create a new array of the same size as input array
+temp_array = new array of size array.length
 
-        while i < array.length
-        {
-            // copy over the values in input array 
-            // into the temp array in reverse order
-            temp_array[i] = array[j]
-            increment i
-            decrement j
-        }
+while i < array.length
+  // copy over the values in input array 
+  // into the temp array in reverse order
+  temp_array[i] = array[j]
+  increment i
+  decrement j
+end while loop
 
-        i = 0
-        while i < array.length
-        {
-            // copy over values from the temp array 
-            // into the input array
-            array[i] = temp_array[i]
-        }
+i = 0
+while i < array.length
+  // copy over values from the temp array 
+  // into the input array
+  array[i] = temp_array[i]
+end while loop
 
-        // array is reversed
-    
-    
+// array is reversed
+```
+
 You'll notice that the solution above has two `while` loops in addition to a set of single line code instructions. The two while loops are one after the other.
+
 - The first while loop copies over each of the elements in the input array into a new array in reverse order of their position. The means, if there are 100 elements in the input array, then the loop will execute 100 times. If there are 700,000 elements in the input array, then the loop will execute 700,000 times and so on. Therefore, we can conclude that in the instructions in the first loop run as many times as the number of elements in the input array.
 - The second loop copies for each element of the temporary array back into the input array. So, the second loop will also run as many times as the number of elements in the input array.
 
+<details>
+  <summary>What happens to the number of loop iterations if you go from 100 nodes to 200?  What about from 700,000 to 1,400,000?</summary>
+  With 200 nodes, the first loop will execute 100 times, and the second loop 100 times for a total of 200 iterations.  When the array becomes 200, the loops will execute 200 and 200 times, doubling when the length of the array doubles.  The same applies from 700K to 1.4 million elements.  This is a very similar effect to linear search.
+</details>
+
 #### Reverse solution 2 - using swap
-Is there any algorithmic approach where we can avoid creating an additional array of the same size as the input array? In order to reverse the elements in the array, we could consider swapping the element at index 0 with the element at index *n*-1, where *n* is the number of elements in the input array. Then, we could swap the element at index *n*-2 with the element at index 1, and so on.
+
+Is there any algorithmic approach where we can avoid creating an additional array of the same size as the input array? In order to reverse the elements in the array, we could consider swapping the element at index 0 with the element at index *n*-1, where *n* is the number of elements in the input array. Then, we could swap the element at index *n*-2 with the element at index 1, and so on.  This is an _in place_ operation which performs the reversal without creating an another a data structure.
+
 Here's what the pseudo code for this approach would look like:
 
-        // array is the input integer array to the algorithm
+```
+// array is the input integer array to the algorithm
 
-        if array.length <= 1
-        {
-            return // nothing to reverse
-        }
+if array.length <= 1
+  return // nothing to reverse
 
-        i = 0
-        j = array.length - 1
+i = 0
+j = array.length - 1
 
-        while i < j
-        {
-            // swap values at i and j
-            temp = array[i]
-            array[i] = array[j]
-            array[j] = temp
+while i < j
+  // swap values at i and j
+  temp = array[i]
+  array[i] = array[j]
+  array[j] = temp
 
-            increment i
-            decrement j
-        }
-    
+  increment i
+  decrement j
+end while
+```
 
 You'll notice that the loop in this approach will run roughly half the number of times as the number of elements in the input array.
 
-## Exercises
-Continue learning about [efficieny of algorithms](Efficiency%20of%20algorithms.md). Then, complete the assignments listed in the section [Arrays and efficiency and algorithms](../homeworks.md#arrays-and-efficiency-of-algorithms)
+<details>
+  <summary>What about the trend, what happens to this algorithm if you double the number of elements in the array?</summary>
+  The reverse in place method above, still doubles the number of iterations when you double the number of elements in the array.  In other words, it faster than the 1st solution, but scales similarly.
+</details>
 
-## Slide Deck
-+ Slide Deck used in class</br>
-<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://drive.google.com/file/d/0B__DV26QHsH4eHJqTWttLUdNZk0/view?usp=sharing">Array data structure and Introduction to Efficiency of Algorithms</a></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</br>
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />
+## Summary
+
+An array is an ordered data structure with each element identified by an index number.  The first element is at index 0, the second at index 1 and so on.  A _static array_ is an array of fixed size and each element being the same type.  Typically computers allocate a block of space for an array with the first element at the starting memory address, the second at the next available memory address etc.  By using the starting memory address of the array and the size of each element, programs can quickly jump to any element in an array by use of it's index number.
+
+Ruby builds on the basic static array, providing a dynamic Array class which can reference elements of varying types and can grow or shink as demands change.
+
+We also looked at several algorithms which progress through the array from the first to last index searching for the min, max and specific values.  We observed that increasing the number of elements in the array caused these algorithms to take proportionally longer in the average and worst cases.
+
+Next we ovserved how organizing an array in sorted order allowed us to use the _binary search_ algorithm to search for values in the array with much better performance which scales much better.  This illustrated how data organization can affect performance.
+
+Lastly we looked at how an array can be reversed either through an auxiliary array or by reversing the elements in place.
+
+## Terminology
+
+| Term 	| Definition 	
+|---	|---	|
+| Data Structure | A method of organizing data and providing methods to interact with the data.
+| Static Data Structure | A data structure which is fixed in size and cannot automatically resize
+| Dynamic Data Structure | A data structure which can automatically resize as elements are added and removed.
+| Homogenous Data Structure | A data structure in which all elements are of the same type
+| Heterogenous Data Structure | A data structure in which elements can be of different types.
+| Linear Search |  An algorithm for finding an element in an array, starting with the first element and checking elements sequentially until found or the end of the array is reached.
+| Binary Search |  An algorithm for finding an element in an **sorted** array, starting with the middle element using the ordered property of the array to, with each iteration, eliminate 1/2 of the remaining elements to be searched.
+| In-place Operation | An operation or method which is performed on a data structure without using an auxiliary data structure.  For example sorting an array without creating a new array to store the sorted results.
+
+## Resources
+
+- [Geeks for Geeks on Arrays](https://www.geeksforgeeks.org/array-data-structure/)
