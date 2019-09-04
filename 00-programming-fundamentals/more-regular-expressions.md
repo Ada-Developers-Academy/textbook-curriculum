@@ -8,7 +8,7 @@ Be able to answer the following questions:
   - Capture Groups
   - Search and Replace
 
-Preceding Lesson: [Introduction to Regular Expressions](introduction-to-regex.md)
+Preceding Lesson: [Introduction to Regular Expressions](./intro-to-regex.md)
 
 ## Repetitions
 
