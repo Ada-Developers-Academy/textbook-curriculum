@@ -1,4 +1,4 @@
-# APIs and Authorization
+# APIs and Authentication
 
 ## Learning Goals
 
