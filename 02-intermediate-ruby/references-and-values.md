@@ -9,7 +9,7 @@ At the end of this lesson, students should be able to...
 
 ## Motivation
 
-We're going to start today with some Ruby code that does something a little unexpected. It's a method that takes an array of strings as an argument, and truncates (chops off the end of) all the strings with more than three characters. Or at least that's the idea.
+We're going to start today with some Ruby code that does something a little unexpected. It's a method that takes an array of strings as an argument, and returns a truncated version (the ends are chopped off) of all the strings with more than three characters. But it does something unexpected as well.
 
 ```ruby
 def short_strings(input)
@@ -197,7 +197,7 @@ This is exactly the same behavior we saw before, when we had two variables refer
 
 **Question:** Given what we've learned, how can we modify our `short_strings` method to do what we want?
 
-The answer is to modify the underlying object, rather than reassigning the parameter. Here's what the resulting code might look like:
+The answer is to simply make a new variable for the return value rather than updating the input. Here's what the resulting code might look like:
 
 ```ruby
 
@@ -248,7 +248,7 @@ Why? The reassignment was on the input reference rather than on the underlying o
 
 </details>
 
-It's also worth noting that there are methods like map! that intentionally change the underlying object, so now we now how to confidently write methods like that if we ever need to. (In built-in ruby methods, these always have a `!` at the end of the name.)
+It's also worth noting that there are methods like map! that intentionally change the underlying object, so now we now how to confidently write methods like that if we ever need to. (In built-in ruby methods, these sometimes have a `!` at the end of the name.)
 
 ## Other Objects
 
