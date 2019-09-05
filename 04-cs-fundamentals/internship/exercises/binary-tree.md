@@ -6,9 +6,9 @@ In pairs answer the following questions as if they are whiteboarding exercises. 
 
 For Each Question:
 
-- **Step 1:**  Write down 2 - 3 clarifying questions you would ask an interviewer.
+- **Step 1:**  Write down 3 - 4 clarifying questions you would ask an interviewer.
 - **Step 2:**  Write down assumptions for each of those questions.
-- **Step 3:**  Generate 3+ sample input & output combinations to the methods described.  Look for edge-cases
+- **Step 3:**  Generate 2+ sample input & output combinations to the methods described.  Look for edge-cases
 - **Step 4:**  Write a proposed solution.
 - **Step 5:**  Test your solution with your sample input.
 - **Step 6:**  Evaluate your solution in terms of space & time complexity.
@@ -29,7 +29,7 @@ class TreeNode
   attr_reader :key, :value
   attr_accessor :left, :right
 
-  def initialize(k, v, l = nil, r = nil)
+  def initialize(key, value, left = nil, right = nil)
     @key = k
     @value = v
     @left = l
