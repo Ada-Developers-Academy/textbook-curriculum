@@ -248,7 +248,7 @@ Why? The reassignment was on the input reference rather than on the underlying o
 
 </details>
 
-It's also worth noting that there are methods like map! that intentionally change the underlying object, so now we now how to confidently write methods like that if we ever need to. (In built-in ruby methods, these sometimes have a `!` at the end of the name.)
+It's also worth noting that there are methods like map! that intentionally change the underlying object, so now we now how to confidently write methods like that if we ever need to. (In built-in ruby methods, these usually have a `!` at the end of the name.)
 
 ## Other Objects
 
