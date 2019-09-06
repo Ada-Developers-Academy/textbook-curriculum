@@ -30,10 +30,10 @@ class TreeNode
   attr_accessor :left, :right
 
   def initialize(key, value, left = nil, right = nil)
-    @key = k
-    @value = v
-    @left = l
-    @right = r
+    @key = key
+    @value = value
+    @left = left
+    @right = right
   end
 end
 ```
