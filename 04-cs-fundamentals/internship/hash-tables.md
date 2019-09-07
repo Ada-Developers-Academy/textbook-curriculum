@@ -58,6 +58,10 @@ To be useful a hash function must satisfy a few criteria:
 
 ## Sample Problem
 
+## Summary
+
+Hashes are one of the most practically useful data structures you will encounter.  They make a great many problems easier and with lower time complexity.  You will also likely **never** have to create a hash table data structure yourself, but you will need to know their practical applications and be able to discuss how they function.  
+
 ## Resources
 
 - [Basecs on Hash Tables: Taking Hash Tables Off The Shelf](https://medium.com/basecs/taking-hash-tables-off-the-shelf-139cbf4752f0)
