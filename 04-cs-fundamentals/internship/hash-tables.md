@@ -47,7 +47,8 @@ Hash tables perform relatively well in terms of Big-O
 | Insert | O(1) | O(n) | O(n) | O(1) |
 | Delete | O(1) | O(n) | O(n) | O(1) |
 
-Notice the linear worst-case performance of a hash table.  We will address this when we discuss the hashing function. 
+Notice the linear worst-case performance of a hash table.  We will address this when we discuss the hashing function.
+
 
 ## Hashing Functions
 
