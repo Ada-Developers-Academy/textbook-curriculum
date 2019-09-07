@@ -30,7 +30,9 @@ A hash table is essentially a generalization of an array.  Each element has a _k
 
 ![hash table](images/hash-table.png)
 
-A hash table is built on an array.  When given a key value, the hash table applies a function called a _hash function_ to the key resulting in a number between 0 and the length of the array.  The hash table then uses that value to either look up or place the element in the array. 
+A hash table is built on an array.  When given a key value, the hash table applies a function called a _hash function_ to the key resulting in a number between 0 and the length of the array.  The hash table then uses that value to either look up or place the item into an element the array known as a _bucket_.  A bucket is the term used for each element of the hash table's internal array used to store data.
+
+To summarize the image above, given a key, a hash function is run resulting in an index number used by the hash table to identify the bucket used to store the information.
 
 Hash tables are also often called:
 
