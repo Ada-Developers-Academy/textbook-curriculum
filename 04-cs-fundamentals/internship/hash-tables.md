@@ -39,6 +39,13 @@ Hash tables are also often called:
 
 ## Hashing Functions
 
+The key, no pun intended, to a hash table is the hashing function.  The hashing function is used to convert any key to a number.  That number can then be used to find an index in the internal array used by the hash table.
+
+To be useful a hash function must satisfy a few criteria:
+
+- **The hash function must be consistent.** if the hash function of key k, `h(k)` results in a number it should always result in the same number.
+- **The hash function should (mostly) map different keys to different values** - we want to avoid situations where two keys map to the same index in the array.  
+
 ### Hash Function Criteria
 
 #### The Division Method
