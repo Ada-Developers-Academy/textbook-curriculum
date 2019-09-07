@@ -1,9 +1,43 @@
 # Introduction to Hash Tables
-## Goal
-+ Hashing
-+ Collision handling
 
-## Slide Deck
-+ Slide Deck used in class</br>
-<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://drive.google.com/file/d/0B__DV26QHsH4UkpqNVdoQkpudE0/view?usp=sharing">Introduction to Hash tables</a></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</br>
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />
+## Learning Goals
+
+By the end of this lesson you should be able to:
+
+- Explain the uses of a Hash table
+- Explain the concept of a hashing function and the criteria for a good hashing function
+- Explain the concept of a Collision and Collision handling schemes including:
+  - _linear probing_
+  - _separate chaining_
+  - _quadratic probing_
+  - _double hashing_
+- Use a hash table to solve a coding problem
+- Choose between a hash table, binary search tree, linked list or array to solve a programming problem.
+
+## Introduction
+
+Example problem with library books
+
+## Hash Table Overview
+
+
+
+## Hashing Functions
+
+### Hash Function Criteria
+
+#### The Division Method
+
+#### The Multiplication Method
+
+## Collisions
+
+## Collision Resolution
+
+## Sample Problem
+
+## Resources
+
+- [Basecs on Hash Tables: Taking Hash Tables Off The Shelf](https://medium.com/basecs/taking-hash-tables-off-the-shelf-139cbf4752f0)
+- [Basecs: Hashing Out Hash Tables](https://medium.com/basecs/hashing-out-hash-functions-ea5dd8beb4dd)
+- [How the Hash works in Ruby](https://launchschool.com/blog/how-the-hash-works-in-ruby#targetText=Conclusion,in%20Java%2C%20Python%20or%20Ruby)
