@@ -26,7 +26,16 @@ This is where hash tables come in.  Hash tables reduce lookup times O(1) or cons
 
 ## Hash Table Overview
 
+A hash table is essentially a generalization of an array.  Each element has a _key_ and _value_.  The key is a unique identifier for the element and can be used to quickly retrieve the value from the table.  In the same way an index number can be quickly used to retrieve an element from an array.  However a key can be any type of value, a string, a number, or any other kind of object.  
 
+![hash table](images/hash-table.png)
+
+A hash table is built on an array.  When given a key value, the hash table applies a function called a _hash function_ to the key resulting in a number between 0 and the length of the array.  The hash table then uses that value to either look up or place the element in the array. 
+
+Hash tables are also often called:
+
+- _Dictionaries_ because like a dictionary is used to look up a definition from a word, in a hash table a key is used to look up a value.  This is a term used in Python.
+- _Hash Map_ because the hash function helps map an item to it's location in a table.
 
 ## Hashing Functions
 
