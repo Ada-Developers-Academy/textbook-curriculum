@@ -16,7 +16,13 @@ By the end of this lesson you should be able to:
 
 ## Introduction
 
-Example problem with library books
+In practical programming we often spend much more time looking data up in a data structure as opposed to inserting or removing data.  A typical example is a grocery store.  At the checkout point we need to quickly recognize items and look up their prices in order to ring up a bill.  In ye olde days employees often had to memorize the prices of each item.  This worked in small shops, and was supplemented by price tags.  However stores have grown and price tags can fall off or prices change after an item is tagged.  Today most items have been given a unique key called a [Universal Product Code (UPC)](https://en.wikipedia.org/wiki/Universal_Product_Code#targetText=UPC%20(technically%20refers%20to%20UPC,of%20sale%2C%20per%20GS1%20specifications.).  The software at the point of sale regularly need to look up items from their UPC codes and retrieve the current price.  
+
+![cash register](images/cash-register.jpg)
+
+The systems could use an array to store the data with Log<sub>2</sub>(n) retrieval times, or a binary search tree of the data, but in that case for `m` lookups and a universe of `n` products it would take O(mlog<sub>2</sub>n) to complete a transation.  It would be better to reduce the lookup time to a constant and the entire transaction to O(m).
+
+This is where hash tables come in.  Hash tables reduce lookup times O(1) or constant time.  They do this by trading space complexity for time complexity.
 
 ## Hash Table Overview
 
