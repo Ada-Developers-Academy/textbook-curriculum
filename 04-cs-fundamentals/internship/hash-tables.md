@@ -81,6 +81,10 @@ Hashes are one of the most practically useful data structures you will encounter
 
 There are many ways to structure a hash table.  One of the most common is simple chaining with each element of the internal array or _bucket_ referencing the beginning of a linked list.  Alternative solutions include _dynamic arrays_ which use arrays to store the elements in each bucket and open addressing using either _linear probling_, _quadratic probing_ or _double hashing_.  
 
+## Side Note
+
+Ruby actually [uses an array](https://launchschool.com/blog/how-the-hash-works-in-ruby#targetText=Conclusion,in%20Java%2C%20Python%20or%20Ruby) for hashes smaller than 6 items.  It has been found to be faster than using a more complicated data structure for small datasets.
+
 ## Resources
 
 - [Basecs on Hash Tables: Taking Hash Tables Off The Shelf](https://medium.com/basecs/taking-hash-tables-off-the-shelf-139cbf4752f0)
