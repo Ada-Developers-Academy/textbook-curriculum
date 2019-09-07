@@ -66,7 +66,7 @@ It's important to note that there is no perfect general-purpose hashing function
 
 ## Summary
 
-Hashes are one of the most practically useful data structures you will encounter.  They make a great many problems easier and with lower time complexity.  You will also likely **never** have to create a hash table data structure yourself, but you will need to know their practical applications and be able to discuss how they function.  
+Hashes are one of the most practically useful data structures you will encounter.  They make a great many problems easier and with lower time complexity.  You will also likely **never** have to create a hash table data structure yourself, but you will need to know their practical applications and be able to discuss how they function.
 
 ## Resources
 
