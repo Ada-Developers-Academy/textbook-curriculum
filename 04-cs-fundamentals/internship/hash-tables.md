@@ -37,6 +37,16 @@ Hash tables are also often called:
 - _Dictionaries_ because like a dictionary is used to look up a definition from a word, in a hash table a key is used to look up a value.  This is a term used in Python.
 - _Hash Map_ because the hash function helps map an item to it's location in a table.
 
+Hash tables perform relatively well in terms of Big-O
+
+| Operation | Hash Tables (average) | Hash Tables (Worst) | Arrays | Linked Lists
+| --- | ----------- |--- |--- |--- |--- |
+| Search by key/index | O(1) | O(n) | O(1) | O(n) |
+| Insert | O(1) | O(n) | O(n) | O(1) |
+| Delete | O(1) | O(n) | O(n) | O(1) |
+
+Notice the linear worst-case performance of a hash table.  We will address this when we discuss the hashing function. 
+
 ## Hashing Functions
 
 The key, no pun intended, to a hash table is the hashing function.  The hashing function is used to convert any key to a number.  That number can then be used to find an index in the internal array used by the hash table.
