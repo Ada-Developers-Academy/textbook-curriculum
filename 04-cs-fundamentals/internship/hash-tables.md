@@ -48,6 +48,12 @@ To be useful a hash function must satisfy a few criteria:
 
 ### Hash Function Criteria
 
+When judging hashing functions it is important that a hash function:
+
+- Spread potential keys across the storing array.  
+
+It's important to note that there is no perfect general-purpose hashing function.
+
 #### The Division Method
 
 #### The Multiplication Method
