@@ -44,7 +44,7 @@ Hash tables perform relatively well in terms of Big-O
 | Operation | Hash Tables (average) | Hash Tables (Worst) | Arrays | Linked Lists
 | --- | ----------- |--- |--- |--- |--- |
 | Search by key/index | O(1) | O(n) | O(1) | O(n) |
-| Insert | O(1) | O(n) | O(n) | O(1) |
+| Insert | O(1) | O(1) | O(n) | O(1) |
 | Delete | O(1) | O(n) | O(n) | O(1) |
 
 Notice the linear worst-case performance of a hash table.  We will address this when we discuss the hashing function.
