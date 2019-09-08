@@ -63,7 +63,7 @@ To be useful a hash function must satisfy a few criteria:
 
 When a hashing function assigns two different keys to the same bucket, this is known as a _collision_.  Hash tables work most efficiently, as we will see, the fewer collisions they have.
 
-Unfortunately there is no universal hashing function which can take any type of key and guarantee that 
+Unfortunately there is no universal hashing function which can take any type of key and guarantee that collisions do not occur and in fact there is no guarantee the hashing function will not cause **every** key in a given application to collide.  This is why hashing functions are known as _heuristics_.  Heuristics are algorithms which work practically well, but may have a mathematically possible worst-case which is unattractive.
 
 #### The Division Method
 
