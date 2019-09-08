@@ -61,7 +61,7 @@ To be useful a hash function must satisfy a few criteria:
   - This is even better if the hash  function distributes elements uniformly across the collection.
 - **The hash function should execute in constant time** - The hashing function should scale well and execute relatively quickly.
 
-When a hashing function assigns two
+When a hashing function assigns two different keys to the same bucket, this is known as a _collision_.  Hash tables work most efficiently, as we will see, the fewer collisions they have.
 
 Unfortunately there is no universal hashing function which can take any type of key and guarantee that 
 
