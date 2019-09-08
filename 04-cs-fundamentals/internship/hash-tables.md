@@ -65,13 +65,101 @@ When a hashing function assigns two different keys to the same bucket, this is k
 
 Unfortunately there is no universal hashing function which can take any type of key and guarantee that collisions do not occur and in fact there is no guarantee the hashing function will not cause **every** key in a given application to collide.  This is why hashing functions are known as _heuristics_.  Heuristics are algorithms which work practically well, but may have a mathematically possible worst-case which is unattractive.
 
-#### The Division Method
+Below are two example hash functions
 
-#### The Multiplication Method
+### The Division Method
 
-## Collisions
+In the division method, we convert the key to an integer and then take the remainder of the key divided by the length of the internal array (m).
 
-## Collision Resolution
+`h(k) = k mod m`
+
+Because we are taking the remainder of the key divided by the length of the array, we are guaranteed a value `0 <= h(k) < m`.  Therefore the resulting index will be valid for the internal array
+
+We normally use a prime number, not close to a power of 2 for `m`, the size of the internal array because this tends to more evenly dispurse the resulting indexes.  Notice that this method does require a method to convert a non-integer key into an integer.
+
+### The Multiplication Method
+
+In the multiplication method we create an index in the array by:
+
+1. First multiplying the key by a constant `A` which is between 0 and 1, and take the decimal result.  
+1. Then multiply that by the size of the array `m` and round down.
+
+`h(k) = floor(m * (k * A mod 1))`
+
+So if:
+
+- `k` = 37
+- `A` = 0.31
+- `m` = 100
+
+`h(37) = floor(100 * (37 * 0.31 % 1))`
+
+`h(37) = floor(100 * (11.47 % 1))`
+
+`h(37) = floor(100 * (0.47000000000000064))`
+
+`h(37) = floor(47.000000000000064)`
+
+
+`h(37) = 47`
+
+**Exercise** Assuming `A` is 0.71 and `m` = 100, answer the following
+
+<details>
+  <summary> if k is 15, what is h(k) using the multiplication method?  What about the division method?
+  </summary>
+  Multiplication method: 64 <br />
+  Division method: 15
+</details>
+
+<br />
+
+You are **not** expected to memorize these methods, but rather be able to see how they work to identify a bucket to find values in a hash table.
+
+There are **many** different ways to write a hash function.  There is not a mathematically provable perfect solution, in the general case.  Instead developers use statistical analysis with experimental data to judge the performance of a given hashing function.  When evaluating a hashing function developers want a function which is easy to compute, maps any given input to valid buckets, and minimizes collisions.
+
+[Ruby uses the MurmurHash](https://sites.google.com/site/murmurhash/) hashing function internally.
+
+## Collision Handling
+
+All general-purpose hashing functions will encounter collisions.  When two keys are mapped to the same bucket something has to happen to manage it.  We will look at three methods, chaining, linear probing, quadratic probing and rehashing.
+
+
+### Chaining
+
+The first solution, as we discussed in the classroom portion of ada is to make each bucket of the hash table's internal array the head of a linked list.  Linked lists are quick to insert and remove items O(1) and can store an arbitrary number of elements.  Unfortunately if there are a high number of items in the same bucket, finding an element starts to approach O(n).  However if the hashing function does a good job of spreading elements out over different buckets the linked lists will be small and the time to search for an item in the hash table approaches O(1).  
+
+![Chaining](../classroom/images/example-hash.png)
+
+### Linear Probing
+
+Chaining required a secondary data structure in the array.  Linear probling is instead rather simple.  When inserting a new element into the hash table, the hash function will return with an index number.  If the bucket at that index number is occupied (there's a collision), then the hash table checks the next element in the array, and the next and so on until an empty bucket is found.  
+
+![Linear Probing](images/linear-probing.png)
+
+Similar to chaining, searching for an empty bucket has a worst-case of O(n).  Also because we are looking only at adjacent elements for empty buckets, this can lead to a problem with _clustering_.  Clustering means that elements are grouping together into one area in the hash table.  
+
+![Clustering](images/linear-probing-clustering2.png)
+
+If there is a lot of clustering then operations on a hash table using linear probing approach O(n).  To avoid this we need to use a hashing function which spreads the items over the body of the internal array as evenly as possible.  When a hash function does a good job of spreading elements throughout the array, we can say the hash table is _well spaced_. 
+
+### Quadratic Probing
+
+Quadratic probing is very similar to linear probing in that when inserting an element, if the bucket is full, instead of incrementally searching the array for an empty bucket, a formula is applied to search.  There is no set fomula to use in quadratic clustering, which formula to use.  That is another heuristic determined by the developer and experimentation.
+
+**Example**
+
+For example on the `ith` attempt to find an empty bucket, the formula to determine the next index to check could be:
+
+h(k, i) = (h(k) + i + i<sup>2</sup>) mod m
+
+So if h(k) was 37 and m was 100, the 3rd attempt to find an empty bucket would use:  37 + 3 + 3<sup>2</sup> mod 100 = (37 + 3 + 9) mod 100 = 49
+
+Quadratic probing makes clustering less likely, although not impossible and it performs similarly to linear probing.  [Unfortunately quadratic probing performs worse as the number of elements increases compared to the size of the internal array.](https://en.wikipedia.org/wiki/Quadratic_probing#Limitations)  Unless the internal array is sparsely occupied, quadratic probing could struggle to find an empty bucket.  This is an example of trading space efficiency for time efficiency.  By making the array larger, relative to the data, quadratic probing will approach O(1) time efficiency at the cost of more expensive space efficiency.
+
+### Rehashing
+
+A third solution to colliions is to simply have a secondary hash function..  If there is a colliion, then use the secondary hash function to find another bucket to use.  There will however be occasions where both hash functions produce a collision and then another collision resolution scheme would need to be used, like chaining or linear probing.  If the _load factor_, the ratio of the number of elements to the number of buckets in the hash table is low, then this occurs rarely, and the seconary hash function helps avoid clustering.  
 
 ## Sample Problem
 
