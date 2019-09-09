@@ -202,7 +202,6 @@ If all the nodes are interconnected, given `n` nodes, there are `n!` possible ro
 
 ### A Type of Tree Heaps
 
-## Graphs
 
 ## How to approach the study of data structures
 
