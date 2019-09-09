@@ -158,7 +158,43 @@ Stacks are used widely in computer systems.  In fact when your programs crash yo
 
 ## Queues
 
-## Linked Lists
+A Queue is a similar abstract data structure.  While a stack is a LIFO (last-in-first-out) data structure, a queue is a First-In-First-Out (FIFO) data structure.  The first element added will be the first element removed.
+
+A Queue has the following methods:
+
+- `enqueue(e)` - This method takes an element and adds it to the back of the queue.
+- `dequeue` - This method removes and returns the element from the front of the queue
+
+![Queue Image](../internship/images/queue.png)
+
+## Graphs
+
+We saw earlier with linked lists, we can create a data structure by creating nodes and linking them together by having elements reference other nodes in the data structure.
+
+A Graph is a generalization of this concept.  In a graph each node has links or references to other nodes in the data structure.  In a graph the links between nodes or _edges_ can be weighted, which each link has a designated cost, or unweighted.
+
+We will look at graphs in more detail later in internship.
+
+### Example Graph Problem:  Traveling Salesperson Problem
+
+![Graph diagram](images/graph.png)
+
+Consider the graph above.  Alice is in sales and charged with visiting clients in Paris, London and Madrid.  They need to set up a route to visit each city **exactly once** with the lowest possible cost.
+
+**Question**
+
+<details>
+  <answer>How many possible routes, if Alice can start in any city?</answer>
+  There are 6 routes
+  Paris -> London -> Madrid
+  Paris -> Madrid -> London
+  London -> Madrid -> Paris
+  London -> Paris -> Madrid
+  Madrid -> Paris -> London
+  Madrid -> London -> Paris
+</details>
+
+If all the nodes are interconnected, given `n` nodes, there are `n!` possible routes.  This grows rapidly!  This problem the [traveling salesperson problem](https://www.youtube.com/watch?v=zM5MW5NKZJg) is from a class of problems called [NP-Hard](https://en.wikipedia.org/wiki/NP-hardness).  We know how to solve them in polynomial time, but do not know if they can be solved in a better time complexity.
 
 ## Binary Trees
 
