@@ -16,7 +16,7 @@ By the end of this lesson you should be able to:
 
 ## Introduction
 
-In practical programming we often spend much more time looking data up in a data structure as opposed to inserting or removing data.  A typical example is a grocery store.  At the checkout point we need to quickly recognize items and look up their prices in order to ring up a bill.  In ye olde days employees often had to memorize the prices of each item.  This worked in small shops, and was supplemented by price tags.  However stores have grown and price tags can fall off or prices change after an item is tagged.  Today most items have been given a unique key called a [Universal Product Code (UPC)](https://en.wikipedia.org/wiki/Universal_Product_Code#targetText=UPC%20(technically%20refers%20to%20UPC,of%20sale%2C%20per%20GS1%20specifications.).  The software at the point of sale regularly need to look up items from their UPC codes and retrieve the current price.  
+In practical programming we often spend much more time looking data up in a data structure as opposed to inserting or removing data.  A typical example is a grocery store.  At the checkout point we need to quickly recognize items and look up their prices in order to ring up a bill.  In ye olde days employees often had to memorize the prices of each item.  This worked in small shops, and was supplemented by price tags.  However stores have grown and price tags can fall off or prices change after an item is tagged.  Today most items have been given a unique key called a [Universal Product Code (UPC)](https://en.wikipedia.org/wiki/Universal_Product_Code).  The software at the point of sale regularly need to look up items from their UPC codes and retrieve the current price.  
 
 ![cash register](images/cash-register.jpg)
 
@@ -32,7 +32,7 @@ A hash table is essentially a generalization of an array.  Each element has a _k
 
 A hash table is built on an array.  When given a key value, the hash table applies a function called a _hash function_ to the key resulting in a number between 0 and the length of the array.  The hash table then uses that value to either look up or place the item into an element the array known as a _bucket_.  A bucket is the term used for each element of the hash table's internal array used to store data.
 
-To summarize the image above, given a key, a hash function is run resulting in an index number used by the hash table to identify the bucket used to store the information.
+In the image above, given a key, a hash function is run resulting in an index number used by the hash table to identify the bucket used to store the information.
 
 Hash tables are also often called:
 
@@ -41,14 +41,9 @@ Hash tables are also often called:
 
 Hash tables perform relatively well in terms of Big-O
 
-| Operation | Hash Tables (average) | Hash Tables (Worst) | Arrays | Linked Lists
-| --- | ----------- |--- |--- |--- |--- |
-| Search by key/index | O(1) | O(n) | O(1) | O(n) |
-| Insert | O(1) | O(1) | O(n) | O(1) |
-| Delete | O(1) | O(n) | O(n) | O(1) |
+[![Big-O Cheatsheet](images/big-o-cheatsheet.png)](https://www.bigocheatsheet.com/#Common%20Data%20Structure%20Operations)
 
 Notice the linear worst-case performance of a hash table.  We will address this when we discuss the hashing function.
-
 
 ## Hashing Functions
 
@@ -124,7 +119,6 @@ There are **many** different ways to write a hash function.  There is not a math
 
 All general-purpose hashing functions will encounter collisions.  When two keys are mapped to the same bucket something has to happen to manage it.  We will look at three methods, chaining, linear probing, quadratic probing and rehashing.
 
-
 ### Chaining
 
 The first solution, as we discussed in the classroom portion of ada is to make each bucket of the hash table's internal array the head of a linked list.  Linked lists are quick to insert and remove items O(1) and can store an arbitrary number of elements.  Unfortunately if there are a high number of items in the same bucket, finding an element starts to approach O(n).  However if the hashing function does a good job of spreading elements out over different buckets the linked lists will be small and the time to search for an item in the hash table approaches O(1).  
@@ -161,20 +155,141 @@ Quadratic probing makes clustering less likely, although not impossible and it p
 
 A third solution to colliions is to simply have a secondary hash function..  If there is a colliion, then use the secondary hash function to find another bucket to use.  There will however be occasions where both hash functions produce a collision and then another collision resolution scheme would need to be used, like chaining or linear probing.  If the _load factor_, the ratio of the number of elements to the number of buckets in the hash table is low, then this occurs rarely, and the seconary hash function helps avoid clustering.  
 
-## Sample Problem
+## Ruby & Hash Tables
+
+As stated Ruby uses the MurmurHash hashing algorithm internally.  It also uses the chaining method to resolve collisions.  To better guarantee performance, ruby hashes also monitor the _density_ of the hash table.  This means it monitors the maximum number of records chained in a given bucket.  For example if the largest linked list in the hash table was of length 4, then the density would be 4.  Ruby sets a maximum density of 5.  When that density is exceeded, Ruby enlarges the internal array and recalculates the hash, placing the elements into new indexes.  
+
+By limiting the density of the hash, Ruby guarantees the O(1) lookup time for adding elements to the hash.
+
+### Side Note
+
+Ruby actually [uses an array](https://launchschool.com/blog/how-the-hash-works-in-ruby#targetText=Conclusion,in%20Java%2C%20Python%20or%20Ruby) for hashes smaller than 6 items.  It has been found to be faster than using a more complicated data structure for small datasets.
+
+## When To Use Hash Tables
+
+Now that we've had some theory, when would you expect to use a hash table?  In any problem where quick lookup of items is important, a hash table should be considered.  However a hash table depends on **unique keys**.  If a dataset cannot provide unique key values, a hash table may not be the best solution.  Instead a binary search tree or another data structure may be a better selection.
+
+### Sample Problem
+
+Hash tables are a common, practical, solution to a variety of programming problems.  Below is a sample interview problem taking from [leetcode.com](https://leetcode.com/problems/sort-characters-by-frequency/)
+
+Take a look at the problem below and answer:
+
+<details>
+  <summary>Why would a hash table be a good approach here?</summary>
+
+  - To solve this problem we need to store each letter and the number of occurances. <br />
+    - There are a couple of ways to do this:
+      1. We could traverse the list repeatably counting the ocurances of each letter.  This would require nested loops and O(n<sup>2</sup>) time complexity.
+      1. We could also sort the string by letter use this sorted string to count the occurances of each letter.  Sorting the string would require O(nlogn) time complexity.
+      1. Or we could use a hash table to with each character as the keys and the number of occurances as the value.  Building this hash would require one traversal of the string or O(n).  
+    - Once we have the list of letters and their number of occurances, we can use this to build the output string.
+
+  Because looking up an items in a hash table is so fast, hash tables turn out to be excellent data structures.
+
+</details>
+<br />
+
+#### Exercise
+
+With a neighbor examine the problem below and do the following:
+
+1.  Write down 2-3 clarifying questions.
+1.  Write down assumptions you will make for each clarifying question.
+1.  Generate a fresh set of 2-3 sample input-output looking for **edge cases**.
+1.  Break down the problem into at least 2 subproblems, more if you can.
+1.  Write out a pseudocode solution
+
+**Problem Description**
+
+Given a string, sort it in decreasing order based on the frequency of characters.
+
+**Example 1:**
+
+```
+Input:
+"tree"
+
+Output:
+"eert"
+
+Explanation:
+'e' appears twice while 'r' and 't' both appear once.
+So 'e' must appear before both 'r' and 't'. Therefore "eetr" is also a valid answer.
+Example 2:
+
+Input:
+"cccaaa"
+
+Output:
+"cccaaa"
+```
+
+**Explanation:**
+Both 'c' and 'a' appear three times, so "aaaccc" is also a valid answer.
+Note that "cacaca" is incorrect, as the same characters must be together.
+
+**Example 3:**
+
+```
+Input:
+"Aabb"
+
+Output:
+"bbAa"
+```
+
+**Explanation:**
+
+"bbaA" is also a valid answer, but "Aabb" is incorrect.
+Note that 'A' and 'a' are treated as two different characters.
+
+You can find a [solution in the example code folder](example-code/character_frequency.rb).
+
+## Array, Linked List, Binary Search Tree or Hash Table
+
+Hash tables are execellent for looking up data from a key.  Binary search trees are excellent data structures for maintaining items in order while linked lists provide quick access to the front and rear and maintain a specific order.
+
+So, which would you use in these situations?
+
+**Question 1:**
+
+<details>
+  <summary>A list of candidate records that need to be stored so that you can find the max or min test scores</summary>
+  Hash tables are not good for maintaining ordered data.  Instead a binary search tree, or sorted array or linked list (sorted by test scores) would serve better.
+</details>
+
+<!-- source: http://www.cs.cmu.edu/~guna/15-123S11/Lectures/Lecture17.pdf -->
+<br />
+
+**Question 2:**
+
+<details>
+  <summary>Fedex needs to provide quick access for customers to check the status of their packages.  Quick lookup time using distinct tracking numbers is important.</summary>
+  Since the tracking numbers are distinct and order is not important a hash table makes the most sense because of it's quick lookup time.
+</details>
+
+<br />
+
+**Question 3:**
+
+<details>
+  <summary>Postgres needs to keep track of fields in a table to output sorted data.  Items will be regularly inserted and deleted from the table.</summary>
+  Since order is important, maintaining a set of binary search trees would make a great deal of sense.
+</details>
 
 ## Summary
 
 Hashes are one of the most practically useful data structures you will encounter.  They make a great many problems easier and with lower time complexity.  You will also likely **never** have to create a hash table data structure yourself, but you will need to know their practical applications and be able to discuss how they function.
 
-There are many ways to structure a hash table.  One of the most common is simple chaining with each element of the internal array or _bucket_ referencing the beginning of a linked list.  Alternative solutions include _dynamic arrays_ which use arrays to store the elements in each bucket and open addressing using either _linear probling_, _quadratic probing_ or _double hashing_.  
+There are many ways to structure a hash table.  One of the most common is simple chaining with each element of the internal array or _bucket_ referencing the beginning of a linked list.  Alternative solutions include _dynamic arrays_ which use arrays to store the elements in each bucket and open addressing using either _linear probling_, _quadratic probing_ or _double hashing_.  It's also important to recognize that a hash table depends on **unique** keys.  If the keys for items are not unique there is no way to generate a unique hash result.
 
-## Side Note
 
-Ruby actually [uses an array](https://launchschool.com/blog/how-the-hash-works-in-ruby#targetText=Conclusion,in%20Java%2C%20Python%20or%20Ruby) for hashes smaller than 6 items.  It has been found to be faster than using a more complicated data structure for small datasets.
+<!-- Image from: https://www.bigocheatsheet.com/ -->
 
 ## Resources
 
 - [Basecs on Hash Tables: Taking Hash Tables Off The Shelf](https://medium.com/basecs/taking-hash-tables-off-the-shelf-139cbf4752f0)
 - [Basecs: Hashing Out Hash Tables](https://medium.com/basecs/hashing-out-hash-functions-ea5dd8beb4dd)
 - [How the Hash works in Ruby](https://launchschool.com/blog/how-the-hash-works-in-ruby#targetText=Conclusion,in%20Java%2C%20Python%20or%20Ruby)
+- [Hackerearth and hash tables](https://www.hackerearth.com/practice/data-structures/hash-tables/basics-of-hash-tables/tutorial/targetText=A%20hash%20table%20is%20a,function,%20hashing%20can%20work%20well.)
