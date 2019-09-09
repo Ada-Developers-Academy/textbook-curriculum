@@ -74,9 +74,10 @@ VCR.configure do |config|
 end
 ```
 
-    The last section, beginning with `config.filter_sensitive_data`, tells VCR not to put your token into the cassette file, instead replacing it with the string `"<LOCATIONIQ_TOKEN>"`. That way when the cassettes end up in your git repo, you won't be exposing your secrets to the world. You'll need a separate call to `config.filter_sensitive_data` for every piece of data you want to omit from your cassettes.
 
-    Cassette files usually should be checked into git as they fill a similar role to test files.
+The last section, beginning with `config.filter_sensitive_data`, tells VCR not to put your token into the cassette file, instead replacing it with the string `"<LOCATIONIQ_TOKEN>"`. That way when the cassettes end up in your git repo, you won't be exposing your secrets to the world. You'll need a separate call to `config.filter_sensitive_data` for every piece of data you want to omit from your cassettes.
+
+Cassette files usually should be checked into git as they fill a similar role to test files.
 
 1. **Tests**
 
