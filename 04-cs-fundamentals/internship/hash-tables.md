@@ -153,7 +153,7 @@ Quadratic probing makes clustering less likely, although not impossible and it p
 
 ### Rehashing
 
-A third solution to colliions is to simply have a secondary hash function..  If there is a colliion, then use the secondary hash function to find another bucket to use.  There will however be occasions where both hash functions produce a collision and then another collision resolution scheme would need to be used, like chaining or linear probing.  If the _load factor_, the ratio of the number of elements to the number of buckets in the hash table is low, then this occurs rarely, and the seconary hash function helps avoid clustering.  
+A third solution to collision is to simply have a secondary hash function..  If there is a collision, then use the secondary hash function to find another bucket to use.  There will however be occasions where both hash functions produce a collision and then another collision resolution scheme would need to be used, like chaining or linear probing.  If the _load factor_, the ratio of the number of elements to the number of buckets in the hash table is low, then this occurs rarely, and the seconary hash function helps avoid clustering.  
 
 ## Ruby & Hash Tables
 
