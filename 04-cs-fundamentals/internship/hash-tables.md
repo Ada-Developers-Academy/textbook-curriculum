@@ -61,6 +61,7 @@ To be useful a hash function must satisfy a few criteria:
 - **The hash function should (mostly) map different keys to different values** - we want to avoid situations where two keys map to the same index in the array.
   - This is even better if the hash  function distributes elements uniformly across the collection.
 - **The hash function should execute in constant time** - The hashing function should scale well and execute relatively quickly.
+- **Hashing should appear to be random** - It should be hard to identify the key from the hashed value.  This is why we use hashing in cryptography.
 
 When a hashing function assigns two different keys to the same bucket, this is known as a _collision_.  Hash tables work most efficiently, as we will see, the fewer collisions they have.
 
