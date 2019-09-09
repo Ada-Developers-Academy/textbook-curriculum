@@ -196,7 +196,60 @@ Consider the graph above.  Alice is in sales and charged with visiting clients i
 
 If all the nodes are interconnected, given `n` nodes, there are `n!` possible routes.  This grows rapidly!  This problem the [traveling salesperson problem](https://www.youtube.com/watch?v=zM5MW5NKZJg) is from a class of problems called [NP-Hard](https://en.wikipedia.org/wiki/NP-hardness).  We know how to solve them in polynomial time, but do not know if they can be solved in a better time complexity.
 
-## Binary Trees
+## Trees
+
+A tree is a variation on a graph ADT.  Trees are a type of graph with one _root_ node where the data structure starts.  Each node in a tree can have 0 or more subnodes and a maximum of one parent.  A tree is unidirectional so no child can be an ancestor of it's parent.  
+
+The image below illustrates a tree data structure.  The topmost node is known as the _root_.  The root is the start of the tree.  Nodes linked to from another node are called _children_.  The bottommost nodes with no children are known as _leaves_.  This diagram represents a binary tree, where each node may have 0-2 children, but othe trees exist with more children.
+
+![binary tree](images/binary-tree.png)
+
+### Tree or Not A Tree
+
+![Possible tree](images/possible-tree1.png)
+
+<details>
+  <summary>Is the above a tree?</summary>
+  YES!  Since the starting node has a child and the child does not link back to the parent, it is a tree.  So any linked list is in fact a kind o tree.  Weird but true!
+</details>
+
+
+
+![Possible tree](images/possible-tree2.png)
+
+<details>
+  <summary>Is the above a tree?</summary>
+  No!  In a tree, you cannot have a cycle, so a tree node cannot link back to itself.
+</details>
+
+
+![Possible tree](images/possible-tree3.png)
+
+<details>
+  <summary>Is the above a tree?</summary>
+  No!  In a tree, you cannot have a cycle.  This node has a cyclepossible-tree.
+</details>
+
+![Possible tree](images/possible-tree4.png)
+
+<details>
+  <summary>Is the above a tree?</summary>
+  No!  In a tree, each node cannot have more than 1 parent.
+</details>
+
+![Possible tree](images/possible-tree5.png)
+
+<details>
+  <summary>Is the above a tree?</summary>
+  No!  In a tree, You have to have 1 node to start with, as the root.  This has two unconnected sets of nodes, so you don't have a single root to start at.
+</details>
+
+<!-- Images from Wikipedia -->
+
+Some example tree structures include:
+
+- Organization charts
+- Directory structures (files & folders in the operating system)
 
 ### Binary Search Trees
 
