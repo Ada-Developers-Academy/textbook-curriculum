@@ -14,6 +14,12 @@ By the end of this lesson you should be able to:
 - Use a hash table to solve a coding problem
 - Choose between a hash table, binary search tree, linked list or array to solve a programming problem.
 
+## Video Lecture & Lesson
+
+- Video Lesson - Link incoming
+- [Slide Deck](https://docs.google.com/presentation/d/1jUvHCeeqYVx_i8vHAfdGaGdkJEssEYZW1OBC2Heh44c/edit?usp=sharing)
+- Exercises - Link incoming
+
 ## Introduction
 
 In practical programming we often spend much more time looking data up in a data structure as opposed to inserting or removing data.  A typical example is a grocery store.  At the checkout point we need to quickly recognize items and look up their prices in order to ring up a bill.  In ye olde days employees often had to memorize the prices of each item.  This worked in small shops, and was supplemented by price tags.  However stores have grown and price tags can fall off or prices change after an item is tagged.  Today most items have been given a unique key called a [Universal Product Code (UPC)](https://en.wikipedia.org/wiki/Universal_Product_Code).  The software at the point of sale regularly need to look up items from their UPC codes and retrieve the current price.  
