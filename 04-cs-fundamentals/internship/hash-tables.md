@@ -287,6 +287,22 @@ There are many ways to structure a hash table.  One of the most common is simple
 
 <!-- Image from: https://www.bigocheatsheet.com/ -->
 
+## Terms & Definitions
+
+| Term | Definition |
+|-- |-- |
+| **Bucket** | An element in the internal array used by a hash table. |
+| **Chaining** | A strategy to handle collisions where each element of a hash table's internal array serves as the head of a linked list.  This allows the same bucket to store multiple items.
+| **Clustering** | When multiple elements are mapped to the same bucket in a hash table |
+| **Collision** | When two keys are mapped to the same bucket in a hash table. |
+| **Double Hashing** | A strategy to handle collisions in a hash table where a secondary hash function is used when a collision occurs. |
+| **Hash Function** | A function used in a hash table to determine where to place an item into the internal array |
+| **Heuristic** | Any approach to problem solving or self-discovery that employs a practical method, not guaranteed to be optimal, perfect, or rational, but works well in practice. |
+| **Linear Probing** | A strategy to handle collisions where if a collision occurs for the hash table to progress iteratively through the array until an empty element is encounterd |
+| **Load Factor** | The number of elements in a hash divided by the number of buckets.  A lower load factor generally leads to better time efficiency at the expense of memory usage |
+| **Quadratic Probing** | A strategy to handle collisions where if a collision occurs, a function is applied to determine the next index to attempt to place the item.  |
+
+
 ## Resources
 
 - [Basecs on Hash Tables: Taking Hash Tables Off The Shelf](https://medium.com/basecs/taking-hash-tables-off-the-shelf-139cbf4752f0)
