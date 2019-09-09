@@ -288,6 +288,8 @@ We have looked, at a high-level, at a variety of data structures which we will e
 
 ![Big O Cheatsheet](images/big-o-cheatsheet-image.png)
 
+<!-- Big o Chetsheet image -->
+
 ## Terms
 
 | Term | Definition |
