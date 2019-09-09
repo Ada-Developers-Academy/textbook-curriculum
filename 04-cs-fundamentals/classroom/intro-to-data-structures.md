@@ -33,7 +33,9 @@ Some data structures could be _implemented using other data strucutres_. For exa
 
 ## Summary
 
+We have looked, at a high-level, at a variety of data structures which we will examine in the course of CS Fundamentals.  
 
 ## Resources
 
 - [Basecs on Data Structures](https://medium.com/basecs/tagged/data-structures)
+- [MIT Open Courseware Intro to Algorithms](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/)
