@@ -154,7 +154,7 @@ Stacks have the following standard methods:
 
 ![stack diagram](images/stack.png)
 
-Stacks are used widely in computer systems.  In fact when your programs crash you get a **stack trace** which is a list of methods on the stack when the exception was raised.
+Stacks are used widely in computer systems.  In fact when your programs crash you get a **stack trace** which is a list of methods on the stack when the exception was raised.  Another example is when you send a document to a printer to print collated.  In that case the last page is printed first, followed by the next-to-last etc.  Thus the information may be sent to the printer using a stack
 
 ## Queues
 
