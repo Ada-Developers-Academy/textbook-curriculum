@@ -21,7 +21,83 @@
 
 A common problem in Computer Science is managing large amounts of data and performing different operations on them. **Data Structures** provide different well-known ways to organize data. Each data structure follows its own set of rules on how the data should get organized. The study of data structures is to understand these rules. Alongside these governing rules, we are also looking to understand how different common operations like insert, delete and search work on each of these data structures and understand the average and worst case efficiency for the common operations. Knowledge of well-known data structures allows us come up with optimal designs to our real world, practical coding projects.
 
+How we structure and interact with our data can drastically affect the runtime of our software.  It is not unusual to go from operations taking minutes or hours to ones taking seconds by reorganizing the data structures used.  As a software developer it's important to learn how to select the appropriate data structure for the situation.
+
+## Arrays
+
+An array is our first data structure.  As [we have discussed](Arrays.md) arrays are a _homogenous_ data structure where each element can be accessed using a unique whole number known as an _index_.  Arrays are also allocated as a contigous block of memory.  This can be very helpful when saving data or loading data from other media.  Arrays are also a _static_ data structure where once allocated they cannot be dynamically resized.  If an array runs out of space, another array needs to be created and the data copied to the new array.  Similarly if not all elements allocated are being used, the developer is responsible for determining how to indicate unused elements.  Often unused elements are set to `nil` or 0.  
+
+Arrays have the following advantages:
+
+- Quick access to any element using an index number
+- Efficient operations when interacting with hardware as all elements are in a contigous block of memory
+- It is fast to add data to an array with unused elements
+
+On the other hand it can be quite expensive to delete elements from an array.
+
+### Deleting An Array Element
+
+To remove an element in the middle of an array, each element in a subsequent index must be shifted over one element.
+
+So to delete an element at a specific index in an array.
+
+```
+# traverse the array from index to the end
+while index < length - 1
+  # move each element one index to the left
+  array[index] = array[index+1]
+  index += 1
+end
+# reduce the length of the array
+length = length - 1
+```
+
+![delete array element](images/delete-array-element.png)
+
+This is an O(n) operation as the number of elements to shift depends on the length of the array.
+
+#### Array Deletion Alternative
+
+Consider the problem, you have an elementYou could, rather than shifting elements over instead use a convention to mark cells deleted.  Unfortunately this leaves the array _fragmented_ where items are no longer guaranteed to be adjacent and leads to longer search times.  Which method is best depends on the number of searches on the array and the number of deletions.
+
+### Inserting An Array Element
+
+Similarly inserting an element into a specific index requires first shifting elements one index right before inserting the element.
+
+```
+current_index = length -1
+
+while current_index > index_to_insert
+  array[current_index] = array[current_index - 1]
+  current_index -= 1
+end
+
+array[current_index] = new_value
+```
+
+![insert element at index](images/insert-array-element.png)
+
+<!-- Original images at:  https://drive.google.com/file/d/1tpencaf-NOr7_ED4v8Jx9SKjplL81Mh8/view?usp=sharing -->
+
+This depends on the array having adequate unused space at the end.  This requires O(n) time complexity.
+
+### Limitations of Arrays & Static Data Structures
+
+Arrays have a few limitations
+
+- Inserting and deleting elements is an expensive O(n) operation
+- You cannot add more elements than the size of the data structure
+
+So if:
+
+- The maximum size is unknown ahead of time
+- Insertions and deletions are common
+
+Then you are best to consider an alternative data structure.  
+
 ## Stacks
+
+
 
 ## Queues
 
@@ -48,6 +124,14 @@ Some data structures could be _implemented using other data strucutres_. For exa
 ## Summary
 
 We have looked, at a high-level, at a variety of data structures which we will examine in the course of CS Fundamentals.  
+
+## Terms
+
+| Term | Definition |
+|--- |--- |
+| Data Structure | A method of organizing, and managing information which enables efficient access and modification |
+| Array | A homogenous collection of elements each identified by an index number or key.  |
+| Linked List | |
 
 ## Resources
 
