@@ -39,3 +39,4 @@ We have looked, at a high-level, at a variety of data structures which we will e
 
 - [Basecs on Data Structures](https://medium.com/basecs/tagged/data-structures)
 - [MIT Open Courseware Intro to Algorithms](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/)
+- [Former slides used in this course](https://docs.google.com/presentation/d/11Xxhv2y1SJ-oBzrmzPuosB69MLxI2g23SA_eEgPIbws/edit#slide=id.p1)
