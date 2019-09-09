@@ -24,7 +24,7 @@
 ## Week 6
 1. [Intro to the web, HTTP and APIs](api-intro.md)
 1. [Consuming an API in Ruby](api-using-httparty.md)
-1. [APIs and Authorization](api-auth.md)
+1. [APIs and Authorization](api-authentication.md)
 1. [APIs and Testing](api-testing-vcr.md)
 1. [Sending Data to an API](api-post.md)
 1. [The MVC Pattern](mvc.md)
