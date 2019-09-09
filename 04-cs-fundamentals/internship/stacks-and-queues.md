@@ -314,6 +314,7 @@ Stacks and queues are standard computer science data structures.  They provide a
 ## Resources
 
 - [Geeks for Geeks on Queue Implementation with a circular array](https://www.geeksforgeeks.org/implementation-deque-using-circular-array/)
+- [Computer Science Animations, shows circular buffer in a queue](https://www.cs.usfca.edu/~galles/visualization/QueueArray.html)
 
 ## References
 
