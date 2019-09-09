@@ -95,6 +95,50 @@ So if:
 
 Then you are best to consider an alternative data structure.  
 
+For Arrays
+
+- Inserting or Deleting any node
+  - O(n)
+- Accessing an element by index
+  - O(1)
+- Finding an element in a sorted array
+  - O(log n)
+- Finding an element in an unsorted array
+  - O(n)
+
+## Linked Lists
+
+A linked list is a dynamic data structure.  In other words the size of the data structure can change throughout it's lifetime.  Because memory is allocated as needed, the memory is not contigous.  In other words the elements of a linked list will appear at different locations in memory.  
+
+Each element of the linked list is called a _node_.  Below is a Ruby implementation of a node for a singly linked list.  Each node object has data it is storing and a reference to the next node in the chain.  To find an item, you start with the first node and follow the chain of nodes until you find the data you are looking for or the next reference is `nil`.
+
+```ruby
+class ListNode
+  attr_reader :data
+  attr_accessor :next
+
+  def initialize(data, next = nil)
+    @data = data
+    @next = next
+  end
+end
+```
+
+![Linked List Diagram](images/linked-list.png)
+
+Examine the image above, notice that starting at the head, the linked list is a linear structure.  You have to start with the head and work through the nodes to find any particular element.  There is **no way** to jump to a specific node in constant time.  Finding any element is an O(n) operation.  On the other hand it is quick to create new nodes and add them to the list, because we do not need to shift elements over, like we did in arrays.
+
+What we have above is source code and an image of a _singly linked list_.  Each node links to the next node in the chain, but a variation is a _doubly linked list_ where nodes link to both the next and previous nodes in the chain.  Most implementations of Linked List implement doubly linked lists with a reference to the head and another to the tail, or rear, of the chain.  
+
+For Linked Lists
+
+- Inserting to the front or rear
+  - O(1)
+- Removing from the front or rear
+  - O(1)
+- Searching for an element
+  - O(n)
+
 ## Stacks
 
 
