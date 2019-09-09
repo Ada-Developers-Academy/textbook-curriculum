@@ -141,7 +141,20 @@ For Linked Lists
 
 ## Stacks
 
+A stack is an _Abstract Data Structure_ which is a data structure described by the methods it provides, not a specific implementation.  In other words an abstract data structure is a type of object which stores information and provides access with a specific set of behaviours, but can be implemented a variety of ways, which is hidden from the user.  Specifically a stack is a Last-In-First-Out (LIFO) data structure.  The last element inserted into a stack is the first element retrieved.  
 
+You can think of a stack like a stack of books.  You can add items to the top, and remove them from the top, but you cannot take an item from the bottom or middle.
+
+![stack of books](images/book-stack.jpg)
+
+Stacks have the following standard methods:
+
+- `push(e)` - This method takes in `e` and adds it to the top of the stack.
+- `pop()` - This method removes and returns the element at the top of the stack
+
+![stack diagram](images/stack.png)
+
+Stacks are used widely in computer systems.  In fact when your programs crash you get a **stack trace** which is a list of methods on the stack when the exception was raised.
 
 ## Queues
 
