@@ -286,6 +286,8 @@ Some data structures could be _implemented using other data strucutres_. For exa
 
 We have looked, at a high-level, at a variety of data structures which we will examine in the course of CS Fundamentals.  When selecting a data structure consider what operations you will need to do with the data.  Then look at the cost for each operation with possible data structures and use the resulting values to evaluate your options.
 
+![Big O Cheatsheet](images/big-o-cheatsheet-image.png)
+
 ## Terms
 
 | Term | Definition |
