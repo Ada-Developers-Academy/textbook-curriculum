@@ -16,7 +16,7 @@ By the end of this lesson you should be able to:
 
 ## Video Lecture & Lesson
 
-- [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e2a51fa2-290d-4049-9981-aac30038718e)
+- [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6dfc0f2a-8f7d-4fa6-be61-aac3003b4abf)
 - [Slide Deck](https://docs.google.com/presentation/d/1jUvHCeeqYVx_i8vHAfdGaGdkJEssEYZW1OBC2Heh44c/edit?usp=sharing)
 - Exercises
 
