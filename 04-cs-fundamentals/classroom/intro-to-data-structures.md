@@ -284,16 +284,23 @@ Some data structures could be _implemented using other data strucutres_. For exa
 
 ## Summary
 
-We have looked, at a high-level, at a variety of data structures which we will examine in the course of CS Fundamentals.  
+We have looked, at a high-level, at a variety of data structures which we will examine in the course of CS Fundamentals.  When selecting a data structure consider what operations you will need to do with the data.  Then look at the cost for each operation with possible data structures and use the resulting values to evaluate your options.
 
 ## Terms
 
 | Term | Definition |
 |--- |--- |
 | Data Structure | A method of organizing, and managing information which enables efficient access and modification |
+| Abstract Data Structure | A data structure described by the operations it can perform, not from a specific implementation |
 | Array | A homogenous collection of elements each identified by an index number or key.  |
 | Linked List | A data structure where each element will have a reference to the next node in the list. |
 | Doubly Linked List | A data structure where each element will have a reference to the next node in the list **and** the previous node in the list. |
+| Stack | A Last-In-First-Out abstract data structure.  |
+| Queue | A First-In-First-Out abstract data structure. |
+| Tree | A data structure which is a collection of nodes (starting at a root node), where each node is a data structure consisting of a value, together with a list of references to nodes (the "children"), with the constraints that no reference is duplicated, and none points directly or indirectly back to itself or a parent. |
+| Binary Search Tree | A type of tree in which each node has a maximum of two children (thus binary) and for each node any children on the left subtree are less than the current node and each node on the right subtree has a value greater than the current node. |
+| Heap | A binary tree data structure where each subtree either has the root larger than the children (max-heap) or smaller than the children (min-heap). |
+
 
 
 ## Resources
