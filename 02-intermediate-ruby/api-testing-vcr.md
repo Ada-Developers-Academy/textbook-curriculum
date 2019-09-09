@@ -154,7 +154,7 @@ Once the cassette file is created, how do we know that our tests are not still c
 Our process for testing with VCR is as follows:
 
 1. Configure VCR
-    - Add the VCR setup to your `spec_helper.rb`
+    - Add the VCR setup to your `test_helper.rb`
     - Ensure that any personal information or secrets are hidden using a filter
 
 1. Wrap test code that causes API calls in `VCR.use_cassette("name") do..end`
