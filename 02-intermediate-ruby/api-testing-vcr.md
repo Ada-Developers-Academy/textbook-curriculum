@@ -143,7 +143,7 @@ def get_location(search_term)
 end
 ```
 
-Once you run a test that uses VCR, you'll notice that there will be a file in the `specs/cassettes` folder with the name corresponding to the parameter provided in the `use_cassette` method.
+Once you run a test that uses VCR, you'll notice that there will be a file in the `test/cassettes` folder with the name corresponding to the parameter provided in the `use_cassette` method.
 
 If you expect the response data to change, _**you** must delete the cassette file._
 
