@@ -46,8 +46,9 @@ At this point, the cassette can read in and play back messages and responses as 
 
 All our example [testing setup](https://github.com/AdaGold/api-testing) can be found in AdaGold.
 
-    In your `spec_helper.rb` file, add the following code:
+    In your `test_helper.rb` file, add the following code:
 ```ruby
+  
 require "minitest/autorun"
 require "minitest/reporters"
 require "vcr"
@@ -60,7 +61,7 @@ require_relative "../lib/location_search"
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 VCR.configure do |config|
-  config.cassette_library_dir = "specs/cassettes" # folder where casettes will be located
+  config.cassette_library_dir = "test/cassettes" # folder where casettes will be located
   config.hook_into :webmock # tie into this other tool called webmock
   config.default_cassette_options = {
     :record => :new_episodes,    # record new data when we don't have it yet
@@ -75,7 +76,7 @@ end
 
     The last section, beginning with `config.filter_sensitive_data`, tells VCR not to put your token into the cassette file, instead replacing it with the string `"<LOCATIONIQ_TOKEN>"`. That way when the cassettes end up in your git repo, you won't be exposing your secrets to the world. You'll need a separate call to `config.filter_sensitive_data` for every piece of data you want to omit from your cassettes.
 
-    Cassette files usually should be checked into git as they fill a similar role to spec files.
+    Cassette files usually should be checked into git as they fill a similar role to test files.
 
 1. **Tests**
 
