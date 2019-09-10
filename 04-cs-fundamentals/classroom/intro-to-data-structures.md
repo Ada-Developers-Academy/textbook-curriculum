@@ -13,8 +13,7 @@
 ## Video Lesson & Notes
 
 - [Video Lesson]()
-- [Slide Deck Used in Video]()
-- [Class Exercises]()
+- [Slide Deck Used in Video](https://docs.google.com/presentation/d/1b4XjEN8zGv5HDCni9-1pVKj8YfWNFdAsRzOQrzqv-hA/edit?usp=sharing)
 
 
 ## Study of data structures - What and Why
