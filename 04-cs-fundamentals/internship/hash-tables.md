@@ -316,3 +316,4 @@ There are many ways to structure a hash table.  One of the most common is simple
 - [Basecs: Hashing Out Hash Tables](https://medium.com/basecs/hashing-out-hash-functions-ea5dd8beb4dd)
 - [How the Hash works in Ruby](https://launchschool.com/blog/how-the-hash-works-in-ruby#targetText=Conclusion,in%20Java%2C%20Python%20or%20Ruby)
 - [Hackerearth and hash tables](https://www.hackerearth.com/practice/data-structures/hash-tables/basics-of-hash-tables/tutorial/targetText=A%20hash%20table%20is%20a,function,%20hashing%20can%20work%20well.)
+- [Visualizations of Hash Tables](https://visualgo.net/en/hashtable)
