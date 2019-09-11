@@ -26,7 +26,7 @@ puts people.length
 # a new element.
 people.push('Maryam')
 
-# .pop is a command. It removes and returns the first
+# .pop is a command. It removes and returns the last
 # element in the array. Even though it has a return value,
 # changing the array makes it a command.
 first_person = people.pop
