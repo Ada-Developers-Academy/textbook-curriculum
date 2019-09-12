@@ -130,7 +130,7 @@ All general-purpose hashing functions will encounter collisions.  When two keys 
 
 The first solution, as we discussed in the classroom portion of Ada, is to make each bucket of the hash table's internal array the head of a linked list.  Linked lists are quick to insert and remove items O(1) and can store an arbitrary number of elements.  Unfortunately if there are a high number of items in the same bucket, finding an element starts to approach O(n).  However if the hashing function does a good job of spreading elements out over different buckets the linked lists will be small and the time to search for an item in the hash table approaches O(1).  
 
-![Chaining](../classroom/images/example-hash.png)
+![Chaining](../classroom/images/Example-hash.png)
 
 ### Linear Probing
 
