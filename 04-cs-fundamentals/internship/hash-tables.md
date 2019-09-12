@@ -150,7 +150,7 @@ Quadratic probing is very similar to linear probing in that when inserting an el
 
 **Example**
 
-For example on the `i<sup>th</sup>` attempt to find an empty bucket, the formula to determine the next index to check could be:
+For example on the `ith` attempt to find an empty bucket, the formula to determine the next index to check could be:
 
 h(k, i) = (h(k) + i + i<sup>2</sup>) mod m
 
