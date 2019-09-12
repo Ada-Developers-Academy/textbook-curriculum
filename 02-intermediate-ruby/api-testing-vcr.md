@@ -46,7 +46,7 @@ At this point, the cassette can read in and play back messages and responses as 
 
 All our example [testing setup](https://github.com/AdaGold/api-testing) can be found in AdaGold.
 
-    In your `test_helper.rb` file, add the following code:
+    In your `test_helper.rb` file, you should see the following code:
 ```ruby
   
 require "minitest/autorun"
