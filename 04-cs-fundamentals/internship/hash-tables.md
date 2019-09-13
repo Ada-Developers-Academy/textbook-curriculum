@@ -122,6 +122,8 @@ There are **many** different ways to write a hash function.  There is not a math
 
 [Ruby uses the MurmurHash](https://sites.google.com/site/murmurhash/) hashing function internally.
 
+There was a time when Ruby used the **exact** same hash for every instance of running Ruby.  Then someone exploited a series of keys designed to result in a collision with each insertion into a hash.  This was used in a [denial of service](https://www.ruby-lang.org/en/news/2011/12/28/denial-of-service-attack-was-found-for-rubys-hash-algorithm-cve-2011-4815/) attack on Ruby on Rails.  There is another article on [Ars Technica](https://arstechnica.com/information-technology/2011/12/huge-portions-of-web-vulnerable-to-hashing-denial-of-service-attack/)
+
 ## Collision Handling
 
 All general-purpose hashing functions will encounter collisions.  When two keys are mapped to the same bucket something has to happen to manage it.  We will look at three methods: chaining, linear probing, quadratic probing and rehashing.
