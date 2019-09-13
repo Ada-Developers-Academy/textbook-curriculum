@@ -29,11 +29,11 @@ Consider if the root is at index 0, the left child could be at index 1, and righ
 `left_child = i * 2 + 1`
 `right_child = i * 2 + 2`
 
-So this heap in array format would be:
+So this heap:
 
 ![Heap Diagram](images/heap.png)
 
-Array format:
+In Array format:
 
 ![Heap as an Array](images/heap-as-array.png)
 
