@@ -16,6 +16,12 @@ On the other hand this is **not** a Max-Heap.  Notice that 47 on the bottom leve
 
 ![Invalid Max-Heap](images/invalid-max-heap.png)
 
+This is also **not** a Max-Heap.  The last level is not full from left-to-right.  The 20 should be the left-child of 35.
+
+![Another Invalid Max-Heap](images/invalid-max-heap2.png)
+
+
+
 ## Implementation
 
 ## Uses for Heaps
