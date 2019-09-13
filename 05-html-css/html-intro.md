@@ -19,9 +19,9 @@ HTML is not concerned about how the content *looks*. That job is left to CSS, wh
 ![Web Developer Chrome Extension](imgs/web_developer.png)
 After you add it, click on the extension's icon (it looks like a gear). A box will popup, click on the CSS tab towards the top left. Then click 'Disable All Styles' to disable CSS on any site your heart desires 💛. Have fun!
 
-You should be able to now observe what a site looks like with only its content. What do you notice? What does it look like? What is the typography? What are the sizes of things? Do some things go from top to bottom? Do some things fit next to each other from left to right?
+Browsers apply default styles even for plain HTML with no definition for appearance. Select 'Disable Browser Default Styles' to disable that as well to get a real view of what HTML by itself looks like.
 
-Browsers apply default styles even for plain HTML with no definition for appearance. We'll do our best to ignore those default styles for this intro to HTML.
+You should be able to now observe what a site looks like with only its content. What do you notice? What does it look like? What is the typography? What are the sizes of things? Do some things go from top to bottom? Do some things fit next to each other from left to right?
 
 The best HTML creates a logical and readable document without any styles.
 
