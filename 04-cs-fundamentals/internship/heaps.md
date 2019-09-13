@@ -20,9 +20,60 @@ This is also **not** a Max-Heap.  The last level is not full from left-to-right.
 
 ![Another Invalid Max-Heap](images/invalid-max-heap2.png)
 
-
-
 ## Implementation
+
+While you **can** implement a heap with linked TreeNode objects, it can be **much** easier to implement a heap with an array.
+
+Consider if the root is at index 0, the left child could be at index 1, and right index 2.  The child of index 1 would be at index 3 and 4 while the children of index 2 are at 5 and 6... we could write a formula to find the children of a node at index _i_.
+
+`left_child = i * 2 + 1`
+`right_child = i * 2 + 2`
+
+So this heap in array format would be:
+
+![Heap Diagram](images/heap.png)
+
+Array format:
+
+![Heap as an Array](images/heap-as-array.png)
+
+### Adding An Element
+
+To add an element to a heap, you place it into the end of the array (or the next logical leaf).  Then you do a heap-up operation comparing the new node to it's parent and swapping them if they are out of order.  Then, if a swap occured repeat the operation using the new node's updated location.
+
+Below is an example of adding a node to a heap.
+
+![heap-up diagram](images/heap-up.png)
+
+When finished the heap could look like this.
+
+![Heap-up finished diagram](images/add-element-finished.png)
+
+Pictured with an array it would look like this:
+
+![heap-up with an array](images/heap-up-array.png)
+
+The add method would look like this:
+
+```ruby
+# This heap is sorted by key-value pairs
+def add(key, value)
+  @store << HeapNode.new(key, value)
+
+  # Compare the new node with it's parent
+  # If they are out of order swap and heap-up
+  # using the parent's index number.
+  heap_up(@store.length - 1)
+end
+```
+
+**Exercise** Write pseudocode for the heap-up method using an array implementation for a heap.  Then compare your steps with your neighbor.
+
+#### Add Node Time Complexity
+
+Adding a value to the end of the array is an O(1) operation.  Performing the heap-up operation will at worst-case perform 1 swap per level of the heap.  Since there are `Log n` levels to the heap, then adding a node is a O(log n) operation.
+
+
 
 ## Uses for Heaps
 
