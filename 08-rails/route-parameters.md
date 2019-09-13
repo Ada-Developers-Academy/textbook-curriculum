@@ -12,7 +12,10 @@ We've already built a route, controller action and view for our `/books` resourc
 
 **Question:** What should the URL for this page be?
 
+<details>
+<summary>Answer</summary>
 The pattern followed in most web applications is to use the URL `/books/number`, where `number` is the ID of the book we're interested in. However, using what we know so far, to do that we would need to define a separate route for each book. This is where route parameters come in.
+</details>
 
 A route parameter is similar to a method parameter, in that part of the path is left unspecified, and is filled in when the route is used. In this case, it will be whatever ID the user types into their address bar. Inside our controller action we'll be able to use that ID to find the book we need.
 
