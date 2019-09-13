@@ -6,11 +6,9 @@ def frequency_sort(s)
     
   max_count = 0
     
-  letter_strings = {}
+  letter_strings = Hash.new("")
   counts.each do |letter, count|
-    letter_strings[count] ||= ""
-    letter_strings[count] << letter * count
-    max_count = count if count > max_count
+    letter_strings[count] += letter * count
   end
   
   answer = max_count.downto(1).reduce("") do |string, num|
