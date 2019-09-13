@@ -86,7 +86,7 @@ def remove
   if @store.empty?
     return nil
   end
-  
+
   swap(0, @store.last - 1)
   result = @store.pop
 
@@ -94,6 +94,14 @@ def remove
   # implemented here
   heap_down(0)
   return result
+end
+
+private
+
+def swap(index_1, index_2)
+  temp = @store[index_1]
+  @store[index_1] = @store[index_2]
+  @store[index_2] = @store[index_1]
 end
 ```
 
