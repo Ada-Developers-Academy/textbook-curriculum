@@ -109,6 +109,7 @@ end
 
 ## Uses for Heaps
 
+There are a number of practical uses for heaps in programming.  We will take a brief look at three.
 
 ### Priority Queues
 
