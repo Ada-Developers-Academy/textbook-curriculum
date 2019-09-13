@@ -83,13 +83,17 @@ So removing a node could be done with:
 ```ruby
 
 def remove
+  if @store.empty?
+    return nil
+  end
+  
   swap(0, @store.last - 1)
+  result = @store.pop
 
   # heap_down is specifically not
   # implemented here
   heap_down(0)
-
-  @store.pop
+  return result
 end
 ```
 
