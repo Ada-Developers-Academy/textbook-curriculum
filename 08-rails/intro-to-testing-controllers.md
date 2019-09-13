@@ -42,6 +42,11 @@ must_redirect_to controller: 'post', action: 'index'
 ```
 
 **Question:**  What is one example of a controller action that commonly redirects the user?
+<details>
+<summary>Answer</summary>
+
+  One possible answer is submitting a form such as a login page, or after filling in  your credit card information for a purchase.
+</details>
 
 ## Testing the `index` action
 
