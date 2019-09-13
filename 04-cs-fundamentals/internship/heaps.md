@@ -78,8 +78,6 @@ Adding a value to the end of the array is an O(1) operation.  Performing the hea
 
 Removing an element in some way works in the opposite manner of adding an element.  To remove an element you can swap the last leaf with the root.  Then and then compare the new root with it's children and swap to maintain the heap order in an operation called heap-down.  The heap down operation is repeated until a leaf node is reached or no swaps are made.
 
-<!-- TODO ADD IMAGES -->
-
 1. First swap the last leaf & the root node
 
 ![Initial swap for remove](images/heap-remove-1.png)
