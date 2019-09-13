@@ -8,7 +8,7 @@ Controller tests are all about how your website responds to the user. This inclu
 - Understand what sort of functionality ought to be covered by a controller test for the `index` action
 
 ## Controller Testing Tools
-Controller tests are all about verifying all the pieces of a Rails application work together for realistic user workflows. This means we need to be able to send requests from our tests, and to check the responses. To do this, we need a bit of extra testing infrastructure.
+Controller tests are all about verifying all the pieces of a Rails application work together for realistic user workflows. We can find our tests in `<project-name>/test/controllers`. In order for our tests to replicate real-world conditions, we need to be able to send requests from our tests, and to check the responses. To do this, we need a bit of extra testing infrastructure.
 
 There are several helper methods that let us send requests from our controller tests. They look like this:
 
