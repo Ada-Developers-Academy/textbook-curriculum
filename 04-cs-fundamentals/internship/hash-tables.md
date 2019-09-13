@@ -5,7 +5,7 @@
 By the end of this lesson you should be able to:
 
 - Explain the uses of a **hash table**
-- Explain the concept of a hashing function and the criteria for a good hashing function
+- Explain the concept of a **hashing function** and the criteria for a good hashing function
 - Explain the concept of a Collision and Collision handling schemes including:
   - _linear probing_
   - _separate chaining_
