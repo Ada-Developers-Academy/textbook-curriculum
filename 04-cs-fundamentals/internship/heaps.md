@@ -63,19 +63,40 @@ def add(key, value)
   # Compare the new node with it's parent
   # If they are out of order swap and heap-up
   # using the parent's index number.
+  # Implementation not shown purposefully.
   heap_up(@store.length - 1)
 end
 ```
 
-**Exercise** Write pseudocode for the heap-up method using an array implementation for a heap.  Then compare your steps with your neighbor.
+**Exercise:** Write pseudocode for the heap-up method using an array implementation for a heap.  Then compare your steps with your neighbor.
 
 #### Add Node Time Complexity
 
 Adding a value to the end of the array is an O(1) operation.  Performing the heap-up operation will at worst-case perform 1 swap per level of the heap.  Since there are `Log n` levels to the heap, then adding a node is a O(log n) operation.
 
+### Removing An Element
 
+Removing an element in some way works in the opposite manner of adding an element.  To remove an element you can swap the last leaf with the root.  Then and then compare the new root with it's children and swap to maintain the heap order in an operation called heap-down.  The heap down operation is repeated until a leaf node is reached or no swaps are made.
+
+So removing a node could be done with:
+
+```ruby
+
+def remove
+  swap(0, @store.last - 1)
+
+  # heap_down is specifically not
+  # implemented here
+  heap_down(0)
+
+  @store.pop
+end
+```
+
+**Exercise:** Write pseudocode to implement the heap_down operation.  Note that you will need to verify that you may swap all the way down to a leaf node.
 
 ## Uses for Heaps
+
 
 ### Priority Queues
 
