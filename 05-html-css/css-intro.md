@@ -28,11 +28,12 @@ selector {
 ```
 - **selector**: *what* you want to change
 - **property**: *what part* you want to change
-- **value**: is *how* you want to change it.
+- **value**: *how* you want to change it
 
 The **declaration** is the property and value combined. The **rule-set** is the entire selector with the entire declaration block.
 
-Example:
+Let's look at an example:
+
 ```css
 h1 {
   color: orange;
@@ -51,7 +52,7 @@ The following is also true:
   - What determines what **properties** we can change with CSS? The available properties that will work on any given element is determined by W3C.
   - What determines the **values** for each property that we are styling? The valid values and the syntax for how to declare them is different based on each property.
 
-**Exercise:** What does the above code do?
+**Exercise:** What does the above CSS example do?
 
 <details>
 
