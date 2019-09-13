@@ -129,6 +129,12 @@ So how does this compare?  Well adding the elements to a heap, and then placing 
 
 We will later look at [Dijkstra’s algorithm](https://brilliant.org/wiki/dijkstras-short-path-finder/) to find the shortest path in a weighted graph from a starting node to all other points in a graph.
 
+## Summary
+
+Heaps are a data structure to maintain elements in order.  They can be diagramed as a complete tree, but are often implemented as an array.  Each array element can represent one node in a binary tree.  
+
+Adding a node involves placing a node in the next available leaf node and then conducting a series of swaps with it's parent until heap order is achieved.  Removing an element involves swapping the last leaf with the root of the heap, and then swapping the updated root with it's children until a valid heap realtionship is established.  
+
 ## Resources
 
 - [Basecs on Heaps](https://medium.com/basecs/learning-to-love-heaps-cef2b273a238)
