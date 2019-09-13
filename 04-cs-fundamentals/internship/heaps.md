@@ -53,6 +53,17 @@ Pictured with an array it would look like this:
 
 ![heap-up with an array](images/heap-up-array.png)
 
+Looking at it as an array:
+
+![heap up with an array 1](images/heap-down-array-1.png)
+
+![heap up with an array 2](images/heap-down-array-2.png)
+
+With the result:
+
+![heap up with an array 3](images/heap-down-array-3.png)
+
+
 The add method would look like this:
 
 ```ruby
