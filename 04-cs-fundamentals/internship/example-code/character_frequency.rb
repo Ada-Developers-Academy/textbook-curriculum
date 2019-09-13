@@ -1,5 +1,5 @@
 def frequency_sort(s)
-  counts = s.chars.reduce( Hash.new(0) ) do | hash, character|
+  counts = s.chars.reduce(Hash.new(0)) do |hash, character|
     hash[character] += 1
     hash
   end
