@@ -298,7 +298,7 @@ There are many ways to structure a hash table.  One of the most common is simple
 
 | Term | Definition |
 |-- |-- |
-| **Bucket** | An element in the internal array used by a hash table. |
+| **Bucket** | An space in the internal array used by a hash table. |
 | **Clustering** | When multiple elements are mapped to the same bucket in a hash table |
 | **Collision** | When two keys are mapped to the same bucket in a hash table. |
 | **Double Hashing** | A strategy to handle collisions in a hash table where a secondary hash function is used when a collision occurs. |
