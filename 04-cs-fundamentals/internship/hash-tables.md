@@ -28,7 +28,7 @@ In practical programming we often spend much more time looking data up in a data
 
 The systems could use an array to store the data with Log<sub>2</sub>(n) retrieval times, or a binary search tree of the data, but in that case for `m` lookups and a universe of `n` products it would take O(mlog<sub>2</sub>n) to complete a transation.  It would be better to reduce the lookup time to a constant and the entire transaction to O(m).
 
-This is where hash tables come in.  Hash tables reduce lookup times to O(1) or constant time.  They do this by trading space complexity for time complexity.
+This is where hash tables come in.  Hash tables reduce lookup times to O(1) or constant time.  They do this by trading space complexity for time complexity.  This is a light trade-off since the increased space complexity is linear, O(n).
 
 ## Hash Table Overview
 
