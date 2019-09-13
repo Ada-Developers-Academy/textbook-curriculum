@@ -12,7 +12,7 @@ Below is a drawing of a Max-Heap.
 
 <!-- Image source:  https://drive.google.com/file/d/17cH7vfyZg-PFlULi-bO2K4H61oc4pCDT/view?usp=sharing -->
 
-On the other hand this is **not** a Max-Heap.  
+On the other hand this is **not** a Max-Heap.  Notice that 47 on the bottom level is greater than 25, it's parent.
 
 ![Invalid Max-Heap](images/invalid-max-heap.png)
 
