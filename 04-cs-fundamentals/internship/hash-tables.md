@@ -5,8 +5,8 @@
 By the end of this lesson you should be able to:
 
 - Explain the uses of a **hash table**
-- Explain the concept of a hashing function and the criteria for a good hashing function
-- Explain the concept of a Collision and Collision handling schemes including:
+- Explain the concept of a **hashing function** and the criteria for a good hashing function
+- Explain the concept of a **collision** and **collision handling schemes** including:
   - _linear probing_
   - _separate chaining_
   - _quadratic probing_
@@ -26,7 +26,7 @@ In practical programming we often spend much more time looking data up in a data
 
 ![cash register](images/cash-register.jpg)
 
-The systems could use an array to store the data with Log<sub>2</sub>(n) retrieval times, or a binary search tree of the data, but in that case for `m` lookups and a universe of `n` products it would take O(mlog<sub>2</sub>n) to complete a transation.  It would be better to reduce the lookup time to a constant and the entire transaction to O(m).
+The systems could use an array to store the data with log<sub>2</sub>(n) retrieval times, or a binary search tree of the data, but in that case for `m` lookups and a universe of `n` products it would take O(mlog<sub>2</sub>n) to complete a transation.  It would be better to reduce the _per product_ lookup time to a constant and the entire transaction to O(m).
 
 This is where hash tables come in.  Hash tables reduce lookup times to O(1) or constant time.  They do this by trading space complexity for time complexity.  This is a light trade-off since the increased space complexity is linear, O(n).
 
