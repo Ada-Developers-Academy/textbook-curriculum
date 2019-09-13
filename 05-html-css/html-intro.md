@@ -162,10 +162,10 @@ The syntax for self-closing tags is the same as normal HTML syntax, but:
 1. end the _opening tag_ with a `/>`
 2. omit the closing tag
 
-For example, to display an image, use the self-closing `img` tag. It uses the `src` attribute to find to the image's source.
+For example, to display an image, use the self-closing `img` tag. It uses the `src` attribute to determine the image's source. It uses the `alt` attribute to determine the image's alternative text to show up in cases when the image is unavailable.
 
 ```html
-<img src="/imgs/kittens_in_a_basket.jpg" />
+<img src="/imgs/kittens_in_a_basket.jpg" alt="Four kittens with orange fur and white paws in a wicker basket on a gingham blanket" />
 ```
 
 ### Commenting in an HTML Document
