@@ -26,7 +26,14 @@ This is also **not** a Max-Heap.  The last level is not full from left-to-right.
 
 ## Uses for Heaps
 
-## Heapsort
+### Priority Queues
+
+Once use for a heap is a _Priority Queue_.  A priority queue is an abstract data type, like a stack or a regular queue.  However with a queue items are added and removed in a first-in-first-out (FIFO) order.  Priority queues remove items with the highest priority items removed first.  By using a heap to implement a priority queue you can build a data structure to serve data by priority.  
+
+
+### 
+
+### Heapsort
 
 ## Resources
 
