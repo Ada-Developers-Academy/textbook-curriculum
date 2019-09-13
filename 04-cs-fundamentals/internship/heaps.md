@@ -80,6 +80,19 @@ Removing an element in some way works in the opposite manner of adding an elemen
 
 <!-- TODO ADD IMAGES -->
 
+1. First swap the last leaf & the root node
+
+![Initial swap for remove](images/heap-remove-1.png)
+
+2. Then heap-down the new root, to reestablish the heap property.
+
+![Initial swap for remove](images/heap-remove-2.png)
+
+3. Then you should have a new, slightly smaller heap.
+
+![Initial swap for remove](images/heap-remove-3.png)
+
+
 So removing a node could be done with:
 
 ```ruby
@@ -94,7 +107,8 @@ def remove
 
   # heap_down is specifically not
   # implemented here
-  heap_down(0)
+  # start heap_down with the root (index 0)
+  heap_down(0) unless @store.empty?
   return result
 end
 
