@@ -10,26 +10,37 @@ Oh my!
 
 ## What's an Attribute?
 
-Attributes appear inside the opening tag and their values sit inside quotation marks. They look something like:
+Attributes appear inside the opening tag and their values often sit inside double-quotation marks. They look something like:
 
 ```html
 <tag attribute="value">Content</tag>
 ```
 
-An element can have none, one or many attributes.
+- An element can have zero, one, or many attributes.
+- Multiple attributes are separated by a **space**.
+- There are many different attributes that exist. Many are specific to certain HTML elements. Do not worry about knowing them all now. You will pick them up as your learn new tags.
 
-A real-life example, the 'src' and 'alt' attributes inside of the `img` tag:
+Example: Here are the 'src' and 'alt' attributes inside of the `img` tag:
 
 ```html
 <img src="https://picsum.photos/300/?image=475" alt="Some Lovely Mountains">
 ```
 
-There are many different attributes that exist, some are specific to certain HTML elements. Do not worry about knowing them all now. You will pick them up as your learn new tags.
+## The `class` and `id` Attributes
 
-This lesson is going to focus on the attributes `class` and `id`.
+Turns out that you can add any kind of attribute-value pairs to any HTML tag. For example, you can write `<p apples="tacocat">`. However, the browser likely doesn't know by default what to do with `apples="tacocat"`.
 
-## Why Use Classes or IDs?
-Giving Elements an ID or class allows you to target specific elements to style, while providing a semantic, meaningful name to CSS rules.
+By default, browsers know how to read HTML and find any and all elements that have attributes either called `class` or `id`.
+
+CSS is _really_ good at looking for elements with a `class` attribute and reading their values... so much so, that it has shortcut syntax for it. Same with the `id` attribute: CSS is _really_ good at looking for elements with an `id` attribute-value pair.
+
+Because CSS is well-suited to find elements, when we create a CSS rule-set, for the **selector**, we not only use the element name, but we can also use the **the value/name of a class attribute** or **the value/name of an id attribute**.
+
+Each section should cover the following:
+
+1. What this attribute represents to us as developers
+1. How we use these attributes in HTML
+1. How we use these attributes as CSS selectors
 
 ## Classes
 
@@ -48,14 +59,61 @@ In CSS, to select the class, use a **period** before the class name as the selec
 }
 ```
 
-Classes are often used to define behavioral styles in addition to visual ones Examples of class names are: `tag`, `comment`, `toolbar-button`, `warning-message`, or `email`.
+What does this code do? It selects **every** element on the HTML page that has the **class** `page-title`, and it gives it a text color of gray and a text size of 2.5rem.
+
+More precisely, this CSS selects any element that has `class="page-title"`.
+
+<details>
+  <summary>
+    Note: Forgetting the period will break the CSS. Click here for an example.
+  </summary>
+
+  Read this CSS and determine what this does:
+
+  ```css
+  page-title {
+    color: gray;
+    font-size: 2.5rem;
+  }
+  ```
+
+  It selects **every** element on the HTML page that **is a `<page-title>` element**, and it gives it a text color of gray and a text size of 2.5rem. If you didn't know, the `<page-title>` element doesn't exist... so it's likely that this CSS rule-set does nothing.
+
+</details>
+
+### Elements with Multiple Classes
+
+HTML Elements can have multiple classes. To accomplish this, use the same class attribute and add a **space** in between the two class name values.
+
+```html
+<h1 class="page-title highlight">Hello World!</h1>
+```
+
+This `h1` element has two classes: one class is `page-title` and another is `highlight`.
+
+Continue to write CSS using the correct syntax for selecting classes, and both of these CSS rule-sets will apply to the element.
+
+```css
+.page-title {
+  font-family: helvetica;
+  font-size: 5rem;
+}
+
+.highlight {
+  background-color: yellow;
+}
+```
+
+### Details on Using Classes
+
+Classes are often used to define behavioral styles in addition to visual ones Examples of class names are: `tag`, `comment`, `toolbar-button`, `warning-message`, `category`, or `email`.
 
 - You can use the same class on multiple elements.
 - You can use multiple classes on the same element.
 
 ## IDs
 
-Use the ID when you have a single element on the page that will take the style.
+Use the ID when you have a single unique element on the page that will take a unique style.
 
 - Each element can have only one id
 - Each page can have only one element with that id
@@ -75,25 +133,75 @@ In your CSS, use an **octothorpe (#)** in front of the ID name as a selector for
 }
 ```
 
-## Elements with Multiple Classes
+This CSS rule-set selects all elements (hopefully just one element) that has the `id` of the value `home-page-title`.
 
-HTML Elements can have multiple classes. To accomplish this, use the same class attribute and add a **space** in between the two class name values.
+## Combining Classes and IDs
+
+An element can combine class and id attributes. Observe the following HTML and CSS code.
 
 ```html
-<h1 class="page-title highlight">Hello World!</h1>
+<p id="feature-text" class="recipe-description special-promotion">Lorem ipsum ...</p>
 ```
 
-Then, define your styles with CSS rule-sets exactly as you have already been.
 ```css
-.page-title {
-  font-family: helvetica;
-  font-size: 5rem;
+/* This selects all paragraph tags */
+p {
+  text-align: center;
 }
 
-.highlight {
-  background-color: yellow;
+/* This selects all elements with the id feature-text */
+#feature-text {
+  font-size: 2rem;
+}
+
+/* This selects all elements with the class recipe-description */
+.recipe-description {
+  color: #708090;
+}
+
+/* This selects all elements with the class special-promotion */
+.special-promotion {
+  background-color: #F6F293;
 }
 ```
+
+<details>
+  <summary>
+    Which CSS rule-sets apply to the HTML element defined above?
+  </summary>
+
+  All of them!
+</details>
+
+### Exercise
+
+Read the CSS below, and then create the HTML tag that will have all styles applied to it.
+
+```css
+a {
+  text-decoration: none;
+}
+
+.email-link {
+  color: orange;
+}
+
+#admin-email {
+  transform: rotate(20deg);
+}
+
+.info {
+  font-family: serif;
+}
+```
+
+<details>
+  <summary>
+    Check your answer against ours
+  </summary>
+
+  `<a id="admin-email" class="email-link info" href="mailto:admin@whoknows.com">Some Link Text</a>`
+</details>
 
 ## 🔑 Key Takeaway
 
