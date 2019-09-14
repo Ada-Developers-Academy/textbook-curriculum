@@ -44,6 +44,8 @@ Each section should cover the following:
 
 Classes are useful when you have, or possibly will have in the future, more than one element that shares the same style.
 
+Our typical naming convention for classes is to use lower-kebab-case.
+
 ```html
 <h1 class="page-title">Hello World!</h1>
 ```
@@ -116,7 +118,7 @@ Use the ID when you have a single unique element on the page that will take a un
 - Each element can have only one id
 - Each page can have only one element with that id
 
-To give an element an ID, go inside of it's opening tag, add `id=` and, in quotes, give your custom ID
+To give an element an ID, go inside of it's opening tag, add `id=` and, in quotes, give your custom ID.
 
 ```html
 <h1 id="home-page-title">Hello World!</h1>
@@ -132,6 +134,8 @@ In your CSS, use an **octothorpe (#)** in front of the ID name as a selector for
 ```
 
 This CSS rule-set selects all elements (hopefully just one element) that has the `id` of the value `home-page-title`.
+
+The naming convention for IDs will vary wildly from team to team, so for now we will recommend lower-kebab-case or pascalCase.
 
 ## Combining Classes and IDs
 
