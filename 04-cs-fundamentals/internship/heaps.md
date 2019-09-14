@@ -61,17 +61,6 @@ Pictured with an array it would look like this:
 
 ![heap-up with an array](images/heap-up-array.png)
 
-Looking at it as an array:
-
-![heap up with an array 1](images/heap-down-array-1.png)
-
-![heap up with an array 2](images/heap-down-array-2.png)
-
-With the result:
-
-![heap up with an array 3](images/heap-down-array-3.png)
-
-
 The add method would look like this:
 
 ```ruby
@@ -113,7 +102,6 @@ Removing an element in some way works in the opposite manner of adding an elemen
 So removing a node could be done with:
 
 ```ruby
-
 def remove
   if @store.empty?
     return nil
@@ -137,6 +125,17 @@ def swap(index_1, index_2)
   @store[index_2] = @store[index_1]
 end
 ```
+
+Looking at it as an array:
+
+![heap up with an array 1](images/heap-down-array-1.png)
+
+![heap up with an array 2](images/heap-down-array-2.png)
+
+With the result:
+
+![heap up with an array 3](images/heap-down-array-3.png)
+
 
 **Exercise:** Write pseudocode to implement the heap_down operation.  Note that you will need to verify that you may swap all the way down to a leaf node.
 
