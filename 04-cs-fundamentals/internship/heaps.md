@@ -161,6 +161,10 @@ So how does this compare?  Well adding the elements to a heap, and then placing 
 
 We will later look at [Dijkstra’s algorithm](https://brilliant.org/wiki/dijkstras-short-path-finder/) to find the shortest path in a weighted graph from a starting node to all other points in a graph.
 
+## The System Heap
+
+When you allocate memory dynamically with `.new` or `malloc` in C, the operating system allocates the memory from something called [Heap Memory](https://www.geeksforgeeks.org/stack-vs-heap-memory-allocation/).  This is **not** the same as the heap data structure.  Instead it's considered a "heap" of memory like clothes in the laundry basket is a heap of clothes.  
+
 ## Summary
 
 Heaps are a data structure to maintain elements in order.  They can be diagramed as a complete tree, but are often implemented as an array.  Each array element can represent one node in a binary tree.  
