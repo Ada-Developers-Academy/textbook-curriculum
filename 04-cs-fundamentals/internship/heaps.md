@@ -47,7 +47,7 @@ In Array format:
 
 ### Adding An Element
 
-To add an element to a heap, you place it into the end of the array (or the next logical leaf).  Then you do a heap-up operation comparing the new node to it's parent and swapping them if they are out of order.  Then, if a swap occured repeat the operation using the new node's updated location.
+To add an element to a heap, you place it into the end of the array (or the next logical leaf).  Then you do a "heap-up" operation comparing the new node to its parent and swapping them if they are out of order.  Then, if a swap occurred repeat the operation using the new node's updated location.
 
 Below is an example of adding a node to a heap.
 
@@ -91,7 +91,7 @@ end
 
 #### Add Node Time Complexity
 
-Adding a value to the end of the array is an O(1) operation.  Performing the heap-up operation will at worst-case perform 1 swap per level of the heap.  Since there are `Log n` levels to the heap, then adding a node is a O(log n) operation.
+Adding a value to the end of the array is an O(1) operation (assuming the array is large enough).  Performing the heap-up operation will at worst-case perform 1 swap per level of the heap.  Since there are `Log n` levels to the heap, then adding a node is a O(log n) operation.
 
 ### Removing An Element
 
@@ -154,7 +154,7 @@ Since heaps allow you to extract elements in order.  You can use them to sort an
 
 With an array of `n` elements to perform Heapsort you can add the elements to the heap, an O(nlog n) operation.  Then you can remove the elements from the heap one-by-one placing them to the proper place in an array, also an O(nlog n) operation.
 
-It is possible to do this with O(1) space complexity using the original array to store the heap elements.
+It is possible to do this with O(1) space complexity using the original array to store the heap elements and a single temporary variable.
 
 So how does this compare?  Well adding the elements to a heap, and then placing them back in the array in order is O(nlog n + nlog n) = O(nlog n).  That's a pretty good sort.  On average it is not as fast as [QuickSort](https://www.geeksforgeeks.org/quick-sort/), but it has a **much** better worst-case time complexity, as QuickSort has a worst-case of O(n<sup>2</sup>).  It is also slower than [MergeSort](https://www.geeksforgeeks.org/merge-sort/), but has a better space complexity O(1) compared to O(n).  
 
