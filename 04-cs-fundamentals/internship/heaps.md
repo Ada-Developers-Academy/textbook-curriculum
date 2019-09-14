@@ -10,6 +10,10 @@ By the end of this lesson you should be able to:
 
 ## Video Lesson & Slides
 
+- [Video Lesson]()
+- [Slide Deck](https://docs.google.com/presentation/d/11iEBrOn8HyXXaeYQLzilXt-k_qtxVtPJPgX3iHXEvso/edit#slide=id.p)
+- [Heap Exercise](https://github.com/ada-c11/heaps)
+
 ## Introduction
 
 In this lesson we will introduce a new data structure, a heap!  Heaps are a great way to store information in a semi-order.  Essentially if you have a collection of data that you can sort or compare, you can add it to a heap.  A heap maintains a [complete binary tree](https://web.cecs.pdx.edu/~sheard/course/Cs163/Doc/FullvsComplete.html).  In a complete binary tree each level is full except the last, and the last level is filled from left-to-right.  Further, in a heap each parent has a specific order-relationship with it's chilren.  In a Min-Heap every parent node is less than it's child nodes.  In a max-heap, every parent node is greater than it's parent nodes.
