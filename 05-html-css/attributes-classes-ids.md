@@ -200,6 +200,12 @@ a {
     Check your answer against ours
   </summary>
 
+  Your HTML may look like this (and might not include the `href` attribute or the "Some Link Text").
+
+  The order of attributes does not matter.
+
+  In this case, the order of classes does not matter.
+
   `<a id="admin-email" class="email-link info" href="mailto:admin@whoknows.com">Some Link Text</a>`
 </details>
 
