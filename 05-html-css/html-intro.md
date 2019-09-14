@@ -36,7 +36,14 @@ The best HTML creates a logical and readable document without any styles.
 
 ## HTML Syntax
 
+About our files:
+
 - We write HTML in files that have a `.html` extension
+- HTML files don't have a required or even standard naming convention, [but they have a few rules](https://www.lifewire.com/naming-html-files-3466503), and we will recommend sticking with kebab-case
+- At the moment, we don't have a recommended folder structure (no `lib` folder or anything)
+
+What goes inside the HTML files?
+
 - HTML files will have HTML **elements** that define the structure of the website content
 - HTML elements typically (though not always) do one of the following:
     - Contain the details of a single piece of website content
