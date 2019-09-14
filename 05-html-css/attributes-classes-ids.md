@@ -44,7 +44,7 @@ Each section should cover the following:
 
 Classes are useful when you have, or possibly will have in the future, more than one element that shares the same style.
 
-Our typical naming convention for classes is to use lower-kebab-case.
+Our typical naming convention for classes is to use kebab-case.
 
 ```html
 <h1 class="page-title">Hello World!</h1>
@@ -135,7 +135,7 @@ In your CSS, use an **octothorpe (#)** in front of the ID name as a selector for
 
 This CSS rule-set selects all elements (hopefully just one element) that has the `id` of the value `home-page-title`.
 
-The naming convention for IDs will vary wildly from team to team, so for now we will recommend lower-kebab-case or pascalCase.
+The naming convention for IDs will vary wildly from team to team, so for now we will recommend kebab-case or pascalCase.
 
 ## Combining Classes and IDs
 
