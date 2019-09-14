@@ -30,8 +30,6 @@ Example: Here are the 'src' and 'alt' attributes inside of the `img` tag:
 
 Turns out that you can add any kind of attribute-value pairs to any HTML tag. For example, you can write `<p apples="tacocat">`. However, the browser likely doesn't know by default what to do with `apples="tacocat"`.
 
-By default, browsers know how to read HTML and find any and all elements that have attributes either called `class` or `id`.
-
 CSS is _really_ good at looking for elements with a `class` attribute and reading their values... so much so, that it has shortcut syntax for it. Same with the `id` attribute: CSS is _really_ good at looking for elements with an `id` attribute-value pair.
 
 Because CSS is well-suited to find elements, when we create a CSS rule-set, for the **selector**, we not only use the element name, but we can also use the **the value/name of a class attribute** or **the value/name of an id attribute**.
