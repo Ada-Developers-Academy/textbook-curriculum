@@ -1,5 +1,13 @@
 # Heaps
 
+## Learning Goals
+
+By the end of this lesson you should be able to:
+
+- Describe a heap data structure
+- Explain how a heap data structure is maintained as elements are added and removed
+- Explain several use-cases for a heap
+
 ## Video Lesson & Slides
 
 ## Introduction
