@@ -39,7 +39,7 @@ In Array format:
 
 ### Adding An Element
 
-To add an element to a heap, you place it into the end of the array (or the next logical leaf).  Then you do a heap-up operation comparing the new node to it's parent and swapping them if they are out of order.  Then, if a swap occured repeat the operation using the new node's updated location.
+To add an element to a heap, you place it into the end of the array (or the next logical leaf).  Then you do a "heap-up" operation comparing the new node to its parent and swapping them if they are out of order.  Then, if a swap occurred repeat the operation using the new node's updated location.
 
 Below is an example of adding a node to a heap.
 
