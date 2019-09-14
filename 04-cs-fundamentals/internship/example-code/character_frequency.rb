@@ -1,12 +1,11 @@
-
 def frequency_sort(s)
   counts = s.chars.reduce(Hash.new(0)) do |hash, character|
     hash[character] += 1
     hash
   end
-    
+
   max_count = 0
-    
+
   letter_strings = Hash.new("")
   counts.each do |letter, count|
     letter_strings[count] += letter * count
@@ -14,9 +13,10 @@ def frequency_sort(s)
   end
 
   return max_count.downto(1).reduce("") do |string, num|
-    unless letter_strings[num].nil? 
-      string << letter_strings[num]
+    if letter_strings[num]
+      string + letter_strings[num]
+    else
+      string
     end
-    string
   end
 end
