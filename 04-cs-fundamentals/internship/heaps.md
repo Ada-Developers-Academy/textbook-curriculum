@@ -83,7 +83,7 @@ end
 
 #### Add Node Time Complexity
 
-Adding a value to the end of the array is an O(1) operation.  Performing the heap-up operation will at worst-case perform 1 swap per level of the heap.  Since there are `Log n` levels to the heap, then adding a node is a O(log n) operation.
+Adding a value to the end of the array is an O(1) operation (assuming the array is large enough).  Performing the heap-up operation will at worst-case perform 1 swap per level of the heap.  Since there are `Log n` levels to the heap, then adding a node is a O(log n) operation.
 
 ### Removing An Element
 
