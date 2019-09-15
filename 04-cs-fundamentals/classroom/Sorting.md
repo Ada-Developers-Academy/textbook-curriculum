@@ -194,11 +194,15 @@ end
 - ... and so on
 - *n-1* comparisons (worst case) to insert the last element
 
-Overall, this is *1 + 2 + 3 + ... + (n-1)* = *O(n^2)*
+Overall, this is *1 + 2 + 3 + ... + (n-1)* = *O(n<sup>2</sup>)*
 
-The insertion sort has a complexity of O(n^2). Unlike selection sort, insertion sort has a best case time complexity of O(n) when the items are already sorted. In other words, insertion sort runs in linear time on a nearly sorted list of elements.
+The insertion sort has a complexity of O(n<sup>2</sup>). Unlike selection sort, insertion sort has a best case time complexity of O(n) when the items are already sorted. In other words, insertion sort runs in linear time on a nearly sorted list of elements.
 
-#### Merge Sort
+## O(n<sup>2</sup>) Algorithms
+
+The sorting algorithms above have a time complexity of O(n<sup>2</sup>).  These algorithms are fine when the array length, *n*, is small, but quickly cease to be useful as the size of the array increases.  They **do** have the advantage of being relatively easy to implement and bubble sort and insertion sort can perform well in the best case, but they do not scale well.  This brings in an overview of our first fairly performant sorting algorithm **Merge Sort**.
+
+## Merge Sort
 
 Merge sort is a *divide-and-conquer* algorithm. It involves the following three stages:
 
