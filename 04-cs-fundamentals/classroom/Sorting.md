@@ -40,29 +40,59 @@ def bubble_sort(array, length)
 end
 ```
 
-**Example:** Consider the initial unsorted array [99, 45, 35, 40, 16, 50, 11, 7, 90]. Here's one iteration through the outer loop of the algorithm (i.e. while *i* is *0* and *j* ranges from *0* to *8*).</br>
-&nbsp;&nbsp;&nbsp;&nbsp;[**99, 45**, 35, 40, 16, 50, 11, 7, 90]</br>
-&nbsp;&nbsp;&nbsp;&nbsp;[45, **99, 35**, 40, 16, 50, 11, 7, 90]</br>
-&nbsp;&nbsp;&nbsp;&nbsp;[45, 35, **99, 40**, 16, 50, 11, 7, 90]</br>
-&nbsp;&nbsp;&nbsp;&nbsp;[45, 35, 40, **99, 16**, 50, 11, 7, 90]</br>
-&nbsp;&nbsp;&nbsp;&nbsp;[45, 35, 40, 16, **99, 50**, 11, 7, 90]</br>
-&nbsp;&nbsp;&nbsp;&nbsp;[45, 35, 40, 16, 50, **99, 11**, 7, 90]</br>
-&nbsp;&nbsp;&nbsp;&nbsp;[45, 35, 40, 16, 50, 11, **99, 7**, 90]</br>
-&nbsp;&nbsp;&nbsp;&nbsp;[45, 35, 40, 16, 50, 11, 7, **99, 90**]</br>
-&nbsp;&nbsp;&nbsp;&nbsp;[45, 35, 40, 16, 50, 11, 7, 90, 99]</br>
+**Example:** Consider the initial unsorted array [99, 45, 35, 40, 16, 50, 11, 7, 90]. Here's one iteration through the outer loop of the algorithm (i.e. while *i* is *0* and *j* ranges from *0* to *8*).
+
+1. [**99, 45**, 35, 40, 16, 50, 11, 7, 90]
+1. [45, **99, 35**, 40, 16, 50, 11, 7, 90]
+1. [45, 35, **99, 40**, 16, 50, 11, 7, 90]
+1. [45, 35, 40, **99, 16**, 50, 11, 7, 90]
+1. [45, 35, 40, 16, **99, 50**, 11, 7, 90]
+1. [45, 35, 40, 16, 50, **99, 11**, 7, 90]
+1. [45, 35, 40, 16, 50, 11, **99, 7**, 90]
+1. [45, 35, 40, 16, 50, 11, 7, **99, 90**]
+1. [45, 35, 40, 16, 50, 11, 7, 90, 99]
+
 As you can see, the largest element, 99 gets bubbled to the top. In subsequent iterations through the outer loop, the next largest values will get bubbled to the top the next i.e. *n-i-1* position with increasing values of *i*.
 
-**Analysis:** The time complexity of Bubble sort is *O(n^2)*
+**Analysis:** The time complexity of Bubble sort is *O(n<sup>2</sup>)*
 
 - The inner most swap conditional statement is *O(1)*
 - The inner loop runs *i* times i.e. *O(i)* time complexity
 - The outer loop runs from *i* = *0* to *n*
 
-Overall, the inner loop runs *n-1* times during the first iteration of the outer loop, *n-2* times during the second iteration through the outer loop, and so on. i.e. *n-1 + n-2 + n-3 + ... + 3 + 2 + 1* = *n(n-1)/2* = *O(n^2)* </br>
+Overall, the inner loop runs *n-1* times during the first iteration of the outer loop, *n-2* times during the second iteration through the outer loop, and so on. i.e. *n-1 + n-2 + n-3 + ... + 3 + 2 + 1* = *n(n-1)/2* = *O(n<sup>2</sup>)* 
+
 **Note 1**: The mathematical proof is out of scope for our discussion. For those curious, see [step 4 on wikihow](http://www.wikihow.com/Sum-the-Integers-from-1-to-N)</br>
 **Note 2**: The best case time complexity for Bubble sort can be improved to be *O(n)* (for already sorted arrays) by optimizing this algorithm. Read further on [GeeksForGeeks: Bubble Sort](http://www.geeksforgeeks.org/bubble-sort/)
 
-#### Selection Sort
+
+```ruby
+def bubble_sort(array, length)
+  i = 0
+  # If the inner loop runs with no swaps, exit
+  swapped = true
+  while i < length-1 && swapped # outer loop
+    j = 0
+    # Assume you won't have to make a swap
+    swapped = false
+    while j < length-i-1 # inner loop
+      if array[j] > array[j+1] # swap
+        temp = array[j]
+        array[j] = array[j+1]
+        array[j+1] = temp
+        # Since we just made a swap, set swapped to true
+        swapped = true
+      end
+      j += 1
+    end
+    i += 1
+  end
+end
+```
+
+This version of Bubble Sort will stop if the inner loop traverses the array without making any swaps.  So if the array is already sorted the inner loop will execute only 1 time before the method stops.
+
+## Selection Sort
 
 The selection sort works by selecting the smallest unsorted item remaining in the list, and then swapping it with the item in the next position to be filled.
 
