@@ -248,9 +248,11 @@ Overall, each level takes *O(n)* time. There are *O(log n)* such levels. Resulti
 
 Note: We will look closer at merge sort and its implementation when we discuss *Recursive algorithms* in the future.
 
+For small arrays insertion sort performs better than merge sort, but as the size of the array grows merge sort becomes much more performant.
+
 ## Summary
 
-- There are several sorting algorithms available. Whilst we reviewed four of them, you can learn more about the rest on [geeksforgeeks.org/sorting-algorithms/](http://www.geeksforgeeks.org/sorting-algorithms/)
+- There are several sorting algorithms available. Whilst we reviewed four of them, you can learn more about the others on [geeksforgeeks.org/sorting-algorithms/](http://www.geeksforgeeks.org/sorting-algorithms/)
 - Not all sorting algorithms are created equal. If the array size is relatively small, insertion sort works faster in practice than merge sort. For larger values of *n*, merge sort does much better than the other sorting algorithms we looked at. Watch this [sorting algorithms' comparison demo](https://www.youtube.com/watch?v=ZZuD6iUe3Pc) and this [visualization](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html)
 
 ## Terms
