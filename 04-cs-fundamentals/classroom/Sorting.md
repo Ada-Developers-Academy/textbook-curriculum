@@ -262,6 +262,9 @@ For small arrays insertion sort performs better than merge sort, but as the size
 | Sorting | Organizing a collection of elements into order. |
 | Internal Sorting | Sorting an entire array in memory. |
 | External Sorting | Sorting an array with part of the array on external storage, rather than internal memory. |
+| Recursive Algorithm | A method of solving a problem where the solution depends on solving smaller instances of the same problem.  This approach can be applied to many types of problems. |
+| Divide-And-Conquer Algorithm | A strategy of solving a big problem by breaking it into smaller more managable subproblems.  It can also lead to recursive solutions. |
+
 
 
 ## Resources
