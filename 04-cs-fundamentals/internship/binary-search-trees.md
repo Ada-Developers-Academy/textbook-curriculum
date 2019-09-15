@@ -276,7 +276,7 @@ For the above Binary Search Tree
   </summary>
     Pre-Order  [17, 14, 20, 19, 52]
     In-Order: [14, 17, 19, 20, 52]
-    Post-Order: [10, 19, 52, 20, 17]
+    Post-Order: [14, 19, 52, 20, 17]
 </details>
 
 ### Why Do Traversals
