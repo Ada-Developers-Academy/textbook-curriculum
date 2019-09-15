@@ -10,6 +10,12 @@ By the end of this lesson you should be able to:
   - Insertion sort
   - Merge sort
 
+## Video Lesson & Slides
+
+- [Video Lesson]()
+- [Slide Deck]()
+- [Sorting Exercise]()
+
 ## Introduction
 
 In our last lesson on [Arrays](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Arrays.md), we saw how having the data set sorted improved the algorithms we could use. e.g. **Finding an element with minimum or maximum value** went from a *O(n)* algorithm for unsorted array to an *O(1)* algorithm for a sorted array. Similarly, **binary search** which is possible on sorted data set is an *O(log n)* algorithm as compared to *O(n)* **linear search** algorithm. There are also other everday examples where we expect the data set to be sorted e.g. last names sorted from 'a' through 'z', words in a dictionary, test scores sorted in descending order, employee ids sorted in ascending order etc.
