@@ -2,7 +2,9 @@
 
 ## Learning Goals
 
-- Understand common sorting algorithms and their efficiency
+By the end of this lesson you should be able to:
+
+- Describe common sorting algorithms and their efficiency
   - Bubble sort
   - Selection sort
   - Insertion sort
@@ -192,6 +194,7 @@ Consider the two sub-arrays *[1, 2, 7, 8]* and *[3, 5, 6, 9]* in the final merge
 This two-way merging continues until there are no more sub-arrays and the orignal array is completely soorted. Finally, the auxiliary array gets linearly copied back to the original array.
 
 **Analysis:** The time complexity of merge sort is *(n log n)*. Let's look closer to understand this.
+
 - **Divide**: Finding the midway index is a straightforward computation (*midway index* = (*starting index* + *ending index*)/2). This takes constant time regardless of the subarray.
 - **Merge**: Merging a total of *n* elements takes *O(n)* time. If there are two sub-arrays of size *n/2* each, then we will compare one element from one sub-array with another element from the second sub-array and one of the two will get copied. This step will continue until all are copied, taking a total of *O(n)* time.
 - As the sub-problems get smaller, the number of sub-problems doubles at each level, but the merging time halves. The doubling and halving cancel each other out and so the merging takes *O(n)* time at each level of the merge steps (as seen in the image above). 
