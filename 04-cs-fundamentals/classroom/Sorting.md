@@ -130,17 +130,19 @@ end
 
 **Example:** Consider the initial unsorted array [99, 45, 35, 40, 16, 50, 11, 7, 90]. Here's what it looks like before and after each iteration of the outer loop.
 
-1. [**99**, 45, 35, 40, 16, 50, 11, **7**, 90]  *i=0; min_index=7*
-1. [7, **45**, 35, 40, 16, 50, **11**, 99, 90]  *i=1; min_index=6*
-1. [7, 11, **35**, 40, **16**, 50, 45, 99, 90] *i=2; min_index=4*
-1. [7, 11, 16, **40**, **35**, 50, 45, 99, 90] *i=3; min_index=4*
-1. [7, 11, 16, 35, **40**, 50, 45, 99, 90] *i=4; min_index=4*
-1. [7, 11, 16, 35, 40, **50**, **45**, 99, 90] *i=5; min_index=6*
-1. [7, 11, 16, 35, 40, 45, **50**, 99, 90]     *i=6; min_index=6*
-1. [7, 11, 16, 35, 40, 45, 50, **99**, **90**] *i=7; min_index=8*
-1. [7, 11, 16, 35, 40, 45, 50, 90, 99]  *sorting complete*
+| Iteration | Array | i | min_index
+|-- |-- |-- |-- |
+| 1. | [**99**, 45, 35, 40, 16, 50, 11, **7**, 90]  | *i=0* |  *min_index=7* |
+| 2. | [7, **45**, 35, 40, 16, 50, **11**, 99, 90] | *i=1* | min_index=6* |
+| 3. | [7, 11, **35**, 40, **16**, 50, 45, 99, 90] | *i=2* | *min_index=4* |
+| 4. | [7, 11, 16, **40**, **35**, 50, 45, 99, 90] | *i=3*  | *min_index=4* |
+| 5. | [7, 11, 16, 35, **40**, 50, 45, 99, 90] | *i=4* | *min_index=4* |
+| 6. | [7, 11, 16, 35, 40, **50**, **45**, 99, 90] | *i=5* | *min_index=6* |
+7. | [7, 11, 16, 35, 40, 45, **50**, 99, 90] |  *i=6* | *min_index=6* |
+8. | [7, 11, 16, 35, 40, 45, 50, **99**, **90**] | *i=7* | *min_index=8* |
+| 9. | [7, 11, 16, 35, 40, 45, 50, 90, 99] | *sorting complete* | |
 
-**Analysis:** The time complexity of Selection sort is *O(n^2)*. Each of the nested loops has an upper bound defined by the count of elements, *n* in the list to be sorted.
+**Analysis:** The time complexity of Selection sort is *O(n<sup>2</sup>)*. Each of the nested loops has an upper bound defined by the count of elements, *n* in the list to be sorted.
 
 ## Insertion Sort
 
