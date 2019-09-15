@@ -256,6 +256,55 @@ Note: We will look closer at merge sort and its implementation when we discuss *
 
 For small arrays insertion sort performs better than merge sort, but as the size of the array grows merge sort becomes much more performant.
 
+## Comparing Things Beyond Numbers
+
+Often we need to sort items which are not numeric.  How does one sort Student objects, or Slack Channels?  The answer is Ruby's Spaceship Operator `<=>`!
+
+The spaceship operator compares two objects `a <=> b` and returns
+
+- -1 if a < b
+- 0  if a == b
+- 1  if a > b
+
+When you make a class you can override the `def <=> (b)` method provided by Ruby's object class.  In the class below we overrode the inherited method.  If a student is being compared with a non-student object the method will use the student name and the String class' implementation of `<=>`.  If the other object is an instance of Student, then the method will return -1 if the current student's name comes earlier than `other_value`.  If they have the same name then the method will return 0 and if the current student comes later it will return 1.
+
+```ruby
+class Student
+  attr_reader :name, :grade
+
+  def initialize(name, grade)
+    @name = name
+    @grade = grade
+  end
+
+  def <=> (other_value)
+    if other_value.class != Student
+      return name <=> other_value
+    end
+
+    if name < other_value.name
+      return -1
+    elsif name == other_value.name
+      return 0
+    elsif name > other_value.name
+      return 1
+    end
+  end
+end
+```
+
+Then once this method exists you can sort a list of students by doing the following.
+
+```ruby
+list = [Student.new('Zane', 11), Student.new('Alice', 9), Student.new('Carmen', 12)]
+
+# reorders the list to:
+# Alice, Carmen, Zane
+list.sort!
+```
+
+While `<=>` is a **ruby specific** method, many languages have similar methods to compare different objects and arrange ordering.
+
 ## Summary
 
 - There are several sorting algorithms available. Whilst we reviewed four of them, you can learn more about the others on [geeksforgeeks.org/sorting-algorithms/](http://www.geeksforgeeks.org/sorting-algorithms/)
@@ -280,3 +329,4 @@ For small arrays insertion sort performs better than merge sort, but as the size
 - [Merge sort on Khan Academy](https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/divide-and-conquer-algorithms)
 - [Merge Sort Visual Analysis](https://www.youtube.com/watch?v=w4LRRn7GgqU)
 - [Eugene Wang's blog post on "Not all sort algorithms are created equal"](http://eewang.github.io/blog/2013/04/22/sort-algorithms/)
+- [Ruby - The Spaceship Operator 101](https://medium.com/@albert.s.chun/ruby-the-spaceship-operator-101-717b42566971)
