@@ -209,6 +209,7 @@ a {
   In this case, the order of classes does not matter.
 
   `<a id="admin-email" class="email-link info" href="mailto:admin@whoknows.com">Some Link Text</a>`
+  
 </details>
 
 ## 🔑 Key Takeaway
