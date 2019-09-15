@@ -260,6 +260,8 @@ For small arrays insertion sort performs better than merge sort, but as the size
 | Term | Definition
 |--- |--- |
 | Sorting | Organizing a collection of elements into order. |
+| Internal Sorting | Sorting an entire array in memory. |
+| External Sorting | Sorting an array with part of the array on external storage, rather than internal memory. |
 
 
 ## Resources
