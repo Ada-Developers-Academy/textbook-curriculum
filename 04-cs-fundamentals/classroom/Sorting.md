@@ -64,8 +64,8 @@ As you can see, the largest element, 99 gets bubbled to the top. In subsequent i
 
 Overall, the inner loop runs *n-1* times during the first iteration of the outer loop, *n-2* times during the second iteration through the outer loop, and so on. i.e. *n-1 + n-2 + n-3 + ... + 3 + 2 + 1* = *n(n-1)/2* = *O(n<sup>2</sup>)* 
 
-**Note 1**: The mathematical proof is out of scope for our discussion. For those curious, see [step 4 on wikihow](http://www.wikihow.com/Sum-the-Integers-from-1-to-N)</br>
-**Note 2**: The best case time complexity for Bubble sort can be improved to be *O(n)* (for already sorted arrays) by optimizing this algorithm. Read further on [GeeksForGeeks: Bubble Sort](http://www.geeksforgeeks.org/bubble-sort/)
+- **Note 1**: The mathematical proof is out of scope for our discussion. For those curious, see [step 4 on wikihow](http://www.wikihow.com/Sum-the-Integers-from-1-to-N)</br>
+- **Note 2**: The best case time complexity for Bubble sort can be improved to be *O(n)* (for already sorted arrays) by optimizing this algorithm as below.
 
 
 ```ruby
@@ -92,7 +92,7 @@ def bubble_sort(array, length)
 end
 ```
 
-This version of Bubble Sort will stop if the inner loop traverses the array without making any swaps.  So if the array is already sorted the inner loop will execute only 1 time before the method stops.
+This version of Bubble Sort will stop if the inner loop traverses the array without making any swaps.  So if the array is already sorted the inner loop will execute only 1 time before the method stops.  Read further on [GeeksForGeeks: Bubble Sort](http://www.geeksforgeeks.org/bubble-sort/)
 
 ## Selection Sort
 
