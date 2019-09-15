@@ -13,6 +13,7 @@ By the end of this lesson you should be able to:
 
 - [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=28f18a83-0f48-4350-a44e-aabc0138eb7d)
 - [Slides](https://docs.google.com/presentation/d/1aKqaO5q5gtuw31eGDvK47IleU5-XOCJKnbj4UjHmh9I/edit?usp=sharing)
+- [Stacks & Queues Exercise](https://github.com/Ada-C11/stacks-queues)
 
 ## Introduction
 
