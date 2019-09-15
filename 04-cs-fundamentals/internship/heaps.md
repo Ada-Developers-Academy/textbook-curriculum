@@ -10,7 +10,7 @@ By the end of this lesson you should be able to:
 
 ## Video Lesson & Slides
 
-- [Video Lesson]()
+- [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f431004b-8e00-442c-a7d3-aac9010f8654)
 - [Slide Deck](https://docs.google.com/presentation/d/11iEBrOn8HyXXaeYQLzilXt-k_qtxVtPJPgX3iHXEvso/edit#slide=id.p)
 - [Heap Exercise](https://github.com/ada-c11/heaps)
 
