@@ -94,10 +94,12 @@ This version of Bubble Sort will stop if the inner loop traverses the array with
 
 ## Selection Sort
 
-The selection sort works by selecting the smallest unsorted item remaining in the list, and then swapping it with the item in the next position to be filled.
+The selection sort works by selecting the smallest unsorted item in the list and swapping it with index 0, then finding the next smallest and placing it into index 1 and so on.
 
-The selection sort works as follows: you look through the entire array for the smallest element. Once you find it, you swap this smallest element found with the first element of the array. Then you look for the smallest element in the remaining array (the sub-array without the first element) and swap this element found with the second element. Then you look for the smallest element in the remaining array (the sub-array without the first and second elements) and swap that element with the third element, and so on. </br>
-Here's an example:</br>
+The selection sort works as follows: you look through the entire array for the smallest element. Once you find it, you swap this smallest element found with the first element of the array. Then you look for the smallest element in the remaining array (the sub-array without the first element) and swap this element found with the second element. Then you look for the smallest element in the remaining array (the sub-array without the first and second elements) and swap that element with the third element, and so on.
+
+Here's an example:
+
 ![Selection Sort Example](images/selection-sort.png)
 
 **Example implementation:**
@@ -124,21 +126,21 @@ def selection_sort(array, length)
 end
 ```
 
-**Example:** Consider the initial unsorted array [99, 45, 35, 40, 16, 50, 11, 7, 90]. Here's what it looks like before and after each iteration of the outer loop.</br>
+**Example:** Consider the initial unsorted array [99, 45, 35, 40, 16, 50, 11, 7, 90]. Here's what it looks like before and after each iteration of the outer loop.
 
-&nbsp;&nbsp;&nbsp;&nbsp;[**99**, 45, 35, 40, 16, 50, 11, **7**, 90]&nbsp;&nbsp;*i=0; min_index=7*</br>
-&nbsp;&nbsp;&nbsp;&nbsp;[7, **45**, 35, 40, 16, 50, **11**, 99, 90]&nbsp;&nbsp;*i=1; min_index=6*</br>
-&nbsp;&nbsp;&nbsp;&nbsp;[7, 11, **35**, 40, **16**, 50, 45, 99, 90]&nbsp;&nbsp;*i=2; min_index=4*</br>
-&nbsp;&nbsp;&nbsp;&nbsp;[7, 11, 16, **40**, **35**, 50, 45, 99, 90]&nbsp;&nbsp;*i=3; min_index=4*</br>
-&nbsp;&nbsp;&nbsp;&nbsp;[7, 11, 16, 35, **40**, 50, 45, 99, 90]&nbsp;&nbsp;*i=4; min_index=4*</br>
-&nbsp;&nbsp;&nbsp;&nbsp;[7, 11, 16, 35, 40, **50**, **45**, 99, 90]&nbsp;&nbsp;*i=5; min_index=6*</br>
-&nbsp;&nbsp;&nbsp;&nbsp;[7, 11, 16, 35, 40, 45, **50**, 99, 90]&nbsp;&nbsp;*i=6; min_index=6*</br>
-&nbsp;&nbsp;&nbsp;&nbsp;[7, 11, 16, 35, 40, 45, 50, **99**, **90**]&nbsp;&nbsp;*i=7; min_index=8*</br>
-&nbsp;&nbsp;&nbsp;&nbsp;[7, 11, 16, 35, 40, 45, 50, 90, 99]&nbsp;&nbsp;*sorting complete*</br>
+1. [**99**, 45, 35, 40, 16, 50, 11, **7**, 90]  *i=0; min_index=7*
+1. [7, **45**, 35, 40, 16, 50, **11**, 99, 90]  *i=1; min_index=6*
+1. [7, 11, **35**, 40, **16**, 50, 45, 99, 90] *i=2; min_index=4*
+1. [7, 11, 16, **40**, **35**, 50, 45, 99, 90] *i=3; min_index=4*
+1. [7, 11, 16, 35, **40**, 50, 45, 99, 90] *i=4; min_index=4*
+1. [7, 11, 16, 35, 40, **50**, **45**, 99, 90] *i=5; min_index=6*
+1. [7, 11, 16, 35, 40, 45, **50**, 99, 90]     *i=6; min_index=6*
+1. [7, 11, 16, 35, 40, 45, 50, **99**, **90**] *i=7; min_index=8*
+1. [7, 11, 16, 35, 40, 45, 50, 90, 99]  *sorting complete*
 
 **Analysis:** The time complexity of Selection sort is *O(n^2)*. Each of the nested loops has an upper bound defined by the count of elements, *n* in the list to be sorted.
 
-#### Insertion Sort
+## Insertion Sort
 
 The insertion sort algorithm works by inserting each item into its proper place to form the sorted list. The simplest implementation of this requires two list structures - the source list and the list into which sorted items are inserted. One entry is removed at a time and then each is inserted into a sorted part (initially empty). To save memory, most implementations use an in-place sort that works by moving the current item past the already sorted items and repeatedly swapping it with the preceding item until it is in place. </br>
 Here's an example:</br>
