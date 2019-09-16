@@ -251,6 +251,12 @@ There will be times you will want to create a form _without_ a model.  `form_wit
 <% end %>
 ```
 
+## Exercise:
+
+Discuss with your partner the steps that you would need to go through to get the `books#edit` and `books#update` routes working.
+
+**Hint:** Edit is a mix of two routes, whereas Update will be almost identical to an existing route.
+
 ## Note on `form_tag` and `form_for`
 
 Prior to Rails 5.1 Rails had two methods to generate forms in ERB:
