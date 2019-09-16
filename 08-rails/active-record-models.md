@@ -131,7 +131,7 @@ specific_book = Book.where(author: "Roxane Gay", title: "Bad Feminist")
 
 # use `not` to exclude values from results
 not_roxane = Book.where.not(author: "Roxane Gay")
-feminists_not_roxane = Book.where(title: "Feminism").where.not(author: "Roxane Gay")
+feminists_not_roxane = Book.where(title: "Feminist").where.not(author: "Roxane Gay")
 
 # we can use `where` to pull a bunch of records at once
 ids = [1,2,3]
