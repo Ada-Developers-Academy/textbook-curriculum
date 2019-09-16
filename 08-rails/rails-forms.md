@@ -206,13 +206,14 @@ end
 
 Submitting a form results in the form data being collected into the _params hash_. The structure of form data follows the same patterns as in other frameworks. This means we can leverage creative naming in the HTML (like `book[author]`) to create well structured objects in the _params hash_.
 
-If we submitted the `form_for` example above, the params hash would arrive in our _controller action_ looking something like:
+If we submitted the `form_with` example above, the params hash would arrive in our _controller action_ looking something like:
 
 ```ruby
   {
     book: {
-      author: "J.K. Rowling",
-      title: "Harry Potter and The Chamber of Secrets"
+      author: "Ann Leckie",
+      title: "The Raven Tower",
+      description: "A meditation on what humans choose to worship"
     }
   }
 ```
@@ -225,8 +226,10 @@ def create
   @book = Book.new(author: params[:book][:author], title: params[:book][:title]) #instantiate a new book
   if @book.save # save returns true if the database insert succeeds
     redirect_to root_path # go to the index so we can see the book in the list
+    return
   else # save failed :(
     render :new # show the new book form view again
+    return
   end
 end
 ```
