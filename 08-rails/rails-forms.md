@@ -225,7 +225,7 @@ We can then use the params as attributes for Active Record models. If, for examp
 def create
   @book = Book.new(author: params[:book][:author], title: params[:book][:title]) #instantiate a new book
   if @book.save # save returns true if the database insert succeeds
-    redirect_to root_path # go to the index so we can see the book in the list
+    redirect_to books_path # go to the index so we can see the book in the list
     return
   else # save failed :(
     render :new # show the new book form view again
@@ -233,6 +233,8 @@ def create
   end
 end
 ```
+
+You'll notice two new methods in the code above: `redirect_to` and `render`. `redirect_to` and `render` both send you to the specified page, but they do it slightly differently. When you call `redirect_to` rails forgets all of the instance variables and any changes you made to the code. In `render`, you keep all the values that were passed to it. Here , we can see that the `render :new` is meant to keep the changes that the user made so that they don't have to enter all of that information again!
 
 ## Creating Forms without a model
 
