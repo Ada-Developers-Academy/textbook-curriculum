@@ -24,14 +24,6 @@ After you add it, click on the extension's icon (it looks like a gear). A box wi
 
 Browsers apply default styles even for plain HTML with no definition for appearance. Select 'Disable Browser Default Styles' to disable that as well to get a real view of what HTML by itself looks like.
 
-### Browsers Apply Default Styles to HTML Anyway 😔
-
-Why do websites still have different kinds of typography and spacing, even with CSS disabled? Shouldn't our site content not have special appearance?
-
-Even though our best practice is to define HTML without thinking about appearance, we will often still see default styles. Browsers apply default styles even for plain HTML with no definition for appearance.
-
-We'll do our best to ignore those default styles for this intro to HTML.
-
 The best HTML creates a logical and readable document without any styles.
 
 ## HTML Syntax
