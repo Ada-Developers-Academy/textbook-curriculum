@@ -74,6 +74,37 @@ becomes
 SELECT * FROM "books" WHERE "author" = "Ta-Nehisi Coates";
 ```
 
+### Using AR to modify rows in the database
+Instances of Active Record models can be created from a hash, a block or have their attributes manually set after creation. Once an instance has its data attributes defined, it can be saved to the database, making a persistent record of that data.
+
+#### `new` vs. `create`
+`new` returns a new object of that class, but doesn't save it to the database.
+
+```ruby
+# `new` with preset data
+hidden_figures = Book.new(author: "Margot Lee Shetterly", title: "Hidden Figures")
+hidden_figures.id # => nil
+hidden_figures.save
+hidden_figures.id # => 2 (probably.)
+```
+
+```ruby
+# an "empty" new book
+book = Book.new
+# assigning data attributes
+book.author = "Roxane Gay"
+book.title = "Bad Feminist"
+book.id # => nil
+book.save
+book.id # => 3
+```
+
+Meanwhile, `create` will initialize a new instance of the model *and* save it to the database:
+```ruby
+book_3 = Book.create(author: "We Should All Be Feminists", title: "Chimamanda Ngozi Adichie")
+book_3.id #=> 4
+```
+
 ## AR Class Methods: Finding and Organizing Records
 ActiveRecord class methods are generally for locating & reading rows from the database:
 
@@ -85,7 +116,7 @@ books = Book.all
 book = Book.first
 
 # return an individual record using the id
-Book.find(1) # returns the Book with ID of value 1
+Book.find(1) # returns the Book with ID of value 1, in this case _Between the World and Me_
 
 # return the first book (lowest id) authored by Roxane Gay
 roxane_book = Book.find_by(author: 'Roxane Gay')
@@ -132,32 +163,6 @@ So something like this would work as well:
 
 ```ruby
 Book.where("author = :author OR title = :title", {author: "Ta-Nehisi Coates", title: "Bad Feminist"})
-```
-
-### Using AR to modify rows in the database
-Instances of Active Record models can be created from a hash, a block or have their attributes manually set after creation. Once an instance has its data attributes defined, it can be saved to the database, making a persistent record of that data.
-
-#### `new` vs. `create`
-`new` returns a new object of that class, but doesn't save it to the database.
-
-```ruby
-# `new` with preset data
-hidden_figures = Book.new(author: "Margot Lee Shetterly", title: "Hidden Figures")
-hidden_figures.id # => nil
-```
-
-```ruby
-# an "empty" new book
-book = Book.new
-# assigning data attributes
-book.author = "Rachel Ignotofsky"
-book.title = "Women In Science"
-```
-
-Meanwhile, `create` will initialize a new instance of the model *and* save it to the database:
-```ruby
-book = Book.create(author: "Margot Lee Shetterly", title: "Hidden Figures")
-book.id #=> 5
 ```
 
 #### Editing an existing row
