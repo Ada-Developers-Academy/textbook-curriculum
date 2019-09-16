@@ -12,9 +12,9 @@ By the end of this lesson you should be able to:
 
 ## Video Lesson & Slides
 
-- [Video Lesson]()
-- [Slide Deck]()
-- [Sorting Exercise]()
+- [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a4668a63-9fb8-4778-b0a4-aaca006b34c8)
+- [Slide Deck](https://docs.google.com/presentation/d/1GkYP84Cbg3I5KS_wIfRN8Gn-5tQ_46vV5zWt1dTZn14/edit?usp=sharing)
+- [Sorting Exercise]() - link incoming
 
 ## Introduction
 
@@ -330,3 +330,5 @@ While `<=>` is a **ruby specific** method, many languages have similar methods t
 - [Merge Sort Visual Analysis](https://www.youtube.com/watch?v=w4LRRn7GgqU)
 - [Eugene Wang's blog post on "Not all sort algorithms are created equal"](http://eewang.github.io/blog/2013/04/22/sort-algorithms/)
 - [Ruby - The Spaceship Operator 101](https://medium.com/@albert.s.chun/ruby-the-spaceship-operator-101-717b42566971)
+- [MIT Open Courseware on MergeSort](https://www.youtube.com/watch?v=g1AwUYauqgg)
+- [Why is Merge Sort O(n log(n)?  The **really** long answer)](https://www.youtube.com/watch?v=alJswNJ4P3U)
