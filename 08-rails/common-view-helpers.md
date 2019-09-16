@@ -69,6 +69,10 @@ The above `image_tag` will give you this HTML:
 <img src="/assets/cat.jpg" alt="The cutest cat in the whole world.">
 ```
 
+## Let's Try it!
+
+Let's update our views so that they link to each other using `link_to`!
+
 ## Helpful Links
 - [An overview of helpers](http://guides.rubyonrails.org/action_view_overview.html#overview-of-helpers-provided-by-action-view)
 - [Complete documentation on view helpers](http://api.rubyonrails.org/classes/ActionView/Helpers.html)
