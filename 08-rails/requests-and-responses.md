@@ -185,7 +185,7 @@ def show
 end
 ```
 
-In this code, if the book we're looking for isn't in the list (`if @book.nil?`), then we will return status code 404. If the book is in the list, then we won't enter the conditional, and Rails will do its default operation: render the `show` view and send back the result with a 200 status.
+In this code, if the book we're looking for isn't in the list (`if @book.nil?`), then we will return status code 404. If the book is in the list, then we won't enter the conditional, and Rails will do its default operation: render the `show` view and send back the result with a 200 status. _It is good practice to put a `return` after this kind of operation, as it guarantees that the rest of the controller action doesn't execute._ This isn't crucial for Read type actions, but will be for Create, Update or Delete.
 
 ## Summary
 

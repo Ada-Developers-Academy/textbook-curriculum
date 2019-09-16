@@ -54,6 +54,7 @@ def show
   @book = BOOKS[book_id]
   if @book.nil?
     head :not_found
+    return
   end
 end
 ```
