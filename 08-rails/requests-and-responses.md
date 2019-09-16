@@ -164,7 +164,7 @@ So far, we've let Rails handle sending the response for us, and by default Rails
 </details>
 <br/>
 
-There are a few ways to send back a status code from the controller, but here is one:
+There are a few ways to send back a status code from the controller, but here is one we've already seen:
 
 ```ruby
 head :not_found
