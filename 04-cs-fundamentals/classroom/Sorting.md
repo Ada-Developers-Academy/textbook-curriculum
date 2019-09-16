@@ -14,7 +14,7 @@ By the end of this lesson you should be able to:
 
 - [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a4668a63-9fb8-4778-b0a4-aaca006b34c8)
 - [Slide Deck](https://docs.google.com/presentation/d/1GkYP84Cbg3I5KS_wIfRN8Gn-5tQ_46vV5zWt1dTZn14/edit?usp=sharing)
-- [Sorting Exercise]() - link incoming
+- [Sorting Exercise](https://github.com/Ada-C12/reverse-sentence) - link incoming
 
 ## Introduction
 
