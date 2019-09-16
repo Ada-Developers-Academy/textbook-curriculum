@@ -55,18 +55,18 @@ A visual diagram of elements relationships to each other:
 The relationship tree above is modeled from the following code:
 ```html
 <body>
- <header>
+  <header>
     <h1><a href="index.html">Meowspace</a></h1>
- </header>
- <article>
+  </header>
+  <article>
     <h2>You're Meowsome</h2>
     <p>
       Soft kitty warm kitty little ball of furr but hide when guests come over, for gnaw the corn cob purr for no reason. Lies down knock over christmas tree but kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff or massacre a bird in the living room and then look like the cutest and most innocent animal on the planet, and hide head under blanket so no one can see. Kitty power!
-   </p>
- </article>
- <footer>
-    <h3>&copy; 2016</h3>
- </footer>
+    </p>
+  </article>
+  <footer>
+    <p>&copy; 2016</p>
+  </footer>
 </body>
 ```
 
@@ -78,17 +78,20 @@ The relationship tree above is modeled from the following code:
     <header>
       <h1>Meowspace</h1>
       <nav>
-       <ul>
-          <li><a href="#">Login</a></li>
-          <li><a href="#">Signup</a></li>
-       </ul>
+         <ul>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Signup</a></li>
+         </ul>
      </nav>
     </header>
 
     <section>
+      <h2>Articles</h2>
       <article>
-        <h2>Everybody Wants to be a Cat</h2>
-        <h3>By: Tiger</h3>
+        <header>
+          <h3>Everybody Wants to be a Cat</h3>
+          <p>By: Tiger</p>
+        </header>
         <p>
           Leave hair everywhere. Wake up wander around the house making large amounts of noise jump on top of your human's bed and fall asleep again poop in the plant pot all of a sudden cat goes crazy, so pee in the shoe. Cat is love, cat is life eat owner's food human is washing you why halp oh the horror flee scratch hiss bite or paw at your fat belly.
         </p>
@@ -97,8 +100,10 @@ The relationship tree above is modeled from the following code:
         </p>
      </article>
      <article>
-        <h2>Everybody Wants to be a Cat</h2>
-        <h3>By: Felix</h3>
+        <header>
+          <h3>Everybody Wants to be a Cat</h3>
+          <p>By: Felix</p>
+        </header>
         <p>
           Kitty power! see owner, run in terror all of a sudden cat goes crazy. Attack feet russian blue so intently sniff hand.
         </p>
