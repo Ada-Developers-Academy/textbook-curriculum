@@ -50,10 +50,9 @@ We'll need to add a new method, `show`. Inside that method we'll be able to acce
 ```ruby
 # app/controllers/books_controller.rb
 def show
-  book_id = params[:id].to_i
-  if book_id < BOOKS.length
-    @book = BOOKS[book_id]
-  else
+  book_id = params[:id]
+  @book = BOOKS[book_id]
+  if @book.nil?
     head :not_found
   end
 end
