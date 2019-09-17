@@ -20,7 +20,7 @@
 
 A common problem in Computer Science is managing large amounts of data and performing different operations on them. **Data Structures** provide different well-known ways to organize data. Each data structure follows its own set of rules on how the data should get organized. The study of data structures is to understand these rules. Alongside these governing rules, we are also looking to understand how different common operations like insert, delete and search work on each of these data structures and understand the average and worst case efficiency for the common operations. Knowledge of well-known data structures allows us come up with optimal designs to our real world, practical coding projects.
 
-How we structure and interact with our data can drastically affect the runtime of our software.  It is not unusual to go from operations taking minutes or hours to ones taking seconds by reorganizing the data structures used.  As a software developer it's important to learn how to select the appropriate data structure for the situation.
+How we structure and interact with our data can drastically affect the runtime of our software.  It is not unusual to go from operations taking minutes or hours to ones taking seconds by switching the data structures used.  As a software developer it's important to learn how to select the appropriate data structure for the situation.
 
 ## Arrays
 
