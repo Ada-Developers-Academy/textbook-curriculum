@@ -58,7 +58,7 @@ Now that we have an idea of _why_ we need strong params, let's see how to implem
     private
 
     def book_params
-      return params.require(:book).permit(:author, :title)
+      return params.require(:book).permit(:author, :title, :description)
     end
     ```
 1. We then use this method within our creation code above, in place of the code where we were writing out each parameter.
@@ -74,7 +74,7 @@ Now that we have an idea of _why_ we need strong params, let's see how to implem
 A few things to note here:
 
 1. The new `book_params` method is using the `params` variable which the controller makes available to us (even though we're not passing it in as a parameter)
-1. We chain the method calls of `require` and `permit`. This works because the `:author` and `:title` fields are located **within** the `:book` param.
+1. We chain the method calls of `require` and `permit`. This works because the `:description` `:author` and `:title` fields are located **within** the `:book` param.
 1. If the request is made **without** `:book` in `params` the application will raise an error.  
 
 If we update our tests we can verify that the page responds with an error if a submission is made without the `:book` key-value pair.
