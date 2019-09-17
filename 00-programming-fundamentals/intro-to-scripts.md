@@ -37,6 +37,39 @@ The command `/usr/bin/env ruby` here means "look for the version of Ruby in my `
 puts "Hello, scripting!"
 ```
 
+## `$PATH` and `~/bin`
+
+You should already be familiar with one at least one script.
+Homebrew, which we've been using to install software all cohort, is in fact itself a script!  However, you'll notice you don't have
+to run `/usr/local/bin/brew` but can just run `brew`.
+
+The reason that you can run `brew` without a prefix is because you
+have it on what's called your `PATH`.  You can see your `PATH` with
+the echo command.
+
+```sh
+echo $PATH
+```
+
+Your path is a list of directories that contain scripts you would like to run without a prefix. Traditionally there's a directory named `bin` inside of your home directory that you store your scripts in.
+
+To create it and add it to your path run:
+```sh
+$ cd ~ # Go to your home directory.
+$ mkdir bin # The "mkdir" command makes a directory.
+$ echo 'export PATH="$HOME/bin:$PATH"' >> ~/.profile
+```
+
+It's common for file names inside on your path to omit the extension so that we don't have to type it every time we run a command.
+
+This will change your path for all _new_ terminals.  Copy `greet.rb` into your personal `bin` directory as `greet`:
+
+```sh
+$ mv greet.rb ~/bin/greet
+```
+
+Once you open a new terminal you should now be able to run `greet` no matter what folder you are in!
+
 ## Execute Permission
 
 Unfortunately just adding the script to your path isn't enough to make it run, you also need to tell the macOS that you want to be able to run it as a command.
@@ -135,39 +168,6 @@ puts ARGV[0].to_i + ARGV[1].to_i
 ```
 
 `./adder.rb 1 2` will now print `3`.
-
-## `$PATH`
-
-You should already be familiar with one at least one script.
-Homebrew, which we've been using to install software all cohort, is in fact itself a script!  However, you'll notice you don't have
-to run `/usr/local/bin/brew` but can just run `brew`.
-
-The reason that you can run `brew` without a prefix is because you
-have it on what's called your `PATH`.  You can see your `PATH` with
-the echo command.
-
-```sh
-echo $PATH
-```
-
-Your path is a list of directories that contain scripts you would like to run without a prefix. Traditionally there's a directory named `bin` inside of your home directory that you store your scripts in.
-
-To create it and add it to your path run:
-```sh
-$ cd ~ # Go to your home directory.
-$ mkdir bin # The "mkdir" command makes a directory.
-$ echo 'export PATH="$HOME/bin:$PATH"' >> ~/.profile
-```
-
-It's common for file names inside on your path to omit the extension so that we don't have to type it every time we run a command.
-
-This will change your path for all _new_ terminals.  Copy `greet.rb` into your personal `bin` directory as `greet`:
-
-```sh
-$ mv greet.rb ~/bin/greet
-```
-
-Once you open a new terminal you should now be able to run `greet` no matter what folder you are in!
 
 ## Command Line Only Code
 
