@@ -260,7 +260,7 @@ A binary search tree is a special type of tree where each element to the left of
 
 A heap is another variation on a binary tree.  In a heap, the tree is all level full, each node has 2 children, except the bottommost level.  So the tree is called almost complete because it maximizes the number of nodes in each level.  Only the second-to-last level can have less than 2 children.  Further in a max-heap each child is less than it's parent.  So the largest value is the root of the tree.  Similarly a min-heap is an almost-complete tree where each node is smaller than it's children.  
 
-We will discuss heaps further in the internship period at Ada.
+We will discuss heaps further in the internship portion of Ada.
 
 **Max Heap**
 
