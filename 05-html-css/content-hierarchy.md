@@ -82,43 +82,44 @@ The relationship tree above is modeled from the following code:
             <li><a href="#">Login</a></li>
             <li><a href="#">Signup</a></li>
          </ul>
-     </nav>
+      </nav>
     </header>
+    <main>
+      <section>
+        <h2>Articles</h2>
+        <article>
+          <header>
+            <h3>Everybody Wants to be a Cat</h3>
+            <p>By: Tiger</p>
+          </header>
+          <p>
+            Leave hair everywhere. Wake up wander around the house making large amounts of noise jump on top of your human's bed and fall asleep again poop in the plant pot all of a sudden cat goes crazy, so pee in the shoe. Cat is love, cat is life eat owner's food human is washing you why halp oh the horror flee scratch hiss bite or paw at your fat belly.
+          </p>
+          <p>
+            This human feeds me, i should be a god love to play with owner's hair tie. Kitty power! see owner, run in terror all of a sudden cat goes crazy. Attack feet russian blue so intently sniff hand. Leave hair everywhere. Wake up wander around the house making large amounts of noise jump on top of your human's bed and fall asleep again poop in the plant pot. Destroy couch as revenge.
+          </p>
+        </article>
+        <article>
+          <header>
+            <h3>Everybody Wants to be a Cat</h3>
+            <p>By: Felix</p>
+          </header>
+          <p>
+            Kitty power! see owner, run in terror all of a sudden cat goes crazy. Attack feet russian blue so intently sniff hand.
+          </p>
+          <p>
+            Cat is love, cat is life eat owner's food human is washing you why halp oh the horror flee scratch hiss bite or paw at your fat belly.
+          </p>
+        </article>
+      </section>
+    </main>
 
-    <section>
-      <h2>Articles</h2>
-      <article>
-        <header>
-          <h3>Everybody Wants to be a Cat</h3>
-          <p>By: Tiger</p>
-        </header>
-        <p>
-          Leave hair everywhere. Wake up wander around the house making large amounts of noise jump on top of your human's bed and fall asleep again poop in the plant pot all of a sudden cat goes crazy, so pee in the shoe. Cat is love, cat is life eat owner's food human is washing you why halp oh the horror flee scratch hiss bite or paw at your fat belly.
-        </p>
-        <p>
-          This human feeds me, i should be a god love to play with owner's hair tie. Kitty power! see owner, run in terror all of a sudden cat goes crazy. Attack feet russian blue so intently sniff hand. Leave hair everywhere. Wake up wander around the house making large amounts of noise jump on top of your human's bed and fall asleep again poop in the plant pot. Destroy couch as revenge.
-        </p>
-     </article>
-     <article>
-        <header>
-          <h3>Everybody Wants to be a Cat</h3>
-          <p>By: Felix</p>
-        </header>
-        <p>
-          Kitty power! see owner, run in terror all of a sudden cat goes crazy. Attack feet russian blue so intently sniff hand.
-        </p>
-        <p>
-          Cat is love, cat is life eat owner's food human is washing you why halp oh the horror flee scratch hiss bite or paw at your fat belly.
-        </p>
-     </article>
-   </section>
-
-   <footer>
+    <footer>
       <ul>
         <li><a href="#">Contact</a></li>
         <li><a href="#">Careers</a></li>
-     </ul>
-   </footer>
+      </ul>
+    </footer>
 
  </body>
 ```
