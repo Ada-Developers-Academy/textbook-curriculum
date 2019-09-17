@@ -26,7 +26,7 @@ A good example is found in the `books#create` controller action:
 
 ```ruby
 def create
-  @book = Book.new(author: params[:book][:author], title: params[:book][:title]) #instantiate a new book
+  @book = Book.new(author: params[:book][:author], title: params[:book][:title], params[:description]) #instantiate a new book
   if @book.save # save returns true if the database insert succeeds
     redirect_to root_path # go to the index so we can see the book in the list
     return
