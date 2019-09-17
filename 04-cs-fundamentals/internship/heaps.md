@@ -126,7 +126,7 @@ private
 def swap(index_1, index_2)
   temp = @store[index_1]
   @store[index_1] = @store[index_2]
-  @store[index_2] = @store[index_1]
+  @store[index_2] = temp
 end
 ```
 
