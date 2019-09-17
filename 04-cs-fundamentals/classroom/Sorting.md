@@ -254,7 +254,7 @@ Overall, each level takes *O(n)* time. There are *O(log n)* such levels. Resulti
 
 Note: We will look closer at merge sort and its implementation when we discuss *Recursive algorithms* in the future.
 
-For small arrays insertion sort performs better than merge sort, but as the size of the array grows merge sort becomes much more performant.
+For small arrays insertion sort performs better than merge sort, but as the size of the array grows merge sort becomes much more performant.  There are other O(n log n) sorting algorithms, notably [Quick Sort](https://www.geeksforgeeks.org/quick-sort/), and [Heap Sort](../internship/heaps.md).
 
 ## Comparing Things Beyond Numbers
 
