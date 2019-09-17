@@ -68,13 +68,6 @@ describe "create" do
     }.must_change 'Book.count', 1
 
     must_respond_with  :redirect
-
-    book = Book.find_by(title: "Practical Object Oriented Programming in Ruby")
-
-    expect(book).wont_be_nil
-    expect(book.title).must_equal book_hash[:book][:title]
-    expect(book.author).must_equal book_hash[:book][:author]
-    expect(book.description).must_equal book_hash[:book][:description]
   end
 end
 ```
