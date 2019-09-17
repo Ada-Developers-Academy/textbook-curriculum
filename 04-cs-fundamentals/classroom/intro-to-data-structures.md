@@ -57,7 +57,7 @@ This is an O(n) operation as the number of elements to shift depends on the leng
 
 #### Array Deletion Alternative
 
-Consider the problem, you have an elementYou could, rather than shifting elements over instead use a convention to mark cells deleted.  Unfortunately this leaves the array _fragmented_ where items are no longer guaranteed to be adjacent and leads to longer search times.  Which method is best depends on the number of searches on the array and the number of deletions.
+Consider the problem, you have an element you would like to delete. You could, rather than shifting elements over instead use a convention to mark cells deleted.  Unfortunately this leaves the array _fragmented_ where items are no longer guaranteed to be adjacent and leads to longer search times.  Which method is best depends on the number of searches on the array and the number of deletions.
 
 ### Inserting An Array Element
 
