@@ -24,7 +24,7 @@ How we structure and interact with our data can drastically affect the runtime o
 
 ## Arrays
 
-An array is our first data structure.  As [we have discussed](Arrays.md) arrays are a _homogenous_ data structure where each element can be accessed using a unique whole number known as an _index_.  Arrays are also allocated as a contigous block of memory.  This can be very helpful when saving data or loading data from other media.  Arrays are also a _static_ data structure where once allocated they cannot be dynamically resized.  If an array runs out of space, another array needs to be created and the data copied to the new array.  Similarly if not all elements allocated are being used, the developer is responsible for determining how to indicate unused elements.  Often unused elements are set to `nil` or 0.  
+An array is our first data structure.  As [we have discussed](Arrays.md) arrays are a _homogenous_ data structure where each element can be accessed using a unique whole number known as an _index_.  Arrays are also allocated as a contigous block of memory.  This can be very helpful when saving data or loading data from other media.  Arrays are also a _static_ data structure where once allocated they cannot be dynamically resized.  If an array runs out of space, another array needs to be created and the data copied to the new array.  Similarly if not all elements allocated are being used, the developer is responsible for determining how to indicate unused elements.  Often unused elements are set to `nil` or 0.  Sometimes data structures like Java's `ArrayList` shift unused elements to the beginning or end.
 
 Arrays have the following advantages:
 
