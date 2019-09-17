@@ -90,7 +90,6 @@ In the `head` tag of our HTML document, use a [`link`](https://developer.mozilla
 It should have the following attributes:
 - `href`, with a value of the _relative path to your CSS file_ in double-quotes
 - `rel`, with a value of `"stylesheet"`
-- This tag is special, and does not require the self-closing `/` or a closing tag
 
 ```html
   <head>
