@@ -293,7 +293,7 @@ We have looked, at a high-level, at a variety of data structures which we will e
 
 | Term | Definition |
 |--- |--- |
-| Data Structure | A method of organizing, and managing information which enables efficient access and modification |
+| Data Structure | A method of organizing, and managing information which enables efficient access and modification. |
 | Abstract Data Structure | A data structure described by the operations it can perform, not from a specific implementation |
 | Array | A homogenous collection of elements each identified by an index number or key.  |
 | Linked List | A data structure where each element will have a reference to the next node in the list. |
