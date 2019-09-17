@@ -202,7 +202,7 @@ end
 
 Overall, this is *1 + 2 + 3 + ... + (n-1)* = *O(n<sup>2</sup>)*
 
-The insertion sort has a complexity of O(n<sup>2</sup>). Unlike selection sort, insertion sort has a best case time complexity of O(n) when the items are already sorted. In other words, insertion sort runs in linear time on a nearly sorted list of elements.
+The insertion sort has a complexity of O(n<sup>2</sup>). Unlike selection sort, insertion sort has a best case time complexity of O(n) when the items are already sorted. In other words, insertion sort runs in nearly linear time on a nearly sorted list of elements.
 
 ## O(n<sup>2</sup>) Algorithms
 
