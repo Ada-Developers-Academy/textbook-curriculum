@@ -172,7 +172,7 @@ We saw earlier with linked lists, we can create a data structure by creating nod
 
 A Graph is a generalization of this concept.  In a graph each node has links or references to other nodes in the data structure.  In a graph the links between nodes or _edges_ can be weighted, which each link has a designated cost, or unweighted.
 
-We will look at graphs in more detail later in internship.
+We will look at graphs in more detail later in the internship portion of Ada.
 
 ### Example Graph Problem:  Traveling Salesperson Problem
 
