@@ -113,10 +113,10 @@ h1, h2, h3  {
 }
 ```
 
-*Any* combination of selectors can be used! For example, to add an orange highlight to italic text inside a `h1`, all links, and anything with the `orange` class:
+*Any* combination of selectors can be used! For example, to add an orange highlight to italic text inside a `h1`, all links, and anything with the `highlight` class:
 
 ```css
-h1 em, a, .orange {
+h1 em, a, .highlight {
   background-color: orange;
 }
 ```
