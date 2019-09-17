@@ -2,6 +2,40 @@
 ## Learning Goals
 - Revisit RESTful routing in Rails
 - Learn about using the Rails `resources` route helpers
+- Know how to override the root path
+
+## Override Root You Say?
+
+Whenever we have been booting up rails and going to `localhost:3000` we've been seeing that cute, but not terribly helpful "Welcome to Rails" splash page. What if we want to change where that root route goes?
+
+It's pretty easy actually, and it looks a lot like what we've done for other routes!
+
+```ruby
+root to: "controller#action"
+```
+
+So, for example, in our Ada Books project, we might do something like this:
+
+```ruby
+root to: "books#index"
+```
+
+This also means that we can choose to redirect to the root, rather than having to pick a specific controller action. Sometimes, it just makes sense to send the user home!
+
+A good example is found in the `books#create` controller action:
+
+```ruby
+def create
+  @book = Book.new(author: params[:book][:author], title: params[:book][:title]) #instantiate a new book
+  if @book.save # save returns true if the database insert succeeds
+    redirect_to root_path # go to the index so we can see the book in the list
+    return
+  else # save failed :(
+    render :new # show the new book form view again
+    return
+  end
+end
+```
 
 ## Quick Review
 Rails routes are matched in the order they are specified. This can present a problem when a wildcard is used.
