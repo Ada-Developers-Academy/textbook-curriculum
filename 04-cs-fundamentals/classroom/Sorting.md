@@ -285,6 +285,12 @@ class Student
     if name < other_value.name
       return -1
     elsif name == other_value.name
+      if grade < other_value.grade
+        return -1
+      elsif grade > other_value.grade
+        return 1
+      end
+
       return 0
     elsif name > other_value.name
       return 1
