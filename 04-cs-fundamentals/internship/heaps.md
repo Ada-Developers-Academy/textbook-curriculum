@@ -96,6 +96,8 @@ Removing an element in some ways works in the opposite manner of adding an eleme
 
 2. Delete the last leaf (last item in the array)
 
+![Heap delete node](images/heap-delete.png)
+
 3. Then heap-down the new root, to reestablish the heap property
 
 ![Initial swap for remove](images/heap-remove-2.png)
