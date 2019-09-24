@@ -19,7 +19,7 @@ Like its cousin `must_raise`, `must_change` is called on a block. We hand it two
 volume = 6
 expect {
   volume += 5
-}.must_change 'volume', 5
+}.must_differ 'volume', 5
 ```
 
 This might seem pretty obvious, as we trust addition in ruby to do what we ask of it, but we can leverage it to check different, more complicated types of operations. Let's pretend that our current project could check out a book using a route with the following route:
@@ -39,7 +39,7 @@ describe "book_checkouts" do
 
     expect{
       patch checkout_path, params: book.id
-    }.must_change 'book.in_stock', 1
+    }.must_differ 'book.in_stock', -1
   end
 end
 ```

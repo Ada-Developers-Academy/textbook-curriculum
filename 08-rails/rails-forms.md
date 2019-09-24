@@ -152,8 +152,8 @@ After combining the `form_with` helper and some of the other view helpers mentio
   <%= f.label :author %>
   <%= f.text_field :author %>
 
-  <%= f.label :description%>
-  <%= f.text_field :description%>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
 
   <%= f.submit "Save Book", class: "book-button" %>
 <% end %>

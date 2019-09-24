@@ -36,7 +36,7 @@ The above `link_to` will give you this HTML:
 **NOTE:** This method assumes that you are doing a `GET` request! You have to throw in a little bit of extra syntax to get a different kind of request:
 
 ```ruby
-<%= link_to "Delete This Book", @book, :method => :delete %>
+<%= link_to "Delete This Book", @book, method: :delete %>
 ```
 
 #### Named Paths
