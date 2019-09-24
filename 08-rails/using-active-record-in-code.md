@@ -47,7 +47,7 @@ end
 
 ### Exercise:
 
-With your seat partner, brainstorm how you would update the `books#show` action to use our new Active Record commands!
+With your neighbor(s), brainstorm how you would update the `books#show` action to use our new Active Record commands!
 
 <details>
 <summary></summary>
@@ -56,7 +56,7 @@ With your seat partner, brainstorm how you would update the `books#show` action 
   def show
     book_id = params[:id]
     @book = Book.find_by(id: book_id)
-    if @book == nil
+    if @book.nil?
       head :not_found
       return
     end
@@ -69,13 +69,13 @@ With your seat partner, brainstorm how you would update the `books#show` action 
 While this will help us use Active Record in the controller, we still need to make some adjustments. Since we're no longer using a hash, we need to remove the code that looks like this:
 
 ```ruby
-<%= @book[:author]%>
+<%= @book[:author] %>
 ```
 
 Luckily, since we are using Active Record, this is as simple as treating the data as what it is: an object! The code above becomes:
 
 ```ruby
-<%= @book.author%>
+<%= @book.author %>
 ```
 
 ### Live Code

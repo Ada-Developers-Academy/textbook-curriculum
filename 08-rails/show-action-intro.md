@@ -63,7 +63,7 @@ Here we read the book ID from the params and store it in a variable `book_id`, t
 
 **Note:** In this implementation, we need to explicitly call `.to_i` on `params[:id]` because we need to use `book_id` as an index on the `BOOKS` array. We won't necessarily need to do this `.to_i` call in the future-- stay tuned!
 
-Finally, there is that little bit at the end with `head :not_found`. We want to make sure that we are doing something meaningful when there isn't something to show, so this line sends back an error code 404, or 'not found' in laymen speak. We'll talk about more robust ways to deal with this in the future, but for now it's a good enough placeholder.
+Finally, there is that little bit at the end with `head :not_found`. We want to make sure that we are doing something meaningful when there isn't something to show, so this line sends back an error code 404, or 'not found' in lay-speak. We'll talk about more robust ways to deal with this in the future, but for now it's a good enough placeholder.
 
 ### Exercise: View
 
