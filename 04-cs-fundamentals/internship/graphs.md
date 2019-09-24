@@ -29,7 +29,22 @@ In the example above, each course is represented by nodes, and students which ta
 
 ## Graph Description
 
+A graph is a data structure in computer science, consisting of a finite collection of _nodes_, also called _verticies_, and a collection of connections between nodes known as _edges_.  A graph can be either a _directed graph_, or an _undirected graph_.  In a directed graph, edges are not bidirectional.  So in the example below you travel from node A to node B, but not from node B to node A.
 
+**Directed Graph**
+![Example Directed Graph](images/directed-graph.png)
+
+On the other hand, in an undirected graph, each edge is bidirectional.  In other words in the example graph below you can travel from Ada to Babbage and from Babbage to Ada.
+
+**Undirected Graph**
+![Example Undirected Graph](images/undirected-graph.png)
+
+Graphs can also be either _weighted graphs_ or _unweighted graphs_.  In a weighted graph, each edge is assigned a numeric cost or weight.  A weighted graph can either be directed or undirected.  
+
+**Weighted & Undirected Graph**
+![Example Weighted Graph](images/weighted-graph.png)
+
+As you may have noted, we have **already** worked with graphs before.  Both Linked Lists & Binary Search Trees are specific types of graphs.  In this lesson we will explore more generic graph algorithms and look at a few classic problems.
 
 ## How To Represent A Graph
 
