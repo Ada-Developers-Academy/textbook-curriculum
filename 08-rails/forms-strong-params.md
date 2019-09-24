@@ -10,11 +10,13 @@ Let's consider where we ended up most recently with our controller method that h
 ```ruby
 # in app/controllers/books_controller.rb
 def create
-  @book = Book.new(author: params[:book][:author], title: params[:book][:title]) #instantiate a new book
+  @book = Book.new(author: params[:book][:author], title: params[:book][:title], params[:book][:description]) #instantiate a new book
   if @book.save # save returns true if the database insert succeeds
     redirect_to root_path # go to the index so we can see the book in the list
+    return
   else # save failed :(
     render :new # show the new book form view again
+    return
   end
 end
 ```
@@ -24,7 +26,8 @@ This code is written with the assumption that our `params` hash contains data as
 {
   book: {
     author: "some author",
-    title: "some title"
+    title: "some title",
+    description: "some description"
   }
 }
 ```
@@ -55,7 +58,7 @@ Now that we have an idea of _why_ we need strong params, let's see how to implem
     private
 
     def book_params
-      return params.require(:book).permit(:author, :title)
+      return params.require(:book).permit(:author, :title, :description)
     end
     ```
 1. We then use this method within our creation code above, in place of the code where we were writing out each parameter.
@@ -71,7 +74,7 @@ Now that we have an idea of _why_ we need strong params, let's see how to implem
 A few things to note here:
 
 1. The new `book_params` method is using the `params` variable which the controller makes available to us (even though we're not passing it in as a parameter)
-1. We chain the method calls of `require` and `permit`. This works because the `:author` and `:title` fields are located **within** the `:book` param.
+1. We chain the method calls of `require` and `permit`. This works because the `:description` `:author` and `:title` fields are located **within** the `:book` param.
 1. If the request is made **without** `:book` in `params` the application will raise an error.  
 
 If we update our tests we can verify that the page responds with an error if a submission is made without the `:book` key-value pair.
