@@ -39,6 +39,14 @@ We can also use _safe_ and _destructive_ to describe our HTTP requests. However,
 
 **Question:** Which HTTP verbs are used for _safe_ operations? Which ones are _destructive_?
 
+<details>
+<summary>Answer</summary>
+
+Only `GET` would be considered safe, as `PATCH`, `PUT`, `POST` and `DELETE` all modify data.
+
+In other words, any `GET` request should be a _query_, whereas all other verbs will be _commands_.
+</details>
+
 ### Idempotent
 
 _Idempotent_ is another word we can use to describe an operation, but the meaning is a little more subtle than that of _safe_. When we say an operation is _idempotent_, that means that running the operation more than once on the same data will produce the same result.

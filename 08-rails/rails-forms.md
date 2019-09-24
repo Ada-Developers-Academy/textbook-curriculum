@@ -152,6 +152,9 @@ After combining the `form_with` helper and some of the other view helpers mentio
   <%= f.label :author %>
   <%= f.text_field :author %>
 
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
   <%= f.submit "Save Book", class: "book-button" %>
 <% end %>
 ```
@@ -203,13 +206,14 @@ end
 
 Submitting a form results in the form data being collected into the _params hash_. The structure of form data follows the same patterns as in other frameworks. This means we can leverage creative naming in the HTML (like `book[author]`) to create well structured objects in the _params hash_.
 
-If we submitted the `form_for` example above, the params hash would arrive in our _controller action_ looking something like:
+If we submitted the `form_with` example above, the params hash would arrive in our _controller action_ looking something like:
 
 ```ruby
   {
     book: {
-      author: "J.K. Rowling",
-      title: "Harry Potter and The Chamber of Secrets"
+      author: "Ann Leckie",
+      title: "The Raven Tower",
+      description: "A meditation on what humans choose to worship"
     }
   }
 ```
@@ -221,12 +225,16 @@ We can then use the params as attributes for Active Record models. If, for examp
 def create
   @book = Book.new(author: params[:book][:author], title: params[:book][:title]) #instantiate a new book
   if @book.save # save returns true if the database insert succeeds
-    redirect_to root_path # go to the index so we can see the book in the list
+    redirect_to books_path # go to the index so we can see the book in the list
+    return
   else # save failed :(
     render :new # show the new book form view again
+    return
   end
 end
 ```
+
+You'll notice two new methods in the code above: `redirect_to` and `render`. `redirect_to` and `render` both send you to the specified page, but they do it slightly differently. When you call `redirect_to` rails forgets all of the instance variables and any changes you made to the code. In `render`, you keep all the values that were passed to it. Here , we can see that the `render :new` is meant to keep the changes that the user made so that they don't have to enter all of that information again!
 
 ## Creating Forms without a model
 
@@ -242,6 +250,12 @@ There will be times you will want to create a form _without_ a model.  `form_wit
   <%= f.submit "Search", class: "button search" %>
 <% end %>
 ```
+
+## Exercise:
+
+Discuss with your partner the steps that you would need to go through to get the `books#edit` and `books#update` routes working.
+
+**Hint:** Edit is a mix of two routes, whereas Update will be almost identical to an existing route.
 
 ## Note on `form_tag` and `form_for`
 
