@@ -66,6 +66,7 @@ As you may have noted, we have **already** worked with graphs before.  Both Link
 
 **Dijkstra's Algorithm**
 
+## Summary
 
 ## Terms & Definitions
 
@@ -81,8 +82,6 @@ As you may have noted, we have **already** worked with graphs before.  Both Link
 | Adjacency Matrix | A 2-dimensional array listing the connections between nodes in a graph |
 | Adjacency List | A collection of unordered lists used to represent a graph.  Each list describes the neighors of a particular node.
 | Node Degree | The number of edges a particular node has |
-
-
 
 ## Resources
 
