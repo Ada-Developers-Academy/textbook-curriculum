@@ -33,6 +33,12 @@ The above `link_to` will give you this HTML:
 <a href="/profile" class="link">About Me</a>
 ```
 
+**NOTE:** This method assumes that you are doing a `GET` request! You have to throw in a little bit of extra syntax to get a different kind of request:
+
+```ruby
+<%= link_to "Delete This Book", @book, method: :delete %>
+```
+
 #### Named Paths
 
 In addition to regular strings, `link_to` can (and should) use the generated helper methods for named paths. For example, to link to the list of books:
@@ -68,6 +74,10 @@ The above `image_tag` will give you this HTML:
 ```html
 <img src="/assets/cat.jpg" alt="The cutest cat in the whole world.">
 ```
+
+## Let's Try it!
+
+Let's update our views so that they link to each other using `link_to`!
 
 ## Helpful Links
 - [An overview of helpers](http://guides.rubyonrails.org/action_view_overview.html#overview-of-helpers-provided-by-action-view)
