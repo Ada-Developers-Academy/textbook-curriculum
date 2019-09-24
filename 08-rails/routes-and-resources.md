@@ -52,7 +52,7 @@ get "/books/new", to: "books#new"
 get "/books/:id", to: "books#show"
 ```
 
-That general rule is that routes go from most at the top, to least specific at the bottom for any given resource.
+That general rule is that routes go from most specific at the top, to least specific at the bottom for any given resource.
 
 ## REST
 Representational state transfer (REST) is an architectural style. This is a recommendation for the structure and style in which a resource (Books, or Authors or Users etc.) is managed by a web server.

@@ -10,7 +10,7 @@ Let's consider where we ended up most recently with our controller method that h
 ```ruby
 # in app/controllers/books_controller.rb
 def create
-  @book = Book.new(author: params[:book][:author], title: params[:book][:title], params[:description]) #instantiate a new book
+  @book = Book.new(author: params[:book][:author], title: params[:book][:title], params[:book][:description]) #instantiate a new book
   if @book.save # save returns true if the database insert succeeds
     redirect_to root_path # go to the index so we can see the book in the list
     return
