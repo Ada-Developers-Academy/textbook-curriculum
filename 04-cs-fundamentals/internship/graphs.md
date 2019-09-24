@@ -32,6 +32,12 @@ By the end of this lesson you should be able to:
 
 ## Terms & Definitions
 
+| Term | Definition |
+|--- |--- |
+| Graph | A data structure with two parts:  A limited set of verticies, called nodes, and a limited set of connections between nodes known as edges. |
+| Edge | A connection between two nodes in a graph |
+| Node | The fundamental unit of a graph in computer science.  Each element of a graph, connected by edges. |
+
 
 ## Resources
 
