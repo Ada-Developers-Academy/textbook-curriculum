@@ -6,7 +6,7 @@ There are a few changes we need to make to the default Rails configuration, to m
 
 1. Create an empty file named `~/.railsrc`
     ```
-    $ touch ~/.railsrc
+    touch ~/.railsrc
     ```
 
 1. Open `~/.railsrc` with your text editor, and add the following lines:
@@ -16,3 +16,13 @@ There are a few changes we need to make to the default Rails configuration, to m
     ```
 
 1. [Download this file](https://raw.githubusercontent.com/Ada-Developers-Academy/textbook-curriculum/master/08-rails/reference/.rails-template.rb) with `cmd+s`, and save it as `~/.rails-template.rb`
+
+1. Install yarn 
+    ```
+    brew install yarn
+    ```
+
+1. Install webpacker
+    ```
+    rails webpacker:install
+    ```
