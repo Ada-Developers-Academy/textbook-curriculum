@@ -24,10 +24,11 @@ Using the generator ensures that we are following Rails _conventions_ and really
 $ rails generate model book title:string author:string
 ```
 
-This command will do two things:
+This command will do a few things:
 
 - Create an empty Rails **model** in the `app/models/` directory called `book.rb`
 - Create a Rails **migration** in the `db/migrations/` directory called `<timestamp>_create_books.rb` that contains the fields specified in the command above
+- Create a handful of files that will be helpful for testing. We will talk about those explicitly later.
 
 Each file plays a role in describing how Rails interacts with the database and what information the database contains. We are  focusing on _migrations_ in this discussion. Let's open up the migration file and see what we have.
 

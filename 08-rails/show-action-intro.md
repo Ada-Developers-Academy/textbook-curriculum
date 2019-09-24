@@ -50,14 +50,20 @@ We'll need to add a new method, `show`. Inside that method we'll be able to acce
 ```ruby
 # app/controllers/books_controller.rb
 def show
-  book_id = params[:id].to_i
+  book_id = params[:id]
   @book = BOOKS[book_id]
+  if @book.nil?
+    head :not_found
+    return
+  end
 end
 ```
 
 Here we read the book ID from the params and store it in a variable `book_id`, then use that as an index into our list of books. As before, we'll use an instance variable to communicate with the view, though this time we've only got one `@book`, not multiple `@books`.
 
 **Note:** In this implementation, we need to explicitly call `.to_i` on `params[:id]` because we need to use `book_id` as an index on the `BOOKS` array. We won't necessarily need to do this `.to_i` call in the future-- stay tuned!
+
+Finally, there is that little bit at the end with `head :not_found`. We want to make sure that we are doing something meaningful when there isn't something to show, so this line sends back an error code 404, or 'not found' in lay-speak. We'll talk about more robust ways to deal with this in the future, but for now it's a good enough placeholder.
 
 ### Exercise: View
 
