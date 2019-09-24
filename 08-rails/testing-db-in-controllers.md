@@ -4,16 +4,16 @@
 
 By the end of this lesson you should be able to:
 
-- Describe and use the `must_change` Minitest matcher
+- Describe and use the `must_differ` Minitest matcher
 - Understand how to test nominal and edge cases for database changes
 
 ## The Data, It's a Changin'
 
 When we run a `POST` action, how do we know that the database is getting updated? Even if we know it's getting updated, how can we check that the data within is correct?
 
-One of the mandates of TDD is making sure that all the code that we've written is trustworthy, so that we can pass it off to other programmers with confidence. To do so we will use the rails `must_change` matcher to take a peek at our database during tests.
+One of the mandates of TDD is making sure that all the code that we've written is trustworthy, so that we can pass it off to other programmers with confidence. To do so we will use the rails `must_differ` matcher to take a peek at our database during tests.
 
-Like its cousin `must_raise`, `must_change` is called on a block. We hand it two arguments: a string, which is evaluated as ruby code, and a number, which indicates how much we expect the value to be altered by. A single call to `must_change` might look like this:
+Like its cousin `must_raise`, `must_differ` is called on a block. We hand it two arguments: a string, which is evaluated as ruby code, and a number, which indicates how much we expect the value to be altered by. A single call to `must_differ` might look like this:
 
 ```ruby
 volume = 6
@@ -44,10 +44,7 @@ describe "book_checkouts" do
 end
 ```
 
-A couple of things worth noting: 
-
-- `must_change` only works with numeric values.
-- There is no difference to minitest between something going up and something going down in value. In other words, it checks only the absolute value of the change.
+It's worth noting that `must_differ` only works with numeric values, and _cares which direction the changes are going_.
 
 ## Putting it all Together
 The sample below illustrates testing the `create` action and verifies that the database increases the number of records by one.
@@ -65,7 +62,7 @@ describe "create" do
 
     expect {
       post books_path, params: book_hash
-    }.must_change 'Book.count', 1
+    }.must_differ 'Book.count', 1
 
     must_respond_with  :redirect
   end
@@ -97,4 +94,4 @@ The example above illustrates that the test can pass in a mock-params hash into 
 |---	|---	|
 |   `must_respond_with`	|   `must_respond_with :success`	|
 |   `must_redirect_to`	|   `must_redirect_to root_path`	|
-|   `must_change`	|   `expect {delete book_path(books(:poodr).id) }.must_change 'Book.count', -1`	|
+|   `must_differ`	|   `expect {delete book_path(books(:poodr).id) }.must_differ 'Book.count', -1`	|
