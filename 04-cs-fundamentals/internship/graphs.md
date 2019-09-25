@@ -140,6 +140,7 @@ This adjacency list gives us:
 
 - **O(d)** lookup time to find out if any two nodes share an edge, where `d` is the _degree_ of a node meaning the number of edges the node has
   - The maximum value of d would be the case where a node is connected to every other node (assuming no duplicate edges) which is V - 1
+  - This can be a problem in dense graphs
 - O(2E) = **O(E)** space complexity to store this representation because each element of the array stores a list of the edges a node has, twice in the case of an undirected graph.
 - **O(1)** time complexity to find all the neighbors of a particular node because it is an O(1) operation to lookup a node by it's index and the list at that location is a list of all the node's neighbors.
 
