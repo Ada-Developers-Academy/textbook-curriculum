@@ -38,17 +38,18 @@ At this point, the cassette can read in and play back messages and responses as 
 ![The VHS takes the place of the API.](images/apis/VCR_step_4.png "The cassette takes the place of the ")
 
 ### Installation
-1. **Gems**
-    ```
-    $ gem install minitest-vcr webmock dotenv
-    ```
-1. **Test Config**
+#### Gems
+
+```bash
+gem install minitest-vcr webmock dotenv
+```
+    
+#### Test Config
 
 All our example [testing setup](https://github.com/AdaGold/api-testing) can be found in AdaGold.
 
     In your `test_helper.rb` file, you should see the following code:
 ```ruby
-  
 require "minitest/autorun"
 require "minitest/reporters"
 require "vcr"
