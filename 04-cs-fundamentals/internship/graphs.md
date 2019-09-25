@@ -144,7 +144,17 @@ This adjacency list gives us:
 - O(2E) = **O(E)** space complexity to store this representation because each element of the array stores a list of the edges a node has, twice in the case of an undirected graph.
 - **O(1)** time complexity to find all the neighbors of a particular node because it is an O(1) operation to lookup a node by it's index and the list at that location is a list of all the node's neighbors.
 
-Generally adjacency lists give a good balance between time and space complexity and perform relatively well.
+Generally adjacency lists give a good balance between time and space complexity and perform relatively well.  Below would be the adjacency list above in code:
+
+```ruby
+adjacency_list = [
+  [],
+  [2, 3],
+  [1],
+  [1, 4],
+  [3]
+]
+```
 
 ### Adjacency List With A Hash
 
