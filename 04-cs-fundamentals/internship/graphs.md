@@ -48,6 +48,43 @@ As you may have noted, we have **already** worked with graphs before.  Both Link
 
 ## How To Represent A Graph
 
+As stated above we have already worked with graphs before.  With both binary search trees & linked lists we created a node class and wrote traversals traveling from one node to the next.  An example `TreeNode` class is listed below.
+
+```ruby
+class TreeNode
+  attr_reader :key, :value
+  attr_accessor :left, :right
+
+   def initialize(key, val)
+    @key = key
+    @value = val
+    @left = nil
+    @right = nil
+   end
+end
+```
+
+In our methods we traversed the structure adding and removing elements by writing either iterative or recursive methods which jumped from one node to the next following the links between them.  We could write Node class for our graph algorithms like the example below.  In this example we have a potential `GraphNode`.  
+
+```ruby
+class GraphNode
+  attr_reader :key, :value
+  attr_accessor :edges
+
+  def initialize(key, val, edges = [])
+    @key = key
+    @value = val
+    @edges = edges
+  end
+
+  def add_connection(other_node)
+    edges.push(other_node)
+  end
+end
+```
+
+While this can work it leaves us with a problem.  Unlike a tree or a linked list, there is no starting node for a graph.  So instead we would need another way to store our graph, which provides a method to start with any node.
+
 ### List of Edges
 
 ### Adjacentcy Matrix
