@@ -158,6 +158,24 @@ adjacency_list = [
 
 ### Adjacency List With A Hash
 
+The examples we used above used numeric identifications for nodes.  What if you want to use other values, like strings or objects to represent nodes.  In that case we could use a hash table.
+
+```ruby
+adjacency_list_with_hash = {
+  "Seattle" => ["Los Angelos", "Topeka"],
+  "Los Angeles" => ["Seattle", "Denver", "San Diego"],
+  "Topeka" => ["Seattle"],
+  "Denver" => ["Los Angeles", "Dallas"],
+  "San Diego" => ["Los Angeles"],
+  "Dallas" => ["Denver"]
+}
+```
+
+
+![Adjacency list diagram with a hash table](images/graphs-adjacency-list-cities.png)
+
+This representation provides similar benefits to using an array for an adjacency list, but provides us more flexibility with keys.  We no longer need numeric ids for our nodes and the ids do not need to be consecutive.  For example, in the adjacency matrix and list above, there was no node 0, but we maintained space for a node with that id.
+
 ## Graph Algorithms
 
 ### Breadth-First-Search
