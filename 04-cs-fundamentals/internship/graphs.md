@@ -136,7 +136,7 @@ An Adjacency List provides a bit of a middle ground between a list of edges and 
 
 ![Adjacency List Example](images/graphs-adjacency-list.png)
 
-The adjacency list gives us:
+This adjacency list gives us:
 
 - **O(d)** lookup time to find out if any two nodes share an edge, where `d` is the _degree_ of a node meaning the number of edges the node has
   - The maximum value of d would be the case where a node is connected to every other node (assuming no duplicate edges) which is V - 1
