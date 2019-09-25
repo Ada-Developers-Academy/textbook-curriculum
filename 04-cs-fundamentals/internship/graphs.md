@@ -105,6 +105,31 @@ It does have a major downside, to find out if any particular pair of nodes are c
 
 ### Adjacentcy Matrix
 
+Lets look at the same graph again.  Instead of maintaining a list of edges we could instead create a matrix where each row-column intersection indicates a potential edge between two nodes.
+
+![Example graph for an edge list](images/graph-edge-list.png)
+
+Below is an example matrix:
+
+![Example Adjacency matrix](images/graph-adjacency-matrix.png)
+
+In the adjacency matrix above if two nodes matched by the row-column intersection share an edge, that entry in the matri is true.  If they do not share an edge that entry is false.  Notice a couple of things:
+
+* Unless a node has an edge with itself the diagonal from [0][0] to [n-1][n-1] will be false
+* If the graph is undirected the entries across the central diagonal will be mirror images
+  * if (1, 2) is true, then (2, 1) must also be true
+* We would need some way to convert a node in the graph to a number
+
+For a graph G(N, E), where N is the number of nodes and E the number of edges, this solution provides:
+
+* O(1) lookup time complexity to find out if any two nodes
+* O(N<sup>2</sup>) space complexity to store this representation
+* Getting a list of all the neighbors of a node `n` would require a time complexity of O(N) because you need to read the entire row or column.
+
+This method provides a very fast lookup time and not terrible space complexity if the graph is a _dense graph_, in other words if there are a large number of edges compared to nodes.
+
+In the example above we used a matrix of booleans where true indicates an existing edge and false indicates no edge exists connecting the two nodes.  You will often see this represented as a matrix of ones and zeroes where zero indicates no edge exists and 1 indicates it does.  This has the advantage of only requiring one bit per matrix cell.  There are [some strategies](https://github.com/javolio/Bitwise-Adjacency-Matrix) to use this fact to compress the space requirements.  
+
 ### Adjacency List
 
 ### Adjacency List With A Hash
