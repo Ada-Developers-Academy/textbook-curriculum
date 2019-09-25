@@ -122,9 +122,9 @@ In the adjacency matrix above if two nodes matched by the row-column intersectio
 
 For a graph G(N, E), where N is the number of nodes and E the number of edges, this solution provides:
 
-- O(1) lookup time complexity to find out if any two nodes
-- O(N<sup>2</sup>) space complexity to store this representation
-- Getting a list of all the neighbors of a node `n` would require a time complexity of O(N) because you need to read the entire row or column.
+- **O(1)** lookup time complexity to find out if any two nodes share an edge
+- **O(N<sup>2</sup>)** space complexity to store this representation
+- **O(1)** time complexity for getting a list of all the neighbors of a node `n` because you need to read the entire row or column.
 
 This method provides a very fast lookup time and not terrible space complexity if the graph is a _dense graph_, in other words if there are a large number of edges compared to nodes.
 
