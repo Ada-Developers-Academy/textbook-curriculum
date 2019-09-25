@@ -87,6 +87,22 @@ While this can work it leaves us with a problem.  Unlike a tree or a linked list
 
 ### List of Edges
 
+The most basic way to store a graph is simply to maintain a list of edges.  For example for the graph with numbers representing the nodes.
+
+![Example graph for an edge list](images/graph-edge-list.png)
+
+We could represent this graph with the following:
+
+```ruby
+sample_graph = [
+  [1, 2], [1, 3], [3, 4]
+]
+```
+
+This representation has a couple of advantages it's simple and uses a minim amount of space.  For a graph G(N, E) where N is the set of nodes and E the set of edges, this representation has a space complexity of O(E).
+
+It does have a major downside, to find out if any particular pair of nodes are connected, you must traverse the entire list.  This means that the time complexity to find out of any two nodes are connected is O(E) as well.  We can do better.  Instead we will look at an adjacency matrix.
+
 ### Adjacentcy Matrix
 
 ### Adjacency List
