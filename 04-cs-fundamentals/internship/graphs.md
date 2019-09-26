@@ -352,7 +352,7 @@ def dijkstra(adjacency_matrix, start_node)
 end
 ```
 
-**Question**
+**Questions**
 
 <details>
   <summary>Is Dijkstra's Algorithm a greedy algorithm?</summary>
