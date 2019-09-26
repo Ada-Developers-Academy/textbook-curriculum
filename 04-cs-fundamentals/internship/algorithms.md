@@ -90,6 +90,20 @@ Because we will continually divide our list of potential nodes in half until we 
 
 ### Mergesort
 
+Mergesort is another classic divide and conquer algorithm.  In mergesort, if our list has a size greater than 1, we divide our list into two halves conduct a mergesort on each half and merge the sorted lists together.
+
+![Example MergeSort Diagram](../classroom/images/MergeSort.png)
+
+#### Analysis of Mergesort
+
+If the Time complexity of mergesort is `T(n)` we can determine the time complexity of mergesort as follows.
+
+**Dividing** When we divide the list into two sublists this takes `O(1)` as it just calculates the middle of the sub-array.
+**Conquer**  We then recursively sort each half, which is of size n/2.  You can then say that the time complexity of both halves is `2 * T(n/2)`.
+**Combining** The merge method into an n-element subarray is `O(n)`.  
+
+If you look at the diagram above we will divide and recombine a total of log n levels, just like a binary tree.  At each level of the merging step we will be merging a total of `n` elements.  Since we will have log n levels and at each level we merge n elements, this algorithm is `O(n log n)`
+
 ## Categories of Algorithms
 
 ### Divide & Conquer
