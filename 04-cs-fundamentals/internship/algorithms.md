@@ -15,7 +15,26 @@ By the end of this lesson you should be able to:
 
 ## What is an an algorithm
 
+So what is an algorithm?  An _algorithm_ is a finite set of instructions that, if followed, accomplishes a particular task.  You can think of it as a series of steps to accomplish a task.  For example Google maps has an algorithm to calculate the best route to drive between any two points on map.  
+
+All algorithms must have:
+
+- Input
+  - An Algorithm may accept zero or more inputs
+- Output
+  - An algorithm should produce some result
+- Clarity
+  - Each step in an algorithm should be a clear and unabigouous
+- Finiteness
+  - An algorithm should end after a finite number of steps. 
+  - An algorithm cannot repeat forever (otherwise it doesn't solve a problem)
+- Effectiveness
+  - It should be possible for a person or computer to fulfill each step in an algorithm and the algorithm should accomplish the given task.
+
+The art of computer science is really the art of devising, analyzing, proving the correctness and testing algorithms.
+
 ### Algorithms areas of study
+
 
 
 **Question**
