@@ -182,7 +182,83 @@ There are a huge [class of problems](https://en.wikipedia.org/wiki/Category:Grap
 
 ### Breadth-First-Search
 
-### Depth First Search
+Like in a Binary Search Tree a breadth-first-search in a graph is performed with a queue.  However because a graph can, and likely will have a cycle, unlike a tree we need to keep track of the nodes we have visited.  
+
+In breadth-first-search we start with a particular node and visit each node connected to the starting point in the graph starting with the closest node to the starting point and expanding outward.
+
+We do so by adding each of the neighbors of the starting node to a Queue and then loop through the Queue removing an element and repeating the process with the neighbors of the current node.
+
+**Pseudocode**
+
+1. Start with a graph adjacency list and a specific node called `start_node`
+1. Create a list of nodes called `visited` and mark each element `false`
+1. Create an empty queue `q`
+1. Add `start_node` to `q`
+1. While `q` is not empty
+    1. Remove an element from `q` and store it in `current`
+    1. Mark `current` as `true` in the list `visited`
+    1. Loop through each of `current`'s neighbors
+        1. If the neighbor is not `true` in `visited` add it to `q`
+
+You can see breadth-first-search animated on [HackerEarth](https://www.hackerearth.com/practice/algorithms/graphs/breadth-first-search/visualize/)
+
+Breadth first search is a solution in a variety of problems including:
+
+- Finding the shortest path in a graph/maze
+- Solving puzzle games like a [Rubik's Cube](https://www.quora.com/How-can-solving-a-Rubiks-Cube-be-framed-as-a-graph-problem)
+- Checking to see if a graph is connected
+
+**Questions**
+
+<details>
+  <summary>What is the time complexity of Breadth-First-Search</summary>
+  Since you will visit each node once, and loop through each of the edges in each node the Big-O of this algorithm is O(N + E) where `N` is the number of nodes in the graph and `E` is the number of edges since each node and each edge will be explored.
+</details>
+
+<details>
+  <summary>What is the space complexity of Breadth-First-Search</summary>
+  In the worst-case you will need to add each node to the Queue, so the space complexity is O(N) where `N` is the number of nodes in the graph.
+</details>
+
+
+### Depth-First-Search
+
+Where breadth-first-search spreads out from a starting node in order of distance from the starting node, depth first search follows each path as far as possible before backing up and following the next closest path.
+
+**Pseudocode**
+
+1. Starting with a graph's adjacency list and a starting node `s`
+1. Create a Stack called `stack`
+1. Create a list of nodes called `visited` and mark each element `false`
+1. Push `s` into `stack`
+1. mark `s` as `true` in `visited`
+1. while `stack` is not empty
+    1. Remove an element from `stack` and store it in `current_node`
+    1. Loop through all the neighbors of `current_node`
+        1. If they are not marked as `true` in `visited`
+            1. Push the neighbor into `stack`
+            1. Mark the neighbor as `true` in `visited`
+
+
+**Questions**
+
+<details>
+  <summary>What is the time complexity of Depth-First-Search</summary>
+  Since you will visit each node once, and loop through each of the edges in each node the Big-O of this algorithm is O(N + E) where `N` is the number of nodes in the graph and `E` is the number of edges since each node and each edge will be explored.  Note, this is the same as breadth-first-search.
+</details>
+
+<details>
+  <summary>What is the space complexity of Depth-First-Search</summary>
+  In the worst-case you will need to add each node to the Stack, so the space complexity is O(N) where `N` is the number of nodes in the graph.
+</details>
+
+[HackerEarth](https://www.hackerearth.com/practice/algorithms/graphs/depth-first-search/visualize/) has an excellent description and visualization of the algorithm.
+
+Depth-First-Search has a number of applications in graph problems including:
+
+- Detecting a cycle in a graph
+- Finding a path in a maze where there is only one correct path
+- Scheduling jobs based on dependencies on other jobs
 
 ### Shortest Path Algorithms
 
