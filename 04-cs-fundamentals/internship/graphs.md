@@ -400,7 +400,7 @@ In weighted graphs, finding the shortest paths is a common problem.  One classic
 | Term | Definition |
 |--- |--- |
 | Graph | A data structure with two parts:  A limited set of verticies, called nodes, and a limited set of connections between nodes known as edges. |
-| Edge | A connection between two nodes in a graph |
+| Edge | A connection between two nodes in a graph. |
 | Node | The fundamental unit of a graph in computer science.  Each element of a graph, connected by edges. |
 | Sparse Graph | A graph with few edges when compared to nodes. |
 | Dense Graph | A graph with many more edges when compared to nodes.  A graph is considered _dense_ when it has close to the maximum number of possible edges. |
