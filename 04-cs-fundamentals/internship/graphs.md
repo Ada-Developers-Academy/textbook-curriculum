@@ -134,7 +134,7 @@ In the example above we used a matrix of booleans where true indicates an existi
 
 An Adjacency List provides a bit of a middle ground between a list of edges and an adjacency matrix.  In an adjacency list, you have an array with each index representing a node and the content an unordered list of neighboring nodes.  The list can be an array or a linked list.
 
-![Adjacency List Example](images/graphs-adjacency-list.png)
+![Adjacency List Example](images/graph-adjacency-list.png)
 
 This adjacency list gives us:
 
