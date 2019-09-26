@@ -7,7 +7,7 @@ By the end of this lesson you should be able to:
 - Explain a graph data structure
 - Explain how an ordered or unordered set of verticies can represent a graph
 - Write algorithms using graphs
-- Explain dijkstra algorithm
+- Explain Dijkstra's algorithm
 
 ## Video Lesson
 
