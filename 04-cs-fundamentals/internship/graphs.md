@@ -359,6 +359,11 @@ end
   <strong>YES!</strong>  With each iteration of the main loop Dijkstra's algorithm picks the next node with the shortest path.  It makes each choice by picking the next shortest path available.  
 </details>
 
+<details>
+  <summary>What is the time complexity of Dijkstra's Algorithm?</summary>
+  <strong>O(N<sup>2</sup>)</strong>  Where N is the number of nodes.  The algorithm iterates until each node has been visited, N times, and with each iteration you have to find the node with the smallest current distance, so with each iteration you have to look roughly at most N other nodes.
+</details>
+
 **Exercise** 
 
 Take a look at the solution above.  Can you convert it to a solution involving an Adjacency list?  Each entry in the adjacency list will need to store a weight as well as the destination node.
