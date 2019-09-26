@@ -368,6 +368,21 @@ end
 
 Take a look at the solution above.  Can you convert it to a solution involving an Adjacency list?  Each entry in the adjacency list will need to store a weight as well as the destination node.
 
+
+#### Using a Heap
+
+Because finding an unvisited node with a minimum distance takes O(N) time, Dijkstra's algorithm can be made more efficient by using a Min-Heap where nodes are stored by order of their distance.  
+
+By using an Adjacency list instead of an Adjacency matrix and using a heap to store the distances to each node you can get:
+
+- Finding the next node to visit using the heap is O(log N)
+- With an adjacency list, updating the distances to each node takes O(log N) each with a total of E edges.
+- Overall O(N log N + E log N) = O( (N + E) log N)
+
+#### Limitation of Dijkstra's Algorithm
+
+Can you see a problem with Dijkstra's algorithm?  What if an edge has a _negative_ weight?  Then you might find a shorter path **after** already visiting a node.  This is often not a problem, but it is a limitation of the algorithm.
+
 ## Summary
 
 In this lesson we have looked at the Graph data structure.  A graph is a collection of nodes and connections between nodes called edges.  Binary search trees and linked lists are both subsets of graphs.  A graph can have both unweighted and weighted edges.  In a weighted graph, each connection is assigned a cost or weight.  Further a graph can be directed or undirected.  In a directed graph an edge is not bidirectional.  
