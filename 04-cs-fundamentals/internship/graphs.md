@@ -113,7 +113,7 @@ Below is an example matrix:
 
 ![Example Adjacency matrix](images/graph-adjacency-matrix.png)
 
-In the adjacency matrix above if two nodes matched by the row-column intersection share an edge, that entry in the matri is true.  If they do not share an edge that entry is false.  Notice a couple of things:
+In the adjacency matrix above if two nodes matched by the row-column intersection share an edge, that entry in the matrix is true.  If they do not share an edge that entry is false.  Notice a couple of things:
 
 - Unless a node has an edge with itself the diagonal from [0][0] to [n-1][n-1] will be false
 - If the graph is undirected the entries across the central diagonal will be mirror images
