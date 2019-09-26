@@ -57,7 +57,24 @@ Now that hardware is so cheap and powerful and now that we have enormous cloud c
 
 ## Analyzing Algorithms
 
-### Binary Search Trees
+When we analyze an algorithm we generally do not care how an algorithm performs on a specific input size.  Instead we look at how the runtime and memory usage changes as the input size grows.  Looking at how an algorithm's runtime and memory usage increases with increasing input is called, _Asymptotic Analysis_.
+
+Why bother with asymptotic analysis?  Why bother with examining how an algorithm increases in runtime and memory usage as the input size increases?  This allows us to compare algorithms and select one over another.  It also allows us to judge if any algorithm will be able to solve a particular problem within a meaningful amount of time or the system's limited storage capacity.
+
+Most often we measure things in terms of _worst-case_ performance of an algorithm.  This is important when response time and memory usage is critical like in managing a self-driving car or autopilot system.  There are also times where the _average-case_ performance is important, especially where an algorithm is run often or in many instance, like an analysis program run regularly on a cloud platform.
+
+| Big-O | English Term
+|--- |--- |
+| O(1) | Constant |
+| O(log n) | Logarithmic |
+| O(n) | Linear |
+| O(n<sup>2</sup>) | Quadratic |
+| O(n<sup>3</sup>) | Cubic |
+| O(2<sup>n</sup>) | Exponential |
+| O(n!) | Factorial |
+
+
+Analyzing Binary Search Trees
 
 ### Mergesort
 
