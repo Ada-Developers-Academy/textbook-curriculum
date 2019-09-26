@@ -383,6 +383,8 @@ By using an Adjacency list instead of an Adjacency matrix and using a heap to st
 
 Can you see a problem with Dijkstra's algorithm?  What if an edge has a _negative_ weight?  Then you might find a shorter path **after** already visiting a node.  This is often not a problem, but it is a limitation of the algorithm.
 
+For example you could build a graph of chemical reactions between compounds.  The edge weight could represent the energy released or absorbed by the reaction.
+
 ## Summary
 
 In this lesson we have looked at the Graph data structure.  A graph is a collection of nodes and connections between nodes called edges.  Binary search trees and linked lists are both subsets of graphs.  A graph can have both unweighted and weighted edges.  In a weighted graph, each connection is assigned a cost or weight.  Further a graph can be directed or undirected.  In a directed graph an edge is not bidirectional.  
