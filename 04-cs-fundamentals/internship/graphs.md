@@ -120,7 +120,7 @@ In the adjacency matrix above if two nodes matched by the row-column intersectio
   - if (1, 2) is true, then (2, 1) must also be true
 - We would need some way to convert a node in the graph to a number
 
-For a graph G(N, E), where N is the number of nodes and E the number of edges, this solution provides:
+For a graph _G(N, E)_, where _N_ is the number of nodes and _E_ the number of edges, this solution provides:
 
 - **O(1)** lookup time complexity to find out if any two nodes share an edge
 - **O(N<sup>2</sup>)** space complexity to store this representation
