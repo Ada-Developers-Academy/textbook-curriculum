@@ -35,7 +35,21 @@ The art of computer science is really the art of devising, analyzing, proving th
 
 ### Algorithms areas of study
 
+The study of computer science is the study of algorithms.  Researchers in CS focus on:
 
+- **Devising** algorithms
+  - This is the art of using data structures and design strategies to develop new and useful algorithms
+  - It also encompasses optimizing and generalizing existing algorithms
+- **Validating** algorithms
+  - This is the art of proving the correctness of an algorithm for all possible inputs
+  - This is very similar to a mathematical proof
+- **Analyzing** algorithms
+  - This is identifying the time and space complexity of an algorithm
+- **Testing** Algorithms
+  - When we test an algorithm we are really debugging it.  
+  - When we test an algorithm we run it on sample data and try to determine if it failed and if so correct the error.
+  - We also _profile_ or conduct performance measurements by running the algorithm on sample data and measuring performance changes and memory usage.
+    - If you have seen [leetcode](https://leetcode.com/), this site will take your solution to a common programming problem and compare it's performance to solutions from other developers.
 
 **Question**
 
