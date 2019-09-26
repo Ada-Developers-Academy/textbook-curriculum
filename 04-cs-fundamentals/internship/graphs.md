@@ -262,6 +262,10 @@ Depth-First-Search has a number of applications in graph problems including:
 
 ### Shortest Path Algorithms
 
+It is common that given a graph with weighted edges you need to discover the shortest, or cheapest path between two nodes.  Essentially you need to discover a route from node A to node B in such a way that the sum of the edges along the route is a minimnum.  
+
+For unweighted graphs, you could solve this problem using breadth-first-search, however for a weighted graph, a more complicated algorithm is needed.
+
 **Dijkstra's Algorithm**
 
 ## Summary
