@@ -178,6 +178,8 @@ This representation provides similar benefits to using an array for an adjacency
 
 ## Graph Algorithms
 
+There are a huge [class of problems](https://en.wikipedia.org/wiki/Category:Graph_algorithms) involving graphs.  We will look at a few as a sample.  
+
 ### Breadth-First-Search
 
 ### Depth First Search
