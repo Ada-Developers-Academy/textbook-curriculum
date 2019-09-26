@@ -268,6 +268,101 @@ For unweighted graphs, you could solve this problem using breadth-first-search, 
 
 **Dijkstra's Algorithm**
 
+Dijkstra's algorithm is an algorithm which takes a weighted graph and computes **all** the shortest paths from one node to all other reachable vertices.
+
+**Pseudocode** 
+
+1. Starting with an adjacency matrix of nodes and a starting node called `origin_node`
+1. Create a list of the distances to all the nodes in the graph called `shortest_distances`, set all the values to `INFINITY`
+1. Create a list of nodes called `added` which will record if a path to that node has already been discovered and set every entry to `false`
+1. Create an array called `parents` which will record the previous of any particular node on the path from the origin.
+1. Assign `shortest_distances[origin_node]` to 0, so that it is picked first
+1. Loop the number of nodes - 1 times
+    1. Select a node which is not in `added` and has a the smallest distance value called `current_node`.
+    1. Set `current_node` in `added` to true
+    1. Update all the values in `distance` for the neighbors of `current_node` with the minimum of their current value and the distance to the `current_node` and the weight of the edge connecting them with `current_node`
+
+There are also many variants of Dijkstra's Algorithm.  One includes a Min-Heap in which elements whom have a distance value known are stored.  When you select the node not in `shortest_path_set` with the minimum distance, you can do so by removing elements from the heap.  
+
+Below is a Ruby implementation using an adjacency matrix.  You can see this code and accompanying tests on [AdaGold](https://github.com/AdaGold/dijkstra).
+
+```ruby
+def dijkstra(adjacency_matrix, start_node)
+  num_nodes = adjacency_matrix.length
+
+  # shortest_distances will hold the shortest distances from start_node to i
+  # it starts with infinity as the value
+  shortest_distances = Array.new(num_nodes, Float::INFINITY)
+
+
+  # added[i] will be true if the path to i
+  # from the source has been found
+  added = Array.new(num_nodes, false)
+
+
+  # Distance of source vertex from
+  # itself is always 0
+  shortest_distances[start_node] = 0
+  
+  # parent array to store the shortest path tree
+  parents = Array.new(num_nodes)
+  # no parent for the start node
+  parents[start_node] = nil
+
+
+  # Find shortest path for all nodes
+  (num_nodes - 1).times do
+
+    # Pick the minimum distance vertex
+    # from the set of vertices not yet
+    # processed. nearest_node is  
+    # always equal to start_node in  
+    # first iteration.
+    nearest_node = -1
+    shortest_distance = Float::INFINITY
+    (0...num_nodes).each do |node_index|
+      if (!added[node_index] &&
+          shortest_distances[node_index] <  shortest_distance)  
+        nearest_node  = node_index
+        shortest_distance = shortest_distances[node_index]
+      end
+    end  
+
+    # Mark the picked vertex as visited
+    added[nearest_node] = true
+    # Update dist value of the
+    # adjacent nodes of the picked node.
+    (0...num_nodes).each do |node_index|
+      edge_distance = adjacency_matrix[nearest_node][node_index]
+
+      if (edge_distance > 0 && 
+          ((shortest_distance + edge_distance) <  
+              shortest_distances[node_index]))  
+        parents[node_index] = nearest_node
+        shortest_distances[node_index] = shortest_distance +  
+                                        edge_distance
+      end
+    end
+  end
+  return {  
+    start_node: start_node,
+    parent_list: parents,
+    shortest_distances: shortest_distances
+  }
+end
+```
+
+**Question**
+
+<details>
+  <summary>Is Dijkstra's Algorithm a greedy algorithm?</summary>
+  <strong>YES!</strong>  With each iteration of the main loop Dijkstra's algorithm picks the next node with the shortest path.  It makes each choice by picking the next shortest path available.  
+</details>
+
+**Exercise** 
+
+Take a look at the solution above.  Can you convert it to a solution involving an Adjacency list?  Each entry in the adjacency list will need to store a weight as well as the destination node.
+
 ## Summary
 
 ## Terms & Definitions
