@@ -50,7 +50,7 @@ We'll need to add a new method, `show`. Inside that method we'll be able to acce
 ```ruby
 # app/controllers/books_controller.rb
 def show
-  book_id = params[:id]
+  book_id = params[:id].to_i
   @book = BOOKS[book_id]
   if @book.nil?
     head :not_found
