@@ -280,3 +280,5 @@ In this lesson we looked at what an algorithm is, a series of finite steps to so
 - [Geeks for Geeks: Greedy Algorithms and the Knapsack problem](https://www.geeksforgeeks.org/greedy-algorithms/)
 - [HackerEarth: Basics of Greedy Algorithms](https://www.hackerearth.com/practice/algorithms/greedy/basics-of-greedy-algorithms/tutorial/)
 - [BaseCS: Less Repetition, More Dynamic Programming](https://medium.com/basecs/less-repetition-more-dynamic-programming-43d29830a630)
+
+<!-- Diagram source https://drive.google.com/file/d/1UtfvVBsu6yAte1KftYjBhUwH8dCvjq33/view?usp=sharing -->
