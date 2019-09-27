@@ -152,6 +152,20 @@ $ git config --global core.editor "code --wait"
 **Exercise**
 - [Complete the Github-Git Verification Exercise](exercises/github-verification.md)  -->
 
+## Browsers
+
+We will be using [Firefox](https://www.mozilla.org/en-US/firefox/) as our primary browser at Ada.  You can install it with:
+
+```bash
+$ brew cask install firefox
+```
+
+You may also want to use Google Chrome, which is also a fine browser.  You can install firefox with Homebrew by typing:
+
+```bash
+$ brew cask install google-chrome
+```
+
 ## It's All About Communication! Slack
 
 Lastly we you should already have Ada's primary mode of communication installed... [**Slack!**](https://slack.com/downloads/osx). While it is **possible** to get by using the Slack website.  We recommend **strongly** to use the Desktop client.  You can install Slack with homebrew and the command:
