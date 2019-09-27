@@ -154,7 +154,11 @@ $ git config --global core.editor "code --wait"
 
 ## It's All About Communication! Slack
 
-Lastly we you should already have Ada's primary mode of communication installed... [**Slack!**](https://slack.com/downloads/osx). While it is **possible** to get by using the Slack website.  We recommend **strongly** to use the Desktop client.  Simply follow the link above and install it, or go to the Mac Appstore and install Slack that way.
+Lastly we you should already have Ada's primary mode of communication installed... [**Slack!**](https://slack.com/downloads/osx). While it is **possible** to get by using the Slack website.  We recommend **strongly** to use the Desktop client.  You can install Slack with homebrew and the command:
+
+```bash
+$ brew cask install slack
+```
 
 When Ada has announcements or students want to share general information, we will generally use Slack.  If we have updates to projects or homework, we will use Slack.  We only use e-mail for personal communication and things we need to keep a record of (like absences).
 
