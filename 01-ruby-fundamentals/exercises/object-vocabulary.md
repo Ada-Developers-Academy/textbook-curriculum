@@ -9,7 +9,7 @@
 
 The below code might be part of a library database, tracking which books have been loaned out to which patrons.
 
-This code is in an image so that we can highlight specific parts of it. [If you want a text version, use this gist](https://gist.github.com/droberts-ada/e1924d86244328102e98c835cc3e2aea). To see the full resolution version, click the image and then click `Download`.
+This code is in an image so that we can highlight specific parts of it. [You can find a text version here](source/object-vocabulary). To see the full resolution version, click the image and then click `Download`.
 
 ![Library Code](../images/object_vocab_worksheet.png)
 <!-- Instructors: source for this image is at https://docs.google.com/presentation/d/1Ro-4od5VZLV7NR_T8uvg5wZZlxl6WtilH6sWXTcl8cI/edit#slide=id.p -->

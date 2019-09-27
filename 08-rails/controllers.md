@@ -128,6 +128,8 @@ class BooksController < ApplicationController
 end
 ```
 
+Now, when we navigate to http://localhost:3000/books in our browser, we see...something is happening! It says we need a template, which we'll go over in the next lesson!
+
 ## Summary
 
 **Routes**

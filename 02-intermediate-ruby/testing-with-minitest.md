@@ -15,7 +15,7 @@ As we work we will use the files located in this [repository](https://github.com
 
 Our starter code has 2 files we will focus on.
 - `clock.rb` a file we will build our method in to return a string formatted as a time.
-- `clock_spec.rb` a file in which we will place tests to verify that our code meets expectations.
+- `clock_test.rb` a file in which we will place tests to verify that our code meets expectations.
 
 ### Before We Get Started
 
@@ -29,10 +29,10 @@ $  gem install minitest-reporters
 
 ### How To Use Minitest?
 
-To start with we'll add some code to `clock_spec.rb`.  We will also require `minitest/autorun`
+To start with we'll add some code to `clock_test.rb`.  We will also require `minitest/autorun`
 
 ```ruby
-# clock_spec.rb
+# clock_test.rb
 
 require 'minitest/autorun'
 require 'minitest/reporters'
@@ -48,10 +48,10 @@ Note that `clock.rb` which will hold our method is currently empty.
 ```
 
 
-We can run the tests by typing:  `ruby clock_spec.rb` and get the following:
+We can run the tests by typing:  `ruby clock_test.rb` and get the following:
 
 ```bash
-$ ruby clock_spec.rb
+$ ruby clock_test.rb
 Run options: --seed 35264
 
 # Running:
@@ -63,7 +63,7 @@ Finished in 0.000751s, 0.0000 runs/s, 0.0000 assertions/s.
 0 runs, 0 assertions, 0 failures, 0 errors, 0 skips
 ```
 
-The code we added to `clock_spec.rb` will automatically run any tests in the file.  When we execute `clock_spec.rb` it scans the file for any test cases and runs them giving us the above output.  Minitest is running (Yippie!), but we haven't actually written a test yet, so we get `0 runs, 0 assertions...`.
+The code we added to `clock_test.rb` will automatically run any tests in the file.  When we execute `clock_test.rb` it scans the file for any test cases and runs them giving us the above output.  Minitest is running (Yippie!), but we haven't actually written a test yet, so we get `0 runs, 0 assertions...`.
 
 
 ### Writing Your First Test
@@ -74,7 +74,7 @@ To start we'll need to create a `description` block and place our tests inside t
 #### Step 1:  Create a `describe` block
 
 ```ruby
-# clock_spec.rb
+# clock_test.rb
 require 'minitest/autorun'
 require 'minitest/reporters'
 require_relative 'clock'
@@ -94,7 +94,7 @@ Now we'll create an `it` block which is a test-case.  Each `describe` block can 
 
 
 ```ruby
-# clock_spec.rb
+# clock_test.rb
 
 require 'minitest/autorun'
 require 'minitest/reporters'
@@ -119,7 +119,7 @@ So we have a test-case, but it's not actually checking anything yet.  So we can 
 So lets write our expectation
 
 ```ruby
-# clock_spec.rb
+# clock_test.rb
 
 require 'minitest/autorun'
 require 'minitest/reporters'
@@ -146,10 +146,10 @@ end
 
 Notice the line `expect(time).must_be_instance_of String`.  Minitest adds an `expect` method which returns an object with a bunch of expectations including the `must_be_instance_of` method.  Most expectations take one required argument.  If the required argument to `expect` is a string the expectation passes.
 
-When we run this with `ruby clock_spec.rb` we get:
+When we run this with `ruby clock_test.rb` we get:
 
 ```bash
-ruby clock_spec.rb
+ruby clock_test.rb
 Run options: --seed 21626
 
 # Running:
@@ -157,7 +157,7 @@ Run options: --seed 21626
 ERROR["test_0001_will return a string", "Clock", 0.0008059999672695994]
  test_0001_will return a string#Clock (0.00s)
 NoMethodError:         NoMethodError: undefined method `clock' for #<#<Class:0x00007faa528a19d0>:0x00007faa528e1fa8>
-            clock_spec.rb:12:in `block (2 levels) in <main>'
+            clock_test.rb:12:in `block (2 levels) in <main>'
 
   1/1: [] 100% Time: 00:00:00, Time: 00:00:00
 
@@ -179,10 +179,10 @@ def clock(hours, minutes, seconds)
 end
 ```
 
-Now `ruby clock_spec.rb` gets us:
+Now `ruby clock_test.rb` gets us:
 
 ```bash
-$ ruby clock_spec.rb
+$ ruby clock_test.rb
 Started with run options --seed 23098
 
   1/1: [] 100% Time: 00:00:00, Time: 00:00:00
@@ -206,7 +206,7 @@ So you shouldn't put parentheses around the arguments to expectations like `must
 We are going to require that clock called with specific arguments returns a string formatted with the time properly.
 
 ```ruby
-# clock_spec.rb
+# clock_test.rb
 
 require 'minitest/autorun'
 require 'minitest/reporters'
@@ -259,7 +259,15 @@ You may remember from the [Introduction to Automated Testing](../00-programming-
 1. The seconds are greater than or equal to 60, should raise an error
 1. Any parameter is less than 0, should raise an error
 
-**Question** Are there other edge-cases we should test for?  Do any other inputs cause different behaviors in the method?  Talk about it with your SeatSquad members.  If you are unsure check [here](https://gist.github.com/ada-instructor-1/27c2cb78b177a6139241860a6bc54712).
+<details>
+<summary>
+<b>Question:</b> Are there other edge-cases we should test for?  Do any other inputs cause different behaviors in the method?  Talk about it with your SeatSquad members, and click here for an answer if you are still unsure.
+</summary>
+
+- You should also test numbers less than 10
+- Numbers smaller than 10 should include a leading zero
+
+</details>
 
 We will choose to ignore for now cases where the user passes a non-integer in as a parameter.  In that case it should cause a runtime error.
 
@@ -282,7 +290,7 @@ Notice that you **can** use multiple expectations per test.
 
 #### Make it pass
 
-**Exercise** Now with your SeatSquad write code to make the test pass.  Remember to run `ruby clock_spec.rb` to verify that your `clock` method passes.  If you get stuck you can refer to [my sample solution](https://github.com/AdaGold/clock/commit/56259f91df17a3f6e18872fd661db8eddfc93786).
+**Exercise** Now with your SeatSquad write code to make the test pass.  Remember to run `ruby clock_test.rb` to verify that your `clock` method passes.  If you get stuck you can refer to [my sample solution](https://github.com/AdaGold/clock/commit/56259f91df17a3f6e18872fd661db8eddfc93786).
 
 
 ### Testing for Errors
@@ -350,7 +358,7 @@ As our projects get larger putting all our code in the same folder gets messy, e
 
 ![Project Structure](images/project_folder.png "project structure")
 
-We will be placing our code in the **lib** folder, and our test specs in the **specs** folder.
+We will be placing our code in the **lib** folder, and our tests  in the **test** folder.
 
 ### Wait What Is This Rakefile Thingy?
 
@@ -367,8 +375,8 @@ gem install rake
 #### Setting Up
 
 1.  Move your non-testing source code into a folder called `lib`.
-1.  Move your testing specs into a folder called `specs`.
-1.  Change the **require_relative** line in the spec to point to the lib folder.
+1.  Move your testing test into a folder called `test`.
+1.  Change the **require_relative** line in the test to point to the lib folder.
 1.  Create the following `Rakefile` in the project root directory
 
 ```ruby
@@ -377,7 +385,7 @@ require 'rake/testtask'
 Rake::TestTask.new do |t|
   t.libs = ["lib"]
   t.warning = true
-  t.test_files = FileList['specs/*_spec.rb']
+  t.test_files = FileList['test/*_test.rb']
 end
 
 task default: :test
@@ -397,7 +405,7 @@ Finished in 0.001215s, 2469.1358 runs/s, 3292.1811 assertions/s.
 
 3 runs, 4 assertions, 0 failures, 0 errors, 0 skips
 ```
-Now you can have as many spec files as you want and run all the tests with a single `rake` command.
+Now you can have as many test files as you want and run all the tests with a single `rake` command.
 
 
 ## Testing Floats

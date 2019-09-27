@@ -28,6 +28,12 @@ gem_group :development, :test do
   gem "pry-rails"
 end
 
+gem_group :development do
+  # Hot New Debugging Gems
+  gem 'debase', '>= 0.2.4.1'
+  gem 'ruby-debug-ide', '>= 0.7.0'
+end
+
 unless API_MODE
   gem_group :development do
     # Improve the error message you get in the browser

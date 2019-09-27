@@ -51,7 +51,7 @@ See optional interview practice problem [here](#optional-interview-practice-prob
 
 ### Arrays and efficiency of Algorithms
 Assignments are expected to be worked on after the class discussion.
-1. Fork, clone and complete the methods in using_restricted_array.rb on [Ada-C11/Restricted-Arrays-Part1](https://github.com/Ada-C11/Restricted-Arrays-Part1). See the readme file for details.
+1. Fork, clone and complete the methods in using_restricted_array.rb on [Ada-C12/Restricted-Arrays-Part1](https://github.com/Ada-C12/Restricted-Arrays-Part1). See the readme file for details.
 1. Watch this [Video: Big O Notation](https://www.youtube.com/watch?v=v4cd1O4zkGw) by Gale Laakmann McDowell
 1. Solve this [quiz](https://www.khanacademy.org/computing/computer-science/algorithms/asymptotic-notation/e/quiz--comparing-function-growth) by Khan Academy.
 1. Solve this [quiz](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/time%20complexity/time_complexity_quiz.md).

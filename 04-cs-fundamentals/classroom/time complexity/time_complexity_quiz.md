@@ -1,6 +1,6 @@
 # Time Complexity Quiz
 
-Read the code or problem statement in each section and determine the time complexity for each code snippet or soltuion to the problem statements in Big O terms.
+Read the code or problem statement in each section and determine the time complexity for each code snippet or solution to the problem statements in Big O terms.
 Explain your answer.
 
 

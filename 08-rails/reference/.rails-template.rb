@@ -30,6 +30,10 @@ gem_group :development do
   # Automatically run our tests
   gem "guard"
   gem "guard-minitest"
+  # Hot New Debugging Gems
+  gem 'debase', '>= 0.2.4.1'
+  gem 'ruby-debug-ide', '>= 0.7.0'
+
 end
 
 # Add some extra minitest support

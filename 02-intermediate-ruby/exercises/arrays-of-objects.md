@@ -4,4 +4,4 @@ You've been contracted by a hip bar/grill in Singapore to finish developing a sy
 
 You can find the code [here.](sample_code/order.rb)
 
-Your team leader has provided [these tests](sample_code/order_spec.rb).
+Your team leader has provided [these tests](sample_code/order_test.rb).

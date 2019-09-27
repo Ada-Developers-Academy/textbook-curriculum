@@ -42,14 +42,14 @@ def avg_score(scores)
 end
 
 # and one more! No ternary:
-if @account.save
+if account.save
   message = "Success!"
 else
   message = "Problems. :("
 end
 
 # with a ternary:
-message = @account.save ? "Success!" : "Problems. :("
+message = account.save ? "Success!" : "Problems. :("
 ```
 
 ## Single-line Conditionals

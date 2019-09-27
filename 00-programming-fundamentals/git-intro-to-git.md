@@ -14,16 +14,25 @@ This lesson consists of three sections.
 - Third we'll use git to track the changes we make to our local copy of the repository
 
 ### Version Control
-Git is a "distributed version control" system:
+Git is a "distributed version control" system (VCS):
 
 - **Distributed**: used in opposition to Centralized. This means that there is no single "correct" computer for the source code to exist upon. Each person who uses or writes the code will have their own copy of the code and its history.
 - **Version**: This refers to the idea that source code files change over time. When you save a file, that is a single version of the file. When you add a new line of code and save it again, that is a new version of the file.
 - **Control**: The Git system is used to control or manage the process of creating new Versions of source code files, and the process of distributing those versions to other people.
 
 ### But Why???
+
+Two primary reasons:
+
+#### 1. Coordination of development
 _Version Control_ is used in software development because we have multiple people working together to build a single project, and we need to coordinate that process of working together to ensure it is reliable and efficient. While most of our work until now has been individual, it's important to recognize that the "multiple people" in the above statement may also refer to you and yourself *in the future*.
 
 As an analogy, it might help to consider the case of a group of artists working on a gigantic mural. To ensure that the overall design and intention of the mural is achieved, the artists must coordinate amongst themselves to avoid painting over each others' work. A similar dynamic exists for multiple programmers working on a set of files for a programming project.
+
+More concretely, you can consider it similar to Google Drive. It's important to be able to get consistently updated versions of what people have done.
+
+#### 2. Organizing changes into concrete pieces
+Even when working on a short-term project alone, developers often choose to use version control because it enables them to go back to a previous reliable working state if they ever break something. Using a VCS (Version Control System) is analogous to saving "project_v1.rb", "project_v2.rb", etc. every time we add something significant to our software but cleaner and more thorough.
 
 ## Cloning a GitHub Repository
 
@@ -224,6 +233,17 @@ This process looks pretty similar to the previous one in which we added `second-
 With these two lines Git is showing us first what file we have modified in our pending change, before we commit it. And second (after we commit it), what the actual modification to that file was -- we added two new lines (the comment and the `puts` statement).
 
 If we were to run `git log` again, we would see our new commit at the top of the list.
+
+## Summary
+
+command                 | description
+------------------------|-----------------------------------------------------
+`git clone $GITHUB_URI` | Make a local copy of `$GITHUB_URI` from github.
+`git status`            | Check the status of the repository you are inside of.
+`git add $FILE`         | Stage changes to `$FILE` (add to the next commit).
+`git add .`             | Stage changes to all files in this folder and its children.
+`git commit`            | Create a new commit with all of your staged changes.
+`git log`               | Show the history of the repository.  (Remember `q` quits this view!)
 
 ## Commit Early, Commit Often
 Commits, ideally, should be _atomic_. That is, any single commit should include changes that encompass a single idea. This is a habit that must be built. It's easy to "get in the zone" while programming and, before, you know it, you've got fifty changes in ten files and you're not sure how you ended up there. Making _commits_ is fast and provides you a history of how you got from there to here. Here's some good examples of when to _commit_:

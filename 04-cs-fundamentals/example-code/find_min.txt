@@ -1,0 +1,14 @@
+int smallest_value(array)
+  if array's length == 0
+    return nil
+
+  smallest_value = array[0]
+  i = 1
+  while i < array's length
+    if array[i] < largest_value
+      smallest_value = array[i]
+
+    i = i + 1
+  end loop
+
+  return smallest_value

@@ -76,8 +76,8 @@ One common type of Exception is ArgumentError. This exception is used to alert t
 
 ```ruby
 def divide_check(order_items, number_of_people)
-  unless number_of_people > 0
-    raise ArgumentError, 'You must provide a postive numeric argument to this method.'
+  unless number_of_people.respond_to?(:greater) && number_of_people > 0 
+      raise ArgumentError, 'You must provide a postive numeric argument to this method.'
   end
 
   total = order_items.sum
@@ -92,7 +92,7 @@ Now the stack trace looks like this:
 Traceback (most recent call last):
 	2: from example.rb:20:in `<main>'
 	1: from example.rb:16:in `place_order'
-example.rb:3:in `divide_check`: You must provide an array and a numeric argument to this method. (ArgumentError)
+example.rb:3:in `divide_check`: You must provide a postive numeric argument to this method. (ArgumentError)
 ```
 
 This stack trace is more specific about the problem and prevents the application from going further with invalid arguments.

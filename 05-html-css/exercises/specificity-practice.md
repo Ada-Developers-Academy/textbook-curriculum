@@ -16,7 +16,7 @@ Feel free to use a [specificity calculator tool](https://specificity.keegan.st/)
 | F     | `ul ol+li { }` |    |
 | G     | `ul ol li.red { }` |    |
 | H     | `li.red.level { }` |    |
-| I     | `style=""` |    |
+| I     | inline-style (no point value) |    |
 | J     | `p { }` |    |
 | K     | `div p { }` |    |
 | L     | `.ada { }` |    |

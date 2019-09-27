@@ -56,10 +56,16 @@ To get the most benefit from the special tags that _ERB_ provides us, we will ne
 
 ```ruby
 # in our controller app/controllers/books_controller.rb
-def index
-  @books = [{ title: "Hidden Figures", author: "Margot Lee Shetterly"},
-            { title: "Practical Object-Oriented Design in Ruby", author: "Sandi Metz"},
-            { title: "Kindred", author: "Octavia E. Butler"}]
+BOOKS = [
+  { title: "Hidden Figures", author: "Margot Lee Shetterly"},
+  { title: "Practical Object-Oriented Design in Ruby", author: "Sandi Metz"},
+  { title: "Kindred", author: "Octavia E. Butler"}
+]
+
+class BooksController < ApplicationController 
+  def index
+    @books = BOOKS
+  end
 end
 ```
 ... and inside of `app/views/books` ... there is a view file named after the index action. `index.html.erb`.  This is an example of how Ruby favors **convention over configuration**.  The default view for an action/method is named after it and stored in a folder named after the class.  

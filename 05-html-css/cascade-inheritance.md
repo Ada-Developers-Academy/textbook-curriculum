@@ -1,9 +1,49 @@
 # Cascade & Inheritance
 
-
 ## 📚 Learning Goals 📚
+
 - See how styles can cascade based on nested and related elements
 - See how CSS prioritizes style choices based on the specificity of the selector
+
+## Introduction
+
+What happens when more than one CSS rule-set applies to an element? Observe the following HTML and CSS, and predict what the resulting HTML looks like.
+
+```html
+<article>
+  <h2><em>Why My Cats are the Most Charming</em> <span id="article-author" class="featured-author">by Dee Del Rosario</span></h2>
+</article>
+```
+
+```css
+article {
+  border: 2px groove blue;
+}
+
+article h2 {
+  font-size: 3rem;
+}
+
+span {
+  font-size: 0.5rem;
+}
+
+#article-author {
+  font-size: 1rem;
+  color: red;
+}
+
+.featured-author {
+  font-size: 2rem;
+  color: orange;
+}
+```
+
+What will the text `by Dee Del Rosario` look like?
+
+How does this get determined? Do styles override one another? Do styles get ignored? Which ones? When?
+
+In CSS, the combination of **cascading**, **inheritance**, and **specificity** determines the **final** answer of what styles get applied.
 
 ## What is Cascading?
 
@@ -11,36 +51,38 @@ Other than being the C in the acronym CSS, the fact that style sheets are descri
 
 This is especially important as our stylesheets become longer and more complex and split between many different stylesheets/files.
 
+The general rule is that **styles and rule-sets that are defined "later" in the cascade _override_ styles and rule-sets that are defined "earlier" in the cascade.**
 
 ## Sources of Cascading
-**Three main sources** of style information form a cascade. They are:
 
-- The **browser's default styles** for the markup language.
-- Styles specified by a **user** who is reading the document.
-- The styles **linked** to the document by its author. These can be specified in three places:
-  - In an external file: our primary method of associating styles.
-  - In a definition at the beginning of the document: we generally try not to do this.
-  - On a specific element in the body of the document: we generally try not to do this.
+**Three main sources** of style information form a cascade. They are, and in this order:
 
-For example:
-```html
-<p>Eeny, Meeny, Miny, <strong>MOE</strong>!</p>
-```
+1. The **browser's default styles** for the markup language.
+    - This means that Google Chrome, the browser, has an opinion for how plain HTML should look like. This is often similar, but may not be the same as what Firefox thinks plain HTML should look like.
+2. The styles **linked** to the document, like the `style.css` files we've been working in so far. We (developers) have the most control here, so we will focus on this section the most. These styles can be specified in three places:
+    - In an external file: our primary method of associating styles.
+    - In a definition at the beginning of the document: we generally try not to do this.
+    - On a specific element in the body of the document: we generally try not to do this.
+3. Styles specified by a **user** who is reading the document.
+    - This can come in a variety of ways, like browser extensions, or system-wide preferences on a user's machine or device.
 
-```css
-p {
-  font-family: helvetica;
-}
 
-strong {
-  color: red
-}
-```
-When you open your sample document in your browser, the `strong` elements are bolder than the rest of the text. This comes from the browser's default style for HTML.
+[Consider this example on Cascading in Codepen.](https://codepen.io/adadev/pen/mdbKNPy?editors=1100)
 
-Based on the code above, the `strong` elements are also red.
+Observe:
+
+1. The `strong` elements are bolder than the rest of the text. This comes from the browser's default style for HTML.
+1. Based on the CSS linked to this HTML, the `strong` elements are also red.
+
+## Inherited Properties
+
+[Continuing with the example above,](https://codepen.io/adadev/pen/mdbKNPy?editors=1100) why is the text "MOE" also in the font-face Helvetica?
 
 The strong elements also **inherit** much of the `p` element's style, because they are its children. In the same way, the `p` element inherits much of the `body` element's (default) style.
+
+Some styles applied on elements will also apply to their nested child elements. We say that nested elements **inherit** their parent's styles.
+
+Not every property gets inherited. For example, border styles don't get inherited. To find out if a CSS property gets inherited, you'll have to check the CSS documentation for that property. [Read more on MDN on inheritance.](https://developer.mozilla.org/en-US/docs/Web/CSS/inheritance)
 
 ## Specificity
 
@@ -60,7 +102,7 @@ Every selector has its place in the specificity hierarchy. There are four distin
 1. **Elements and pseudo-elements** (# of Element selectors).
 Including for instance `::before` and `::after`.
 
-There _is_ a specificity calculator which evaluates the "points of specificity" given a set of selectors. The selectors with the higher number of specificity wins over others.
+There _is_ a specificity calculator which evaluates the "points of specificity" given a set of selectors. The selectors with the higher number of specificity wins over others. In practicality, developers rarely remember the actual point values, and instead focus their knowledge on remembering the general order of specificity (like the numbered list above). However, the specificity point system is good knowledge to reference and practice while we grow that skill.
 
 ## Continue Learning
 Understanding CSS selector's specificity can be one of the most difficult parts of utilizing CSS. It is something that will take practice! Fortunately for us, there are great articles that breakdown this complex topic, such as Smashing Magazine's [*CSS Specificity: Things You Should Know*](https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/) Article.

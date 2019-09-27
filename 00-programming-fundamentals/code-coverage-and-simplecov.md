@@ -5,7 +5,7 @@
 By the end of this lesson you should be able to:
 
 -  Explain the concept of code coverage
--  Run SimpleCov along with your Minitest specs
+-  Run SimpleCov along with your Minitest tests
 -  Read and use a SimpleCov report
 
 ## Introduction
@@ -18,13 +18,11 @@ The [SimpleCov](https://github.com/colszowka/simplecov) gem is one such tool whi
 
 To add SimpleCov to your test suite first run `gem install simplecov` in the terminal.  
 
-Then in your spec file add the following lines **to the top** of the file.
+Then in your test file add the following lines **to the top** of the file.
 
 ```ruby
 require 'simplecov'
-SimpleCov.start do
-  add_filter 'test/' # Tests should not be checked for coverage.
-end
+SimpleCov.start
 ```
 
 Finally, add the `coverage` directory to your `.gitignore` file:
@@ -68,9 +66,7 @@ And this testing suite:
 
 ```ruby
 require 'simplecov'
-SimpleCov.start do
-  add_filter 'test/' # Tests should not be checked for coverage.
-end
+SimpleCov.start
 
 require 'minitest/pride'
 require 'minitest/autorun'
@@ -114,15 +110,15 @@ Some teams require a certain percentage of code coverage and it's likely you wil
 
 ### Exercise
 
-Add code coverage to your Deck & Card TDD Exercise.      
+Add code coverage to your Deck & Card TDD Exercise.
 
 
-## Spec Helpers
+## Test Helpers
 
-You may have noticed that you have a lot of repeated require statements at the top of your spec files.
+You may have noticed that you have a lot of repeated require statements at the top of your test files.
 
 ```ruby
-# any_spec.rb
+# any_test.rb
 require 'simplecov'
 SimpleCov.start do
   add_filter 'test/' # Tests should not be checked for coverage.
@@ -132,13 +128,14 @@ require 'minitest'
 require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/pride'
-...
+
+# ...
 ```
 
-We can simplify this down a bit by creating a `specs/spec_helper.rb`.  So now all our requires are in the same place and simplecov is only needed in one file.  It also makes it easier to adjust how our output looks with minitest-reporters because we only have to change one file.  
+We can simplify this down a bit by creating a `test/test_helper.rb`.  So now all our requires are in the same place and simplecov is only needed in one file.  It also makes it easier to adjust how our output looks with minitest-reporters because we only have to change one file.  
 
 ```ruby
-# specs/spec_helper.rb
+# test/test_helper.rb
 require 'simplecov'
 SimpleCov.start do
   add_filter 'test/' # Tests should not be checked for coverage.
@@ -154,7 +151,7 @@ require 'minitest/pride'
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 ```
 
-Now our spec files can simply `require_relative 'spec_helper'`!  That should DRY up our spec files a bit!  We also added a block to `SimpleCov.start` allowing us to filter out any file in our `specs` folder from the coverage report.  This way our spec files themselves are not included in the report.
+Now our spec files can simply `require_relative 'test_helper'`!  That should DRY up our spec files a bit!  We also added a block to `SimpleCov.start` allowing us to filter out any file in our `test` folder from the coverage report.  This way our spec files themselves are not included in the report.
 
 
 ## Resources

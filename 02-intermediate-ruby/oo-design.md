@@ -70,7 +70,7 @@ more methods, classes and attributes
 ### Exercise
 Now, let's try it out ourselves.
 
-Pick on of the following project descriptions and determine the classes you need to write, what methods and
+Pick one of the following project descriptions and determine the classes you need to write, what methods and
 variables the classes will contain and how the classes relate to one another. Draw a diagram if
 necessary.
 1. A teacher wants you to help them write a program that will randomly assign each of her students

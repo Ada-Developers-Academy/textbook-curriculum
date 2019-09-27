@@ -5,14 +5,15 @@ By the end of this lesson you should:
 - Be able to add a gem to your computer.
 - `require` a gem and use it in your projects
 - Have a basic grasp of how to use:
-  - Awesome Print
-  - Colorize
-  - Pry
-  - Faker
+  - [Awesome Print](https://rubygems.org/gems/awesome_print/versions/1.8.0)
+  - [Pry](https://rubygems.org/gems/pry/versions/0.11.3)
+  - [Faker](https://rubygems.org/gems/faker/versions/1.8.7)
+  - [Chronic](https://github.com/mojombo/chronic)
+  - [Money](http://rubymoney.github.io/money/)
+  - [Terminal Table](https://github.com/tj/terminal-table)
 
 ## Introduction
-Gems are what other languages call a library. They are packaged code that can be shared and distributed. Most gems are distributed using [RubyGems.org](https://rubygems.org/). A Gem will contain one or more
-Ruby Classes, just like the ones you've been creating.
+Gems are what other languages call a library. They are packaged code that can be shared and distributed. Most gems are distributed using [RubyGems.org](https://rubygems.org/). A Gem will contain some files with ruby code, just like the ones you've been creating.
 
 The pages linked above are the rubygems sites for the gems, and you can sometimes find useful documentation here, but more often the updated documentation is on their github pages.
 
@@ -62,7 +63,7 @@ Neat!  Adding `.colorize` to a string in a `puts` statement styles the output.
 
 ## Gems Jigsaw
 
-Next we will break into teams to investigate various gems.  Each time will create a **5 minute** presentation on their assigned gem(s).  In this activity, we will be learning and then teaching each other, in the format of two rounds: the research round and the teaching round.
+Next we will break into teams to investigate various gems.  Each team will create a **5 minute** presentation on their assigned gem(s).  In this activity, we will be learning and then teaching each other, in the format of two rounds: the research round and the teaching round.
 
 In the research round, you will meet with your first assigned group to learn about an assigned topic.
 
@@ -280,7 +281,7 @@ puts table
 #  +-------------------+----------------+--------------------+
 #  | 1st row left-side | 1st row middle | 1st row right-side |
 #  | 2nd row left-side | 2nd row middle | 2nd row right-side |
-#  | 2nd row left-side | 2nd row middle | 2nd row right-side |
+#  | 3rd row left-side | 3rd row middle | 3rd row right-side |
 #  +-------------------+----------------+--------------------+
 ```
 
