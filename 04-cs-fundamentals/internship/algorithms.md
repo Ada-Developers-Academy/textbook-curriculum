@@ -106,31 +106,177 @@ If you look at the diagram above we will divide and recombine a total of log n l
 
 ## Categories of Algorithms
 
+There are a [number of different categories of algorithms](http://www.cs.ukzn.ac.za/~hughm/ds/slides/32-algorithm-types.pdf).  Each category describes the general approach to the algorithms use in solving their particular problem.  They are not exclusive and an algorithm can be a member of multiple categories.  For example QuickSort is both a divide-and-conquer algorithm and a randomized algorithm in that it picks a random element as a pivot to sort against.
+
+In this lesson we will look at a couple of types categories, specifically _divide and conquer_ algorithms, _greedy_ algorithms and _dynamic programming_.
+
 ### Divide & Conquer
+
+We have looked at a few examples of divide and conquer algorithms above with Mergesort and finding an element in binary search tree.  In a divide an conquer algorithm you divide the problem into smaller subproblems and solve the subproblems.  Then you combine the subproblem solutions to solve the larger problem.  Very often divide an conquer algorithms are done recursively because their nature makes writing recursive implementations easier.
+
+**Questions**
+
+- What are some divide an conquer algorithms you have used?
+- Is Heapsort a divide on conquer algorithm?  Why or why not?
+
+
+**Example**
+
+One divide an conquer algorithm is Quicksort.  Quicksort works by:
+
+- Take the array and the start and end indices
+- If the start and end indices are the same, you have one element and are done
+- Select a random element in the array, called the `pivot`
+- Move all the elements less than or equal to the `pivot` to the left side of the array and the elements greater than the pivot to the right side with the `pivot` between them
+- Now you have two parts to the array, the elements smaller than the pivot and the elements greater than the pivot.
+- Call Quicksort to sort the side smaller than the pivot and on the side greater than the pivot
+
+As you can see Quicksort divides the larger problem into two parts, and then solves the two subproblems.  The time and space complexity of Quick Sort is an interesting problem as it's worst-case is O(n<sup>2</sup>), but this worst-case is very unlikely as for that to occur the worst possible pivot would need to be used with each iteration.  You can read more about the time complexity of Quick sort on [Geeks for Geeks](https://www.geeksforgeeks.org/quick-sort/)
 
 ### Greedy
 
+A greedy algorithm is like a mouse moving through a maze.  At each step the mouse will move into the next room with the tastiest cheese at each step.  It does not look at the entire problem, but only the current values available.  In other words, at each step, take the best possible value at the moment without regard for future consequences.  Greedy algorithms _hope_ that by picking local optimimums at each step, they will arrive at an optimum solution for the larger problem.  
+
+#### Greedy Example 1 - Sorting
+
+One example of a greedy sorting algorithm is this `greedy_sort` method.  In this method any time it finds an element smaller than the current element, it will swap.  
+
+```ruby
+def greedy_sort(list)
+  list.length.times do |i|
+    (i+1...list.length).each do |j|
+      if(list[i] > list[j])
+        swap(list, i, j)
+end
+```
+
+**Question** Compare the `greedy_sort` with `selection_sort` below.  Which will end up making fewer swaps?
+
+```ruby
+def selection_sort(list)
+  (list.length - 1).times do |i|
+    temp = i
+    ( (i + 1)...list.length).each do |j|
+      if list[temp] > list[j]
+        temp = j
+      end
+    end
+    swap(list, i, temp)
+  end
+end
+```
+
+#### Greedy Example 2 - Merging Sorted Lists
+
+In this problem you are given `k` sorted arrays of varying lengths and asked to merge them.  The greedy approach is to merge the smallest two arrays, then the next two smallest, including the merged result.
+
+For example if you had arrays a, b, and c which have 30, 20 and 15 elements each.  The greedy approach would be to merge arrays b & c, which would take 35 iterations, then merging the result with array a which would take 65 iterations for a total of 100.  If you had merged arrays a and b first, that would take 50 iterations and then merging array c, 65 for a total of 115 iterations.  
+
+<details>
+  <summary>Can you think of another way to solve this problem?</summary>
+  You could also use a heap to solve this by adding the 1st element of each list to a min-heap.  Then removing the root value from the min-heap and adding the next element in the list from which it came into the heap, and repeating until the heap is empty.  This can be done in O(n log k) time where n is the total number of elements in all of the arrays and k is the number of arrays.
+</details>
+
 ### Dynamic Programming
+
+_Dynamic programming_ which is also sometimes referred to as _dynamic optimization_ is an approach to solving complicated problems by breaking them down into their smaller parts, and storing the results to these subproblems so that they only need to be computed once.  So any time you take a big problem and break it down into component parts and save the results from each part to use in solving the larger problem, you are doing dynamic programming.  We looked earlier at greedy algorithms.  In a greedy algorithm the program makes the best looking choice in the moment and never revisits it's decisions to look back for a more optimal choice.  Often this method works, but even more often a greedy algorithm will find a solution that is not the most optimal.  The greedy sort we looked at above operates in this fashion.  It makes swaps in the moment, but never considers which element should end up in a specific index and ends up making more swaps than a selection sort.  However both greedy and dynamic programming approaches have to make choices at each step.  However both approaches attempt to make the best choice in very different ways.  Greedy algorithms make the best choice at each stage solving one subproblem at each step on the path to solving the larger problem.  Dynamic programming on the other hand tries to solve **all** the subproblems and then choose the best option from all the subproblems.  So a dynamic programming algorithm will look at all the possible subproblems before choosing a solution and a greedy algorithms only look through one subproblem.  This means that a dynamic programming solution is more through.
+
+We have also looked at divide and conquer algorithms and there are a lot of overlapping ideas here, as divide and conquer algorithms also break a problem down into subproblems. However the subproblems in a dynamic algorithm can will overlap and repeat whereas a divide and conquer algorithm's subproblems do not overlap.  
+
+You can think of it like this.  You have 5<sup>4</sup> and know that this is 625.  Then you are asked to find 5<sup>5</sup>, you could re-do 5*5*5*5*5 to calculate the answer or you could just multiply 5<sup>4</sup> by 5 and since you already have 625, the problem is easier to solve.
+
+This is easier to explain with an example:
+
+#### Dynamic Programming Example - Fibonacci
+
+We have already seen the fibonacci sequence `fib(n) = fib(n-1) + fib(n-2)` for all n > 0 and `fib(1) = 1` and `fib(0) = 0`.  
+
+We can solve that problem recursively like this:
+
+```ruby
+def fibonacci(n)
+  raise ArgumentError, "n must be >= 0" if n < 0
+  return 0 if n == 0
+  return 1 if n == 1
+
+  return fibonacci(n-1) + fibonacci(n-2)
+end
+```
+
+However this solution, as we saw with recursion is wildly inefficient.  We can however write a dynamic programming solution which will solve all the subproblems and use them to solve the larger problem.
+
+```ruby
+def fibonacci(n)
+  raise ArgumentError, "n must be >= 0" if n < 0
+  
+  # Build a memo of subproblems
+  fib_numbers = Array.new(n)
+  # Fill in the base case for the memo
+  fib_numbers[0] = 0
+  fib_numbers[1] = 1
+
+  # Solve all the subproblems
+  num = 2
+  while num <= n
+    fib_numbers[num] = fib_numbers[num - 1] + fib_numbers[num - 2]
+    num += 1
+  end
+
+  # return the answer by using the memo
+  return fib_numbers[n]
+end
+```
+
+This dynamic programming solution solves the larger problem by solving all the individual subproblems and recording their results in an array, which I will call a memo.  This transforms an O(2<sup>n</sup>) time complexity algorithm into an O(n) algorithm.
+
+The power of dynamic programming is that we never have to repeat the overlapping subproblems.  In Fibonacci if you calculate the algorithm manually, you will end-up calculating `fibonacci(2)` quite a lot.  By recording the results of that value in a memo, you avoid having to duplicate that work.
+
+Take a look below, see how many times you are solving the same subproblem?
+
+![fibonacci example](images/fibonacci.png)
+
+By recording solutions to subproblems for use later we are using a technique known as _memoization_.  This is a classic example of using space to save time.  We sacrifice a larger space complexity for the ability to look up solutions to subproblems rather than recalcualting them.
+
+In the case of fibonacci, since you only need to remember the last two values of the sequence to solve for n, you could solve in this manner for an O(1) space complexity.  However this is still dynamic programming as you are memoizing subproblems for as long as you need them.
+
+```ruby
+def fibonacci(n)
+  raise ArgumentError, "n must be >= 0" if n < 0
+  return n if n < 2
+ 
+  two_previous = 0
+  one_previous = 1
+  num = 2
+
+  while num < n 
+    temp = one_previous + two_previous
+    two_previous = one_previous
+    one_previous = temp
+
+    num += 1
+  end
+ 
+  return one_previous + two_previous
+end
+```
 
 ## Summary
 
+In this lesson we looked at what an algorithm is, a series of finite steps to solve a particular problem.  We also looked at how we analyze algorithms in terms of time and space complexity.  Lastly we looked at three categories of algorithms, greedy, divide and conquer and dynamic programming.  Greedy algorithms attempt to solve a large problem by making locally optimal choices at each step, with the hope of solving a larger  problem.  Divide and conquer algorithms attempt to solve a big problem by repeatably breaking it into smaller subproblems until the subproblems become small enough to solve directly and then combining the results to solve the larger problem.  Dynamic programming also divides the problem into smaller subproblems, but it memoizes the results of the subproblems and uses the stored results to solve the larger problem.  These strategies are commonly used in writing useful algorithms.
+
+## Terms & Definitions
+
+| Term | Definition |
+|-- |--- |
+| Greedy Algorithm | A greedy algorithm is an algorithmic strategy that follows the problem solving strategy of making the locally optimal choice at each stage with the intent of finding an optimal solution to a larger problem. |
+| Dynamic Programming | A dynamic programming algorithm is an algorithmic strategy which solves and stores subproblems which repeatably occur within a larger problem with the goal of using these saved results to optimize a solution to the larger problem.  |
+| Divide And Conquer | A divide and conquer algorithm tries to solve a large problem by repeatably dividing it into more smaller  subproblems until the problems become small enough to be solved directly and then combining the results to solve the larger problem. |
+| Memoization | In computer science  memoization is an optimization technique used to speed up computer programs by storing the results of expensive function calls and saving the results to use when those method calls occur again.  |
+| asymptotic analysis | A mathematical method of examining programs which describes how the program performs as the input size grows. |
+| profile | In engineering profiling is a form of analysis which measures  the space and time complexities of a program.  This tends to be more practical and statistical analysis as compared to asympototic analysis |
+
 ## Resources
 
-- [Geeks for Geeks on Greedy Algorithms and the Knapsack problem](https://www.geeksforgeeks.org/greedy-algorithms/)
+- [Geeks for Geeks: Greedy Algorithms and the Knapsack problem](https://www.geeksforgeeks.org/greedy-algorithms/)
 - [HackerEarth: Basics of Greedy Algorithms](https://www.hackerearth.com/practice/algorithms/greedy/basics-of-greedy-algorithms/tutorial/)
-
-## In Class
-Divide and Conquer algorithms:
-+ Merge sort
-+ Binary Search Tree
-Greedy algorithms:
-+ Greedy sort - updated to be selection sort
-+ Merging sorted lists
-+ Knapsack problem
-Introduction to Graphs and graph representation
-+ Dijkstra's algorithm for shortest path
-
-## Slide Deck
-+ Slide Deck used in class</br>
-<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a href="https://drive.google.com/open?id=1G9bvJj4DJcLUVBiirtRG9lcb_VXVbhmd">Introduction to Algorithms</a> <a href="https://drive.google.com/open?id=1RXNXuQjH8I76OcJaua5TTUMlbJ9l5kcX">Graphs</a></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</br>
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a>
+- [BaseCS: Less Repetition, More Dynamic Programming](https://medium.com/basecs/less-repetition-more-dynamic-programming-43d29830a630)
