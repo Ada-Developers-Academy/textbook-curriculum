@@ -22,18 +22,13 @@ For example, a guide may say to do `$ pwd` to print the path of the current dire
 
 Xcode is an **integrated development environment** (often called an **IDE**) for creating apps for Mac, iPhone, and iPad. We don't need it in it's entirety, we're just going to download one piece of the whole. _Command Line Tools_ is a component of Xcode that provides a _compiler_ for OS X.
 
-**You should have installed Xcode Command-Line tools in [JumpStart](https://github.com/Ada-Developers-Academy/jump-start/tree/master/preparing-to-code/environment-setup#installfest).**
-
-### Trust but Verify
-
-If the Xcode Command-Line tools are not installed you can install it with:
-`$ xcode-select -p` If the command shows a directory path like `/Library/Developer/CommandLineTools` or `/Applications/Xcode.app/Contents/Developer` then it's installed properly.
+You can install it with: `$ xcode-select --install` If the command shows a message like `xcode-select: error: command line tools are already installed, use "Software Update" to install updates` then it's installed properly.
 
 If the command does not show a directory path and instead something like `xcode-select: error: unable to get active developer directory, use xcode-select --switch to set one (or see man xcode-select)` you can install it with `$ xcode-select --install` select install and then grab coffee because it will take a bit of time.
 
 ## Homebrew
 
-[Homebrew](http://brew.sh/) is a [**package manager**](https://en.wikipedia.org/wiki/Package_manager) that simplifies installing software on macOS. Package managers are very common, and each language/framework/stack tends to have their own or preferred tool.  Homebrew should also have been installed in [Jumpstart](https://github.com/Ada-Developers-Academy/jump-start/tree/master/preparing-to-code/environment-setup#installfest).
+[Homebrew](http://brew.sh/) is a [**package manager**](https://en.wikipedia.org/wiki/Package_manager) that simplifies installing software on macOS. Package managers are very common, and each language/framework/stack tends to have their own or preferred tool.
 
 To install, copypasta this into your terminal:
 
@@ -105,6 +100,7 @@ We will use Ruby version 2.5.5 for the Ada curriculum _(last updated: May 2019)_
 There are many options for text editors. _Sublime Text_, _TextMate_, and _Atom_ are popular **Graphic User Interface (GUI)** editors. _vim_ and _emacs_ are popular editors that operate directly on the command line.
 
 The Ada Developers Academy classroom portion will use [VS Code](https://code.visualstudio.com/) a popular open-source text editor from Microsoft.  You may use other editors or IDEs in internship or on your Capstone project.
+
 
 To install VS Code from the terminal you can use homebrew with the command:
 
