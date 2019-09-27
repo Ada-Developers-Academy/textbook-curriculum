@@ -6,7 +6,7 @@ By the end of this lesson you should be able to:
 
 - Further explain time and space complexity
 - Explain the term algorithm
-- Explain two categories of algorithms _greedy_ and _divide and conquer_
+- Explain three categories of algorithms _greedy_, _divide and conquer_ and _dynamic programming_
 
 ## Video Lesson
 
