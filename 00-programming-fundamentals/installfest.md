@@ -106,7 +106,11 @@ There are many options for text editors. _Sublime Text_, _TextMate_, and _Atom_ 
 
 The Ada Developers Academy classroom portion will use [VS Code](https://code.visualstudio.com/) a popular open-source text editor from Microsoft.  You may use other editors or IDEs in internship or on your Capstone project.
 
-**You should have already installed a text editor in Jump Start, but if you do not have VS Code specifically, please install [VS Code](https://code.visualstudio.com/) now.**
+To install VS Code from the terminal you can use homebrew with the command:
+
+```bash
+$  brew cask install visual-studio-code
+```
 
 ## Git
 
