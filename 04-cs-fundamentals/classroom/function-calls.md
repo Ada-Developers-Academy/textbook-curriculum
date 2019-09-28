@@ -132,7 +132,7 @@ The system uses a stack to manage method calls.  When a method, lets call it `me
 
 ### Stack Traces
 
-Remember outputs like the image below?  This is a screenshot of a "stack trace."  When a ruby application crashes the system outputs a list of method calls on the system stack along with the line numbers where the method paused while another method ran.
+Remember outputs like the image below?  This is a screenshot of a _stack trace_.  When a ruby application crashes the system outputs a list of method calls on the system stack along with the line numbers where the method paused while another method ran.
 
 ![stack trace](images/stack-trace.png)
 
@@ -263,6 +263,7 @@ We also examined a new topic, recursion.  At this point we are not yet writing r
 | Stack Overflow Error | An error which occurs when the call stack runs out of memory. |
 | Recursive Method | A Method which calls itself.  Typically a recursive method calls itself on a smaller subproblem and uses the result of that subproblem to solve the larger task.
 | Base Case | A condition to stop recursion.  Any recursive method must have a base case, or it will run into infinite recursion and a stack overflow error |
+| Stack Trace | In computing, a stack trace (also called stack backtrace or stack traceback) is a report of the active stack frames at a certain point in time during the execution of a program, usually output when the application crashes. |
 
 ## Resources
 
