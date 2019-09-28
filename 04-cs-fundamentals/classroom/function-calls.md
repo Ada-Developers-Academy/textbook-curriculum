@@ -5,9 +5,8 @@
 By the end of this lesson you should be able to
 
 - Explain how function calls work
+- Explain how arguments are passed to parameters
 - Explain the terms
-  - Pass by reference
-  - Pass by value
   - Call stack
   - Recursive Function
 - Correctly identify the time and space complexity of small recursive functions
