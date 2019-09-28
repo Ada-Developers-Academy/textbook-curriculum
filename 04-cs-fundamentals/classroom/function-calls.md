@@ -20,7 +20,20 @@ By the end of this lesson you should be able to
 
 ## Introduction
 
-## Exercise
+We have been using methods/functions for several months now.  However we have not investigated how functions actually work, under the hood.  How does information get passed into a method and how is information returned.
+
+So what does a method need:
+
+- Method name - A symbol which represents the block of code
+- Method arguments - the data items sent to the method for processing.
+- Local variables - A method may have local variables to store information while it runs
+- Return value - A method should have some way to return a value as a result
+
+We will first investigate how method arguments get passed into a method, then look at how the system stack is used to store method arguments and local variables and how the return value is sent back when the method finishes.
+
+## Pass By Value
+
+### Exercise
 
 Understand the code below. What do you expect to see in the console output? When do you expect the object_ids to change verses remain the same?
 
@@ -45,10 +58,12 @@ end
 result = 10
 puts "Original value: #{result}"
 puts "Object id is: #{result.object_id}"
+puts "\n"
 
 peek_add_ten(result)
 puts "After peek_add_ten value is: #{result}"
 puts "Object id is: #{result.object_id}"
+puts "\n"
 
 result = add_ten(result)
 puts "After add_ten value is: #{result}"
@@ -59,6 +74,8 @@ Now, copy over this code and try it out in the console. Did your expectations ma
 Learn more by reading [Object passing in Ruby](https://launchschool.com/blog/object-passing-in-ruby) by LaunchSchool.
 
 ## Pass By Reference & Pass By Value
+
+## The Call Stack
 
 ## Recursion
 
