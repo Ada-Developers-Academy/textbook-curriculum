@@ -270,3 +270,5 @@ We also examined a new topic, recursion.  At this point we are not yet writing r
 - Read more on [References and mutability in Ruby](https://launchschool.com/blog/references-and-mutability-in-ruby) by LaunchSchool
 - Read more on [Mutating and non-mutating methods in Ruby](https://launchschool.com/blog/mutating-and-non-mutating-methods) by LaunchSchool
 - Revise lesson on [Reference and values](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/02-intermediate-ruby/references-and-values.md)
+
+<!-- Image sources:  https://drive.google.com/file/d/1vkKjby28cXgUYZHkCtrglfREayhGhaU-/view?usp=sharing -->
