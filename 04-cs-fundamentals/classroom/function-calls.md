@@ -15,7 +15,7 @@ By the end of this lesson you should be able to
 ## Video Lesson
 
 - [Video Lesson]()
-- [Slides Used]()
+- [Slides Used](https://docs.google.com/presentation/d/1Lf5eI5ppJ251VvLsQ-LIzQSRxYxoyed-pNcnJmfJKxE/edit?usp=sharing)
 - [Assignment](https://github.com/Ada-C12/recursion-tracing)
 
 ## Introduction
