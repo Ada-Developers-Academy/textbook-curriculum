@@ -132,6 +132,16 @@ The system uses a stack to manage method calls.  When a method, lets call it `me
 
 ## Recursion
 
+
+
+## Terms & Definitions
+
+| Term | Definition |
+|--- |--- |
+| Call Stack | Also known as the system stack, or activation chain, a stack data structure which stores currently running method calls |
+| Stack | A data structure which stores information in a Last-In-First-Out order.
+| Stack Overflow Error | An error which occurs when the call stack runs out of memory |
+
 ## Resources
 
 - Read more on [References and mutability in Ruby](https://launchschool.com/blog/references-and-mutability-in-ruby) by LaunchSchool
