@@ -100,7 +100,7 @@ So the object ids are all the same across the program.  Just like with the integ
 
 For arrays, the `<<`, as well as with the `[]` operator follow the reference to the place in memory where the array is stored and make changes upon the data stored inside the array.  The reference only changes for a variable when you use the `=` operator or a similar shortucut operator to assign that variable to another place in memory.
 
-So in Ruby arguments are passed into a method's parameters by taking the memory address the arguments reference and passing them into the parameters.  This means that for primitive data types like integers, or floats, there is no way for a parameter to change the value of the argument passed in.
+So in Ruby arguments are passed into a method's parameters by taking the memory address the arguments reference and passing them into the parameters.  This means that for primitive data types like integers, or floats, there is no way for a parameter to change the value of the argument passed in because these types of objects have no mutator methods which change the data stored inside those objects.
 
 Learn more by reading [Object passing in Ruby](https://launchschool.com/blog/object-passing-in-ruby) by LaunchSchool or our [references & values](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/02-intermediate-ruby/references-and-values.md) lecture.
 
