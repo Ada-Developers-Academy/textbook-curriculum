@@ -24,7 +24,7 @@ All algorithms must have:
 - Output
   - An algorithm should produce some result
 - Clarity
-  - Each step in an algorithm should be a clear and unabigouous
+  - Each step in an algorithm should be a clear and unambiguous
 - Finiteness
   - An algorithm should end after a finite number of steps. 
   - An algorithm cannot repeat forever (otherwise it doesn't solve a problem)
