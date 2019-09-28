@@ -130,6 +130,12 @@ The system uses a stack to manage method calls.  When a method, lets call it `me
 
 ![Example call stack run](images/call-stack-run.png)
 
+### Stack Traces
+
+Remember outputs like the image below?  This is a screenshot of a "stack trace."  When a ruby application crashes the system outputs a list of method calls on the system stack along with the line numbers where the method paused while another method ran.
+
+![stack trace](images/stack-trace.png)
+
 The system call stack will lead into our next topic recursion.
 
 ## Intro to Recursion
