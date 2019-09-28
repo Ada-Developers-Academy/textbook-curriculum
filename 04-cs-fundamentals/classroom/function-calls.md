@@ -252,9 +252,11 @@ We also examined a new topic, recursion.  At this point we are not yet writing r
 
 | Term | Definition |
 |--- |--- |
-| Call Stack | Also known as the system stack, or activation chain, a stack data structure which stores currently running method calls |
+| Call Stack | Also known as the system stack, or activation chain, a stack data structure which stores currently running method calls. |
 | Stack | A data structure which stores information in a Last-In-First-Out order.
-| Stack Overflow Error | An error which occurs when the call stack runs out of memory |
+| Stack Overflow Error | An error which occurs when the call stack runs out of memory. |
+| Recursive Method | A Method which calls itself.  Typically a recursive method calls itself on a smaller subproblem and uses the result of that subproblem to solve the larger task.
+| Base Case | A condition to stop recursion.  Any recursive method must have a base case, or it will run into infinite recursion and a stack overflow error |
 
 ## Resources
 
