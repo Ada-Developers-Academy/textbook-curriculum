@@ -130,9 +130,123 @@ The system uses a stack to manage method calls.  When a method, lets call it `me
 
 ![Example call stack run](images/call-stack-run.png)
 
-## Recursion
+The system call stack will lead into our next topic recursion.
+
+## Intro to Recursion
+
+We have had previously where methods called other methods, but what if a method calls itself?  This is the definition of a recursive method, a method which calls itself.  You can think of it like Russian nesting dolls, Matryoshka.  Each doll is a smaller version of the previous doll.
+
+[Nesting Dolls](images/nesting-doll.jpg)
+
+Examine the following method:
+
+```ruby
+def pow(base, exponent)
+  return 1 if exponent == 0
+
+  return base * pow(base, exponent - 1)
+end
+```
+
+The method above calculates one number `base` taken to a given power `exponent`.  The method starts with a condition to end the recursion called a _base case_, `return 1 if exponent == 0`.  If the base case is met the method returns 1.  The next line takes one step toward solving the problem (calculating `base` to the given exponent) by multiplying `base` times a _smaller_ version of the original problem (taking `base` to a power which is one smaller).  This is called a _recursive case_.  
+
+Most recursive methods will follow the following pattern:
+
+- If [some condition]
+  - Solve using the base case
+- Else
+  - Solve by recursively calling the same function with smaller input
+
+### Exercise
+
+Write a recursive function which takes a natural number, `x`, and computes a sum of all natural numbers up to and including `x`.
+
+Examples:
+
+- natural_sum(5) = 5 + 4 + 3 + 2 + 1
+- natural_sum(7) = 7 + 6 + 5 + 4 + 3 + 2 + 1
+
+When you are ready you can see a [solution](examples/recursion_example.rb) to both a recursive and iterative solution.
+
+**Question**
+
+```ruby
+def natural_numbers_sum(num)
+  return num + natural_numbers_sum(num - 1)
+end
+```
+
+<details>
+  <summary>Will the above method work?</summary>
+  No!!  The above method has no base case and therefore it will lead to infinite recursion.
+</details>
+
+### Tracing Recursive Methods
+
+Consider the following recursive method.
+
+```ruby
+def mystery(num)
+  return 1 if num <= 1
+
+  return num * mystery(num - 1)
+end
+```
+
+How could you determine the result of mystery(5)?
+
+You can trace through it by working through the problem just like Ruby executes it.  You start by drawing a stack with `mystery(5)` on it.
+
+![Mystery 5](images/mystery(5).png)
+
+To solve that you need to find `mystery(4) because the base case is not true.
+
+So you add `mystery(4)` to the stack.
+
+![Mystery 4](images/mystery(4).png)
+
+To solve that you need to find `mystery(3) because the base case is not true.
+
+So you add `mystery(3)` to the stack.
+
+![Mystery 3](images/mystery(3).png)
+
+To solve that you need to find `mystery(2) because the base case is not true.
+
+So you add `mystery(2)` to the stack.
+
+![Mystery 3](images/mystery(2).png)
 
 
+To solve that you need to find `mystery(1) because the base case is not true.
+
+So you add `mystery(1)` to the stack.
+
+![Mystery 3](images/mystery(1).png)
+
+**Ah Ha!** now the base-case is met and it will return 1
+
+![Mystery return 1](images/mystery(1)-return.png)
+
+`mystery(2) takes that return value multiplies it by 2 and returns 2.  That method then takes 2 and multiplies it by 3 and returns the product 6.  mystery(4) then takes that and multiples it by 4 and returns the product of 24.  The last mystery(5) takes 24 and multiplies it by 5 and returns the product 120.
+
+![mystery result](images/mystery-result.png)
+
+You can use this manner to trace through and work through a recursive method.
+
+### Time & Space Complexity
+
+How can you determine the time and space complexity of a recursive method.  
+
+For the time complexity you can use the number of recursive calls, just like you would use the number of loop iterations.  So the above method has a time complexity of O(n).
+
+What about space?  On the face of it this method does not make a new data structure to store information... so it seems like O(1)...  However we are using a _hidden_ data structure here the System Stack!  Since the stack grows (and takes memory) with each iteration this method has a space complexity of O(n) because it will require a number of stack frame proportional to the size of n.
+
+## Summary
+
+In this lesson we looked at how methods work.  We examined the system stack and how it keeps track of method calls.  This is used to ensure that method calls execute in a last-in-first-out order, and it is used in the output, called a stack-trace, when a application crashes to enable the programmer to trace through method execution.
+
+We also examined a new topic, recursion.  At this point we are not yet writing recursive methods, but we have learned how recursive methods are structured and how recursive methods can be traced through.  We finished by examining the space and time complexity of recursive methods.
 
 ## Terms & Definitions
 
