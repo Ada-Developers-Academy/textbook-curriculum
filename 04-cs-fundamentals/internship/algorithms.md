@@ -10,7 +10,7 @@ By the end of this lesson you should be able to:
 
 ## Video Lesson
 
-- [Video Lesson]()
+- [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2619c3c1-e6d5-48a1-a199-aad7014dcc4e)
 - [Slide Deck used for the lesson](https://drive.google.com/file/d/1G9bvJj4DJcLUVBiirtRG9lcb_VXVbhmd/view)
 
 ## What is an an algorithm
