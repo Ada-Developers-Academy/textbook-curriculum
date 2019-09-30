@@ -21,8 +21,3 @@ There are a few changes we need to make to the default Rails configuration, to m
     ```
     brew install yarn
     ```
-
-1. Install webpacker
-    ```
-    rails webpacker:install
-    ```
