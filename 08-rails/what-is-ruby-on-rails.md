@@ -37,11 +37,11 @@ Fully open source, it is constantly adapting to new trends and requirements of m
 First let's install Rails version 5.
 
 ```bash
-$ gem install rails --no-rdoc --no-ri
+$ gem install rails -v '~> 5.0' --no-rdoc --no-ri
 $ rails -v
 ```
 
-You should see the rails version as `5.0.1` or later.
+You should see the rails version as `5.0.1` or later, but hopefully not `6.0.0` or later.
 
 __Questions:__ Why `--no-rdoc` and `--no-ri`?
 
