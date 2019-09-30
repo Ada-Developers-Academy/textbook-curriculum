@@ -44,6 +44,7 @@ On the other hand, in an undirected graph, each edge is bidirectional.  In other
 Graphs can also be either _weighted graphs_ or _unweighted graphs_.  In a weighted graph, each edge is assigned a numeric cost or weight.  A weighted graph can either be directed or undirected.  
 
 **Weighted & Undirected Graph**
+
 ![Example Weighted Graph](images/weighted-graph.png)
 
 As you may have noted, we have **already** worked with graphs before.  Both Linked Lists & Binary Search Trees are specific types of graphs.  In this lesson we will explore more generic graph algorithms and look at a few classic problems.
