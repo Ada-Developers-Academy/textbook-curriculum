@@ -12,7 +12,7 @@ By the end of this lesson you should be able to:
 ## Video Lesson
 
 - [Video Lesson]()
-- [Accompanying Slidedeck]()
+- [Accompanying Slidedeck](https://docs.google.com/presentation/d/1Z_hHF3PPC9mO3W2hxcvcFZgEel0xUtGjDhKtGDKh9wQ/edit#slide=id.p)
 - [Exercise]()
 
 ## Introduction
