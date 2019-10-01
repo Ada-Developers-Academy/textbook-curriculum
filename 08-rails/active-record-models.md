@@ -101,7 +101,7 @@ book.id # => 3
 
 On the other hand, `create` will initialize a new instance of the model *and* save it to the database:
 ```ruby
-book_3 = Book.create(author: "We Should All Be Feminists", title: "Chimamanda Ngozi Adichie")
+book_3 = Book.create(title: "We Should All Be Feminists", author: "Chimamanda Ngozi Adichie")
 book_3.id #=> 4
 ```
 
