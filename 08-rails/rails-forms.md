@@ -29,7 +29,7 @@ end
 You can generate a form to correspond with the model by adding the following to the view:
 
 ```erb
-<%# in app/controllers/new.html.erb %>
+<%# in app/views/new.html.erb %>
 
 <%= form_with model: @book do |f| %>
 
