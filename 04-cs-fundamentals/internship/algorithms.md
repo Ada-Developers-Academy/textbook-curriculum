@@ -83,7 +83,7 @@ In this Divide & Conquer Algorithm we:
 - Divide by splitting the remaining nodes into a left and right subtrees
 - Conquer by continuing the search on the subtree which may contain the element
 
-In a divide an conquer algorithm we reduce a large problem into smaller subproblems, which are the same problem, but in a smaller scale until we reach a base-case.  In this example, when we reach the node being searched for or a leaf node.
+In a divide and conquer algorithm we reduce a large problem into smaller subproblems, which are the same problem, but in a smaller scale until we reach a base-case.  In this example, when we reach the node being searched for or a leaf node.
 
 Because we will continually divide our list of potential nodes in half until we reach a leaf node, or the item searched for, this algorithm is O(log n) for time complexity.
 
