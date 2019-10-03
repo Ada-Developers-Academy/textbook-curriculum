@@ -32,7 +32,7 @@ We will first investigate how method arguments get passed into a method, then lo
 
 ## Pass By Value
 
-Take a look at the code below, plug it into irb or run it via the terminal or repl.  Try to understand the code. What do you expect to see in the console output? When do you expect the object_ids to change verses remain the same?  An object id references the object being stored in memory.  If two variables share the same object id, they must both reference the same object in memory.
+Take a look at the code below, plug it into `irb` or run it via the terminal or repl.  Try to understand the code. What do you expect to see in the console output? When do you expect the object_ids to change verses remain the same?  An object id references the object being stored in memory.  If two variables share the same object id, they must both reference the same object in memory.
 
 ```ruby
 def peek_add_ten(number)
