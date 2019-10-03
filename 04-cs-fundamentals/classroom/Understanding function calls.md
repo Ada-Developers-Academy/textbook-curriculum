@@ -1,11 +1,27 @@
-# Understanding function calls
+# Understanding Function Calls
+
 ## Learning Goals
-+ Understand how function calls work
-  + Understanding how the language works is key (pass by reference, pass by value, a combination, mutable and non-mutable types)
-  + Call stack
-  + What is a recursive function
+
+By the end of this lesson you should be able to
+
+- Explain how function calls work
+- Explain the terms
+  - Pass by reference
+  - Pass by value
+  - Call stack
+  - Recursive Function
+- Correctly identify the time and space complexity of small recursive functions
+
+## Video Lesson
+
+- [Video Lesson]()
+- [Slides Used]()
+- [Assignment](https://github.com/Ada-C12/recursion-tracing)
+
+## Introduction
 
 ## Assignments
+
 Understand the code below. What do you expect to see in the console output? When do you expect the object_ids to change verses remain the same?
 ```ruby
 def peek_add_ten(number)
