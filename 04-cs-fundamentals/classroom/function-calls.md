@@ -55,12 +55,12 @@ end
 result = 10
 puts "Original value: #{result}"
 puts "Object id is: #{result.object_id}"
-puts "\n"
+puts "\n\n"
 
 peek_add_ten(result)
 puts "After peek_add_ten value is: #{result}"
 puts "Object id is: #{result.object_id}"
-puts "\n"
+puts "\n\n"
 
 result = add_ten(result)
 puts "After add_ten value is: #{result}"
