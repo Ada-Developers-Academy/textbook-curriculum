@@ -141,7 +141,7 @@ The system call stack will lead into our next topic recursion.
 
 We have had previously where methods called other methods, but what if a method calls itself?  This is the definition of a recursive method, a method which calls itself.  You can think of it like Russian nesting dolls, Matryoshka.  Each doll is a smaller version of the previous doll.
 
-[Nesting Dolls](images/nesting-doll.jpg)
+![Nesting Dolls](images/nesting-doll.jpg)
 
 Examine the following method:
 
