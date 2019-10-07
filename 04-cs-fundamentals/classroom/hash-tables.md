@@ -156,4 +156,4 @@ When you are finished you can see [our solution](examples/symetric_pairs.rb)
 
 - [How the hash works in Ruby](https://launchschool.com/blog/how-the-hash-works-in-ruby) - From Lauchschool
 - [Basics of Hash Tables](https://www.hackerearth.com/practice/data-structures/hash-tables/basics-of-hash-tables/tutorial/) - HackerEarth
-- [Hash Tables Slides](https://docs.google.com/presentation/d/1zGTc9jS_z84kpLSvEgqE7eA4REY2Rno2Vlnyw7b1fik/edit?usp=sharing)
+
