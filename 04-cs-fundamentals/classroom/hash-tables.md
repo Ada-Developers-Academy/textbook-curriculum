@@ -29,6 +29,8 @@ A hash table applies keys to a special method known as a _hash function_ which c
 
 ![Hash Function Example](images/hash-function.png)
 
+<!-- Hash function image source: https://en.wikipedia.org/wiki/Hash_function -->
+
 You have already used hashes quite a bit and we know the following runtimes of a hash table.  
 
 | Action | Average Case | Worst Case | 
