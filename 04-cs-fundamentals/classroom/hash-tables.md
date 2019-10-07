@@ -11,6 +11,12 @@ By the end of this lesson you should be able to:
 - Explain at a high-level how Hash Tables work
 - Explain some of the trade-offs involved in using hash tables
 
+## Video Lesson
+
+- [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1efbc0a0-fbdd-4324-8428-aadf00cecac3)
+- [Slide Deck](https://docs.google.com/presentation/d/1MBjBhRWt9779iRZQDTIYuVYw-6nywqmBi2JBmamJTt4/edit#slide=id.p)
+- [Exercise]()
+
 ## Hash Tables Overview
 
 In our programs we often need to store data with a quick way to look up specific items.  We could store elements in an array, but finding specific entries in an array requires looping through potentially the entire list an O(n) operation, or maintaining the list in order.
