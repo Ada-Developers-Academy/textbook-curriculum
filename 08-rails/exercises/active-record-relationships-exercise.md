@@ -157,7 +157,7 @@ Investigate some of the dot methods in the previous notes. Find something wacky 
 
 Since we have updated the way that the data is retrieved within our books application, we need to update the views that go along with this data.
 
-1. Locate the views whether the author name is displayed. Update the view code to use the author's name rather than an author field directly.
+1. Locate the views where the author name is displayed. Update the view code to use the author's name rather than an author field directly.
 
     From `book.author` to `book.author.name`
 
