@@ -118,7 +118,7 @@ end
 
 Now if we go to `/authors/2/books/new`, we should see that the dropdown menu starts with the second author selected.
 
-**Question:** Can we omit the dropdown entirely when the author is already filled in? How will this affect editing a book?
+**Question:** Can we omit the dropdown entirely when the author is already filled in? How will this affect the view for the new action?
 
 ## Over-nesting
 
