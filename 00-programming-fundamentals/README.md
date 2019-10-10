@@ -24,7 +24,7 @@ Programming topics not directly related to Ruby development.
 1. [Continuous Integration](continuous-integration.md)
 
 ## Git
-1. [Submitting Projects](submitting-projects-v1.md)
+1. [Submitting Projects](git-submit-a-project.md)
 1. [Intro to Git](git-intro-to-git.md)
 1. [Clone & Push](git-clone-and-push.md)
 1. [Diff Pull & Merge](git-diff-pull-and-merge.md)
