@@ -119,11 +119,11 @@ Examples:
 
 ```txt
 Input: array[] = {10, 12, 11, 15},
-       low = 10, hight = 15
+       low = 10, high = 15
 Output: 13, 14
 
 Input: array[] = {1, 14, 11, 51, 15},
-       low = 50, hight = 55
+       low = 50, high = 55
 Output: 50, 52, 53, 54
 ```
 
