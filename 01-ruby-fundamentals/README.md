@@ -21,7 +21,7 @@
 1. [Classes Part 2: Helper Methods and Self](classes-part-2.md)
 
 ## Exercises
-- [Worksheet: Object Types](./exercises/object-data-types.md)
+- [Worksheet: Object Types](./exercises/data-types-worksheet.md)
 - [Practice on Conditionals](./exercises/conditionals.md)
 - [Worksheet: Loop Table](./exercises/loop-table-worksheet.md)
 - [Worksheet: While Loops](./exercises/while-worksheet.md)
