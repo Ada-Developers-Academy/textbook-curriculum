@@ -29,7 +29,7 @@ A Recursive algorithm has two parts:
 1. If the problem is easy, solve it immediately.
 1. If the problem can't be solved immediately, divide it into smaller problems, then:  Solve the smaller problems by applying this procedure to each of them.
 
-We call a problem that can be solved immediately a *base case* and a problem that divides the problem into a smaller problem a *recursive case*.
+We call a problem that can be solved immediately a _base case_ and a problem that divides the problem into a smaller problem a _recursive case_.
 
 So a recursive algorithm is really made up of:
 
@@ -38,7 +38,7 @@ So a recursive algorithm is really made up of:
 
 ### An example: factorial
 
-Let’s consider the mathematical concept factorial.  In order to calculate a factorial of a number *n*, denoted as *n!*, you multiply all the numbers from n down to 1. The base cases are for numbers 0 and 1: 1! = 1, 0! = 1.
+Let’s consider the mathematical concept factorial.  In order to calculate a factorial of a number *n*, denoted as *n!*, you multiply all the numbers from n down to 1. The base case is for number 1.  The Factorial of 1 is 1.
 
 So,
 5! = 5 * 4 * 3 * 2 * 1
@@ -55,17 +55,22 @@ So, in general:
 n! = n * (n-1) * (n-2) * (n-3) * … * 1
 
 Which broken down to model a recursive algorithm is:
-- If simple, Solve it immediately --> 1! = 1, 0! = 1
+
+- If simple, Solve it immediately --> 1! = 1
 - If not simple, solve a small piece and then try to solve the rest --> n! = n * (n-1)!
 
 If we were to divide this concept into a recursive definition, we might say:
+
 - If n = 1, return 1
 - If n > 1, return n * (n-1)!
+
 We call this the *static view* of a recursive method.  Basically the **static view** is the mathematical way of looking at a recursive problem.
 
-Mathematically, factorial can be explained as:</br>
-*0! = 1*</br>
-*n! = n × (n-1)!*      if *n > 0*</br>
+Mathematically, factorial can be explained as:
+
+- *1! = 1*
+- *n! = n × (n-1)!*      if *n > 1*
+
 The second statement shows the **recurrence relationship** while computing factorial of a number.
 
 
