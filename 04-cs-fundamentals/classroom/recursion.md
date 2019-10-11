@@ -11,7 +11,7 @@ By the end of this lesson you be able to:
 ## Video Lesson
 
 - [Video Lesson]() - Coming Soon
-- [Slides]() - Coming Soon
+- [Slides](https://docs.google.com/presentation/d/1SfpBdIgs38fj45WiwlFe6x0s0F44WqxPNHSizafzhwY) - Coming Soon
 - [Exercise](https://github.com/Ada-C12/recursion-writing)
 
 ## Notes
