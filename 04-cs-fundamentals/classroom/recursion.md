@@ -161,6 +161,170 @@ When writing a recursive method, try the following:
 - Write the code.
 - Test out your code with several different cases. Ensure all of them terminate with a base case and yield the right results.
 
+## Example - Solving 
+
+Consider this programming problem.
+
+```
+Devise an algorithm for a function that takes a natural number as input parameter and computes the sum of all natural number up to and including the input parameter.
+
+E.g. 
+natural_numbers_sum(3) should return 6 = 3 + 2 + 1
+natural_numbers_sum(4) should return 10 = 4 + 3 + 2 + 1
+```
+
+Note:
+
+In mathematics, the natural numbers are those used for counting and ordering. Natural numbers start with 0 or 1. (aka positive integers).
+
+You could write an iterative solution like this:
+
+```ruby
+def natural_numbers_sum(num)
+  sum = 0
+  while num > 0 # While num is greater than zero
+    sum += num  # Add the current num to sum
+    num -= 1    # decrement num
+  end
+
+  return sum
+end
+```
+
+<details>
+  <summary>If you did this recursively, what is the base case?</summary>
+  Either num = 1 or num = 0.  In that case return num.
+</details>
+
+<details>
+  <summary>If you did this recursively, what do you do in the recursive case?</summary>
+  return num + natural_numbers_sum(num - 1)
+</details>
+
+**Write the recursive solution** 
+
+If you want the solution you can find it in [our examples folder](examples/natural_numbers_sum.rb).
+
+## Infinite Recursion
+
+What is wrong with this code:
+
+```ruby
+def fibonacci(num) 
+  return fibonacci(num - 1) + fibonacci(num - 2)
+end
+```
+
+<details>
+  <summary>What could be wrong with the above code?</summary>
+  This code produces a Stack Overflow Error because it performs infinite recursion.  The method needs a base case like return 1 if num <= 1
+</details>
+
+## Tail Recursion
+
+Look at the the code sample below.  How does it differ from the previous `natural_numbers_sum`.
+
+```ruby
+def natural_numbers_sum(num, sum = 0)
+  return sum if num == 0
+
+  return natural_numbers_sum(num - 1, sum + num)
+end
+```
+
+Go ahead and run the code.  It functions just the same, and for Ruby, the code, by default, functions the same.  On some systems however a compiler or interpreter can convert this into a loop, bypassing the time and space overhead of multiple function calls.
+
+This technique is called _Tail Recursion_.  In tail recursion, the recursive call is the **last** command executed in a method, by leaving nothing else in the calling method to do the interpreter can re-work the recursion into a loop.  Ruby, by default, [doesn't enable this feature](https://nithinbekal.com/posts/ruby-tco/) of tail recursion, but many other languages do. The Ruby language spec doesn't require the feature because it does not want to force every implementation to support it and tail recursion can make stack traces harder to understand since they transform method calls into loops with no cooresponding line numbers.
+
+In general a tail recursive method, like the example above carries the calculations in the parameters to avoid the calling method from needing to do any further calculations once the recursive call is complete.
+
+## Recursion vs Iteration, Which is Better
+
+Both loops and recursive solutions arrive at the same result, code gets repeated.  However recursive methods are often considered more _elegant_ because they can be written with less code.  Further some data structures like [binary search trees](../internship/binary-search-trees.md) are naturally recursive and recursive solutions are equally efficient and easier to write.  
+
+On the other hand, iterative solutions do not require use of the system stack, saving space, and the overhead of a method call (both a cost in space and time).  Thus often an iterative solution will be both faster and more space efficient.
+
+So why learn recursion?  A few reasons:
+
+- Recursive code is sometimes easier to write and shorter
+- Some data structures are recursive by nature which makes recursive methods attractive
+- Often, if you need a stack-like data structure to store the state, a recursive solution can be nearly as efficient.
+- A good portion of interview questions have a recursive solution
+
+## Converting An Iterative Solution to Recursion
+
+If you want to convert an iterative solution to recursion you can:
+
+1. Identify the core, candidate loop in the iterative algorithm. Convert this to a new function.
+1. Add parameters to the new function to take the loop variables and local variables as input. (In our example, add index as a parameter.)
+1. Adapt the loop condition to an if condition, (if index >= length) in the new function. This will form the base case in the recursive function – returning and ending the recursion.
+1. If the condition is not satisfied, we define the recursive case by converting the loop body into a recursive call. The loop variable from iterative version is updated while making the next recursive call.
+Finally, test & check for optimizations in the new recursive function.
+
+Lets convert a linear-search to recursion
+
+```ruby
+def search(array, to_find)
+  index = 0
+  while index < array.length
+    if array[index] == to_find
+      return index
+    end
+    index += 1
+  end
+  return nil
+end
+```
+
+1. Our core candidate loop is the `while index < array.length`.  
+1. Our loop control variable is `index`, which we can add as a parameter.
+1. We can adapt the loop into an if statement to stop the recursion if we find the item, or if we run past the end of the array.
+
+See below:
+
+```ruby
+def recursive_linear_search(array, to_find, current_index = 0)
+  # Base Cases
+  return nil if current_index > array.length
+  return index if array[current_index] == to_find
+
+  # Recursive Case
+  return recursive_linear_search(array, to_find, current_index + 1)
+end
+```
+
+### Exercise:  Write Binary Search
+
+Given the following binary search method, convert it to recursion.  You can use the starter code below.
+
+```ruby
+def binary_search(array, to_find)
+  high = array.length - 1
+  low = 0
+  while high >= low
+    mid = (high + low) / 2
+    if array[mid] == to_find
+      return mid
+    elsif array[mid] > to_find
+      high = mid - 1
+    else
+      low = mid + 1
+    end
+  end
+
+  return nil
+end
+```
+
+```ruby
+def recursive_binary_search(array, to_find, low = 0, high = array.length - 1)
+
+
+end
+```
+
+You can see a solution in the [examples folder](examples/recursive_binary_search.rb)
+
 ## Terms & Terminology
 
 | Term | Definition |
