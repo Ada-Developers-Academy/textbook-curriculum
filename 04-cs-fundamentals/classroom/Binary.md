@@ -13,6 +13,7 @@ If you have any questions, please email or slack your instructor.
 
 - [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=98e66164-18e4-404a-8581-aaaf00184ad7)
 - [Slides](https://docs.google.com/presentation/d/1tW4c7EHgF8cZyVyatw4ObL_fZf10cnG0-szJaOKL0NM/edit?usp=sharing)
+- [Exercise](https://github.com/Ada-C12/binary-and-decimal)
 
 ## Learning Goals
 
