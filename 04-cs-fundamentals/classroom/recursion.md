@@ -18,7 +18,6 @@ By the end of this lesson you be able to:
 
 So far we have only learned how to solve problems iteratively using loops.  We will now learn how to solve problems recursively by having a method call itself.  
 
-
 ### Parts of a recursive algorithm
 
 A Recursive algorithm has two parts:
@@ -119,6 +118,16 @@ When writing a recursive method, try the following:
 - Write a method specification (like the static view of the problem) that explains exactly what it will do in terms of the parameters. Include any preconditions.
 - Write the code.
 - Test out your code with several different cases. Ensure all of them terminate with a base case and yield the right results.
+
+## Terms & Terminology
+
+| Term | Definition |
+|--- |--- |
+| Stack | A data structure which operates in a Last-In-First-Out order.
+| Call Stack | The internal data structure which stores function calls.
+| Recursion | A programming technique where a method calls itself. |
+| Base Case | A condition which will end the recursion.  This is the case where the solution is straightforward to solve.
+| Tail Recursion | A tail recursive function is a recursive function where the function calls itself at the end ("tail") of the function in which no computation is done after the return of recursive call. |
 
 ## Resources
 
