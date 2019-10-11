@@ -16,7 +16,7 @@ By the end of this lesson you be able to:
 
 ## Introduction
 
-So far we have only learned how to solve problems iteratively using loops.  We will now learn how to solve problems recursively by having a method call itself.  
+A recursive function is a function which calls itself.  We [have seen](function-calls.md) that function calls are placed on they _system call stack_ which functions in a last-in-first-out order.  
 
 ### Parts of a recursive algorithm
 
