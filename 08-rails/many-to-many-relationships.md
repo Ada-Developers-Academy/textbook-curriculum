@@ -133,7 +133,7 @@ The syntax ActiveRecord provides for manipulating many-to-many relations is simi
     - You can approach this from either the book side or the genre side. That is, either of these will work:
         - `bad_feminist.genres << nonfiction`
         - `nonfiction.books << bad_feminist`
-    - Read the resulting SQL queries. What happened at the database level?
+    - Read the resulting SQL queries. What happened at the database level? What table was actually changed?
 1. Add the other three relations from the tables above
 1. Load the list of the genres for _Hidden Figures_
 1. Load the list of _Nonfiction_ books
