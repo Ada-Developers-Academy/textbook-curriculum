@@ -335,6 +335,7 @@ You can see a solution in the [examples folder](examples/recursive_binary_search
 | Base Case | A condition which will end the recursion.  This is the case where the solution is straightforward to solve.
 | Recursive Case| The part of a recursive method which makes a recursive call. |
 | Tail Recursion | A tail recursive function is a recursive function where the function calls itself at the end ("tail") of the function in which no computation is done after the return of recursive call. |
+| Stack Overflow Error | An error caused when the system stack memory is exhausted, usually from infinite recursion.  |
 
 ## Resources
 
