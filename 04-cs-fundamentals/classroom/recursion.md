@@ -14,7 +14,7 @@ By the end of this lesson you be able to:
 - [Slides](https://docs.google.com/presentation/d/1SfpBdIgs38fj45WiwlFe6x0s0F44WqxPNHSizafzhwY) - Coming Soon
 - [Exercise](https://github.com/Ada-C12/recursion-writing)
 
-## Notes
+## Introduction
 
 So far we have only learned how to solve problems iteratively using loops.  We will now learn how to solve problems recursively by having a method call itself.  
 
