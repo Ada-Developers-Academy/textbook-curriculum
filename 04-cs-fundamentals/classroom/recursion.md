@@ -155,7 +155,7 @@ When writing a recursive method, try the following:
 - Think about how you can reduce the problem to one or more smaller sub-problems of the same form.
 - Think about what information you need to give to the sub-problems (the parameters).
 - Think about what information you want back from the sub-problems (the return type).
-- Write the method prototype.
+- Write the method header.
 - Think about the base case: When is the answer so simple that we know the answer without recursing?
 - Write a method specification (like the static view of the problem) that explains exactly what it will do in terms of the parameters. Include any preconditions.
 - Write the code.
