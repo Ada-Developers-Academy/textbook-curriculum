@@ -1,10 +1,21 @@
 # Introduction to Recursion
+
 ## Learning Goals
-  + Understand what is recursion
-  + Trace through a recursive function call and understand time and space comlexities
-  + Author a recursive algorithm and explain time and space complexities
+
+By the end of this lesson you be able to:
+
+- Explain recursion
+- Trace through a recursive function call and understand time and space comlexities
+- Author a recursive algorithm
+
+## Video Lesson
+
+- [Video Lesson]() - Coming Soon
+- [Slides]() - Coming Soon
+- [Exercise](https://github.com/Ada-C12/recursion-writing)
 
 ## Notes
+
 So far we have only learned how to solve problems iteratively using loops.  We will now learn how to solve problems recursively by having a method call itself.  
 
 
