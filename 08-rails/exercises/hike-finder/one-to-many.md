@@ -53,6 +53,6 @@ id  | name   | trailhead_id | length_miles | elevation_gain_feet | max_elevation
     How would you add this data to the database? What are three different ways to set up the relation between this hike and its trailhead?
 1. How would you load the trailhead for the hike with ID 9 into a local variable called `trailhead`?
 1. How would you load the list of likes for the trailhead with name "Pratt Lake Trailhead" into a local variable called `hikes`?
-1. How would you load the list of likes for the trailhead with name "Mt. Teneriffe Trailhead" with a rating of 4 into a local variable called `hikes`?
+1. How would you load the list of hikes for the trailhead with name "Mt. Teneriffe Trailhead" with a rating of 4 into a local variable called `hikes`?
 1. Write a method `best_adjacent_hike` that, given the name of a hike, finds the highest-rated hike that shares a trailhead with that hike. Think about error handling!
 1. What interesting test cases are there for the above method?
