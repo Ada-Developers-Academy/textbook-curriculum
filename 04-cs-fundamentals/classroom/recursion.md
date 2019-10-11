@@ -136,6 +136,7 @@ When writing a recursive method, try the following:
 | Call Stack | The internal data structure which stores function calls.
 | Recursion | A programming technique where a method calls itself. |
 | Base Case | A condition which will end the recursion.  This is the case where the solution is straightforward to solve.
+| Recursive Case| The part of a recursive method which makes a recursive call. |
 | Tail Recursion | A tail recursive function is a recursive function where the function calls itself at the end ("tail") of the function in which no computation is done after the return of recursive call. |
 
 ## Resources
