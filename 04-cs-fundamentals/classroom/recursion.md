@@ -18,7 +18,11 @@ By the end of this lesson you be able to:
 
 A recursive function is a function which calls itself.  We [have seen](function-calls.md) that function calls are placed on they _system call stack_ which functions in a last-in-first-out order.  
 
-### Parts of a recursive algorithm
+![System Call Stack](images/call-stack-run.png)
+
+We have even seen some demonstrations of recursive methods.  Now we will look more closely at writing recursive methods.
+
+## Parts of a recursive algorithm
 
 A Recursive algorithm has two parts:
 
