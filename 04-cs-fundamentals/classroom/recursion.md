@@ -36,6 +36,18 @@ So a recursive algorithm is really made up of:
 - At least one base case.
 - At least one recursive case.
 
+### Without A Base Case
+
+If you have a recursive function without a recursive case... well you just have a function.  However if a method has a recursive call without a base case like this:
+
+```ruby
+def infinite_recursion(n)
+  return n + infinite_recursion(n - 1)
+end
+```
+
+The recursive calls will continue until the stack runs out of space resulting in what's called a _Stack Overflow Error_.
+
 ### An example: factorial
 
 Let’s consider the mathematical concept factorial.  In order to calculate a factorial of a number *n*, denoted as *n!*, you multiply all the numbers from n down to 1. The base case is for number 1.  The Factorial of 1 is 1.
