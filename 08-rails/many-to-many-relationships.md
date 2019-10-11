@@ -173,7 +173,7 @@ For our application, the details page for each book will contain its list of gen
 
 ### Modifying Relations
 
-A typical library application will have many more books than genres. Since there will be less options to choose from, it probably makes sense to specify book-genre relations through the book rather than through the genre. We will allow a user to pick from a list of genres whenever the create or edit a book.
+A typical library application will have many more books than genres. Since there will be less options to choose from, it probably makes sense to specify book-genre relations through the book rather than through the genre. We will allow a user to pick from a list of genres whenever they create or edit a book.
 
 #### Checkboxes
 
