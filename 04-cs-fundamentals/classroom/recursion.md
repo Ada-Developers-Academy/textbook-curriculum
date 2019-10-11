@@ -120,3 +120,7 @@ When writing a recursive method, try the following:
 - Write the code.
 - Test out your code with several different cases. Ensure all of them terminate with a base case and yield the right results.
 
+## Resources
+
+- [FreeCodeCamp How Recursion Works](https://www.freecodecamp.org/news/how-recursion-works-explained-with-flowcharts-and-a-video-de61f40cb7f9/)
+- [UW Lesson On Recursion](https://www.cs.washington.edu/apcs/lessons/recursion) - Java Focused
