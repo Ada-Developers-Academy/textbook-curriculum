@@ -73,7 +73,17 @@ That said:
 
 ## Schedule
 
-You can find the schedule for CS Fundamentals & other events on Thursdays on the [Ada Pedagogy Repository](https://github.com/Ada-Developers-Academy/pedagogy/blob/master/cs-fundamentals-classroom.md)
+1. [Binary Numbers](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Binary.md)
+1. [Arrays](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Arrays.md)
+1. [Introduction to Data Structures](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/intro-to-data-structures.md)
+1. [Efficiency of Algorithms & Big-O](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/efficiency-of-algorithms.md)
+1. [Sorting](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Sorting.md)
+1. [Introduction to Function Calls & Recursion](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/function-calls.md)
+1. [Introduction to Hash Tables](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/hash-tables.md)
+1. [The Interview Process](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Interview-prorocess.md)
+1. [Recursion](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Introduction%20to%20Recursion.md) - Under construction
+1. [Linked Lists](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Introduction%20to%20Linked%20Lists.md) - Under Construction
+1. [Software Design](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Software%20Design.md) - Under Construction
 
 ## Tips For Success
 
