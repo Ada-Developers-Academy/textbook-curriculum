@@ -85,7 +85,6 @@ Mathematically, factorial can be explained as:
 
 The second statement shows the **recurrence relationship** while computing factorial of a number.
 
-
 ### Code it
 
 Once we know what the base case(s) and the recursive case(s) of a problem are, we can then write the code.
@@ -117,9 +116,31 @@ def factorial(n)
 end
 ```
 
-### Trace through an example
+### How Factorial Works
 
-When we follow what's happening as we make a recursive call, it can be hard to keep track of variables and results since there can be many activation records (or method calls). Trace what you expect to show up on the stack: the function call along with parameters e.g. *factorial(3)* shows up on the stack. Then it makes a recursive call, so *factorial(2)* gets pushed above it on the stack. With another recursive call, *factorial(1)* gets pushed on the stack. *factorial1)* is the base case. It returns 1 and *factorial(1)* gets popped from the stack. This return value of 1 is multiplied to 2, and 2 gets returned by factorial(2) as it gets popped from the stack. The stack frame for *factorial(3)* get popped after 3 is multiplied with the returned value of 2. 6 gets returned as the final value of *factorial(3)*.
+Each time the factorial function is called Ruby places a _stack frame_ on the call stack.  This is the memory storing the method's local variables, parameters and the location to return to when the method finishes.  Since most factorial calls where n > 1 result in multiple items placed on the system stack, this incurs a cost in terms of space complexity.
+
+<details>
+  <summary>What do you think the space complexity of factorial is?</summary>
+  O(n)
+</details>
+
+### Tracing Through Factorial
+
+If you have `factorial(5)` first this method call gets put on the call stack.
+
+![Factorial(5)](images/factorial-5.png)
+
+Then `factorial(5)` calls `factorial(4)`, which calls `factorial(3)`, and that calls `factorial(2)` and this calls `factorial(1)`.
+
+![Factorial 5 -> 1 ](images/factorial5-1.png)
+
+`factorial(1)` returns 1, which is plugged into `factorial(2)` which multiplies 2 * that returned result and carries on down in this fashion.
+
+![factorial(5) completely executed](images/factorial-5-complete.png)
+
+So you can trace a recursive function by walking through it's function calls, placing them on a simulated stack and then unwinding the stack as methods complete returning their result to the calling method.  
+
 
 ### Understanding space and time complexities for the example
 
