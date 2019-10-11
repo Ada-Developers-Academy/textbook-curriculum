@@ -20,17 +20,21 @@ So far we have only learned how to solve problems iteratively using loops.  We w
 
 
 ### Parts of a recursive algorithm
+
 A Recursive algorithm has two parts:
+
 1. If the problem is easy, solve it immediately.
-2. If the problem can't be solved immediately, divide it into smaller problems, then:  Solve the smaller problems by applying this procedure to each of them.
+1. If the problem can't be solved immediately, divide it into smaller problems, then:  Solve the smaller problems by applying this procedure to each of them.
 
 We call a problem that can be solved immediately a *base case* and a problem that divides the problem into a smaller problem a *recursive case*.
 
 So a recursive algorithm is really made up of:
+
 - At least one base case.
 - At least one recursive case.
 
 ### An example: factorial
+
 Let’s consider the mathematical concept factorial.  In order to calculate a factorial of a number *n*, denoted as *n!*, you multiply all the numbers from n down to 1. The base cases are for numbers 0 and 1: 1! = 1, 0! = 1.
 
 So,
@@ -63,14 +67,17 @@ The second statement shows the **recurrence relationship** while computing facto
 
 
 ### Code it
+
 Once we know what the base case(s) and the recursive case(s) of a problem are, we can then write the code.
 
 **Given**:
 Factorial
+
 - factorial(1) = 1
-- factorial(n) = n * factorial(n-1)
+- factorial(n) = n * factorial(n-1), where n > 1
 
 We can code this as:
+
 ```ruby
 def factorial(n)
   if n == 1
@@ -91,14 +98,18 @@ end
 ```
 
 ### Trace through an example
+
 When we follow what's happening as we make a recursive call, it can be hard to keep track of variables and results since there can be many activation records (or method calls). Trace what you expect to show up on the stack: the function call along with parameters e.g. *factorial(3)* shows up on the stack. Then it makes a recursive call, so *factorial(2)* gets pushed above it on the stack. With another recursive call, *factorial(1)* gets pushed on the stack. *factorial1)* is the base case. It returns 1 and *factorial(1)* gets popped from the stack. This return value of 1 is multiplied to 2, and 2 gets returned by factorial(2) as it gets popped from the stack. The stack frame for *factorial(3)* get popped after 3 is multiplied with the returned value of 2. 6 gets returned as the final value of *factorial(3)*.
 
 ### Understanding space and time complexities for the example
+
 To compute *factorial(n)*, n operations will be needed. Therefore, the time complexity will be *O(n)*.</br>
 Each recursive call will end up with a stack frame on the call stack. There will be *n* such stack frames by the time the base case is reached and the stack starts unwinding. Stack frames take up space in memory. So, the space complexity will be *O(n)*.
 
-### Writing a recursive method
+### Writing A Recursive Method
+
 When writing a recursive method, try the following:
+
 - Think about the recursive case: How are we going to break the problem into a smaller problem (by calling out method again) and get closer to the base case?
 - Think about how you can reduce the problem to one or more smaller sub-problems of the same form.
 - Think about what information you need to give to the sub-problems (the parameters).
@@ -109,7 +120,3 @@ When writing a recursive method, try the following:
 - Write the code.
 - Test out your code with several different cases. Ensure all of them terminate with a base case and yield the right results.
 
-## Slide Deck
-+ Slide Deck used in class</br>
-[Introduction to Recursion](https://docs.google.com/presentation/d/1SfpBdIgs38fj45WiwlFe6x0s0F44WqxPNHSizafzhwY/edit?usp=sharing)</br> is licensed under a [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](http://creativecommons.org/licenses/by-nc-nd/4.0/).</br>
-[ ![Creative Commons License](https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-nd/4.0/)<br />
