@@ -57,7 +57,7 @@ In this example, we define two data sets, each representing one `Book`. Each _fi
 At the beginning of every test, Rails will tear down your entire test database and rebuild it from scratch, importing all the fixtures. This means you can get at fixtures the same way you would access any other model instance: with ActiveRecord methods.
 
 ```ruby
-metz = Author.where(name: "Sandi Metz")
+metz = Author.find_by(name: "Sandi Metz")
 ```
 
 It's worth noting that Rails will give the fixture data a random ID every time, so you can't count on `Book.first` or `Book.find(3)` do to what you expect.
