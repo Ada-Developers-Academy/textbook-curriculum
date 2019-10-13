@@ -116,3 +116,4 @@ As a general rule of thumb, fixtures are useful for valid data and positive test
 ## Additional Resources
 
 - [Rails Guide on the Test Database](http://guides.rubyonrails.org/testing.html#the-test-database)
+- [Rails fixtures documentation](https://api.rubyonrails.org/v3.1/classes/ActiveRecord/Fixtures.html)
