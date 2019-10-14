@@ -68,6 +68,14 @@ This is great for `redirect`, but for `render` it's a little overkill. Because `
 
 Data stored in `flash.now` will be visible in `flash` for the remainder of this request, but will not be visible for the next request. You do not ever need to read the contents of `flash.now`.
 
+## Exercise
+
+Return to either `TaskList` or `RideShareRails`. 
+1. Utilize `Flash` in at least 3 places in your controller(s).
+  * Consider whether `flash` or `flash.now` is appropriate.
+2. Update the appropriate views to display the `flash` messages.
+3. Share your work with a neighbor.
+
 ## Key Takeaways
 Rails provides a few special hash-like objects that allow us to go above and beyond local and instance variables in our Rails applications.
 
