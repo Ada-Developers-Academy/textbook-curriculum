@@ -13,7 +13,7 @@ After this lesson, students will be able to:
 
 A view helper is a Ruby method that generates HTML. We have already worked with many of these,like `link_to`, `image_tag`, and `form_with`. Rails also allows you to define your own custom view helpers. Custom helpers should be used for similar purposes: generating small amounts of HTML or text to be inserted into a web page.
 
-Custom helper methods are defined in within the `app/helpers` directory. Rails will make all view helpers available on any page of your app, but much like with CSS, we will use the different files to separate helpers specific to different parts of the app. The `application_helper.rb` is a great place to define methods that are not specific to a model.
+Custom helper methods are defined within the `app/helpers` directory. Rails will make all view helpers available on any page of your app, but much like with CSS, we will use the different files to separate helpers specific to different parts of the app. The `application_helper.rb` is a great place to define methods that are not specific to a model.
 
 **Question:** Open the file `app/helpers/application_helper.rb`. What does it contain? How might we figure out how to use this file?
 
