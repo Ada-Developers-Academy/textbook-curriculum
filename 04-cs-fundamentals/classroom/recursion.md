@@ -242,7 +242,7 @@ In general a tail recursive method, like the example above carries the calculati
 
 Both loops and recursive solutions arrive at the same result, code gets repeated.  However recursive methods are often considered more _elegant_ because they can be written with less code.  Further some data structures like [binary search trees](../internship/binary-search-trees.md) are naturally recursive and recursive solutions are equally efficient and easier to write.  
 
-On the other hand, iterative solutions do not require use of the system stack, saving space, and the overhead of a method call (both a cost in space and time).  Thus often an iterative solution will be both faster and more space efficient.
+On the other hand, iterative solutions do not require use of the system stack, saving space, and the overhead of a method call (both a cost in space and time).  Thus often an iterative solution will be both faster and more space efficient.  Languages that make extensive use of recursion take advantage of tail recursion to make up for this performance penalty.
 
 So why learn recursion?  A few reasons:
 
