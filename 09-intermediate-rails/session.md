@@ -108,6 +108,7 @@ Get the most recent version of the book site code from your instructor, then wor
     ```
     </details>
 1. Create the `users#logout` action. This should set `session[:user_id]` to `nil` and redirect the user back to the `root_path`.
+1. Now that you have your routes and controlle actions, update your view(s) so that a user can perform the actions of logging in and logging out.
 1. Think about other things you could add to improve the user experience. What has worked well on other sites you've visited?
 1. Think about how you could restrict actions based on who is (or isn't) logged in. You don't need to write code for these, just think about how you _might_ do it.
     - Only logged in users may change data on the site (the C, U and D of CRUD)
