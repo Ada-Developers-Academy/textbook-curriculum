@@ -11,7 +11,7 @@ From the [rails docs](http://guides.rubyonrails.org/action_controller_overview.h
 `before_action` and `after_action` are the most common, though there is also `around_action`.
 
 ### DRY Up Your Controllers
-You can use controller filters is to DRY up your code.
+You can use controller filters to DRY up your code.
 
 Let's examine a typical controller:
 ```ruby
