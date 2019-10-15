@@ -50,7 +50,7 @@ The recursive calls will continue until the stack runs out of space resulting in
 
 ### An example: factorial
 
-Let’s consider the mathematical concept factorial.  In order to calculate a factorial of a number *n*, denoted as *n!*, you multiply all the numbers from n down to 1. The base case is for number 1.  The Factorial of 1 is 1.
+Let’s consider the mathematical concept factorial.  In order to calculate a factorial of a number _n_, denoted as _n!_, you multiply all the numbers from _n_ down to 1. The base case is for number 1.  The Factorial of 1 is 1.
 
 So,
 5! = 5 * 4 * 3 * 2 * 1
