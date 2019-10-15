@@ -23,7 +23,7 @@ The most popular frameworks are:
 -   [uikit](https://getuikit.com/)
 -   [Semantic UI](https://semantic-ui.com/)
 
-May frameworks like Bootstrap do provide a grid frameworks which can be used on top of or in place of CSS Grid.
+Many frameworks like Bootstrap do provide a grid frameworks which can be used on top of or in place of CSS Grid.
 
 NOTE: _CSS Frameworks_, like Bootstrap and Foundation are different from _Front-end JavaScript frameworks_ like React, Angular and Ember.
 
