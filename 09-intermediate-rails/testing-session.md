@@ -107,8 +107,7 @@ class ActiveSupport::TestCase
   # Here's the code we're adding
   def perform_login(user = nil)
     user ||= User.first
-
-    user = User.first
+    
     login_data = {
       user: {
         username: user.username,
