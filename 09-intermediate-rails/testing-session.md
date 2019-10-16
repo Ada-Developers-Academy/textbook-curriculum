@@ -128,7 +128,7 @@ end
 <strong>Question:</strong> This code is a little different than our original version. What changed? Why might we have done it this way?
 </summary>
 
-Our helper method takes an optional user, to allow the caller to specify who they want to log in as. If no user is provided, it will pick one from the database. It also returns the user, in case the caller that information.
+Our helper method takes an optional user, to allow the caller to specify who they want to log in as. If no user is provided, it will pick one from the database. It also returns the user, in case the caller needs that information.
 </details>
 
 Now that we've written our helper we can shorten and clarify our test for `users#current`:
