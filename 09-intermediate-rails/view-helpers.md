@@ -133,11 +133,13 @@ Tests for our view helpers will live in the `test/helpers` directory. Rails will
 # test/helpers/application_helper_test.rb
 require "test_helper"
 
-describe ApplicationHelper do
+describe ApplicationHelper, :helper do
   describe 'readable_date' do
   end
 end
 ```
+
+**_NOTE:_** Unlike other classes, the `ApplicationHelper` won't be magically hooked in for us by Minitest-Rails. We need to do let Minitest know that the `ApplicationHelper` is specifically a `:helper`.
 
 **Question:** What interesting test cases exist for our `readable_date` view helper?
 
@@ -146,7 +148,7 @@ View helper tests typically consist of providing a known input and checking agai
 ```ruby
 require "test_helper"
 
-describe ApplicationHelper do
+describe ApplicationHelper, :helper do
   describe "readable_date" do
     it "produces a tag with the full timestamp" do
       date = Date.today - 14
