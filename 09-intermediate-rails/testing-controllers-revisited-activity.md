@@ -5,7 +5,7 @@
 - Review controller testing
 - Apply controller testing theory to a novel situation
 
-## Timing
+### Required Prior Knowledge
 
 This lesson requires:
 - Controller testing
