@@ -9,7 +9,7 @@ Please read the following articles to get a clear definition of wireframes.
 
 ## Expectations at Ada
 
-At Ada, we actively encourage individuals and teams to use techniques and tools from lo-fi/paper prototyping in order to plan, communicate, and express user flow through a web app. Therefore, we encourage you all to use at most wireframing techniques to draw paper or low-fi prorotypes to explore user-flow and page layout.
+At Ada, we actively encourage individuals and teams to use techniques and tools from lo-fi/paper prototyping in order to plan, communicate, and express user-flow through a web app. Therefore, we encourage you all to use at most wireframing techniques to draw paper or low-fi prorotypes to explore user-flow and page layout.
 
 Specifically, we think that wireframes help teams get on the same page on:
 
