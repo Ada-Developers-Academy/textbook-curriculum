@@ -38,7 +38,7 @@ Our Weekly PSE schedule is currently scheduled as such:
 | --- | --- | --- 
 | 1 | Introduce, give example, and give time to work on first one | Completion
 | 2 | - | Instructor
-| 3 | Return week 2 results | Completion
+| 3 | Return week 2 results. Given as a pair exercise | Completion
 | 4 | - | Completion or peer feedback
 | 5 | - | Completion
 | 6 | - | Instructor
