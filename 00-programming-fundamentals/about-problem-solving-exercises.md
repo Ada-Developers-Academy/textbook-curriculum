@@ -50,6 +50,7 @@ Our Weekly PSE schedule is currently scheduled as such:
 | 12 | Instructors reach out to students about retake on week 14 | Completion
 | 13 | Instructors reach out to students about retake on week 14 | -
 | 14 | Retake | Instructor or Completion
+| 15 | Retake | Instructor or Completion
 
 ### About The Scheduled Retake
 
