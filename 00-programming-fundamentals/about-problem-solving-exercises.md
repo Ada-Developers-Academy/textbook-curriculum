@@ -48,7 +48,7 @@ Our Weekly PSE schedule is currently scheduled as such:
 | 10 | Only problem-solving assessment | Instructor
 | 11 | Return week 10 results. Given as a pair exercise | Completion
 | 12 | Instructors reach out to students about retake on week 14 | Completion
-| 13 | Instructors reach out to students about retake on week 14 | -
+| 13 | Instructors reach out to students about retake on week 14 | Completion
 | 14 | Retake | Instructor or Completion
 | 15 | Retake | Instructor or Completion
 
