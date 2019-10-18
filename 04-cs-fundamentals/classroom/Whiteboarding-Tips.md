@@ -69,3 +69,5 @@ All content is licensed under a [Creative Commons Attribution-NonCommercial-NoDe
 ## Resources
 
 - [Technical Interview Guide](https://yangshun.github.io/tech-interview-handbook/introduction)
+- [Interview Cake Website](https://www.interviewcake.com/)
+- [Leetcode](http://leetcode.com/)
