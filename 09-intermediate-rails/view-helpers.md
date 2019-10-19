@@ -178,7 +178,7 @@ We've learned about a whole bunch of places to put code: the Controller, the Mod
 | Complex database queries                        | Model (self method)     | Retrieve the first 10 albums, in descending order by number of votes |
 | Interesting action on a database object         | Model (instance method) | Total revenue from all sales for this Product, age of this Album |
 | Checking that a request is reasonable           | Controller              | Filters, strong params |
-| Reusable view specific logic that is ruby-involved; not very HTML involved | View Helper             | Formatting a date, prefixing the page title with the site title, building a link to a named route |
+| Reusable view specific logic that is Ruby involved; not very HTML involved | View Helper             | Formatting a date, prefixing the page title with the site title, building a link to a named route |
 | Rendering a reusable chunk of HTML for a webpage | Partial View            | Table of media items, form to create or edit a post |
 
 ## Summary
