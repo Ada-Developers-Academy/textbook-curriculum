@@ -191,7 +191,7 @@ Once the user has OKed our application, GitHub will redirect the user to `/auth/
     Note: You are free to modify the `, as: 'github_login'` path helper however you'd like
 1. Modify the `app/views/layouts/application.html.erb` file (or whatever view has the existing login button) so that it goes to this new route instead. Your modified login link may look like this:
     ```ruby
-    <%= link_to("Login with GitHub", github_login_path) %>
+    <%= link_to "Login with GitHub", github_login_path %>
     ```
 
 #### Let's Test it Out
