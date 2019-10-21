@@ -169,7 +169,7 @@ This initializer tells Rails to use OmniAuth for authentication. Specifically, i
 
 ![OAuth Overview](./images/oauth-overview.png)
 
-Note: This diagram implies that the Rails controller we will used is named `SessionsController`. This is not a hard or fast rule, and it is possible that the example code differs. The remaining code examples will assume that you are using `UsersController`.
+Note: This diagram implies that the Rails controller we will use is named `SessionsController`. This is not a hard or fast rule, and it is possible that the example code differs. The remaining code examples will assume that you are using `UsersController`.
 
 ### OmniAuth
 
