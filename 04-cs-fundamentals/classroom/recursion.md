@@ -10,7 +10,7 @@ By the end of this lesson you be able to:
 
 ## Video Lesson
 
-- [Video Lesson]() 
+- [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5250fb87-0391-438b-a492-aaed0018dc67) 
 - [Slides](https://docs.google.com/presentation/d/14saSh8YZsVSkkYqQA7vX-uqQ-q0qLqnm9inOVXHfWdo/edit?usp=sharing)
 - [Exercise](https://github.com/Ada-C12/recursion-writing)
 
