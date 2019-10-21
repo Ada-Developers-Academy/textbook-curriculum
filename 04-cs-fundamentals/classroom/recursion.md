@@ -10,8 +10,8 @@ By the end of this lesson you be able to:
 
 ## Video Lesson
 
-- [Video Lesson]() - Coming Soon
-- [Slides](https://docs.google.com/presentation/d/1SfpBdIgs38fj45WiwlFe6x0s0F44WqxPNHSizafzhwY) - Coming Soon
+- [Video Lesson]() 
+- [Slides](https://docs.google.com/presentation/d/14saSh8YZsVSkkYqQA7vX-uqQ-q0qLqnm9inOVXHfWdo/edit?usp=sharing)
 - [Exercise](https://github.com/Ada-C12/recursion-writing)
 
 ## Introduction
