@@ -81,7 +81,7 @@ Next, we need to use this information to log in. We'll start by testing the auth
 
 ##### Building the Auth Hash
 
-In order to log in a user, we'll need to provide data to our controller in the exact same format as GitHub does. To make this process easy, we'll create a helper method that turns an instance of the `User` model into a mocked auth hash. This method will be almost the opposite of the `User#from_github` method we defined when we set up OAuth in the first place.
+In order to log in a user, we'll need to provide data to our controller in the exact same format as GitHub does. To make this process easy, we'll create a helper method that turns an instance of the `User` model into a mocked auth hash. This method will be almost the opposite of the `User#build_from_github` method we defined when we set up OAuth in the first place.
 
 To make the method available to all our tests, we'll put it in `test/test_helper.rb`. Open up `test/test_helper.rb` again and add the following at the bottom of `class ActiveSupport::TestCase`, after the `setup` method we added earlier:
 
