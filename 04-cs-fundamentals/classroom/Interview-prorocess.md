@@ -27,6 +27,8 @@ When applying for a junior developer position in Seattle, applicants typically f
 1. Applying for a position
 1. Phone or video chat screen
 1. In person-interview
+1. Offer - Negotiation
+1. Acceptance
 
 Sometimes an applicant may skip a phone screening or a company might require additional interviews, or provide homework in the form of a coding challenge.
 
