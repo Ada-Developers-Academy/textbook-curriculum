@@ -148,7 +148,7 @@ Alicia is not Cooper
 Keys is not Cooper
 ```
 
-You **cannot** break out of a `forEach` loop.  It will iterate throughout the collection.  This can be good, if this is the behavior you want, but if you want to short-circuit the loop, [another method might be preferable.](http://frontendcollisionblog.com/javascript/2015/08/15/3-reasons-you-should-not-be-using-foreach.html)
+You **cannot** break out of a `forEach` loop.  It will iterate throughout the collection.  This can be good, if this is the behavior you want, but if you want to short-circuit the loop, [another method might be preferable.](http://frontendcollisionblog.com/javascript/2015/08/15/3-reasons-you-should-not-be-using-foreach.html) Just remember if you are in a `forEach` loop, you are in for the full ride.
 
 If you wanted to see if `Cooper` was in the list using `.find` is a better choice.
 
