@@ -84,7 +84,7 @@ After the interviews conclude, both students & interviewers provide feedback to 
 - [Code challenge and white boarding practice on HackerRank](https://www.hackerrank.com/)
 - [Practice problems on LeetCode](https://leetcode.com/)
 - [Code challenge and white boarding practice on CodeFlights](https://codefights.com/)
-- [White boarding practice by pairing up on Pramp](https://www.pramp.com/)
+- [White boarding practice by pairing up on Pramp](https://www.pramp.com/) - Online practice coding interviews 6 free.
 - [Cohort 3 List](https://docs.google.com/spreadsheets/d/1t-kN_dFZp2OJQJI9yJW8JrS1c_aK-Hi6k9DWP1bw_40/edit?ts=56a027f7#gid=570475651)
 - [Cohort 4 List](https://docs.google.com/spreadsheets/d/1pnWSQHcvV8rQ1R-e_D7uTO-YF3cfCmrK6SteoiWwTzM/edit?usp=sharing)
 - [Cohort 5 List](https://docs.google.com/spreadsheets/d/1nBLF_YGHmkqP6xb6QfJKrOBtqa2ZA0YpuRltI1wU_bE/edit#gid=0)
