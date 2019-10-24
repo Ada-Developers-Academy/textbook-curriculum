@@ -112,6 +112,58 @@ const average = sum / cashTips.length;
 console.log(`The average cash tip is ${average}`);
 ```
 
+## Danger Will Robinson Danger
+
+There is one thing to note about the `forEach` loop.  Consider this linear search:
+
+```javascript
+const list = ['Alice', 'Cooper', 'Maria', 'Alyokhina', 'Alicia', 'Keys'];
+
+list.forEach( function(element) {
+  if (element == 'Cooper') {
+    console.log('Found it!');
+    return true;
+  }
+  console.log(`${element} is not Cooper`);
+});
+```
+
+You would think that this would print out:
+
+```
+Alice is not Cooper
+Fount it!
+```
+
+And stop.  However this is **wrong**.  Because `forEach` method takes a _function_ as a parameter the `return` causes us to leave the _anynomous function_ and **not** the entire loop.  
+
+This code segment actually prints:
+
+```
+Alice is not Cooper
+Found it!
+Maria is not Cooper
+Alyokhina is not Cooper
+Alicia is not Cooper
+Keys is not Cooper
+```
+
+You **cannot** break out of a `forEach` loop.  It will iterate throughout the collection.  This can be good, if this is the behavior you want, but if you want to short-circuit the loop, [another method might be preferable.](http://frontendcollisionblog.com/javascript/2015/08/15/3-reasons-you-should-not-be-using-foreach.html)
+
+If you wanted to see if `Cooper` was in the list using `.find` is a better choice.
+
+```javascript
+const list = ['Alice', 'Cooper', 'Maria', 'Alyokhina', 'Alicia', 'Keys'];
+
+const foundElement = list.find( function(element) {
+  return element == 'Cooper'
+});
+
+if (foundElement != undefined) {
+  console.log('I found Cooper!')
+}
+```
+
 ### Exercise: `forEach`
 
 Complete the following exercises in JavaScript using `forEach` an anonymous functions.
