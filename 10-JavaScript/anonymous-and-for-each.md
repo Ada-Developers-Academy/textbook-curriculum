@@ -180,3 +180,14 @@ Complete the following exercises in JavaScript using `forEach` an anonymous func
 - "Higher order" or "first-class" functions
 - Functional expression
 - Function declaration
+
+## Summary
+
+Often we want to pass a function as an argument in JavaScript.  One term for these is a _callback function_.  Sometimes these callback functions are only used in one function call and do not need a name.  These nameless functions are called _anonymous functions_.  
+
+Similar to Ruby's `.each` method, JavaScript arrays have a `.forEach` function.  The difference between the two is that `.forEach` takes a *function as a parameter*.  This takes advantage of JavaScript's functional features, but means we _cannot_ break out of a loop mid-iteration.
+
+## Resources
+
+- [Three Reasons `forEach` is dangerous](http://frontendcollisionblog.com/javascript/2015/08/15/3-reasons-you-should-not-be-using-foreach.html)
+- [MDN on `forEach`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
