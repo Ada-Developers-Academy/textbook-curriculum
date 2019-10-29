@@ -129,6 +129,18 @@ Questions to consider:
 - Build an _API_ - a web server that serves JSON for machines rather than HTML for humans
 - Read client data and use it to create a new resource
 
+## Response Codes
+
+Response codes and their corressponding Rails symbols.
+
+- 200 - :ok
+- 204 - :no_content
+- 400 - :bad_request
+- 401 - :unauthorized
+- 403 - :forbidden
+- 404 - :not_found
+- 500 - :internal_server_error
+
 ## Resources
 
 - [`.as_json` documentation](http://api.rubyonrails.org/classes/ActiveModel/Serializers/JSON.html#method-i-as_json)
