@@ -108,7 +108,7 @@ We can also include a test for when there are no pets in the database:
 
 ## Showing Pet Details
 
-Working with the person next to you, and following the same pattern we used for `index`, implement the `show` endpoint.
+Working with the person next to you, and following the same pattern we used for `index`, implement the `show` endpoint.  
 
 Questions to consider:
 
@@ -119,7 +119,7 @@ Questions to consider:
 - What fields should be returned?
 - What should the API do if the client asks for a pet that doesn't exist?
   - Status code
-  - Response body
+  - Response body, **Hint**, you can respond with JSON without an available model.
 - What test cases might be useful for this endpoint?
   - There should be at least one test already in the project but see if you should add more
 - How do the two endpoints we've implemented so far compare to similar functionality in a non-API Rails app?
