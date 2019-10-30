@@ -37,7 +37,7 @@ Our tests are passing.  However we want data on our pets!  So we can add another
     expect(body).must_be_instance_of Array
     body.each do |pet|
       expect(pet).must_be_instance_of Hash
-      expect(pet.keys.sort).must_equal ["age", "human", "name"]
+      expect(pet.keys.sort).must_equal ["age", "human", "id", "name"]
     end
   end
 ```
@@ -123,6 +123,8 @@ Questions to consider:
 - What test cases might be useful for this endpoint?
   - There should be at least one test already in the project but see if you should add more
 - How do the two endpoints we've implemented so far compare to similar functionality in a non-API Rails app?
+
+When you finish you can check your solution against the [solution branch](https://github.com/AdaGold/ada-pets/commit/6e87a467345cb6483c15669b83f1a5eb25662300) of our implementation.
 
 ## What Have We Accomplished
 
