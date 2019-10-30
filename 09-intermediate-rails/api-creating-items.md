@@ -1,93 +1,204 @@
-# Testing A Rails API
+# Creating items in a Rails API
 
 ## Learning Goals
+
 Students should be able to...
 
 - Compare testing a Rails API with a Rails website
 - Test API response body & response codes
 - Identify edge cases in testing an API endpoint
 
-
 ### Introduction
-Earlier we learned to create API endpoints.  Now we will write controller tests for those endpoints.
 
-When testing a normal controller, we normally do **not** test the body of the response, because HTML and styling often change.  However an API endpoint should return consistently formatted JSON data.  Therefore we will write tests to verify the body of the response!
+Earlier we learned to create API endpoints and display model details.  Now we will write code to perform the Create action.
 
+## What do we want to happen
 
-## Testing the `get '/pets'` endpoint
+With a partner answer the following questions:
 
-First we will write a test to verify that the route works.  This test should look mostly familiar:
+- Do we need `new` action for our API?
+- When we create a new Pet, what should be returned? 
+  - response code
+  - JSON
+- How do we send data to an API?
 
-```ruby
-it "is a real working route and returns JSON" do
-  # Act
-  get pets_path
+## Testing a Post Request
 
-  # Assert
-  expect(response.header['Content-Type']).must_include 'json'
-  must_respond_with :success
-end
-```
-
-Notice the `response.header['Content-Type']` in the test above.  When your test makes an HTTP request, it gets back an object named `response`, which contains the full response from the controller, including the header, body, etc.  In a normal controller this would include the HTML, as well as the full header.
-
-By checking the `Content-Type` field in the response header, we can verify that Rails is telling the client that JSON is being returned.
-
-### Testing The Response Body
-
-We can now test the body of the response.
+In our API we can make a post request similar to our previous create actions
 
 ```ruby
-it "returns an Array" do
-  # Act
-  get pets_path
+  # pets_controller_test.rb
+  describe "create" do
+    let(:pet_data) {
+      {
+        pet: {
+          age: 13,
+          name: 'Stinker',
+          human: 'Grace'
+        }
+      }
+    }
+    it "can create a new pet" do
+      expect {
+        post pets_path, params: pet_data
+      }.must_differ 'Pet.count', 1
 
-  # Convert the JSON response into a Hash
-  body = JSON.parse(response.body)
-
-  # Assert
-  expect(body).must_be_kind_of Array
-end
-
-it "returns all of the pets" do
-  # Act
-  get pets_path
-
-  # Convert the JSON response into a Hash
-  body = JSON.parse(response.body)
-
-  # Assert
-  expect(body.length).must_equal Pet.count
-end
-
-it "returns pets with exactly the required fields" do
-  keys = %w(age human id name)
-
-  # Act
-  get pets_path
-
-  # Convert the JSON response into a Hash
-  body = JSON.parse(response.body)
-
-  # Assert that each
-  body.each do |pet|
-    expect(pet.keys.sort).must_equal keys
-    expect(pet.keys.length).must_equal keys.length
+      must_respond_with :created
+    end
   end
+```
+
+As before, the big difference from a web app is in what we send back. While in a web app we would probably redirect the client to the resource they created, that doesn't make sense for an API. Instead, we just send back some JSON containing the created pet's id, as well as the appropriate status code.
+
+### Cross-Site Request Forgery (CSRF)
+
+**ALERT!** Rails is built with CSRF protection which essentially prevents malicious requests. You might remember seeing notes in passing about this in our forms curriculum, where we had to explicitly add an _authenticity token_ to each form.
+
+Since preventing these cross site requests doesn't apply in an API context, we will add a Rails helper method to our controller to allow these `POST` requests to go through:
+```ruby
+class PetsController < ApplicationController
+  protect_from_forgery with: :null_session
+
+  ...
+```
+
+You can [read more about CSRF](http://guides.rubyonrails.org/security.html#cross-site-request-forgery-csrf) in the Rails documentation.
+
+We can now write our `create` method to make this test pass!
+
+```ruby
+  # pets_controller.rb
+  def create
+    pet = Pet.new(pet_params)
+
+    if pet.save
+      render json: pet.as_json(only: [:id), status: :created
+      return
+    else
+      render json: { ok: false, errors: pet.errors.messages }, status: :bad_request
+      return
+    end
+  end
+```
+
+### Sending POST Data Via Postman
+
+While we could use our browser to exercise the `index` and `show` endpoints, sending data to our API is a little trickier. For this, we'll use Postman.  Start up your rails server first!
+
+First, the setup. Select `POST` from the list of verbs and type in your endpoint's URI. Then, in the `Headers` tab, add a new key-value pair: `Content-Type` -> `application/json`. Postman should try to autocomplete these fields for you.
+
+![Setting up a Postman POST](images/10-creating-apis/Postman-POST-settings.png)
+
+Next, the data. Click the `Body` tab, select `raw`, and enter your JSON data in the text area.
+
+![Adding data to a Postman POST](images/10-creating-apis/Postman-POST-data.png)
+
+Click send, and see what the new pet ID is.
+
+### Handling Errors
+
+So far our pet creation endpoint assumes everything goes swimmingly, but this won't always be the case. For example, our Pet model has some validations - what happens if they fail? What should we send back to the client?
+
+We need to make sure we set an appropriate status code - `:bad_request` will do nicely. It would also be polite to send back some information about what went wrong.
+
+We can set up our tests as:
+
+```ruby
+it "will respond with bad_request for invalid data" do
+  # Arrange - using let from above
+  pet_data[:pet][:age] = nil
+
+  expect {
+    # Act
+    post pets_path, params: pet_data
+
+  # Assert
+  }.wont_change "Pet.count"
+
+  must_respond_with :bad_request
+
+  expect(response.header['Content-Type']).must_include 'json'
+  body = JSON.parse(response.body)
+  expect(body["errors"].keys).must_include "age"
 end
 ```
 
-In the tests above we verify that the JSON response contains an array with the proper number of elements, and that each element of the array is a JSON hash with the required fields.
+## Optional - DRYing up our tests
 
-## Exercise:  Write tests for the show action
+Looking at our tests we have a lot of duplicated code.  We're doing a few things a lot including:
 
-Now with your partner, write tests for the `show` action.  If you get stuck you can find a solution [here](./code_samples/pet_controller_test.rb).
+1. Checking for a response code
+1. Checking for the proper response type (JSON)
+1. Checking for the body of the response to be the proper type (array or hash)
+1. Parsing the body of the request
 
-**Question:** What tests would you need to write for the `create` action?  Check with a partner and then review the tests written [here](./code_samples/pet_controller_test.rb).
+So we can create a helper method & a constant:
 
-## Summary
+```ruby
+  PET_FIELDS = %w(id age name human).sort
 
-We have introduced controller testing for an API application.  In a controller test for an API, you can also test the body of the response and verify the expected data is being transmitted.  We also used the `JSON.parse` method to convert the JSON object into a Ruby Hash object.
+  def check_response(expected_type:, expected_status: :success)
+    must_respond_with expected_status
+    expect(response.header['Content-Type']).must_include 'json'
+
+    body = JSON.parse(response.body)
+    expect(body).must_be_kind_of expected_type
+    return body
+  end
+```
+
+Using this method in our index actions would result in:
+
+```ruby
+describe "index" do
+    it "responds with JSON and success" do
+      # Act
+      get pets_path
+
+      # Assert
+      check_response(expected_type: Array)
+    end
+
+    it "responds with an array of pet hashes" do
+      # Act
+      get pets_path
+
+      # Assert
+      body = check_response(expected_type: Array)
+
+      body.each do |pet|
+        expect(pet.keys.sort).must_equal PET_FIELDS
+      end
+    end
+
+    it "will respond with an empty array when there are no pets" do
+      # Arrange
+      Pet.destroy_all
+
+      # Act
+      get pets_path
+
+      # Assert
+      body = check_response(expected_type: Array)
+      expect(body).must_equal []
+    end
+  end
+```
+
+**Project Challenge**  Dry up your tests using a similar method.
+
+## What Have We Accomplished?
+
+- Build an _API_ - a web server that serves JSON for machines rather than HTML for humans
+- Read client data and use it to create a new resource
+- Handle errors in a polite and helpful manner
+
+You can find a completed [ada-pets](https://github.com/AdaGold/ada-pets/tree/solution) project on the Ada pets solution branch.
 
 ## Resources
+
+- [`.as_json` documentation](http://api.rubyonrails.org/classes/ActiveModel/Serializers/JSON.html#method-i-as_json)
+- [ActiveModel Serializers](http://railscasts.com/episodes/409-active-model-serializers)
+- [blog post by thoughtbot about serialization](http://robots.thoughtbot.com/better-serialization-less-as-json)
+- [Rails API Development Guide](http://edgeguides.rubyonrails.org/api_app.html)
 - [Testing a Rails API](https://www.learnhowtoprogram.com/rails/building-an-api/testing-a-rails-api)
