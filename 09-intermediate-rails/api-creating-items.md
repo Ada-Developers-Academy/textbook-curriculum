@@ -101,7 +101,7 @@ Click send, and see what the new pet ID is.
 
 So far our pet creation endpoint assumes everything goes swimmingly, but this won't always be the case. For example, our Pet model has some validations - what happens if they fail? What should we send back to the client?
 
-We need to make sure we set an appropriate status code - `:bad_request` will do nicely. It would also be polite to send back some information about what went wrong.
+We need to make sure we set an appropriate status code - `:bad_request` will do nicely. It would also be polite to send back some information about what went wrong.  Remember how weird it was that Slack always sends back a 200 - OK response?  We will do better and send an appropriate response code to conform to standards and so automated systems will understand our response better.
 
 We can set up our tests as:
 
