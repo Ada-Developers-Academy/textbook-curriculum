@@ -74,7 +74,7 @@ We are going to approach this application creation from a TDD approach. First we
 
 You'll notice that we already have one basic get route created for pets, and one basic controller action that corresponds with that route.
 
-Try go to to `/pets` route.  What happens?
+Try go to to `/pets` route in the browser.  What happens?  Take a look at the rails server output.
 
 The terminal should show something like:
 
