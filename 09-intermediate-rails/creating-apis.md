@@ -22,7 +22,7 @@ def index
 end
 ```
 
-Our tests are passing.  However we want data on our pets!  So we can add another test to ensure that our controller index action is providing pet data.
+Our tests are passing.  However our *job* was to provide data about pets!  So we can add another test to ensure that our controller index action is providing pet data.
 
 ```ruby
   # pets_controller_test.rb
