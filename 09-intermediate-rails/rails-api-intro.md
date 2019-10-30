@@ -90,7 +90,7 @@ This is because an API application does not have a standard view template and ou
   end
 ```
 
-So lets write a test to specify what we **want** to be rendered back to us on `get '/pets'`.
+So lets write a test to specify what we **want** to be rendered back to us on `get '/pets'`.  Take a look at the [slack API's documentation](https://api.slack.com/methods/channels.info) to see an example response to a get request.
 
 ### So... What Do We Want
 
