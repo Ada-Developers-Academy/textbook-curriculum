@@ -152,7 +152,7 @@ So we can create a helper method & a constant:
   end
 ```
 
-Using this method in our index actions would result in:
+We can now call this methdo in our tests, eliminating a great deal of duplicated code.  Using this method in our index actions would result in:
 
 ```ruby
 describe "index" do
