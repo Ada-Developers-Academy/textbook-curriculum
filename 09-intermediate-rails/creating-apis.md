@@ -136,6 +136,7 @@ When you finish you can check your solution against the [solution branch](https:
 Response codes and their corressponding Rails symbols.
 
 - 200 - :ok
+- 201 - :created
 - 204 - :no_content
 - 400 - :bad_request
 - 401 - :unauthorized
