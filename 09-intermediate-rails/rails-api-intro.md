@@ -134,6 +134,8 @@ So in our test we will first verify that the action returns JSON and gives the c
   end
 ```
 
+We're testing to make sure that the content type is JSON and that it's giving a response code 200 (ok or success).
+
 Now if we run it we'll get:
 
 ```bash
