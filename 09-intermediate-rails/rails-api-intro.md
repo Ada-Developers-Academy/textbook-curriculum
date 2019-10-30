@@ -113,7 +113,7 @@ With your neighbor answer the following questions:
   - age
   - human
 
-Which means we will need to exclude some fields here.
+Which means we will need to exclude some fields here. (ie. the `created_at` and `updated_at fields)
 
 We will also expect the action to always return 200 ok.
 </details>
