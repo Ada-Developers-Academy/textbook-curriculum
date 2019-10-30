@@ -64,6 +64,7 @@ As before, the big difference from a web app is in what we send back. While in a
 
 Since preventing these cross site requests doesn't apply in an API context, we will add a Rails helper method to our controller to allow these `POST` requests to go through:
 ```ruby
+# pets_controller.rb
 class PetsController < ApplicationController
   protect_from_forgery with: :null_session
 
@@ -164,6 +165,7 @@ So we can create a helper method & a constant:
 We can now call this methdo in our tests, eliminating a great deal of duplicated code.  Using this method in our index actions would result in:
 
 ```ruby
+# pets_controller_test.rb
 describe "index" do
     it "responds with JSON and success" do
       # Act
