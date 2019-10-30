@@ -86,6 +86,14 @@ All models in Rails have an `.as_json` method to convert the model data into JSO
 
 **Question** Why did we use `pets` instead of `@pets` for our variable name?
 
+<details>
+<summary>Answer</summary>
+The `@` makes a regular variable into an instance variable. Rails (through some clever programming) _sort of_ treats a view as a method call from the controller. Sort of.
+
+In this case, we aren't rendering a view, so there's no need to pass this value along by forcing it to be an instance variable.
+</details>
+
+
 ### Covering the Edges
 
 We can also include a test for when there are no pets in the database:
