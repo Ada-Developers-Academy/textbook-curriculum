@@ -140,6 +140,7 @@ Looking at our tests we have a lot of duplicated code.  We're doing a few things
 So we can create a helper method & a constant:
 
 ```ruby
+  # pets_controller_test.rb
   PET_FIELDS = %w(id age name human).sort
 
   def check_response(expected_type:, expected_status: :success)
