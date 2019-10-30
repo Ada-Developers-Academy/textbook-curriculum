@@ -49,7 +49,7 @@ Given the context of our application, we should have a model and controller that
 
 [https://github.com/AdaGold/ada-pets](https://github.com/AdaGold/ada-pets)
 
-To make it go:
+To get started, run the following:
 
 ```bash
 $ git clone https://github.com/AdaGold/ada-pets.git
