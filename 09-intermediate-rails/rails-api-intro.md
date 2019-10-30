@@ -141,7 +141,7 @@ Now if we run it we'll get:
 ```bash
 test_0001_responds with JSON and success                        FAIL (0.16s)
         Expected nil (NilClass) to respond to #include?.
-        test/controllers/pets_controller_test.rb:9:in `block (3 levels) in <top (required)>'
+        test/controllers/pets_controller_test.rb:9:in 'block (3 levels) in <top (required)>'
 ```
 
 This is **OK** we expect our test to fail, we haven't made the test pass yet!
