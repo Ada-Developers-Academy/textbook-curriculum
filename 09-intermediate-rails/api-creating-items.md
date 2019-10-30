@@ -207,7 +207,7 @@ describe "index" do
 
 - Built an _API_ - a web server that serves JSON for machines rather than HTML for humans
 - Read client data and use it to create a new resource
-- Handle errors in a polite and helpful manner
+- Handled errors in a polite and helpful manner
 
 You can find a completed [ada-pets](https://github.com/AdaGold/ada-pets/tree/solution) project on the Ada pets solution branch.
 
