@@ -106,6 +106,7 @@ We need to make sure we set an appropriate status code - `:bad_request` will do 
 We can set up our tests as:
 
 ```ruby
+  # pets_controller_test.rb
 it "will respond with bad_request for invalid data" do
   # Arrange - using let from above
   pet_data[:pet][:age] = nil
@@ -124,6 +125,8 @@ it "will respond with bad_request for invalid data" do
   expect(body["errors"].keys).must_include "age"
 end
 ```
+
+In this test we checked for the proper response code, content type and verified that the proper validation error, or at least the field, is identified in the response.  We could also check the exact content of the response to verify the validation message and format.
 
 ## Optional - DRYing up our tests
 
