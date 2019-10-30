@@ -20,9 +20,9 @@ When creating an API, usually the goal is to provide data to a consumer, whether
 
 | Word | Definition | Example
 |------|------------|--------
-| Resource | Some piece of data we want to share with the world | A single pet, the list of all pets
+| Resource | Some piece of data we want to share with the world | A single pet, the list of all pets, or a channel or user in Slack.
 | Endpoint | A unique URL + HTTP verb that provides access to some resource | `GET /pets/7`
-| Client   | Who- or whatever is consuming our API | A mobile app
+| Client   | Who- or whatever is consuming our API | A mobile app, or something like our command-line slack interface.
 
 ### APIs vs Web Apps
 
