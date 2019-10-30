@@ -81,7 +81,7 @@ That said:
 1. [Introduction to Function Calls & Recursion](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/function-calls.md)
 1. [Introduction to Hash Tables](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/hash-tables.md)
 1. [The Interview Process](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Interview-prorocess.md)
-1. [Recursion](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Introduction%20to%20Recursion.md) - Under construction
+1. [Recursion](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Introduction%20to%20Recursion.md)
 1. [Linked Lists](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Introduction%20to%20Linked%20Lists.md) - Under Construction
 1. [Software Design](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Software%20Design.md) - Under Construction
 
