@@ -64,6 +64,8 @@ class PetsController < ApplicationController
 
 You can [read more about CSRF](http://guides.rubyonrails.org/security.html#cross-site-request-forgery-csrf) in the Rails documentation.
 
+### Creating A Resource
+
 We can now write our `create` method to make this test pass!
 
 ```ruby
