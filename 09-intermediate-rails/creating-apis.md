@@ -77,7 +77,7 @@ So we can adjust our controller:
 ```ruby
   # pets_controller.rb
   def index
-    pets = Pet.all.as_json(only: [:name, :age, :human])
+    pets = Pet.all.as_json(only: [:id, :name, :age, :human])
     render json: pets, status: :ok
   end
 ```
@@ -147,3 +147,4 @@ Response codes and their corressponding Rails symbols.
 - [ActiveModel Serializers](http://railscasts.com/episodes/409-active-model-serializers)
 - [blog post by thoughtbot about serialization](http://robots.thoughtbot.com/better-serialization-less-as-json)
 - [Rails API Development Guide](http://edgeguides.rubyonrails.org/api_app.html)
+- [Testing a Rails API](https://www.learnhowtoprogram.com/rails/building-an-api/testing-a-rails-api)
