@@ -24,7 +24,7 @@ With a partner answer the following questions:
 
 <details>
   <summary>Answers here</summary>
-- We do <em>not</em> need a new action because we don't need a web-based form.
+- We do <em>not</em> need a new action (only a create action) because we don't need a web-based form.
 - The response code should be a 201 - created, if we can create the pet and a 400 - bad request if we cannot.
 - We will decide to respond with just the new pet's id.  We could decide to return the entire pet, but instead we'll just return the id field.
 - If we cannot create the pet, we should respond with the validation error messages.
@@ -62,7 +62,7 @@ As before, the big difference from a web app is in what we send back. While in a
 
 **ALERT!** Rails is built with CSRF protection which essentially prevents malicious requests. You might remember seeing notes in passing about this in our forms curriculum, where we had to explicitly add an _authenticity token_ to each form.
 
-Since preventing these cross site requests doesn't apply in an API context, we will add a Rails helper method to our controller to allow these `POST` requests to go through:
+Since we expect requests to come from other sites/applications in an API context, we will add a Rails helper method to our controller to allow these `POST` requests to go through:
 ```ruby
 # pets_controller.rb
 class PetsController < ApplicationController
@@ -201,7 +201,7 @@ describe "index" do
   end
 ```
 
-**Project Challenge**  Dry up your tests using a similar method.
+**Project Challenge**  Dry up your create and show tests using a similar method.
 
 ## What Have We Accomplished?
 
