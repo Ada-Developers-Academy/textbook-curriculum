@@ -40,7 +40,7 @@ Hand-writing all this code every time we need to display a timestamp would be te
     - Many different models might contain dates, so it would be hard to pick one model to put it in
     - This code is concerned with presentation, and should be associated with the view layer
 - As a **partial view**: no
-    - A partial feels too "big" for what we're doing here - we're generating a small amount of code, not a big chunk of a page
+    - A partial feels too "big" for what we're doing here - we're generating a small amount of HTML, not a big chunk of a page
     - This code is specific enough that it would be worth testing, and there's no way to test a partial
 - As a **view helper**: yes!
     - We're generating a small amount of generic HTML
@@ -178,13 +178,13 @@ We've learned about a whole bunch of places to put code: the Controller, the Mod
 | Complex database queries                        | Model (self method)     | Retrieve the first 10 albums, in descending order by number of votes |
 | Interesting action on a database object         | Model (instance method) | Total revenue from all sales for this Product, age of this Album |
 | Checking that a request is reasonable           | Controller              | Filters, strong params |
-| Rendering a small, simple piece of a webpage    | View Helper             | Formatting a date, prefixing the page title with the site title, building a link to a named route |
-| Rendering a big, complicated piece of a webpage | Partial View            | Table of media items, form to create or edit a post |
+| Reusable view specific logic that is Ruby involved; not very HTML involved | View Helper             | Formatting a date, prefixing the page title with the site title, building a link to a named route |
+| Rendering a reusable chunk of HTML for a webpage | Partial View            | Table of media items, form to create or edit a post |
 
 ## Summary
 
 - View helpers are Ruby methods that generate HTML
-- View helpers are most useful for small, targeted pieces of display logic
+- View helpers are most useful for ruby-involved pieces of display logic
 - If you want to include tags, you must mark them as trusted using `html_safe`. **Only use `html_safe` on data you actually trust (i.e. string literals)!**
 - Testability is one of the big advantages of view helpers. Take advantage of it!
 

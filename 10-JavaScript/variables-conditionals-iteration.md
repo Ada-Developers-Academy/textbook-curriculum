@@ -249,6 +249,37 @@ Before running this code, predict the answers for the following questions:
 
 **Question:** Take one minute. What is one way you could write this in Ruby?
 
+### `for...in` Loop
+
+Another kind of `for` loop in JavaScript is the `for...in` loop.  This loop iterates through the keys or indicies of an object or array.
+
+```javascript
+const list = ['Ada', 'Jacob', 'Babbage', 'Grace'];
+let string = '';
+
+for(element in list) {
+  string += element;
+  if (element < list.length -1)
+  string += ', ';
+}
+console.log(string); // '0, 1, 2, 3'
+
+const student = {
+  classRoom: 'Ports',
+  cohort: '11',
+  name: 'Betty Holberton'
+};
+
+
+for (let key in student) {
+  console.log(`Your ${key} is ${student[key]}`);
+}
+// Output:
+// Your classRoom is Ports
+// Your cohort is 11
+// Your name is Betty Holberton
+```
+
 ### `while` Loop
 
 JavaScript also uses the `while` loop in a similar way to the way we use it in Ruby.
