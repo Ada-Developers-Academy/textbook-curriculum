@@ -201,7 +201,7 @@ describe "index" do
   end
 ```
 
-**Project Challenge**  Dry up your tests using a similar method.
+**Project Challenge**  Dry up your create and show tests using a similar method.
 
 ## What Have We Accomplished?
 
