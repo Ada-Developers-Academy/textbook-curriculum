@@ -137,7 +137,7 @@ When you finish you can check your solution against the [solution branch](https:
 ## What Have We Accomplished
 
 - Built an _API_ - a web server that serves JSON for machines rather than HTML for humans
-- Read client data and use it to create a new resource
+- Read client data and used it to create a new resource
 
 ## Response Codes
 
