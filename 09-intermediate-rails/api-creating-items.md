@@ -24,7 +24,7 @@ With a partner answer the following questions:
 
 <details>
   <summary>Answers here</summary>
-- We do <em>not</em> need a new action because we don't need a web-based form.
+- We do <em>not</em> need a new action (only a create action) because we don't need a web-based form.
 - The response code should be a 201 - created, if we can create the pet and a 400 - bad request if we cannot.
 - We will decide to respond with just the new pet's id.  We could decide to return the entire pet, but instead we'll just return the id field.
 - If we cannot create the pet, we should respond with the validation error messages.
