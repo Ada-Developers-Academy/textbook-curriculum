@@ -86,8 +86,7 @@ We can now write our `create` method to make this test pass!
       render json: pet.as_json(only: [:id), status: :created
       return
     else
-      render json: { ok: false, errors: pet.errors.messages }, status: :bad_request
-      return
+      # Do something else
     end
   end
 ```
@@ -136,6 +135,26 @@ end
 ```
 
 In this test we checked for the proper response code, content type and verified that the proper validation error, or at least the field, is identified in the response.  We could also check the exact content of the response to verify the validation message and format.
+
+Now we need to make the dern thing pass.
+
+```ruby
+  # pets_controller.rb
+  def create
+    pet = Pet.new(pet_params)
+
+    if pet.save
+      render json: pet.as_json(only: [:id), status: :created
+      return
+    else
+      render json: {
+        ok: false,
+        errors: pet.errors.messages
+      }, status: :bad_request
+      return
+    end
+  end
+```
 
 ## Optional - DRYing up our tests
 
