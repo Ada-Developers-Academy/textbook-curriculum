@@ -25,13 +25,7 @@ In short, most interesting JavaScript code is full of *external dependencies*. M
 
 We'll be using a test suite called [Jest](https://facebook.github.io/jest/docs/en/getting-started.html) (maintained by Facebook). Jest is available as an npm package and commonly used in testing React & pure JavaScript applications.
 
-Jest tests are run from the command line using `npm test` (more on this later). While this is fast and convenient, it also means that our tests are being run without support from the browser, and anything that relies on the browser (like manipulating the DOM or waiting for user events) will break.
-
-To get around this, there are basically two strategies to follow:
-- Use a technology like [Selenium](http://www.seleniumhq.org/) to *mock* the DOM
-- Build your application so that as much of the business logic as possible can run without the DOM
-
-We'll start testing using the second technique. It will be very reminiscent of model testing in Rails, and in fact we will focus our JavaScript testing on business logic methods. The testing techniques we learn here will also transfer directly to any command-line JavaScript programs you write, including something like a Node-Express server.
+Jest tests are run from the command line using `npm test` (more on this later).  It will be very reminiscent of model testing in Rails, and in fact we will focus our JavaScript testing on business logic methods. The testing techniques we learn here will also transfer directly to any command-line JavaScript programs you write, including something like a Node-Express server.  Later we will introduce testing in React and write tests which interact with DOM elements.
 
 ### Setup
 
@@ -142,11 +136,11 @@ Now use a test-driven development workflow to implement the `isPangram()` functi
 
 Now write your own test in the section provided.
 
-**Optional Exercise**
+## Optional Exercise
 
 If you feel you need more practice, create tests for an `isPalindrome` function.  Then write code to solve the problem.  A palindrome is a word or phrase spelled backwards the same as forwards and is further described in the README.
 
-### Matchers
+## Matchers
 
 Just like in testing with Ruby and Rails, Jest has a number of **matchers** that allow us to construct our tests. Below are the most common:
 
