@@ -1,4 +1,4 @@
-# Introduciton To Building An API In Rails
+# Introduction To Building An API In Rails
 
 ## Learning Goals
 
