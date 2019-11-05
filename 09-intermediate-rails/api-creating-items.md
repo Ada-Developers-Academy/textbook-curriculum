@@ -62,7 +62,7 @@ As before, the big difference from a web app is in what we send back. While in a
 
 **ALERT!** Rails is built with CSRF protection which essentially prevents malicious requests. You might remember seeing notes in passing about this in our forms curriculum, where we had to explicitly add an _authenticity token_ to each form.
 
-We don't this in an API application, although we might need to modify our code if we wrote an application which could serve both API and browser requests.
+If we don't do this in an API application, we might need to modify our code if we wanted to serve both API (JSON) and browser requests (HTML).
 
 You can [read more about CSRF](http://guides.rubyonrails.org/security.html#cross-site-request-forgery-csrf) in the Rails documentation.
 
