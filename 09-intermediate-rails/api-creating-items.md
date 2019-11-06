@@ -102,6 +102,8 @@ First, the setup. Select `POST` from the list of verbs and type in your endpoint
 
 Next, the data. Click the `Body` tab, select `raw`, and enter your JSON data in the text area.
 
+**NOTE** Notice the Response Type is shown in the orange drop-down to be **JSON**.
+
 ![Adding data to a Postman POST](images/10-creating-apis/Postman-POST-data.png)
 
 Click send, and see what the new pet ID is.
