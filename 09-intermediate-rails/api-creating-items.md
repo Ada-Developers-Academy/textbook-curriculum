@@ -18,8 +18,8 @@ With a partner answer the following questions:
 
 - Do we need `new` action for our API?
 - When we create a new Pet, what should be returned? 
-  - response code
-  - JSON
+  - What response code?
+  - What JSON in the body?
 - How do we send data to an API?
 
 <details>
