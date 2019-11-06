@@ -84,7 +84,7 @@ We can now write our `create` method to make this test pass!
     pet = Pet.new(pet_params)
 
     if pet.save
-      render json: pet.as_json(only: [:id], status: :created)
+      render json: pet.as_json(only: [:id]), status: :created
       return
     else
       # Do something else
@@ -147,7 +147,7 @@ Now we need to make the dern thing pass.
     pet = Pet.new(pet_params)
 
     if pet.save
-      render json: pet.as_json(only: [:id), status: :created
+      render json: pet.as_json(only: [:id]), status: :created
       return
     else
       render json: {
