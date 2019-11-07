@@ -54,7 +54,7 @@ Follow the directions for each problem.
 <!-- 1. Call the `square()` method on the `my_calculator` object.
   ```javascript
   const Calculator = function() {
-    this.square = function (x) {
+    this.square = function(x) {
       return x * x;
     }
   };
@@ -63,7 +63,7 @@ Follow the directions for each problem.
 
 2. What does the following code print to the console?
   ```javascript
-  console.log(function () {
+  console.log(function() {
     return "Hey hey hey";
   }());
   ```

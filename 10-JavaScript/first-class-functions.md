@@ -180,14 +180,14 @@ We are defining two functions:
 `doMath` is written so that it takes in a function as an argument. This function it takes in will be the generic math operation. No matter what the generic math operation function is, it will do that operation 10 times, with the numbers 0 through 9.
 
 ```javascript
-const doMath = function doMath(operation) {
+const doMath = function(operation) {
   for (let i = 0; i < 10; i += 1) {
     const result = operation(i);
     console.log(`${i}: ${result}`);
   }
 };
 
-const doubleNum = function doubleNum(num) {
+const doubleNum = function(num) {
   return num * 2;
 };
 

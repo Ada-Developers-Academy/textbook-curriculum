@@ -26,10 +26,10 @@ On the right-hand side of the assignment operator, you set the value to be a fun
 
 Let's make a function named `bark`, whose responsibility is to print to the terminal the sound a dog makes.
 
-How do we do that? Let's declare a `const` variable named `bark`, and set its value to the function named `bark`. After we start the function with the words `function bark()`, we open up a block of code with curly braces, and put the inners of the function within the `{}`.
+How do we do that? Let's declare a `const` variable named `bark`, and set its value to the function named `bark`. After we start the function with the words `function()`, we open up a block of code with curly braces, and put the inners of the function within the `{}`.
 
 ```javascript
-const bark = function bark() {
+const bark = function() {
   console.log('Woof!');
 };
 ```
@@ -38,7 +38,7 @@ Open the `node` REPL and copy-and-paste in the following expressions. What do yo
 
 1.
     ```javascript
-    const bark = function bark() {
+    const bark = function() {
       console.log('Woof!');
     };
     ```
@@ -68,14 +68,12 @@ bark();
 
 When we defined the function, we gave it the variable keyword `const`. We could have used `let`, but in general, we don't need any variable named `bark` to be reassigned. Because we don't need `bark` to ever be reassigned, it makes sense to make it a constant.
 
-On another note, what's up with `const bark = function bark() { ... }`? In Ruby, we've never had to write the method name more than once, _do we need to write `bark` so many times?_  This is optional, but it can allow us to provide a [longer-more descriptive name for the stack trace](https://github.com/airbnb/javascript/issues/794). **This form is going to be our best practice moving forward.**
-
 ### Exercise: Make An Animal Noise Function
 
 Given the `bark` function as a model:
 
 ```javascript
-const bark = function bark() {
+const bark = function() {
   console.log('Woof!');
 };
 ```
@@ -98,7 +96,7 @@ Observe the example below, which defines a function named `sayItTwice`. Its resp
 It takes in one argument named `text`. We can use `text` as a local variable within the function.
 
 ```javascript
-const sayItTwice = function sayItTwice(text) {
+const sayItTwice = function(text) {
   console.log(text);
   console.log(text);
 };
@@ -113,7 +111,7 @@ sayItTwice('JS is OK!');
 We can define a function with multiple parameters by comma-separating them:
 
 ```javascript
-const sayCompoundWord = function sayCompoundWord(prefix, suffix) {
+const sayCompoundWord = function(prefix, suffix) {
   console.log(`${prefix}-${suffix}`);
 }
 
@@ -132,7 +130,7 @@ Open the `node` REPL and copy-and-paste in the following expressions. What do yo
 
 1.
     ```javascript
-    const meow = function meow() {
+    const meow = function() {
       return 'mmMMMME-OW!';
     }
     ```

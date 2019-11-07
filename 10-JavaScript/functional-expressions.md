@@ -12,7 +12,7 @@ Something that may come up in your exploration of JavaScript is the difference b
 
 ```javascript
 // functional expression - this is the right way
-const foo = function foo(bar) {
+const foo = function(bar) {
 
 };
 ```
@@ -26,7 +26,7 @@ function foo(bar) {}
 
 **We will always prefer to define functions with the functional expression syntax.**
 
-When we use a functional expression, with `const`, the assignment operator `=`, and the right-hand side with defining the function (`function foo(bar)`), we are setting ourselves up for success in the following ways:
+When we use a functional expression, with `const`, the assignment operator `=`, and the right-hand side with defining the function (`function(bar)`), we are setting ourselves up for success in the following ways:
 
 1. It makes the function immutable, so we don't have to worry about that function being changed by some other piece of code. (Turns out, with functional declarations, we _do_ have to worry about this)
 1. We are setting ourselves up for the right pattern for some advanced syntax around functions that we'll learn about later this week
