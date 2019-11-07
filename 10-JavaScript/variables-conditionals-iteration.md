@@ -151,7 +151,7 @@ We use the keywords `if`, `else if`, and `else`. Note `else if` instead of `elsi
 
 Conditional expressions are surrounded by parenthesis `()` and each block is surrounded by brackets `{}`.
 
-To test equality between strings, we use `===`. Note triple instead of `==` like in Ruby!
+To test equality, we use `===`. Note triple instead of `==` like in Ruby!
 
 ```javascript
 const babyAnimal = 'kitten';
@@ -170,7 +170,7 @@ if (babyAnimal === 'puppy') {
 console.log(animal);
 ```
 
-**Note:** `==` _does_ exist in JavaScript, but it doesn't do exactly the same thing that `==` does in Ruby. Again: to test equality between strings, we use `===`. Do some research as to _why_!
+**Note:** `==` _does_ exist in JavaScript, but it doesn't do exactly the same thing that `==` does in Ruby. Again: to test equality, we use `===`. Do some research as to _why_!
 
 ### Exercise
 
