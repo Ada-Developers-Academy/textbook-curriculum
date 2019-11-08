@@ -112,7 +112,7 @@ const average = sum / cashTips.length;
 console.log(`The average cash tip is ${average}`);
 ```
 
-## Danger Will Robinson Danger
+## Danger Will Robinson!!!  Danger!!!
 
 There is one thing to note about the `forEach` loop.  Consider this linear search:
 
