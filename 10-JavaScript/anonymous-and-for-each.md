@@ -15,7 +15,7 @@ We do it so often, that sometimes it isn't worth naming the function. Sometimes,
 You can do this by defining an anonymous callback function inside the argument list itself:
 
 ```javascript
-const doMath = function doMath(operation) {
+const doMath = function(operation) {
   for (let i = 0; i < 10; i += 1) {
     const result = operation(i);
     console.log(`${i}: ${result}`);
@@ -69,7 +69,7 @@ Answer the following questions:
 ### Exercise: Create More Anonymous Math Operation Callbacks
 
 ```javascript
-const doMath = function doMath(operation) {
+const doMath = function(operation) {
   for (let i = 0; i < 10; i += 1) {
     const result = operation(i);
     console.log(`${i}: ${result}`);
