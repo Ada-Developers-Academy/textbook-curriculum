@@ -166,7 +166,7 @@ if (foundElement != undefined) {
 
 ### Exercise: `forEach`
 
-Complete the following exercises in JavaScript using `forEach` an anonymous functions.
+Complete the following exercises in JavaScript using `forEach` and anonymous functions.
 
 1. Given the array `[ 2, 5, 8, 11, 14 ]`, iterate through the array. For each item `num`, print to the terminal `2 * num + 7`
 1. Given the array `['puppies', 'meerkats', 'red pandas']`, iterate through the array. For each item `critter`, print to the terminal `"I am as amazing as"` critter!
