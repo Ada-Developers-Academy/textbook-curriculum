@@ -5,7 +5,7 @@ In this lesson we will look at some programming strategies, Divide & Conquer and
 ## Video Lesson
 
 - [Video Lesson]()
-- [Slides]()
+- [Slides](https://docs.google.com/presentation/d/12RqNPG1B1ZTOijfKfL99Ewv4w1p6bR-L7Sj2EHN3Fv4/edit#slide=id.p1)
 - [Exercise](https://github.com/Ada-C12/recursive-dynamic-programming)
 
 ## Learning Goals
