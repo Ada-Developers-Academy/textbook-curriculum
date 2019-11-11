@@ -75,6 +75,8 @@ Notice however we said, **if** the pivot is well chosen.  If the pivot does not 
 
 For example if with each iteration the pivot is the smallest remaining element in an array, rather than splitting the array into approximately n/2 sized pieces, instead you have one subarray of size n-1.
 
+You can see an animation of quicksort on [hackerearth.com](https://www.hackerearth.com/practice/algorithms/sorting/quick-sort/visualize/)
+
 ### Example:  MergeSort
 
 Merge sort is a *divide-and-conquer* algorithm. It involves the following three stages:
