@@ -45,9 +45,9 @@ def recursive_binary_search(array, to_find, low = 0, high = array.length - 1)
   if array[mid] == to_find
     return mid
   elsif array[mid] > to_find
-    recursive_binary_search(array, to_find, low, mid - 1)
+    return recursive_binary_search(array, to_find, low, mid - 1)
   else
-    recursive_binary_search(array, to_find, mid + 1, high)
+    return recursive_binary_search(array, to_find, mid + 1, high)
   end
 end
 ```
