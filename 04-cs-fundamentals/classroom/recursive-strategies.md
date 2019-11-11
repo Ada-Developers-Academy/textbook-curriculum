@@ -2,6 +2,12 @@
 
 In this lesson we will look at some programming strategies, Divide & Conquer and Dynamic programming, and how they can be used to solve recursive problems.
 
+## Video Lesson
+
+- [Video Lesson]()
+- [Slides]()
+- [Exercise](https://github.com/Ada-C12/recursive-dynamic-programming)
+
 ## Learning Goals
 
 By the end of this less you should be able to:
