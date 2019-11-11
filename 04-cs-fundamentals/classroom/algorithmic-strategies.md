@@ -1,4 +1,4 @@
-# Recursive Programming Strategies
+# Algorithmic Strategies
 
 In this lesson we will look at some programming strategies, Divide & Conquer and Dynamic programming, and how they can be used to solve recursive problems.
 
