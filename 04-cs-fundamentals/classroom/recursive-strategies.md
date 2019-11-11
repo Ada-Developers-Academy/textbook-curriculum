@@ -123,6 +123,26 @@ Note: We will look closer at merge sort and its implementation when we discuss *
 
 For small arrays insertion sort performs better than merge sort, but as the size of the array grows merge sort becomes much more performant.  There are other O(n log n) sorting algorithms, notably [Quick Sort](https://www.geeksforgeeks.org/quick-sort/), and [Heap Sort](../internship/heaps.md).
 
+
+### Exercise - Merging Two Sorted Arrays
+
+Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
+
+**Note:**
+
+The number of elements initialized in nums1 and nums2 are m and n respectively.
+
+You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2.
+
+**Example:**
+
+**Input:**
+nums1 = [1,2,3,0,0,0], m = 3
+nums2 = [2,5,6],       n = 3
+
+**Output:**
+[1,2,2,3,5,6]
+
 ## Dynamic Programming
 
 Dynamic programming is a way to optimize a recursive or iterative solution.  When we see a problem that repeatably involves solving the same problem repeatably we can optimize it by using Dynamic programming.  The key concept is to recognize subproblems we solve repeatably and store the solutions to those problems, also called _memoizing_, to use the stored solutions in solving larger problems.
@@ -253,6 +273,7 @@ In a Dynamic Programming approach subproblems are solved saved for use in solvin
 ## Resources
 
 - [Wikipedia Divide & Conquer](https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm)
+- [Medium:  Quicksort implementation in Ruby](https://medium.com/@andrewsouthard1/quicksort-implementation-in-ruby-92de12470efd)
 - [Geeks for Geeks - Dyanmic Programming](https://www.geeksforgeeks.org/dynamic-programming/#basicProblems)
 - [Ugly Number Problem](https://www.geeksforgeeks.org/ugly-numbers/)
 - [Quora - How should I explain dynamic programming to a 4-year-old?](https://www.quora.com/How-should-I-explain-dynamic-programming-to-a-4-year-old/answer/Jonathan-Paulson)
