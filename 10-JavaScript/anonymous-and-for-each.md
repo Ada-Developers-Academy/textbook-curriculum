@@ -178,8 +178,6 @@ Complete the following exercises in JavaScript using `forEach` and anonymous fun
 - Callback function
 - Anonymous function
 - "Higher order" or "first-class" functions
-- Functional expression
-- Function declaration
 
 ## Summary
 
