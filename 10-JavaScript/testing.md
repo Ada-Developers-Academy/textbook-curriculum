@@ -53,13 +53,13 @@ Next we will write tests for our `isPangram` function.
 1. Clone this repo: [`https://github.com/AdaGold/JS-Testing`](https://github.com/AdaGold/JS-Testing)
 1.  Examine the README and follow the instructions to install the Jest and node modules needed to run the app.
 
-Then look through the code in the `src/is_pangram.spec.js` file, and see if the tests described match your predictions. To run the tests, type `npm test` at the console.
+Then look through the code in the `test/is_pangram.test.js` file, and see if the tests described match your predictions. To run the tests, type `npm test` at the console.
 
-Similar to Rails, the `spec` directory has the same structure as the `src` directory. Each file `src/name.js` may have a corresponding `spec/name.spec.js`.
+Similar to Rails, the `test` directory has the same structure as the `src` directory. Each file `src/name.js` may have a corresponding `test/name.test.js`.
 
 ### Anatomy of a Test
 
-There are already some tests written for the `isPangram` method, so let's begin there. Open up `spec/is_pangram.spec.js`.
+There are already some tests written for the `isPangram` method, so let's begin there. Open up `test/is_pangram.test.js`.
 
 Because Jest is a behavior-driven testing language, testing using Jest for JavaScript is fairly similar to what we saw using Minitest for Ruby and Rails. As always, there are some specific differences.
 
@@ -110,7 +110,7 @@ describe('isPangram function',  () =>  {
 });
 ```
 
-And that's all a test is. Go ahead and add another expect statement to the spec file, but this time make sure it will fail (e.g. `expect(false).toEqual(true);`). Then re-run the tests, just to see what a failure looks like. Fix the test and run it again. Not too different from Minitest, right?
+And that's all a test is. Go ahead and add another expect statement to the test file, but this time make sure it will fail (e.g. `expect(false).toEqual(true);`). Then re-run the tests, just to see what a failure looks like. Fix the test and run it again. Not too different from Minitest, right?
 
 ## Skipping Tests
 
@@ -128,7 +128,7 @@ to:
 
 ## Exercise With A Neighbor
 
-Read through the couple of implemented tests in `is_pangram.spec.js` and the stubbed out tests.
+Read through the couple of implemented tests in `is_pangram.test.js` and the stubbed out tests.
 
 Now use a test-driven development workflow to implement the `isPangram()` function and complete the stubbed-out tests. Remember the TDD cycle: pseudocode-red-green-refactor!
 
