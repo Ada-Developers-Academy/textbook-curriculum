@@ -257,10 +257,11 @@ Another kind of `for` loop in JavaScript is the `for...in` loop.  This loop iter
 const list = ['Ada', 'Jacob', 'Babbage', 'Grace'];
 let string = '';
 
-for(element in list) {
+for(const element in list) {
   string += element;
-  if (element < list.length -1)
-  string += ', ';
+  if (element < list.length -1) {
+    string += ', ';
+  }
 }
 console.log(string); // '0, 1, 2, 3'
 
