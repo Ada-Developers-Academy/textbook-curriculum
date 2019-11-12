@@ -37,6 +37,7 @@ $ npm install -g jest-cli
 ### Exercise
 
 Our first testing exercise will consist of writing tests for the Pangram whiteboarding problem.  A Pangram is a sentence which uses every letter of the alphabet at least once.
+The Pangram funtion we will be testing takes a string as input and returns a boolean indicating whether the input is a Pangram.
 
 #### Questions
 
