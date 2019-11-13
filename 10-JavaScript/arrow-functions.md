@@ -63,7 +63,7 @@ Wow that's a lot less code.
 Convert this into an arrow function and minimize the code typed.
 
 ```javascript
-const hello = function hello() {
+const hello = function() {
   return 'hello world';
 };
 ```
