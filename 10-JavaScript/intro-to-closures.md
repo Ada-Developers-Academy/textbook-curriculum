@@ -1,6 +1,6 @@
-# Closures in JavaScript
+# Intro to Closures in JavaScript
 
-This lesson assumes that you're comfortable with ES6 arrow function syntax, and that you have spent at least a little time using jQuery to manipulate the DOM and handle events.
+This lesson assumes that you're comfortable with ES6 arrow function syntax.
 
 ## Learning Goals
 By the end of this lesson, students should be able to...
@@ -21,7 +21,9 @@ Because the UI elements have such similar behavior, we want to use the same func
 
 ## Making a Closure
 
-All that jQuery is a little complex, so let's start with something simpler: a function that knows how many times it has been called. Each time you call it, it will print the total number of calls to the console. We'll use it like this:
+Let's start learning about closures by first making one.
+
+Let's make a function that knows how many times it has been called. Each time you call it, it will print the total number of calls to the console. We'll use it like this:
 
 ```javascript
 const incrementer = // build this closure somehow
@@ -128,45 +130,17 @@ Note that we reference a parameter of the outer function. Parameters are a speci
 ![closure diagram](./images/closure-diagram.png)
 <!-- https://www.draw.io/#G18RoR2FDhey0XMYD5GLZinnug9p2ksL2u -->
 
-## Closures with jQuery
-
-Now that we've explored the concepts behind closures a bit, let's return to our [original example with the buttons](https://codepen.io/adadev/pen/ZmbMdq).
-
-With your neighbors, look at the JavaScript code in that pen, open your Dev Tools to see the console, and answer the following questions:
-
-- What is the outer function?
-- What is the inner function?
-- What variable from the outer function is being referenced in the inner function?
-- How many different click handlers are created by this code?
-
 ## Exercise: Reading Closures
 
-Take a look at the following codepens:
+Take a look at the following codepen:
 
 - [Adder](https://codepen.io/adadev/pen/gXXaQm?editors=0010)
-- [Stopwatch](https://codepen.io/adadev/pen/GwpXmJ?editors=1010)
-- [Helpful Hints](https://codepen.io/adadev/pen/EbbVqq?editors=1010)
 
 With your neighbors, walk through the code and be able to identify in each example:
 1. Where is the closure?
 1. What does the code do?
 1. How does the closure take advantage of the outer function's variables?
 1. How does the inner function "get out" of the outer function? Pay special attention to `Stopwatch` and `Helpful Hints`.
-
-## Exercise: Writing Closures
-
-- Start a new codepen (or a new HTML/JS project on your computer)
-- Add jQuery to the project (on codepen you can do this through the settings menu)
-- Add the following HTML:
-    ```html
-    <section id="buttons">
-      <button id="button-1">Click count: 0</button>
-      <button id="button-2">Click count: 0</button>
-      <button id="button-3">Click count: 0</button>
-    </section>
-    ```
-- Write JavaScript code to add a click event handler to each button that will keep track of how many times it has been clicked
-- How would you need to change your code to display 1000 buttons?
 
 ## Summary
 
