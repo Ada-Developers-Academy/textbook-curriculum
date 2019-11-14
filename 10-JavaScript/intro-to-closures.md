@@ -132,15 +132,15 @@ Note that we reference a parameter of the outer function. Parameters are a speci
 
 ## Exercise: Reading Closures
 
-Take a look at the following codepen:
+Take a look at the following code snippet:
 
-- [Adder](https://codepen.io/adadev/pen/gXXaQm?editors=0010)
+- [Adder](https://repl.it/@adadev/Closures-Example-Adder)
 
 With your neighbors, walk through the code and be able to identify in each example:
 1. Where is the closure?
 1. What does the code do?
 1. How does the closure take advantage of the outer function's variables?
-1. How does the inner function "get out" of the outer function? Pay special attention to `Stopwatch` and `Helpful Hints`.
+1. How does the inner function "get out" of the outer function?
 
 ## Summary
 
