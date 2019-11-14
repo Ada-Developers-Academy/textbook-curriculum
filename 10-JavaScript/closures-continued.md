@@ -1,4 +1,4 @@
-# Closures Applied
+# Closures Continued
 
 ## Introduction
 

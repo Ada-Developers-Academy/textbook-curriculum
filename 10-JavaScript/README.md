@@ -25,6 +25,7 @@
 
 ## Other
 1. [Intro to Closures](intro-to-closures.md)
+1. [Closures Continued](closures-continued.md)
 1. [Hoisting](hoisting.md)
 1. [Testing](testing.md)
 1. [Prototypical JS Objects](js-objects.md)
