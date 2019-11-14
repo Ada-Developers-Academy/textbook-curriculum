@@ -279,3 +279,4 @@ In a Dynamic Programming approach subproblems are solved saved for use in solvin
 - [Geeks for Geeks - Dyanmic Programming](https://www.geeksforgeeks.org/dynamic-programming/#basicProblems)
 - [Ugly Number Problem](https://www.geeksforgeeks.org/ugly-numbers/)
 - [Quora - How should I explain dynamic programming to a 4-year-old?](https://www.quora.com/How-should-I-explain-dynamic-programming-to-a-4-year-old/answer/Jonathan-Paulson)
+- [Dynamic Programming an Induction Approach on Medium](https://medium.com/@tiagot/dynamic-programming-an-induction-approach-b5c5e73c4a19)
