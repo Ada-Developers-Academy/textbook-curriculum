@@ -69,19 +69,35 @@ Both code snippets print out `apples` first, and then `oranges` second, because 
 
 ### Analogy
 
-Unlike the food-delivery example from above, synchronous code happens in 
+Unlike the food-delivery example from above, synchronous code **executes and finishes** in a very specific order. An analogy may be more like calling the restaurant and making the order; the restaurant asks what dishes you want, and they wait when you answer before proceeding to the next question.
 
-## What It Means For Our Code
+## What is Asynchronous Programming?
 
-Implications...
+[Asynchronous Programming](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Concepts) is a method of programming that intentionally breaks program flow in order to:
+1. call actions/processes outside of program flow, so that the program doesn't stop for a result
+2. define what happens when the result comes back
 
-Ways we have to shift our thinking...
+How asynchronous programming is actually possible depends on the implementation/way of executing asynchronous calls.
 
-## How Do We Write Asynchronous Code?
+If we get to employ asynchronous programming into our programs, then we get to do interesting things that would normally require us to wait a long time **at the same time** as doing other things, without waiting for a long task to finish.
 
-Write code for what happens afterwards...
+In order to do this well, though, we will have to write code that:
+- uses specific technologies that support running asynchronous code (again, this is a matter of tools and environment)
+- anticipate all of the cases of what happens while an asynchronous call is running
 
-Not just that, but for what happens on every case...
+## How Do We Write Asynchronous Programming?
+
+To write good asynchronous code, we will have to determine and write the following things:
+
+1. The _asynchronous call/function that we are invoking_
+    - How do we order the food?
+1. What do we do after the asynchronous call finishes
+    - What do we do after we receive the food deliver?
+1. What do we do if the asynchronous call doesn't finish successfully
+    - What do we do if the food never arrives? What do we do if the restaurant calls back and says that they are out of food? What do we do if the restaurant calls back and says they lost your order?
+1. Ensure that the rest of the program runs correctly, without bugs, even if it does things while the asynchronous call is executing
+    - If you are watching TV while waiting for the food to be delivered, how do we make sure that you aren't too hungry and you order another dinner?
+    - If you are hanging out with a friend while waiting for the food to be delivered, and your friend asks you to feed them now, what do you do?
 
 ## An Optional Aside: A Deeper Look
 
@@ -90,4 +106,5 @@ JS Event Loop
 ## Resources
 
 - [MDN's intro on General Asynchronous Programming Concepts](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Concepts)
+- [MDN's intro to Asynchronous JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous)
 - [MDN's article on JavaScript's Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
