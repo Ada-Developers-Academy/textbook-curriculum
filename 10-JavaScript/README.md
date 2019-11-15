@@ -15,11 +15,8 @@
     - [Exercise: JS Calculator](exercises/calculator.md)
 1. [Arrow Functions](arrow-functions.md)
 
-## In the Browser: jQuery
-1. [JS in the browser](js-in-the-browser.md)
-1. [jQuery Introduction](jquery-intro.md)
-    - [Exercise: Review JS and jQuery in the browser](exercises/js-jquery-review.md)
-1. [jQuery Events](jquery-events.md)
+## Intro to Asynchronous Programming
+1. [Introduction to Async](async-intro.md)
 1. [AJAX Introduction](ajax-intro.md)
 1. [AJAX Post](ajax-post.md)
 
@@ -34,3 +31,9 @@
     - [Exercise: Fortune](exercises/fortune.md)
 1. [Rest and Spread Operators](spread-and-rest-destructuring.md)
 <!-- 1. [Underscore Templates](underscore-templates.md) -->
+
+## Archived: jQuery
+1. [JS in the browser](js-in-the-browser.md)
+1. [jQuery Introduction](jquery-intro.md)
+    - [Exercise: Review JS and jQuery in the browser](exercises/js-jquery-review.md)
+1. [jQuery Events](jquery-events.md)
