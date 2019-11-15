@@ -4,6 +4,7 @@
 
 - Know the definition for synchronous programming
 - Know the definition for asynchronous programming
+- Understand that asynchronous programming will ask us to anticipate what to do after the asynchronous process is finished
 
 ## A Pizza Metaphor
 
@@ -98,6 +99,16 @@ To write good asynchronous code, we will have to determine and write the followi
 1. Ensure that the rest of the program runs correctly, without bugs, even if it does things while the asynchronous call is executing
     - If you are watching TV while waiting for the food to be delivered, how do we make sure that you aren't too hungry and you order another dinner?
     - If you are hanging out with a friend while waiting for the food to be delivered, and your friend asks you to feed them now, what do you do?
+
+## Conclusion
+
+Asynchronous programming is a big, broad subject. Traditionally, we have written a lot of code that runs in a very specific order (synchronous). However, certain technologies allow us to write asynchronous code, and we'll see plenty in JavaScript.
+
+To write asynchronous code, we'll generally need to anticipate four things:
+1. How do we make an asynchronous call?
+2. What should happen if the asynchronous call finishes successfully?
+3. What should happen if the asynchronous call doesn't finish successfully?
+4. What other pieces of code are depending on this asynchronous call?
 
 ## An Optional Aside: A Deeper Look
 
