@@ -110,6 +110,18 @@ To write asynchronous code, we'll generally need to anticipate four things:
 3. What should happen if the asynchronous call doesn't finish successfully?
 4. What other pieces of code are depending on this asynchronous call?
 
+## An Optional Introduction: Event-Driven Programming
+
+[Event-Driven Programming](https://en.wikipedia.org/wiki/Event-driven_programming) is a programming paradigm. Another programming paradigm we've learned about is Object-Oriented programming. Event-Driven Programming as a programming paradigm means that there is a set of design patterns meant for a different way of thinking of code.
+
+In Event-Driven Programming, design patterns will lead developers to think about how to write code in terms of **events**, not objects.
+
+In event-driven programming, there is a concept of an **event.** An **event** is named action that can be triggered/fired/sent, and also listened to/handled/received.
+
+In our food delivery analogy, likely we would say "When the delivery person rings the doorbell" is triggering an event of "a person is at the front door." Then, we would say "answering the door" is handling the event.
+
+Event-driven programming pairs really well with asynchronous programming. For both, we have to think about who makes the call (asynchronous call or event trigger), and what happens when that call happens (whether it finished successfully, or how to handle the event). We will get more into event-driven programming more soon!
+
 ## An Optional Aside: A Deeper Look
 
 JS Event Loop
