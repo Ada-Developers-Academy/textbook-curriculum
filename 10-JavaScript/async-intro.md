@@ -124,7 +124,9 @@ Event-driven programming pairs really well with asynchronous programming. For bo
 
 ## An Optional Aside: A Deeper Look
 
-JS Event Loop
+JavaScript can be written for programs that utilize event-driven programming. Actually, under-the-hood, JavaScript environments manage how code runs in the [Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop).
+
+A more technical dive into how JavaScript executes code using the JavaScript event loop may help your understanding of asynchronous programming and also how JavaScript works in general.
 
 ## Resources
 
