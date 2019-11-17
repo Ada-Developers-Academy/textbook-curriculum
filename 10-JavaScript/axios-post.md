@@ -149,7 +149,7 @@ When we run this code together and it responds with success:
   1. We can view the status code, headers, response data, etc.
   2. We should have been able to get back data that looks similar to this:
 
-  ```json
+  ```js
   {
     id: 136,
     name: "Dee's Chill Trip to Chicago",
@@ -199,7 +199,7 @@ axios.post('https://trektravel.herokuapp.com/trips', badTripData)
   1. We can view the status code, headers, response data, etc.
   2. We should have been able to get back data that looks similar to this:
 
-  ```json
+  ```js
   { errors: { name: [ "can't be blank" ] } }
   ```
 </details>
