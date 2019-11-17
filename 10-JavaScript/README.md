@@ -18,7 +18,7 @@
 ## Intro to Asynchronous Programming
 1. [Introduction to Async](async-intro.md)
 1. [Making `GET` Requests using `axios` in JavaScript](axios-get.md)
-1. [AJAX Post](ajax-post.md)
+1. [Making `POST` Requests using `axios` in JavaScript](axios-post.md)
 
 ## Other
 1. [Intro to Closures](intro-to-closures.md)
@@ -38,3 +38,7 @@
 1. [jQuery Introduction](jquery-intro.md)
     - [Exercise: Review JS and jQuery in the browser](exercises/js-jquery-review.md)
 1. [jQuery Events](jquery-events.md)
+
+## Archived: AJAX
+1. [AJAX Introduction](ajax-intro.md)
+1. [AJAX Post](ajax-post.md)
