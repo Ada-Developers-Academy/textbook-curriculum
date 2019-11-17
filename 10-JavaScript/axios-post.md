@@ -5,7 +5,9 @@ Setup notes: This lesson will make use of the [Ada Trip Reserving Service™ Tri
 This lesson will use Postman, a text editor, and terminal.
 
 ## Learning Goals
+- Review exploring APIs by reading documentation and using Postman
 - Use axios to make AJAX POST requests
+- Anticipate how to apply making asynchronous HTTP requests in fuller JavaScript programs
 
 ## Introduction
 
