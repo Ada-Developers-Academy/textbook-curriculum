@@ -252,7 +252,11 @@ Utilizing the [Ada Trip Reserving Service™ Trip API™™™](https://github.c
 
 Great work! We have some solid examples and exercises that show making HTTP requests with JavaScript. Let's brainstorm applications.
 
-Write pseudocode
+With a neighbor, brainstorm a possible user-flow for a CLI program. The CLI program should allow a user to list trip packages, see details for one trip package, and reserve a ticket for one trip package.
+
+Then, write **pseudocode** for a JS script for that program.
+
+Skip over the pseudocode details for getting user input, and make assumptions about the user input.
 
 ### Asynchronous Code Requires Different Patterns
 
