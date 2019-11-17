@@ -17,7 +17,7 @@
 
 ## Intro to Asynchronous Programming
 1. [Introduction to Async](async-intro.md)
-1. [AJAX Introduction](ajax-intro.md)
+1. [Making `GET` Requests using `axios` in JavaScript](axios-get.md)
 1. [AJAX Post](ajax-post.md)
 
 ## Other
