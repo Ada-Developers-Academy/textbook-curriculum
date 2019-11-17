@@ -2,6 +2,8 @@
 
 Setup notes: This lesson will make use of the [Ada Trip Reserving Service™ Trip API™™™](https://github.com/AdaGold/trip-api), so make sure it's running.
 
+This lesson will use Postman, a text editor, and terminal.
+
 ## Learning Goals
 - Use axios to make AJAX POST requests
 
@@ -24,7 +26,7 @@ The **Ada Trip Reserving Service™** is a service that does two things very wel
 
 Today, we will use the [Ada Trip Reserving Service™ Trip API™™™](https://github.com/AdaGold/trip-api) to create new Trip packages.
 
-Take 3 minutes with a neighbor to explore the API documentation:
+Take 3 minutes with a neighbor to explore the API documentation. Use Postman to experiment. Answer the following questions:
 
 1. What is the API call that lists all existing Trip packages?
 2. Make that API call and see the list of all existing Trip packages. How many are there? What are their IDs?
