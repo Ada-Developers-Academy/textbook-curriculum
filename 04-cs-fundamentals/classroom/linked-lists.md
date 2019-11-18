@@ -144,6 +144,7 @@ A Linked List can also be effective if memory is highly fragmented and there is 
 
 ## Encapsulation
 
+In building a reusable data structure we often construct a class which hides implementation details behind a public interface.  This concept is called _Encapsulation_.  In our application we will construct a `List` class with the following public methods.
 
 
 ## Exercises
