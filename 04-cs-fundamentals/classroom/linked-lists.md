@@ -15,7 +15,7 @@
 
 ## Video Lesson
 
-- [Video Lesson]() 
+- [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3d26a067-6d23-4d72-828f-ab0901477868) 
 - [Slides](https://docs.google.com/presentation/d/1ylrnXEEMpPaGSBlIdnd0YHZSwTTKzNt0zYPDmFztLp0/edit#slide=id.p1)
 - [Exercise](https://github.com/Ada-C12/linked-lists) - Due Dec 9th
 
