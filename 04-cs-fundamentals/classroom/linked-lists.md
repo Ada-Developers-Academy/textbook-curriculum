@@ -17,7 +17,7 @@
 
 - [Video Lesson]() 
 - [Slides](https://docs.google.com/presentation/d/1ylrnXEEMpPaGSBlIdnd0YHZSwTTKzNt0zYPDmFztLp0/edit#slide=id.p1)
-- [Exercise]()
+- [Exercise](https://github.com/Ada-C12/linked-lists) - Due Dec 9th
 
 ## What is a Linked List
 
