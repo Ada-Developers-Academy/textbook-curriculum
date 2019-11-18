@@ -214,6 +214,10 @@ Using the code samples above as an example, and write a `.js` file that creates 
 
 Write, iterate, and run the file, until you get your own Trip package successfully created. **Note down the ID of your newly created Trip** because we'll use it soon in this lesson.
 
+If you response comes back unsuccessful/as an error, use this chance to practice debugging. What caused the error? If the API gave back an error, you can read the details of the error in `error.response` and `error.response.data`. The text in those objects will say something useful about the error that the API sends back.
+
+If all else fails, use these error messages to dive into the source code of the API and find any validations on the `Trip` model. :)
+
 ## Exercise: Reserve a Ticket On Your Own Trip
 
 Utilizing the [Ada Trip Reserving Service™ Trip API™™™](https://github.com/AdaGold/trip-api) and what you know about the `post()` syntax now, write a JS script that does the following:
