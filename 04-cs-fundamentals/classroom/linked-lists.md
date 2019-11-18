@@ -113,6 +113,35 @@ puts "Didn't find it" unless found
 
 ## Linked Lists vs Arrays
 
+Like Arrays Linked Lists are organized in a linear (list) fashion, but they have a number of differences.  
+
+- Unlike arrays Linked Lists are dynamically allocated, the size of a linked list will increase and decrease over time.  Whereas arrays are allocated in advance and typically do not change size.
+- In a linked list each node can be located anywhere in memory.  Arrays allocate each element in a contigous block.
+- Because there is only a reference to the first element of a linked list and the elements are stored at different locations in memory, the list must be traversed in a linear fashion to find the nth element.  You cannot just jump to list[3] in a Linked List like you would in an array.
+
+The image illustrates the memory organization of a linked list vs an array.  Notice that the nodes are stored at a variety of locations, but each element of the array is adjacent to the previous element.
+
+![Array vs Linked List in memory](images/array-vs-linked-list.png)
+
+### When would you choose to use a linked list instead of an array
+
+A Linked List can make sense when you do not know the space limitations of an array.  With an array memory is allocated in advance and having to reallocate memory if the available space is exhausted can be expensive.  Arrays can also be expensive to insert and delete elements from the middle.  With a Linked List one simply reorganizes the `next` references to insert an element into the middle.  
+
+![array deletion](images/delete-array-element.png)
+
+A Linked List can also be effective if memory is highly fragmented and there is not enough contigous space for an arrow to be allocated, but there is enough space dispersed across memory.
+
+![fragmented memory illustration](images/fragmented-memory.png)
+
+### Big-O of Common Array & Linked List Operations
+
+| Operation 	| Arrays 	| Linked Lists 	|
+|---	|---	|---	|
+| find(value) 	| O(n) or O(log n) if sorted 	|  O(n)	|
+| remove_front 	|  O(n)	|  O(1)	|
+| add_front(data) 	| O(n) 	| O(1) 	|
+| remove_at(index) 	|  O(n)	| O(n) 	|
+
 ## Encapsulation
 
 
