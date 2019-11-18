@@ -1,12 +1,59 @@
 # JavaScript in the Browser
 
 ## Learning Goals
-By the end of this lesson, students will be able to...
 
-- Practice evaluating JavaScript in the Chrome Dev Tools -> Console
-- Connect a JavaScript script to a website
-- Define the DOM
-- Do basic manipulation of the DOM
+- Practice evaluating JavaScript in the Chrome Dev Tools console
+- Navigate between different tabs within the Chrome Dev Tools
+- Know that browsers turn HTML documents into DOM trees
+- Know the definition of the event-driven programming paradigm
+- Know some default events that the browser triggers
+- Know some ways to do basic manipulation of the DOM in JavaScript
+
+## Browsers Can Run JS
+
+There are reasons for this. History!
+
+Prove this with Chrome Dev Tools's console. It doesn't run Ruby code.
+
+### Exploring Chrome Dev Tools
+
+More about Chrome Dev Tools
+
+## Browsers Listen for User Events
+
+Another way to think about building websites is "when this event happens, then this should should happen."
+
+### Event-Driven Programming
+
+- When does a specific element trigger a specific event?
+  - What is the element? What is the event name?
+- How is the event handled? We need a function that is listening for a specific event name on a specific element.
+
+## HTML and the DOM
+
+Browsers do a thing: They parse HTML documents as DOM trees
+
+https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
+
+https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction
+
+`document` in the console. What do you get?
+
+## Browser-Supported Ways to Manipulate the DOM with JS
+
+Web API: https://developer.mozilla.org/en-US/docs/Web/API
+Document API: https://developer.mozilla.org/en-US/docs/Web/API/Document
+
+### Default Events the Browser Listens for
+
+https://developer.mozilla.org/en-US/docs/Web/Events
+Mouse events
+
+### Default Functions to Manipulate the DOM
+
+document.getElementById()
+
+## Conclusion
 
 ## Running JavaScript in the Developer Console
 
