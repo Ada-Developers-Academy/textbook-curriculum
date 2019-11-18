@@ -264,8 +264,13 @@ There are variations on a Linked List such as a doubly linked list which allows 
 
 Here's the exercises we'll cover in class.
 
-1. Add a node to a singly linked list
+1. Add a node to the front of a singly linked list
 2. Search for a value in a singly linked list
 3. Delete a node from a singly linked list
 4. Count number of nodes in the linked list
+
+## Resources
+
+- [Geeks for Geeks on Linked Lists](https://www.geeksforgeeks.org/data-structures/linked-list/)
+- [Basecs on Linked Lists](https://medium.com/basecs/whats-a-linked-list-anyway-part-1-d8b7e6508b9d)
 
