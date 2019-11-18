@@ -11,13 +11,63 @@
 
 ## Browsers Can Run JS
 
-There are reasons for this. History!
+By the late 80s, software engineering was already a huge industry full of research, money, and interest. However, most of the money in consumer/enterprise software was in dedicated applications/programs.
 
-Prove this with Chrome Dev Tools's console. It doesn't run Ruby code.
+However, the early 90s brought the beginning of the web. What happens when you combine all of the following factors?
+
+- A set of emerging browser technologies around the web that caused major interest and competition between large companies
+- A lack of standards, process of standardization, or regulation around web technologies
+
+Events in the 90s led to the major browser, Netscape, and thus its competitors to adopt support for JavaScript. Meaning, **since early in the history of web, browsers became environments that could read and execute JavaScript code.**
+
+The development and evolution of browsers, browser features, and JavaScript's language and utilities have been intertwined. Browsers, by necessity, support and run JavaScript, and evolve to do so in nicer and more efficient ways.
+
+This should feel special to us because browsers do not run other languages like this "out of the box" (without special tools, libraries, or circumstances). Our Rails web apps never asked _the browser_ to run any Ruby code; it was always our servers (or our machines/computers that acted as web servers) that needed to execute Ruby. Our servers simply **gave responses with website/HTML data,** which our browsers are very good at doing.
+
+JavaScript is now:
+- **The** programming language for modern web
+- Standardized and open
+- An evolved language with many more features
 
 ### Exploring Chrome Dev Tools
 
-More about Chrome Dev Tools
+Let's prove to ourselves that JavaScript can run in the browser by executing JavaScript in the browser. We can do this with Chrome Dev Tools's console. It doesn't run Ruby code.
+
+Go to **any** webpage, such as Github.com. Note that we are not asking "how do we install Javascript?"
+
+Open Chrome Dev Tools. Note the following tabs on the top (written 2019):
+
+| Tab Name | Description |
+| --- | --- |
+| Elements | details on the rendered HTML elements
+| Console | The JavaScript console that the current page has access to
+| Sources | details on static resources (HTML, CSS, and JS) loaded by the current page
+| Network | details on HTTP requests and responses that occur, in real-time
+| Performance | recording and testing the performance of rendering
+| Memory | details on memory usage and allocation, and tracking memory leaks
+| Application | details on things like local storage, cookies, cache, etc.
+
+... and more!
+
+Navigate to the console, either through the tab, or through other means (such as the Elements tab).
+
+Within it, play around with it as a REPL and execute JavaScript in it:
+
+- `2 + 3`
+- `const fruit = 'apples'`
+- `let color = 'red'`
+- <code>\`${color} ${fruit}`</code>
+- `color = 'pink'`
+- `fruit = 'dragonfruit'`
+- `const helloWorld = () => 'foo'`
+- `helloWorld()`
+
+Now try to execute Ruby in it:
+
+- `[1, 2, 3].sample`
+- `def hello_world`
+
+And we should see that Ruby can't run in the browser.
 
 ## Browsers Listen for User Events
 
