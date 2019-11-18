@@ -65,6 +65,52 @@ e.next = d
 
 ![Drawing of the above code](images/e-a-linked-list.png)
 
+Typically we don't maintain a variable for each node in the list instead we maintain a reference, or pointer, to the front of the list, called `head`.  Sometimes we also maintain a reference to the rear of the list, or `tail`.
+
+The code snippet below creates the same structure as the above.
+
+```ruby
+head = Node.new("a")
+# The line below will construct a new node and
+#   Set it's `next` reference to the old value 
+#   of `head`
+head = Node.new("b", head)
+head = Node.new("c", head)
+head = Node.new("d", head)
+head = Node.new("e", head)
+```
+
+![linked list with a head reference](images/linkedlist-head.png)
+
+## Traversing a Linked List
+
+To find a particular value in a linked list you need to traverse the list starting with the first node and continuing until the value is found or the end of the list is encountered.
+
+
+```ruby
+# Continuing from the above code segment
+current = head
+
+found = false
+until current.nil?
+  if current.data == "d"
+    puts "Found it!"
+    found = true
+  end
+
+  current = current.next
+end
+
+puts "Didn't find it" unless found
+```
+
+**Questions:**
+
+1.  What does the above code segment result in?
+2.  Does the above code change the linked list?
+3.  What happens if `current.data == "d"` is changed to `current.data == "f"`?
+
+
 ## Linked Lists vs Arrays
 
 ## Encapsulation
