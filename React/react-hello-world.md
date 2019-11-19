@@ -10,13 +10,11 @@
 
 The React developers have created a nice tool to help you get started with creating a new React application. Since most React applications require the same npm packages and information, this tool that we'll use will install each of these for us by default.
 
-Let's install the package we'll use to create our new React application:
-`npm install -g create-react-app`
 
-Although it is not the same, we'll use `create-react-app` in a similar way to the way we used `rails new`.
+Although it is not the same, we'll use `npx create-react-app` in a similar way to the way we used `rails new`.
 
 ```bash
-create-react-app hello-world
+npx create-react-app hello-world
 cd hello-world
 ```
 
