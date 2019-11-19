@@ -26,7 +26,6 @@ Take a look at the `index.js` file that was created. Some questions for you as y
 
 - What looks familiar?
 - What looks new?
-- Is there anything used here that you want to explore further?
 
 Next, take a look at the `App.js` file that was created. Some questions for you as you check out this code:
 
