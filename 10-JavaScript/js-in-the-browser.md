@@ -113,15 +113,15 @@ With those facts in mind, when we do Event-Driven Programming, we keep these que
 
 ## HTML and the DOM
 
-Something else that the Web API provides for us is [the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction). It as a representation of the site's content that the browser gives us.
-
-_DOM_ stands for Document Object Model. The document in question is our web page! The "Object Model" part is for distinguishing the DOM approach from other ways of accessing a document (which are not available in the browser).
+Something else that the Web API provides for us is [the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction). The DOM (Document Object Model) is a representation of a web page's content.
 
 The DOM is effectively a tree, like the ones we've learned about in CS fundamentals. In general each node in the tree matches up to an individual HTML tag such as `div` or `img`.
 
 ![dom as represented as a tree](images/dom.gif)
 
-Nodes in the DOM have properties that match the attributes set on them in the HTML (e.g. an `img` node might have `src` and `id` properties). DOM nodes also have children, which are all of the other nodes nested within them (e.g. a `div` node might have a `table` child node).
+Nodes in the DOM have properties that match the attributes set on them in the HTML (e.g. an `img` node might have `src` and `id` properties).
+
+DOM nodes also have children, which are all of the other nodes nested within them (e.g. a `div` node might have a `table` child node). The top node of the tree is always the Document, aka "the entire summation of the web page." The Document node's children include the root element `<html>`.
 
 We will use the DOM and our JavaScript skills to dynamically changing the page's content, behavior, and appearance.
 
@@ -129,7 +129,7 @@ We will use the DOM and our JavaScript skills to dynamically changing the page's
 
 Open Google Chrome Dev Tools, and switch to the console. In the console, run the simple statement `document`. What do you get?
 
-The browser provides the global variable `document`. This variable represents the DOM.
+The browser provides the global variable `document`. This variable represents the top node of the DOM.
 
 ## Browser-Supported Ways to Manipulate the DOM with JS
 
