@@ -31,7 +31,7 @@ JavaScript is now:
 
 ### Exploring Chrome Dev Tools
 
-Let's prove to ourselves that JavaScript can run in the browser by executing JavaScript in the browser. We can do this with Chrome Dev Tools's console. It doesn't run Ruby code.
+Let's prove to ourselves that JavaScript can run in the browser by executing JavaScript in the browser. We can do this with Chrome Dev Tools's console (it only runs JavaScript code).
 
 Go to **any** webpage, such as Github.com. Note that we are not asking "how do we install Javascript?"
 
