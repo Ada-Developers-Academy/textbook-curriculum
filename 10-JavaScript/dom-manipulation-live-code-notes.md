@@ -92,7 +92,7 @@ We will find and practice methods for DOM manipulation that will allow us to do 
 
 #### Finding an Existing Node and Modifying It
 
-We can find an existing node on the DOM in a sleuth of ways. We will explore one way:
+We can find an existing node on the DOM in a bunch of ways. We will explore one way:
 
 1. In the Dev Tools Console, enter into the console `document.getElementById('');` What do you get?
 1. In the Dev Tools Console, enter into the console `document.getElementById('js-lecture-target');` What do you get? What details do you see? What does it represent?
