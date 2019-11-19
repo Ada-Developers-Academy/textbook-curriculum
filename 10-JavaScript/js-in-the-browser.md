@@ -71,9 +71,41 @@ And we should see that Ruby can't run in the browser.
 
 ## Browsers Listen for User Events
 
-Another way to think about building websites is "when this event happens, then this should should happen."
+The browsers provide a standard library of functions that enable JavaScript developers to manipulate websites. This standard library is called [the Web API](https://developer.mozilla.org/en-US/docs/Web/Reference/API).
+
+As part of the Web API, browsers allow JavaScript to interact with **events** that happen on websites.
+
+### What does that mean?
+
+Events are named actions that can be triggered/fired/sent, and also listened to/handled/received.
+
+Imagine a person sitting on a couch, at a laptop, and browsing Github.com using their fvaorite Internet browser.
+
+Whenever **anything** happens in the browser, the browser can recognize it, and react to it.
+
+For example:
+
+| When a user... | Then... |
+| --- | ---
+| clicks on a button | the user goes to the home page
+| submits a form | the user completes a purchase
+| types the letter `V` | the character `V` should display, and the blinking text cursor should move
+| hovers the cursor over an image | the alt text should display
 
 ### Event-Driven Programming
+
+We can also write JavaScript to say, "whenever a certain event is fired, we should execute this JavaScript code."
+
+What if our code could say, "when a user clicks on this button, then the website's theme changes"? Or "when the user submits this form, it sends it to Facebook, Twitter, and GitHub by making API calls?" Or "when the user scrolls, load more articles"?
+
+In JavaScript:
+
+1. Events have names, like `click` or `scroll`
+1. Events always happen on an HTML element. For example, a `click` event happens on a `<button>`... or a `<section>`... or a `<body>`, but every event happens on at least one element.
+1. Events need a way to be fired/triggered/activated at the time of the event
+1. Events need a way to be listened to
+
+With those facts in mind, when we do Event-Driven Programming, we keep these questions in mind:
 
 - When does a specific element trigger a specific event?
   - What is the element? What is the event name?
@@ -81,15 +113,9 @@ Another way to think about building websites is "when this event happens, then t
 
 ## HTML and the DOM
 
-Browsers do a thing: They parse HTML documents as DOM trees
+Something else that the Web API provides for us is [the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction). It as a representation of the site's content that the browser gives us.
 
-https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
-
-https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction
-
-**The DOM** is the interface the browser provides for dynamically changing the page's content, behavior, and appearance. We can think of it as a representation of the site's content that the browser gives us.
-
-_DOM_ stands for Document Object Model. The document in question is our web page! The "Object Model" part is for distinguishing the DOM approach from other ways of accessing a document (which are not available in the browser). You can see the DOM for any webpage your browser has loaded by opening the developer tools and selecting the Elements tab (in Chrome).
+_DOM_ stands for Document Object Model. The document in question is our web page! The "Object Model" part is for distinguishing the DOM approach from other ways of accessing a document (which are not available in the browser).
 
 The DOM is effectively a tree, like the ones we've learned about in CS fundamentals. In general each node in the tree matches up to an individual HTML tag such as `div` or `img`.
 
@@ -97,34 +123,73 @@ The DOM is effectively a tree, like the ones we've learned about in CS fundament
 
 Nodes in the DOM have properties that match the attributes set on them in the HTML (e.g. an `img` node might have `src` and `id` properties). DOM nodes also have children, which are all of the other nodes nested within them (e.g. a `div` node might have a `table` child node).
 
-Run `document` in the console. What do you get?
+We will use the DOM and our JavaScript skills to dynamically changing the page's content, behavior, and appearance.
+
+### Browsers give us `document`
+
+Open Google Chrome Dev Tools, and switch to the console. In the console, run the simple statement `document`. What do you get?
+
+The browser provides the global variable `document`. This variable represents the DOM.
 
 ## Browser-Supported Ways to Manipulate the DOM with JS
 
-Logging to the console is alright, but the true power of JavaScript is that it can dynamically change the contents of the webpage.
+We will use Event-Driven programming, the DOM, and our JavaScript skills to dynamically changing the page's content, behavior, and appearance.
 
-Browsers have already defined a way (an interface) to represent, access, and modify the contents of a website. This interface is called **the DOM**. When we use this interface, we can dynamically change the page using JS.
-
-Until now our web applications have rendered _static_ HTML which defines a webpage. They have then sent it to the browser which in turn "builds the DOM" from that HTML.
-
-When we use JavaScript to manipulate the DOM, we do not change the original HTML that was sent to the browser, instead we change the browser's internal representation of that same webpage. An important consequence of this distinction is that all of our changes disappear as soon as the browser forgets about that webpage (e.g. if we close the tab or the whole browser).
-
-Web API: https://developer.mozilla.org/en-US/docs/Web/API
-Document API: https://developer.mozilla.org/en-US/docs/Web/API/Document
+The following sections are abbreviated references.
 
 ### Default Events the Browser Listens for
 
-https://developer.mozilla.org/en-US/docs/Web/Events
-Mouse events
+[From MDN](https://developer.mozilla.org/en-US/docs/Web/Events)
+
+| Event Name | Fired When
+| --- | ---
+| `keydown` | any key is pressed
+| `keyup` | any key is released
+| `click` |	A pointing device button (ANY button; soon to be primary button only) has been pressed and released on an element
+| `dblclick` | 	A pointing device button is clicked twice on an element
+| `mousemove` | 	A pointing device is moved over an element. (Fired continously as the mouse moves.)
+| `mouseenter` | 	A pointing device is moved onto the element that has the listener attached
+| `mouseleave` | 	A pointing device is moved off the element that has the listener attached
+| `focus` | An element has received focus (does not bubble)
+| `offline` | The browser has lost access to the network
+| `online` | The browser has gained access to the network
 
 ### Default Functions to Manipulate the DOM
 
-document.getElementById()
+#### `document`
+
+These are all methods that operate off of `document`. The browser provides the global variable `document`. This variable represents the DOM. Therefore, sample syntax would be,
+
+```js
+document.getElementById('content');
+```
+
+| Method | Description
+| --- | ---
+| `getElementById()` | Returns the element that has the ID attribute with the specified value
+| `getElementsByClassName()` | Returns a NodeList containing all elements with the specified class name
+| `getElementsByTagName()` | Returns a NodeList containing all elements with the specified tag name
+| `hasFocus()` |Returns a Boolean value indicating whether the document has focus
+| `createElement()` | Creates an Element node
+| `addEventListener()` | Attaches an event handler to the document
+
+#### Elements
+
+These are all methods that operate off of single [Elements](https://www.w3schools.com/jsref/dom_obj_all.asp). (Many of the methods that `document` has are available for Elements, too.)
+
+| Method | Description
+| --- | ---
+| `textContent` | Sets or returns the textual content of a node and its descendants
+| `appendChild()` | Adds a new child node, to an element, as the last child node
+| `hasAttribute()` | Returns true if an element has the specified attribute, otherwise false
+| `setAttribute()` | Sets or changes the specified attribute, to the specified value
 
 ## Conclusion
 
+Single page applications (SPAs) have gained popularity in recent years for many reasons, one being that they can load data _dynamically_, rather than having to do it all up front.
+
+SPAs are built utilizing Event-Driven programming, the DOM, and JavaScript to dynamically changing the page's content, behavior, and appearance.
 
 ## Additional Resources
 * [MDN on the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
-* [StackOverflow on where to put your `<script>` tags](http://stackoverflow.com/questions/436411/where-is-the-best-place-to-put-script-tags-in-html-markup)
-*  [Slides on JS In the browser](https://docs.google.com/presentation/d/1GPTn6W0QeEyquCxBJFj-E9W-i-MgXsBytA4xtCCW6Q4/edit#slide=id.g195ed98213_0_86)
+<!-- *  [Slides on JS In the browser](https://docs.google.com/presentation/d/1GPTn6W0QeEyquCxBJFj-E9W-i-MgXsBytA4xtCCW6Q4/edit#slide=id.g195ed98213_0_86) -->
