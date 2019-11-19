@@ -35,7 +35,7 @@ Let's prove to ourselves that JavaScript can run in the browser by executing Jav
 
 Go to **any** webpage, such as Github.com. Note that we are not asking "how do we install Javascript?"
 
-Open Chrome Dev Tools. Note the following tabs on the top (written 2019):
+Open Chrome Dev Tools. Note the following tabs on the top (as of 2019):
 
 | Tab Name | Description |
 | --- | --- |
