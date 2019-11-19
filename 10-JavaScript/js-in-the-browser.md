@@ -181,6 +181,8 @@ These are all methods that operate off of single [Elements](https://www.w3school
 | --- | ---
 | `textContent` | Sets or returns the textual content of a node and its descendants
 | `appendChild()` | Adds a new child node, to an element, as the last child node
+| `className` | Sets or returns the value of the class attribute of an element
+| `classList` | An element's list of classes as a space-delimited string via `element.className`. Read-only.
 | `hasAttribute()` | Returns true if an element has the specified attribute, otherwise false
 | `setAttribute()` | Sets or changes the specified attribute, to the specified value
 
