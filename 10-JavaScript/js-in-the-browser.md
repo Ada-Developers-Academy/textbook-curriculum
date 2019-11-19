@@ -1,224 +1,197 @@
 # JavaScript in the Browser
 
 ## Learning Goals
-By the end of this lesson, students will be able to...
 
-- Practice evaluating JavaScript in the Chrome Dev Tools -> Console
-- Connect a JavaScript script to a website
-- Define the DOM
-- Do basic manipulation of the DOM
+- Practice evaluating JavaScript in the Chrome Dev Tools console
+- Navigate between different tabs within the Chrome Dev Tools
+- Know that browsers turn HTML documents into DOM trees
+- Know the definition of the event-driven programming paradigm
+- Know some default events that the browser triggers
+- Know some ways to do basic manipulation of the DOM in JavaScript
 
-## Running JavaScript in the Developer Console
+## Browsers Can Run JS
 
-Our first step is to prove that our browser Google Chrome can read and execute JavaScript.
+By the late 80s, software engineering was already a huge industry full of research, money, and interest. However, most of the money in consumer/enterprise software was in dedicated applications/programs.
 
-In your browser, open a new empty tab, and pull up your developer tools. Click on the Console tab. This is where calls to `console.log()` will end up. It's also where you'll see any errors that occur.
+However, the early 90s brought the beginning of the web. What happens when you combine all of the following factors?
 
-Notice also that there is something that looks like a command prompt. Let's see what it does.
+- A set of emerging browser technologies around the web that caused major interest and competition between large companies
+- A lack of standards, process of standardization, or regulation around web technologies
 
-```javascript
-console.log('live, from the browser!');
-```
+Events in the 90s led to the major browser, Netscape, and thus its competitors to adopt support for JavaScript. Meaning, **since early in the history of web, browsers became environments that could read and execute JavaScript code.**
 
-Nice, there it is. OK, let's do something a little more interesting - a popup box.
+The development and evolution of browsers, browser features, and JavaScript's language and utilities have been intertwined. Browsers, by necessity, support and run JavaScript, and evolve to do so in nicer and more efficient ways.
 
-```javascript
-alert('four score and seven years ago...');
-```
+This should feel special to us because browsers do not run other languages like this "out of the box" (without special tools, libraries, or circumstances). Our Rails web apps never asked _the browser_ to run any Ruby code; it was always our servers (or our machines/computers that acted as web servers) that needed to execute Ruby. Our servers simply **gave responses with website/HTML data,** which our browsers are very good at doing.
 
-Pops right up! Can't do that in the terminal!
+JavaScript is now:
+- **The** programming language for modern web
+- Standardized and open
+- An evolved language with many more features
 
-[Where did the `alert` method come from? Who defined it?](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert) `Window` is something that the browser makes available to us. When we write JavaScript that runs in the browser, we can predict that the `alert` method will be available to us.
+### Exploring Chrome Dev Tools
 
-What happens if we make a mistake? Let's reference an undefined variable.
+Let's prove to ourselves that JavaScript can run in the browser by executing JavaScript in the browser. We can do this with Chrome Dev Tools's console (it only runs JavaScript code).
 
-```javascript
-console.log(doesNotExist);
-```
+Go to **any** webpage, such as Github.com. Note that we are not asking "how do we install Javascript?"
 
-OK, so that's what an error looks like. If you double click on the message or click on the `(...)`, it'll show you more details.
+Open Chrome Dev Tools. Note the following tabs on the top (as of 2019):
 
-The Chrome console is kind of like the rails console. It gives you access to all the variables you've defined in your scripts, allowing you to write JavaScript live and see the effects immediately. Use it well.
+| Tab Name | Description |
+| --- | --- |
+| Elements | details on the rendered HTML elements
+| Console | The JavaScript console that the current page has access to
+| Sources | details on static resources (HTML, CSS, and JS) loaded by the current page
+| Network | details on HTTP requests and responses that occur, in real-time
+| Performance | recording and testing the performance of rendering
+| Memory | details on memory usage and allocation, and tracking memory leaks
+| Application | details on things like local storage, cookies, cache, etc.
 
-## Running JavaScript on Websites
+... and more!
 
-Obviously we don't expect users to type out all their own JavaScript by hand. How do we get a website to connect to a JavaScript file? We'll add a link to our JavaScript file in our HTML, similar to the way we included CSS before.
+Navigate to the console, either through the tab, or through other means (such as the Elements tab).
 
-When our user goes to a website using their browser, the browser will make a request for an HTML page. This HTML page contains references to our CSS and JavaScript files. Then, these files will be loaded into the browser.
-<!-- Diagram located here: https://drive.google.com/a/adadevelopersacademy.org/file/d/0B6Pq6XZ1hzv1WHcyUnZZREtadDg/view?usp=sharing -->
-![JS and CSS in the browser](images/js-css-browser.png)
+Within it, play around with it as a REPL and execute JavaScript in it:
 
+- `2 + 3`
+- `const fruit = 'apples'`
+- `let color = 'red'`
+- <code>\`${color} ${fruit}`</code>
+- `color = 'pink'`
+- `fruit = 'dragonfruit'`
+- `const helloWorld = () => 'foo'`
+- `helloWorld()`
 
-### Try It
+Now try to execute Ruby in it:
 
-1. Create a new directory called `browser-js`, with two files: `index.html` and `index.js`:
+- `[1, 2, 3].sample`
+- `def hello_world`
 
-    ```bash
-    $ mkdir browser-js
-    $ cd browser-js
-    $ touch index.html
-    $ touch index.js
-    ```
-1. Add this basic HTML to `index.html`:
+And we should see that Ruby can't run in the browser.
 
-    ```html
-    <!-- index.html -->
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <meta charset="utf-8">
-        <title>JavaScript Test Page</title>
-      </head>
-      <body>
-        <h1>Test page for JavaScript in the Browser</h1>
+## Browsers Listen for User Events
 
-        <div id="js-lecture-target">This is text that lives inside a div element with an id "js-lecture-target"!</div>
-      </body>
-    </html>
-    ```
+The browsers provide a standard library of functions that enable JavaScript developers to manipulate websites. This standard library is called [the Web API](https://developer.mozilla.org/en-US/docs/Web/Reference/API).
 
-1. And finally, add this JavaScript to `index.js`:
+As part of the Web API, browsers allow JavaScript to interact with **events** that happen on websites.
 
-    ```javascript
-    // index.js
-    console.log('This is a test');
-    ```
+### What does that mean?
 
-1. Modify your HTML page `index.html` by adding this `<script>` tag at the end of `<body>`, RIGHT before the closing `</body>` tag:
+Events are named actions that can be triggered/fired/sent, and also listened to/handled/received.
 
-    ```html
-    <!-- index.html -->
-    ...
-    <body>
-      ...
+Imagine a person sitting on a couch, at a laptop, and browsing Github.com using their fvaorite Internet browser.
 
-      <script src="index.js" type="text/javascript"></script>
-    </body>
-    ```
+Whenever **anything** happens in the browser, the browser can recognize it, and react to it.
 
-1. Ensure all files are saved
-1. Open up the Chrome Dev Tools and switch to the Console tab
-1. Reload the page (refresh the page)
-1. Observe that the test text `This is a test` from the JavaScript prints out!
+For example:
 
-#### Extend This Example
+| When a user... | Then... |
+| --- | ---
+| clicks on a button | the user goes to the home page
+| submits a form | the user completes a purchase
+| types the letter `V` | the character `V` should display, and the blinking text cursor should move
+| hovers the cursor over an image | the alt text should display
 
-1. Check that you and your neighbor are on the right track
-1. Modify your `index.js` file so it prints to the console some other text
-1. Reload your HTML page and make sure you see that new text!
-1. Modify your `index.js` file so it prints out this text five times
+### Event-Driven Programming
 
-### Side Note: About `<script>`
+We can also write JavaScript to say, "whenever a certain event is fired, we should execute this JavaScript code."
 
-Just like CSS links, you can include multiple `<script>`s in your page, and they'll be loaded in order.
+What if our code could say, "when a user clicks on this button, then the website's theme changes"? Or "when the user submits this form, it sends it to Facebook, Twitter, and GitHub by making API calls?" Or "when the user scrolls, load more articles"?
 
-#### Where Should `<script>` Go?
+In JavaScript:
 
-Believe it or not, people have a lot of opinions on this topic.
+1. Events have names, like `click` or `scroll`
+1. Events always happen on an HTML element. For example, a `click` event happens on a `<button>`... or a `<section>`... or a `<body>`, but every event happens on at least one element.
+1. Events need a way to be fired/triggered/activated at the time of the event
+1. Events need a way to be listened to
 
-<details>
+With those facts in mind, when we do Event-Driven Programming, we keep these questions in mind:
 
-  <summary>
-    In this class we'll always load our scripts at the end of the body. If you'd like to learn more, click here to expand and see our thoughts.
-  </summary>
+- When does a specific element trigger a specific event?
+  - What is the element? What is the event name?
+- How is the event handled? We need a function that is listening for a specific event name on a specific element.
 
-The reason why JS loading is so contentious is, when the browser encounters a `<script>` tag, it stops loading the HTML document. It goes and downloads your _entire_ script, which might be quite large and hosted halfway across the internet. Only once the script has finished downloading does it continue rendering the page. That means if you put your `<script>` tags before your content, the user gets to look at an empty white screen for a while while your scripts load. Not a great user experience.
+## HTML and the DOM
 
-The easiest way to deal with this is to always place your scripts at the bottom of your `<body>` section. That way, the browser renders the whole page first, then goes and gets your scripts.
-
-Out in the wild you'll see other techniques, like downloading the scripts asynchronously and not running them until the page has finished loading. This is cool, and you should definitely know that it's a thing, but it takes some work to set up.
-
-</details>
-
-## Manipulating a Website is Through the DOM
-
-Logging to the console is alright, but the true power of JavaScript is that it can dynamically change the contents of the webpage.
-
-Browsers have already defined a way (an interface) to represent, access, and modify the contents of a website. This interface is called **the DOM**. When we use this interface, we can dynamically change the page using JS.
-
-Until now our web applications have rendered _static_ HTML which defines a webpage. They have then sent it to the browser which in turn "builds the DOM" from that HTML.
-
-When we use JavaScript to manipulate the DOM, we do not change the original HTML that was sent to the browser, instead we change the browser's internal representation of that same webpage. An important consequence of this distinction is that all of our changes disappear as soon as the browser forgets about that webpage (e.g. if we close the tab or the whole browser).
-
-### What is the DOM?
-
-**The DOM** is the interface the browser provides for dynamically changing the page's content, behavior, and appearance. We can think of it as a representation of the site's content that the browser gives us.
-
-_DOM_ stands for Document Object Model. The document in question is our web page! The "Object Model" part is for distinguishing the DOM approach from other ways of accessing a document (which are not available in the browser). You can see the DOM for any webpage your browser has loaded by opening the developer tools and selecting the Elements tab (in Chrome).
+Something else that the Web API provides for us is [the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction). The DOM (Document Object Model) is a representation of a web page's content.
 
 The DOM is effectively a tree, like the ones we've learned about in CS fundamentals. In general each node in the tree matches up to an individual HTML tag such as `div` or `img`.
 
 ![dom as represented as a tree](images/dom.gif)
 
-Nodes in the DOM have properties that match the attributes set on them in the HTML (e.g. an `img` node might have `src` and `id` properties). DOM nodes also have children, which are all of the other nodes nested within them (e.g. a `div` node might have a `table` child node).
+Nodes in the DOM have properties that match the attributes set on them in the HTML (e.g. an `img` node might have `src` and `id` properties).
 
-## Using JavaScript and the DOM
+DOM nodes also have children, which are all of the other nodes nested within them (e.g. a `div` node might have a `table` child node). The top node of the tree is always the Document, aka "the entire summation of the web page." The Document node's children include the root element `<html>`.
 
-In JavaScript, the DOM is exposed through a set of objects and methods that provide access to the HTML structure of the webpage.
+We will use the DOM and our JavaScript skills to dynamically changing the page's content, behavior, and appearance.
 
-We will find and practice methods for DOM manipulation that will allow us to do things like:
-- add a node (element) to the DOM
-- remove a node (element) from the DOM
-- change attributes of a node
-- enable interactions from a user, such as clicking a node (element)
+### Browsers give us `document`
 
-### Exercise
+Open Google Chrome Dev Tools, and switch to the console. In the console, run the simple statement `document`. What do you get?
 
-The DOM is accessed through an object called `document`. Therefore, we will start DOM manipulation through this `document` object, since it is the broadest object that holds the DOM.
+The browser provides the global variable `document`. This variable represents the top node of the DOM.
 
-1. In the Dev Tools Console, type into the console `document`. What do you get? When you expand it, what details do you see? What does it represent?
-1. Draw a representation of the DOM as a tree with a partner
+## Browser-Supported Ways to Manipulate the DOM with JS
 
-#### Finding an Existing Node and Modifying It
+We will use Event-Driven programming, the DOM, and our JavaScript skills to dynamically changing the page's content, behavior, and appearance.
 
-We can find an existing node on the DOM in a sleuth of ways. We will explore one way:
+The following sections are abbreviated references.
 
-1. In the Dev Tools Console, enter into the console `document.getElementById('');` What do you get?
-1. In the Dev Tools Console, enter into the console `document.getElementById('js-lecture-target');` What do you get? What details do you see? What does it represent?
-1. Where is an element with the id `js-lecture-target` defined?
+### Default Events the Browser Listens for
 
-Now let's try looking at these details and manipulating them.
+[From MDN](https://developer.mozilla.org/en-US/docs/Web/Events)
 
-1. In the Dev Tools Console, enter in the following line:
-    ```javascript
-    document.getElementById('js-lecture-target').innerHTML;
-    ```
+| Event Name | Fired When
+| --- | ---
+| `keydown` | any key is pressed
+| `keyup` | any key is released
+| `click` |	A pointing device button (ANY button; soon to be primary button only) has been pressed and released on an element
+| `dblclick` | 	A pointing device button is clicked twice on an element
+| `mousemove` | 	A pointing device is moved over an element. (Fired continously as the mouse moves.)
+| `mouseenter` | 	A pointing device is moved onto the element that has the listener attached
+| `mouseleave` | 	A pointing device is moved off the element that has the listener attached
+| `focus` | An element has received focus (does not bubble)
+| `offline` | The browser has lost access to the network
+| `online` | The browser has gained access to the network
 
-    What do you get back? What does it represent? Does it have the tags included?
-1. In the Dev Tools Console, enter in the following line:
-    ```javascript
-    document.getElementById('js-lecture-target').innerHTML = 'I can change website text with JavaScript!';
-    ```
+### Default Functions to Manipulate the DOM
 
-    What do you get back? What do you see on the website (HTML)?
-1. Refresh the page. Do you continue to see the changes that you made?
+#### `document`
 
-Now that we've tried it in the console, let's update our `index.js` to use this new knowledge.
+These are all methods that operate off of `document`. The browser provides the global variable `document`. This variable represents the DOM. Therefore, sample syntax would be,
 
-Replace the contents of your `index.js` file with the following:
-
-```javascript
-// index.js
-console.log('This is a test');
-
-const target = document.getElementById('js-lecture-target');  // Find the HTML element where the ID is js-lecture-target
-target.innerHTML = '<p>I give you... content!</p>'; // Put this HTML inside the div we retrieved above
+```js
+document.getElementById('content');
 ```
 
-Now that all of the files are saved, reload your HTML page. When your HTML page loads, as the browser reads through the HTML, it comes across the `<script>` tag, which loads and runs the appropriate JavaScript code in `index.js`. Therefore, when everything is all finished loading and executing, we already see that the JS has run!
+| Method | Description
+| --- | ---
+| `getElementById()` | Returns the element that has the ID attribute with the specified value
+| `getElementsByClassName()` | Returns a NodeList containing all elements with the specified class name
+| `getElementsByTagName()` | Returns a NodeList containing all elements with the specified tag name
+| `hasFocus()` |Returns a Boolean value indicating whether the document has focus
+| `createElement()` | Creates an Element node
+| `addEventListener()` | Attaches an event handler to the document
+
+#### Elements
+
+These are all methods that operate off of single [Elements](https://www.w3schools.com/jsref/dom_obj_all.asp). (Many of the methods that `document` has are available for Elements, too.)
+
+| Method | Description
+| --- | ---
+| `textContent` | Sets or returns the textual content of a node and its descendants
+| `appendChild()` | Adds a new child node, to an element, as the last child node
+| `className` | Sets or returns the value of the class attribute of an element
+| `classList` | An element's list of classes as a space-delimited string via `element.className`. Read-only.
+| `hasAttribute()` | Returns true if an element has the specified attribute, otherwise false
+| `setAttribute()` | Sets or changes the specified attribute, to the specified value
 
 ## Conclusion
 
-We have modified the DOM using JavaScript code! We should be able to extend this knowledge and imagine the possibilities of what we can do with DOM manipulation:
+Single page applications (SPAs) have gained popularity in recent years for many reasons, one being that they can load data _dynamically_, rather than having to do it all up front.
 
-- If we select the correct elements, we can change how something looks dynamically
-- If we select the correct elements, we can define new behaviors for our website
-
-## Out-of-the-Box DOM Manipulation is Clunky
-
-It's worth noting that the raw interface for DOM manipulation in JavaScript isn't great. It's clunky, and lots of pieces are slightly different in different browsers. There are plenty of popular JavaScript libraries out there that can make this code less clunky.
+SPAs are built utilizing Event-Driven programming, the DOM, and JavaScript to dynamically changing the page's content, behavior, and appearance.
 
 ## Additional Resources
 * [MDN on the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
-* [StackOverflow on where to put your `<script>` tags](http://stackoverflow.com/questions/436411/where-is-the-best-place-to-put-script-tags-in-html-markup)
-*  [Slides on JS In the browser](https://docs.google.com/presentation/d/1GPTn6W0QeEyquCxBJFj-E9W-i-MgXsBytA4xtCCW6Q4/edit#slide=id.g195ed98213_0_86)
+<!-- *  [Slides on JS In the browser](https://docs.google.com/presentation/d/1GPTn6W0QeEyquCxBJFj-E9W-i-MgXsBytA4xtCCW6Q4/edit#slide=id.g195ed98213_0_86) -->
