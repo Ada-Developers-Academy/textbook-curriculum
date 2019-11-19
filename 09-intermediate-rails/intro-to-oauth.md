@@ -116,5 +116,5 @@ Cambridge Analytica is an interesting case study. Much of the data that they col
 OAuth is an industry standard way of keeping our clients information secure, and a trusted method to reduce the liability and workload for developers. Users, Clients and Providers are the core actors in an OAuth interaction, with the Providers verifying the identity of the User for the Client.
 
 ## Resources
--  [OAuth2 Overview](https://www.digitalocean.com/community/tutorials/an-introduction-to-OAuth-2)
+-  [OAuth2 Overview](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2)
 - [OAuth2 Video](https://youtu.be/CPbvxxslDTU)

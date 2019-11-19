@@ -36,6 +36,7 @@ Programming topics not directly related to Ruby development.
 1. [Intro to Scripting](intro-to-scripts.md)
 1. [Intro to Regular Expressions](intro-to-regex.md)
 1. [Commands and Queries](commands-queries.md)
+1. [Intro to Wireframes](intro-to-wireframes.md)
 
 ## Problem-Solving Exercises
 1. [About Problem-Solving Exercises & Example](about-problem-solving-exercises.md)

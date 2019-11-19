@@ -95,7 +95,7 @@ describe "create" do
 
     expect {
       post works_path, params: new_work
-    }.must_change "Work.count", 1
+    }.must_differ "Work.count", 1
 
     new_work = Work.find_by(title: "Dirty Computer")
 

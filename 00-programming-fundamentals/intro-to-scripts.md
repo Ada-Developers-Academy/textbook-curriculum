@@ -261,7 +261,7 @@ NEEDLE=ARGV[0]
 # Descend into the haystack!
 Find.find('.') do |path|
   if File.basename(path).include?(NEEDLE)
-    system("code #{path}")
+    system("#{EDITOR} #{path}")
     exit() # Exit with no arguments or 0 indicates success.
   end
 end

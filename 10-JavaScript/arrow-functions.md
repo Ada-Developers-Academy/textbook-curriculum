@@ -9,14 +9,17 @@ Now that you know how to use regular functions, let's talk about a function shor
 
 ## Arrow Functions
 
-Arrow functions have minimized _syntactic sugar_ compared to regular JavaScript functions. Arrow functions are especially useful if you intend to create a one-line anonymous function that does not need to be referenced after it's initial definition.
+Arrow functions have minimized _syntax_ compared to regular JavaScript
+functions. Arrow functions are especially useful if you intend to
+create a one-line anonymous function that does not need to be
+referenced after it's initial definition.
 
 ## Syntax
 
 Traditional functions look like this:
 
 ```javascript
-const foo = function foo() {
+const foo = function() {
   return 'bar';
 }
 
@@ -60,7 +63,7 @@ Wow that's a lot less code.
 Convert this into an arrow function and minimize the code typed.
 
 ```javascript
-const hello = function hello() {
+const hello = function() {
   return 'hello world';
 };
 ```
@@ -110,7 +113,7 @@ squarer(3);
 > 9
 ```
 
-**Note**:  This is **not** good style as it's hard to identify the code above as a function.  You should avoid writing an arrow function with no parentheses around the argument and no curly braces around the method body.  However you will see this style of function outside of Ada.
+**Note**:  This is a thing you will see frequently in JavaScript. It can be difficult to get used to at first because it doesn't immediately look like a function (no braces, no `return`)...but it is!
 
 ## Syntax to `return` Objects
 
@@ -128,7 +131,7 @@ const makePerson = function(id, name) {
 You would need to surround the returned object with parentheses like this:
 
 ```javascript
-const makePerson = (id, name) => ( { id: id, name: name });
+const makePerson = (id, name) => ({ id: id, name: name });
 ```
 
 ### Note On Object Shorthand
@@ -141,4 +144,4 @@ const makePerson = (id, name) => ({ id, name });
 
 ## Summary
 
-To convert a traditional-style syntax to an arrow function, we rid of the `function` keyword and placed a 'arrow' to the right of the function parameters.
+To convert a traditional-style syntax to an arrow function, we got rid of the `function` keyword and placed a 'arrow' to the right of the function parameters.

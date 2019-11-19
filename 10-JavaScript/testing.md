@@ -5,7 +5,6 @@
 By the end of this lesson, students should be able to...
 
 - Describe what makes testing JavaScript web apps complex
-- Discuss strategies for mitigating this complexity
 - Run Jest tests from the command line
 - Enumerate the parts of a Jest test file
 
@@ -25,13 +24,7 @@ In short, most interesting JavaScript code is full of *external dependencies*. M
 
 We'll be using a test suite called [Jest](https://facebook.github.io/jest/docs/en/getting-started.html) (maintained by Facebook). Jest is available as an npm package and commonly used in testing React & pure JavaScript applications.
 
-Jest tests are run from the command line using `npm test` (more on this later). While this is fast and convenient, it also means that our tests are being run without support from the browser, and anything that relies on the browser (like manipulating the DOM or waiting for user events) will break.
-
-To get around this, there are basically two strategies to follow:
-- Use a technology like [Selenium](http://www.seleniumhq.org/) to *mock* the DOM
-- Build your application so that as much of the business logic as possible can run without the DOM
-
-We'll start testing using the second technique. It will be very reminiscent of model testing in Rails, and in fact we will focus our JavaScript testing on business logic methods. The testing techniques we learn here will also transfer directly to any command-line JavaScript programs you write, including something like a Node-Express server.
+Jest tests are run from the command line using `npm test` (more on this later).  It will be very reminiscent of model testing in Rails, and in fact we will focus our JavaScript testing on business logic methods. The testing techniques we learn here will also transfer directly to any command-line JavaScript programs you write, including something like a Node-Express server.  Later we will introduce testing in React and write tests which interact with DOM elements.
 
 ### Setup
 
@@ -44,6 +37,7 @@ $ npm install -g jest-cli
 ### Exercise
 
 Our first testing exercise will consist of writing tests for the Pangram whiteboarding problem.  A Pangram is a sentence which uses every letter of the alphabet at least once.
+The Pangram funtion we will be testing takes a string as input and returns a boolean indicating whether the input is a Pangram.
 
 #### Questions
 
@@ -59,13 +53,13 @@ Next we will write tests for our `isPangram` function.
 1. Clone this repo: [`https://github.com/AdaGold/JS-Testing`](https://github.com/AdaGold/JS-Testing)
 1.  Examine the README and follow the instructions to install the Jest and node modules needed to run the app.
 
-Then look through the code in the `src/is_pangram.spec.js` file, and see if the tests described match your predictions. To run the tests, type `npm test` at the console.
+Then look through the code in the `test/is_pangram.test.js` file, and see if the tests described match your predictions. To run the tests, type `npm test` at the console.
 
-Similar to Rails, the `spec` directory has the same structure as the `src` directory. Each file `src/name.js` may have a corresponding `spec/name.spec.js`.
+Similar to Rails, the `test` directory has the same structure as the `src` directory. Each file `src/name.js` may have a corresponding `test/name.test.js`.
 
 ### Anatomy of a Test
 
-There are already some tests written for the `isPangram` method, so let's begin there. Open up `spec/is_pangram.spec.js`.
+There are already some tests written for the `isPangram` method, so let's begin there. Open up `test/is_pangram.test.js`.
 
 Because Jest is a behavior-driven testing language, testing using Jest for JavaScript is fairly similar to what we saw using Minitest for Ruby and Rails. As always, there are some specific differences.
 
@@ -116,7 +110,7 @@ describe('isPangram function',  () =>  {
 });
 ```
 
-And that's all a test is. Go ahead and add another expect statement to the spec file, but this time make sure it will fail (e.g. `expect(false).toEqual(true);`). Then re-run the tests, just to see what a failure looks like. Fix the test and run it again. Not too different from Minitest, right?
+And that's all a test is. Go ahead and add another expect statement to the test file, but this time make sure it will fail (e.g. `expect(false).toEqual(true);`). Then re-run the tests, just to see what a failure looks like. Fix the test and run it again. Not too different from Minitest, right?
 
 ## Skipping Tests
 
@@ -134,7 +128,7 @@ to:
 
 ## Exercise With A Neighbor
 
-Read through the couple of implemented tests in `is_pangram.spec.js` and the stubbed out tests.
+Read through the couple of implemented tests in `is_pangram.test.js` and the stubbed out tests.
 
 Now use a test-driven development workflow to implement the `isPangram()` function and complete the stubbed-out tests. Remember the TDD cycle: pseudocode-red-green-refactor!
 
@@ -142,11 +136,11 @@ Now use a test-driven development workflow to implement the `isPangram()` functi
 
 Now write your own test in the section provided.
 
-**Optional Exercise**
+## Optional Exercise
 
 If you feel you need more practice, create tests for an `isPalindrome` function.  Then write code to solve the problem.  A palindrome is a word or phrase spelled backwards the same as forwards and is further described in the README.
 
-### Matchers
+## Matchers
 
 Just like in testing with Ruby and Rails, Jest has a number of **matchers** that allow us to construct our tests. Below are the most common:
 

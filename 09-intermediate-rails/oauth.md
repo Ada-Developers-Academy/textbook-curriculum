@@ -107,7 +107,7 @@ Each provider requires you to provide some credentials for your application, so 
 1. Go to Github.com and make sure you're logged in
 1. Go to [your own user settings page](https://github.com/settings/profile) by navigating through the menus in the top right corner
 1. On the left-hand vertical side bar, find an option named [Developer Settings](https://github.com/settings/developers) (towards the bottom)
-1. By default, you should be on a page titled "OAuth Apps" within these Settings / Developer Settings. On the top right side, find the button that says [New OAuth App](https://github.com/settings/applications/new)
+1. On the left-hand vertical side bar, choose the option named "OAuth Apps" within these Settings / Developer Settings. From here, click he button that says [Register a new application](https://github.com/settings/applications/new)
 1. On this form to register a new OAuth app, use the following pieces of information in this form:
 
     - Application name: whatever you feel like, like "OmniAuth in Books App Test" or "Dee's Books App"
@@ -169,7 +169,7 @@ This initializer tells Rails to use OmniAuth for authentication. Specifically, i
 
 ![OAuth Overview](./images/oauth-overview.png)
 
-Note: This diagram implies that the Rails controller we will used is named `SessionsController`. This is not a hard or fast rule, and it is possible that the example code differs. The remaining code examples will assume that you are using `UsersController`.
+Note: This diagram implies that the Rails controller we will use is named `SessionsController`. This is not a hard or fast rule, and it is possible that the example code differs. The remaining code examples will assume that you are using `UsersController`.
 
 ### OmniAuth
 
@@ -191,7 +191,7 @@ Once the user has OKed our application, GitHub will redirect the user to `/auth/
     Note: You are free to modify the `, as: 'github_login'` path helper however you'd like
 1. Modify the `app/views/layouts/application.html.erb` file (or whatever view has the existing login button) so that it goes to this new route instead. Your modified login link may look like this:
     ```ruby
-    <%= link_to("Login with GitHub", github_login_path) %>
+    <%= link_to "Login with GitHub", github_login_path %>
     ```
 
 #### Let's Test it Out

@@ -151,7 +151,7 @@ We use the keywords `if`, `else if`, and `else`. Note `else if` instead of `elsi
 
 Conditional expressions are surrounded by parenthesis `()` and each block is surrounded by brackets `{}`.
 
-To test equality between strings, we use `===`. Note triple instead of `==` like in Ruby!
+To test equality, we use `===`. Note triple instead of `==` like in Ruby!
 
 ```javascript
 const babyAnimal = 'kitten';
@@ -170,7 +170,7 @@ if (babyAnimal === 'puppy') {
 console.log(animal);
 ```
 
-**Note:** `==` _does_ exist in JavaScript, but it doesn't do exactly the same thing that `==` does in Ruby. Again: to test equality between strings, we use `===`. Do some research as to _why_!
+**Note:** `==` _does_ exist in JavaScript, but it doesn't do exactly the same thing that `==` does in Ruby. Again: to test equality, we use `===`. Do some research as to _why_!
 
 ### Exercise
 
@@ -248,6 +248,38 @@ Before running this code, predict the answers for the following questions:
 <br/>
 
 **Question:** Take one minute. What is one way you could write this in Ruby?
+
+### `for...in` Loop
+
+Another kind of `for` loop in JavaScript is the `for...in` loop.  This loop iterates through the keys or indicies of an object or array.
+
+```javascript
+const list = ['Ada', 'Jacob', 'Babbage', 'Grace'];
+let string = '';
+
+for(const element in list) {
+  string += element;
+  if (element < list.length -1) {
+    string += ', ';
+  }
+}
+console.log(string); // '0, 1, 2, 3'
+
+const student = {
+  classRoom: 'Ports',
+  cohort: '11',
+  name: 'Betty Holberton'
+};
+
+
+for (let key in student) {
+  console.log(`Your ${key} is ${student[key]}`);
+}
+// Output:
+// Your classRoom is Ports
+// Your cohort is 11
+// Your name is Betty Holberton
+```
 
 ### `while` Loop
 

@@ -45,7 +45,7 @@ numberHaver.increment();
 console.log(numberHaver.value); // Expected 6, but prints 0
 ```
 
-The code above is **supposed** to add each element of the array and store the result in `value`, but... because the anonymous function has it's own instance of `this`, it tries to add each number to the wrong `value`.
+The code above is **supposed** to add each element of the array and store the result in `value`, but...anonymous functions written this way don't preserve the context they are within. Because of that, a reference to `this` will not be referring to the object we want. (If we do some debugging, we learn it will be the "global object".)
 
 The traditional work-around to this situation is to save the context (`this`) into another variable and use that variable instead of `this`.
 

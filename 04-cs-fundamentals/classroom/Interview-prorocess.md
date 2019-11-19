@@ -15,6 +15,10 @@ By the end of this lesson you should be able to:
   - Interview Loop
   - Whiteboard Interview
   - Coding Challenge
+  
+## Slides
+
+- [Whiteboarding Interviews Slides](https://docs.google.com/presentation/d/1Qm9WmBUJ2u0kujrQtTDiUv0iKk3yXB_MxYirp1mj8-Q/edit#slide=id.p1) - No video lesson
 
 ## The Typical Tech Hiring Process
 
@@ -23,6 +27,8 @@ When applying for a junior developer position in Seattle, applicants typically f
 1. Applying for a position
 1. Phone or video chat screen
 1. In person-interview
+1. Offer - Negotiation
+1. Acceptance
 
 Sometimes an applicant may skip a phone screening or a company might require additional interviews, or provide homework in the form of a coding challenge.
 
@@ -79,6 +85,17 @@ After the interviews conclude, both students & interviewers provide feedback to 
 - [Google Sample Whiteboard Interview (youtube)](https://youtu.be/XKu_SEDAykw)
 - [Cracking the Coding Interview](http://www.crackingthecodinginterview.com/contents.html)
 - [Whiteboarding Tips](Whiteboarding-Tips.md)
+
+## Additional Whiteboard Practice Resources
+- [Code challenge and white boarding practice on HackerRank](https://www.hackerrank.com/)
+- [Practice problems on LeetCode](https://leetcode.com/)
+- [Code challenge and white boarding practice on CodeFlights](https://codefights.com/)
+- [White boarding practice by pairing up on Pramp](https://www.pramp.com/) - Online practice coding interviews 6 free.
+- [Cohort 3 List](https://docs.google.com/spreadsheets/d/1t-kN_dFZp2OJQJI9yJW8JrS1c_aK-Hi6k9DWP1bw_40/edit?ts=56a027f7#gid=570475651)
+- [Cohort 4 List](https://docs.google.com/spreadsheets/d/1pnWSQHcvV8rQ1R-e_D7uTO-YF3cfCmrK6SteoiWwTzM/edit?usp=sharing)
+- [Cohort 5 List](https://docs.google.com/spreadsheets/d/1nBLF_YGHmkqP6xb6QfJKrOBtqa2ZA0YpuRltI1wU_bE/edit#gid=0)
+- [Cohort 7 List](https://docs.google.com/spreadsheets/d/1ZJ_gL2oidqdYzgL5lk0Ew-KyFm_yK5J8SZmD-sW-G0U/edit?usp=sharing)
+- [Cohort 8 List](https://docs.google.com/spreadsheets/d/1fEDgUvF3e7VVVzlkrV2X6_5nqFA7_34B7FdWsZUDxZc/edit?usp=sharing)
 
 
 ## References

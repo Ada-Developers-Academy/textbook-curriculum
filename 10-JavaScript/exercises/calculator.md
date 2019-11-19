@@ -13,7 +13,7 @@ Build a calculator command line interface (CLI) that allows a user to perform ar
   'use strict';
   const prompt = require('prompt');
   
-  const calculator = function calculator(error, result) {
+  const calculator = function(error, result) {
     console.log(result);
   }  
   

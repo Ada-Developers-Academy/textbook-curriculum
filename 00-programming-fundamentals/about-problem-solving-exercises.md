@@ -38,7 +38,7 @@ Our Weekly PSE schedule is currently scheduled as such:
 | --- | --- | --- 
 | 1 | Introduce, give example, and give time to work on first one | Completion
 | 2 | - | Instructor
-| 3 | Return week 2 results | Completion
+| 3 | Return week 2 results. Given as a pair exercise | Completion
 | 4 | - | Completion or peer feedback
 | 5 | - | Completion
 | 6 | - | Instructor
@@ -46,10 +46,11 @@ Our Weekly PSE schedule is currently scheduled as such:
 | 8 | Break | -
 | 9 | Only classroom content assessment | -
 | 10 | Only problem-solving assessment | Instructor
-| 11 | Only classroom content assessment | -
-| 12 | Instructors reach out to students about retake on week 14 | -
-| 13 | Instructors reach out to students about retake on week 14 | -
-| 14 | Retake, only classroom content assessment | Instructor or Completion
+| 11 | Return week 10 results. Given as a pair exercise | Completion
+| 12 | Instructors reach out to students about retake on week 14 | Completion
+| 13 | Instructors reach out to students about retake on week 14 | Completion
+| 14 | Retake | Instructor or Completion
+| 15 | Retake | Instructor or Completion
 
 ### About The Scheduled Retake
 
