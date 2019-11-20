@@ -84,7 +84,7 @@ Here are some important things to note about this function:
     - A *single* element.
     - An array of elements.
     - A String.
-  - In this case, render returns the outermost `div`. Every other element in the function is contained within that outermost `div`.
+  - In this case, this rendering function returns the outermost `div`. Every other element in the function is contained within that outermost `div`.
 
 **Try It!** Change something about the `App` function above and see how it immediately affects the page.
 
