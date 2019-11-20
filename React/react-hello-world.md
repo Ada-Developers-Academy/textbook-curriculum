@@ -76,10 +76,10 @@ Here are some important things to note about this function:
 
 - The pieces that look like HTML are **JSX**
 - Every component is either a function or a class, and each gets its own file
-- Every component has a function that returns a bunch of JSX
+- Every component is a function that returns a bunch of JSX
   - As we'll see later for a class component, it's the `render` function
   - For a functional component, the whole component is the function!
-- The `render` function must return a single object.
+- The function that is responsible for rendering must return a single object.
   - It must be one of the following:
     - A *single* element.
     - An array of elements.
@@ -94,7 +94,7 @@ JSX is a pre-processor (similar to ERB in Rails) that adds XML syntax to JavaScr
 
 **Adding CSS Classes**
 
-Since JSX is within our JavaScript code, we cannot use the `class` keyword the way we would directly in our HTML. Instead, we must use `className` to avoid the reserved word. You'll notice this in several lines of the `render` function that we were examining above.
+Since JSX is within our JavaScript code, we cannot use the `class` keyword the way we would directly in our HTML. Instead, we must use `className` to avoid the reserved word. You'll notice this in several lines of the rendering function that we were examining above.
 
 **Making it Dynamic**
 
