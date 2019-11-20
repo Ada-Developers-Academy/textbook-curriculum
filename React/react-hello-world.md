@@ -109,7 +109,7 @@ In ERB, we were familiar with using the `<%` and `<%=` elements to dynamically g
 
 ## Key Takeaway
 
-- We can use `create-react-app` to create a new boilerplate React application.
+- We can use `npx create-react-app` to create a new boilerplate React application.
 - Once our React application is created, we can run `npm start` in the terminal to start it up.
 - JSX is the pre-processor associated with React that we will utilize to generate dynamic HTML.
 
