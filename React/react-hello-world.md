@@ -44,10 +44,10 @@ Now that we've examined the code that was generated for us, we can go ahead and 
 
 **Question**: Where is the HTML that is displayed on the web page coming from? Figure out with your neighbor.
 
-### Component's `render` function
+### Component's function determines how it's rendered
 The `App.js` file contains our first (auto-generated) component. How exciting!
 
-Now let's examine the pieces of code within the `render` function and identify the key pieces.
+Now let's examine the pieces of code within the `App` function and identify the key pieces.
 
 ```javascript
 function App() {
