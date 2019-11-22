@@ -39,6 +39,6 @@ Complete this worksheet with your neighbors. Some items are questions, some item
     </header>
     ```
 
-1. Add another `img` tag to your `render` function to an image of your choice. The image source should be an absolute URL from an image already uploaded on the internet.
+1. Add another `img` tag to your render function to an image of your choice. The image source should be an absolute URL from an image already uploaded on the internet.
 
 1. **Challenge**: Create a local variable in your `App` function equal to your name. Update the function to display the value associated with this local variable.
