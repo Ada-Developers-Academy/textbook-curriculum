@@ -40,7 +40,7 @@ Student.propTypes = {
 
 Wait a second - what's with that syntax? We just attached an attribute (`propTypes`) to a function (`Student`). Since functions are first-class objects in JavaScript, this is a totally valid thing to do. It even has a name: `propTypes` is a "static attribute" of `Student`.
 
-The above block defines two props. They both must be Strings. `email` is optional, but `fullName` is required to use a `Student` component. If you try to use the `Student` component without a `fullName` prop you will get this error message:
+The above block defines two props. They both must be Strings. `email` is optional, but `fullName` is required to use a `Student` component. If you try to use the `Student` component without a `fullName` prop you will get this error message in your browswer's console:
 
 ![Error Msg](images/missing-prop.png)
 
