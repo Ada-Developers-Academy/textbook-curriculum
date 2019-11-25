@@ -27,7 +27,7 @@ If you remember back to Ruby, we built objects which combined data, which could 
 
 ## Class Components
 
-We could rewrite the `App` component `create-react-app` generates one for us like this.
+We could rewrite the `App` component `create-react-app` generates for us like this.
 
 ```javascript
 import React, { Component } from 'react';
