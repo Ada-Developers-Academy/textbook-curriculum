@@ -103,6 +103,10 @@ We used the existing index.js code to render the `App` component that was provid
 
 In the next phase of this application, we are going to extend our application to support multiple students and switch from hard-coded to dynamic data.
 
+It's often helpful to have a mental model for what the Virtual DOM looks like, to understand how components become 'nested', and to help us see how data moves around our application. 
+
+The DOM is stored as a [node tree](https://en.wikipedia.org/wiki/Tree_(data_structure)). It starts from a single 'parent' node, and each node may have any number of 'child' nodes. Our current tree looks like this: ![A two node tree, where the App is rednering a single Student node.](./images/tree_app_renders_student.jpeg)
+
 ## Key Takeaway
 
 Nesting components within one another is the most powerful construct of React. You will structure your React applications using this paradigm, applying additional patterns and skills to it as you learn.
