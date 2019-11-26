@@ -5,7 +5,7 @@
 - Use `state` within a component
 - Examine how `props` and `state` affect component rendering
 
-## `state` vs 'state'
+### `state` vs 'state'
 
 State is something we've been using for a while already. The word refers to any values that are persistent in a program. Objects in Ruby and other object oriented languages track their state using instance variables. Therefore, you can say that the 'state' of an object is a snapshot of all the variables in an object.
 
@@ -22,9 +22,7 @@ In React, there is a special variable for class components called `state`. `stat
 
 A really important aspect of state is that whenever the state of a component is changed, it will be **updated**, calling the `render` function. For now, you can think of `setState` as doing the `setState` operation PLUS the `render` _automatically_. We'll learn even more about what else our component does when it is updated later on.
 
-#### Examples
-
-**Syntax**
+## Syntax
 
 Commonly, initial state is set in a component's constructor function. This is set using variable assignment (the equals sign).
 
@@ -85,7 +83,7 @@ class Student extends React.Component {
 export default Student;
 ```
 
-## Making Changes
+## Changing it Up
 
 Once the initial state is set, we can then make changes using the `setState` function. (**Reminder:** `setState` will work even if that a variable was not included in the initial `state` object.) This function will merge the object passed in with the existing state object, overriding any existing values on the same variables. `setState` function calls are very often triggered by events that our users can trigger.
 
