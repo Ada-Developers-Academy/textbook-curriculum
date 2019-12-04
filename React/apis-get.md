@@ -1,6 +1,7 @@
 # Integrating with an API in React
 
 ## Learning Goals
+
 - Revisit `axios` as our API library
 - Integrate a get API request in react lifecycle method
 
