@@ -10,9 +10,13 @@
 So far, our pets app has been set up to pull static data from the `App` component and pass that into the `PetList` which handles the display. We're going to modify this to utilize an API instead.  For the purposes of learning we're going to use the [json-server](https://github.com/typicode/json-server) package which can take a json file and generate a sample REST server based on it.
 
 1. First, let's find our pets app from earlier. Locate and navigate to the folder in the terminal.
-2. Next check out the `ada-pets-api` branch with `git checkout ada-pets-api`.  This will load a version of Ada Pets which is already solved.
+2. Next check out the `ada-pets-api` branch with `git checkout ada-pets-api`.  This will load a version of Ada Pets which is already working, but using the imported json file.
 3. Next, we'll install the axios package by running `npm install axios --save`.
 4. Verify! Open `package.json` and ensure we see axios in the "dependencies" section.
+
+### Review The Code
+
+Now review the code and see how this application is structured it may work a little differently than your implementation.  Specifically the state data is all in the `App` component.
 
 ### Running the Server
 
