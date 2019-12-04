@@ -61,7 +61,7 @@ $ rbenv install 2.5.5
 $ # This will take about a good youtube video.
 $ rbenv global 2.5.5
 $ echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
-$ echo eval "$(rbenv init -)"' >> ~/.zshrc
+$ echo 'eval "$(rbenv init -)"' >> ~/.zshrc
 $ source ~/.bash_profile
 $ source ~/.zshrc
 $ gem pristine -a
