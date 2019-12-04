@@ -11,22 +11,30 @@ We are starting with the pets application that we have already created and integ
 ### Add a Pet
 
 Let's examine our existing `addPet` function:
+
 ```javascript
-// PetCollection.js
-addPet = (petInfo) => {
-  let updatedData = this.state.pets;
-  updatedData.push(petInfo);
-  this.setState({pets: updatedData});
-}
+// App.js
+  addPet = (pet) => {
+
+    const { petList } = this.state;
+    const petIds = petList.map((pet) => pet.id);
+    const maxId = Math.max(...petIds);
+    pet.id = maxId + 1;
+    petList.push(pet);
+    console.log('adding', pet);
+
+    this.setState(petList);
+  }
 ```
 
 This will take the data passed in (from the form) and update the array of pets to include that new pet information. When we introduce the API request, we likely still want to update the state with the new pet's information. The POST request will ensure that the data is not lost and that when we reload the list of pets from the API, we'll see the new one included.
 
-The `post` request function in axios is a bit different than the `get` request. Remember that when we make a POST request, we need to pass along the data we want to POST to the URL we specify. We can use the existing `petInfo` variable that we used to update the state.
+The `post` request function in axios is a bit different than the `get` request. Remember that when we make a POST request, we need to pass along the data we want to POST to the URL we specify. We can use the existing `pet` variable that we used to update the state.
+
 ```javascript
-// PetCollection.js
-addPet = (petInfo) => {
-    axios.post('https://petdibs.herokuapp.com/pets', petInfo)
+// App.js
+addPet = (pet) => {
+    axios.post('http://localhost:2999/pets', pet)
       .then((response) => {
         // What should we do when we know the post request worked?
       })
