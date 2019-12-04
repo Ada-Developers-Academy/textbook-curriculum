@@ -1,5 +1,6 @@
+// Goes in App.js
 deletePet = (petId) => {
-  axios.delete(`http://localhost:3000/pets/${petId}`)
+  axios.delete(`http://localhost:3000/pets/${ petId }`)
     .then((response) => {
       const petList = this.state.originalPets.filter((pet) => pet.id !== petId);
 

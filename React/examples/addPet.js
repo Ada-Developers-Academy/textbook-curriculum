@@ -1,4 +1,4 @@
-// App.js
+// Goes in App.js
 addPet = (pet) => {
   console.log('pet = ', pet);
   axios.post('http://localhost:3000/pets', pet)
