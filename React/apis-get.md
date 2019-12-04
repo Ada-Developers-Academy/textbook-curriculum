@@ -44,6 +44,11 @@ Answer:
 
 Now we are set up to load axios library code within our React application using an `import` statement.
 
+```javascript
+// App.js
+import axios from 'axios';
+```
+
 Let's update our pets app to remove the hard-coded data to start:
 1. Remove the array from the `App` component
 1. Remove the `prop` passed from the `App` component to the `PetCollection` component
