@@ -48,30 +48,28 @@ addPet = (pet) => {
 
 Take a look at the logic we put in the `then` and `catch` sections in the `componentDidMount` function when we made the GET request. What will be similar and different for the POST request?
 
-```javascript
-// PetCollection.js
-addPet = (petInfo) => {
-    axios.post('https://petdibs.herokuapp.com/pets', petInfo)
-      .then((response) => {
-        // We can update the state so we don't need to make another GET request
-        let updatedData = this.state.pets;
-        updatedData.push(petInfo);
-        this.setState({pets: updatedData});
-      })
-      .catch((error) => {
-        // Use the same idea we had in our GET request
-        this.setState({ error: error.message });
-      });
-  }
-```
+Working with your neighbor give it a try, remember that you will need an `id` field for the pet to add it to `PetList`, as each `PetCard` requires an id.  How can you get an ID from the API?  Try making a `post` request with Postman to look for the answer.
+
+When you are ready you can look at our [solution](examples/addPet.js).
 
 **Checking In**
 
 Now observe what happens when we submit the form in our application. Check in with your neighbors to be sure that you've got the post request set up successfully.
 
+### Extension
+
+- How can you handle validation errors in a real API, like we made before?
+- How could you delete pets from the API with your React App?
+  - With your neighbor implement this functionality.
+  - Verify that the pets dissapear from the json file.
+
+
 ## Key Takeaway
+
 Making a POST request from our React application is very similar to the GET request. We continue to utilize `state` within React as our primary mechanism for storing and updating data that will be displayed to our users.
 
 ## Additional Resources
+
 - [Using axios with React](https://alligator.io/react/axios-react/)
 - [axios documentation](https://github.com/axios/axios)
+- [json-server documentation]()
