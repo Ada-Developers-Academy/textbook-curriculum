@@ -34,7 +34,7 @@ The `post` request function in axios is a bit different than the `get` request. 
 ```javascript
 // App.js
 addPet = (pet) => {
-    axios.post('http://localhost:2999/pets', pet)
+    axios.post('http://localhost:3000/pets', pet)
       .then((response) => {
         // What should we do when we know the post request worked?
       })
