@@ -82,9 +82,11 @@ Recall the structure of the `axios` request from our earlier time using it with 
 axios.get('url')
   .then((response) => {
     // Load in the data
+    setResult(response.data) })
   })
   .catch((error) => {
     // Show an error
+    setError('There was an error with this request!');
   })
 ```
 
