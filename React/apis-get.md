@@ -51,9 +51,22 @@ import axios from 'axios';
 
 Let's update our pets app to remove the hard-coded data to start:
 1. Remove the array from the `App` component
-1. Remove the `prop` passed from the `App` component to the `PetCollection` component
-1. Update the `PetCollection` constructor to no longer use the `props` passed in to the set the original state
-1. Set the initial state of `pets` to an empty array
+2. Remove the `prop` passed from the `App` component to the `PetList` component
+3. Set the initial state of `petList` to an empty array.
+
+```javascript
+// App.js
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      petList: [],
+      currentPet: undefined,
+      originalPets: [],
+    };
+  }
+```
 
 ### Recall axios Structure
 Recall the structure of the `axios` request from our earlier time using it with jQuery:
