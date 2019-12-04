@@ -23,7 +23,7 @@ Let's examine our existing `addPet` function:
     petList.push(pet);
     console.log('adding', pet);
 
-    this.setState(petList);
+    this.setState({ petList });
   }
 ```
 
