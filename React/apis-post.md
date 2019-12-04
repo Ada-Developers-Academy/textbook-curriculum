@@ -63,6 +63,7 @@ Now observe what happens when we submit the form in our application. Check in wi
   - With your neighbor implement this functionality.
   - Verify that the pets dissapear from the json file.
 
+When you are ready you can see [our solution](examples/deletePet.js).
 
 ## Key Takeaway
 
