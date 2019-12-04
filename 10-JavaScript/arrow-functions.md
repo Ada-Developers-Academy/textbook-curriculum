@@ -63,7 +63,7 @@ Wow that's a lot less code.
 Convert this into an arrow function and minimize the code typed.
 
 ```javascript
-const hello = function hello() {
+const hello = function() {
   return 'hello world';
 };
 ```
@@ -113,7 +113,7 @@ squarer(3);
 > 9
 ```
 
-**Note**:  This is **not** good style as it's hard to identify the code above as a function.  You should avoid writing an arrow function with no parentheses around the argument and no curly braces around the method body.  However you will see this style of function outside of Ada.
+**Note**:  This is a thing you will see frequently in JavaScript. It can be difficult to get used to at first because it doesn't immediately look like a function (no braces, no `return`)...but it is!
 
 ## Syntax to `return` Objects
 

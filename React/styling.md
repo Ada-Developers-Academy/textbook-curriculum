@@ -123,3 +123,4 @@ While you may see some examples using the `style` attribute directly on componen
 
 - [React docs: style attribute](https://reactjs.org/docs/dom-elements.html#style)
 - [React docs: style FAQ](https://reactjs.org/docs/faq-styling.html)
+- [You don't need CSS in JS - Why I use stylesheets](https://medium.com/dailyjs/you-dont-need-css-in-js-why-i-use-stylesheets-74a6e264e010)

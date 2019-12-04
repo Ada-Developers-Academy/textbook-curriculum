@@ -30,9 +30,7 @@ For Part 2, follow the directions for each problem.
   end
   ```
 
-4. Re-write #3: If you used a function expression, now write using a declaration, or vice versa.
-
-5. &nbsp;
+4. &nbsp;
   ```ruby
   def output(items)
     items.each do |item|

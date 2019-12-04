@@ -86,6 +86,7 @@ That said:
 2. [Linked Lists](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Introduction%20to%20Linked%20Lists.md) - Under Construction
 3. [Software Design](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/04-cs-fundamentals/classroom/Software%20Design.md) - Under Construction
 
+
 ## Tips For Success
 
 1. Make sure to read the curriculum and watch the videos before class

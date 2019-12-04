@@ -10,13 +10,11 @@
 
 The React developers have created a nice tool to help you get started with creating a new React application. Since most React applications require the same npm packages and information, this tool that we'll use will install each of these for us by default.
 
-Let's install the package we'll use to create our new React application:
-`npm install -g create-react-app`
 
-Although it is not the same, we'll use `create-react-app` in a similar way to the way we used `rails new`.
+Although it is not the same, we'll use `npx create-react-app` in a similar way to the way we used `rails new`.
 
 ```bash
-create-react-app hello-world
+npx create-react-app hello-world
 cd hello-world
 ```
 
@@ -28,7 +26,6 @@ Take a look at the `index.js` file that was created. Some questions for you as y
 
 - What looks familiar?
 - What looks new?
-- Is there anything used here that you want to explore further?
 
 Next, take a look at the `App.js` file that was created. Some questions for you as you check out this code:
 
@@ -47,10 +44,10 @@ Now that we've examined the code that was generated for us, we can go ahead and 
 
 **Question**: Where is the HTML that is displayed on the web page coming from? Figure out with your neighbor.
 
-### Component's `render` function
+### Component's function determines how it's rendered
 The `App.js` file contains our first (auto-generated) component. How exciting!
 
-Now let's examine the pieces of code within the `render` function and identify the key pieces.
+Now let's examine the pieces of code within the `App` function and identify the key pieces.
 
 ```javascript
 function App() {
@@ -79,15 +76,15 @@ Here are some important things to note about this function:
 
 - The pieces that look like HTML are **JSX**
 - Every component is either a function or a class, and each gets its own file
-- Every component has a function that returns a bunch of JSX
+- Every component is a function that returns a bunch of JSX
   - As we'll see later for a class component, it's the `render` function
   - For a functional component, the whole component is the function!
-- The `render` function must return a single object.
+- The function that is responsible for rendering must return a single object.
   - It must be one of the following:
     - A *single* element.
     - An array of elements.
     - A String.
-  - In this case, render returns the outermost `div`. Every other element in the function is contained within that outermost `div`.
+  - In this case, this rendering function returns the outermost `div`. Every other element in the function is contained within that outermost `div`.
 
 **Try It!** Change something about the `App` function above and see how it immediately affects the page.
 
@@ -97,7 +94,7 @@ JSX is a pre-processor (similar to ERB in Rails) that adds XML syntax to JavaScr
 
 **Adding CSS Classes**
 
-Since JSX is within our JavaScript code, we cannot use the `class` keyword the way we would directly in our HTML. Instead, we must use `className` to avoid the reserved word. You'll notice this in several lines of the `render` function that we were examining above.
+Since JSX is within our JavaScript code, we cannot use the `class` keyword the way we would directly in our HTML. Instead, we must use `className` to avoid the reserved word. You'll notice this in several lines of the rendering function that we were examining above.
 
 **Making it Dynamic**
 
@@ -112,7 +109,7 @@ In ERB, we were familiar with using the `<%` and `<%=` elements to dynamically g
 
 ## Key Takeaway
 
-- We can use `create-react-app` to create a new boilerplate React application.
+- We can use `npx create-react-app` to create a new boilerplate React application.
 - Once our React application is created, we can run `npm start` in the terminal to start it up.
 - JSX is the pre-processor associated with React that we will utilize to generate dynamic HTML.
 

@@ -120,7 +120,7 @@ There is one thing to note about the `forEach` loop.  Consider this linear searc
 const list = ['Alice', 'Cooper', 'Maria', 'Alyokhina', 'Alicia', 'Keys'];
 
 list.forEach( function(element) {
-  if (element == 'Cooper') {
+  if (element === 'Cooper') {
     console.log('Found it!');
     return true;
   }
@@ -156,7 +156,7 @@ If you wanted to see if `Cooper` was in the list using `.find` is a better choic
 const list = ['Alice', 'Cooper', 'Maria', 'Alyokhina', 'Alicia', 'Keys'];
 
 const foundElement = list.find( function(element) {
-  return element == 'Cooper'
+  return element === 'Cooper'
 });
 
 if (foundElement != undefined) {
@@ -178,8 +178,6 @@ Complete the following exercises in JavaScript using `forEach` and anonymous fun
 - Callback function
 - Anonymous function
 - "Higher order" or "first-class" functions
-- Functional expression
-- Function declaration
 
 ## Summary
 

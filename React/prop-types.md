@@ -7,7 +7,7 @@ By the end of this lesson you should be able to:
 - Explain the use of `PropTypes`
 - Use `PropTypes` to define and document the props a component can take
 
-You may have noticed this message from your JavaScript linter.  "____ is missing from props validation (react/prop-types)."  The linter is encouraging you to use a feature of React called PropTypes in which you list the props a component takes and their types.
+You may have noticed this message from your JavaScript linter.  "____ is missing from props validation (react/prop-types)."  The linter is indicating that it can't identify the fields of props.  You can help the linter out by using a feature of React called PropTypes in which you explicitly list the props a component takes and their types.
 
 ![prop types error](images/prop-types.png)
 
@@ -40,7 +40,7 @@ Student.propTypes = {
 
 Wait a second - what's with that syntax? We just attached an attribute (`propTypes`) to a function (`Student`). Since functions are first-class objects in JavaScript, this is a totally valid thing to do. It even has a name: `propTypes` is a "static attribute" of `Student`.
 
-The above block defines two props. They both must be Strings. `email` is optional, but `fullName` is required to use a `Student` component. If you try to use the `Student` component without a `fullName` prop you will get this error message:
+The above block defines two props. They both must be Strings. `email` is optional, but `fullName` is required to use a `Student` component. If you try to use the `Student` component without a `fullName` prop you will get this error message in your browswer's console:
 
 ![Error Msg](images/missing-prop.png)
 
@@ -68,21 +68,21 @@ A `defaultProp` attribute like above ensures that every time the given props hav
 
 ## List of PropTypes
 
-|  **Data Type** | **Description**
-|---|---
-|  `string` | A String
-|  `array` | An Array
-|  `func` | A function
-|  `number` | Any numeric value
-|  `object` | A JavaScript object
-|  `node` | Anything that can be directly rendered on the screen, numbers, strings, React elements or an array containing these types.
-|  `element` | A React element like `<img />`
-|  `instanceOf`  | An instance of a given class.  So `person: PropTypes.instanceOf(Student)` would define a prop as an instance of the `Student` class.
-|  `oneOf` |  Ensures that the prop is one of a list of specific values.  For example `fullName: PropTypes.oneOf(['Harry', 'Ron', 'Hermine'])` ensures that the fullName prop can only be one of the given values.
-|  `oneOfType` |  Ensures that the prop is one of a list of specific types.  For example `fullName: PropTypes.oneOfType([PropTypes.string, PropTypes.number)` ensures that the fullName prop can only be a string or number.
-|  `arrayOf` | An array of a specific type, for example:  `ages: PropTypes.arrayOf(PropTypes.number)` would only accept an array of numbers.
-|  `objectOf` | An object with fields who's values can only be a specific type:  for Example: `courses: PropTypes.objectOf(PropTypes.string),`
-|  `shape` |  An object with specific fields and types, for example: `student: PropTypes.shape({fullName: PropTypes.string, age: PropTypes.number})`
+| **Data Type** | **Description**                                                                                                                                                                                            |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `string`      | A String                                                                                                                                                                                                   |
+| `array`       | An Array                                                                                                                                                                                                   |
+| `func`        | A function                                                                                                                                                                                                 |
+| `number`      | Any numeric value                                                                                                                                                                                          |
+| `object`      | A JavaScript object                                                                                                                                                                                        |
+| `node`        | Anything that can be directly rendered on the screen, numbers, strings, React elements or an array containing these types.                                                                                 |
+| `element`     | A React element like `<img />`                                                                                                                                                                             |
+| `instanceOf`  | An instance of a given class.  So `person: PropTypes.instanceOf(Student)` would define a prop as an instance of the `Student` class.                                                                       |
+| `oneOf`       | Ensures that the prop is one of a list of specific values.  For example `fullName: PropTypes.oneOf(['Harry', 'Ron', 'Hermine'])` ensures that the fullName prop can only be one of the given values.       |
+| `oneOfType`   | Ensures that the prop is one of a list of specific types.  For example `fullName: PropTypes.oneOfType([PropTypes.string, PropTypes.number)` ensures that the fullName prop can only be a string or number. |
+| `arrayOf`     | An array of a specific type, for example:  `ages: PropTypes.arrayOf(PropTypes.number)` would only accept an array of numbers.                                                                              |
+| `objectOf`    | An object with fields who's values can only be a specific type:  for Example: `courses: PropTypes.objectOf(PropTypes.string),`                                                                             |
+| `shape`       | An object with specific fields and types, for example: `student: PropTypes.shape({fullName: PropTypes.string, age: PropTypes.number})`                                                                     |
 
 You can also create a custom validator which you can look up along with more examples of using `PropTypes` on the [PropTypes github page](https://github.com/facebook/prop-types).
 

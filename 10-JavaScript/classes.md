@@ -37,7 +37,7 @@ class Zine
   end
 end
 
-zine = Zine.new 'So you want to be a wizard'
+zine = Zine.new('So you want to be a wizard')
 ```
 
 In JavaScript, defining a class and then creating an instance of one looks like this:
