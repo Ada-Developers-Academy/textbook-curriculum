@@ -16,5 +16,4 @@ addPet = (pet) => {
       // Use the same idea we had in our GET request
       this.setState({ error: error.message });
     });
-}
-;
+};

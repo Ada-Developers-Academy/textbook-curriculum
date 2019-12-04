@@ -97,10 +97,6 @@ componentDidMount() {
 
 Next, let's consider how we want our axios request to be structured within this lifecycle method.
 
-**Questions:**
-1. What do you think should happen in the `then` block when the API request is successful? Where will we store this data?
-2. What do you think should happen in the `catch` block when there is an error?
-
 ```javascript
 // App.js
 componentDidMount() {
@@ -113,6 +109,10 @@ componentDidMount() {
     });
 }
 ```
+
+**Questions:**
+1. What do you think should happen in the `then` block when the API request is successful? Where will we store this data?
+2. What do you think should happen in the `catch` block when there is an error?
 
 **Successful Response**
 
