@@ -6,11 +6,41 @@
 - Integrate a get API request in react lifecycle method
 
 ### Setup
-So far, our pets app has been set up to pull static data from the `App` component and pass that into the `PetCollection` which handles the display. We're going to modify this to utilize the [pets API](https://petdibs.herokuapp.com/pets) instead.
+
+So far, our pets app has been set up to pull static data from the `App` component and pass that into the `PetList` which handles the display. We're going to modify this to utilize an API instead.  For the purposes of learning we're going to use the [json-server](https://github.com/typicode/json-server) package which can take a json file and generate a sample REST server based on it.
 
 1. First, let's find our pets app from earlier. Locate and navigate to the folder in the terminal.
-1. Next, we'll install the axios package by running `npm install axios --save`.
-1. Verify! Open `package.json` and ensure we see axios in the "dependencies" section.
+2. Next check out the `ada-pets-api` branch with `git checkout ada-pets-api`.  This will load a version of Ada Pets which is already solved.
+3. Next, we'll install the axios package by running `npm install axios --save`.
+4. Verify! Open `package.json` and ensure we see axios in the "dependencies" section.
+
+### Running the Server
+
+We have the json-server package pre-installed and set up in our `package.json` file.  Open up `package.json` and look for the following section:
+
+```json
+"scripts": {
+    "start": "react-scripts start",
+    "server": "json-server --watch src/data/pets.json --port 2999",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+```
+
+Check out the `server` line.  This adds a command to start the json-server package with the port 2999.  You can open the api in the browser with [http://localhost:2999/pets](http://localhost:2999/pets).  You can do all the RESTful routes for a pets resource, listing showing, creating etc.  All these operations will update the pets.json file.  So `pets.json` will serve as an imitation API for us to learn with.
+
+**Exercise**
+
+With your neighbor, and using Postman, access the API to list and show several pets.  
+
+Answer: 
+
+- What is the URL to list all pets?
+- What is the URL to list a single pet?
+- What happens when you try to access a pet that does not exist?
+
+### Replacing the Static Pets Data
 
 Now we are set up to load axios library code within our React application using an `import` statement.
 
