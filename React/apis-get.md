@@ -179,6 +179,10 @@ componentDidMount() {
 
 Now that we have some error handling updating `state`, we should use this in the rendering of our component. With your neighbors, figure out how you can conditionally display this error data if it exists in the `render` function.
 
+**Question**
+
+With your neighbor discuss how you would handle validation errors.
+
 ## Key Takeaway
 
 Using axios within our React application is very similar to the usage in our command-line application. We use the `componentDidMount` function to load the API data within the component lifecycle and `state` to manage the retrieval and ultimately the display of the API data.
