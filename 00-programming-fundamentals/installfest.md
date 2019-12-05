@@ -61,7 +61,9 @@ $ rbenv install 2.5.5
 $ # This will take about a good youtube video.
 $ rbenv global 2.5.5
 $ echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+$ echo 'eval "$(rbenv init -)"' >> ~/.zshrc
 $ source ~/.bash_profile
+$ source ~/.zshrc
 $ gem pristine -a
 $ # This _might_ take a while, but it might not.
 ```
@@ -177,3 +179,17 @@ That being said, please get familiar and comfortable with Slack, and make it you
 It's also critically important to use emojis (not really, but it's fun!).  So once you have Slack running follow the directions [**here**](https://get.slack.help/hc/en-us/articles/206870177-Create-custom-emoji) to install a Slack Emoji of your choice.
 
 You can find a great site for Slack Emoji's [**here**](https://slackmojis.com/).
+
+## Note
+
+If for any of these applications you get the following warning.
+
+![Unsigned Application Warning](images/unsigned-app.png)
+
+You can fix it by going to **System Preferences-->Security & Privacy** and selecting the button **Open Anyway**.
+
+![System Preferences](images/systempreferences.png)
+
+![Security & Privacy](images/security-and-privacy.png)
+
+![Open anyway](images/open-anyway.jpg)
