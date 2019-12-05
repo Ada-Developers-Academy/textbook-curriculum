@@ -188,7 +188,7 @@ If for any of these applications you get the following warning.
 
 You can fix it by going to **System Preferences-->Security & Privacy** and selecting the button **Open Anyway**.
 
-![System Preferences](images/system-preferences.png)
+![System Preferences](images/systempreferences.png)
 
 ![Security & Privacy](images/security-and-privacy.png)
 
