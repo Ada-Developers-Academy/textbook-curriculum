@@ -57,8 +57,7 @@ import axios from 'axios';
 
 Let's update our pets app to remove the hard-coded data to start:
 1. Remove the array from the `App` component
-2. Remove the `prop` passed from the `App` component to the `PetList` component
-3. Set the initial state of `petList` to an empty array.
+2. Set the initial state of `petList` to an empty array.
 
 ```javascript
 // App.js
