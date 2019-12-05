@@ -151,6 +151,19 @@ Next, we need to figure out what we want to do when an error occurs. We can util
 
 ```javascript
 // PetList.js
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      petList: [],
+      currentPet: undefined,
+      originalPets: [],
+      error: '',
+    };
+  }
+    // ... other methods
+
 componentDidMount() {
   axios.get('http://localhost:2999/pets')
     .then((response) => {
