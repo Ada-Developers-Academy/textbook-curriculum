@@ -110,6 +110,8 @@ To install VS Code from the terminal you can use homebrew with the command:
 $  brew cask install visual-studio-code
 ```
 
+If you run into trouble installing VS Code, see the note at the bottom.
+
 ## Git
 
 Git is an open source distributed version control system. We will talk about git in significant detail later. The short version is that we will use Git to version and share our code with others. We will spend a lot of time using Git in the Terminal, so it will become important that we configure the Terminal to have all of our Git preferences it and personalize it with our personal information.
