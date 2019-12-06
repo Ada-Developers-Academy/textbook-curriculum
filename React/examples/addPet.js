@@ -4,11 +4,10 @@ addPet = (pet) => {
   axios.post('http://localhost:3000/pets', pet)
     .then((response) => {
       // We can update the state so we don't need to make another GET request
-      const updatedData = this.state.fullList;
+      const updatedData = this.state.petList;
       updatedData.push(response.data);
       this.setState({
         petList: updatedData,
-        fullList: updatedData,
         error: ''
       });
     })
