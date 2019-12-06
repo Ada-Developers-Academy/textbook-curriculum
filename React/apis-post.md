@@ -14,16 +14,15 @@ Let's examine our existing `addPet` function:
 
 ```javascript
 // App.js
-  addPet = (pet) => {
+    addPet = (pet) => {
 
     const { petList } = this.state;
     const petIds = petList.map((pet) => pet.id);
     const maxId = Math.max(...petIds);
     pet.id = maxId + 1;
     petList.push(pet);
-    console.log('adding', pet);
 
-    this.setState({ petList });
+    this.setState(petList);
   }
 ```
 

@@ -68,7 +68,7 @@ class App extends Component {
     this.state = {
       petList: [],
       currentPet: undefined,
-      originalPets: [],
+      searchTerm: '',
     };
   }
 ```
@@ -128,11 +128,10 @@ Next, we'll fill in the URL as well as the logic in the success callback to upda
 ```javascript
 // App.js
 componentDidMount () {
-    axios.get('http://localhost:2999/pets')
+    axios.get('http://localhost:3000/pets')
       .then((response) => {
         this.setState({
           petList: response.data,
-          originalPets: response.data,
         });
       })
       .catch((error) => {
@@ -158,14 +157,14 @@ class App extends Component {
     this.state = {
       petList: [],
       currentPet: undefined,
-      originalPets: [],
+      searchTerm: '',
       error: '',
     };
   }
     // ... other methods
 
 componentDidMount() {
-  axios.get('http://localhost:2999/pets')
+  axios.get('http://localhost:3000/pets')
     .then((response) => {
       this.setState({ pets: response.data });
     })
