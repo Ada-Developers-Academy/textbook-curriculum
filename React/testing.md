@@ -226,6 +226,10 @@ For our `PetCard` component we could write a test to verify that the Pet name is
 
 ```javascript
   // src/components/test/PetCard.test.js
+  import { render, cleanup } from '@testing-library/react'
+
+  // ... Other tests and imports
+
   test('It will render the proper name for the pet', () => {
     const container = render(<PetCard
       id={1}
