@@ -258,7 +258,50 @@ So far we have only used the `getByText` function, but we could use any of the e
 
 ## Event Handling
 
-Enzyme also allows you to write tests for user interaction, using a jQuery-like syntax to simulate events. We won't cover that in this class, but if that sounds interesting to you you can [read more about simulating events here](https://airbnb.io/enzyme/docs/api/ReactWrapper/simulate.html).
+We can also write a test to verify that the callback functions are called when a button is clicked.
+
+```javascript
+// src/components/test/PetCard.test.js
+test('The "selectPetCallback" function is called when the `select` button is clicked on', () => {
+
+    // Arrange
+    // Create a mock callback function
+    const selectPet = jest.fn();
+
+    // Render a PetCard
+    const container = render(<PetCard
+      id={1}
+      name={"Samson"}
+      species={"Cat"}
+      about={"A very awesome cat!  Dont' touch the hair"}
+      location={"Seattle, WA"}
+      deletePetCallback={() => { }}
+      selectPetCallback={selectPet}
+    />);
+
+    // Act
+    // Find the "Select" button
+    const selectButton = container.getByText(/Select/);
+    // Trigger a 'click' event
+    selectButton.click();
+
+    // Assert
+    // Verify that the callback function was called.
+    expect(selectPet).toHaveBeenCalled();
+  });
+```
+
+In the code above we:
+
+1. First created a mock, callback function called `selectPet` using Jest.  This is a function that Jest can create for us which will track the number of times it has been called.  
+   - You can read more about these in the [Jest Documentation](https://jestjs.io/docs/en/mock-functions). 
+2. Second rendered a new `PetCard` component and passed in the `selectPet` function as the `selectPetCallback` prop.
+3. Third Triggered a click event on the `select` button.
+4. Lastly verified that the callback function was called.
+
+**Exercise**
+
+Write another, very similar, test to verify that the other button also calls the `deletePetCallback` prop.
 
 ## Summary
 
