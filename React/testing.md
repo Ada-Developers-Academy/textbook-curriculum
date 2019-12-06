@@ -14,18 +14,19 @@ By the end of this lesson you should be able to:
 
 In this lesson we will be learning testing through the React pets project we worked on earlier.
 
-You can clone [our implementation of the ada-pets project](https://github.com/AdaGold/react-pets), and switch to the `solution` branch, if needed.
+You can clone [our implementation of the ada-pets project](https://github.com/AdaGold/ada-pets-react), and switch to the `solution` branch, if needed.
 
-Once you have cloned the repository remember to run `npm install` to install the project dependencies.
+Once you have cloned the repository remember to run `yarn` to install the project dependencies, and to verify it with `yarn start` to start the application.
 
-### Installing Enzyme & React Test Renderer
+### Installing the React Testing Library
 
-Enzyme is a handy library which will make it easier to manipulate, traverse and make assertions on our React components.  It's made to work similar to jQuery for selecting, rendering and manipulating the DOM.
+We will use the [React Testing Library](https://testing-library.com/docs/react-testing-library/intro), which is part of a larger testing framework for JavaScript called, creatively, [Testing Library](https://testing-library.com/).  This is a testing library that tries to simulate how end-users see the React App.  It is a library which is growing in popularity with the React and larger JavaScript community.
 
-To install enzyme for testing your application, execute from the terminal:
+You can install it with `brew` &  `yarn`:
 
 ```bash
-npm i --save-dev enzyme enzyme-adapter-react-16 enzyme-to-json
+$ brew install watchman
+$ yarn add @testing-library/react @testing-library/jest-dom
 ```
 
 **Note** This will install enzyme and an adapter or version 16 of React.  You can expect a new adapter for later versions of React.
