@@ -103,6 +103,8 @@ The default test in `App.test.js` first creates a `div` element which is **not**
 
 This test doesn't actually make any assertions, there are no `expect(div).toBe(y)` commands, but it ensures that the component will show up on the screen without crashing React.
 
+All of this uses the built-in React & Jest libraries to test the application.  Next we will use the React Testing Library to render components and verify that they behave as expected.
+
 ## Snapshot Testing
 
 ### What is it?
