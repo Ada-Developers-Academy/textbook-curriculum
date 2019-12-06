@@ -3,9 +3,12 @@
 Here we will try to ensure that individual components work predictably by testing for unexpected changes to UI and how users interact with our components.  We will introduce two forms of testing unlike any we have done with Ruby, Snapshot testing & testing user interfaces.
 
 ## Learning Goals
+
 By the end of this lesson you should be able to:
+
 - Explain the terms _Snapshot Test_, and _shallow_ and _deep_ rendering
 - Write tests to verify components exist and have not changed
+- Write tests to verify callback functions are called on the correct events
 
 ## Getting Started
 
