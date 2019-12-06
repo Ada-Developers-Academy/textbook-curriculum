@@ -201,41 +201,60 @@ Snapshot testing has a few disadvantages.  First, small changes to a component c
 
 That said, they can be very quick to write and useful for unit-testing functional components which you do not expect to change much.  They can also give you a clearer picture of the rendered html a component results in.
 
+## Selecting and Testing Rendered Content
+
+Often we want to ensure specific content is rendered in a React component.  We want to find a specific element and verify that the content is set properly.  Maybe that it has the proper class, or that the text inside an element is correct.  Our testing library has a number of selectors we can use to find elements in our rendered component.  Each of these selectors will return an HTML Element object.
+
+### Queries
+
+| Method Name | Example | What it does |
+|--- |--- |--- |
+| getByLabelText | `getBy(container, 'Name')` | Searches for the label which matches the given text  and returns the element associated with the given label.  In `NetPetForm` this would be the input associated with the "Name" label. |
+| getByPlaceholderText | `getByPlaceholderText(container, 'password')` | Searches for the first element with a placeholder element equal to the given value. |
+| getByText | `getByText(container, /Select/i)` | Searches for the first element with text content matching the string or regular expression given. |
+| getByAltText | `getByAltText(container, 'kitty pic')` | Searches for the first element with an `alt` attribute equal to the given string or regex. |
+| getByTitle | `getByTitle(container, /Select/i)` | Searches for the first element with a `title` attribute like `<span title="Select" id="2"></span>` equal to the given value. |
+| getByDisplayValue | `getByDisplayValue(container, /Ada/)` | Searches for the first `input`, `select` or `textarea` with the given display value.|
+| getByRole | `getByRole(container, 'dialog')` | Searches for the first element with a `role` attribute equal to the given value like: `<div role="dialog"></div>` |
+| ByTestId | `getByTestId(container, 'name-input')` | Searches for an HTML element with a `data-testid` attribute equal to the given value such as `<input name="name" id="name" data-testid="name-input" />` |
+
+There are also other variations of the above query methods which can select all matching elements and can either return an empty array or raise an error if no matches are found.  
+
+For our `PetCard` component we could write a test to verify that the Pet name is displayed properly.
+
 ```javascript
-// src/App.test.js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { mount, shallow } from 'enzyme';
-import App from './App';
+  // src/components/test/PetCard.test.js
+  test('It will render the proper name for the pet', () => {
+    const container = render(<PetCard
+      id={1}
+      name={"Samson"}
+      species={"Cat"}
+      about={"A very awesome cat!  Don't touch the hair!"}
+      location={"Seattle, WA"}
+      deletePetCallback={() => { }}
+      selectPetCallback={() => { }}
+    />);
 
-describe('<App />', () => {  
-  test('that it renders App with shallow rendering', () => {
-    const wrapper = shallow(<App />);
-    expect(wrapper).toMatchSnapshot();
+    expect(container.getByText(/Samson/)).toBeDefined();
   });
-
-  test('will match the last snapshot with deep rendering', () => {
-    const wrapper = mount(<App />);
-    expect(wrapper).toMatchSnapshot();
-
-    // Remove the component from the DOM (save memory and prevent side effects).
-    wrapper.unmount();
-  });
-});
 ```
 
-**Question** Run the above two tests.  What do you notice about the differences in the two Snapshots?
+This test above simply verifies that "Samson" appears somewhere in the rendered HTML.  We could be more specific with our selector if we want to ensure that the element with this text has specific values or attributes.  
 
-The `mount` function fully mounts a component and all subcomponents in the DOM. This makes the test more fragile, but also more powerful.
+**Exercise**
 
-Notice also that we call `wrapper.unmount()` at the end of our deep snapshot test. This is because `mount` modifies some global variables in the test environment, and we need to undo this work to avoid side effects and make our tests independent from one another. **Whenever you write a deep snapshot test with `.mount`, you _must_ include a corresponding `.unmount`.**
+Use `console.log` to output the result of: `container.getByText(/Seattle, WA/))`.  What does this give you when you run the tests?  What methods are available.  You can use VS Code's intellisense to put a period after `container.getByText(/Seattle, WA/)` and get a list of the attributes and methods available to that HTML Element.
 
-Use `mount` when you need to test the interaction between a container and child component.  Otherwise for unit testing use `shallow` almost exclusively.  You should **avoid** using `mount` for snapshot testing unless you need it.
+<details>
+  <summary>Try to write a test to verify that the tag enclosing the pet's location must have the className "pet-card--footer".</summary>
 
-| Enzyme Function | Used for |  Description |
-| ------ | ------ | ----- |
-|  mount  |  Deep Rendering | Renders the entire component and subcomponent to test their interactions  |
-|  shallow  |  shallow rendering  | Used for tests on a single component in isolation.
+  You can do so with:  
+  ```javascript
+  expect(container.getByText(/Seattle, WA/).classList).toContain('pet-card--footer');
+  ```
+</details>
+
+So far we have only used the `getByText` function, but we could use any of the earlier queries to find elements in our rendered component.  For example we could add an attribute called `data-testid` to a button in the React component and then select that element using our testing library's `getByTestId` query function.
 
 ## Event Handling
 
