@@ -22,14 +22,19 @@ Once you have cloned the repository remember to run `yarn` to install the projec
 
 We will use the [React Testing Library](https://testing-library.com/docs/react-testing-library/intro), which is part of a larger testing framework for JavaScript called, creatively, [Testing Library](https://testing-library.com/).  This is a testing library that tries to simulate how end-users see the React App.  It is a library which is growing in popularity with the React and larger JavaScript community.
 
-You can install it with `brew` &  `yarn`:
+To run tests in React in guard-mode we'll need to first install watchman with `brew`.
 
 ```bash
 $ brew install watchman
+```
+
+Then you can install the testing library with  `yarn`:
+
+```bash
 $ yarn add @testing-library/react @testing-library/jest-dom
 ```
 
-**You will need to follow these steps for every new React project you create.**
+**You will need to install the testing library every new React project you create.**
 
 ### Test Files
 
