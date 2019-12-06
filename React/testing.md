@@ -43,7 +43,7 @@ Run `mkdir src/components/test` now to create this folder.
 
 ## How to Run Tests
 
-Create-react-app comes with Jest testing built in and in fact provides an initial test.  To run the test type:  `npm test` and you will get a screen like this:
+Create-react-app comes with Jest testing built in and in fact provides an initial test.  To run the test type:  `yarn test` and you will get a screen like this:
 
 ```bash
 No tests found related to files changed since last commit.
@@ -117,9 +117,9 @@ With React we often want to ensure that a component is rendering properly.  For 
 However these tests are pretty fragile, easy to break when you make minor changes to the form and tedious to update for UI refactoring.
 
 Instead we can:
-1.  Convert the rendered html of the component into JSON with the JSON holding the most significant features of the component.
-2.  Save that JSON to a "Snapshot" file.
-3.  Compare future runs of the test to that snapshot and alert the user to any changes.
+
+1.  Convert the rendered html of the component into a file with the file holding the most significant features of the component.
+2.  Compare future runs of the test to that snapshot and alert the user to any changes.
 
 When a component changes, we can be alerted and make corrections, or update the snapshot for future test runs.
 
@@ -136,22 +136,26 @@ First create `src/components/test/NewPetForm.test.js`
 ```javascript
 // src/components/test/NewPetForm.test.js
 import React from 'react';
+import { render, cleanup } from '@testing-library/react'
 import NewPetForm from '../NewPetForm';
-import { shallow } from 'enzyme';
 
 describe('NewPetForm', () => {
-  test('that it matches an existing snapshot', () => {
-    // First Mount the Component in the testing DOM
-    // Arrange
-    const wrapper = shallow( <NewPetForm addPetCallback={() => {} } />);
+  test('that it matches the existing snapshot', () => {
+    // Arrange-Act
+    const { asFragment } = render(
+      <NewPetForm
+        addPetCallback={() => { }}
+      />
+    );
 
-    // Assert that it looks like the last snapshot
-    expect(wrapper).toMatchSnapshot();
+    // Assert
+    expect(asFragment()).toMatchSnapshot();
+    cleanup();
   });
 });
 ```
 
-In the above example we used Enzyme's `shallow` function to create the snapshot.  You can read about `shallow` [in Enzyme's documentation](https://airbnb.io/enzyme/docs/api/mount.html).  The word `shallow` indicates that we will render this component but not any of its child components.  This is good, because it means that a problem with a child component will not cause the tests for the parent component to break.
+In the above example we used the testing library's `render` function to create the snapshot.  You can read about `render` [in the library's documentation](https://testing-library.com/docs/react-testing-library/api#render).  The `render` function take the component, renders the html into a DOM provided by Jest and appends the rendered html, by default, to document.body.  
 
 Now let's break the test, to make sure it's actually testing something.  Modify the `NewPetForm` component by adding a class attribute to one of the elements.  You should see something like this:
 
@@ -163,9 +167,23 @@ In our case the change to the rendered HTML is expected, which means we need to 
 
 **Question:** After updating the snapshot take out the class name.  What does the snapshot diff look like now?
 
-**Exercise** Create a test file and a test for the `Pet` component.
+**Exercise** Create a test file and a test for the `PetCard` component.  Write a snapshot test for it.
 
 You can see a solution on the testing branch of the repository.
+
+<details>
+  <summary>
+  Take a look at the library's documentation.  What is "cleanup();" doing?  Is there a better way to use it?  If so, how?
+  </summary>
+
+  The cleanup function removes any elements rendered into the DOM Jest creates for the test.  So it's a good idea to run cleanup after any test involving a render.  
+
+  You can also put this line inside a describe and outside any test block to run the cleanup function after any test.
+
+  ```javascript
+  afterEach(cleanup);
+  ```
+</details>
 
 ### Snapshots Files
 
@@ -175,13 +193,13 @@ You may wonder, "Where are these snapshots saved?"  You can see the snapshot fil
 
 **Question** What does the snapshot file look like?
 
-Notice that the snapshot file looks a lot like the JSX rendered by the component, but it's a generated JSON file making it easier to compare to new snapshots.  You generally won't need to look at these files directly, but looking at the snapshot file should help you understand how Jest compares the current snapshot to the rendered content from the test.
+Notice that the snapshot file looks a lot like the JSX rendered by the component, but it's a generated text file making it easier to compare to new snapshots.  You generally won't need to look at these files directly, but looking at the snapshot file should help you understand how Jest compares the current snapshot to the rendered content from the test.  It can also help you understand how a component is being rendered into HTML.  You should commit these files to git, so that other developers can use your snapshots in their testing.
 
-## Creating a Deep Snapshot
+### The Downside of Snapshot Testing
 
-Sometimes you need to test the interaction of a component with its child components. In this case a shallow mount won't do, because it only renders one level of component. Instead we'll need to mount the entire tree. We can do so with Enzyme's `mount` function.
+Snapshot testing has a few disadvantages.  First, small changes to a component can often cause them to fail, and because it's very easy to update a snapshot without looking closely, it's easy to miss scenarios where they report a serious bug.  Essentially they give a lot of false, failures and so get discounted.  Think of [the little boy who cried wolf](http://www.storyarts.org/library/aesops/stories/boy.html).
 
-Enzyme has two methods of rendering a component for testing. Add the following two tests and look at the resulting Snapshot files.
+That said, they can be very quick to write and useful for unit-testing functional components which you do not expect to change much.  They can also give you a clearer picture of the rendered html a component results in.
 
 ```javascript
 // src/App.test.js
