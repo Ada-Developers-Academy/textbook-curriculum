@@ -29,28 +29,6 @@ $ brew install watchman
 $ yarn add @testing-library/react @testing-library/jest-dom
 ```
 
-**Note** This will install enzyme and an adapter or version 16 of React.  You can expect a new adapter for later versions of React.
-
-Next we need to tell Jest how to serialize enzyme data. Open up `package.json` and add the following object:
-
-```json
-"jest": {
-  "snapshotSerializers": ["enzyme-to-json/serializer"]
-}
-```
-
-Finally, tell Jest how to configure enzyme and use the adapter.  Create the file `src/setupTests.js` and add the following content.
-
-```javascript
-// src/setupTests.js
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-
-configure({ adapter: new Adapter() });
-```
-
-This file is run when you start testing with create-react-app and allows us to tell enzyme which adapter to use.  If you have tests running you will need to exit and restart Jest.
-
 **You will need to follow these steps for every new React project you create.**
 
 ### Test Files
