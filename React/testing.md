@@ -231,6 +231,7 @@ For our `PetCard` component we could write a test to verify that the Pet name is
   // ... Other tests and imports
 
   test('It will render the proper name for the pet', () => {
+    // Arrange & Act
     const container = render(<PetCard
       id={1}
       name={"Samson"}
@@ -241,6 +242,7 @@ For our `PetCard` component we could write a test to verify that the Pet name is
       selectPetCallback={() => { }}
     />);
 
+    // Assert
     expect(container.getByText(/Samson/)).toBeDefined();
   });
 ```
