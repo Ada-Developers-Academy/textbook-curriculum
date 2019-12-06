@@ -306,15 +306,15 @@ Write another, very similar, test to verify that the other button also calls the
 ## Summary
 
 - Jest is included with React by default
-- Enzyme is a library that provides more convenient testing syntax, as well as some advanced functionality
+- The React Testing Library is a library that provides more convenient testing syntax, as well as some advanced functionality.
+  - This advanced functionality includes:
+    - Rendering components for testing
+    - Selecting elements in a rendered component.
+    - Verifying that components contain specific content
+    - Verifying that callback functions are called
 - Snapshot testing allows you to detect when your component changes
-- Enzyme has two methods for rendering components: `shallow` and `mount`
-  - `shallow` renders only the component you specify, and should be the default choice
-  - `mount` renders a component and all its children, and should be used only when you need to test cross-component interactions
 
 ## Resources
-- [Tutorial on Testing React](https://medium.com/tribalscale/tutorial-on-testing-react-part-1-2c587e39114d)
-- [The Right way to test React Components](https://medium.freecodecamp.org/the-right-way-to-test-react-components-548a4736ab22)
-- [Jest Documentation - Testing React Apps](https://facebook.github.io/jest/docs/en/tutorial-react.html)
-- [Using Jest with enzyme](https://github.com/airbnb/enzyme/blob/master/docs/guides/jest.md)
+
+- [React Testing Library Documentation](https://testing-library.com/docs/react-testing-library/intro)
 - [FreeCodeCamp React Testing with Jest](https://medium.com/p/b71c27b0a795#54c3)
