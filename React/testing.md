@@ -202,6 +202,8 @@ You may wonder, "Where are these snapshots saved?"  You can see the snapshot fil
 
 Notice that the snapshot file looks a lot like the JSX rendered by the component, but it's a generated text file making it easier to compare to new snapshots.  You generally won't need to look at these files directly, but looking at the snapshot file should help you understand how Jest compares the current snapshot to the rendered content from the test.  It can also help you understand how a component is being rendered into HTML.  You should commit these files to git, so that other developers can use your snapshots in their testing.
 
+This is kind of like the VCR cassette files you created when consuming APIs in Ruby.  VCR recorded the API recorded the API interactions into text files and could then replay them on demand.
+
 ### The Downside of Snapshot Testing
 
 Snapshot testing has a few disadvantages.  First, small changes to a component can often cause them to fail, and because it's very easy to update a snapshot without looking closely, it's easy to miss scenarios where they report a serious bug.  Essentially they give a lot of false, failures and so get discounted.  Think of [the little boy who cried wolf](http://www.storyarts.org/library/aesops/stories/boy.html).
