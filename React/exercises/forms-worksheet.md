@@ -8,7 +8,9 @@ This is an in-class exercise and will not be submitted.
 
 ### Wave 1
 
-Create a new React app with `create-react-app`. This app will have one component called `SignupForm`.
+Create a new React app with `npx create-react-app`. Something like `npx create-react-app forms-exercise` will create a new project named `forms-exercise` and will do just perfectly.
+
+This app will have one component called `SignupForm`.
 
 The form should have five input elements:
 - First name
