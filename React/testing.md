@@ -14,7 +14,7 @@ By the end of this lesson you should be able to:
 
 In this lesson we will be learning testing through the React pets project we worked on earlier.
 
-You can clone [our implementation of the ada-pets project](https://github.com/AdaGold/ada-pets-react), and switch to the `solution` branch, if needed.
+You can clone [our implementation of the ada-pets project](https://github.com/AdaGold/ada-pets-react/tree/solution), if needed.
 
 Once you have cloned the repository remember to run `yarn` to install the project dependencies, and to verify it with `yarn start` to start the application.
 
