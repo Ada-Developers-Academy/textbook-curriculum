@@ -4,7 +4,7 @@
 
 By the end of this lesson you should:
 
-- Be able to use the rest parameter syntax to in functions which accept an unlimited number of arguments.
+- Be able to use the rest parameter syntax to make functions which accept an unlimited number of arguments.
 - Be able to explain what the spread operator does and where it is useful.
 
 ## Destructuring
