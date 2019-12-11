@@ -55,9 +55,7 @@ Now we are set up to load axios library code within our React application using 
 import axios from 'axios';
 ```
 
-Let's update our pets app to remove the hard-coded data to start:
-1. Remove the array from the `App` component
-2. Set the initial state of `petList` to an empty array.
+Let's update our pets app to remove the hard-coded data to start. Instead we will set the initial state of `petList` to an empty array. (See below) 
 
 ```javascript
 // App.js
@@ -180,7 +178,7 @@ Now that we have some error handling updating `state`, we should use this in the
 
 **Question**
 
-With your neighbor discuss how you would handle validation errors.
+With your neighbor discuss: How would you handle errors from the API indicating a bad request?
 
 ## Key Takeaway
 
