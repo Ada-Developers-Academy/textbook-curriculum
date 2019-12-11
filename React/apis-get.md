@@ -166,7 +166,7 @@ class App extends Component {
 componentDidMount() {
   axios.get('http://localhost:3000/pets')
     .then((response) => {
-      this.setState({ pets: response.data });
+      this.setState({ petList: response.data });
     })
     .catch((error) => {
       this.setState({ error: error.message });
