@@ -6,7 +6,6 @@ deletePet = (petId) => {
 
       this.setState({
         petList,
-        fullList: petList
       });
     })
     .catch((error) => {
