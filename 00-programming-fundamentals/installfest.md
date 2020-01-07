@@ -57,11 +57,13 @@ Run `brew doctor`. Brew is super great at telling you what else it may need. Som
 Run:
 ```bash
 $ brew install rbenv
-$ rbenv install 2.5.5
+$ rbenv install 2.6.5
 $ # This will take about a good youtube video.
-$ rbenv global 2.5.5
+$ rbenv global 2.6.5
 $ echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+$ echo 'eval "$(rbenv init -)"' >> ~/.zshrc
 $ source ~/.bash_profile
+$ source ~/.zshrc
 $ gem pristine -a
 $ # This _might_ take a while, but it might not.
 ```
@@ -71,7 +73,7 @@ $ # This _might_ take a while, but it might not.
 Run:
 ```bash
 $ ruby -v
-$ # This should tell us 2.5.5
+$ # This should tell us 2.6.5
 $ which ruby
 $ # /Users/[your-name-here]/.rbenv/shims/ruby
 $ which gem
@@ -80,17 +82,17 @@ $ # /Users/[your-name-here]/.rbenv/shims/gem
 
 <!-- ## Upgrade and Use Ruby
 
-We will use Ruby version 2.5.5 for the Ada curriculum _(last updated: May 2019)_.
+We will use Ruby version 2.6.5 for the Ada curriculum _(last updated: May 2019)_.
 
-- Use rvm to install the Ruby version 2.5.5 onto your computer: `$ rvm install 2.5.5`
+- Use rvm to install the Ruby version 2.6.5 onto your computer: `$ rvm install 2.6.5`
 - Verify that this version of Ruby was installed and that `rvm` recognizes it with `$ rvm list`
-- Use rvm to state that you want to use version 2.5.5 and you want to set it as the default version with `$ rvm use 2.5.5 --default`
+- Use rvm to state that you want to use version 2.6.5 and you want to set it as the default version with `$ rvm use 2.6.5 --default`
 
-**Note:** If you do not set this as the default version, you will have to run `$ rvm use 2.5.5` every project! So go ahead and set it as default right now. ;)
+**Note:** If you do not set this as the default version, you will have to run `$ rvm use 2.6.5` every project! So go ahead and set it as default right now. ;)
 
 ### Trust but Verify Ruby Version
 
-- `$ ruby -v` should return _ruby 2.5.5p0_ (your `p` version might be different)
+- `$ ruby -v` should return _ruby 2.6.5p0_ (your `p` version might be different)
 - `$ which ruby` should return a path like _/Users/ada/.rvm/rubies/ruby/bin/ruby_
 - `$ which gem` should return a path like _/Users/ada/.rvm/rubies/ruby/bin/gem_
 - `$ rvm list` should return the list of Ruby versions installed with rvm, and which version is being used and being used as default -->
@@ -107,6 +109,8 @@ To install VS Code from the terminal you can use homebrew with the command:
 ```bash
 $  brew cask install visual-studio-code
 ```
+
+If you run into trouble installing VS Code, see the note at the bottom.
 
 ## Git
 
@@ -177,3 +181,17 @@ That being said, please get familiar and comfortable with Slack, and make it you
 It's also critically important to use emojis (not really, but it's fun!).  So once you have Slack running follow the directions [**here**](https://get.slack.help/hc/en-us/articles/206870177-Create-custom-emoji) to install a Slack Emoji of your choice.
 
 You can find a great site for Slack Emoji's [**here**](https://slackmojis.com/).
+
+## Note
+
+If for any of these applications you get the following warning.
+
+![Unsigned Application Warning](images/unsigned-app.png)
+
+You can fix it by going to **System Preferences-->Security & Privacy** and selecting the button **Open Anyway**.
+
+![System Preferences](images/systempreferences.png)
+
+![Security & Privacy](images/security-and-privacy.png)
+
+![Open anyway](images/open-anyway.jpg)

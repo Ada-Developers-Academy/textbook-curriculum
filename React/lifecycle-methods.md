@@ -111,6 +111,6 @@ As React evolves, changes to the lifecycle methods come and go. For example, a m
 Older documentation, tutorials, diagrams, resources, and advice on the internet may reference lifecycle methods that are now deprecated. It's the developer's responsibility to stay current with their tools. A good way to do that is to always and frequently visit [the official blog](https://reactjs.org/blog) and check against [the official documentation](https://reactjs.org/docs/react-component.html).
 
 ## Additional Resources
-- [React Lifecycle Methods and When to Use Them](https://engineering.musefind.com/react-lifecycle-methods-how-and-when-to-use-them-2111a1b692b1)
+- [React Lifecycle Methods and When to Use Them](https://blog.bitsrc.io/react-16-lifecycle-methods-how-and-when-to-use-them-f4ad31fb2282)
 - [React Docs: State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
 - [Official React Blog: Changes to lifecycle in v16.3.0](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html)
