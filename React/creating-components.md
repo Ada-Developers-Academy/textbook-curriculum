@@ -107,7 +107,7 @@ It's often helpful to have a mental model for what the Virtual DOM looks like, t
 
 The DOM is stored as a [node tree](https://en.wikipedia.org/wiki/Tree_(data_structure)). It starts from a single 'parent' node, and each node may have any number of 'child' nodes. Our current tree looks like this: 
 
-![A two node tree, where the App is rendering a single Student node.](./images/tree_app_renders_student.jpeg)
+![A two node tree, where the App is rendering a single Student node.](/images/tree_app_renders_student.jpeg)
 
 As we continue learning about React and adding new components to our app, this tree will grow and branch off from certain nodes.
 
