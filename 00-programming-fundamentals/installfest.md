@@ -160,7 +160,7 @@ We will be using [Firefox](https://www.mozilla.org/en-US/firefox/) as our primar
 $ brew cask install firefox
 ```
 
-You may also want to use Google Chrome, which is also a fine browser.  You can install firefox with Homebrew by typing:
+You may also want to use Google Chrome, which is also a fine browser.  You can install Google Chrome with Homebrew by typing:
 
 ```bash
 $ brew cask install google-chrome
