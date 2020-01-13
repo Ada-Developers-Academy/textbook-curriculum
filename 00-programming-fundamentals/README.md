@@ -3,6 +3,7 @@
 Programming topics not directly related to Ruby development.
 
 ## Introductory
+1. [The Mega Dev Environment Setup Summary](intro-to-your-dev-environment.md)
 1. [How To macOS](how-to-macOS.md)
 1. [Useful Apps for macOS](useful-apps-for-macOS.md)
 1. [Installfest](installfest.md)
