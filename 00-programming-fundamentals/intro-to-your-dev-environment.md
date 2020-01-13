@@ -13,12 +13,14 @@ Over time, as you get better and better at your coding craft, you should build u
 
 However, at Ada, **we will require the use of specific tools with specific versions.**
 
-At the very minimum, today we should cover:
+## Today, we should...
 
-1. Our required operating system
-1. Some mandatory, foundational tools
-1. The expected text editor of our curriculum
-1. The recommended work directory for your Ada projects, exercises, notes, and materials
+- Highlight the following topics:
+    1. Our required operating system
+    1. Some mandatory, foundational tools
+    1. The expected text editor of our curriculum
+    1. The recommended work directory for your Ada projects, exercises, notes, and materials
+- Spend the majority of our time double-checking and verifying our tool installation documented in [Installfest](installfest.md).
 
 ## macOS is our Operating System
 
