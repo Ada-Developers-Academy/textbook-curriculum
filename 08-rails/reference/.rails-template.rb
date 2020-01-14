@@ -69,8 +69,6 @@ import "../stylesheets/application"
 
 /* Custom bootstrap variables must be set or imported *before* bootstrap. */
 @import "bootstrap";
-/* Import scss content */
-@import "**/*";
     SCSS
   end
 
@@ -96,8 +94,6 @@ inject_into_file "config/application.rb", after: "class Application < Rails::App
   config.generators do |g|
     # Force new test files to be generated in the minitest-spec style
     g.test_framework :minitest, spec: true
-    # Always use .js files, never .coffee
-    g.javascript_engine :js
   end
   RUBY
 end
@@ -129,7 +125,7 @@ after_bundle do
   # Add minitest reporters support. This must be run after
   # rails generate minitest:install, because that command
   # changes test/test_helper.rb
-  inject_into_file "test/test_helper.rb", after: "require 'rails/test_help'" do
+  inject_into_file "test/test_helper.rb", after: "require 'rails/test_help'\n" do
     <<-'RUBY'
 require "minitest/rails"
 require "minitest/reporters"  # for Colorized output
