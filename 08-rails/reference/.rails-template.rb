@@ -137,6 +137,10 @@ Minitest::Reporters.use!(
     RUBY
   end
 
+   gsub_file "test/test_helper.rb", 'parallelize(workers: :number_of_processors)' do
+    "# parallelize(workers: :number_of_processors) # causes out of order output."
+  end
+
   unless API_MODE
     # Add jquery and popper to webpack config.
     append_to_file "config/webpack/environment.js" do
