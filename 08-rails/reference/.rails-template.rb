@@ -69,12 +69,11 @@ import "../stylesheets/application"
 
 /* Custom bootstrap variables must be set or imported *before* bootstrap. */
 @import "bootstrap";
+
+@import "**/*";
     SCSS
   end
 
-  gsub_file "app/views/layouts/application.html.erb", /stylesheet_link_tag/ do
-    "stylesheet_pack_tag"
-  end
   gsub_file "app/assets/stylesheets/application.css", / \*= require_tree .\n/ do
     ""
   end
@@ -82,7 +81,7 @@ import "../stylesheets/application"
     ""
   end
   run "mkdir app/javascript/stylesheets"
-  run "mv app/assets/stylesheets/application.css app/javascript/stylesheets/application.scss"
+  run "mv app/assets/stylesheets/application.css app/assets/stylesheets/application.scss"
   run "yarn add bootstrap"
   run "yarn add jquery"
   run "yarn add popper.js"
