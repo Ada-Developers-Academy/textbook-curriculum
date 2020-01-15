@@ -38,7 +38,10 @@ Once they are included in your `Gemfile`, run the following commands:
 
 We will need the output from the commands from above in just a moment in order to tell VS Code where to find to these gems.
 
-Open the settings panel using `⌘,` and access your `settings.json` by clicking on the `{}` icon.
+Open the settings panel using `⌘,` and access your `settings.json` by clicking on the `{}` icon. 
+
+> *Note:* Your button may look like this instead ![settings.json button](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/08-rails/images/Screen%20Shot%202020-01-14%20at%204.39.08%20PM.png "settings.json button")
+
 
 Once you have the `settings.json` file loaded and open, copy the code below and paste those paths into the appropriate locations. You should paste each path in the corresponding spots in the file (please remove the asterisks).
 
