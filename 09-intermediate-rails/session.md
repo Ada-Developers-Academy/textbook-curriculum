@@ -104,7 +104,7 @@ Get the most recent version of the book site code from your instructor, then wor
 
     ```html+erb
     <!-- app/views/users/current.html.erb -->
-    <h2>You are logged in as user <%= @current_user.username %></h2>
+    <p>You are logged in as user <%= @current_user.username %></p>
     ```
     </details>
 1. Create the `users#logout` action. This should set `session[:user_id]` to `nil` and redirect the user back to the `root_path`.
