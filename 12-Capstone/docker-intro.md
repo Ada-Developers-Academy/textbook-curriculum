@@ -238,9 +238,17 @@ services:
       - db
 ```
 
+
 This file tells `docker-compose` to create two containers, one from a postgres image on dockerhub called `db`, and another called `web` which is built from the local `Dockerfile` and links port 3000 on your machine to Docker's port 3000 on the virtual machine.  So when you go to port 3000 on your local computer the request gets forwarded to Docker's virtual machine and the running container.  
 
 It also sets 2 environment variables from the local `.env` file, `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET`.
+
+The `.env` file could look like this:
+
+```.env
+GITHUB_CLIENT_ID=<KEY_GOES_HERE>
+GITHUB_CLIENT_SECRET=<KEY_GOES_HERE>
+```
 
 Lastly it indicates that the `web` container depends on the `db` container.
 
