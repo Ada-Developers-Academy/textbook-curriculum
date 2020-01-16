@@ -96,6 +96,8 @@ Hmm... our Ada books was written for a different version...
 
 We can update our `Gemfile` and `.ruby-version` file to 2.5.7 (which is installed in the base image).
 
+_Gemfile_
+
 ```Gemfile
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
@@ -104,6 +106,8 @@ ruby '2.5.7'
 
 # More stuff below
 ```
+
+_.ruby-version file_x
 
 ```.ruby-version
 2.5.7
