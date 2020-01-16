@@ -270,6 +270,12 @@ $ docker-compose down
 
 ## What about this Kubernetes Thingy I Heard About...
 
+Kubernetes is a tool which lets you coordinate a bunch of containers and container groups.  You feed Kubernetes a description of a state you want created, which services, loads etc.  It creates a bunch of container hosts (virtual machines) and installs containers on them.  You give Kubernetes a file `app.yaml` a description of different pods (the smallest unit of services) and which containers you want to run on them.  Kubernetes then orchestrates them and ensures the configuration is maintained as things run.  When something goes down it can work to bring them back up again.
+
+## Summary
+
+Docker is a tool which lets you define a list of software to install and run independently of the host machine.  Then any machine which has the `Dockerfile`, source code and `docker-compose.yml` can run your service.  Docker allows you to run any set of services, Rails, Express, Django etc on any host machine independent of any other services on the computer.
+
 ## Resources
 
 - [Docker Hub](https://hub.docker.com/)
