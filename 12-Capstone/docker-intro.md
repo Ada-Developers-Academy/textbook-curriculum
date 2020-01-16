@@ -67,7 +67,9 @@ _[image from Docker & Kubernetes: The complete Guide](https://www.udemy.com/shar
 
 ## Building A Rails App with Docker
 
-### Starter App
+We are going to create a Docker Image, and install Rails on it.  Then we will use Docker Compose to set up two images, one for the Rails web service and one for Postgres and then get them to talk to one another.  
+
+We will do this all using our [Ada books app](https://github.com/Ada-C12/ada-books-leaves).
 
 ### Dockerfile
 
