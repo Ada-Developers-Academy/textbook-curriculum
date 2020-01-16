@@ -60,7 +60,6 @@ unless API_MODE
     <<-'JAVASCRIPT'
 
 import "bootstrap"
-import "../stylesheets/application"
     JAVASCRIPT
   end
 
