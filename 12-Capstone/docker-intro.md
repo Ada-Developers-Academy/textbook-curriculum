@@ -193,6 +193,59 @@ CMD ["rails", "server", "-b", "0.0.0.0"]
 
 ### Docker Compose
 
+We could run this conatiner with:
+
+```bash
+$ docker build -t ada/adabooks .
+```
+
+The `docker build` command creates an instance of our container and saves it.  
+
+You could then run the container with:
+
+```bash
+$ docker run ada/adabooks
+```
+
+However that won't work!  This is because there is no Database server running and while the container is running on port 3000 there's nothing to connect that your your computer.  We can fix this by using `docker-compose` which lets us create a group of containers (one for Postgres and one for our web service) and tell them how to cooperate.
+
+So we can create a `docker-compose.yml` file.
+
+```yaml
+version: '3'
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/myapp
+    ports:
+      - "3000:3000"
+    environment:
+      - GITHUB_CLIENT_ID=${GITHUB_CLIENT_ID}
+      - GITHUB_CLIENT_SECRET=${GITHUB_CLIENT_SECRET}
+    depends_on:
+      - db
+```
+
+This file tells `docker-compose` to create two containers, one from a postgres image on dockerhub called `db`, and another called `web` which is built from the local `Dockerfile` and links port 3000 on your machine to Docker's port 3000 on the virtual machine.  So when you go to port 3000 on your local computer the request gets forwarded to Docker's virtual machine and the running container.  
+
+It also sets 2 environment variables from the local `.env` file, `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET`.
+
+Lastly it indicates that the `web` container depends on the `db` container.
+
+We can use this `docker-compose.yml` file to build our app with:
+
+```bash
+$ docker-compose build
+```
+
+This will read the yml file and import the Postgres container and build, using the Dockerfile, the Web service.
+
 ### Starting and Stopping Stuff
 
 ## What about this Kubernetes Thingy I Heard About...
