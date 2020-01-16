@@ -105,11 +105,11 @@ class BooksController < ApplicationController
     if params[:author_id]
       # This is the nested route, /author/:author_id/books/new
       author = Author.find_by(id: params[:author_id])
-      @books = author.books.new
+      @book = author.books.new
 
     else
       # This is the 'regular' route, /books/new
-      @books = Book.new
+      @book = Book.new
     end
   end
   # ...
