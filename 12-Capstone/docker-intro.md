@@ -260,6 +260,30 @@ $ docker-compose build
 
 This will read the yml file and import the Postgres container and build, using the Dockerfile, the Web service.
 
+### Setting up `config/database.
+
+Then update your `config/database.yml`, so that the web app can communicate with the Database container.
+
+```yml
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: db
+  username: postgres
+  password:
+  pool: 5
+
+development:
+  <<: *default
+  database: myapp_development
+
+
+test:
+  <<: *default
+  database: myapp_test
+
+```
+
 ### Starting and Stopping Stuff
 
 We can start our containers with the command:
