@@ -248,6 +248,26 @@ This will read the yml file and import the Postgres container and build, using t
 
 ### Starting and Stopping Stuff
 
+We can start our containers with the command:
+
+```bash
+$ docker-compose up
+```
+
+This will start the containers.  You do however need to create a database for the Ada books app.  You can open up a new tab and run:
+
+```bash
+$ docker-compose run web rails db:reset
+```
+
+**Note:** You only need to run the above **once**.  After that the data will be saved on the virtual machine and the app can be run with just `docker-compose up`.
+
+You can stop the web service with:
+
+```bash
+$ docker-compose down
+```
+
 ## What about this Kubernetes Thingy I Heard About...
 
 ## Resources
