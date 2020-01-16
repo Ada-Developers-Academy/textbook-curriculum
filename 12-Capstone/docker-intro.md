@@ -74,12 +74,12 @@ We will do this all using our [Ada books app](https://github.com/Ada-C12/ada-boo
 
 ### Dockerfile
 
-Create a project folder and a file called `Dockerfile`.  Capitalization matters!
+Move into the project and create a new file named `Dockerfile`.  Capitalization matters!
 
 ```bash
-$ mkdir docker-intro
-$ cd docker-intro
-$ touch dockerfile
+$ git clone git@github.com:Ada-C12/ada-books-leaves.git
+$ cd ada-books-leaves
+$ touch Dockerfile
 ```
 
 The first thing we'll add is this line to the `Dockerfile`
@@ -141,7 +141,6 @@ COPY . /myapp
 ```
 
 We did this so because Docker by default, when it notices a change will re-run all subsequent lines in the Dockerfile.  So if we modified a controller, we don't want the container to re-run `bundle install`.  So we copy the application code later and the Gemfiles first.  This way only if the Gemfile changes, will we re-run bundle install.
-
 
 #### EntryPoint For Our Application
 
