@@ -54,6 +54,7 @@ Now Docker enters the picture.  When you install Docker it installs **one** linu
 If you run an set of software in a namespace, it runs separately from all other applications and code.  Each namespace operates **independently** in terms of library code, CPU, Memory and hard disk space.  So you can have Python 2 running in one namespace and Python 3 running in another.  You can also have conflicting library code installed in sparate namespaces without conflict.
 
 ![Container image from Stephen Grider's Udemy Course](assets/diagrams-15-stack.png)
+
 _[image from Docker & Kubernetes: The complete Guide](https://www.udemy.com/share/101WjMAkEacV9UQn4=/)_
 
 ### Docker Terminology
