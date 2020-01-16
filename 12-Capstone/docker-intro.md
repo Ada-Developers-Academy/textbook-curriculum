@@ -281,3 +281,5 @@ Docker is a tool which lets you define a list of software to install and run ind
 - [Docker Hub](https://hub.docker.com/)
 - [Getting Started with Docker](https://docs.docker.com/get-started/)
 - [Offical tutorials with Rails, Django etc](https://docs.docker.com/samples/#sample-applications)
+- [Stephen Grider's Docker & Kubernetes course, the source of many diagrams here](https://www.udemy.com/share/101WjMAkEacV9UQn4=/)
+- [Kubernetes in 5 minutes](https://www.youtube.com/watch?v=PH-2FfFD2PU)
