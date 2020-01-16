@@ -73,6 +73,124 @@ We will do this all using our [Ada books app](https://github.com/Ada-C12/ada-boo
 
 ### Dockerfile
 
+Create a project folder and a file called `Dockerfile`.  Capitalization matters!
+
+```bash
+$ mkdir docker-intro
+$ cd docker-intro
+$ touch dockerfile
+```
+
+The first thing we'll add is this line to the `Dockerfile`
+
+```dockerfile
+FROM ruby:2.5
+```
+
+This command starts our image from a base that someone else on Docker Hub created.  This image is of a basic linux machine with ruby 2.5 installed.  That sounds like a good place to start!  You can see the list of Ruby Docker images on [docker hub](https://hub.docker.com/_/ruby) and this specific parent image [Dockerfile on github](https://github.com/docker-library/ruby/blob/82eecb7596c3cb466dd87d4b0350d189a330b925/2.5/buster/Dockerfile).
+
+Hmm... our Ada books was written for a different version...
+
+We can update our `Gemfile` and `.ruby-version` file to 2.5.7 (which is installed in the base image).
+
+```Gemfile
+source 'https://rubygems.org'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+ruby '2.5.7'
+
+# More stuff below
+```
+
+```.ruby-version
+2.5.7
+```
+
+#### Installing Dependencies
+
+Next in our Dockerfile we will add a Linux command `apt-get` to install nodejs and postgresql-client.  Then we'll create a folder, called `/myapp` for our Rails app to live in.
+
+```Dockerfile
+FROM ruby:2.5
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+RUN mkdir /myapp
+```
+
+#### Set Working Directory and Installing App
+
+Next we will set `/myapp` as the working directory for our app, copy over the Gemfile and run bundle install to install all the gems.  Then we will copy over the rest of our application files.
+
+```Dockerfile
+# Set parent image and install dependencies
+FROM ruby:2.5
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+
+# Create folder for Rails app and 
+RUN mkdir /myapp
+WORKDIR /myapp
+
+# run bundle install
+RUN gem install bundler
+COPY ./Gemfile /myapp
+COPY ./Gemfile.lock /myapp
+RUN bundle install
+
+# Copy app files to container
+COPY . /myapp
+```
+
+We did this so because Docker by default, when it notices a change will re-run all subsequent lines in the Dockerfile.  So if we modified a controller, we don't want the container to re-run `bundle install`.  So we copy the application code later and the Gemfiles first.  This way only if the Gemfile changes, will we re-run bundle install.
+
+
+#### EntryPoint For Our Application
+
+Next we'll create a script file which we run by default every time we start the container.  We will call this file `entrypoint.sh` and it just runs a series of bash commands for us.
+
+_entrypoint.sh_
+
+```bash
+#!/bin/bash
+set -e
+
+# If the app didn't close cleanly last time
+# Remove a potentially pre-existing server.pid for Rails.
+rm -f /myapp/tmp/pids/server.pid
+
+# Then exec the container's main process (what's set as CMD in the Dockerfile).
+exec "$@"
+```
+
+_Dockerfile_
+```dockerfile
+# Set parent image and install dependencies
+FROM ruby:2.5
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+
+# Create folder for Rails app and 
+RUN mkdir /myapp
+WORKDIR /myapp
+
+# run bundle install
+RUN gem install bundler
+COPY ./Gemfile /myapp
+COPY ./Gemfile.lock /myapp
+RUN bundle install
+
+# Copy app files to container
+COPY . /myapp
+
+
+# Add a script to be executed every time the container starts.
+COPY entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]
+EXPOSE 3000
+
+# Start the main process.
+# It runs rails server -b on localhost (for the container)
+CMD ["rails", "server", "-b", "0.0.0.0"]
+```
+
 ### Docker Compose
 
 ### Starting and Stopping Stuff
