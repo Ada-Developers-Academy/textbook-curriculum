@@ -24,13 +24,31 @@ my_name = "Kari"
 - Local variables are used __often__
 - Ruby style recommends variable names are in snake_case
 
-## Scope
+## Every Variable Has Scope
 
-The _scope_ of a variable is the collection of methods, blocks, and objects that know about that variable. It's the comprehensive list of where that variable is available. We can talk about _scope_ for any variable, or thing that can be accessed.
+The **scope** of a variable is the collection of methods, blocks, and objects that know about that variable.
 
-Local variables are only available inside the block in which they were declared and any of that block's child blocks.
+It's the comprehensive list of where that variable is available. We can talk about scope for any variable, or thing that can be accessed.
 
-What about things like method and block parameters? Turns out these too are local variables, and they follow the same rules as a local variable defined inside their method/block.
+An alternative word for "scope" is **"visibility"**, as in "the visibility of a variable."
+
+When a variable is correctly **within scope**, we are able to read and access that variable.
+
+When a variable is **not within scope** (or "out of scope"), when we try to read or access that variable, we will get an error or unexpected outcome.
+
+### How is Scope Determined Per Variable?
+
+A variable's scope is determined by:
+- What kind of variable it is
+- Where the variable is defined (aka the line number where the variable is introduced for the first time **within this block.**)
+
+**Local variables are only available inside the block in which they were declared,** as well as any of that block's child (or nested, or inner) blocks.
+
+#### Details
+
+When we work with scope correctly, we can make sure that we are accessing the right piece of data from the right variable at the right time, even if this variable shares the name and looks exactly the same as a second variable!
+
+What about things like method and block parameters (the things in `||` that we see in Ruby syntax in Enumerables)? Turns out these too are local variables, and they follow the same rules as a local variable defined inside their method/block.
 
 ### Example: Identifying where and why in or out of scope
 
