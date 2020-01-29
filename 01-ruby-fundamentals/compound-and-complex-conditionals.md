@@ -72,7 +72,7 @@ Here is an abbreviated _Precedence List_ from __highest__ to __lowest__ _precede
 1. `&&`
 1. `||`
 
-__Note:__ _unary +_ and _unary -_ here means assigning a numeric value (_Integer_ or _Float_) as either positive or negative, e.g. `-5`, `-12.2`, `+30` and `+2.0`.
+__Note:__ _unary +_ and _unary -_ here means assigning a numeric value (_Integer_ or _Float_) as either positive or negative, e.g. `-5`, `-12.2`, `+30` and `+2.0`. Thus a number with a _unary +_ is functionaly the same as a number without it. (It doesn't actually do anything.)
 
 When evaluating a complex compound conditional expression, it is nice to visualize the resulting expression. One way to do this is by using a [parse tree](https://en.wikibooks.org/wiki/Introduction_to_Programming_Languages/Precedence_and_Associativity). A parse tree will show the way the result of higher precedence operators are passed to later operations, until you have a result.
 
