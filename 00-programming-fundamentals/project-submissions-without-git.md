@@ -10,7 +10,7 @@ Until we learn how to use `git`, feel free to bookmark and reference this page.
 
 - Understand that, at Ada, in order to submit projects, each person will need to fully open an appropriate Pull Request
 - A Pull Request will require each person to fork the repo from an organization to their personal account, to make code changes, and then to open the PR
-- Understand that each PR should be appropriately named, and should have answers to the comprehension questions
+- Understand that each PR should be appropriately named, and should have answers to the reflection questions
 
 ## Vocabulary
 
@@ -31,7 +31,7 @@ The overall process is such:
 1. Fork the project repo from the Cohort project onto your personal account, so you have your own copy of the repo
 1. On your fork of the repo, create a file, add code to the file, and then commit those changes so they are saved
 1. Begin opening a Pull Request from your repo against the Cohort project repo
-1. Fill out the title and answer the comprehension questions
+1. Fill out the title and answer the reflection questions
 1. Check your work!
 1. Submit
 
@@ -83,7 +83,7 @@ Almost there -- to actually finish project submission, you'll need to open and c
 
 1. The next page should give you details about the PR that you need to fill out. As part of project submission, you will need to fill out the following things:
     1. The title of this PR should be "`<YOUR CLASSROOM NAME> - <YOUR NAME>`", such as "Ports - Dee"
-    1. There should be a bunch of text already filled in as the detail for the PR! This is our way of giving each person project comprehension questions to answer. It is in the format of a table created in `markdown` formatting. Please spend a few minutes filling out an answer for each question, about 1-2 sentences for each answer.
+    1. There should be a bunch of text already filled in as the detail for the PR! This is our way of giving each person project reflection questions to answer. It is in the format of a table created in `markdown` formatting. Please spend a few minutes filling out an answer for each question, about 1-2 sentences for each answer.
 ![PR Details](./images/project-submissions-without-git/open-pr.png)
 
 1. Use the "Preview" tab above the text box to see see what the table of answers will look like
@@ -93,4 +93,4 @@ Almost there -- to actually finish project submission, you'll need to open and c
 
 ## Conclusion
 
-Submitting a project takes around 15 minutes, particularly to answer comprehension questions. Also, there are a lot of things to verify, and submitting a PR with the wrong configuration will lead to your project not submitting correctly. Leave yourself some time to submit each project.
+Submitting a project takes around 15 minutes, particularly to answer reflection questions. Also, there are a lot of things to verify, and submitting a PR with the wrong configuration will lead to your project not submitting correctly. Leave yourself some time to submit each project.
