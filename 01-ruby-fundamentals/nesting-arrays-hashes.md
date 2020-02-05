@@ -130,7 +130,7 @@ Within our _iteration block_, we should write all of the lines of code that need
 
 Similarly, if you need to access a deeper piece of data based on each `item`, then you should use `item` appropriately with the techniques we practiced today.
 
-Even if `item` is one element within the array of `menu`, `item` may represented an array or hash itself.
+Even if `item` is one element within the array of `menu`, `item` may represent an array or hash itself.
 
 #### Iteration Tips
 
