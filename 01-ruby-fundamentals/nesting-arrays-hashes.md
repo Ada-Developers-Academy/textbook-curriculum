@@ -84,16 +84,66 @@ The allergy information for each meal is an array inside a hash inside an array!
 
 ## Using Loops to Iterate Over Nested Structures
 
-Iteration uses the same techniques we discussed above:
+It's nice to be able to access one element at a time, but it requires us to know the **specific and literal** indices and/or keys of the structure, beyond just the structure itself. Can we write code that allows us to access values from nested arrays and hashes?
+
+Yes! If all we know is the **structure** of the data, we can generically access values from the structure using **iteration.**
+
+Read this code sample that combines iteration techniques and accessing from the `menu` variable defined above, and then let's dive into the explanation.
 
 ```ruby
-# Print the name and price of each item on the menu
+# For each item in menu, print to the terminal the item's name and item's price with a hyphen in the middle
 menu.each do |item|
   puts "#{item[:name]} - $#{item[:price]}"
 end
 ```
 
-### Exercises
+<details>
+  <summary>Want to check your understanding on iteration? Here's a review on what iteration is, and all of the vocabulary associated with it</summary>
+  
+### Iteration Review
+
+We can iterate over **any array.** (We can also iterate over other data types, but let's delve into that later.)
+This means that **with the right syntax,** we can execute any amount of code **for each element in the array.**
+
+Being able to **execute code for each element in any given array** is an important skill that we will do _constantly_ in programming. This technique is called **iteration.**
+
+If we know that `menu` is an **array**, then we can use iteration. In Ruby, this means _using an `each` loop_.
+
+To iterate over the `menu` array, we do the following:
+
+1. Determine what the array is (`menu`)
+1. Call the `each` method on the array (`menu.each`)
+1. Define the _iteration block_. This is a fancy phrase that means **start** a block of code with `do`, and end it with `end`. In practicality, programmers tend to forget the name "iteration block," so don't be alarmed if we also call it "the loop" or "the stuff inside the each loop."
+1. Name the _block parameter_. This is the name of a **local variable.** This local variable **represents one element of the array at a time.** In this case, we are saying that each element of the `menu` array will be looked at _one loop at a time,_ and each element will be referenced by the local variable name `item`. In Ruby syntax, we define the name `item` inside of the `||`s, next to `do`. We can name this block parameter _any_ valid variable name.
+    - In practice, the term "block parameter" is very fancy, and programmers tend to forget this name. We may also call this "iteratee" or "iteration variable."
+1. Add the details of the _iteration block_. Between the `do |item|` and the `end`, we can write **any number of lines of code** to execute **for each element in the array.**
+    - Again, to access the value of each element in the array, we reference it by the block parameter, or `item` in this case
+    - Is `item` an array? Then you can use all of the good array syntax to access/read it!
+    - Is `item` a hash? Then you can use all of the good hash syntax to access/read it!
+    - If you're unsure of what data type `item` is, do some debugging work to find out
+
+</details>
+
+### Iteration and Nesting
+
+Within our _iteration block_, we should write all of the lines of code that need to be executed for each element. If we need to print something per `item`, we should write `puts item` here. If we need to create variables, store data, modify data, and/or create data per element, we should do that here.
+
+Similarly, if you need to access a deeper piece of data based on each `item`, then you should use `item` appropriately with the techniques we practiced today.
+
+Even if `item` is one element within the array of `menu`, `item` may represented an array or hash itself.
+
+#### Iteration Tips
+
+- Proper/improper indentation in the code can make or break the readability of your code
+- We do not `return` anything within iteration using `each` loops. In `each` loops, we are simply writing code to execute. We use `return` in order to return a value from a method, or in the future we'll use `return` for very specific pieces of syntax
+- We can also use `each` to iterate over hashes. However, the syntax will need to change, as each item in a hash is not a single _element_, but instead a _key-value pair_. You may need to look up online what this syntax is in Ruby.
+- We can put `each` loops anywhere in our code, as long as it's valid syntax (yes, we can put it in a method!)
+    - ...We can even put `each` loops within each loops
+- Sometimes, we may have a need to exit a loop pre-maturely/before the loop finishes. `each` loops are designed to go for every element, but if you need to have more control over that, you may want to look into the Ruby keywords `break` and/or `next`.
+    - This is useful if you're specifically concerned with how long it takes a loop to run.
+    - Also consider that an `each` loop is not your best solution. :)
+
+### Exercise
 
 Copy the above data into a file, then write code to address the following prompts.
 
