@@ -134,7 +134,7 @@ Even if `item` is one element within the array of `menu`, `item` may represented
 
 #### Iteration Tips
 
-- Proper/improper indentation in the code can make or break you understanding of your code
+- Proper/improper indentation in the code can make or break the readability of your code
 - We do not `return` anything within iteration using `each` loops. In `each` loops, we are simply writing code to execute. We use `return` in order to return a value from a method, or in the future we'll use `return` for very specific pieces of syntax
 - We can also use `each` in hashes. However, the syntax will need to change, as the block parameter in an `each` loop on a hash will not represent every _element_, but every _key-value pair._ You may need to look up online what this syntax is in Ruby.
 - We can put `each` loops anywhere in our code, as long as it's valid syntax (yes, we can put it in a method!)
