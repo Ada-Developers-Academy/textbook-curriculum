@@ -126,7 +126,7 @@ To iterate over the `menu` array, we do the following:
 
 ### Iteration and Nesting
 
-Within our _iteration block_, we should write all of the lines of code that need to execute per element. If we need to print something per `item`, we should write `puts item` here. If we need to create variables, store data, modify data, and/or create data per element, we should do that here.
+Within our _iteration block_, we should write all of the lines of code that need to be executed for each element. If we need to print something per `item`, we should write `puts item` here. If we need to create variables, store data, modify data, and/or create data per element, we should do that here.
 
 Similarly, if you need to access a deeper piece of data based on each `item`, then you should use `item` appropriately with the techniques we practiced today.
 
