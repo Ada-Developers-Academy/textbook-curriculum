@@ -139,6 +139,9 @@ Even if `item` is one element within the array of `menu`, `item` may represented
 - We can also use `each` to iterate over hashes. However, the syntax will need to change, as each item in a hash is not a single _element_, but instead a _key-value pair_. You may need to look up online what this syntax is in Ruby.
 - We can put `each` loops anywhere in our code, as long as it's valid syntax (yes, we can put it in a method!)
     - ...We can even put `each` loops within each loops
+- Sometimes, we may have a need to exit a loop pre-maturely/before the loop finishes. `each` loops are designed to go for every element, but if you need to have more control over that, you may want to look into the Ruby keywords `break` and/or `next`.
+    - This is useful if you're specifically concerned with how long it takes a loop to run.
+    - Also consider that an `each` loop is not your best solution. :)
 
 ### Exercise
 
