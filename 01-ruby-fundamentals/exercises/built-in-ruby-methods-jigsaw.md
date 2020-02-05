@@ -20,7 +20,7 @@ You will want to start with the official Ruby docs for your given method. To fin
 
 1. What does this method do on a high level?
 1. What does it return?
-1. What does the code block do?
+1. What does the code block do? (this question is relevant to only some methods)
 1. What kind of syntax does it require?
 1. What does a code example look like?
 
