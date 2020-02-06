@@ -1,8 +1,9 @@
 # Code Reviews
 
-## Video Lesson
+## Video Lesson & Exercises
 
 - [The Video for this lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=db636763-2c2f-4969-b7a1-aaa80055e5fe)
+- [Exercises](https://github.com/Ada-c12/code-reviews)
 
 ## Learning Goals
 
