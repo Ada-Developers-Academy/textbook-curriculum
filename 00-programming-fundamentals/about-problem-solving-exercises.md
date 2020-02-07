@@ -144,7 +144,7 @@ No. 1 is used to stretch minds. It should feel like a lot of questions, and it s
 
 - The answer is wrong if there aren't 2 examples
 - The answer is wrong if either of them aren't valid/consistent with each other
-- The answer is wrong if the inputs were not arrays, even if it had one or zero restaurants
+- The answer is wrong if the inputs were not arrays, (correct even the array had one or zero restaurants)
 
 #### Reviewing #3 (2 sub-problems):
 
