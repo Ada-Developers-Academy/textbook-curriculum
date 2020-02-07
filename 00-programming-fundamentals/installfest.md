@@ -112,6 +112,14 @@ $  brew cask install visual-studio-code
 
 If you run into trouble installing VS Code, see the note at the bottom.
 
+There are also a number of great extensions for VS Code and these are **recommended but not required**.
+
+- [VS Liveshare](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) - Collaborate online with your code.
+- [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer) - It colors brackets `{ }` in matching colors.
+- [Ruby Extension](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby)
+- [Gitlens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) - Enhancements for git with VS Code
+- [Markdown All-in-one](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one) - Tools to write and preview markdown documents.
+
 ## Git
 
 Git is an open source distributed version control system. We will talk about git in significant detail later. The short version is that we will use Git to version and share our code with others. We will spend a lot of time using Git in the Terminal, so it will become important that we configure the Terminal to have all of our Git preferences it and personalize it with our personal information.
