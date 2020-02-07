@@ -114,8 +114,8 @@ Answer the following prompts:
     1. Will there ever be 0 restaurants? What should happen?
     1. What should I do if there is no rating?
 2. 2 examples
-    1. `[{name: "Grillby's", rating: 1}, {name: "Crow's Nest", rating: 5}]`, `{name: "Crow's Nest", rating: 5}`
-    1. `[{name: "Crow's Nest", rating: 1}]`, `{name: "Crow's Nest", rating: 1}`
+    1. Input: `[{name: "Grillby's", rating: 1}, {name: "Crow's Nest", rating: 5}]`, Output: `{name: "Crow's Nest", rating: 5}`
+    1. Input: `[{name: "Crow's Nest", rating: 1}]`, Output: `{name: "Crow's Nest", rating: 1}`
 3. 2 sub-problems
     1. How do you check/iterate over all of the restaurants?
     1. How do you compare the ratings between restaurants?
