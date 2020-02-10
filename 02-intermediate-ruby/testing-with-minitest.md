@@ -68,7 +68,7 @@ The code we added to `clock_test.rb` will automatically run any tests in the fil
 
 ### Writing Your First Test
 
-To start we'll need to create a `description` block and place our tests inside that block.
+To start we'll need to create a `describe` block and place our tests inside that block.
 
 
 #### Step 1:  Create a `describe` block
