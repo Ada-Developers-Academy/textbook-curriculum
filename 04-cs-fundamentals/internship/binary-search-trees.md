@@ -19,7 +19,7 @@ By the end of this lesson you should be able to:
 
 - [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d9746397-8a10-43be-b1cc-aaaf00720b31)
 - [Slide Deck](https://docs.google.com/presentation/d/16x4oM3euxl3_4IZyv_qj1Yvqp8feVZ8vp-WK_hYAdvA/edit#slide=id.g60ca63e725_0_180)
-- [Binary Trees Practice](https://github.com/Ada-C11/tree-practice)
+- [Binary Trees Practice](https://github.com/Ada-C12/tree-practice)
 
 ## Sample Problem
 
