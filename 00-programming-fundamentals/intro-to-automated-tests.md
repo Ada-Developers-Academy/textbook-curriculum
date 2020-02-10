@@ -109,68 +109,53 @@ Whenever automated unit tests run, we can general expect one of three outcomes:
 
 Over this curriculum, we should find deeper and deeper ways to verify that our code is correct with different testing libraries and syntaxes.
 
-## TDD
-**Test-Driven Development** is a programming technique that requires you to write solution code and automated test code simultaneously. The goal is to use _automated tests_ as a exploration of your code.  So as you make changes, refactor and add features you have tests of older existing features to ensure your new code hasn't broken anything.
+## TDD Helps Us Focus On Correct Code
 
-Note however __tests are transient.__ As you work on a project, your understanding of the problems at hand will change. As they do, your tests will change.
+**Test-Driven Development (TDD)** is a programming workflow technique where we write unit tests **before** and **to drive** writing our source code (solution code/implementation code).
 
+When we use this programming technique, programmers get to use _automated tests_ as a way to explore, build, and test your code as a repeated workflow loop. 
 
 ### How to TDD
-(1) Write a test that describes a feature of the software. Run the test, and watch it fail. Watching it fail is crucial! (2) Write code that makes all the tests pass. (3) Look for opportunities to clarify your code.
+
+Test-Driven-Development follows this process and order. Note that writing the test comes before writing the implementation code. That's the "test-driven" part!
 
 1. Write a test
 1. Watch it fail
 1. Make it pass
-1. Clarify
+1. Refactor
 1. Repeat
 
-You'll often hear this cycle shorthanded as __Red, Green, Refactor__. Write a test and it is __red__ (many testing tools show failing tests in red text). Writing or updating code to make the test pass makes it __green__ (passing tests are usually shown in green text). Before moving on, take a moment to look for emerging patterns, needless duplication, and other opportunities to polish and clarify. This is __refactoring__, updating not to extend functionality, but to increase the clarity and consistency of our code.
+#### TDD is Summarized as "Red, Green, Refactor"
 
 ![Red Green Refactor](images/tdd_flow.gif)
 
-## The Anatomy of a Test
-An _automated test_ is a piece of code in a project that can be run independently to verify the functionality of other code within the project. It exists to verify and clarify the role and use of code in the project. Here's an example of a software test:
+You'll often hear this cycle shorthanded as __Red, Green, Refactor__.
 
-```ruby
-def exponate(base, power)
-  base ** power
-end
+1. Write a test that describes a feature of the software.
+1. Run the test, and watch it fail. Watching it fail is crucial! This helps us confirm that the test is working as expected: we **should** get a test failure (or reasonable error) before the implementation code is written. This is watching a test result in **red** (or not passing the test).
+1. Write code that makes all the tests pass. This makes the test **green.**
+1. Look for opportunities to improve your code. This is most appropriate time to **refactor**-- after you have a messy working solution. This step does not add functionality.
 
-puts exponate(2,2) == 4
-puts exponate(3,2) == 9
-puts exponate(2,10) == 1024
-```
+Don't forget to make sure that your tests are still passing after the refactor!
 
-The `puts` statements are _testing_ that the `exponate` method is doing what we expect. We can create _automated tests_ from this example by extracting the _tests_ into their own file:
+#### TDD Checks Our Code As We Go
 
-```ruby
-# exponate.rb
-def exponate(base, power)
-  base ** power
-end
-```
+So as you make add features, change existing code, and refactor to better quality code, you have tests of older existing features to ensure your new code hasn't broken anything.
 
-```ruby
-# exponate_test.rb
-require_relative './exponate'
+## What Test Cases Should I Write?
 
-puts exponate(2,2) == 4
-puts exponate(3,2) == 9
-puts exponate(2,10) == 1024
-```
+Tests actually have a lot of flexibility in how they're written. The nuance and depth from tests all comes down to how we consider the following:
 
-Now we can run our _test file_ with `$ ruby exponate_test.rb`. We should see output like:
+- What is the method we are testing, and what are all of its responsibilities? What _should_ it be doing?
+- What is any context for this method that we need to set up: What are some example inputs and arguments?
+- Given some specific inputs, what is its **expected value**?
+- What are some possible **actual values** that the method can produce, and **what the actual value's relationship to the expected value**?
 
-```bash
-/Ada/class-exercises $ ruby exponate_test.rb
-true
-true
-true
-```
-__Question: Why bother?__
-In the above example, the code in `exponate_test.rb` are _automated tests_. We can run that file whenever we want to ensure that `exponate` is still performing reasonably. When our requirements change, we can feel secure in changing our code because we have some _tests_ to let us know if we've broken something.
+### Consider the `calculate_sales_tax(cost)` Example
 
-## What Should I Test?
+We may answer the above questions for the example `calculate_sales_tax(cost)` in the following ways:
+
+
 
 More important than how you test your code is what you are testing.  If you're not testing the right things bugs can creep through your tests and into production code.  Many many many developers have trouble knowing **what** to test.   Here are some general guidelines.
 
@@ -243,6 +228,8 @@ How do we deal with this scenario?  There's not an obvious answer.  The program 
 ### The Process of Testing: Arrange-Act-Assert
 
 Testing typically follows this pattern:
+
+Order | Step 
 1. Arrange our code with all our variables and inputs:  **Arrange**
 2. Perform an action which we want to test: **Act**
 3. Check with an expectation if it gives the desired result:  **Assert**
@@ -251,13 +238,22 @@ There are exceptions to this pattern, such as when we only want to test that spe
 
 ## Testing in Ruby
 
-Writing your own tests with puts is wonderful, but it would be handy to have a standard way that developers can use to write tests on their code, a way that other developers understand.  The maintainers of the Ruby language have adopted a testing library called [Minitest](http://docs.seattlerb.org/minitest/) as the default standard for testing in Ruby & later Rails.  For the remainder of your time using Ruby at Ada, we will be using Minitest to write unit-tests for your code.  [RSpec](http://rspec.info/) is another very common testing framework used along with Ruby and Rails. We won't be using it here at Ada but it's good to know about when you're browsing the internet for testing help.  Later in JavaScript we will be using the [Jasmine](https://jasmine.github.io/) BDD framework to test our front-end code.
+It would be handy to have a standard way that developers can use to write tests on their code, a way that other developers understand.
 
-## A Tale of Two Styles
+The maintainers of the Ruby language have adopted a testing library called [Minitest](http://docs.seattlerb.org/minitest/) as the default standard for testing in Ruby & later Rails.  For the remainder of your time using Ruby at Ada, we will be using Minitest to write unit-tests for your code.  [RSpec](http://rspec.info/) is another very common testing framework used along with Ruby and Rails. We won't be using it here at Ada but it's good to know about when you're browsing the internet for testing help.  Later in JavaScript we will be using the [Jasmine](https://jasmine.github.io/) BDD framework to test our front-end code.
 
-In the TDD World there are two styles of testing.  In the first more traditional method people use *assertions* which are statements that check if a value is what it should be.  The other method is a subset of TDD, called Behavior-Driven Development (BDD) which accomplishes the same thing in a more English-friendly fashion business analysts can understand.  At Ada we will use the second BDD style of testing.  You should know assertion-style testing is a thing, and that it accomplishes the same job as our behavior-driven development, but we will not require you to write assertion-style tests.
+<!-- ## A Tale of Two Styles
+
+In the TDD World there are two styles of testing.  In the first more traditional method people use *assertions* which are statements that check if a value is what it should be.  The other method is a subset of TDD, called Behavior-Driven Development (BDD) which accomplishes the same thing in a more English-friendly fashion business analysts can understand.  At Ada we will use the second BDD style of testing.  You should know assertion-style testing is a thing, and that it accomplishes the same job as our behavior-driven development, but we will not require you to write assertion-style tests. -->
+
+#### Code Will Change, But Our Tests Will Be There For Us
+
+We should run our **entire** automated unit test suite often. When our requirements change, we can feel secure in changing our code because we have some _tests_ to let us know if we've broken something.
+
+__Tests are transient.__ As you work on a project, your understanding of the problems at hand will change. As they do, your tests will change.
 
 
+Keep in mind the balance between evolving requirements, evolving tests, and tests that should stay the same. This balance will change with every task.
 
 ## Summary
 
