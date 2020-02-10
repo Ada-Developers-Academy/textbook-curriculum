@@ -72,6 +72,10 @@ $ gem install debase
 
 Please run them now.
 
+## Install Ruby plugin to VSCode
+
+By clicking on [this link](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby) you can install the Ruby plugin to VS Code if you haven't done that already.
+
 ## Configuring the Debugger
 
 VS Code, being language agnostic, doesn't have an internally implemented script that knows how to launch, run and hook into every single kind of program. Instead, it talks to other scripts and tools like the gems we just downloaded, and has generic functionality which those external tools can hook into. When we set up projects in VS Code, we create a series of configurations that VS Code stores in a file called `launch.json` in a folder called `.vscode`. However, if we set our project up this way, we would need to add that `.vscode` folder to every project we ever make. Nobody would do it. Instead, we will set up a global set of configurations in our VS Code settings.
@@ -103,9 +107,11 @@ The code below represents a way in which we can launch our debugger on a ruby fi
 }
 ```
 
-when you are finished, it should look approximately like this:
+When you are finished, it should look approximately like this:
 
 ![The functional part of the json is in a field called 'launch' within the settings json.](images/debug_settings_3.png "The functional part of the json is in a field called 'launch' within the settings json")
+
+You may need to add a comma to the end of the line before the section you just added if it isn't already there. (Notice the comma after "off" in the above screenshot.)
 
 As you work in new languages and with new tools, you will add more debugging configs to this file. As you can see, the image above is truncated, as the instructors already have a variety of debugging configurations. 
 
