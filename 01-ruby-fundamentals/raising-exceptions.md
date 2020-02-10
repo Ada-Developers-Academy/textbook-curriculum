@@ -187,6 +187,8 @@ Later in the curriculum we will learn:
 
 Now that we have more to read in our Terminal, it's good to note that Warnings are not Exceptions or Errors. If you see a "Warning" in your Terminal but your code still runs, it's not the same as an Error or Exception halting your code.
 
+Just because a Warning doesn't stop your program from running doesn't mean we can just ignore them! Warnings are a way for the people who make Ruby to let you know that you're doing something dangerous, or confusing, or to try and tell you that your code might be doing something that you didn't intend!
+
 ## Summary
 
 In this lesson we have seen that an exception is a indication of a problem in your application.  When an exception occurs the method or block is immediately exited and ruby continues to retrace through the the call stack until the program ends and produces a _stack trace_ which lists the methods and line numbers which can help the programmer debug the application. We have also seen how we can raise our own `ArgumentError` Exceptions and how it can help prevent our methods from being called with invalid arguments.
