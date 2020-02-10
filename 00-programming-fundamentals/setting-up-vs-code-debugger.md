@@ -13,55 +13,6 @@ On the most basic level, a Text Editor will do just that: let you edit the words
 
 __Note: If anyone ever tells you that "real developers only use [their personal favorite tool]", laugh in their face and walk away from that conversation.__
 
-## Setting Up
-The relationship between VS Code and Ruby is still in its infancy, so many of the tools that we regularly use in other languages (such as C++, Javascript or Ook) aren't immediately accessible. Our process will be:
-
-1. Set up the file we want to debug
-1. Make sure we have the proper gems on our machine
-1. Configure our `launch.json` in our `.vscode` folder
-1. Set our breakpoint
-1. Debug our code
-
-Copy and paste the following code into a new `.rb` file:
-
-```ruby
-# my_efficient_and_clever_program.rb
-
-# definitely always sums the two numbers you give it.
-def cool_sum_func(a, b)
-  puts "a = #{a}"
-  puts "b = #{b}"
-
-  #completely necessary if-else
-  if a % 2 == 0
-    return add_them(a, b)
-  else
-    b += 2
-    return subtract_them(a, b)
-  end
-end
-
-#adds two numbers
-def add_them(a, b)
-  return a + b
-end
-
-#subtracts b from a
-def subtract_them(a, b)
-  return a - b
-end
-
-
-left_num = 5
-right_num = 3
-
-sum = cool_sum_func(left_num, right_num)
-
-puts sum
-```
-
-This is some very dopey code, but it will show us a lot about how the debugger gives us information.
-
 ## Get Relevant Gems and Extensions
 If you have not already run the following:
 
