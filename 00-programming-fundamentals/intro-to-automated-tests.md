@@ -1,8 +1,113 @@
 # Introduction to Automated Testing
+
+## Intro: How Do We Verify Our Code is Working?
+
+Think about a previous coding project.
+
+What was one project requirement? How did you meet that project requirement?
+
+How did you know that you fully met that project requirement?
+
+How did you know that your project was working **as expected**?
+
+<details>
+
+  <summary>Take a few minutes to consider, and check your list of strategies against ours.</summary>
+
+  To verify that our code meets the given requirement, we probably employed any number of these:
+
+1. Figure out "what the correct, expected output is," THEN run the Ruby program, and then compare it to what we see on the screen. We need to make sure that our output gets `puts`ed onto the screen.
+1. Check that our code's logic makes sense. We need to make sure through reading code that our actual output can possibly create the correct solution.
+1. Ask someone else if our code is correct. We need to make sure that this person understands what "correct" means, and how to check our program.
+</details>
+
+### But All Of These Strategies Require Clarity, Comparison, and Time
+
+All of our strategies to verify code correctness have a few things in common: the strategies show that we need clarity, the ability to compare, and time.
+
+#### Our Example: Imagine the Method `calculate_sales_tax(cost)`
+
+For our intro example, imagine that Becca has a file `calculator.rb`. In Becca's file, she has a method named `calculate_sales_tax(cost)`, which is a method that takes in a Float `cost`, and `return`s a Float that is the tax for that cost.
+
+Imagine that we need to verify if Becca's method `calculate_sales_tax(cost)` is accurate or not.
+
+**However, we have one hiccup:** We can run `calculate_sales_tax(cost)` as many times as we want, with whatever argument, but we cannot look at Becca's method.
+
+#### Clarity
+
+In order to verify that the code is correct, **we need to understand what correct means.** Observe the vocabulary, definitions, and example below for some vocabulary that will help us find clarity.
+
+| Concept | Definition | Example
+| --- | --- | --- |
+| What piece of code are we verifying? | What is method that we're testing? | `calculate_sales_tax(cost)`
+| Context | What things need to be _set up_ in order for us to call this method? | What is the argument `cost` going to be? We may say one time that `cost = 17.00`
+| Expected Value | Given the context we set up, what is the _literal value_ that the code _should_ produce. What is the _answer_ that we can **expect** to see, if everything is working correctly? | If we go by Seattle's sales tax of 10.1%, then the **expected value** is `1.717`.
+| Actual Value | What do we get when we _actually_ run this method, with this context (argument)? | Let's imagine in this example that we got `1.7` from `calculate_sales_tax(17.00)`
+
+When we have this vocabulary, we may be able to conclusively say:
+
+- When we run `calculate_sales_tax(cost)`...
+- with the context of passing `17.00` as cost...
+- we **expect** to get back `1.717`...
+- even if we may **actually** get `1.7`
+
+#### Comparison
+
+Once we have a grasp on what our expected value is and our actual value is, we need to be able to compare.
+
+So far as programmers, we probably used our Human Abilities to do this comparison.
+
+This probably actually used a bunch of steps:
+
+1. We wrote down on a piece of paper that the expected answer is `1.717`
+2. We programmed in our `calculate_sales_tax(cost)` method OR in our `calculator.rb` file a `puts` statement to print out the actual value
+3. We opened Terminal to run `$ ruby calculator.rb`
+4. We read through the program output in Terminal to look for the actual value, `1.7`
+5. We used mental comparison to prove that `1.717` is not equal to `1.7`
+6. We expected that our expected value would equal the actual value... And because `1.717` is not `1.7`, then our method is not correct
+
+#### Time
+
+Being able to spell out all of this detail, and _then_ run `$ ruby calculator.rb` took a few minutes... Which is fine.
+
+But what happens when we need to verify that our code is correct _every time we change the code_?
+
+These minutes add up, very quickly.
+
 ## Learning Goals
+- Learn about how automated unit tests are used to verify code correctness
 - Learn about _Test Driven Development_ (TDD)
 - Be able to explain how the Red-Green-Refactor cycle works
-- Be able to recognize the two testing styles
+
+## Automated Unit Tests are Used to Verify Code Correctness
+
+In order to participate in the huge software industry, programmers need to _ensure_ that their code is "correct," whatever "correct" may mean.
+
+If humans/programmers are able to determine what "correct" means, then humans/programmers can use **automated unit tests** to verify that their code is correctly in a much more clear, readable and scalable, and faster way.
+
+**An automated unit test suite** is a set of code that is written to verify that code is correct.
+
+By default, a programmer should supply:
+- The source code (the code to test)
+- Any context
+- What the expected value is
+- How to compare expected and actual
+
+### Running the Tests Produces Failures or Passes
+
+When a programmer supplies all of these details, especially any details about _comparison_, then they can _run_ the unit tests.
+
+Whenever automated unit tests run, we can general expect one of three outcomes:
+
+| Outcome | Description | Example | "Color" |
+| --- | --- | --- | --- |
+| Pass | There was a line in the unit test that expressed the expected relationship between expected value vs. actual value, and this expectation was met. | We expect an expected value `100` to equal the actual value `100`, and it does! | "Green"
+| Fail |  There was a line in the unit test that expressed the expected relationship between expected value vs. actual value, and this expectation was **NOT** met.  | We expect an expected value `100` to equal the actual value `999`, and it does not. | "Red"
+| Error | There was an Exception that was raised before the test could finish. This test cannot "pass" or "fail" because the code stopped prematurely | We may see a `SyntaxError` and the stack trace related to it instead of "pass" or "fail" | N/A
+
+### We Will Write and Use Unit Tests
+
+Over this curriculum, we should find deeper and deeper ways to verify that our code is correct with different testing libraries and syntaxes.
 
 ## TDD
 **Test-Driven Development** is a programming technique that requires you to write solution code and automated test code simultaneously. The goal is to use _automated tests_ as a exploration of your code.  So as you make changes, refactor and add features you have tests of older existing features to ensure your new code hasn't broken anything.
