@@ -1,5 +1,12 @@
 # Introduction to Automated Testing
 
+## Learning Goals
+- Learn about how automated unit tests are used to verify code correctness
+- Define what "expected value" and "actual value" are in a test case
+- Define what a test "pass" vs. "failure" are
+- Consider the categories "positive nominal," "negative nominal," "positive edge," and "negative edge" in order to model different tests cases to construct
+- Learn about _Test Driven Development_ (TDD) and its Red-Green-Refactor cycle
+
 ## Intro: How Do We Verify Our Code is Working?
 
 Think about a previous coding project.
@@ -74,18 +81,13 @@ But what happens when we need to verify that our code is correct _every time we 
 
 These minutes add up, very quickly.
 
-## Learning Goals
-- Learn about how automated unit tests are used to verify code correctness
-- Learn about _Test Driven Development_ (TDD)
-- Be able to explain how the Red-Green-Refactor cycle works
-
 ## Automated Unit Tests are Used to Verify Code Correctness
 
 In order to participate in the huge software industry, programmers need to _ensure_ that their code is "correct," whatever "correct" may mean.
 
 If humans/programmers are able to determine what "correct" means, then humans/programmers can use **automated unit tests** to verify that their code is correctly in a much more clear, readable and scalable, and faster way.
 
-**An automated unit test suite** is a set of code that is written to verify that code is correct.
+**An automated unit test suite** is a set of code that is written and run to verify that code is correct.
 
 By default, a programmer should supply:
 - The source code (the code to test)
@@ -95,7 +97,7 @@ By default, a programmer should supply:
 
 ### Running the Tests Produces Failures or Passes
 
-When a programmer supplies all of these details, especially any details about _comparison_, then they can _run_ the unit tests.
+When a programmer supplies all of these details, then they can _run_ the unit tests.
 
 Whenever automated unit tests run, we can general expect one of three outcomes:
 
@@ -105,46 +107,9 @@ Whenever automated unit tests run, we can general expect one of three outcomes:
 | Fail |  There was a line in the unit test that expressed the expected relationship between expected value vs. actual value, and this expectation was **NOT** met.  | We expect an expected value `100` to equal the actual value `999`, and it does not. | "Red"
 | Error | There was an Exception that was raised before the test could finish. This test cannot "pass" or "fail" because the code stopped prematurely | We may see a `SyntaxError` and the stack trace related to it instead of "pass" or "fail" | N/A
 
-### We Will Write and Use Unit Tests
-
-Over this curriculum, we should find deeper and deeper ways to verify that our code is correct with different testing libraries and syntaxes.
-
-## TDD Helps Us Focus On Correct Code
-
-**Test-Driven Development (TDD)** is a programming workflow technique where we write unit tests **before** and **to drive** writing our source code (solution code/implementation code).
-
-When we use this programming technique, programmers get to use _automated tests_ as a way to explore, build, and test your code as a repeated workflow loop. 
-
-### How to TDD
-
-Test-Driven-Development follows this process and order. Note that writing the test comes before writing the implementation code. That's the "test-driven" part!
-
-1. Write a test
-1. Watch it fail
-1. Make it pass
-1. Refactor
-1. Repeat
-
-#### TDD is Summarized as "Red, Green, Refactor"
-
-![Red Green Refactor](images/tdd_flow.gif)
-
-You'll often hear this cycle shorthanded as __Red, Green, Refactor__.
-
-1. Write a test that describes a feature of the software.
-1. Run the test, and watch it fail. Watching it fail is crucial! This helps us confirm that the test is working as expected: we **should** get a test failure (or reasonable error) before the implementation code is written. This is watching a test result in **red** (or not passing the test).
-1. Write code that makes all the tests pass. This makes the test **green.**
-1. Look for opportunities to improve your code. This is most appropriate time to **refactor**-- after you have a messy working solution. This step does not add functionality.
-
-Don't forget to make sure that your tests are still passing after the refactor!
-
-#### TDD Checks Our Code As We Go
-
-So as you make add features, change existing code, and refactor to better quality code, you have tests of older existing features to ensure your new code hasn't broken anything.
-
 ## How Do We Construct a Test Case?
 
-Test cases are lists of specific scenarios used to verify that code is working. How do we construct a test case?
+A single test case is one single specific scenario used to verify that the code is working in one aspect. How do we construct a test case?
 
 Tests actually have a lot of flexibility in how they're written. The nuance and depth from tests all comes down to how we consider the following:
 
@@ -251,6 +216,8 @@ else
 end
 ```
 
+This is a totally valid way to verify that our code works in Ruby when a unit test suite is not required.
+
 ### Our Testing Library in Ruby is Minitest
 
 It would be handy to have a standard way that developers can use to write tests on their code, especially a way that other developers understand.
@@ -284,7 +251,36 @@ There are exceptions to this pattern, but you will see the arrange-act-assert pa
 
 In the TDD World there are two styles of testing.  In the first more traditional method people use *assertions* which are statements that check if a value is what it should be.  The other method is a subset of TDD, called Behavior-Driven Development (BDD) which accomplishes the same thing in a more English-friendly fashion business analysts can understand.  At Ada we will use the second BDD style of testing.  You should know assertion-style testing is a thing, and that it accomplishes the same job as our behavior-driven development, but we will not require you to write assertion-style tests. -->
 
-#### Code Will Change, But Our Tests Will Be There For Us
+## TDD Helps Us Focus On Correct Code
+
+**Test-Driven Development (TDD)** is a programming workflow technique where we write unit tests **before** and **to drive** writing our source code (solution code/implementation code).
+
+When we use this programming technique, programmers get to use _automated tests_ as a way to explore, build, and test your code as a repeated workflow loop.
+
+### How to TDD
+
+Test-Driven-Development follows this process and order. Note that writing the test comes before writing the implementation code. That's the "test-driven" part!
+
+1. Write a test
+1. Watch it fail
+1. Make it pass
+1. Refactor
+1. Repeat
+
+#### TDD is Summarized as "Red, Green, Refactor"
+
+![Red Green Refactor](images/tdd_flow.gif)
+
+You'll often hear this cycle shorthanded as __Red, Green, Refactor__.
+
+1. Write a test that describes a feature of the software.
+1. Run the test, and watch it fail. Watching it fail is crucial! This helps us confirm that the test is working as expected: we **should** get a test failure (or reasonable error) before the implementation code is written. This is watching a test result in **red** (or not passing the test).
+1. Write code that makes all the tests pass. This makes the test **green.**
+1. Look for opportunities to improve your code. This is most appropriate time to **refactor**-- after you have a messy working solution. This step does not add functionality.
+
+Don't forget to make sure that your tests are still passing after the refactor!
+
+#### TDD Checks Our Code As We Go
 
 We should run our **entire** automated unit test suite often. When our requirements change, we can feel secure in changing our code because we have some _tests_ to let us know if we've broken something.
 
@@ -292,9 +288,26 @@ __Tests are transient.__ As you work on a project, your understanding of the pro
 
 Keep in mind the balance between evolving requirements, evolving tests, and tests that should stay the same. This balance will change with every task.
 
-## Summary
+## Summary and Discussion Questions
 
-So you've been introduced to the concept of TDD and how, without a framework, you could write some tests yourself.  You have also read about the Red-Green-Refactor cycle and why it can be so powerful.  We also looked at what types of things we should test and had a brief introduction to testing in Ruby with Minitest.
+Writing tests is a practiced skill, with a little bit of art to it.
+
+It requires patience in order to question constantly:
+
+- What is this method supposed to do?
+- How can I verify that it's working?
+- What are all of the possible, reasonable test cases that I can write to verify that it's working?
+- How do I write it?
+
+We will slowly build on these skills.
+
+Consider these discussion questions about this material:
+
+1. What are automated unit tests? What do we mean by "expected value" and "actual value" when constructing a test case?
+1. When does a test "pass"? When does it "fail"?
+1. What does a "nominal case" in tests mean? What does "edge case" mean?
+1. What is Act-Arrange-Assert?
+1. What is Red-Green-Refactor?
 
 ## Resources
 -  [Source of TDD Image](http://luizricardo.org/2014/05/is-tdd-dead/)
