@@ -229,22 +229,56 @@ A **negative edge test case** is a test case that test that this method can hand
 Some negative edge case inputs to consider are:
 - What if `cost` is not a number?
 
+## Testing in Ruby
+
+Validating our code is something that we've been doing, and will continue to do!
+
+In general, we've been validating our code manually-- by running our code, and checking our code and Terminal output against what's in our brains.
+
+We also have been manually testing our code in Ruby code, with `puts` statements and conditional logic.
+
+Consider the following code:
+
+```ruby
+my_test_input = 17.00
+expected_value = 1.717
+actual_value = calculate_sales_tax(my_test_input)
+
+if (expected_value == actual_value)
+  puts "Your calculate_sales_tax method correctly calculated the sales tax of #{my_test_input}!"
+else
+  puts "Something was wrong... your calculate_sales_tax method was not accurate"
+end
+```
+
+### Our Testing Library in Ruby is Minitest
+
+It would be handy to have a standard way that developers can use to write tests on their code, especially a way that other developers understand.
+
+The maintainers of the Ruby language have adopted a testing gem called [Minitest](http://docs.seattlerb.org/minitest/) as the default standard for testing in Ruby & later Rails. For the remainder of your time using Ruby at Ada, we will be using Minitest to write unit-tests for your code.
+
+Minitest will introduce proper syntax for how to actually go for test case description, to an automated test suite we can run in Terminal.
+
 ### The Process of Testing: Arrange-Act-Assert
 
-Testing typically follows this pattern:
+After we consider the test cases we need to write, we must begin the process of writing Ruby code with Minitest!
 
-Order | Step 
+When we actually start writing test cases, we will typically follow this pattern:
+
+For every test case:
 1. Arrange our code with all our variables and inputs:  **Arrange**
 2. Perform an action which we want to test: **Act**
 3. Check with an expectation if it gives the desired result:  **Assert**
 
-There are exceptions to this pattern, such as when we only want to test that specific methods exist (no actions), but you will see the arrange-act-assert pattern over and over again in many languages and frameworks.
+This kind of looks familiar! Consider making the following comparisons with the vocabulary we used to construct test cases earlier:
 
-## Testing in Ruby
+| Step | Part of the Test Case We Described Earlier |
+| --- | --- |
+| Arrange | The setup of _context_ that we described earlier (what are our inputs and arguments?)
+| Act | The method that we are verifying and testing
+| Assert | The combination of expected value, actual value, and their relationship
 
-It would be handy to have a standard way that developers can use to write tests on their code, a way that other developers understand.
-
-The maintainers of the Ruby language have adopted a testing library called [Minitest](http://docs.seattlerb.org/minitest/) as the default standard for testing in Ruby & later Rails.  For the remainder of your time using Ruby at Ada, we will be using Minitest to write unit-tests for your code.  [RSpec](http://rspec.info/) is another very common testing framework used along with Ruby and Rails. We won't be using it here at Ada but it's good to know about when you're browsing the internet for testing help.  Later in JavaScript we will be using the [Jasmine](https://jasmine.github.io/) BDD framework to test our front-end code.
+There are exceptions to this pattern, but you will see the arrange-act-assert pattern over and over again in many languages and frameworks.
 
 <!-- ## A Tale of Two Styles
 
@@ -255,7 +289,6 @@ In the TDD World there are two styles of testing.  In the first more traditional
 We should run our **entire** automated unit test suite often. When our requirements change, we can feel secure in changing our code because we have some _tests_ to let us know if we've broken something.
 
 __Tests are transient.__ As you work on a project, your understanding of the problems at hand will change. As they do, your tests will change.
-
 
 Keep in mind the balance between evolving requirements, evolving tests, and tests that should stay the same. This balance will change with every task.
 
