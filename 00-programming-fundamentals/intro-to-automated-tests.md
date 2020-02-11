@@ -142,7 +142,9 @@ Don't forget to make sure that your tests are still passing after the refactor!
 
 So as you make add features, change existing code, and refactor to better quality code, you have tests of older existing features to ensure your new code hasn't broken anything.
 
-## What Test Cases Should I Write?
+## How Do We Construct a Test Case?
+
+Test cases are lists of specific scenarios used to verify that code is working. How do we construct a test case?
 
 Tests actually have a lot of flexibility in how they're written. The nuance and depth from tests all comes down to how we consider the following:
 
@@ -155,75 +157,77 @@ Tests actually have a lot of flexibility in how they're written. The nuance and 
 
 We may answer the above questions for the example `calculate_sales_tax(cost)` in the following ways:
 
+Responsibilities:
 
+1. The method is responsible for calculating sales tax when given a total cost
+2. The method is responsible for giving the sales tax in dollar amount, as a number, not rounded, not as a string
+3. The method is responsible for returning `0` if `cost` is a number `0` or less
+4. The method is responsible for raising an `ArgumentError` if `cost` is not a number
 
-More important than how you test your code is what you are testing.  If you're not testing the right things bugs can creep through your tests and into production code.  Many many many developers have trouble knowing **what** to test.   Here are some general guidelines.
+Example Inputs, their expected value, and their relationship to the actual value:
 
-*  Look at your code for branches (if statements and loops) and make sure that each branch of execution is tested.
-*  Test your methods with edge case values.
-	*  For example if your method takes an integer as a parameter you would test it with a positive number, a negative number and zero.
-	*  If your method took an array as a parameter you would test it with an empty array, a one element array and a large array.  
-*  Think about how someone might misuse your method, check for invalid or weird input.  If someone can break your code... they will.
+1. `17.00`, `1.717`, the actual value should be equal to this expected value
+2. `777.77`, `78.55477`, the actual value should be equal to this expected value
+3. `-88`, `0`, `cost` is less than or equal to `0`, AND the actual value should be equal to this expected value
+4. `9banana`, the program should raise an ArgumentError, the program should raise an ArgumentError
 
-### A More Practical Example
+This list of example inputs, expected values, and their relationship to actual values are actually all **test cases**!
 
-Lets consider a class designed to embody the concept of a bill.  This could be a grocery store bill, an online bill from a store, or anything that takes in a list of items with prices and calculates a subtotal, tax and total price.  
+## Different Types of Test Cases
 
-In Ruby `Bill` could look like:
+The following section describes these four types of test cases:
 
-```ruby
-class Bill
-  def initialize(items)
-    #...
-  end
+1. Positive Nominal Test Cases
+2. Negative Nominal Test Cases
+3. Positive Edge Test Cases
+4. Negative Edge Test Cases
 
-  def subtotal
-    #...    
-  end
+What kind, how many, and how we write these test cases will change based on the situation. Sometimes we won't find any test cases within a certain category!
 
-  def tax
-    #...    
-  end
+How we categorize test cases isn't that important. **What's important is being able to consider all of the possible test cases.**
 
-  def total
-    #...    
-  end
-end
-```
+### The Obvious Test Case is the Nominal Test Case
 
-We will give each `Bill` a list of prices for individual items and it should be able to:
+Consider the test cases we listed above.
 
-- Calculate the subtotal before taxes
-- Calculate the sales taxes
-- Calculate the total amount owed
+When we say that we must test that `calculate_sales_tax(cost)` is a correct method, which of these test cases is "the most obvious" test case that we **DEFINITELY** need to check?
 
-So when we test the Bill class we will need to test both _nominal cases_, where we test that your code works normally, and _edge cases_ where you test the borders of possible inputs.  Anytime you think of a scenario where you say, "Huh that's interesting,"" or "I dunno," you're probably at an _edge case_.
+**A nominal test case** is a type of test case that describes a piece of _core functionality_ needed for the success of this method. This **is the test case that verifies that the method does its primary responsibility.**
 
-#### Nominal Cases
+A test suite, comprised of many test cases, may have many nominal test cases.
 
-Some nominal cases include:
+#### Positive Nominal Test Cases and Negative Nominal Test Cases
 
-- Can I create a `Bill` with a list of normal prices?
-- Given a created `Bill` does it calculate the subtotal correctly?
-- Given a created `Bill` does it calculate the proper sales tax?
-- Given a created `Bill` does it calculate the proper total, including tax?
+A **positive nominal test case** is a type of test case that describes a set of inputs and expectations of the most obvious, most typical use of the method to show **it works as expected.**
 
-For every method you create you should include **at least one nominal test.**
+Example: We may test that the `calculate_sales_tax(cost)` method does work with the most obvious, most typical use case. If we give the method a number (`17.00`),
+  - we should get back a number (`1.717`)
+  - we should get it back in a certain format (as a number, not as a formatted String)
 
-#### Edge Cases
+A **negative nominal test case** is a test case of the most obvious, most typical way that this method can handle unexpected input.
 
-Edge cases push the bounds of what's normal.  Given our Bill example, the input is a list of prices, thus a good edge case might include:
+Example: We may test that the `calculate_sales_tax(cost)` method gracefully handles the most obvious, most typical case that it could break. If we give the method the non-number input `9banana`, we should get back an error.
 
--  Can I create a `Bill` with an empty list?
+### The Non-Obvious Test Case is the Edge Test Case
 
-In Ruby this might look like `Bill.new([])`.  It could easily happen through a programming error, or an end-user mistake.  
+**An edge test case** is a type of test case that verifies that the method can work successfully, even given non-obvious context. This **is the test case that verifies that the method works, even with very unexpected context.**
 
-How do we deal with this scenario?  There's not an obvious answer.  The program could work fine returning zero for `Bill#subtotal`, `Bill#tax` and `Bill#total`, or it could raise an error, or something else.  Because it's not immediately obvious it makes a clear _edge case_.  You, as the designer, have to decide on the proper behavior and should write a test for it.  
+A test suite, comprised of many test cases, may have many nominal test cases.
 
-**Questions:**
+#### Positive Edge Cases and Negative Edge Cases
 
--  Are there any other edge cases, or variations on input you should test for when you create a `Bill`?  
-- Are there edge cases to test for with `Bill#tax`, `Bill#total`, or `Bill#subtotal`
+A **positive edge test case** is a test case that describes a set of inputs and expectations that are on the limits of the method's most obvious, most typical way of working successfully.
+
+Some positive edge case inputs to consider are:
+- What if the input is huge, bigger than most expected data? For example, what if `cost` was the value `999 999 999 999 999 999 999 999 999`?
+- ... or smaller than expected? Like `0.00001`?
+- What if `cost` is `0`?
+- What if `cost` is a negative number?
+
+A **negative edge test case** is a test case that test that this method can handle the most non-obvious, most atypical unexpected input.
+
+Some negative edge case inputs to consider are:
+- What if `cost` is not a number?
 
 ### The Process of Testing: Arrange-Act-Assert
 
