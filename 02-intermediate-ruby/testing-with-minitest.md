@@ -261,7 +261,7 @@ You may remember from the [Introduction to Automated Testing](../00-programming-
 
 <details>
 <summary>
-<b>Question:</b> Are there other edge-cases we should test for?  Do any other inputs cause different behaviors in the method?  Talk about it with your SeatSquad members, and click here for an answer if you are still unsure.
+<b>Question:</b> Are there other edge-cases we should test for?  Do any other inputs cause different behaviors in the method?  Talk about it with your neighbors, and click here for an answer if you are still unsure.
 </summary>
 
 - You should also test numbers less than 10
@@ -290,7 +290,7 @@ Notice that you **can** use multiple expectations per test.
 
 #### Make it pass
 
-**Exercise** Now with your SeatSquad write code to make the test pass.  Remember to run `ruby clock_test.rb` to verify that your `clock` method passes.  If you get stuck you can refer to [my sample solution](https://github.com/AdaGold/clock/commit/56259f91df17a3f6e18872fd661db8eddfc93786).
+**Exercise** Now with your neighbors write code to make the test pass.  Remember to run `ruby clock_test.rb` to verify that your `clock` method passes.  If you get stuck you can refer to [my sample solution](https://github.com/AdaGold/clock/commit/56259f91df17a3f6e18872fd661db8eddfc93786).
 
 
 ### Testing for Errors
