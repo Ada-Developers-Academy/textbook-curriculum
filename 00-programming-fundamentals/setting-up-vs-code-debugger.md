@@ -37,7 +37,7 @@ Using `⌘,` or  the drop down menu as seen below, open the settings menu.
 
 ![Drop down Code, drop down Preferences, click Settings.](images/debug_settings_1.png "Drop down Code, drop down Preferences, click Settings.")
 
-When you have opened the settings, the bar at the top will have a curly brace icon as seen below. Clicking on it will open your `settings.json` for VS Code.
+When you have opened the settings, the bar at the top will have an icon that looks like a page with an arrow on top as seen below. Clicking on it will open your `settings.json` for VS Code.
 
 ![The settings page has a pair of curly braces to the right {}.](images/debug_settings_2.png "The settings page has a pair of curly braces to the right {}.")
 
