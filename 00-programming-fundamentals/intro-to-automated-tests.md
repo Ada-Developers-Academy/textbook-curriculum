@@ -226,7 +226,7 @@ The maintainers of the Ruby language have adopted a testing gem called [Minitest
 
 Minitest will introduce proper syntax for how to actually go for test case description, to an automated test suite we can run in Terminal.
 
-### The Process of Testing: Arrange-Act-Assert
+### The Components of a Written Test: Arrange-Act-Assert
 
 After we consider the test cases we need to write, we must begin the process of writing Ruby code with Minitest!
 
