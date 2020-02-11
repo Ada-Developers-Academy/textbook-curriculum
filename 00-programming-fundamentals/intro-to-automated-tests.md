@@ -34,7 +34,7 @@ All of our strategies to verify code correctness have a few things in common: th
 
 #### Our Example: Imagine the Method `calculate_sales_tax(cost)`
 
-For our intro example, imagine that Becca has a file `calculator.rb`. In Becca's file, she has a method named `calculate_sales_tax(cost)`, which is a method that takes in a Float `cost`, and `return`s a Float that is the tax for that cost.
+For our lesson's example, imagine that Becca has a file `calculator.rb`. In Becca's file, she has a method named `calculate_sales_tax(cost)`, which is a method that takes in a Float `cost`, and `return`s a Float that is the tax for that cost.
 
 Imagine that we need to verify if Becca's method `calculate_sales_tax(cost)` is accurate or not.
 
@@ -194,7 +194,7 @@ A **negative edge test case** is a test case that test that this method can hand
 Some negative edge case inputs to consider are:
 - What if `cost` is not a number?
 
-## Testing in Ruby
+## Writing Tests in Ruby
 
 Validating our code is something that we've been doing, and will continue to do!
 
@@ -280,7 +280,7 @@ You'll often hear this cycle shorthanded as __Red, Green, Refactor__.
 
 Don't forget to make sure that your tests are still passing after the refactor!
 
-#### TDD Checks Our Code As We Go
+### TDD Checks Our Code As We Go
 
 We should run our **entire** automated unit test suite often. When our requirements change, we can feel secure in changing our code because we have some _tests_ to let us know if we've broken something.
 
