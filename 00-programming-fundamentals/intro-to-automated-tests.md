@@ -305,6 +305,7 @@ Consider these discussion questions about this material:
 
 1. What are automated unit tests? What do we mean by "expected value" and "actual value" when constructing a test case?
 1. When does a test "pass"? When does it "fail"?
+1. What are the steps to constructing a test case?
 1. What does a "nominal case" in tests mean? What does "edge case" mean?
 1. What is Act-Arrange-Assert?
 1. What is Red-Green-Refactor?
