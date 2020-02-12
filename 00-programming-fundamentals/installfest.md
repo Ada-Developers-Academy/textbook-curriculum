@@ -195,3 +195,19 @@ You can fix it by going to **System Preferences-->Security & Privacy** and selec
 ![Security & Privacy](images/security-and-privacy.png)
 
 ![Open anyway](images/open-anyway.jpg)
+
+
+## Optional - Rectangle
+
+[Rectangle](https://github.com/rxhanson/Rectangle) is an app designed to help you manage multiple windows (like the terminal and editor).
+
+You can install Rectangle with the command:
+
+```bash
+$ brew cask install rectangle
+```
+
+Then you can authorize it in system preferences -- > Security & Privacy and put a checkmark next to `Rectangle`.
+
+![Authorize Rectangle](images/rectangle.png)
+
