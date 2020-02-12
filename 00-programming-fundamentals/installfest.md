@@ -182,6 +182,22 @@ It's also critically important to use emojis (not really, but it's fun!).  So on
 
 You can find a great site for Slack Emoji's [**here**](https://slackmojis.com/).
 
+## Optional - Rectangle
+
+[Rectangle](https://github.com/rxhanson/Rectangle) is an app designed to help you manage multiple windows (like the terminal and editor).
+
+You can install Rectangle with the command:
+
+```bash
+$ brew cask install rectangle
+```
+
+Then you can authorize it in system preferences -- > Security & Privacy and put a checkmark next to `Rectangle`.
+
+![Authorize Rectangle](images/rectangle.png)
+
+
+
 ## Note
 
 If for any of these applications you get the following warning.
