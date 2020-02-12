@@ -425,7 +425,7 @@ describe "Example tip" do
     bill = 37.50
 
     # Act
-    tip = calculate_tip(37.5)
+    tip = calculate_tip(bill)
 
     # Assert - the answer will be within 0.01 of 7.5
     expect(tip).must_be_close_to 7.5, 0.01
