@@ -113,9 +113,9 @@ existing_value.inspect # => "hotdog"
 # with falsey values everywhere
 existing_value = nil
 existing_value ||= false
-existing_value.inspect #=> "false"
+existing_value.inspect #=> false
 existing_value ||= nil
-existing_value.inspect #=> "nil"
+existing_value.inspect #=> nil
 ```
 
 The `&&=` is pretty useless. :) Well, to be more fair, I've not found a compelling use case for it. I'm including it here for the sake of completeness. With `&&=`, if the _existing value_ of the variable is _truthy_, then the variable is reassigned to the _assignment value_. Kinda like this:
@@ -129,12 +129,12 @@ existing_value.inspect #=> "hotdog"
 # with a falsey existing value and a truthy assignment value
 existing_value = nil
 existing_value &&= "hotdog"
-existing_value.inspect #=> "nil"
+existing_value.inspect #=> nil
 
 # with a truthy existing value and a falsey assignment value
 existing_value = "elephant"
 existing_value &&= nil
-existing_value.inspect #=> "nil"
+existing_value.inspect #=> nil
 ```
 
 Both of these logical compound operators are not used terribly often in our Ruby code. The `||=` can be very powerful within Rails so we will definitely see it again later.
