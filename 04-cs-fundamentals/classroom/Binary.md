@@ -78,7 +78,7 @@ Computers organize binary digits into units called _Bits_.  A _Bit_ is one binar
 
 From there bytes are grouped into larger and larger groups.  You may have heard about _Kilobytes_, _Megabytes_, and _Gigabytes_ etc.  A KiloByte is 2<sup>10</sup> Bytes or 1024.  A Megabyte is 2<sup>20</sup> Bytes, and so on. 
 
-When you see a system labeled 32-bit or 64-bit, that refers to the number of individual addresses in memory.  So a 64-bit system can have more memory to store information, there are 2<sup>64</sup> different memory addresses and for a 32-bit system there would be 2<sup>32</sup>.  Often the same value indicates the word size or the largest integer the computer can process in a single instruction.  So a 32-but system would usually have integers composed of 32-bits.  These are often, but not always the same.
+When you see a system labeled 32-bit or 64-bit, that refers to the number of individual addresses in memory.  So a 64-bit system can have more memory to store information, there are 2<sup>64</sup> different memory addresses and for a 32-bit system there would be 2<sup>32</sup>.  Often the same value indicates the word size or the largest integer the computer can process in a single instruction.  So a 32-bit system would usually have integers composed of 32-bits.  These are often, but not always the same.
 
 Interestingly as people research [quantum computing](https://www.newscientist.com/article/dn17575-ditching-binary-will-make-quantum-computers-more-powerful/) we might move to a base-5 or more system each qubits can represent multiple states.  
 
