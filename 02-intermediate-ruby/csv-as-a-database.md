@@ -36,7 +36,7 @@ Our goal is to learn a pattern for organizing our code in the following ways:
 
 1. **We will use a CSV file as our database,** or system to store and organize our data
 1. **We will write Ruby code to read the data from the CSV/database**
-1. We will continue to use Ruby code and Ruby methods to analyze, iterate over, and process our data from our database
+1. We will continue to use Ruby code and Ruby methods to analyze, iterate over, and process our data from the database
 
 ## CSV Files Are One Way to Store and Organize Data
 
