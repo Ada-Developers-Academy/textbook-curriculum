@@ -191,7 +191,11 @@ id,name,mass,distance
 4,Mars,0.107,1.5
 ```
 
-If we add a header row, we should get clarity about what each column of each row represents.
+<summary>Answer</summary>
+<details>
+Pros: We get clarity about what each column of each row represents.
+Cons: If we try to read the CSV file as an array of arrays (like we did previously), our first item in the array will be the header row instead of real data.
+</details>
 
 ### About Options and adding `headers: true`
 
