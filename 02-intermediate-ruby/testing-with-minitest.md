@@ -217,7 +217,7 @@ Minitest::Reporters.use!
 describe "clock" do
   it "can be called with hours, minutes and seconds as arguments" do
     # Arrange
-    hours = 8
+    hours = 11
     minutes = 14
     seconds = 27
 
@@ -231,7 +231,7 @@ describe "clock" do
 
   it "will return a string formatted in hh:mm:ss format" do
     # Arrange
-    hours = 8
+    hours = 11
     minutes = 14
     seconds = 27
 
@@ -239,7 +239,7 @@ describe "clock" do
     time = clock(hours, minutes, seconds)
 
     # Assert
-    expect((time)).must_equal "08:14:27"
+    expect((time)).must_equal "11:14:27"
   end
 end
 ```
