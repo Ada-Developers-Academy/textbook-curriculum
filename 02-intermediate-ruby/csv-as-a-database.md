@@ -40,7 +40,7 @@ Our goal is to learn a pattern for organizing our code in the following ways:
 
 ## CSV Files Are One Way to Store and Organize Data
 
-In this case a _CSV_ will act as our database.
+In this case a _CSV_ file will act as our database.
 
 What is a CSV file? It's a common file format used to store and **organize data as a single table of information.**
 
