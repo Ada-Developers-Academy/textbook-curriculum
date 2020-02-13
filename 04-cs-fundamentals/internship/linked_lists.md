@@ -307,7 +307,7 @@ void removeFirst(struct node **headRef) {
 
 ## Exercises
 
-The exercises will be done on the [Linked List Repository](https://github.com/Ada-C11/linked-list), please turn in a PR when done.
+The exercises will be done on the [Linked List Repository](https://github.com/Ada-C12/linked-list), please turn in a PR when done.
 
 Design an algorithm, deduce the space and time complexity and then, author functions to do the following:
 
