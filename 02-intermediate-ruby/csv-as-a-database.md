@@ -20,7 +20,7 @@ We have been learning how to write code that reads and access data. By "data," w
 
 We should soon see a limitation to this: If we imagine all of the data that's needed to serve thousands or millions of users, do we really need to make millions nested arrays and hashes in our one Ruby file?
 
-### No!
+**No!**
 
 In our ideal system, we would **separate** different parts of our program. We would have:
 
