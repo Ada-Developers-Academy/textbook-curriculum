@@ -3,7 +3,7 @@
 ## Lesson Pre-Requisites
 
 - This lesson will use iteration and nested arrays and hashes
-- This lesson will reference `CSV` as a class, although classes are not necessary
+- This lesson will reference `CSV` as a class, although it is not necessary to understand classes in order to follow this lesson
 - This lesson uses `awesome_print` to clarify the printing of arrays and hashes. Make sure it's installed with `$ gem install awesome_print`
 
 ## Learning Goals
@@ -123,10 +123,7 @@ In order to read CSV data, we need to follow these steps:
 1. Learn the Ruby syntax for opening CSV files
 1. Learn the Ruby syntax for reading the data from an opened CSV file
 1. Put the data from the CSV file into a variable in our Ruby script
-
-### Set up our Ruby script
-
-In this same project directory, make a new Ruby file `main.rb` and open it in your text editor.
+1. In this same project directory, make a new Ruby file `main.rb` and open it in your text editor.
 
 ## Opening CSV Files requires `'csv'` and `CSV.read`
 
@@ -191,10 +188,15 @@ id,name,mass,distance
 4,Mars,0.107,1.5
 ```
 
-<summary>Answer</summary>
+<summary>
+  Answer
+</summary>
 <details>
-Pros: We get clarity about what each column of each row represents.
-Cons: If we try to read the CSV file as an array of arrays (like we did previously), our first item in the array will be the header row instead of real data.
+
+  **Pros:** We get clarity about what each column of each row represents.
+
+  **Cons:** If we try to read the CSV file as an array of arrays (like we did previously), our first item in the array will be the header row instead of real data.
+
 </details>
 
 ### About Options and adding `headers: true`
