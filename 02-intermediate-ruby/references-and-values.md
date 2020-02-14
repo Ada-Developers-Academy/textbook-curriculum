@@ -23,7 +23,7 @@ end
 pets = ['dog', 'parrot', 'cat', 'llama']
 shortened_pets = short_strings(pets)
 puts "pets: #{pets}"
-puts "shortened_pets: #{shortend_pets}" 
+puts "shortened_pets: #{shortened_pets}" 
 
 ```
 
@@ -213,6 +213,25 @@ end
 pets = ['dog', 'parrot', 'cat', 'llama']
 shortened_strings = short_strings(pets)
 puts "#{pets}"
+puts "shortened_pets: #{shortend_pets}" 
+```
+
+Alternatively, there is a very handy method called `.clone` which will make a copy of any variable at a new address. If we wanted to use `.clone`, to fix our bug, it might look like this:
+
+``` ruby
+def short_strings(input)
+  output = input.clone
+  output.each_with_index do |word, i|
+    # Slice characters 0 to 2
+    output[i] = word[0..2]
+  end
+  return output
+end
+
+pets = ['dog', 'parrot', 'cat', 'llama']
+shortened_pets = short_strings(pets)
+puts "pets: #{pets}"
+puts "shortened_pets: #{shortend_pets}" 
 ```
 
 This WILL preserve pets as is was while giving us the shortened_pets value we want.
