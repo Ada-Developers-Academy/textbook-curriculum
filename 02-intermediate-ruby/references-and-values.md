@@ -167,7 +167,7 @@ puts "with value #{pets}"
 
 Before running this code, take a couple minutes to read through it. What is it doing? What do you expect the output to be?
 
-Running the code yields (your `object_id`s may be different):
+If we run the code, we see something like this (your `object_id`s may be different):
 
 ```
 Before reassign_parameter
@@ -186,10 +186,19 @@ pets.object_id is 70144030241620
 with value ["dog", "parrot", "cat", "llama", "gecko"]
 ```
 
-We can make a few interesting observations about this output:
-- The parameter inside the method has the same `object_id` as the variable we passed from outside
-- Modifications to the underlying object are visible outside the method
-- Reassigning the parameter with `=` does not reassign the outer variable
+Uhhhhhh, what? Let's break it down visually.
+
+First, we create the array with it's real values, and assign `pets` to hold its address.
+![pets gets assigned the address 1389, which contains the values dog, parrot, cat, llama](images/references_and_values/malloc_00.png)
+
+When we pass `pets` into `reassign_parameter`, `param` gets assigned the same address as `pets`
+![param is assigned the address 1389 when we call reassign_parameters(pets)](images/references_and_values/malloc_01.png)
+
+We push "gecko" onto the end of the array, which changes the values because param looks up the array that `pets` is looking at.
+![pets gets assigned the address 1389, which contains the values dog, parrot, cat, llama](images/references_and_values/malloc_02.png)
+
+Finally, we create a new array, and hand its address over to `param` to keep an eye on. This doesn't affect `pets` because `pets` is looking at the array independently.
+![we create a new array, and then assign param to track it](images/references_and_values/malloc_03.png)
 
 This is exactly the same behavior we saw before, when we had two variables referencing the same object. From this we can conclude: **when you pass a variable as parameter, Ruby creates a new variable that references same object**.
 
