@@ -86,6 +86,14 @@ Unfortunately `before` blocks **always** run before each test case.  Even if we 
 
 ## Solution 2: Let
 
+If our `before` block runs before **every** test, when we have very complex "Arrange" steps for tests, this might get problematic. There are plenty of "Arrange" steps that are relevant to **some** tests, **but not all.**
+
+Is there a way to make variables in our tests only exist when they need to?
+
+`let` syntax lets us set up variables that we can use in tests. Variables created with `let` syntax are only executed when we need them.
+
+### `let` Syntax
+
 If you recall, when using `attr_reader :name`, you pass in a _symbol_ (:name), and the `attr_reader` method uses the symbol to create a method with the same name.  
 
 `let` works in a similar fashion.  It takes a symbol for a variable name and a block to give the variable a starting value.  `let` is called an initializer, because it provides an _initial_ value for the given variable name.
@@ -213,7 +221,7 @@ If we want to refactor our tests to have less repetitive code, we have at least 
 
 With `before` blocks, you can define a block of code that is run before every test.
 
-With `let`, you can define a block of code that is used to initialize a variable the first time it is used in a test block.
+With `let`, you can define a block of code that is used to initialize a variable the first time it is used in a test block. `let` is useful when we have "Arrange" steps that are useful to _some_ tests, but not all, so we shouldn't use `before`.
 
 ## Resources
 -  [Minitest let() is Lazy](http://ruby-journal.com/minitest-let-is-lazy/)
