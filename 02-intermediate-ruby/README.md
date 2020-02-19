@@ -6,7 +6,7 @@
 1. [More Conditionals](more-conditionals.md)
 1. [Enumerables](enumerable.md)
 1. [More Enumerables](more-enumerable.md)
-1. [Lazy with Let](lazy-with-let.md)
+1. [Testing with Before and Let](testing-with-before-and-let.md)
 
 ## Week 3
 1. [Object Composition](object-composition.md)
