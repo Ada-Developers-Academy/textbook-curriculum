@@ -1,11 +1,11 @@
-# Being Lazy With Let
+# Testing Enhancements: Before and Let
 
 ## Learning Goals
 
-You should be able to:
+- Understand how to use `before` syntax in Minitest to run "Arrange" code before each test
+- Understand how to use `let` syntax in Minitest to use lazy-loading for variables
 
-- DRY up your test code with let & before.
-- Explain how `let` is "lazy" in Minitest.
+## Introduction
 
 Consider writing tests for a `Pet` class like this:
 
@@ -15,7 +15,7 @@ Consider writing tests for a `Pet` class like this:
 class Pet
   attr_reader :name
 
-  def initialize(name)
+  def initialize(name, species, color, favorite_toy)
     @name = name
   end
 
@@ -31,9 +31,25 @@ it "must have a name" do
 
   # expectations go here
 end
+
+it "must have a species" do
+  pet = Pet.new("Fido")
+
+  # expectations go here
+end
+
+it "must have a color" do
+  pet = Pet.new("Fido")
+
+  # expectations go here
+end
+
+# ... etc
 ```
 
-In most test cases we're creating a new identical instance of `Pet` to work with.  This doesn't seem *DRY*.
+In most test cases we're creating a new identical instance of `Pet` to work with. This doesn't seem *DRY*.
+
+What code can we write in order to reduce declaring the `pet = Pet.new("Fido")` "Arrange" step in _every. single. test_?
 
 ## Solution 1:  Before Blocks
 
@@ -46,17 +62,22 @@ require 'pet'
 
 describe Pet do
   before do
+    puts "Creating a pet named Fido" # This line isn't doing anything useful, it's just to illustrate that we can do as much Ruby code as we want within a before block
     @pet = Pet.new("Fido")
   end
 
-  it "must respond to name" do
-    expect(@pet).must_respond_to :name
+  it "must have a name" do
+    expect(@pet.name).must_equal "Fido"
   end
   ...
 end
 ```
 
-In the above example the `before` block runs before each test and provides an instance variable `@pet` which we can use in our tests.  This can often serve as a helpful way to DRY testing code.  It's also important to note that a `before` block runs prior to any `it` block inside the same `describe`.  
+We can use the `before` block to set up the variable `@pet = Pet.new("Fido")`, and any other variables or setup actions we may need in our tests.
+
+However, **`before` blocks do not share scope with our `it`-level tests, so if we use `before` in Minitest, we must make all variables used in `it`-level tests _instance_ variables.** This isn't a pattern we see often, and is specific to this context of Minitest.
+
+In the above example the `before` block runs before each test and provides an instance variable `@pet`. Then, we use `@pet` in our test `it "must have a name"`. This can often serve as a helpful way to DRY testing code.  It's also important to note that a `before` block runs prior to any `it` block inside the same `describe`.  
 
 ![before example](images/before.png)
 <!-- Image origin https://www.lucidchart.com/invitations/accept/2adc99a3-fc7a-47d8-b9f1-342c1377b940 -->
@@ -83,8 +104,8 @@ describe Pet do
   }
 
 
-  it "has a name" do
-    expect(pet.name).must_equal "Fido"
+  it "must have a name" do
+    expect(@pet.name).must_equal "Fido"
   end
 end
 ```
@@ -97,7 +118,7 @@ Just like `before` each test case runs autonomously with a fresh `pet` so that n
 
 ### Proof that let is lazy
 
-In the first example here, when using `before` the statement "Creating a pet named Ada Lovelace" is printed twice, once for each `it` block.
+In the first example here, when using `before` the statement "Creating a pet named Fido" is printed twice, once for each `it` block.
 
 #### Using `before`
 
@@ -109,21 +130,18 @@ require 'pet'
 
 describe "Pet" do
   before do
-    puts "Creating a pet named Ada Lovelace"
+    puts "Creating a pet named Fido"
     @pet = Pet.new("Fido")
   end
+  
+  it "must have a name" do
+    expect(@pet.name).must_equal "Fido"
+  end
 
-  describe "initialize method" do
-    it "New Pets initialize with a name" do
-      expect(@pet).must_respond_to :name
-      expect(@pet.name).must_equal "Ada Lovelace"
-    end
-
-    it "Throws an ArgumentError if created without a name" do
-      expect {
-        Pet.new
-      }.must_raise ArgumentError
-    end
+  it "Throws an ArgumentError if created without a name" do
+    expect {
+      Pet.new
+    }.must_raise ArgumentError
   end
 end
 ```
@@ -135,8 +153,8 @@ Run options: --seed 62527
 
 # Running:
 
-Creating a pet named Ada Lovelace
-.Creating a pet named Ada Lovelace
+Creating a pet named Fido
+.Creating a pet named Fido
 .
 
 Finished in 0.011018s, 272.2817 runs/s, 272.2817 assertions/s.
@@ -153,21 +171,18 @@ require_relative "test_helper"
 
 describe "Pet" do
   let (:pet) {
-    puts "Creating a pet named Ada Lovelace"
+    puts "Creating a pet named Fido"
     Pet.new("Fido")
   }
 
-  describe "initialize method" do
-    it "New Pets initialize with a name" do
-      expect(pet).must_respond_to :name
-      expect(pet.name).must_equal "Fido"
-    end
+  it "must have a name" do
+    expect(pet.name).must_equal "Fido"
+  end
 
-    it "Throws an ArgumentError if created without a name" do
-      expect {
-        Pet.new
-      }.must_raise ArgumentError
-    end
+  it "Throws an ArgumentError if created without a name" do
+    expect {
+      Pet.new
+    }.must_raise ArgumentError
   end
 end
 ```
@@ -178,7 +193,7 @@ Run options: --seed 49538
 
 # Running:
 
-Creating a pet named Ada Lovelace
+Creating a pet named Fido
 .
 
 Finished in 0.005194s, 770.1194 runs/s, 770.1194 assertions/s.
@@ -190,9 +205,15 @@ Notice the `puts` ran only once using `let`, and only in the test-case where it 
 
 Unlike life, in Minitest being lazy pays off!
 
-## Summary
+## Conclusion
 
-The `let` method is useful to DRY up your testing code.  With it you can define a block of code that is used to initialize a variable the first time it is used in a test block.
+When we write tests, we may have similar "Arrange" and "Act" code that is repeated in many, many tests, over, and over.
+
+If we want to refactor our tests to have less repetitive code, we have at least two options: `before` blocks and `let` variables.
+
+With `before` blocks, you can define a block of code that is run before every test.
+
+With `let`, you can define a block of code that is used to initialize a variable the first time it is used in a test block.
 
 ## Resources
 -  [Minitest let() is Lazy](http://ruby-journal.com/minitest-let-is-lazy/)
