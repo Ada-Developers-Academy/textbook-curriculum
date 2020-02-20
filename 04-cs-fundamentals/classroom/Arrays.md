@@ -15,7 +15,7 @@ By the end of this lesson you should be able to:
 ## Video Lesson & Exercises
 
 - [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5dee2653-5d8c-40f9-a30c-aabc01162548)
-- [Slide Deck used in video](https://docs.google.com/presentation/d/1Y4x50roheuZ40QYmZGjguZIjb0Xjd3YNbvfq65rwg88/edit?usp=sharing)
+- [Slide Deck used in video](https://docs.google.com/presentation/d/1Y4x50roheuZ40QYmZGjguZIjb0Xjd3YNbvfq65rwg88/edit#slide=id.p)
 - [Exercise](https://github.com/Ada-C13/restricted-arrays)
 
 ## Introduction
