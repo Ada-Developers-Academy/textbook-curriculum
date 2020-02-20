@@ -53,8 +53,6 @@ fun_place.mailing_address #=> "111 Boardwalk"
                           #   "New York, NY 12070"
 ```
 
-This is known as _implicit inheritance_ because when we put functionality in the _base class_ (`Property`), then all _subclasses_ (`Apartment`) will automatically get those behaviors.
-
 ## Super & Initialize
 
 We have seen how inheritance allows a subclass to "inherit" the methods, in this case `mailing_address`, from it's superclass.  We can also create an `initialize` method in the subclass and use it to give our subclass additional attributes.
