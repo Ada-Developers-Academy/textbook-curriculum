@@ -333,7 +333,15 @@ Once you've come up with an version you're happy with, [you can see ours here](s
 
 ## Avoiding class variables using composition.
 
-Review the Jukebox class. Experiment using the main method below.
+Review the jukebox class below.
+
+* How does it keep track of total plays?
+* How does it determine the most played song?
+
+Create jukebox.rb and main.rb files. Copy and paste the code. 
+
+* What do you expect runing main.rb to produce?
+* Run `ruby main.rb` in the terminal. 
 
 ```ruby
 #jukebox.rbclass Jukebox
@@ -354,14 +362,12 @@ Review the Jukebox class. Experiment using the main method below.
   end
 
   def calculate_most_played
-    most_played = @songs[0]
-    @songs.each do |song|
-      if song.play_count > most_played.play_count
-        most_played = song
-      end
+    most_played = @songs.max_by do |song|
+      song.play_count
     end
     return most_played
   end
+  
 end
 ```
 
