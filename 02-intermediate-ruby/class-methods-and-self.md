@@ -331,48 +331,88 @@ Work with a partner to implement `Song.most_played`. As you write the method, th
 
 Once you've come up with an version you're happy with, [you can see ours here](source/song.rb).
 
-## A cautionary tale - one use of class variables.
+## Avoiding class variables using composition.
 
-Let's glance at one final example of using class variables:
+Review the jukebox class below.
+
+* How does it keep track of total plays?
+* How does it determine the most played song?
+
+Create jukebox.rb and main.rb files. Copy and paste the code. 
+
+* What do you expect runing main.rb to produce?
+* Run `ruby main.rb` in the terminal. 
 
 ```ruby
-class Library
+#jukebox.rbclass Jukebox
+  attr_reader :songs, :total_plays
 
-  @@tagline = "Welcome to all of the libraries:"
-
-  def initialize(name)
-    @library_name = name
-    @@tagline = @@tagline + " " + @library_name
+  def initialize
+    @total_plays = 0
+    @songs = []
   end
 
-  def tagline
-    puts @@tagline
+  def add_song(song)
+    @songs << song
   end
 
+  def play(song)
+    song.play
+    @total_plays += 1
+  end
+
+  def calculate_most_played
+    most_played = @songs.max_by do |song|
+      song.play_count
+    end
+    return most_played
+  end
+  
+end
+```
+
+```ruby
+#main.rb
+require_relative 'jukebox'
+require_relative 'song'
+
+def make_jukebox
+  ada_jukebox = Jukebox.new
+
+  ada_jukebox.add_song(Song.new("Respect", "Aretha Franklin", "songs/respect.mp3"))
+  ada_jukebox.add_song(Song.new("What a Little Moonlight Can Do", "Billie Holiday", "songs/moonlight.mp3"))
+  ada_jukebox.add_song(Song.new("Adore", "Savages", "songs/adore.mp3"))
+
+  return ada_jukebox
 end
 
-woodland_library = Library.new("Woodland Library")
-woodland_library.tagline
-northview_library = Library.new("Northview Library")
-northview_library.tagline
+def main
+  ada_jukebox = make_jukebox
 
-woodland_library.tagline
+  s1 = ada_jukebox.songs[0]
+  s2 = ada_jukebox.songs[1]
+  s3 = ada_jukebox.songs[2]
+
+  3.times do
+    ada_jukebox.play(s1)
+  end
+
+  5.times do
+    ada_jukebox.play(s2)
+  end
+
+  2.times do
+    ada_jukebox.play(s3)
+  end
+
+  puts ada_jukebox.total_plays
+  puts ada_jukebox.calculate_most_played.title
+end
+
+main
 ```
 
-<details>
-<summary> What the heck is this doing? </summary>
-This code outputs the following:<br><br>
-
-```
-Welcome to all of the libraries: Woodland Library
-Welcome to all of the libraries: Woodland Library Northview Library 
-Welcome to all of the libraries: Woodland Library Northview Library
-```
-  </code>
-Here, we observe that all `Library`s can access and change the same `@@tagline` variable. This is useful in some cases, but can be confusing and obscure in most cases.
-</details>
-
-We could go deeper into class variables. However, in general, we will discourage the use of class variables because of their usually unintended side-effects.
+We could go deeper into class variables. However, in general, we will discourage the use of class variables because of their usually unintended side-effects and encourage other types of design.
 
 #### Writing About Methods in Documentation
 
