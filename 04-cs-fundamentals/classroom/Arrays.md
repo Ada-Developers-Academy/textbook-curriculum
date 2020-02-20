@@ -404,7 +404,7 @@ Ruby builds on the basic static array, providing a dynamic Array class which can
 
 We also looked at several algorithms which progress through the array from the first to last index searching for the min, max and specific values.  We observed that increasing the number of elements in the array caused these algorithms to take proportionally longer in the average and worst cases.
 
-Next we ovserved how organizing an array in sorted order allowed us to use the _binary search_ algorithm to search for values in the array with much better performance which scales much better.  This illustrated how data organization can affect performance.
+Next we observed how organizing an array in sorted order allowed us to use the _binary search_ algorithm to search for values in the array with much better performance which scales much better.  This illustrated how data organization can affect performance.
 
 Lastly we looked at how an array can be reversed either through an auxiliary array or by reversing the elements in place.
 
