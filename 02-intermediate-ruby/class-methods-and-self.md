@@ -414,7 +414,7 @@ main
 
 We could go deeper into class variables. However, in general, we will discourage the use of class variables because of their usually unintended side-effects and encourage other types of design.
 
-#### Writing About Methods in Documentation
+## Writing About Methods in Documentation
 
 When Rubyists write English text about a class's instance methods in documentation, we typically write their names in the following format:
 
