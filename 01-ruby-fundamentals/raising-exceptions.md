@@ -191,7 +191,7 @@ Just because a Warning doesn't stop your program from running doesn't mean we ca
 
 ## Summary
 
-In this lesson we have seen that an exception is a indication of a problem in your application.  When an exception occurs the method or block is immediately exited and ruby continues to retrace through the the call stack until the program ends and produces a _stack trace_ which lists the methods and line numbers which can help the programmer debug the application. We have also seen how we can raise our own `ArgumentError` Exceptions and how it can help prevent our methods from being called with invalid arguments.
+In this lesson we have seen that an exception is a indication of a problem in your application.  When an exception occurs the method or block is immediately exited and ruby continues to retrace through the call stack until the program ends and produces a _stack trace_ which lists the methods and line numbers which can help the programmer debug the application. We have also seen how we can raise our own `ArgumentError` Exceptions and how it can help prevent our methods from being called with invalid arguments.
 
 ## More Resources
 -   [RubyLearning.com on Exceptions](http://rubylearning.com/satishtalim/ruby_exceptions.html)
