@@ -57,7 +57,7 @@ This is known as _implicit inheritance_ because when we put functionality in the
 
 ## Super & Initialize
 
-Notice the Apartment class is inheriting the mailing_address method from Property but its also inheriting the constructor and all of the reader methods.
+Notice the Apartment class is inheriting the `mailing_address` method from Property, and it's also inheriting the constructor and all of the reader methods.
 
 If I wanted to emulate this behavior while explicitly writing a constructor in the Apartment class, I can update Apartment class like so:
 
