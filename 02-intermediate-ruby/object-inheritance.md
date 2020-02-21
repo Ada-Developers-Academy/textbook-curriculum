@@ -57,9 +57,48 @@ This is known as _implicit inheritance_ because when we put functionality in the
 
 ## Super & Initialize
 
-We have seen how inheritance allows a subclass to "inherit" the methods, in this case `mailing_address`, from it's superclass.  We can also create an `initialize` method in the subclass and use it to give our subclass additional attributes.
+Notice the Apartment class is inheriting the mailing_address method from Property but its also inheriting the constructor and all of the reader methods.
 
-An apartment mailing address are different that of a generic `Property` in that it must have a unit number.  So we can give `Apartment` objects a unit number attribute.
+If I wanted to emulate this behavior while explicitly writing a constructor in the Apartment class, I can update Apartment class like so:
+
+```ruby
+class Property
+  attr_reader :id, :street, :city, :state, :zip
+
+  def initialize(id, street, city, state, zip)
+    @id = id
+    @street = street
+    @city = city
+    @state = state
+    @zip = zip
+  end
+
+  def mailing_address
+    return "#{street}\n#{city}, #{state} #{zip}"
+  end
+end
+
+class Apartment < Property
+
+  def initialize(id, street, unit, city, state, zip)
+    super(id, street, city, state, zip)
+  end
+end
+```
+
+In the above example notice the `super` keyword in the 1st line of the `Apartment` class's `initialize` method.
+
+`super` is a term used to refer to the parent class's version of the same method, so the line inside of the Apartment class's constructor is calling the Property class's constructor. `Property`'s `initialize` method is called and `@id`, `@address` etc are pass as the parameters.
+
+There's something funky going on here though. The `super` method call is not actually initializing an instance of a `Property`. It is executing this code on behalf of the `Apartment` that's being initialized. It's in practicality more like Ruby is copying and pasting the code from `Property` into `Apartment`.
+
+![inheritance initialize](images/inheritance-initialize.png)
+
+## Adding attributes to a subclass
+
+We have seen how inheritance allows a subclass to "inherit" the methods from it's superclass.  We can also update the `initialize` method in the subclass and use it to give our subclass additional attributes.
+
+An apartment mailing address is different than that of a generic `Property` in that it must have a unit number.  So we can give `Apartment` objects a unit number attribute.
 
 ```ruby
 class Property
@@ -88,13 +127,9 @@ class Apartment < Property
 end
 ```
 
-In the above example notice the `super` keyword in the 1st line of the `Apartment` class' `initialize` method.
-
-In initialize, `super` calls the parent, or superclass' constructor.  So `Property`'s `initialize` method is called and `@id`, `@address` etc are set to the given parameter.
+Note: Now that we are adding a new attribute to the `Apartment` class, we are required to call super if we want the parent constructor to execute (which is all the time).
 
 `super` **must** be the first line in a subclass' `initialize` method.  If `super` is called without an argument, it will use the parameters from the subclass' `initialize` method.
-
-![inheritance initialize](images/inheritance-initialize.png)
 
 ## Overriding Methods
 
@@ -151,7 +186,7 @@ In this case, we utilize the behavior that the _base class_ (`Property`) provide
 
 ![super in method calls](images/inheritance-super-method.png)
 
-**Exercise**  With your seatmates create an `Condo` class.  In addition to the same properties as `Apartment`, a Condo should also have `price` and `square_feet` properties and a `price_per_square_foot` method.
+**Exercise**  With your seatmates create a `Condo` class.  In addition to the same properties as `Apartment`, a Condo should also have `price` and `square_feet` properties and a `price_per_square_foot` method.
 
 ## Summary
 
