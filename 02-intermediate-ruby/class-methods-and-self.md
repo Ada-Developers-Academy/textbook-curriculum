@@ -426,6 +426,12 @@ The octothorp indicates that the method is an instance method. In the case of ou
 
 When writing about a class method, we use a dot instead of a pound sign: `ClassName.class_method`. Note that this matches the way the method is called.
 
+## One Application of Class Methods: Factory Method Pattern
+
+There is a design pattern in software named [the Factory Method Pattern](https://en.wikipedia.org/wiki/Factory_method_pattern), which outlines a common programming pattern.
+
+In Ruby, the common way to implement this pattern is using class methods.
+
 ## Conclusion
 
 Class methods provide functionality to a class itself.
