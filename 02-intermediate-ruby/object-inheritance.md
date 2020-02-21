@@ -85,6 +85,7 @@ class Apartment < Property
   end
 end
 ```
+This is functionally doing the same thing as not defining a constructor in `Apartment` but helps us see more about how inheritance works in ruby.
 
 In the above example notice the `super` keyword in the 1st line of the `Apartment` class's `initialize` method.
 
