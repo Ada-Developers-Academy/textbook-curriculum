@@ -191,7 +191,7 @@ In this case, we utilize the behavior that the _base class_ (`Property`) provide
 
 ## Summary
 
-Inheritance allows classes to gain or "inherit" the methods and attributes from another class. It's important to name that the example in this lesson would not be a good example if `Apartment` were the only `Property` child class we made. It is the fact that many child classes can inherit the same behavior from one parent that makes inheritance so powerful.
+Inheritance allows classes to gain or "inherit" the methods and attributes from another class. It's important to name that the example in this lesson would not be a good example if `Apartment` were the only child class of `Property` we made. It is the fact that many child classes can inherit the same behavior from one parent that makes inheritance so powerful.
 
 Inheritance is a key concept in Object Oriented Programming.  While it can be powerful, but it is also easy to misuse. Inheritance is good to use where many classes are clearly an extension or variation of the parent class, so each class gaining methods and attributes **"is-a"** specialized version of the parent class.  Be very selective in your use of inheritance as composition is more often the most effective strategy.
 
