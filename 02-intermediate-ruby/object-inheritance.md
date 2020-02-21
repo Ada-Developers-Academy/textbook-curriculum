@@ -53,6 +53,8 @@ fun_place.mailing_address #=> "111 Boardwalk"
                           #   "New York, NY 12070"
 ```
 
+**Exercise**: Create a `Shape` class with a `color` attribute and a `describe` method. Create a `Circle` class as a child.
+
 ## Super & Initialize
 
 Notice the Apartment class is inheriting the `mailing_address` method from Property, and it's also inheriting the constructor and all of the reader methods.
@@ -130,6 +132,8 @@ Note: Now that we are adding a new attribute to the `Apartment` class, we are re
 
 `super` **must** be the first line in a subclass' `initialize` method.  If `super` is called without an argument, it will use the parameters from the subclass' `initialize` method.
 
+**Exercise**: Update the `Circle` class to have a `radius` attribute.
+
 ## Overriding Methods
 
 What happens when our classes have different functionality for the same idea? We can _override_ methods from _base classes_ in their _subclasses_.  We want the mailing addresses of `Apartment` objects to include the unit number so we can override the `mailing_address` method.
@@ -185,7 +189,25 @@ In this case, we utilize the behavior that the _base class_ (`Property`) provide
 
 ![super in method calls](images/inheritance-super-method.png)
 
-**Exercise**  With your seatmates create a `Condo` class.  In addition to the same properties as `Apartment`, a Condo should also have `price` and `square_feet` properties and a `price_per_square_foot` method.
+**Exercise:** Override the `describe` method in `Circle` to describe radius as well as `color`.
+
+## A Second Child
+Because we have created a parent `Property` class that defines attributes and behavior shared by all properties, we can create the `House` class by writing very little code. 
+
+```ruby
+class House < Property
+  attr_reader :roof_type
+
+  def initialize(id, street, city, state, zip, roof_type)
+    super(id, street, city, state, zip)
+    @roof_type = roof_type
+  end
+end
+
+fun_place = House.new(56789, '100 Park Place', 'New York', 'NY', 12077, 'Shake')
+fun_place.mailing_address #=> "100 Park Place"
+                  # "New York, NY 12077"
+```
 
 ## Summary
 
