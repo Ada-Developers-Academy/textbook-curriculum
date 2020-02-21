@@ -189,7 +189,7 @@ In this case, we utilize the behavior that the _base class_ (`Property`) provide
 
 ![super in method calls](images/inheritance-super-method.png)
 
-**Exercise:** Override the `describe` method in `Circle` to describe radius as well as `color`.
+**Exercise**: Override the `describe` method in `Circle` to describe radius as well as `color`.
 
 ## A Second Child
 Because we have created a parent `Property` class that defines attributes and behavior shared by all properties, we can create the `House` class by writing very little code. 
@@ -208,6 +208,10 @@ fun_place = House.new(56789, '100 Park Place', 'New York', 'NY', 12077, 'Shake')
 fun_place.mailing_address #=> "100 Park Place"
                   # "New York, NY 12077"
 ```
+
+**Exercise**: Add `Rectangle` as a child of shape.
+
+(Instead of `radius`, what attribute(s) should `Rectangle` have?)
 
 ## Summary
 
