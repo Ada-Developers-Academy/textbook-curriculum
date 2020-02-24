@@ -25,7 +25,7 @@ In these cases, the following process will happen:
 Exercism has an up-to-date, thorough, and wonderful guide on how to get started. However, here are some important notes:
 
 - We recommend that you sign-in using your GitHub account, but this is not necessary (it's just a lot faster)
-- **You must sign up using the "Independent Mode"** (we require that you do not use "Mentored Mode")
+- **You must sign up using the "Practice Mode"** (we require that you do not use "Mentored Mode")
 - Exercism will, by default, configure all programming exercises to download to a default directory on your computer. **Read through the Terminal output to find out where Exercism downloads your exercises.**
 
 With those notes, get started using Exercism using their [Getting Started Guide](https://exercism.io/getting-started)
