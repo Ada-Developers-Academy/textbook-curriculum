@@ -344,7 +344,8 @@ Create jukebox.rb and main.rb files. Copy and paste the code.
 * Run `ruby main.rb` in the terminal. 
 
 ```ruby
-#jukebox.rbclass Jukebox
+#jukebox.rb
+class Jukebox
   attr_reader :songs, :total_plays
 
   def initialize
