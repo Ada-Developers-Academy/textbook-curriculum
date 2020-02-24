@@ -38,7 +38,7 @@ end
 
 The code above creates an is-a relationship between `Apartment` and `Property`.  The relationship diagramed below gives any instance of `Apartment` properties like `id` and the `mailing_address` method.
 
-![Inheritance Diagram](images/inheritance-basic.png)
+<img src="images/inheritance-basic.png" alt="Inheritance Diagram" height="500"/>
 
 ## Inheriting Methods
 So what do we get when we inherit? We get __methods__ and instance variables from the parent class. The  `Property` class has an instance method called `mailing_address` which returns the mailing address of the property. Since all properties have a `mailing_address` method, our _subclasses_ will _inherit_ this method. So now all `Apartment` instances have a `mailing_address` method.
