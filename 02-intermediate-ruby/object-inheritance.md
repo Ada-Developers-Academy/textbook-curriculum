@@ -211,7 +211,12 @@ fun_place.mailing_address #=> "100 Park Place"
 
 **Exercise**: Add `Rectangle` as a child of shape.
 
-(Instead of `radius`, what attribute(s) should `Rectangle` have?)
+<details>
+  <summary>Instead of radius, what attribute(s) should `Rectangle` have?</summary>
+    length and width
+</details>
+
+  
 
 ## Summary
 
