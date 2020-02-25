@@ -207,6 +207,7 @@ end
 fun_place = House.new(56789, '100 Park Place', 'New York', 'NY', 12077, 'Shake')
 fun_place.mailing_address #=> "100 Park Place"
                   # "New York, NY 12077"
+fun_place.roof_type #=> "Shake"
 ```
 
 > **Exercise**: Add `Rectangle` as a child of shape.
