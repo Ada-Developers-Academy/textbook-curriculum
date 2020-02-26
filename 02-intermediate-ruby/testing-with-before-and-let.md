@@ -113,7 +113,7 @@ describe Pet do
 
 
   it "must have a name" do
-    expect(@pet.name).must_equal "Fido"
+    expect(pet.name).must_equal "Fido"
   end
 end
 ```
