@@ -220,7 +220,7 @@ def short_strings(input)
 end
 
 pets = ['dog', 'parrot', 'cat', 'llama']
-shortened_strings = short_strings(pets)
+shortend_pets = short_strings(pets)
 puts "#{pets}"
 puts "shortened_pets: #{shortend_pets}" 
 ```
@@ -240,7 +240,7 @@ end
 pets = ['dog', 'parrot', 'cat', 'llama']
 shortened_pets = short_strings(pets)
 puts "pets: #{pets}"
-puts "shortened_pets: #{shortend_pets}" 
+puts "shortened_pets: #{shortened_pets}" 
 ```
 
 This WILL preserve pets as is was while giving us the shortened_pets value we want.
