@@ -19,6 +19,8 @@ Before we can use Guard to automatically run our tests while we work on projects
 $ gem install guard guard-minitest
 ```
 
+-> Issue with installing guard - see commit description
+
 After we've got Guard installed, we can start it by running the `guard` command in a terminal. Leave this terminal window open while you work, and Guard will display the results of your tests whenever they are re-run automatically.
 
 _Important_: You need to run `guard` from the "root" directory for the project (the directory which has the `Guardfile`).
