@@ -1,5 +1,8 @@
 ## HTML & CSS
 
+## Pre-HTML and CSS
+1. [HTML/CSS Pre-Work Assignment](preview-html-css.md)
+
 ### HTML
 1. [Intro to the Web](the-web.md)
 1. [HTML Intro](html-intro.md)
