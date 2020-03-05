@@ -12,7 +12,7 @@ By the end of this lesson you should be able to:
 
 - [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2619c3c1-e6d5-48a1-a199-aad7014dcc4e)
 - [Slide Deck used for the lesson](https://docs.google.com/presentation/d/1QaCSJfqcQNCqFHk0zFdAL5zZCi-O37mGuhOIYLKcf_Q/edit#slide=id.gc6f75fceb_0_0)
-- [Exercise](https://github.com/Ada-C11/dynamic-programming)
+- [Exercise](https://github.com/Ada-C12/dynamic-programming)
 
 ## What is an an algorithm
 
