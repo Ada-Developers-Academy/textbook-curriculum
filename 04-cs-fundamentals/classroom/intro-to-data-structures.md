@@ -14,7 +14,9 @@
 
 - [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=eb5b7015-3be9-46f2-b48a-aac400130e23)
 - [Slide Deck Used in Video](https://docs.google.com/presentation/d/1nRJNLniCVOKefVSGC7ovZRpUMbcDV9QIzkSBlDPxvgE/edit#slide=id.p1)
-- [Exercise](https://github.com/Ada-C13/array-equals)
+- Exercises: 
+  - [Array Equals](https://github.com/Ada-C13/array-equals)
+  - [String Practice](https://github.com/Ada-C13/array-string-practice)
 
 
 ## Study of data structures - What and Why
