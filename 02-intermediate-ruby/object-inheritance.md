@@ -53,7 +53,10 @@ fun_place.mailing_address #=> "111 Boardwalk"
                           #   "New York, NY 12070"
 ```
 
-> **Exercise**: Create a `Shape` class with a `color` attribute and a `describe` method. Create a `Circle` class as a child.
+### **Exercise**
+Create a `Shape` class with a `color` attribute and a `describe` method. `describe` should say in a sentence what color the shape is. 
+Create a `Circle` class as a child.
+Verify that both `Shape` and `Circle` have a functional `color` attribute and `describe` method (by using pry/irb).
 
 ## Super & Initialize
 
@@ -132,7 +135,9 @@ Note: Now that we are adding a new attribute to the `Apartment` class, we are re
 
 `super` **must** be the first line in a subclass' `initialize` method.  If `super` is called without an argument, it will use the parameters from the subclass' `initialize` method.
 
-> **Exercise**: Update the `Circle` class to have a `radius` attribute.
+### **Exercise**
+Update the `Circle` class to have a `radius` attribute.
+Verify that `radius` can now be assigned and read on an instance of `Circle` (by using pry/irb)
 
 ## Overriding Methods
 
@@ -189,7 +194,8 @@ In this case, we utilize the behavior that the _base class_ (`Property`) provide
 
 ![super in method calls](images/inheritance-super-method.png)
 
-> **Exercise**: Override the `describe` method in `Circle` to describe radius as well as `color`.
+### **Exercise** 
+Override the `describe` method in `Circle` to describe `radius` as well as `color`. (You should be able to do this using `super` to keep your code DRY.)
 
 ## A Second Child
 Because we have created a parent `Property` class that defines attributes and behavior shared by all properties, we can create the `House` class by writing very little code. 
@@ -210,10 +216,11 @@ fun_place.mailing_address #=> "100 Park Place"
 fun_place.roof_type #=> "Shake"
 ```
 
-> **Exercise**: Add `Rectangle` as a child of `Shape`.
+### **Exercise**
+Add `Rectangle` as a child of `Shape`
 
 <details>
-  <summary>Instead of radius, what attribute(s) should `Rectangle` have?</summary>
+  <summary>Instead of radius, what attribute(s) should Rectangle have?</summary>
     length and width
 </details>
 
