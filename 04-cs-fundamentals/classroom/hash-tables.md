@@ -6,7 +6,7 @@ By the end of this lesson you should be able to:
 
 - Explain the terms
   - _hash table_
-  - _hash function
+  - _hash function_
   - _collision_
 - Explain at a high-level how Hash Tables work
 - Explain some of the trade-offs involved in using hash tables
