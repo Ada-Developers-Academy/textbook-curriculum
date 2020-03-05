@@ -1,4 +1,4 @@
-# More CSS Selectors
+# More CSS Selectors: Relationships, Multiple Selectors, & More Specific Selectors
 
 ## Learning Goals 📚
 
