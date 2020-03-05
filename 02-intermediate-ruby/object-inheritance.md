@@ -210,7 +210,7 @@ fun_place.mailing_address #=> "100 Park Place"
 fun_place.roof_type #=> "Shake"
 ```
 
-> **Exercise**: Add `Rectangle` as a child of shape.
+> **Exercise**: Add `Rectangle` as a child of `Shape`.
 
 <details>
   <summary>Instead of radius, what attribute(s) should `Rectangle` have?</summary>
