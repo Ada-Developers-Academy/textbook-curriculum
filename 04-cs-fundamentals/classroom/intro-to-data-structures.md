@@ -13,8 +13,8 @@
 ## Video Lesson & Notes
 
 - [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=eb5b7015-3be9-46f2-b48a-aac400130e23)
-- [Slide Deck Used in Video](https://docs.google.com/presentation/d/1b4XjEN8zGv5HDCni9-1pVKj8YfWNFdAsRzOQrzqv-hA/edit?usp=sharing)
-- [Exercise](https://github.com/Ada-C12/array-equals)
+- [Slide Deck Used in Video](https://docs.google.com/presentation/d/1nRJNLniCVOKefVSGC7ovZRpUMbcDV9QIzkSBlDPxvgE/edit#slide=id.p1)
+- [Exercise](https://github.com/Ada-C13/array-equals)
 
 
 ## Study of data structures - What and Why
