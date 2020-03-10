@@ -38,7 +38,7 @@ end
 
 The code above creates an is-a relationship between `Apartment` and `Property`.  The relationship diagramed below gives any instance of `Apartment` properties like `id` and the `mailing_address` method.
 
-![Inheritance Diagram](images/inheritance-basic.png)
+<img src="images/inheritance-basic.png" alt="Inheritance Diagram" height="500"/>
 
 ## Inheriting Methods
 So what do we get when we inherit? We get __methods__ and instance variables from the parent class. The  `Property` class has an instance method called `mailing_address` which returns the mailing address of the property. Since all properties have a `mailing_address` method, our _subclasses_ will _inherit_ this method. So now all `Apartment` instances have a `mailing_address` method.
@@ -52,6 +52,11 @@ fun_place = Apartment.new(56789, '111 Boardwalk', 'New York', 'NY', 12070)
 fun_place.mailing_address #=> "111 Boardwalk"
                           #   "New York, NY 12070"
 ```
+
+### **Exercise**
+Create a `Shape` class with a `color` attribute and a `describe` method. `describe` should say in a sentence what color the shape is. 
+Create a `Circle` class as a child.
+Verify that both `Shape` and `Circle` have a functional `color` attribute and `describe` method (by using pry/irb).
 
 ## Super & Initialize
 
@@ -130,6 +135,10 @@ Note: Now that we are adding a new attribute to the `Apartment` class, we are re
 
 `super` **must** be the first line in a subclass' `initialize` method.  If `super` is called without an argument, it will use the parameters from the subclass' `initialize` method.
 
+### **Exercise**
+Update the `Circle` class to have a `radius` attribute.
+Verify that `radius` can now be assigned and read on an instance of `Circle` (by using pry/irb)
+
 ## Overriding Methods
 
 What happens when our classes have different functionality for the same idea? We can _override_ methods from _base classes_ in their _subclasses_.  We want the mailing addresses of `Apartment` objects to include the unit number so we can override the `mailing_address` method.
@@ -185,7 +194,37 @@ In this case, we utilize the behavior that the _base class_ (`Property`) provide
 
 ![super in method calls](images/inheritance-super-method.png)
 
-**Exercise**  With your seatmates create a `Condo` class.  In addition to the same properties as `Apartment`, a Condo should also have `price` and `square_feet` properties and a `price_per_square_foot` method.
+### **Exercise** 
+Override the `describe` method in `Circle` to describe `radius` as well as `color`. (You should be able to do this using `super` to keep your code DRY.)
+
+## A Second Child
+Because we have created a parent `Property` class that defines attributes and behavior shared by all properties, we can create the `House` class by writing very little code. 
+
+```ruby
+class House < Property
+  attr_reader :roof_type
+
+  def initialize(id, street, city, state, zip, roof_type)
+    super(id, street, city, state, zip)
+    @roof_type = roof_type
+  end
+end
+
+fun_place = House.new(56789, '100 Park Place', 'New York', 'NY', 12077, 'Shake')
+fun_place.mailing_address #=> "100 Park Place"
+                  # "New York, NY 12077"
+fun_place.roof_type #=> "Shake"
+```
+
+### **Exercise**
+Add `Rectangle` as a child of `Shape`
+
+<details>
+  <summary>Instead of radius, what attribute(s) should Rectangle have?</summary>
+    length and width
+</details>
+
+  
 
 ## Summary
 
