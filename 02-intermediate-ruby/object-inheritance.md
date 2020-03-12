@@ -38,7 +38,7 @@ end
 
 The code above creates an is-a relationship between `Apartment` and `Property`.  The relationship diagramed below gives any instance of `Apartment` properties like `id` and the `mailing_address` method.
 
-![Inheritance Diagram](images/inheritance-basic.png)
+<img src="images/inheritance-basic.png" alt="Inheritance Diagram" height="500"/>
 
 ## Inheriting Methods
 So what do we get when we inherit? We get __methods__ and instance variables from the parent class. The  `Property` class has an instance method called `mailing_address` which returns the mailing address of the property. Since all properties have a `mailing_address` method, our _subclasses_ will _inherit_ this method. So now all `Apartment` instances have a `mailing_address` method.
@@ -53,13 +53,56 @@ fun_place.mailing_address #=> "111 Boardwalk"
                           #   "New York, NY 12070"
 ```
 
-This is known as _implicit inheritance_ because when we put functionality in the _base class_ (`Property`), then all _subclasses_ (`Apartment`) will automatically get those behaviors.
+### **Exercise**
+Create a `Shape` class with a `color` attribute and a `describe` method. `describe` should say in a sentence what color the shape is. 
+Create a `Circle` class as a child.
+Verify that both `Shape` and `Circle` have a functional `color` attribute and `describe` method (by using pry/irb).
 
 ## Super & Initialize
 
-We have seen how inheritance allows a subclass to "inherit" the methods, in this case `mailing_address`, from it's superclass.  We can also create an `initialize` method in the subclass and use it to give our subclass additional attributes.
+Notice the Apartment class is inheriting the `mailing_address` method from Property, and it's also inheriting the constructor and all of the reader methods.
 
-An apartment mailing address are different that of a generic `Property` in that it must have a unit number.  So we can give `Apartment` objects a unit number attribute.
+If I wanted to emulate this behavior while explicitly writing a constructor in the Apartment class, I can update Apartment class like so:
+
+```ruby
+class Property
+  attr_reader :id, :street, :city, :state, :zip
+
+  def initialize(id, street, city, state, zip)
+    @id = id
+    @street = street
+    @city = city
+    @state = state
+    @zip = zip
+  end
+
+  def mailing_address
+    return "#{street}\n#{city}, #{state} #{zip}"
+  end
+end
+
+class Apartment < Property
+
+  def initialize(id, street, unit, city, state, zip)
+    super(id, street, city, state, zip)
+  end
+end
+```
+This is functionally doing the same thing as not defining a constructor in `Apartment` but helps us see more about how inheritance works in ruby.
+
+In the above example notice the `super` keyword in the 1st line of the `Apartment` class's `initialize` method.
+
+`super` is a term used to refer to the parent class's version of the same method, so the line inside of the Apartment class's constructor is calling the Property class's constructor. `Property`'s `initialize` method is called and `@id`, `@address` etc are pass as the parameters.
+
+There's something funky going on here though. The `super` method call is not actually initializing an instance of a `Property`. It is executing this code on behalf of the `Apartment` that's being initialized. It's in practicality more like Ruby is copying and pasting the code from `Property` into `Apartment`.
+
+![inheritance initialize](images/inheritance-initialize.png)
+
+## Adding attributes to a subclass
+
+We have seen how inheritance allows a subclass to "inherit" the methods from it's superclass.  We can also update the `initialize` method in the subclass and use it to give our subclass additional attributes.
+
+An apartment mailing address is different than that of a generic `Property` in that it must have a unit number.  So we can give `Apartment` objects a unit number attribute.
 
 ```ruby
 class Property
@@ -88,13 +131,13 @@ class Apartment < Property
 end
 ```
 
-In the above example notice the `super` keyword in the 1st line of the `Apartment` class' `initialize` method.
-
-In initialize, `super` calls the parent, or superclass' constructor.  So `Property`'s `initialize` method is called and `@id`, `@address` etc are set to the given parameter.
+Note: Now that we are adding a new attribute to the `Apartment` class, we are required to call super if we want the parent constructor to execute (which is all the time).
 
 `super` **must** be the first line in a subclass' `initialize` method.  If `super` is called without an argument, it will use the parameters from the subclass' `initialize` method.
 
-![inheritance initialize](images/inheritance-initialize.png)
+### **Exercise**
+Update the `Circle` class to have a `radius` attribute.
+Verify that `radius` can now be assigned and read on an instance of `Circle` (by using pry/irb)
 
 ## Overriding Methods
 
@@ -151,13 +194,43 @@ In this case, we utilize the behavior that the _base class_ (`Property`) provide
 
 ![super in method calls](images/inheritance-super-method.png)
 
-**Exercise**  With your seatmates create an `Condo` class.  In addition to the same properties as `Apartment`, a Condo should also have `price` and `square_feet` properties and a `price_per_square_foot` method.
+### **Exercise** 
+Override the `describe` method in `Circle` to describe `radius` as well as `color`. (You should be able to do this using `super` to keep your code DRY.)
+
+## A Second Child
+Because we have created a parent `Property` class that defines attributes and behavior shared by all properties, we can create the `House` class by writing very little code. 
+
+```ruby
+class House < Property
+  attr_reader :roof_type
+
+  def initialize(id, street, city, state, zip, roof_type)
+    super(id, street, city, state, zip)
+    @roof_type = roof_type
+  end
+end
+
+fun_place = House.new(56789, '100 Park Place', 'New York', 'NY', 12077, 'Shake')
+fun_place.mailing_address #=> "100 Park Place"
+                  # "New York, NY 12077"
+fun_place.roof_type #=> "Shake"
+```
+
+### **Exercise**
+Add `Rectangle` as a child of `Shape`
+
+<details>
+  <summary>Instead of radius, what attribute(s) should Rectangle have?</summary>
+    length and width
+</details>
+
+  
 
 ## Summary
 
-Inheritance allows one class to gain or "inherit" the methods and attributes from another class.  This is a key concept in Object Oriented Programming.  Inheritance can be extremely powerful, but it is also easy to misuse.
+Inheritance allows classes to gain or "inherit" the methods and attributes from another class. It's important to name that the example in this lesson would not be a good example if `Apartment` were the only child class of `Property` we made. It is the fact that many child classes can inherit the same behavior from one parent that makes inheritance so powerful.
 
-Inheritance is good to use where one class is clearly an extension or variation of the parent class, so the class gaining methods and attributes **"is-a"** specialized version of the parent class.  Be very selective in your use of inheritance as composition is more often the most effective strategy.
+Inheritance is a key concept in Object Oriented Programming.  While it can be powerful, but it is also easy to misuse. Inheritance is good to use where many classes are clearly an extension or variation of the parent class, so each class gaining methods and attributes **"is-a"** specialized version of the parent class.  Be very selective in your use of inheritance as composition is more often the most effective strategy.
 
 ## Resources
 - [Understanding Inheritance in Ruby](http://culttt.com/2015/06/24/understanding-inheritance-in-ruby/)

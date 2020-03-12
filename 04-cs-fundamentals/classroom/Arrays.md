@@ -15,8 +15,8 @@ By the end of this lesson you should be able to:
 ## Video Lesson & Exercises
 
 - [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5dee2653-5d8c-40f9-a30c-aabc01162548)
-- [Slide Deck used in video](https://docs.google.com/presentation/d/1Y4x50roheuZ40QYmZGjguZIjb0Xjd3YNbvfq65rwg88/edit?usp=sharing)
-- [Exercise](https://github.com/Ada-C12/restricted-arrays)
+- [Slide Deck used in video](https://docs.google.com/presentation/d/1Y4x50roheuZ40QYmZGjguZIjb0Xjd3YNbvfq65rwg88/edit#slide=id.p)
+- [Exercise](https://github.com/Ada-C13/restricted-arrays)
 
 ## Introduction
 
@@ -404,7 +404,7 @@ Ruby builds on the basic static array, providing a dynamic Array class which can
 
 We also looked at several algorithms which progress through the array from the first to last index searching for the min, max and specific values.  We observed that increasing the number of elements in the array caused these algorithms to take proportionally longer in the average and worst cases.
 
-Next we ovserved how organizing an array in sorted order allowed us to use the _binary search_ algorithm to search for values in the array with much better performance which scales much better.  This illustrated how data organization can affect performance.
+Next we observed how organizing an array in sorted order allowed us to use the _binary search_ algorithm to search for values in the array with much better performance which scales much better.  This illustrated how data organization can affect performance.
 
 Lastly we looked at how an array can be reversed either through an auxiliary array or by reversing the elements in place.
 

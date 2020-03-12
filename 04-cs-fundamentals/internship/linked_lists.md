@@ -4,7 +4,7 @@
 
 - [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7d5d5d84-a85e-4c5d-aaab-aaa8016736aa)
 - [Slides](https://docs.google.com/presentation/d/1lJ8WJnA6qRlHAIaRAjim3kiL4nRBWT5qvFGQQIB4EL4/edit?usp=sharing)
-- [Linked List Exercises](https://github.com/Ada-C11/linked-list)
+- [Linked List Exercises](https://github.com/Ada-C12/linked-list)
 
 ## Learning Goals
 
@@ -307,7 +307,7 @@ void removeFirst(struct node **headRef) {
 
 ## Exercises
 
-The exercises will be done on the [Linked List Repository](https://github.com/Ada-C11/linked-list), please turn in a PR when done.
+The exercises will be done on the [Linked List Repository](https://github.com/Ada-C12/linked-list), please turn in a PR when done.
 
 Design an algorithm, deduce the space and time complexity and then, author functions to do the following:
 

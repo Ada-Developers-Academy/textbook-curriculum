@@ -8,6 +8,8 @@
 
 ## What is `Enumerable`?
 
+Enumeration is defined as the action of mentioning a number of things one by one.
+
 `Enumerable` is a _module_ that is _mixed in_ to both `Array` and `Hash` types in Ruby.
 
 At this very moment, we will not go into the full definition of a module. Instead, we'll work with an abbreviated definition: Ruby has a built-in set of code and methods accessed via `Enumerable`. Arrays and Hashes by default have and can use the methods defined within `Enumerable`.

@@ -68,7 +68,7 @@ The code we added to `clock_test.rb` will automatically run any tests in the fil
 
 ### Writing Your First Test
 
-To start we'll need to create a `description` block and place our tests inside that block.
+To start we'll need to create a `describe` block and place our tests inside that block.
 
 
 #### Step 1:  Create a `describe` block
@@ -217,7 +217,7 @@ Minitest::Reporters.use!
 describe "clock" do
   it "can be called with hours, minutes and seconds as arguments" do
     # Arrange
-    hours = 8
+    hours = 11
     minutes = 14
     seconds = 27
 
@@ -231,7 +231,7 @@ describe "clock" do
 
   it "will return a string formatted in hh:mm:ss format" do
     # Arrange
-    hours = 8
+    hours = 11
     minutes = 14
     seconds = 27
 
@@ -239,7 +239,7 @@ describe "clock" do
     time = clock(hours, minutes, seconds)
 
     # Assert
-    expect((time)).must_equal "08:14:27"
+    expect((time)).must_equal "11:14:27"
   end
 end
 ```
@@ -261,7 +261,7 @@ You may remember from the [Introduction to Automated Testing](../00-programming-
 
 <details>
 <summary>
-<b>Question:</b> Are there other edge-cases we should test for?  Do any other inputs cause different behaviors in the method?  Talk about it with your SeatSquad members, and click here for an answer if you are still unsure.
+<b>Question:</b> Are there other edge-cases we should test for?  Do any other inputs cause different behaviors in the method?  Talk about it with your neighbors, and click here for an answer if you are still unsure.
 </summary>
 
 - You should also test numbers less than 10
@@ -290,7 +290,7 @@ Notice that you **can** use multiple expectations per test.
 
 #### Make it pass
 
-**Exercise** Now with your SeatSquad write code to make the test pass.  Remember to run `ruby clock_test.rb` to verify that your `clock` method passes.  If you get stuck you can refer to [my sample solution](https://github.com/AdaGold/clock/commit/56259f91df17a3f6e18872fd661db8eddfc93786).
+**Exercise** Now with your neighbors write code to make the test pass.  Remember to run `ruby clock_test.rb` to verify that your `clock` method passes.  If you get stuck you can refer to [my sample solution](https://github.com/AdaGold/clock/commit/56259f91df17a3f6e18872fd661db8eddfc93786).
 
 
 ### Testing for Errors
@@ -425,7 +425,7 @@ describe "Example tip" do
     bill = 37.50
 
     # Act
-    tip = calculate_tip(37.5)
+    tip = calculate_tip(bill)
 
     # Assert - the answer will be within 0.01 of 7.5
     expect(tip).must_be_close_to 7.5, 0.01

@@ -107,7 +107,11 @@ puts "#{tonic.name}: #{tonic.available? ? 'currently' : 'not'} available"
 
 ### Post-Exercise
 
-This is a good start, our users now have something to do. But our users are still all the same. There's nothing to differentiate one user from another.
+Is `available?` a reader or a writer? 
+
+That's actually a trick question. Not all methods defined in a class are readers or writers. Because `available?` is not simply returning a single instance variable (reader) or updating a single instance variable (writer), it is neither a reader or a writer. (Reader and writer methods should always have the same name as the instance variable they are related to.)
+
+The code we wrote for Product is a good start. Our users now have something to do. But our users are still all the same. There's nothing to differentiate one user from another.
 
 ```ruby
 ada = User.new

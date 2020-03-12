@@ -23,7 +23,7 @@ We've seen exceptions before. If you try to access an undefined variable, Ruby w
 
 All exceptions are children of the `Exception` class, inheriting its core functionality.
 
-[![exceptions](images/exceptions.png)](http://findnerd.com/list/view/Exception-Handling-in-Rails-using-begin-rescue/21677/)
+![Exception class Hierarchy](https://github.com/Ada-Developers-Academy/textbook-curriculum/raw/master/02-intermediate-ruby/images/exceptions.png)
 
 The Ruby docs have a [full list of built in Ruby exceptions](https://ruby-doc.org/core/Exception.html).
 

@@ -74,8 +74,8 @@ Answer the following prompts:
 
 - This is open note. You are free to use your notes, the Internet, your past projects and assignments, etc!
 - For question #1, you will need to list at least five questions. This should feel like a stretch! It should feel really strange and creative to think of this many questions, or more. Sometimes, you'll come up with very weird questions, and that is totally fine, as long as the questions challenge assumptions and are relevant to the problem. Later on in the program, we will encourage you all to aim for 6, 7, or 8 questions.
-- For questions #2, #3, #4, and #5, **you will need to make assumptions, and that is okay.**
-- Your assumptions should be consistent throughout the assessment
+- For questions #2, #3, #4, and #5, **you will need to make assumptions, and that is okay.** In other words, you will need to answer the questions you wrote in question #1.
+- Your assumptions should be consistent throughout the exercise
 - What is a sub-problem? Every problem has sub-problems, or smaller problems that need to be solved as part of the original problem.
   - For example, in math, for solving the problem `x = ((8 + 3) * 72) / 2`, some sub-problems would be:
     - How do you isolate problems in parentheses?
@@ -114,8 +114,8 @@ Answer the following prompts:
     1. Will there ever be 0 restaurants? What should happen?
     1. What should I do if there is no rating?
 2. 2 examples
-    1. `[{name: "Grillby's", rating: 1}, {name: "Crow's Nest", rating: 5}]`, `{name: "Crow's Nest", rating: 5}`
-    1. `[{name: "Crow's Nest", rating: 1}]`, `{name: "Crow's Nest", rating: 1}`
+    1. Input: `[{name: "Grillby's", rating: 1}, {name: "Crow's Nest", rating: 5}]`, Output: `{name: "Crow's Nest", rating: 5}`
+    1. Input: `[{name: "Crow's Nest", rating: 1}]`, Output: `{name: "Crow's Nest", rating: 1}`
 3. 2 sub-problems
     1. How do you check/iterate over all of the restaurants?
     1. How do you compare the ratings between restaurants?
@@ -144,7 +144,7 @@ No. 1 is used to stretch minds. It should feel like a lot of questions, and it s
 
 - The answer is wrong if there aren't 2 examples
 - The answer is wrong if either of them aren't valid/consistent with each other
-- The answer is wrong if the inputs were not arrays, even if it had one or zero restaurants
+- The answer is wrong if the inputs were not arrays, (correct even the array had one or zero restaurants)
 
 #### Reviewing #3 (2 sub-problems):
 

@@ -23,7 +23,7 @@ Below is a diagram of the structure of a `POST` request.
 
 ## Making `POST` Requests
 
-We will learn to make `POST` requests using the [Slack API](https://api.slack.com/web).  To do so we will need our [legacy tokens page](https://api.slack.com/custom-integrations/legacy-tokens) which we have already obtained for our project.  **Note** There are [other](https://api.slack.com/docs/oauth), better, more secure methods of accessing an API, but the token method is the most simple way to introduce the concept and begin using APIs.
+We will learn to make `POST` requests using the [Slack API](https://api.slack.com/web).  To do so we will need our **Slack token** (you can find this on the [Slack apps page](https://api.slack.com/apps) by clicking "OAuth &amp; Permissions") which we have already obtained for our project.  
 
 Next we need to see how Slack takes in messages to post into a channel.  Take a look at the [chat.postMessage](https://api.slack.com/methods/chat.postMessage) page in the Slack API documentation.
 
