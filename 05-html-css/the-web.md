@@ -20,7 +20,7 @@ Common Examples: Facebook, Gmail, websites that allow shopping functionality, re
 
 Are the following sites static or dynamic? Why?
 
-- [Space Jam](http://www.warnerbros.com/)
+- [Space Jam](spacejam.com)
 - [Twitter](http://www.twitter.com)
 
 ## Front-end vs Back-end
