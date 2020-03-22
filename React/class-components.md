@@ -21,7 +21,7 @@ const Student = (props) => {
 };
 ```
 
-These are called, _functional components,_ because they are composed of one function.  Functional components take in data from `props` and return JSX.  These components are easy to read, test and debug because given a set of props they always return the same JSX back.  However often we want to keep track of information over time, or the _state_ of our component.  This is why functional components are often called _Stateless Components_ in React.  They take props as input and return JSX, which can be a mixture of nested components and HTML.
+These are called, _functional components,_ because they are composed of one function.  Functional components take in data from `props` and return JSX.  When functional components **only** use props and not the `useState` hook these functional components are often called _Stateless Components_ in React.  These stateless components are attractive because they are relatively straightforward to read, test and debug.  
 
 If you remember back to Ruby, we built objects which combined data, which could change over time, with functionality by defining classes.  We can build React components which can do the same!
 
