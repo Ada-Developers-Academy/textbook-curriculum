@@ -1,5 +1,7 @@
 # Managing data using `state`
 
+# TODO - Update for `useState` Hook
+
 ## Learning Goals
 - Examine how React allows components to manage data
 - Use `state` within a component
@@ -78,13 +80,13 @@ We are going to use this in conjunction with **events** later, but for now we're
 Now that we have learned about both `props` and `state`, we'll need to consider which concept to use for which scenarios.
 Here is a helpful chart to assist you in determining whether data belongs in `props` or `state`. For any line item that has "Yes" for both, it means you need to make that decision based on the context of the problem you are trying to solve.
 
- ?     | props     | state
- :------------- | :------------- |:-------------
-Can get initial value from parent component?       | Yes   | Yes
-Can be changed by parent component? | Yes | No
-Can change inside component? | No | Yes
-Can set initial value for a child component? | Yes | Yes
-Can change in a child component? | Yes | No
+ | ?                                            | props | state |
+ | :------------------------------------------- | :---- | :---- |
+ | Can get initial value from parent component? | Yes   | Yes   |
+ | Can be changed by parent component?          | Yes   | No    |
+ | Can change inside component?                 | No    | Yes   |
+ | Can set initial value for a child component? | Yes   | Yes   |
+ | Can change in a child component?             | Yes   | No    |
 
 ## Key Takeaway
 Using `state` will help you manage data within a React component. Using `props` and `state` together is a powerful way to share and manage data between components. They each have their own purpose, but they can be used together to provide the most dynamic applications.
