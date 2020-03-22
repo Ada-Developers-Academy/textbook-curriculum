@@ -94,19 +94,27 @@ In the Student class, `props` are passed into the contructor as arguments and sa
 
 You may have noticed that `App` inherits from `Component` while the `Student` inherits from `React.Component`.  They are both inheriting from the same class, but in `App.js` we have _destructured_ the `React` object with `import React, { Component } from 'react';`.  The `{ Component }` part of the line is the equivalent to:  `const Component = React.Component`.  It's a way of assigning elements of an object to individual variables.
 
-## When to use a Functional or Class Component
+## When to use a Stateless, Functional-with hooks or Class Component
 
-At Ada we start writing functional components because we believe they are the clearest to understand and easiest to get started writing JSX.  Furthermore, most of the time you will likely start a component as a functional component, even if you later change it into a class because you need the additional functionality.
+At Ada we start writing functional components because we believe they are the clearest to understand and easiest to get started writing JSX.  Furthermore, writing functional components is seen as best-practice in industry.
 
-Functional Components
+Stateless Components
 
 - Involve less complicated and lengthy syntax.
 - Can be understood more quickly because of their short, declaritive nature.
 - Are easier to test and debug because they are `deterministic`, i.e. given a set of props, they **always** return the same JSX.
 - In future releases they will provide better **performance** because they do not inherit functionality provided by the Component class.
-- Are more reusable because by only providing the most basic functionality with fewer dependencies, functional components can be reused more often
+- Are more reusable because by only providing the most basic functionality with fewer dependencies, functional components can be reused more often.
 
-Class components however provide access to the state and lifecycle functionality provided by the `Component` class.  In the next lecture we will examine [`state`](state.md) and how it works.  Your applications going forward will consist of a mix of class and functional components.  You will find that most of your business logic resides in your class components, while functional components provide much of the presentation structure.
+Functional Components with `useState`
+
+- Also involve less lengthy syntax and complicated lifecycle methods
+- Often result in smaller bundle size when deployed in production
+
+Class Components
+- Provide a set of lifecycle methods from their parent `Component` class which are called as the class componenent is created, mounted, rendered, and eventually, removed.
+
+In general, you should default to using **only** a mix of stateless and stateful functional components unless a class is required.
 
 ## Recap
 
