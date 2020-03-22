@@ -113,6 +113,7 @@ Functional Components with `useState`
 
 Class Components
 - Provide a set of lifecycle methods from their parent `Component` class which are called as the class componenent is created, mounted, rendered, and eventually, removed.
+- Provide an alternative method to manage a component's state using the `setState` method.
 
 In general, you should default to using **only** a mix of stateless and stateful functional components unless a class is required.
 
@@ -122,7 +123,6 @@ In general, you should default to using **only** a mix of stateless and stateful
 - A class component extends React's `Component` class.
 - A class component **must** have a `render` method.
 - `props` are passed into a class component from it's constructor method.
-- Functional components are easier to read and understand, but _stateless_.
 
 ## Additional Resources
 
