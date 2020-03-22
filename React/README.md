@@ -24,6 +24,7 @@
 1.  [APIs: Get](apis-get.md)
 1.  [APIs: Post](apis-post.md)
 1.  [Class Components](class-components.md)
+1.  [Managing State With Class components](state-with-classes.md)
 
 ## Naming and Organization Conventions
 
