@@ -214,4 +214,8 @@ Here is a helpful chart to assist you in determining whether data belongs in `pr
 Using `state` will help you manage data within a React component. Using `props` and `state` together is a powerful way to share and manage data between components. They each have their own purpose, but they can be used together to provide the most dynamic applications.
 
 ## Additional Resources
+
+- [ReactJS - Using the State hook](https://reactjs.org/docs/hooks-state.html)
 - [React Docs: State and lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
+- [The 1st Rule of React Hooks in Plain English](https://itnext.io/the-first-rule-of-react-hooks-in-plain-english-1e0d5ae32009)
+- [Use React Hooks correctly with these two rules](https://chrisachard.com/use-react-hooks-correctly-with-these-two-rules)
