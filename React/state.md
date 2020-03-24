@@ -91,43 +91,6 @@ const Student = (props) => {
 
 Now the component renders with a button that displays "Mark" and either present or absent depending on the current value of `present`.  Try changing the default value of `present` and see the change in the browser.
 
-### onClick Event
-
-The button displays, but does not yet respond when the user clicks on it.  We can add a `onClick` attribute to the button and give it a function to execute when the button is clicked.
-
-```javascript
-// src/components/Student.js
-// ...
-
-const changePresent = () => setPresent(!present);
-
-  // Component functions always return JSX
-  return (
-    <div>
-      <h3>{props.fullName}</h3>
-      <ul>
-        <li>Class: C13</li>
-        <li>Birthday: {props.birthday}</li>
-        <li>Email: {props.email}</li>
-      </ul>
-      <button onClick={changePresent}>
-        Mark {present ? 'Absent' : 'Present'}
-      </button>
-    </div>
-```
-
-Above we made a function, `changePresent` which calls `setPresent` and passes in the opposite of the current state.  Then we told the button when it is clicked to call that function.
-
-You can also define the function directly in the JSX with an anynomous function like:
-
-```javascript
-<button onClick={() => setPresent(!present)}>
-        Mark {present ? 'Absent' : 'Present'}
-      </button>
-```
-
-Now whenever the user clicks on the button the student's present state toggles between true and false!
-
 ## Rules with Hooks
 
 There are a few rules to keep in mind with hooks like `useState`.
