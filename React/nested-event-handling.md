@@ -28,29 +28,21 @@ Our finished app will be structured like this:
 
 ![Ada-Students State Diagram](images/Ada-Students-state-diagram.png)
 
-#### Classical Component
+### Lifting State Up
 
-Our first step is to refactor the existing `StudentCollection` to be a classical component. The easiest way to do this is to:
-- Wrap the existing function in a class declaration
-- Rewrite the function signature to match the pattern for `render`
-- Replace `props` with `this.props` (find-and-replace is your friend)
+Currently there is no way for App to see the state of all student data.  So if at a later point we wanted to save changes to our student data into an API or other external data source, App does not have visibility into the internal state of each `Student` component.  So, we are going to save the student data as state inside the `App` component and return `Student` to a functional stateless component just using props.
 
-When all is said and done, you should have something like this:
+This would also let us later do things like reorder, sort or remove students.
 
-```js
-// src/components/StudentCollection.js
-// ... same import statements ...
+**Question:** Currently why can't the `App` component see the current present or absent status of a student?
 
-class StudentCollection extends React.Component {
-  render() {
-    // ... exactly what was in the body of the component function before ...
-  }
-};
+<details>
+<summary>Our Answer</summary>
 
-export default StudentCollection;
-```
+Because _state_ is internal to the component, parent components have no visibility into it.  They can only see the props that they pass in. 
 
-Verify that this was a true refactor, in other words that your app still runs and looks exactly the same.
+Instead, we will _lift_ the state out of the `Student` component into the `App` component. This is a very common technique when managing a list of components in React: all the state lives in a parent component.
+</details>
 
 #### Adding State to `<StudentCollection />`
 
