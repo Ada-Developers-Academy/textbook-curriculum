@@ -57,7 +57,103 @@ When we called `useState` above we passed in the initial value of the state.  In
 
 `useState` returns an array.  We could have written the above as `const presentArray = useState(false)` and then `presentArray[0]` would the the value and `presentArray[1]` would be a function to change the state, but again we are using a feature called destructuring to break that array into two variables `present` and `setPresent`.  This is a common technique when using hooks in React.
 
-Commonly, initial state is set in a component's constructor function. This is set using variable assignment (the equals sign).
+Then if we want to change the state of present to `true` we can use the `setPresent` function with:  `setPresent(true)`.  This will cause the state variable `present` to change and the Student function to execute again, which is called re-rendering.
+
+### Adding a button to Student
+
+So right now the Student component has state, but no way for the use to change the state in the browser.  We will add a button to the component as follows:
+
+```javascript
+// src/components/Student.js
+// ...
+
+const Student = (props) => {
+
+  const [present, setPresent] = useState(false);
+  // Component functions always return JSX
+  return (
+    <div>
+      <h3>{props.fullName}</h3>
+      <ul>
+        <li>Class: C13</li>
+        <li>Birthday: {props.birthday}</li>
+        <li>Email: {props.email}</li>
+      </ul>
+      <button>
+        Mark {present ? 'Absent' : 'Present'}
+      </button>
+    </div>
+  );
+};
+```
+
+Now the component renders with a button that displays "Mark" and either present or absent depending on the current value of `present`.  Try changing the default value of `present` and see the change in the browser.
+
+### onClick Event
+
+The button displays, but does not yet respond when the user clicks on it.  We can add a `onClick` attribute to the button and give it a function to execute when the button is clicked.
+
+```javascript
+// src/components/Student.js
+// ...
+
+const changePresent = () => setPresent(!present);
+
+  // Component functions always return JSX
+  return (
+    <div>
+      <h3>{props.fullName}</h3>
+      <ul>
+        <li>Class: C13</li>
+        <li>Birthday: {props.birthday}</li>
+        <li>Email: {props.email}</li>
+      </ul>
+      <button onClick={changePresent}>
+        Mark {present ? 'Absent' : 'Present'}
+      </button>
+    </div>
+```
+
+Above we made a function, `changePresent` which calls `setPresent` and passes in the opposite of the current state.  Then we told the button when it is clicked to call that function.
+
+You can also define the function directly in the JSX with an anynomous function like:
+
+```javascript
+<button onClick={() => setPresent(!present)}>
+        Mark {present ? 'Absent' : 'Present'}
+      </button>
+```
+
+Now whenever the user clicks on the button the student's present state toggles between true and false!
+
+## Rules with Hooks
+
+There are a few rules to keep in mind with hooks like `useState`.
+
+### 1.  You must call hooks from the top-level of a component.
+
+This means that you cannot put `useState` in a loop like this:
+
+```javascript
+  let i = 0;
+  // Big NO NO!
+  studentList.forEach((student) => {
+    [counter, setCounter] = useState(i);  // will generate an error
+    i += 1;
+  });
+```
+
+**Why?**
+
+React depends on the hook functions being called in a specific order when a functional component is run.  It will not allow you to put code into your component which could affect the order in which `useState` is called.  You cannot even put `useState` inside an if statement.
+
+### 2.  You can only call hooks in functional components or other hooks
+
+Creating your own hooks is a more advanced topic, but state is intended to provide a way for a component to have information it remembers and changes internally over time.  So it does not make sense for state to be used outside of a component.  Therefore only call `useState` inside a React component.  Later if you create your own hooks, you can call them there.
+
+## Getting initial values from props
+
+You can use props to set an initial value for the state of a component.  For example we can add a `present` field in `App.js` to give an initial attendance value for a Student.
 
 ```javascript
 // NameDisplay.js
