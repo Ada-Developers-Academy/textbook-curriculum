@@ -69,7 +69,7 @@ To do this, we will pass in the data from the `App` component to the `Student` c
 1. Locate the spot where the `Student` component is rendered from the `App` component.
 
 1. Update the component rendering to include two new parameters by adding them in like this:
-    - `<Student fullName="Improved Ada" email="improved-ada@ada.co" />`
+    - `<Student fullName="Improved Ada" email="improved-ada@ada.org" />`
     - This shouldn't change anything yet in our application, so save the file and refresh the browser to verify that the data still looks like the original hard-coded data.
 
 1. Update the `Student` component function to take one argument, called `props`:
@@ -191,6 +191,42 @@ One thing to watch out for: we've given our `<li>` element a new prop, `key`. Th
 Lastly, we must put this new collection of `Student` components in our `render` function in order to see the results.
 
 Replace `<Student fullName="Improved Ada" email="improved-ada@ada.co" />` with the variable `studentComponents` and examine the result. Use Chrome's dev tools to inspect the generated HTML. Does it look like you expected?
+
+## Exercise:  Moving Students Up
+
+The `StudentCollection` component would not be very reusable if the list of students were hardcoded...  Now move the array of students up into the App component and have `StudentCollection` use props to get the list of students.
+
+The App component should now have:
+
+```javascript
+import React from 'react';
+import Student from './components/Student';
+import StudentCollection from './components/StudentCollection';
+import './App.css';
+
+const students = [
+  {
+    fullName: "Ada Lovelace",
+    email: "ada@lovelace.uk",
+  },
+  {
+    fullName: "Katherine Johnson",
+    email: "kat@nasa.gov",
+  },
+];
+
+function App () {
+  return (
+    <div className="App">
+      <StudentCollection students={students} />
+    </div>
+  );
+}
+
+export default App;
+```
+
+Modify the `StudentCollection` component to use the `students` prop passed in.
 
 ## Key Takeaway
 
