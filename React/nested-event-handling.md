@@ -28,6 +28,8 @@ Our finished app will be structured like this:
 
 ![Ada-Students State Diagram](images/Ada-Students-state-diagram.png)
 
+<!-- original file https://drive.google.com/file/d/1kot6UWXwSEMwjSLFIO2elzWOjCgKb6n8/view -->
+
 ### Lifting State Up
 
 Currently there is no way for App to see the state of all student data.  So if at a later point we wanted to save changes to our student data into an API or other external data source, App does not have visibility into the internal state of each `Student` component.  So, we are going to save the student data as state inside the `App` component and return `Student` to a functional stateless component just using props.
@@ -262,7 +264,7 @@ Wow, that was kind of complex. Let's look at a diagram of what's going on.
 
 ![State management with callbacks](images/state-management-with-callbacks.png)
 
-<!-- https://drive.google.com/open?id=1byKvDyUP5HUwQojmg2cpL4eNO9keFYpD -->
+<!-- https://drive.google.com/file/d/1dyNbUUe_6rkrSEG_lPKJGiwAAOGIHQ5_/view?usp=sharing -->
 
 **On the left in orange** is the setup. Information is passed from parent components to child components at `render` time using `props`.
 
