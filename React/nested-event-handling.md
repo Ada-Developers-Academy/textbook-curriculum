@@ -44,37 +44,31 @@ Because _state_ is internal to the component, parent components have no visibili
 Instead, we will _lift_ the state out of the `Student` component into the `App` component. This is a very common technique when managing a list of components in React: all the state lives in a parent component.
 </details>
 
-#### Adding State to `<StudentCollection />`
+#### Adding State to App
 
-Our component is now a class, but it still doesn't keep track of any state. Let's fix that.
-
-As we saw in previous lessons, `state` should be set initially in the constructor. For our `StudentCollection`'s initial state, we'll use the list of students. We'll add an extra field to our students here, `isPresent`, which we'll be using in a bit.
-
-Set up a constructor in the `StudentCollection` component. Don't forget your call to `super();` which is always required in a component constructor!
+We will begin by modifying App to store the student list in state.  First import `useState` from react.
 
 ```javascript
-// src/components/StudentCollection.js
-constructor() {
-  super();
+import React, { useState } from 'react';
+```
 
-  this.state = {
-    students: [
-      {
-        fullName: "Ada Lovelace",
-        email: "ada@lovelace.uk",
-        isPresent: false
-      },
-      {
-        fullName: "Katherine Johnson",
-        email: "kat@nasa.gov",
-        isPresent: false
-      }
-    ]
-  }
+Then in the App component we can call `useState` and send the students array as props to `StudentCollection`.
+
+```javascript
+function App () {
+  const [studentList, setStudentList] = useState(students);
+
+  return (
+    <div className="App">
+      <StudentCollection students={studentList} />
+    </div>
+  );
 }
 ```
 
-Next, we'll use a `map` in our `render` function to iterate through each item in our state object and render a `Student` component for each piece of data. You should already have some of this `map` logic, but now we'll be getting the data from `state` rather than a constant.
+We can now verify that the app still works as normal.  
+
+We can also add a function to change a student.  To make things easier we can add an `id` field to each student object.
 
 ```javascript
 // src/components/StudentCollection.js
