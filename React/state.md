@@ -186,9 +186,14 @@ Then in `StudentCollection` we can pass that initial value in as a prop.
 // ...
 ```
 
-Once the initial state is set, we can then make changes using the `setState` function. (**Note:** `setState` will work even if that state variable was not included in the initial `state` object.) This function will merge this object with the existing state object, overriding any existing values on the same variables. `setState` function calls are very often triggered by events that our users can trigger.
+Then in our `Student` component we can change `useState(false)` and replace it with:
 
-We are going to use this in conjunction with **events** later, but for now we're just going to start with setting the defaults in state and then accessing them using `this.state`.
+```javascript
+// src/components/Student.js
+// ...
+  const [present, setPresent] = useState(props.present);
+// ...
+```
 
 ## Changing `props` and `state`
 Now that we have learned about both `props` and `state`, we'll need to consider which concept to use for which scenarios.
