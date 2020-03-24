@@ -156,20 +156,21 @@ Creating your own hooks is a more advanced topic, but state is intended to provi
 You can use props to set an initial value for the state of a component.  For example we can add a `present` field in `App.js` to give an initial attendance value for a Student.
 
 ```javascript
-// NameDisplay.js
-import React from 'react';
-
-class NameDisplay extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      name: 'Ada',
-      displayName: true
-    };
-  }
-}
-
-export default NameDisplay;
+// src/App.js
+// ...
+const students = [
+  {
+    fullName: "Ada Lovelace",
+    email: "ada@lovelace.uk",
+    present: true,
+  },
+  {
+    fullName: "Katherine Johnson",
+    email: "kat@nasa.gov",
+    present: false,
+  },
+];
+// ...
 ```
 
 Once we know that the initial state is set, we can use this value within our component class. In this example, we'll use the combination of two state variables to determine whether or not to display a specific property value in our render function.
