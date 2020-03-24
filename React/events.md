@@ -43,11 +43,21 @@ const onButtonClick = () => onButtonClick(!present);
     </div>
 ```
 
+**Pause here** for a moment with the person sitting next to you. What is this code doing? Refer back to the [state lecture](state.md) if you can't remember what the `setPresent` function is supposed to do.
+
+**Note** the arrow function syntax for this event handler function. You could define the event handler function `onButtonClick` as a regular function, but making it an arrow function in this case is a bit more condense and keeps the `this` context to the current component.  In [class components](class-components.md), you **must** define event handlers as arrow functions because you need to ensure that `this` refers to the current component.
+
+Now that we have an event handler function defined and tied to this button, let's take a look at our application running on the server to see what the result is. What happens when the button is clicked?
+
+Above we made a function, `onButtonClick` which calls `setPresent` and passes in the opposite of the current state.  Then we told the button when it is clicked to call that function.
+
+Now whenever the user clicks on the button the student's present state toggles between true and false!
+
 **Questions**:
 1. Based on the code above, what is the name of the function that we want to create to handle the event when this button is clicked?
 2. Is the function being **called** when it is tied to the event?
 
-**Think back!**
+This function is not called immediately instead it is passed into the button to be called when click events occur.  This type of function is termed a _callback function_ that won't be executed until the event occurs. This is the same for all events defined here in our React components.
 
 When we set up events in jQuery, recall that we would tie a function to the event, but we would never **call it**.
 
