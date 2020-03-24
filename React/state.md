@@ -173,35 +173,17 @@ const students = [
 // ...
 ```
 
-Once we know that the initial state is set, we can use this value within our component class. In this example, we'll use the combination of two state variables to determine whether or not to display a specific property value in our render function.
+Then in `StudentCollection` we can pass that initial value in as a prop.
 
 ```javascript
-// NameDisplay.js
-import React from 'react';
-
-class NameDisplay extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      name: 'Ada',
-      displayName: true
-    };
-  }
-
-  render() {
-    let display = 'Sorry, I don\'t know your name.';
-    if (this.state.displayName) {
-      display = `Hello, ${this.state.name}.`;
-    }
-    return (
-      <section>
-        { display }
-      </section>
-    );
-  }
-}
-
-export default NameDisplay;
+// src/components/StudentCollection.js
+// ...
+        <Student
+          fullName={student.fullName}
+          email={student.email}
+          present={student.present}
+        />
+// ...
 ```
 
 Once the initial state is set, we can then make changes using the `setState` function. (**Note:** `setState` will work even if that state variable was not included in the initial `state` object.) This function will merge this object with the existing state object, overriding any existing values on the same variables. `setState` function calls are very often triggered by events that our users can trigger.
