@@ -59,6 +59,8 @@ When we called `useState` above we passed in the initial value of the state.  In
 
 Then if we want to change the state of present to `true` we can use the `setPresent` function with:  `setPresent(true)`.  This will cause the state variable `present` to change and the Student function to execute again, which is called re-rendering.
 
+In the [next lesson](events.md) we will use this `setPresent` function to change the attendance status of a student when the user clicks a button.
+
 ### Adding a button to Student
 
 So right now the Student component has state, but no way for the use to change the state in the browser.  We will add a button to the component as follows:
