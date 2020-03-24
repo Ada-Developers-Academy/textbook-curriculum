@@ -24,10 +24,12 @@ const Student = (props) => {
   // Component functions always return JSX
   return (
     <div>
-      <h3>
-        {props.fullName}
-      </h3>
-      <p>{props.email}</p>
+      <h3>{props.fullName}</h3>
+      <ul>
+        <li>Class: C13</li>
+        <li>Birthday: December 10th, 1815</li>
+        <li>Email: {props.email}</li>
+      </ul>
     </div>
   );
 };
@@ -46,7 +48,7 @@ The above block defines two props. They both must be Strings. `email` is optiona
 
 If a component has optional props you can simply leave off the `isRequired` attribute.
 
-**Exercise** Add another prop to the `Student` component called `age`.  This component should be _optional_.  Update the `Student` class' `propTypes`.
+**Exercise** Add another prop to the `Student` component called `birthday`.  This component should be _optional_.  Update the `Student` class' `propTypes`.
 
 **Question**:  Why encourage developers to list the props the component takes like this?
 
@@ -60,7 +62,7 @@ You can also set default values for some or all of your props with a `defaultPro
 
 ```javascript
 Student.defaultProps = {
-  email: 'no email on file',
+  birthday: 'no birthdate on file',
 }
 ```
 
