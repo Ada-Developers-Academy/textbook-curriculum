@@ -195,31 +195,22 @@ The CSS is the most straightforward thing on our todo list, so let's get that ou
 }
 ```
 
-#### The Button
-Next, let's modify the `Student` component to include the `isPresent` property, and a button.
+#### Adding className for styling
 
-```js
-// Student.js
-const Student = (props) => {
+Next, let's modify the `Student` component to use the `present` property, to style the component.
 
-return (
-  <section className='student'>
-    <h3>Student Component</h3>
-    <h4 className={(props.isPresent) ? 'present' : 'absent'}>Name {props.fullName} </h4>
-    <p>Email: {props.email} </p>
-
-
-    <button
-    disabled={ this.props.isPresent }
-    >Mark Present</button>
-  </section>
-  );
-}
+```javascript
+// src/components/Student.js
+ // ...
+    <div className="student">
+      <h3 className={props.present ? 'present' : 'absent'}>{props.fullName}</h3>
+ // ...
 ```
 
-Change the initial state in the `StudentCollection` to verify this works as intended.
+Change the initial state in the `App` to verify this works as intended.
 
 #### The Event Handler
+
 Next, let's explore the event handler setup. What data do we need from the button click event to appropriately change the overall student's state?
 
 1. An Event Handler in the `Student.js` file
