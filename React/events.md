@@ -12,8 +12,8 @@ React supplies support on many different events. We'll focus on a few of the com
 In this lecture, we are going to expand upon the `Student` component that we created in the [state lecture](state.md). This was a great component that we created that was storing a student's present status in the component. We used the boolean in the function to determine what to display.
 
 ### Adding More Meaning
+
 #### Toggle our Boolean
-The boolean value that we're storing in the state seems a little bit useless right now. We set it to `true` within the constructor and we don't ever change it! We will set up a button and handle the `onClick` event to affect the state within this component.
 
 Let's add a button that we will use to toggle the display of the name variable. We'll first add the button element within the `return` of our `render` function. Then we'll add the `onClick` attribute whose value will refer to an event handler function that we will create next.
 
