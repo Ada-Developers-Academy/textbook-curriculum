@@ -122,7 +122,6 @@ const Student = () => {
 };
 
 export default Student;
-
 ```
 
 ## Key Takeaway
