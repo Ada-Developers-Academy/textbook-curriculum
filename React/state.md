@@ -3,18 +3,42 @@
 # TODO - Update for `useState` Hook
 
 ## Learning Goals
+
 - Examine how React allows components to manage data
 - Use `state` within a component
 - Examine how `props` and `state` affect component rendering
 
 ## `state`
-State is managed **within a given component**. State can be accessed using the `this.state` object and it can be modified using the `this.setState()` function.
 
-#### Overview
-- Can be assigned to any object key you want
-- `setState` will always take an object as the parameter
-- `setState` will merge any params passed in with the existing state data, it won't overwrite it
-- We often set the initial state in the constructor function
+State is managed **within a given component**. State can be accessed using the `useState` hook and it can be modified using the a function that `useState` returns.
+
+**Wait what's a hook?**  A hook is a special function react provides to "hook" into the lifecyle of a React component and access specific functionality.  The `useState` hook function allows us to have a variable, like an instance variable for a Ruby class for our component.  It also provides a function to change the value of that variable, or it's state.  When this state variable is changed, the component is re-rendered.  React has a number of hooks, and you can even create your own, but for now, we will focus on `useState`.
+
+`useState` allows us to have components with data they remember internally and change over time, like instance variables in a Ruby object.
+
+#### useState Overview
+
+- will take the initial value of the state object as a parameter
+- will return an array with two elements
+  - the current value of the state
+  - a function to change the state
+
+## Adding State to the Student Component
+
+Lets say we want each student component to keep track of if the student is present or absent and we want to be able to change that value if they are present and re-render the component.
+
+### Importing useState
+
+We start by importing the `useState` function.  
+
+```javascript
+// src/components/Student.js
+import React, { useState } from 'react';
+```
+
+**Why do we have { } around `useState`**?
+
+We could call `useState` with `React.useState`, but JavaScript provides a feature called _destructuring_, which we will cover in depth later, which allows us to reference `React.useState` with a variable `useState`, to save typing.
 
 A really important aspect of state is that whenever the state of a component is changed, it will be **updated**, calling the `render` function. For now, you can think of `setState` as doing the `setState` operation PLUS the `render` _automatically_. We'll learn even more about what else our component does when it is updated later on.
 
