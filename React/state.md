@@ -40,11 +40,22 @@ import React, { useState } from 'react';
 
 We could call `useState` with `React.useState`, but JavaScript provides a feature called _destructuring_, which we will cover in depth later, which allows us to reference `React.useState` with a variable `useState`, to save typing.
 
-A really important aspect of state is that whenever the state of a component is changed, it will be **updated**, calling the `render` function. For now, you can think of `setState` as doing the `setState` operation PLUS the `render` _automatically_. We'll learn even more about what else our component does when it is updated later on.
+### Calling useState
 
-#### Examples
+We can then call `useState` in our Student component.
 
-**Syntax**
+```javascript
+// src/components/Student.js
+// ...
+const Student = (props) => {
+
+  const [present, setPresent] = useState(false);
+  // ...
+```
+
+When we called `useState` above we passed in the initial value of the state.  In this example we are defaulting students to being not present (absent).
+
+`useState` returns an array.  We could have written the above as `const presentArray = useState(false)` and then `presentArray[0]` would the the value and `presentArray[1]` would be a function to change the state, but again we are using a feature called destructuring to break that array into two variables `present` and `setPresent`.  This is a common technique when using hooks in React.
 
 Commonly, initial state is set in a component's constructor function. This is set using variable assignment (the equals sign).
 
