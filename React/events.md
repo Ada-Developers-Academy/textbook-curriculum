@@ -15,16 +15,32 @@ In this lecture, we are going to expand upon the `Student` component that we cre
 
 #### Toggle our Boolean
 
-Let's add a button that we will use to toggle the display of the name variable. We'll first add the button element within the `return` of our `render` function. Then we'll add the `onClick` attribute whose value will refer to an event handler function that we will create next.
+The boolean value that we're storing in the state seems a little bit useless right now. We set it to `true` as an initial value and we don't ever change it! We have a button and it doesn't do anything!  Next we will add code to change the state of `present` when the button is clicked on.
+
+### onClick Event
+
+Now we'll add the `onClick` attribute to the button whose value will refer to an event handler function that we will create next.
 
 ```javascript
-// NameDisplay.js
-  render() {
-    return (
-      ...
-      <button onClick={ this.onButtonClick }>Toggle Display</button>
-    );
-  }
+// src/components/Student.js
+// ...
+
+// Function to toggle present
+const onButtonClick = () => onButtonClick(!present);
+
+  // Component functions always return JSX
+  return (
+    <div>
+      <h3>{props.fullName}</h3>
+      <ul>
+        <li>Class: C13</li>
+        <li>Birthday: {props.birthday}</li>
+        <li>Email: {props.email}</li>
+      </ul>
+      <button onClick={onButtonClick}>
+        Mark {present ? 'Absent' : 'Present'}
+      </button>
+    </div>
 ```
 
 **Questions**:
