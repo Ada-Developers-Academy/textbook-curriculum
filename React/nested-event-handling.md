@@ -14,27 +14,19 @@ By the end of this lesson, students should be able to...
 
 Last time we worked on our student tracking application, we used a functional `StudentCollection` component to render a list of `Student`s. The student data came from an array created in the `StudentCollection` component.
 
-Our goal for this lesson is to make the application respond to events from the user. So, let's start with some brainstorming:
-- What kind of actions might the user take on individual students?
-- What kind of actions might the user take on the list of students?
+We modified the `Student` component to respond to events to mark a student present or absent and to update that student's name, maintaining it's own state.
 
-For this lesson our plan is to use our app to track attendance. Each student will have a button with the text "mark present", which when clicked, will show the student as present.
+Our goal for this lesson is to move the state up to the `App` component and return the `Student` component to a stateless component.  
 
-## Refactor to a Stateful Component
+Why might we want to do this:
 
-### Lifting State Up
+- It makes the `Student` component easier to test and read
+- If we later have the `App` component getting students from an external source (an API or file) it can manage the data and external sources and let the `Student` components focus on display and event handling.
+- It allows us to separate concerns, the `App` component handles the data and the `Student` and `StudentCollection` components handle the display.
 
-Currently there is no way for us to change the student data. If we want to be able to change whether a student is present, we'll need to keep track of that as state in our application.
+Our finished app will be structured like this:
 
-**Question:** Where should our application's state live? What are our options?
-
-<details>
-<summary>Our Approach</summary>
-
-We could keep the state for each student in the corresponding `Student` component, initializing it from `prop`s in the constructor. For this limited example, that would work fine. However, if we were to add event handling on the whole collection (sort, add/remove, etc.), it would reset all the state on the individual `Student`s! Not so good.
-
-Instead, we will _lift_ the state out of the `Student` component into the `StudentCollection`. This is a very common technique when managing a list of components in React: all the state lives in the parent component. This will also line up well with the code we've already written.
-</details>
+![Ada-Students State Diagram](images/Ada-Students-state-diagram.png)
 
 #### Classical Component
 
