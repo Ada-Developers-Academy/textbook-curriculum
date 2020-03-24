@@ -122,29 +122,50 @@ function App () {
   `setStudentList` a method `useState` provides to change the state first checks to see if the new state is different from the old state.  However it does not do a deep comparison for performance reasons.  Instead it checks to see if the new value references the same memory address as the old.  If so it does... NOTHING.  Therefore you need to pass in a new object to update state.  If you do not... nothing will change.
 </details>
 
-Part of the concept of 'lifting state' is removing any state that is no longer relevant to the child element. 
+### Removing State from Student
 
-**Question:** What pieces of state still need to keep inside of the `Student`?
+**Question:** Now that App has the student list in state.  What pieces of state still need to be kept inside of the `Student` component?
 
 <details>
   <summary>Answer</summary>
 
-  Actually, none! While we _could_ make a working app that uses a class based component in the `Student` and the `StudentCollection`, it will be cleaner to read and update in the future if we turn the classical version of `Student` back into a functional component!
+  Actually, none! While we _could_ make a working app that uses a stateful `Student` and `App` components, it will be cleaner to read and update in the future if we turn the stateful version of `Student` back into a stateless component!
 </details>
+
+We can now remove `useState` from the `Student` component and return all references to the state variables into props.
 
 Ultimately, we can refactor the code to look like this:
 
 ```javascript
-// Student.js
+// src/components/Student.js
+// ...
 const Student = (props) => {
+
+  // Event callback functions
+  const onButtonClick = () => {
+    // Updated below
+  }
+
+  const onFullNameInputChange = (event) => {
+    // Updated below
+  };
+
+  // Component functions always return JSX
   return (
-    <section className= 'student'>
-      <h3>Student Component</h3>
-      <h4 >Name {props.fullName} </h4>
-      <p>Email: {props.email} </p>
-    </section>
+    <div>
+      <h3>{props.fullName}</h3>
+      <input value={props.fullName} onChange={onFullNameInputChange} />
+      <ul>
+        <li>Class: C13</li>
+        <li>Birthday: {props.birthday}</li>
+        <li>Email: {props.email}</li>
+      </ul>
+      <button onClick={onButtonClick}>
+        Mark {props.present ? 'Absent' : 'Present'}
+      </button>
+    </div>
   );
-}
+};
 ```
 
 ## Modify `state` using an event
