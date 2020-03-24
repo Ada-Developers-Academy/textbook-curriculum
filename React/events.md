@@ -69,54 +69,51 @@ You can also define the function directly in the JSX with an anynomous function 
       </button>
 ```
 
-That is because it is a _callback function_ that won't be executed until the event occurs. This is the same as our events defined here in our React components.
+#### Change the Name
 
-Within our component (usually after the `constructor` and before the `render`), we'll add the event handler function that our code will call when the button is clicked.  
+Another variable that we store is the name. Unfortunately right now, we are passing the `fullName` from props and we **cannot** change the value of our props.  
+
+**1.  Convert `fullName` from using props to state.**
+
+This will require you to use `useState` a second time to set the student's fullName in state.  Then make sure it renders in the browser.
+
+**2.  Add an input field with the value of the `fullName`**
+
+Now we can add an input field and assign it the value of our `fullName` state variable.
 
 ```javascript
-// between constructor and render
-onButtonClick = () => {
-  this.setState({ displayName: !this.state.displayName });
-}
+return (
+    <div>
+      <h3>{fullName}</h3>
+      <input value={fullName} />
+      <ul>
+   ...
 ```
 
-**Pause here** for a moment with the person sitting next to you. What is this code doing? Refer back to the [state lecture](state.md) if you can't remember what the `setState` function is supposed to do.
+Notice however that changing the input doesn't change how `fullName` displays in the `h3` tag.  We need to add an `onChange` event handler to set the state when the input changes.
 
-**Note** the arrow function syntax for this event handler function. This is not optional. This is necessary for us to be able to use the `this.setState` function when this callback function is executed.
+**3.  Make the state change when the input changes**
 
-Now that we have an event handler function defined and tied to this button, let's take a look at our application running on the server to see what the result is. What happens when the button is clicked?
-
-#### Change the Name
-Another `state` variable that we store is the name. Unfortunately right now, we can only choose what the name is right at the beginning, but there is no option for us to change it (and therefore the display) later on. We're going to add an input box on which we'll handle the `onChange` event to affect the state.
-
-Let's add an input box!
+Next we will add an event handler function to change the state of `fullName` when the method is called.
 
 ```javascript
-render() {
-  return (
-    ...
-    Change your name: <input onChange={ this.onNameChange }></input>
-  );
-}
+const onFullNameInputChange = (event) => {
+  setFullName(event.target.value);
+};
 ```
 
 Pay attention to the way we've named this callback. Starting event handler names with `on` is a standard convention, and lets other programmers know your intent. The name also gives information about:
+
 - What event happened (`change`)
 - Which DOM element was the target of the event (the name input)
 
-Next, we'll need to add the event handler function that our code will call when the button is clicked. Again, make note of the arrow function syntax.
+Next, we'll need to add the event handler function that our code will be called when the input is edited.
 
 ```javascript
-// somewhere between constructor and render
-onNameChange = (event) => {
-  // Write your code here!!
-}
+      <input value={fullName} onChange={onFullNameInputChange} />
 ```
 
-**Exercise:** Take a few minutes with your neighbors to figure out how to access the input box's value (from the  `event` parameter) and use `setState` to update the name accordingly.
-
-
-You can see the final version of this [code here](https://codepen.io/adadev/pen/ELpvyM?editors=0011).
+You can see the final version of this [code here](https://codesandbox.io/s/ada-students-with-state-and-events-08fui).
 
 ## Key Takeaway
 We tie events to HTML elements in our JSX to handle changes in the state of our components. When we change state (using `setState`), the component will automatically re-render given it's updated values.
