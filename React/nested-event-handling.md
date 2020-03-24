@@ -213,131 +213,48 @@ Change the initial state in the `App` to verify this works as intended.
 
 Next, let's explore the event handler setup. What data do we need from the button click event to appropriately change the overall student's state?
 
-1. An Event Handler in the `Student.js` file
-1. A function that has access to the data (`this.state`) inside of `StudentCollection.js`
+1. An Event Handler in the `Student.js` file, we can use `onButtonClick` and `onFullNameInputChange`.
+1. A function that has access to the state inside of `App.js`.
 
-First we'll create the event handler function with an initial logging statement. We'll follow the same pattern as before for a DOM event handler: start with `on`, then indicate what element and what event are being handled.
+First we will modify the `onButtonClick` as follows.
 
 ```javascript
-// Student.js
-const Student = (props) => {
-  const onPresentButtonClick = () => {
-    console.log(props);
+const onButtonClick = () => {
+    const updatedStudent = {
+      fullName: props.fullName,
+      birthday: props.birthday,
+      email: props.email,
+      // Toggle present to a new value
+      present: !props.present,
+      id: props.id,
+    }
+
+    // call the function passed from `App`
+    props.onUpdateStudent(updatedStudent);
   }
-// ... the middle of Student.js
 ```
-
-Then we tie the button to the event handler function:
-
-```js
-// Student.js
-//...
-return (
-<button
-  disabled={ props.isPresent }
-  onClick={ onPresentButtonClick }
-  >Mark Present </button>
-  );
-}
-```
-
-Test it out and see what gets logged in the console.
 
 **Question:** What piece of data is going to help us determine exactly which student should be updated?
 
 <details>
 <summary>Answer</summary>
-The student we are interested in updating is something we can match using `props.index`. 
+The student we are interested in updating is something we can match using `props.id`. 
 </details>
 
-**Question:** Wait, why does this work at all? Shouldn't we lose access to `props` once the component is rendered?
+**Question:** Wait, why does this work at all? Shouldn't we lose access to `props` in the onButtonClick function due to scope?
 
 <details>
 <summary>Answer</summary>
-`onPresentButtonClick` is closed around `props`, so the `props` variable is still accessible! Remember, all we need to close is three things:
+`onButtonClick` is closed around `props`, so the `props` variable is still accessible! Remember, all we need to close is three things:
 
 1. Nest a function inside a function
 1. Reference a variable from the outer function in the inner function
 1. Make the inner function available outside the outer function
 
-1. `onPresentButtonClick` is nested inside of `Student`
-1. We reference `props` inside of `onPresentButtonClick`
-1. We hand `onPresentButtonClick` to the `<button>`, where it lives on after `Student` has finished running!
+1. `onButtonClick` is nested inside of `Student`
+1. We reference `props` inside of `onButtonClick`
+1. We hand `onButtonClick` to the `<button>`, where it lives on after `Student` has finished running!
 </details>
-
-#### Callback from the Parent
-
-Next, we must consider that the `state` of the students is not stored within this component. In order to update this, we'll need to _implement_ some code within the `StudentCollection` component which will change the state, and then _call_ that code inside the `Student`
-
-Let's create a new function in the `StudentCollection` component. This function should take in one parameter which represents the unique identifier for the `<Student />` whom we want to mark "present".
-
-```javascript
-//StudentCollection.js
-
-markPresent = (studentIndex) => {
-  console.log(studentIndex);
-}
-```
-
-
-<details>
-<summary><b>Question:</b>  What way do we have to pass data from a parent component to a child component.
-</summary>
-If you answered `props`, you're correct!
-
-We are going to send _a callback function_ as a part of `props` from the `StudentCollection` component to the `Student` component. Once the event occurs in the child component, we can then get the data we need from the child, and pass that to the parent to update the `state`.
-</details>
-
-Update the `render` function in the `StudentCollection` component to pass in a new `prop` to `Student`, the callback function. Note: We are _passing_ this as a function not _calling_ the function, so we leave the parenthesis off.
-
-```javascript
-// StudentCollection.js
-this.state.students.map((student, i) => {
-  return (
-    <li key={ i }>
-      <Student
-        index={ i }
-        fullName={ student.fullName }
-        email={ student.email }
-        isPresent={ student.isPresent }
-        markPresentCallback={ this.markPresent }
-        />
-    </li>
-  );
-});
-```
-
-Now, in the `Student` component, we can call this callback function within our event handler with the information about the specific student that needs to be updated.
-
-```javascript
-// Student.js
-const Student = (props) => {
-  const onPresentButtonClick = () => {
-    console.log(props);
-    props.markPresentCallback(props.index);
-  }
-
-  // The rest of the file
-  // ...
-}
-```
-
-Finally, we'll update the callback function in the parent component to modify the state of the student.
-
-```javascript
-//StudentCollection.js
-
-markPresent = (studentIndex) => {
-  console.log(studentIndex);
-
-  // Store our state in a local variable so we can make the update
-  let updatedStudents = this.state.students;
-  updatedStudents[studentIndex].isPresent = true;
-
-  // Call setState to update our state (as well as re-render automatically)
-  this.setState({ students: updatedStudents });
-}
-```
 
 ### Event Handling Summary
 
@@ -348,25 +265,33 @@ Wow, that was kind of complex. Let's look at a diagram of what's going on.
 <!-- https://drive.google.com/open?id=1byKvDyUP5HUwQojmg2cpL4eNO9keFYpD -->
 
 **On the left in orange** is the setup. Information is passed from parent components to child components at `render` time using `props`.
+
+- `App` provides a list of students to `StudentCollection`
 - `StudentCollection` gives `Student`:
-  - Its position in the array (`index`)
-  - A callback function to invoke when it is marked present (`markPresentCallback`)
-  - Some info about itself (`fullName`, `email`, `isPresent`)
+  - It's id in the array
+  - It's fullName, birthdate and attendance status
+  - A callback function to invoke when it is marked present (`onUpdateStudent`)
 - `Student` gives its `<button>` a callback function to invoke when the button is clicked
 
 **On the right in blue** is the sequence that happens when the `<button>` is clicked.
-- The button invokes its callback, `onPresentButtonClick`
-- `onPresentButtonClick` takes the index from the `Student`'s `props`, and uses it to invoke `markPresentCallback`
-
-`markPresentCallback` comes from `markPresent` in the `StudentCollection`
-- Invoking this function updates the state of `StudentCollection`
-  - It uses the index that was passed in and updates the corresponding student record
-- Updating state causes `StudentCollection` to re-render
-- When `StudentCollection` re-renders, it will pass the new value for `isPresent` to the `Student`, causing that `Student` to re-render
+- The button invokes its callback, `onButtonClick`
+- `onButtonClick` takes the `Student`'s `props`, and uses it to invoke `onUpdateStudent`
+`onUpdateStudent` comes from `updateStudent` in the `App` component
+- Invoking this function updates the state of `App`
+  - It uses the id that was passed in and updates the corresponding student record
+- Updating state causes `App` to re-render
+- When `App` re-renders, it will pass the new value for `isPresent` through `StudentCollection` to the `Student`, causing that `Student` to re-render
 
 This style of event handling is very common in React - it comes up whenever an event on a child component needs to update state stored in a parent component. Having a good handle on how the pieces fit together will be especially helpful once we talk about forms later.
 
+### Exercise
+
+Now add functionality to the `Student` component to change the `fullName` field when the input changes.
+
+If you get stuck you can see a finished and working version on [code sandbox](https://codesandbox.io/s/ada-students-nested-components-with-state-nv7l0).
+
 ## Key Takeaway
+
 Once we have a grasp on how to use `props` and `state` within our React application, the possibilities are endless. Using these concepts to manage the data and our understand of how to nest components, we can create rich and interactive applications.
 
 ## Additional Resources
