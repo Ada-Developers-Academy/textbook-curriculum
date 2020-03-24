@@ -59,10 +59,14 @@ Now whenever the user clicks on the button the student's present state toggles b
 
 This function is not called immediately instead it is passed into the button to be called when click events occur.  This type of function is termed a _callback function_ that won't be executed until the event occurs. This is the same for all events defined here in our React components.
 
-When we set up events in jQuery, recall that we would tie a function to the event, but we would never **call it**.
+### onClick with an anynomous function
+
+You can also define the function directly in the JSX with an anynomous function like:
 
 ```javascript
-$(li).click(myFunction)
+<button onClick={() => onButtonClick(!present)}>
+        Mark {present ? 'Absent' : 'Present'}
+      </button>
 ```
 
 That is because it is a _callback function_ that won't be executed until the event occurs. This is the same as our events defined here in our React components.
