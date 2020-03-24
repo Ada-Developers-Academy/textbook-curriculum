@@ -71,42 +71,56 @@ We can now verify that the app still works as normal.
 We can also add a function to change a student.  To make things easier we can add an `id` field to each student object.
 
 ```javascript
-// src/components/StudentCollection.js
-render() {
-    const studentComponents = this.state.students.map((student, i) => {
-      return (
-        <li key={ i }>
-          <Student
-            index={ i }
-            fullName={ student.fullName }
-            email={ student.email }
-            isPresent={ student.isPresent }
-            />
-        </li>
-      );
+// src/App.js
+// ...
+
+const students = [
+  {
+    id: 1,
+    fullName: "Ada Lovelace",
+    email: "ada@lovelace.uk",
+    present: true,
+  },
+  {
+    id: 2,
+    fullName: "Katherine Johnson",
+    email: "kat@nasa.gov",
+    present: false,
+  },
+];
+
+function App () {
+  const [studentList, setStudentList] = useState(students);
+
+  const updateStudent = (updatedStudent) => {
+    const students = [];
+
+    studentList.forEach((student) => {
+      if (student.id === updatedStudent.id) {
+        students.push(updatedStudent);
+      } else {
+        students.push(student);
+      }
     });
 
-    return (
-      <div>
-        <h3>Students</h3>
-        <section>
-          { studentComponents }
-        </section>
-      </div>
-    );
+    setStudentList(students);
   }
+  
+  return (
+    <div className="App">
+      <StudentCollection students={studentList} onUpdateStudent={updateStudent} />
+    </div>
+  );
+}
 ```
 
-Verify that you now see the data from the `state` variable in your browser.
+**Question**:  The `updateStudent` function creates a new array to pass in when it calls `setStudentList`?  Why?  What happens when you only modify the correct element of `studentList`?
 
-Now let's take a look at an updated version of the diagram that we created in our last component creation lecture:
+<details>
+  <summary>Our answer</summary>
 
-![nested components](images/nested-components.png)
-<!-- https://drive.google.com/open?id=1xq5jaCrI7FGp6PG1gr-bYE1ZTvPb5PxZ -->
-
-Note that we're passing in a new `isPresent` prop here. How could we modify our `Student` component to reflect this information?
-
-#### Removing State From `<Student />`
+  `setStudentList` a method `useState` provides to change the state first checks to see if the new state is different from the old state.  However it does not do a deep comparison for performance reasons.  Instead it checks to see if the new value references the same memory address as the old.  If so it does... NOTHING.  Therefore you need to pass in a new object to update state.  If you do not... nothing will change.
+</details>
 
 Part of the concept of 'lifting state' is removing any state that is no longer relevant to the child element. 
 
