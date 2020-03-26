@@ -66,7 +66,7 @@ For Part 2, follow the directions for each problem.
     </summary>
 
     ```javascript
-    const largerNum = (first, second) => {
+    const largerNum = function (first, second) {
       if (first >= second) {
         return first
       } else {
