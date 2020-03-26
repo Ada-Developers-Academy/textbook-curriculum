@@ -5,49 +5,127 @@ For Part 2, follow the directions for each problem.
 **Note:** For each function you create, you should also write the code to call the function.
 
 ## Part 1
-1. &nbsp;
-  ```ruby
-  def hello
-    puts 'hello!'
-  end
-  ```
-
-2. &nbsp;
-  ```ruby
-  def say_num(number)
-    puts 'Your number is #{number}.'
-  end
-  ```
-
-3. &nbsp;
-  ```ruby
-  def larger_num(first, second)
-    if first >= second
-      first
-    elsif second > first
-      second
+1. Ruby
+    ```ruby
+    def hello
+      puts 'hello!'
     end
-  end
-  ```
+    ```
 
-4. &nbsp;
-  ```ruby
-  def output(items)
-    items.each do |item|
-      puts item
+    <details>
+    <summary>
+    Javascript
+    </summary>
+
+    ```javascript
+    const hello = function() { 
+      console.log('hello!');
+    }
+
+    hello()
+    ```
+
+    </details>
+
+2. Ruby
+    ```ruby
+    def say_num(number)
+      puts 'Your number is #{number}.'
     end
-  end
-  ```
+    ```
+
+    <details>
+    <summary>
+    Javascript
+    </summary>
+
+    ```javascript
+    const sayNum = function (number) {
+       console.log(`Your number is ${number}`);
+     }
+    
+    sayNum(5)
+    ```
+    
+    </details>
+
+3. Ruby
+    ```ruby
+    def larger_num(first, second)
+      if first >= second
+        first
+      elsif second > first
+        second
+      end
+    end
+    ```
+
+    <details>
+    <summary>
+    Javascript
+    </summary>
+
+    ```javascript
+    const largerNum = function (first, second) {
+      if (first >= second) {
+        return first
+      } else {
+        return second
+      }
+    }
+
+    console.log(largerNum(5,7))
+    console.log(largerNum(7,5))
+    ```
+    
+    </details>
+
+4. Ruby
+    ```ruby
+    def output(items)
+      items.each do |item|
+        puts item
+      end
+    end
+    ```
+
+    <details>
+    <summary>
+    Javascript
+    </summary>
+
+    ```javascript
+    const output = function (items) {
+      for (const i in items) {
+        console.log(items[i]);  
+      };
+    }
+
+    output([1,2,3])
+    ```
+    
+    </details>
 
 
 ## Part 2
 Follow the directions for each problem.
 1. Invoke the zombies function.
-  ```javascript
-  const zombies = function() {
-    return "We like to eat people";
-  };
-  ```
+    ```javascript
+    const zombies = function() {
+      return "We like to eat people";
+    };
+    ```
+
+    <details>
+    <summary>
+    Solution
+    </summary>
+
+    ```javascript
+    zombies()
+    ```
+    
+    </details>
 
 <!-- 1. Call the `square()` method on the `my_calculator` object.
   ```javascript
@@ -60,14 +138,36 @@ Follow the directions for each problem.
   ``` -->
 
 2. What does the following code print to the console?
-  ```javascript
-  console.log(function() {
-    return "Hey hey hey";
-  }());
-  ```
+    ```javascript
+    console.log(function() {
+      return "Hey hey hey";
+    }());
+    ```
+
+    <details>
+    <summary>
+    Output
+    </summary>
+
+    ```javascript
+    Hey hey hey
+    ```
+    
+    </details>
 
 3. What does the following code print to the console?
-  ```javascript
-  const blabbermouth = function() { };
-  console.log(blabbermouth.name);
-  ```
+    ```javascript
+    const blabbermouth = function() { };
+    console.log(blabbermouth.name);
+    ```
+
+    <details>
+    <summary>
+    Output
+    </summary>
+
+    ```javascript
+    blabbermouth
+    ```
+    
+    </details>
