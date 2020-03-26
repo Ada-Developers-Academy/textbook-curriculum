@@ -91,7 +91,7 @@ For Part 2, follow the directions for each problem.
     </summary>
 
     ```javascript
-    const output = (items) => {
+    const output = function (items) {
       items.forEach((item) => {
         console.log(item);  
       });
