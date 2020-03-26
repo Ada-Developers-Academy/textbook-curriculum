@@ -4,18 +4,19 @@
 
 Often when building a single page application, you will need to have many UI elements that each do something similar. An example of this is a list of contacts, where clicking on the name of a contact pops up a modal showing details.
 
-A simpler example is a set of buttons which can each change the color of a box on the screen, [as in this codepen](https://codepen.io/adadev/pen/ZmbMdq). Don't worry too much about the code itself yet, just the functionality of the buttons.
+A simpler example is a set of buttons which can each change the color of a box on the screen, [as in this codesandbox](https://codesandbox.io/s/kind-ritchie-6z3dz). Don't worry too much about the code itself yet, just the functionality of the buttons.
 
 Because the UI elements have such similar behavior, we want to use the same function to handle each one. However, that function needs to know a little bit of extra information about which element it's attached to. This is where closures come in.
 
 **A closure is a way to attach some extra information to a function.**
 
-## Closures with jQuery
+## Closures with vanilla (plain) JavaScript
 
-Now that we've explored the concepts behind closures a bit, let's return to our [original example with the buttons](https://codepen.io/adadev/pen/ZmbMdq).
+Now that we've explored the concepts behind closures a bit, let's return to our [original example with the buttons](https://codesandbox.io/s/kind-ritchie-6z3dz).
 
 With your neighbors, look at the JavaScript code in that pen, open your Dev Tools to see the console, and answer the following questions:
 
+- Where is the closure created?
 - What is the outer function?
 - What is the inner function?
 - What variable from the outer function is being referenced in the inner function?
@@ -23,7 +24,7 @@ With your neighbors, look at the JavaScript code in that pen, open your Dev Tool
 
 ## Exercise: Reading Closures
 
-Take a look at the following codepens:
+Take a look at the following code sanboxes:
 
 - [Adder](https://codepen.io/adadev/pen/gXXaQm?editors=0010)
 - [Stopwatch](https://codepen.io/adadev/pen/GwpXmJ?editors=1010)
