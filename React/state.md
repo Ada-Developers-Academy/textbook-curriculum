@@ -23,7 +23,7 @@ State is managed **within a given component**. State can be accessed using the `
 
 ## Adding State to the Student Component
 
-Lets say we want each student component to keep track of if the student is present or absent and we want to be able to change that value if they are present and re-render the component.
+Lets say we want each student component to keep track of whether the student is present or absent and we want to be able to change that value if they are present and re-render the component.
 
 ### Importing useState
 
