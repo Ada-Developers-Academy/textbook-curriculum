@@ -1,7 +1,5 @@
 # Managing data using `state`
 
-# TODO - Update for `useState` Hook
-
 ## Learning Goals
 
 - Examine how React allows components to manage data
