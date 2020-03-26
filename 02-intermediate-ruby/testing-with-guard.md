@@ -35,6 +35,8 @@ You may need to run:
 $ open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
 ```
 
+Then try to reinstall guard.
+
 ### After installing guard
 
 After we've got Guard installed, we can start it by running the `guard` command in a terminal. Leave this terminal window open while you work, and Guard will display the results of your tests whenever they are re-run automatically.
