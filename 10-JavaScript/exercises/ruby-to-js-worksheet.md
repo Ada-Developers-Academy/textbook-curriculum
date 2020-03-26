@@ -26,13 +26,13 @@ Each problem stands alone. Variables from previous problems do not exist.
     const adaAge = 2
     let personAge = 35
 
-    if (personAge < adaAge){
+    if (personAge < adaAge) {
       console.log("This person is younger")
     }
-    else if (adaAge < personAge){
+    else if (adaAge < personAge) {
       console.log("Ada is younger")
     }
-    else{
+    else {
       console.log("They’re the same!")
     }
     ```
@@ -63,15 +63,15 @@ Each problem stands alone. Variables from previous problems do not exist.
     let x = 7
     let y = 7
 
-    if (x > y || x == y){
-      if (x > y){
+    if (x > y || x == y) {
+      if (x > y) {
         console.log("x is bigger")
       }
-      else{
+      else {
         console.log("x = y")
       }
     }
-    else{
+    else {
       console.log("y is bigger")
     }
     ```
@@ -91,7 +91,7 @@ Each problem stands alone. Variables from previous problems do not exist.
 
     ```javascript
 
-    for (let i = 0; i< 10; i += 1){
+    for (let i = 0; i< 10; i += 1) {
       console.log(i*i)
     }
     ```
@@ -117,7 +117,7 @@ Each problem stands alone. Variables from previous problems do not exist.
     ```javascript
     let total = 0
 
-    for (let i = 1; i<=3; i+=1){
+    for (let i = 1; i<=3; i+=1) {
       total += i
     } 
 
@@ -146,7 +146,7 @@ Each problem stands alone. Variables from previous problems do not exist.
     ```javascript
     let i = 0
 
-    while (i < 3){
+    while (i < 3) {
       console.log("hi")
       i = i + 1
     }
@@ -171,7 +171,7 @@ Each problem stands alone. Variables from previous problems do not exist.
     ```javascript
     //for..in
     const fruits = ["banana", "apple", "kiwi"]
-    for(const i in fruits){
+    for(const i in fruits) {
       console.log(`I love ${fruits[i]}!`)
     }
 
@@ -204,7 +204,7 @@ Each problem stands alone. Variables from previous problems do not exist.
     let total = 0
     const values = [4, 6, 2, 8, 11]
 
-    for(const i in values){
+    for(const i in values) {
         total = total + values[i]
     }
 
@@ -241,12 +241,12 @@ Each problem stands alone. Variables from previous problems do not exist.
     ```javascript
     const values = [8, 5, 3, 10, 14, 2]
 
-    for(const i in values){
+    for(const i in values) {
       let value = values[i]
-      if (value == 10){
+      if (value == 10) {
         console.log("Special case!")
       }
-      else{
+      else {
         console.log(`Regular values like ${value}`)
       }
     }

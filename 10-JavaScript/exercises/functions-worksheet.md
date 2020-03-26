@@ -63,9 +63,9 @@ For Part 2, follow the directions for each problem.
 
     ```javascript
     const largerNum = (first, second) => {
-      if (first >= second){
+      if (first >= second) {
         return first
-      }else{
+      } else {
         return second
       }
     }
