@@ -38,7 +38,9 @@ For Part 2, follow the directions for each problem.
     </summary>
 
     ```javascript
-    const sayNum = (number) => console.log(`Your number is ${number}`)
+    const sayNum = function (number) {
+       console.log(`Your number is ${number}`);
+     }
     
     sayNum(5)
     ```
