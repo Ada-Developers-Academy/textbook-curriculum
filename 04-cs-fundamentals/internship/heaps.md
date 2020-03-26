@@ -16,7 +16,7 @@ By the end of this lesson you should be able to:
 
 ## Introduction
 
-In this lesson we will introduce a new data structure, a heap!  Heaps are a great way to store information in a semi-order.  Essentially if you have a collection of data that you can sort or compare, you can add it to a heap.  A heap maintains a [complete binary tree](https://web.cecs.pdx.edu/~sheard/course/Cs163/Doc/FullvsComplete.html).  In a complete binary tree each level is full except the last, and the last level is filled from left-to-right.  Further, in a heap each parent has a specific order-relationship with it's chilren.  In a Min-Heap every parent node is less than it's child nodes.  In a max-heap, every parent node is greater than it's child nodes.
+In this lesson we will introduce a new data structure, a heap!  Heaps are a great way to store information in a semi-order.  Essentially if you have a collection of data that you can sort or compare, you can add it to a heap.  A heap maintains a [complete binary tree](https://web.cecs.pdx.edu/~sheard/course/Cs163/Doc/FullvsComplete.html).  In a complete binary tree each level is full except the last, and the last level is filled from left-to-right.  Further, in a heap each parent has a specific order-relationship with it's children.  In a Min-Heap every parent node is less than its child nodes.  In a Max-Heap, every parent node is greater than its child nodes.
 
 Below is a drawing of a Max-Heap.
 
@@ -24,7 +24,7 @@ Below is a drawing of a Max-Heap.
 
 <!-- Image source:  https://drive.google.com/file/d/17cH7vfyZg-PFlULi-bO2K4H61oc4pCDT/view?usp=sharing -->
 
-On the other hand this is **not** a Max-Heap.  Notice that 47 on the bottom level is greater than 25, it's parent.
+On the other hand this is **not** a Max-Heap.  Notice that 47 on the bottom level is greater than 25, its parent.
 
 ![Invalid Max-Heap](images/invalid-max-heap.png)
 
@@ -51,7 +51,7 @@ In Array format:
 
 ### Adding An Element
 
-To add an element to a heap, you place it into the end of the array (or the next logical leaf).  Then you do a "heap-up" operation comparing the new node to its parent and swapping them if they are out of order.  Then, if a swap occurred repeat the operation using the new node's updated location.
+To add an element to a heap, you place it into the end of the array (or the next logical leaf).  Then you do a "heap-up" operation comparing the new node to its parent and swapping them if they are out of order.  Then, if a swap occurred, repeat the operation using the new node's updated location.
 
 Below is an example of adding a node to a heap.
 
@@ -88,9 +88,9 @@ Adding a value to the end of the array is an O(1) operation (assuming the array 
 
 ### Removing An Element
 
-Removing an element in some ways works in the opposite manner of adding an element.  To remove an element you can swap the last leaf with the root.  Then and then compare the new root with it's children and swap to maintain the heap order in an operation called heap-down.  The heap down operation is repeated until a leaf node is reached or no swaps are made.
+Removing an element in some ways works in the opposite manner of adding an element.  To remove an element you can swap the last leaf with the root.  Then compare the new root with its children and swap to maintain the heap order in an operation called heap-down.  The heap down operation is repeated until a leaf node is reached or no swaps are made.
 
-1. First swap the last leaf & the root node
+1. First, swap the last leaf & the root node
 
 ![Initial swap for remove](images/heap-remove-1.png)
 
@@ -159,7 +159,7 @@ One use for a heap is a _Priority Queue_.  A priority queue is an abstract data 
 
 Since heaps allow you to extract elements in order, you can use them to sort an array.
 
-With an array of `n` elements to perform Heapsort you can add the elements to the heap, an O(nlog n) operation.  Then you can remove the elements from the heap one-by-one placing them to the proper place in an array, also an O(nlog n) operation.
+With an array of `n` elements, to perform Heapsort you can add the elements to the heap, an O(nlog n) operation.  Then you can remove the elements from the heap one-by-one placing them in the proper place in an array, also an O(nlog n) operation.
 
 It is possible to do this with O(1) space complexity using the original array to store the heap elements and a single temporary variable.
 
@@ -171,13 +171,13 @@ We will later look at [Dijkstra’s algorithm](https://brilliant.org/wiki/dijkst
 
 ## The System Heap
 
-When you allocate memory dynamically with `.new` or `malloc` in C, the operating system allocates the memory from something called [Heap Memory](https://www.geeksforgeeks.org/stack-vs-heap-memory-allocation/).  This is **not** the same as the heap data structure.  Instead it's considered a "heap" of memory like clothes in the laundry basket is a heap of clothes.  
+When you allocate memory dynamically with `.new` or `malloc` in C, the operating system allocates the memory from something called [Heap Memory](https://www.geeksforgeeks.org/stack-vs-heap-memory-allocation/).  This is **not** the same as the heap data structure.  Instead it's considered a "heap" of memory, like clothes in the laundry basket is a heap of clothes.  
 
 ## Summary
 
 Heaps are a data structure to maintain elements in order.  They can be diagramed as a complete tree, but are often implemented as an array.  Each array element can represent one node in a binary tree.  
 
-Adding a node involves placing a node in the next available leaf node and then conducting a series of swaps with it's parent until heap order is achieved.  Removing an element involves swapping the last leaf with the root of the heap, removing the last leaf, and then swapping the updated root with it's children until a valid heap realtionship is established.  
+Adding a node involves placing a node in the next available leaf node and then conducting a series of swaps with its parent until heap order is achieved.  Removing an element involves swapping the last leaf with the root of the heap, removing the last leaf, and then swapping the updated root with its children until a valid heap realtionship is established.  
 
 ## Resources
 
