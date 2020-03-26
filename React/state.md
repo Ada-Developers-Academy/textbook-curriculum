@@ -10,7 +10,7 @@
 
 State is managed **within a given component**. State can be accessed using the `useState` hook and it can be modified using the a function that `useState` returns.
 
-**Wait what's a hook?**  A hook is a special function react provides to "hook" into the lifecyle of a React component and access specific functionality.  The `useState` hook function allows us to have a variable, like an instance variable for a Ruby class for our component.  It also provides a function to change the value of that variable, or it's state.  When this state variable is changed, the component is re-rendered.  React has a number of hooks, and you can even create your own, but for now, we will focus on `useState`.
+**Wait what's a hook?**  A hook is a special function react provides to "hook" into the lifecyle of a React component and access specific functionality.  The `useState` hook function allows us to have a variable with scope beyond the execution of a function. In Ruby, an instance variable served this same purpose.  It also provides a function to change the value of that variable (i.e. it's state).  When this state variable is changed, the component is re-rendered.  React has a number of hooks, and you can even create your own, but for now, we will focus on `useState`.
 
 `useState` allows us to have components with data they remember internally and change over time, like instance variables in a Ruby object.
 
