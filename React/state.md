@@ -14,6 +14,8 @@ State is managed **within a given component**. State can be accessed using the `
 
 `useState` allows us to have components with data they remember internally and change over time, like instance variables in a Ruby object.
 
+When we talk about the term _rendering_, we are talking about React calling our functional component and redrawing the content on the screen.
+
 #### useState Overview
 
 - will take the initial value of the state object as a parameter
