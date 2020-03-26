@@ -96,9 +96,9 @@ For Part 2, follow the directions for each problem.
 
     ```javascript
     const output = function (items) {
-      items.forEach((item) => {
-        console.log(item);  
-      });
+      for (const i in items) {
+        console.log(items[i]);  
+      };
     }
 
     output([1,2,3])
