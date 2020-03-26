@@ -18,7 +18,9 @@ For Part 2, follow the directions for each problem.
     </summary>
 
     ```javascript
-    const hello = () => console.log('hello!')
+    const hello = function() { 
+      console.log('hello!');
+    }
 
     hello()
     ```
