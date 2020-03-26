@@ -53,7 +53,8 @@ const Student = (props) => {
 
 When we called `useState` above we passed in the initial value of the state.  In this example we are defaulting students to being not present (absent).
 
-`useState` returns an array.  We could have written the above as `const presentArray = useState(false)` and then `presentArray[0]` would the the value and `presentArray[1]` would be a function to change the state, but again we are using a feature called destructuring to break that array into two variables `present` and `setPresent`.  This is a common technique when using hooks in React.
+`useState` returns an array.  We could have written the above as `const presentArray = useState(false)` and then `presentArray[0]` would the the value and `presentArray[1]` would be a function we can use to change the state.
+Instead, we are using a feature called destructuring (like we did with the import above) to break that array into two variables `present` and `setPresent`.  This is a common technique when using hooks in React.
 
 Then if we want to change the state of present to `true` we can use the `setPresent` function with:  `setPresent(true)`.  This will cause the state variable `present` to change and the Student function to execute again, which is called re-rendering.
 
