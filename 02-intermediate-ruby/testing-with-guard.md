@@ -19,6 +19,26 @@ Before we can use Guard to automatically run our tests while we work on projects
 $ gem install guard guard-minitest
 ```
 
+### If you get an error
+
+If you get the error: 
+
+```bash
+mkmf.rb can't find header files for ruby at /System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/include/ruby.h
+```
+
+This could be because your mac is on version [10.14](https://github.com/castwide/vscode-solargraph/issues/78).  
+
+You may need to run:
+
+```bash
+$ open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
+```
+
+Then try to reinstall guard.
+
+### After installing guard
+
 After we've got Guard installed, we can start it by running the `guard` command in a terminal. Leave this terminal window open while you work, and Guard will display the results of your tests whenever they are re-run automatically.
 
 _Important_: You need to run `guard` from the "root" directory for the project (the directory which has the `Guardfile`).
