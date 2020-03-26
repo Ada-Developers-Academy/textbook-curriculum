@@ -112,7 +112,7 @@ React depends on the hook functions being called in a specific order when a func
 
 ### 2.  You can only call hooks in functional components or other hooks
 
-Creating your own hooks is a more advanced topic, but state is intended to provide a way for a component to have information it remembers and changes internally over time.  So it does not make sense for state to be used outside of a component.  Therefore only call `useState` inside a React component.  Later if you create your own hooks, you can call them there.
+State is intended to provide a way for a component to have information it remembers and changes internally over time, so it does not make sense for state to be used outside of a component.  Therefore only call `useState` inside a React component.  Later if you create your own hooks, you can call them there. But that's a topic we don't need to know about right now.
 
 ## Getting initial values from props
 
