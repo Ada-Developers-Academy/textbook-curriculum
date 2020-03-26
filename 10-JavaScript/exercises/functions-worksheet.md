@@ -103,6 +103,7 @@ For Part 2, follow the directions for each problem.
 
     output([1,2,3])
     ```
+    
     </details>
 
 
