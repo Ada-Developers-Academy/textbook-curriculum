@@ -37,9 +37,6 @@ puts checkends('aha')
 puts checkends('aha!')
 
 #flipside
-#flipside('homework') => workhome
-#flipside ('house') => useho
-#flipside ('jared') => redja
 
 def flipside(s)
   n = s.length

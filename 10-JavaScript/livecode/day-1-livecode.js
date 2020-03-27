@@ -25,7 +25,7 @@ const checkends = function(s) {
 console.log(checkends('aha'))
 console.log(checkends('aha!'))
 
-//check endsrefactor
+//checkends refactor
 const checkends2 = function(s) {
   return s[0] == s.slice(-1)
 }
@@ -33,7 +33,7 @@ const checkends2 = function(s) {
 console.log(checkends2('aha'))
 console.log(checkends2('aha!'))
 
-//flipside
+// flipside
 // flipside('homework') => workhome
 // flipside ('house') => useho
 // flipside ('jared') => redja
@@ -46,3 +46,40 @@ const flipside = function(s) {
 
 console.log(flipside('homework'))
 console.log(flipside('jared'))
+
+//rock paper scissors
+const rps = function(player1, player2) {
+  //if there's a tie, return tie
+  if (player1 == player2) {
+    return "tie"
+  }
+  //else, implement tie breaking logic
+  else {
+    // outline the 3 options for player1
+    if (player1 == "rock"){
+      //conditional for win and lose
+      if (player2 == "paper") {
+        return "player2"
+      } else {
+        return "player1"
+      }
+    } else if (player1 == "paper") {
+      //conditional for win and lose
+      if (player2 == "scissors") {
+        return "player2"
+      } else {
+        return "player1"
+      }
+    } else if (player1 == "scissors") {
+      //conditional for win and lose
+      if (player2 == "rock") {
+        return "player2"
+      } else {
+        return "player1"
+      }
+    }
+  }
+}
+
+console.log(rps('rock','paper'))
+console.log(rps('rock','rock'))
