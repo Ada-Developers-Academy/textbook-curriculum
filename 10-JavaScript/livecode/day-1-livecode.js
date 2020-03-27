@@ -13,6 +13,32 @@ const saySomething = function(something) {
 
 saySomething("Hello")
 
+//EDUCATIVE
+//Write a function that takes in a number greater than or equal to 0. If the number is greater than 10, round up to the nearest integer. If the number is below 10, round down to the nearest integer. If the number is an integer, don’t round.
+
+/*round(9); // -> 9
+round(10); // -> 10
+round(11); // -> 11
+round(10.1); // -> 11
+round(10.88); // -> 11
+round(9.9); // -> 9
+round(9.1); // -> 9
+round(0.1); // -> 0*/
+
+const round = function(num) {
+  if (num >= 10){
+      return Math.ceil(num)
+  } else {
+      return Math.floor(num)
+  }
+}
+
+console.log(round(10))
+console.log(round(10.4))
+console.log(round(9.4))
+
+
+
 //Write a method checkends(s), which takes in a string s and returns true if the first character in s is the same as the last character in s. It returns false otherwise. The checkends(s) method does not have to work on the empty string (the string '').
 
 const checkends = function(s) {
