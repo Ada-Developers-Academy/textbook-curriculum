@@ -106,19 +106,15 @@ return (
 
 ### Making it Controlled
 
-Now that our form is in a React component we can convert it to a controlled form. Our first step is to add `fullName` and `email` to the `NewStudentForm`'s state in the constructor.
+Now that our form is in a React component we can convert it to a controlled form. Our first step is track `fullName` and `email` in state.
 
 ```javascript
-//  NewStudentForm.js
-...
-constructor() {
-  super();
-
-  this.state = {
+//  src/components/NewStudentForm.js
+// ...
+const [formFields, setFormFields] = useState({
     fullName: '',
     email: '',
-  }
-}
+  });
 ```
 
 The `NewStudentForm` component will track the `fullName` and `email` as part of it's state.
