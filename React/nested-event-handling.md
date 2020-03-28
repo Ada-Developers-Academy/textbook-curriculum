@@ -236,7 +236,7 @@ const onButtonClick = () => {
   }
 ```
 
-**Question:** What piece of data is going to help us determine exactly which student should be updated?
+**Question:** Once we call `onUpdateStudent`, execution will be passed back to the `App` component. What piece of data is going to help the `App` component determine exactly which student should be updated?
 
 <details>
 <summary>Answer</summary>
