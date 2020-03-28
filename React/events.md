@@ -29,7 +29,7 @@ const Student = (props) => {
   const [fullName, setFullName] = useState(props.fullName);
 
   // Function to toggle present
-  const onButtonClick = () => onButtonClick(!present);
+  const onButtonClick = () => setPresent(!present);
 
     // Component functions always return JSX
     return (
