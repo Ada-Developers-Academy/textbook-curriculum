@@ -125,13 +125,15 @@ To link changes in the input field to the `NewStudentForm`'s state we can add an
 
 ```javascript
 //  NewStudentForm.js
-...
-onNameChange = (event) => {
-  console.log(`Name Field updated ${event.target.value}`);
-  this.setState({
-    fullName: event.target.value,
-  });
-}
+// ...
+  // event handlers
+  const onNameChange = (event) => {
+    console.log(`Name Field updated ${ event.target.value }`);
+    setFormFields({
+      fullName: event.target.value,
+      email: formFields.email,
+    });
+  };
 ```
 
 **Question:** What sort of thing is `event`? What is `event.target`? What about `event.target.value`?
@@ -139,14 +141,14 @@ onNameChange = (event) => {
 Then add `onChange` and `value` fields to the `input` in `render`.
 
 ```javascript
-// NewStudentForm.js
-...
+// src/components/NewStudentForm.js
+// ...
 // In the render method...
-<input
-  onChange={this.onNameChange}
-  value={this.state.fullName}
+<input name="fullName"
+  onChange={onNameChange}
+  value={formFields.fullName}
   name="fullName"
-  />
+/>
 ```
 
 Now every time the user types into the name input field the `NewStudentForm`'s state is updated.
