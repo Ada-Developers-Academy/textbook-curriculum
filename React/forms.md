@@ -168,26 +168,23 @@ Now every time the user types into the name input field the `NewStudentForm`'s s
 Now we want to handle when the user submits the form.  We can add a function as an event handler.
 
 ```javascript
-// NewStudentForm.js
-...
-onFormSubmit = (event) => {
-  event.preventDefault();
+// src/components/NewStudentForm.js
+// ...
+const onFormSubmit = (event) => {
+  // prevent the browser from trying to submit
+  //   the form.
+    event.preventDefault();
 
-  const newStudent = {
-    fullName: this.state.fullName,
-    email: this.state.email,
+    // ... We need to add the student to the list.
+
+    setFormFields({
+      fullName: '',
+      email: '',
+    });
   };
-
-  this.setState({
-    fullName: '',
-    email: '',
-  });
-
-  // Now we need to do something with the student...
-}
 ```
 
-Notice that we don't need any wacky jQuery here to read the form. That's the whole point of a controlled component: we will _never_ read the DOM directly. Instead we look to the component's `state` for the data.
+Notice that we never have to read directly from the form with JavaScript.  That's the whole point of a controlled component: we will _never_ read the DOM directly. Instead we look to the component's state for the data.
 
 **Question:** What happens if we omit the call to `event.preventDefault()`?
 
