@@ -91,6 +91,19 @@ export default NewStudentForm;
 
 This is still an uncontrolled form - it just happens to be a React component. It functions just like the HTML form, with the DOM is maintaining the values of the `fullName` and `email` fields.
 
+We can also add it to the `App` component to see it render:
+
+```javascript
+// src/App.js
+// ...
+return (
+    <div className="App">
+      <StudentCollection students={studentList} onUpdateStudent={updateStudent} />
+      <NewStudentForm />
+    </div>
+  );
+```
+
 ### Making it Controlled
 
 Now that our form is in a React component we can convert it to a controlled form. Our first step is to add `fullName` and `email` to the `NewStudentForm`'s state in the constructor.
