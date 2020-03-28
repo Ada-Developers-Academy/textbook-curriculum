@@ -112,7 +112,7 @@ Pay attention to the way we've named this callback. Starting event handler names
 - What event happened (`change`)
 - Which DOM element was the target of the event (the name input)
 
-Next, we'll need to add the event handler function that our code will be called when the input is edited.
+Next, we'll need to add a call to the event handler we just wrote.
 
 ```javascript
       <input value={fullName} onChange={onFullNameInputChange} />
