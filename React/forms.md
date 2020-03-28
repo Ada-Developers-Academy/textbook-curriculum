@@ -218,27 +218,28 @@ Does this diagram look familiar? It should!
 Our first step is to add a callback function to `App` and pass that function to `NewStudentForm` as a prop.
 
 ```javascript
-// StudentCollection.js
+// src/components/StudentCollection.js
 ...
 // callback function to add students to the list
-addStudent = (student) => {
-  const students = this.state.students;
-  students.push(student);
 
-  this.setState({ students });
-}
+const addStudent = (student) => {
+  // Duplicate the student list.
+  const newStudentList = [...students];
 
-render() {
-  const studentComponents = // ...
-  return (
-    <div>
-      <h3>Students</h3>
-      {studentComponents}
-      <NewStudentForm addStudentCallback={this.addStudent} />
-    </div>
-  );
+  // Find the max id and add 1
+  const nextId = newStudentList.reduce((accumulator, currentStudent) => {
+    return Math.max(accumulator, currentStudent.id);
+  }, 0) + 1;
+
+  newStudentList.push({
+    id: nextId,
+    fullName: student.fullName,
+    email: student.email,
+    present: false,
+  });
+
+  setStudentList(newStudentList);
 }
-...
 ```
 
 Then we can update the `onFormSubmit` function.
