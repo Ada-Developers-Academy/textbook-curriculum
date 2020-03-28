@@ -202,19 +202,20 @@ We can cause our `onFormSubmit` function to be called whenever the form submits 
 ### Callback Function
 
 Now we have a way to detect submit events on the form, but no way to get data to the rest of the application. To solve this we will follow the same strategy we used for event handling previously:
-- Add a function to `StudentCollection` that modifies state (this time by creating a new student)
-- Pass that function as a prop to the `NewStudentForm`
+
+- Add a function to `App` that modifies state (this time by creating a new student)
+- Pass that function as a prop to `StudentCollection` and have `StudentCollection` forward the function to `NewStudentForm`
 - Call the function when the form is submitted
 
 When we're done, our event handling structure will look like this:
 
 ![form submission with callbacks](./images/form-submission-callback.png)
 
-<!-- https://drive.google.com/open?id=1IblXJsKU3EuPJZ9Z9Pjej9UGgxEO4UPL -->
+<!-- https://drive.google.com/file/d/1jagE5V-XT2t81lWNkUviUROTltw6xmjU/view?usp=sharing -->
 
 Does this diagram look familiar? It should!
 
-Our first step is to add a callback function to `StudentCollection` and pass that function to `NewStudentForm` as a prop.
+Our first step is to add a callback function to `App` and pass that function to `NewStudentForm` as a prop.
 
 ```javascript
 // StudentCollection.js
