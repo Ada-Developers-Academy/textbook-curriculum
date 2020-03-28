@@ -23,24 +23,29 @@ Now we'll add the `onClick` attribute to the button whose value will refer to an
 
 ```javascript
 // src/components/Student.js
-// ...
+const Student = (props) => {
 
-// Function to toggle present
-const onButtonClick = () => onButtonClick(!present);
+  const [present, setPresent] = useState(props.present);
+  const [fullName, setFullName] = useState(props.fullName);
 
-  // Component functions always return JSX
-  return (
-    <div>
-      <h3>{props.fullName}</h3>
-      <ul>
-        <li>Class: C13</li>
-        <li>Birthday: {props.birthday}</li>
-        <li>Email: {props.email}</li>
-      </ul>
-      <button onClick={onButtonClick}>
-        Mark {present ? 'Absent' : 'Present'}
-      </button>
-    </div>
+  // Function to toggle present
+  const onButtonClick = () => onButtonClick(!present);
+
+    // Component functions always return JSX
+    return (
+      <div>
+        <h3>{props.fullName}</h3>
+        <ul>
+          <li>Class: C13</li>
+          <li>Birthday: {props.birthday}</li>
+          <li>Email: {props.email}</li>
+        </ul>
+        <button onClick={onButtonClick}>
+          Mark {present ? 'Absent' : 'Present'}
+        </button>
+      </div>
+    );
+}
 ```
 
 **Pause here** for a moment with the person sitting next to you. What is this code doing? Refer back to the [state lecture](state.md) if you can't remember what the `setPresent` function is supposed to do.
