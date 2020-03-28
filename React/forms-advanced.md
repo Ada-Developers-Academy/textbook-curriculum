@@ -11,18 +11,21 @@ In a previous lesson we talked about the idea of a controlled form, and built on
 You may notice the event handlers for the name and input fields are very similar:
 
 ```javascript
-//  NewStudentForm.js
-...
-onNameChange = (event) => {
-  console.log(`Name Field updated ${event.target.value}`);
-  this.setState({
+//  src/components/NewStudentForm.js
+// ...
+// event handlers
+const onNameChange = (event) => {
+  console.log(`Name Field updated ${ event.target.value }`);
+  setFormFields({
     fullName: event.target.value,
+    email: formFields.email,
   });
-}
+};
 
-onEmailChange = (event) => {
-  console.log(`Email Field updated ${event.target.value}`);
-  this.setState({
+const onEmailChange = (event) => {
+  console.log(`Email Field updated ${ event.target.value }`);
+  setFormFields({
+    fullName: formFields.fullName,
     email: event.target.value,
   });
 }
@@ -32,30 +35,65 @@ We can refactor this into a single function that can update any field, based on 
 
 ```javascript
 //  NewStudentForm.js
-...
-onInputChange = (event) => {
-  const updatedState = {};
+// ...
+// event handlers
+const onInputChange = (event) => {
+  console.log(`Changing field ${ event.target.name } to ${ event.target.value }`);
+  // Duplicate formFields into new object
+  const newFormFields = {
+    ...formFields,
+  }
 
-  const field = event.target.name;
-  const value = event.target.value;
-
-  updatedState[field] = value;
-  this.setState(updatedState);
+  newFormFields[event.target.name] = event.target.value;
+  setFormFields(newFormFields);
 }
 ```
 
-**Question:** What is stored in the `field` variable?
+**Question:** What is stored in `event.target.name`?
 
 **Question:** Why do we need to use subscript notation (square brackets) to update the state? In the past we used dot notation, which was more concise. What has changed?
+
+### Wait what does `...formFields` do?
+
+The code below is a a bit of JavaScript syntax called the rest operator which allow us to duplicate the `formFields` object.  
+
+```javascript
+const newFormFields = {
+  ...formFields,
+}
+```
+
+So the code above is the equivalent to:
+
+```javaScript
+const newFormFields = {
+  fullName: formFields.fullName,
+  email: formFields.email,
+}
+```
+
+### Updating our Input handlers 
 
 Then we can change the `onChange` handlers to use our new consolidated function:
 
 ```jsx
-<input
-  name="fullName"
-  onChange={this.onInputChange}
-  value={this.state.fullName}
-/>
+<div>
+  <label htmlFor="fullName">Name:</label>
+  <input name="fullName"
+    onChange={onInputChange}
+    value={formFields.fullName}
+    name="fullName"
+  />
+</div>
+<div>
+  <label htmlFor="email">Email:</label>
+  <input
+    name="email"
+    onChange={onInputChange}
+    value={formFields.email}
+    className={emailValid() ? "valid" : "invalid"}
+  />
+</div>
 ```
 
 In this way we can DRY our code a bit and have one function to update any field in the `NewStudentForm`'s state.
@@ -67,10 +105,10 @@ Now that our `NewStudentForm` component track the status of the form fields in i
 We can perform a validation on the email field with a function like this:
 
 ```javascript
-// NewStudentForm.js
-...
-emailValid = () => {
-  return this.state.email.match(/\S+@\S+/);
+// src/components/NewStudentForm.js
+// ...
+const emailValid = () => {
+  return formFields.email.match(/\S+@\S+/) || formFields.email === '';
 }
 ```
 
@@ -78,14 +116,13 @@ And give the user feedback on validation with:
 
 ```javascript
 // NewStudentForm.js
-...
+// ...
 <input
-  onChange={this.onInputChange}
-  value={this.state.email}
-  className={this.emailValid() ? "valid": "invalid"}
   name="email"
+  onChange={onInputChange}
+  value={formFields.email}
+  className={emailValid() ? "valid" : "invalid"}
 />
-...
 ```
 
 **Question:**  What does this line with `className=` do?
