@@ -236,6 +236,29 @@ const onButtonClick = () => {
   }
 ```
 
+**Wait** What is `props.onUpdateStudent`?  Take a look at your code and try to walk through what is happening.
+
+<details>
+  <summary>Our walkthrough</summary>
+
+  1.  Remember that we added a function `updateStudent` to the `App` component.  This function updates the student list.
+  2.  Then we passed the function into `StudentCollection` component as a prop with:  `<StudentCollection students={studentList} onUpdateStudent={updateStudent} />`
+  3.  The `StudentCollection` component forwards that prop to each student component with 
+```javascript
+<Student
+  fullName={student.fullName}
+  email={student.email}
+  present={student.present}
+  id={student.id}
+  onUpdateStudent={props.onUpdateStudent}
+/>
+```
+
+This workflow is shown in the image below.
+
+</details>
+
+
 **Question:** What piece of data is going to help us determine exactly which student should be updated?
 
 <details>
@@ -250,8 +273,8 @@ The student we are interested in updating is something we can match using `props
 `onButtonClick` is closed around `props`, so the `props` variable is still accessible! Remember, all we need to close is three things:
 
 1. Nest a function inside a function
-1. Reference a variable from the outer function in the inner function
-1. Make the inner function available outside the outer function
+2. Reference a variable from the outer function in the inner function
+3. Make the inner function available outside the outer function
 
 So in our code we have:
 
