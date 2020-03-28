@@ -58,7 +58,7 @@ When we called `useState` above we passed in the initial value of the state.  In
 `useState` returns an array.  We could have written the above as `const presentArray = useState(false)` and then `presentArray[0]` would the the value and `presentArray[1]` would be a function we can use to change the state.
 Instead, we are using a feature called destructuring (like we did with the import above) to break that array into two variables `present` and `setPresent`.  This is a common technique when using hooks in React.
 
-Then if we want to change the state of present to `true` we can use the `setPresent` function with:  `setPresent(true)`.  This will cause the state variable `present` to change and the Student function to execute again, which is called re-rendering.
+Then if we want to change the state of present to `true` we can use the `setPresent` function with the command:  `setPresent(true)`.  This will cause the state variable `present` to change and the Student function to execute again, which is called re-rendering.
 
 In the [next lesson](events.md) we will use this `setPresent` function to change the attendance status of a student when the user clicks a button.
 
@@ -167,13 +167,13 @@ Now that we have learned about both `props` and `state`, we'll need to consider 
 
 Here is a helpful chart to assist you in determining whether data belongs in `props` or `state`. For any line item that has "Yes" for both, it means you need to make that decision based on the context of the problem you are trying to solve.
 
- | ?                                            | props | state                              |
- | :------------------------------------------- | :---- | :--------------------------------- |
- | Can get initial value from parent component? | Yes   | Yes (through `useState` and props) |
- | Can be changed by parent component?          | Yes   | No                                 |
- | Can change inside component?                 | No    | Yes                                |
- | Can set initial value for a child component? | Yes   | Yes                                |
- | Can change in a child component?             | Yes   | No                                 |
+ | ?                                                           | props | state                                  |
+ | :---------------------------------------------------------- | :---- | :------------------------------------- |
+ | Can get initial value from parent component?                | Yes   | Usually (through `useState` and props) |
+ | Do we want the parent component to always decide the value? | Yes   | No                                     |
+ | Will this data need to change over time?                    | No    | Yes                                    |
+ | Do we want to pass this value to a child component?         | Yes   | Yes                                    |
+ | Do we want the child component to manipulate this data?     | Yes   | No                                     |
 
 ## Key Takeaway
 
