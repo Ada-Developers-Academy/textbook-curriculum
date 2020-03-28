@@ -253,9 +253,13 @@ The student we are interested in updating is something we can match using `props
 1. Reference a variable from the outer function in the inner function
 1. Make the inner function available outside the outer function
 
+So in our code we have:
+
 1. `onButtonClick` is nested inside of `Student`
 1. We reference `props` inside of `onButtonClick`
 1. We hand `onButtonClick` to the `<button>`, where it lives on after `Student` has finished running!
+
+Hey this is a closure!
 </details>
 
 ### Event Handling Summary
