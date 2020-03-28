@@ -265,6 +265,10 @@ Now when we submit the form, we should see students being added to the list. Goo
 
 **Exercise:** Right now, we can add a new student with bogus data, for example a blank name. We'll talk about form validation more in a future lesson, but for now, how would you stop the student from being added without a name?
 
+## Finished product
+
+You can view the finished code on our [Ada example](https://github.com/AdaGold/ada-students/tree/7-forms).
+
 ## Key Takeaway
 
 Forms in a React component can be bound to a component's state which allows it to respond dynamically to changes in the form fields.  React components can also be passed functions as props, which can allow a component to pass information up to it's container.
