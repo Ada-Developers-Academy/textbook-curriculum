@@ -246,22 +246,17 @@ Then we can update the `onFormSubmit` function.
 
 ```javascript
 // NewStudentForm.js
-...
-onFormSubmit = (event) => {
-  event.preventDefault();
+// ...
+const onFormSubmit = (event) => {
+    event.preventDefault();
 
-  const newStudent = {
-    fullName: this.state.fullName,
-    email: this.state.email,
+    props.addStudentCallback(formFields);
+
+    setFormFields({
+      fullName: '',
+      email: '',
+    });
   };
-
-  this.setState({
-    fullName: '',
-    email: '',
-  });
-
-  this.props.addStudentCallback(newStudent);
-}
 ```
 
 Now when we submit the form, we should see students being added to the list. Good work!
