@@ -58,6 +58,8 @@ Above we made a function, `onButtonClick` which calls `setPresent` and passes in
 
 Now whenever the user clicks on the button the student's present state toggles between true and false!
 
+![before and after click demo](images/state-before-after.png)
+
 **Questions**:
 1. Based on the code above, what is the name of the function that we want to create to handle the event when this button is clicked?
 2. Is the function being **called** when it is tied to the event?
