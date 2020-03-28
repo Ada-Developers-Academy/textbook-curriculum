@@ -21,10 +21,11 @@
     - [Exercise: controlled forms](exercises/forms-worksheet.md)
 1.  [Advanced Forms](forms-advanced.md)
 1.  [Testing](testing.md)
-1.  [APIs: Get](apis-get.md)
-1.  [APIs: Post](apis-post.md)
-1.  [Class Components](class-components.md)
-1.  [Managing State With Class components](state-with-classes.md)
+2.  [useEffect Hook](useEffect.md)
+3.  [APIs: Get](apis-get.md)
+4.  [APIs: Post](apis-post.md)
+5.  [Class Components](class-components.md)
+6.  [Managing State With Class components](state-with-classes.md)
 
 ## Naming and Organization Conventions
 
