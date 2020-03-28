@@ -62,31 +62,28 @@ We'll start by building an _uncontrolled_ form as a React component, then conver
 Let's wrap it in a React component.
 
 ```javascript
-import React, { Component } from 'react';
-import  './NewStudentForm.css';
+iimport React, { useState } from 'react';
+import './NewStudentForm.css';
 
-class NewStudentForm extends Component {
-  constructor() {
-    super();
-  }
-  render() {
-    return (
-      <form className="new-student-form">
-        <div>
-          <label htmlFor="fullName">Name:</label>
-          <input name="fullName" />
-        </div>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input name="email" />
-        </div>
-        <input
-          type="submit"
-          value="Add Student"
-        />
-      </form>
-    );
-  }
+
+const NewStudentForm = (props) => {
+
+  return (
+    <form className="new-student-form">
+      <div>
+        <label htmlFor="fullName">Name:</label>
+        <input name="fullName" />
+      </div>
+      <div>
+        <label htmlFor="email">Email:</label>
+        <input name="email" />
+      </div>
+      <input
+        type="submit"
+        value="Add Student"
+      />
+    </form>
+  );
 }
 
 export default NewStudentForm;
