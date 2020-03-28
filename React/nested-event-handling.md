@@ -70,7 +70,7 @@ function App () {
 
 We can now verify that the app still works as normal.  
 
-We can also add a function to change a student.  To make things easier we can add an `id` field to each student object.
+We can also add a function to change a student.  In addition, to make things easier we can add an `id` field to each student object.
 
 ```javascript
 // src/App.js
