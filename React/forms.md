@@ -188,15 +188,15 @@ Notice that we never have to read directly from the form with JavaScript.  That'
 
 **Question:** What happens if we omit the call to `event.preventDefault()`?
 
-**Question:** What does the call to `this.setState` in our event handler do? Why did we include it?
+**Question:** What does the call to `setFormFields` in our event handler do?  Why did we include it?
 
 We can cause our `onFormSubmit` function to be called whenever the form submits by updatting the `render` function by adding an `onSubmit` attribute to the `form` element.
 
 ```javascript
-// NewStudentForm.js
-...
-<form className="new-student-form" onSubmit={this.onFormSubmit}>
-...
+// src/components/NewStudentForm.js
+// ...
+<form className="new-student-form" onSubmit={onFormSubmit}>
+// ...
 ```
 
 ### Callback Function
