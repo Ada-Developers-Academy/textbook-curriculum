@@ -161,6 +161,31 @@ Then in our `Student` component we can change `useState(false)` and replace it w
 // ...
 ```
 
+## Exercise
+
+We are going to take a few minutes to try and understand how changing a state variable works in React.
+
+1. Create a new method inside your Student component that updates present. Make sure that it sets the value to the same thing each time, and make sure that it returns without calling `setPresent` if the value is already set. It might look like this:
+  
+```javascript
+  const markPresent = function() {
+    if (present) {
+      return;
+    }
+    setPresent(true);
+  }
+```
+2.  We are going to call this method in our Student component. Ideally, we should be calling it somewhere after we have printed or used the relevant data.
+3.  Start the application if it isn't already started and open up developer tools for your browser.  Open up the Web developer tab and select the `Debugger` tab and navigate to the appropriate file. On Firefox, that might look like this:  
+![Firefox has been opened to the sources tab, and the Student.js file is open](images/state_browser_open.png)
+
+  If you get the error below return to step 1 and fix your code.
+  ![error message, maximum update depth exceeded](images/state_browser_error.png)
+4.  Once you're here, set some breakpoints, and reload the page to start debugging. Follow the execution.
+![breakpoints in the code](images/react-state-breakpoints.png)
+
+**Question**  What do you notice about how this plays out? In what order do these calls happen? How does the page itself and the data change as each method finishes?
+
 ## Changing `props` and `state`
 
 Now that we have learned about both `props` and `state`, we'll need to consider which concept to use for which scenarios.  In short, props are passed in by a parent component and cannot be changed by component receiving them.  State is managed internally and cannot be changed outside the component.  This is done to make components more reusable and modular.
