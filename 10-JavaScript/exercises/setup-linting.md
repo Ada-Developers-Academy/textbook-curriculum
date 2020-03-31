@@ -97,6 +97,8 @@ Notice the `Quick Fix` link on the right-side of the message.  That will open a 
 In this exercise we set up VS Code to use the ESLint recommended coding standards by default in any JavaScript file we create (ending with .js).  To do so we had to install some node modules (like Ruby Gems) and install `ESLint` extension in VS Code.
 
 ## Resources
+
+- [How to setup ESLint Globally](https://www.stanleyulili.com/javascript/how-to-set-up-eslint-globally-with-vscode/)
 - [AirBNB JavaScript Style Guide](https://github.com/airbnb/javascript)
 - [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html)
 - [A more generic style guide](https://github.com/standard/standard)
