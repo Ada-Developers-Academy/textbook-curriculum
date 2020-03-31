@@ -32,7 +32,7 @@ We will use the linting setting [ESLint Recommended](https://eslint.org/docs/rul
 First we will install eslint, which is the linter will use to enforce our coding standard.  There are several node modules here, which are all context-specific linters for the eslint style.
 
 ```bash
-$ npm install -g eslint eslint-plugin-react jest jest-cli babel-eslint eslint-plugin-jasmine jasmine eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-jest
+$ npm install -g eslint eslint-plugin-react jest jest-cli babel-eslint eslint-plugin-react-hooks eslint-plugin-jsx-a11y eslint-plugin-jest
 ```
 
 ## A Global Linter Configuration File
@@ -47,15 +47,16 @@ Add this file `~/.eslintrc`
   "parserOptions": {
         "ecmaVersion": 8
   },
-  "plugins": ["jest", "react"],
+  "plugins": ["jest", "react", "react-hooks"],
   "rules": {
     "max-len": [1, 120, 2, { "ignoreComments": true }],
     "no-console": 0,
+    "quotes": ["warn", "single"],
     "no-var": 1,
     "camelcase": ["error", {"properties": "always"}],
     "jsx-a11y/href-no-hash": [0]
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:react-hooks/recommended"],
   "env": {
     "node": true,
     "browser": true,
