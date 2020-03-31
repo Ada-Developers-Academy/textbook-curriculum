@@ -44,7 +44,7 @@ Each problem stands alone. Variables from previous problems do not exist.
     x = 7
     y = 7
 
-    if x > y || x == y
+    if x > y || x === y
        if x > y
           print "x is bigger"
        else
