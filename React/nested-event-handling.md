@@ -182,8 +182,10 @@ There are a few things to consider when making this change to our application. T
 2. Which component is managing the student data?
 3. Is the answer to #1 the same as #2?
 
-If you answered NO to question #3, you're on to something big. The data related to the students is tracked in `App` while the button to mark an individual student "present" should really be on each individual `Student` component. Our challenge then is to use the tools we have been given to _propagate_ the button press event from one component to another.
-
+<details>
+  <summary>Answer</summary>
+  If you answered NO to question #3, you're on to something big. The data related to the students is tracked in `App` while the button to mark an individual student "present" should really be on each individual `Student` component. Our challenge then is to use the tools we have been given to _propagate_ the button press event from one component to another.
+</details>
 #### The CSS
 
 The CSS is the most straightforward thing on our todo list, so let's get that out of the way by adding the following to our `Student.css`:
