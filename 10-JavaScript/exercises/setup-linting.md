@@ -32,7 +32,7 @@ We will use the linting setting [ESLint Recommended](https://eslint.org/docs/rul
 First we will install eslint, which is the linter will use to enforce our coding standard.  There are several node modules here, which are all context-specific linters for the eslint style.
 
 ```bash
-$ npm install -g eslint eslint-plugin-react jest jest-cli babel-eslint eslint-plugin-jasmine jasmine eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-jest
+$ npm install -g eslint eslint-plugin-react jest jest-cli babel-eslint eslint-plugin-react-hooks eslint-plugin-jsx-a11y eslint-plugin-jest
 ```
 
 ## A Global Linter Configuration File
@@ -47,15 +47,16 @@ Add this file `~/.eslintrc`
   "parserOptions": {
         "ecmaVersion": 8
   },
-  "plugins": ["jest", "react"],
+  "plugins": ["jest", "react", "react-hooks"],
   "rules": {
     "max-len": [1, 120, 2, { "ignoreComments": true }],
     "no-console": 0,
+    "quotes": ["warn", "single"],
     "no-var": 1,
     "camelcase": ["error", {"properties": "always"}],
     "jsx-a11y/href-no-hash": [0]
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:react-hooks/recommended"],
   "env": {
     "node": true,
     "browser": true,
@@ -96,6 +97,8 @@ Notice the `Quick Fix` link on the right-side of the message.  That will open a 
 In this exercise we set up VS Code to use the ESLint recommended coding standards by default in any JavaScript file we create (ending with .js).  To do so we had to install some node modules (like Ruby Gems) and install `ESLint` extension in VS Code.
 
 ## Resources
+
+- [How to setup ESLint Globally](https://www.stanleyulili.com/javascript/how-to-set-up-eslint-globally-with-vscode/)
 - [AirBNB JavaScript Style Guide](https://github.com/airbnb/javascript)
 - [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html)
 - [A more generic style guide](https://github.com/standard/standard)

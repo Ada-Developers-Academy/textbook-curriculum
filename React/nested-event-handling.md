@@ -121,7 +121,9 @@ function App () {
 <details>
   <summary>Our answer</summary>
 
-  `setStudentList` a method `useState` provides to change the state first checks to see if the new state is different from the old state.  However it does not do a deep comparison for performance reasons.  Instead it checks to see if the new value references the same memory address as the old.  If so it does... NOTHING.  Therefore you need to pass in a new object to update state.  If you do not... nothing will change.
+  The `setStudentList` method checks to see if the new state is different from the old state, but it doesn't look very carefully.  With objects and arrays React only checks to see if the memory address changed.  Is this varaible referencing the same address as the prior state, if so, it doesn't bother to re-render the component. 
+
+  Therefore you need to pass in a new object to update state.  If you do not... the component will not be re-rendered.
 </details>
 
 ### Removing State from Student
@@ -180,36 +182,11 @@ There are a few things to consider when making this change to our application. T
 2. Which component is managing the student data?
 3. Is the answer to #1 the same as #2?
 
-If you answered NO to question #3, you're on to something big. The data related to the students is tracked in `App` while the button to mark an individual student "present" should really be on each individual `Student` component. Our challenge then is to use the tools we have been given to _propagate_ the button press event from one component to another.
+<details>
+  <summary>Answer</summary>
+  If you answered NO to question #3, you're on to something big. The data related to the students is tracked in `App` while the button to mark an individual student "present" should really be on each individual `Student` component. Our challenge then is to use the tools we have been given to _propagate_ the button press event from one component to another.
+</details>
 
-#### The CSS
-
-The CSS is the most straightforward thing on our todo list, so let's get that out of the way by adding the following to our `Student.css`:
-
-```css
-/*Student.css*/
-.student .absent {
-  color: red;
-}
-
-.student .present {
-  color: green;
-}
-```
-
-#### Adding className for styling
-
-Next, let's modify the `Student` component to use the `present` property, to style the component.
-
-```javascript
-// src/components/Student.js
- // ...
-    <div className="student">
-      <h3 className={props.present ? 'present' : 'absent'}>{props.fullName}</h3>
- // ...
-```
-
-Change the initial state in the `App` to verify this works as intended.
 
 #### The Event Handler
 
@@ -283,6 +260,36 @@ So in our code we have:
 
 Hey this is a closure!
 </details>
+
+#### The CSS
+
+Lastly we can add some CSS and class names to our component by adding the following to our `Student.css`:
+
+```css
+/*Student.css*/
+.student .absent {
+  color: red;
+}
+
+.student .present {
+  color: green;
+}
+```
+
+#### Adding className for styling
+
+Next, let's modify the `Student` component to use the `present` property, to style the component.
+
+```javascript
+// src/components/Student.js
+ // ...
+    <div className="student">
+      <h3 className={props.present ? 'present' : 'absent'}>{props.fullName}</h3>
+ // ...
+```
+
+Change the initial state in the `App` to verify this works as intended.  Now the student's name should be styled differently depending on their attendance status.  Try toggling the buttons.
+
 
 ### Event Handling Summary
 

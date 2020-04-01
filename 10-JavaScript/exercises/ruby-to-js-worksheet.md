@@ -63,7 +63,7 @@ Each problem stands alone. Variables from previous problems do not exist.
     let x = 7
     let y = 7
 
-    if (x > y || x == y) {
+    if (x > y || x === y) {
       if (x > y) {
         console.log("x is bigger")
       }
@@ -171,7 +171,7 @@ Each problem stands alone. Variables from previous problems do not exist.
     ```javascript
     //for..in
     const fruits = ["banana", "apple", "kiwi"]
-    for(const i in fruits) {
+    for(let i in fruits) {
       console.log(`I love ${fruits[i]}!`)
     }
 
@@ -204,7 +204,7 @@ Each problem stands alone. Variables from previous problems do not exist.
     let total = 0
     const values = [4, 6, 2, 8, 11]
 
-    for(const i in values) {
+    for(let i in values) {
         total = total + values[i]
     }
 
@@ -241,7 +241,7 @@ Each problem stands alone. Variables from previous problems do not exist.
     ```javascript
     const values = [8, 5, 3, 10, 14, 2]
 
-    for(const i in values) {
+    for(let i in values) {
       let value = values[i]
       if (value == 10) {
         console.log("Special case!")
