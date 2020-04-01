@@ -50,7 +50,7 @@ const Student = (props) => {
 
 **Pause here** for a moment with the person sitting next to you. What is this code doing? Refer back to the [state lecture](state.md) if you can't remember what the `setPresent` function is supposed to do.
 
-**Note** the arrow function syntax for this event handler function. You could define the event handler function `onButtonClick` as a regular function, but making it an arrow function in this case is a bit more condense and keeps the `this` context to the current component.  
+**Note** the arrow function syntax for this event handler function. You could define the event handler function `onButtonClick` as a regular function, but making it an arrow function in this case is a bit more concise and keeps the `this` context to the current component.  
 
 Now that we have an event handler function defined and tied to this button, let's take a look at our application running on the server to see what the result is. What happens when the button is clicked?
 
@@ -80,7 +80,7 @@ You can also define the function directly in the JSX with an anynomous function 
 
 Another variable that we store is the name. Unfortunately right now, we are passing the `fullName` from props and we **cannot** change the value of our props.  
 
-**1.  Convert `fullName` from using props to state.**
+##### 1.  Convert `fullName` from using props to state.
 
 This will require you to use `useState` a second time to set the student's fullName in state.  Then make sure it renders in the browser.
 
