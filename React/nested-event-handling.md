@@ -121,7 +121,9 @@ function App () {
 <details>
   <summary>Our answer</summary>
 
-  `setStudentList` a method `useState` provides to change the state first checks to see if the new state is different from the old state.  However it does not do a deep comparison for performance reasons.  Instead it checks to see if the new value references the same memory address as the old.  If so it does... NOTHING.  Therefore you need to pass in a new object to update state.  If you do not... nothing will change.
+  The `setStudentList` method checks to see if the new state is different from the old state, but it doesn't look very carefully.  With objects and arrays React only checks to see if the memory address changed.  Is this varaible referencing the same address as the prior state, if so, it doesn't bother to re-render the component. 
+
+  Therefore you need to pass in a new object to update state.  If you do not... the component will not be re-rendered.
 </details>
 
 ### Removing State from Student
