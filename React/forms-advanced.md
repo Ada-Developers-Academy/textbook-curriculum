@@ -143,6 +143,8 @@ input.invalid {
 
 Now the form fields will change color based on whether the input is OK!
 
+You can see this implementation running on [code sandbox](https://codesandbox.io/s/ada-students-forms-advanced-jlqc9)
+
 ## Key Takeaway
 
 Controlled forms give us programatic access to what the user's typing, as they type it. That opens up a whole world of opportunities for improving the user experience.

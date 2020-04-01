@@ -267,7 +267,7 @@ Now when we submit the form, we should see students being added to the list. Goo
 
 ## Finished product
 
-You can view the finished code on our [Ada example](https://github.com/AdaGold/ada-students/tree/7-forms).
+You can view the finished code on our [Ada example](https://codesandbox.io/s/ada-students-forms-ns6e4).
 
 ## Key Takeaway
 
