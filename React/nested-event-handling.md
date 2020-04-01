@@ -186,34 +186,7 @@ There are a few things to consider when making this change to our application. T
   <summary>Answer</summary>
   If you answered NO to question #3, you're on to something big. The data related to the students is tracked in `App` while the button to mark an individual student "present" should really be on each individual `Student` component. Our challenge then is to use the tools we have been given to _propagate_ the button press event from one component to another.
 </details>
-#### The CSS
 
-The CSS is the most straightforward thing on our todo list, so let's get that out of the way by adding the following to our `Student.css`:
-
-```css
-/*Student.css*/
-.student .absent {
-  color: red;
-}
-
-.student .present {
-  color: green;
-}
-```
-
-#### Adding className for styling
-
-Next, let's modify the `Student` component to use the `present` property, to style the component.
-
-```javascript
-// src/components/Student.js
- // ...
-    <div className="student">
-      <h3 className={props.present ? 'present' : 'absent'}>{props.fullName}</h3>
- // ...
-```
-
-Change the initial state in the `App` to verify this works as intended.
 
 #### The Event Handler
 
@@ -287,6 +260,36 @@ So in our code we have:
 
 Hey this is a closure!
 </details>
+
+#### The CSS
+
+Lastly we can add some CSS and class names to our component by adding the following to our `Student.css`:
+
+```css
+/*Student.css*/
+.student .absent {
+  color: red;
+}
+
+.student .present {
+  color: green;
+}
+```
+
+#### Adding className for styling
+
+Next, let's modify the `Student` component to use the `present` property, to style the component.
+
+```javascript
+// src/components/Student.js
+ // ...
+    <div className="student">
+      <h3 className={props.present ? 'present' : 'absent'}>{props.fullName}</h3>
+ // ...
+```
+
+Change the initial state in the `App` to verify this works as intended.  Now the student's name should be styled differently depending on their attendance status.  Try toggling the buttons.
+
 
 ### Event Handling Summary
 
