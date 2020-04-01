@@ -80,7 +80,7 @@ You can also define the function directly in the JSX with an anynomous function 
 
 Another variable that we store is the name. Unfortunately right now, we are passing the `fullName` from props and we **cannot** change the value of our props.  
 
-**1.  Convert `fullName` from using props to state.**
+##### 1.  Convert `fullName` from using props to state.
 
 This will require you to use `useState` a second time to set the student's fullName in state.  Then make sure it renders in the browser.
 
