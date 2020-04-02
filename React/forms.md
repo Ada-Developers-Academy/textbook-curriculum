@@ -247,7 +247,7 @@ Then we can update the `onFormSubmit` function.
 ```javascript
 // NewStudentForm.js
 // ...
-const onFormSubmit = (event) => {
+  const onFormSubmit = (event) => {
     event.preventDefault();
 
     props.addStudentCallback(formFields);
