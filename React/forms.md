@@ -144,7 +144,8 @@ Then add `onChange` and `value` fields to the `input` in `render`.
 // src/components/NewStudentForm.js
 // ...
 // In the render method...
-<input name="fullName"
+<input
+  name="fullName"
   onChange={onNameChange}
   value={formFields.fullName}
   name="fullName"
