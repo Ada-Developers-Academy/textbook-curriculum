@@ -4,7 +4,7 @@ Answer the following questions:
 
 1.  Why is testing front-end Javascript hard? 
 2.  What is the difference between the `toBe` and `toEqual` expectations?
-3.  On your own paper convert these tests from Ruby-Minitest to Javascript-Jest
+3.  On your own paper/editor convert these tests from Ruby-Minitest to Javascript-Jest
 
 ```ruby
 require_relative "test_helper"
