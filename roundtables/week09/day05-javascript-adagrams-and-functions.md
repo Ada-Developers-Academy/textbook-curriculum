@@ -1,4 +1,4 @@
-# Javascript Syntax
+# Javascript Functions, Testing and JS Adagrams
 
 Today we are going to be discussing JS Adagrams in a round table fashion. For this discussion, think of your instructor as a mediator and guide, rather than as a lecturer.
 
