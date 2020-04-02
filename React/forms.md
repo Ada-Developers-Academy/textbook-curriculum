@@ -172,17 +172,15 @@ Now we want to handle when the user submits the form.  We can add a function as 
 // src/components/NewStudentForm.js
 // ...
 const onFormSubmit = (event) => {
-  // prevent the browser from trying to submit
-  //   the form.
-    event.preventDefault();
+  // prevent the browser from trying to submit the form.
+  event.preventDefault();
 
-    // ... We need to add the student to the list.
-
-    setFormFields({
-      fullName: '',
-      email: '',
-    });
-  };
+  // ... We need to add the student to the list.
+  setFormFields({
+    fullName: '',
+    email: '',
+  });
+};
 ```
 
 Notice that we never have to read directly from the form with JavaScript.  That's the whole point of a controlled component: we will _never_ read the DOM directly. Instead we look to the component's state for the data.
