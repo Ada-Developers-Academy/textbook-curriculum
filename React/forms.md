@@ -1,11 +1,13 @@
 # React Forms
 
 ## Learning Goals
+
 - Differentiate between _controlled_ and _uncontrolled_ forms
 - Implement a controlled form as a React component
 - Handle the event of a form submission
 
 ## Overview
+
 Since we've already learn how event handling works in React, we should be able to take the application of this knowledge one step further to allow us to submit a set of form data. Forms work a bit different than other HTML elements because they maintain some of their own state.
 
 Additionally, one of the most powerful aspects of using any JavaScript framework is to provide some dynamic user interaction. We'll see here how to integrate ongoing user feedback, so the user does not have to wait until the form is submitted to know that they might have issues with the data.
@@ -26,11 +28,11 @@ We let the browser do its thing until the form is submitted - that's why it's ca
 
 To summarize, in a controlled form our JavaScript has the data and gives it to the DOM, whereas in an uncontrolled form the DOM has the data and our JavaScript has to ask for it. We say that our program is the _source of truth_ about what's in the form. If you needed to find out what the form said, you would ask our program rather than looking at the DOM.
 
-Uncontrolled Form          | Controlled Form
----                        | ---
-Vanilla JS / jQuery        | React
-DOM is the source of truth | Component state is the source of truth
-input -> DOM -> JS         | input -> JS -> DOM
+| Uncontrolled Form          | Controlled Form                        |
+| -------------------------- | -------------------------------------- |
+| Vanilla JS / jQuery        | React                                  |
+| DOM is the source of truth | Component state is the source of truth |
+| input -> DOM -> JS         | input -> JS -> DOM                     |
 
 One interesting question is, _why bother?_ Well, when the data is stored in your program instead of the DOM, you can do things to it before it appears on the screen. "Do things" might mean validating user input and changing the color of the `<input>`, or only accepting the characters `a` and `d`, or converting everything the user types to CAPITAL LETTERS. The possibilities are endless!
 
@@ -60,31 +62,28 @@ We'll start by building an _uncontrolled_ form as a React component, then conver
 Let's wrap it in a React component.
 
 ```javascript
-import React, { Component } from 'react';
-import  './NewStudentForm.css';
+iimport React, { useState } from 'react';
+import './NewStudentForm.css';
 
-class NewStudentForm extends Component {
-  constructor() {
-    super();
-  }
-  render() {
-    return (
-      <form className="new-student-form">
-        <div>
-          <label htmlFor="fullName">Name:</label>
-          <input name="fullName" />
-        </div>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input name="email" />
-        </div>
-        <input
-          type="submit"
-          value="Add Student"
-        />
-      </form>
-    );
-  }
+
+const NewStudentForm = (props) => {
+
+  return (
+    <form className="new-student-form">
+      <div>
+        <label htmlFor="fullName">Name:</label>
+        <input name="fullName" />
+      </div>
+      <div>
+        <label htmlFor="email">Email:</label>
+        <input name="email" />
+      </div>
+      <input
+        type="submit"
+        value="Add Student"
+      />
+    </form>
+  );
 }
 
 export default NewStudentForm;
@@ -92,21 +91,30 @@ export default NewStudentForm;
 
 This is still an uncontrolled form - it just happens to be a React component. It functions just like the HTML form, with the DOM is maintaining the values of the `fullName` and `email` fields.
 
-### Making it Controlled
-
-Now that our form is in a React component we can convert it to a controlled form. Our first step is to add `fullName` and `email` to the `NewStudentForm`'s state in the constructor.
+We can also add it to the `App` component to see it render:
 
 ```javascript
-//  NewStudentForm.js
-...
-constructor() {
-  super();
+// src/App.js
+// ...
+return (
+    <div className="App">
+      <StudentCollection students={studentList} onUpdateStudent={updateStudent} />
+      <NewStudentForm />
+    </div>
+  );
+```
 
-  this.state = {
+### Making it Controlled
+
+Now that our form is in a React component we can convert it to a controlled form. Our first step is track `fullName` and `email` in state.
+
+```javascript
+//  src/components/NewStudentForm.js
+// ...
+const [formFields, setFormFields] = useState({
     fullName: '',
     email: '',
-  }
-}
+  });
 ```
 
 The `NewStudentForm` component will track the `fullName` and `email` as part of it's state.
@@ -117,13 +125,15 @@ To link changes in the input field to the `NewStudentForm`'s state we can add an
 
 ```javascript
 //  NewStudentForm.js
-...
-onNameChange = (event) => {
-  console.log(`Name Field updated ${event.target.value}`);
-  this.setState({
-    fullName: event.target.value,
-  });
-}
+// ...
+  // event handlers
+  const onNameChange = (event) => {
+    console.log(`Name Field updated ${ event.target.value }`);
+    setFormFields({
+      ...formFields,
+      fullName: event.target.value,
+    });
+  };
 ```
 
 **Question:** What sort of thing is `event`? What is `event.target`? What about `event.target.value`?
@@ -131,14 +141,15 @@ onNameChange = (event) => {
 Then add `onChange` and `value` fields to the `input` in `render`.
 
 ```javascript
-// NewStudentForm.js
-...
+// src/components/NewStudentForm.js
+// ...
 // In the render method...
 <input
-  onChange={this.onNameChange}
-  value={this.state.fullName}
   name="fullName"
-  />
+  onChange={onNameChange}
+  value={formFields.fullName}
+  name="fullName"
+/>
 ```
 
 Now every time the user types into the name input field the `NewStudentForm`'s state is updated.
@@ -158,101 +169,91 @@ Now every time the user types into the name input field the `NewStudentForm`'s s
 Now we want to handle when the user submits the form.  We can add a function as an event handler.
 
 ```javascript
-// NewStudentForm.js
-...
-onFormSubmit = (event) => {
+// src/components/NewStudentForm.js
+// ...
+const onFormSubmit = (event) => {
+  // prevent the browser from trying to submit the form.
   event.preventDefault();
 
-  const newStudent = {
-    fullName: this.state.fullName,
-    email: this.state.email,
-  };
-
-  this.setState({
+  // ... We need to add the student to the list.
+  setFormFields({
     fullName: '',
     email: '',
   });
-
-  // Now we need to do something with the student...
-}
+};
 ```
 
-Notice that we don't need any wacky jQuery here to read the form. That's the whole point of a controlled component: we will _never_ read the DOM directly. Instead we look to the component's `state` for the data.
+Notice that we never have to read directly from the form with JavaScript.  That's the whole point of a controlled component: we will _never_ read the DOM directly. Instead we look to the component's state for the data.
 
 **Question:** What happens if we omit the call to `event.preventDefault()`?
 
-**Question:** What does the call to `this.setState` in our event handler do? Why did we include it?
+**Question:** What does the call to `setFormFields` in our event handler do?  Why did we include it?
 
 We can cause our `onFormSubmit` function to be called whenever the form submits by updatting the `render` function by adding an `onSubmit` attribute to the `form` element.
 
 ```javascript
-// NewStudentForm.js
-...
-<form className="new-student-form" onSubmit={this.onFormSubmit}>
-...
+// src/components/NewStudentForm.js
+// ...
+<form className="new-student-form" onSubmit={onFormSubmit}>
+// ...
 ```
 
 ### Callback Function
 
 Now we have a way to detect submit events on the form, but no way to get data to the rest of the application. To solve this we will follow the same strategy we used for event handling previously:
-- Add a function to `StudentCollection` that modifies state (this time by creating a new student)
-- Pass that function as a prop to the `NewStudentForm`
+
+- Add a function to `App` that modifies state (this time by creating a new student)
+- Pass that function as a prop to `StudentCollection` and have `StudentCollection` forward the function to `NewStudentForm`
 - Call the function when the form is submitted
 
 When we're done, our event handling structure will look like this:
 
 ![form submission with callbacks](./images/form-submission-callback.png)
 
-<!-- https://drive.google.com/open?id=1IblXJsKU3EuPJZ9Z9Pjej9UGgxEO4UPL -->
+<!-- https://drive.google.com/file/d/1jagE5V-XT2t81lWNkUviUROTltw6xmjU/view?usp=sharing -->
 
 Does this diagram look familiar? It should!
 
-Our first step is to add a callback function to `StudentCollection` and pass that function to `NewStudentForm` as a prop.
+Our first step is to add a callback function to `App` and pass that function to `NewStudentForm` as a prop.
 
 ```javascript
-// StudentCollection.js
+// src/components/StudentCollection.js
 ...
 // callback function to add students to the list
-addStudent = (student) => {
-  const students = this.state.students;
-  students.push(student);
 
-  this.setState({ students });
-}
+const addStudent = (student) => {
+  // Duplicate the student list.
+  const newStudentList = [...students];
 
-render() {
-  const studentComponents = // ...
-  return (
-    <div>
-      <h3>Students</h3>
-      {studentComponents}
-      <NewStudentForm addStudentCallback={this.addStudent} />
-    </div>
-  );
+  // Find the max id and add 1
+  const nextId = Math.max(...newStudentList.map(student => student.id)) + 1
+
+  newStudentList.push({
+    id: nextId,
+    fullName: student.fullName,
+    email: student.email,
+    present: false,
+  });
+
+  setStudentList(newStudentList);
 }
-...
 ```
 
 Then we can update the `onFormSubmit` function.
 
 ```javascript
 // NewStudentForm.js
-...
-onFormSubmit = (event) => {
-  event.preventDefault();
+// ...
+  const onFormSubmit = (event) => {
+    event.preventDefault();
 
-  const newStudent = {
-    fullName: this.state.fullName,
-    email: this.state.email,
+    props.addStudentCallback(formFields);
+
+    setFormFields({
+      fullName: '',
+      email: '',
+    });
   };
-
-  this.setState({
-    fullName: '',
-    email: '',
-  });
-
-  this.props.addStudentCallback(newStudent);
-}
 ```
 
 Now when we submit the form, we should see students being added to the list. Good work!
@@ -261,11 +262,16 @@ Now when we submit the form, we should see students being added to the list. Goo
 
 **Exercise:** Right now, we can add a new student with bogus data, for example a blank name. We'll talk about form validation more in a future lesson, but for now, how would you stop the student from being added without a name?
 
+## Finished product
+
+You can view the finished code on our [Ada example](https://codesandbox.io/s/ada-students-forms-ns6e4).
+
 ## Key Takeaway
 
 Forms in a React component can be bound to a component's state which allows it to respond dynamically to changes in the form fields.  React components can also be passed functions as props, which can allow a component to pass information up to it's container.
 
 ## Additional Resources
+
 - [React Docs: Forms](https://reactjs.org/docs/forms.html)
 - [An Imperative Guide to Forms in React](https://blog.logrocket.com/an-imperative-guide-to-forms-in-react-927d9670170a)
 - [Controlled & Uncontrolled form inputs](https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/)
