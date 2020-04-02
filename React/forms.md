@@ -130,8 +130,8 @@ To link changes in the input field to the `NewStudentForm`'s state we can add an
   const onNameChange = (event) => {
     console.log(`Name Field updated ${ event.target.value }`);
     setFormFields({
+      ...formFields,
       fullName: event.target.value,
-      email: formFields.email,
     });
   };
 ```
@@ -144,7 +144,8 @@ Then add `onChange` and `value` fields to the `input` in `render`.
 // src/components/NewStudentForm.js
 // ...
 // In the render method...
-<input name="fullName"
+<input
+  name="fullName"
   onChange={onNameChange}
   value={formFields.fullName}
   name="fullName"
@@ -171,17 +172,15 @@ Now we want to handle when the user submits the form.  We can add a function as 
 // src/components/NewStudentForm.js
 // ...
 const onFormSubmit = (event) => {
-  // prevent the browser from trying to submit
-  //   the form.
-    event.preventDefault();
+  // prevent the browser from trying to submit the form.
+  event.preventDefault();
 
-    // ... We need to add the student to the list.
-
-    setFormFields({
-      fullName: '',
-      email: '',
-    });
-  };
+  // ... We need to add the student to the list.
+  setFormFields({
+    fullName: '',
+    email: '',
+  });
+};
 ```
 
 Notice that we never have to read directly from the form with JavaScript.  That's the whole point of a controlled component: we will _never_ read the DOM directly. Instead we look to the component's state for the data.
@@ -227,9 +226,7 @@ const addStudent = (student) => {
   const newStudentList = [...students];
 
   // Find the max id and add 1
-  const nextId = newStudentList.reduce((accumulator, currentStudent) => {
-    return Math.max(accumulator, currentStudent.id);
-  }, 0) + 1;
+  const nextId = Math.max(...newStudentList.map(student => student.id)) + 1
 
   newStudentList.push({
     id: nextId,
