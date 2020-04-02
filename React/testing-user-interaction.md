@@ -81,7 +81,7 @@ So far we have only used the `getByText` function, but we could use any of the e
 We can also write a test to verify that the callback functions are called when a button is clicked.
 
 ```javascript
-// src/components/test/PetCard.test.js
+// src/components/test/Student.test.js
 test('The "onUpdateStudent" prop function is called when the `Mark Absent` button is clicked on', () => {
 
     // Arrange

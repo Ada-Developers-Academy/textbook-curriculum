@@ -223,7 +223,7 @@ That said, they can be very quick to write and useful for unit-testing functiona
     - Selecting elements in a rendered component.
     - Verifying that components contain specific content
     - Verifying that callback functions are called
-- Snapshot testing allows you to detect when your component changes
+- Snapshot testing allows you to detect when your component changes, but can lead to a number of false-positives
 
 In the next lesson we will look at how to test how a react component responds to user input.
 
