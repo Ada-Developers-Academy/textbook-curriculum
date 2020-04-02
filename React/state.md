@@ -1,133 +1,212 @@
 # Managing data using `state`
 
 ## Learning Goals
+
 - Examine how React allows components to manage data
 - Use `state` within a component
 - Examine how `props` and `state` affect component rendering
 
-### `state` vs 'state'
+## `state`
 
-State is something we've been using for a while already. The word refers to any values that are persistent in a program. Objects in Ruby and other object oriented languages track their state using instance variables. Therefore, you can say that the 'state' of an object is a snapshot of all the variables in an object.
+State is managed **within a given component**. State can be accessed using the `useState` hook and it can be modified using the a function that `useState` returns.
 
-State can refer to all of the variables in an app, all of the variables in a database, or all of the variables in an object. So when someone asks you, "How did the object get in this state?", they are asking "How and when did these variables get set?".
+**Wait what's a hook?**  A hook is a special function react provides to "hook" into the lifecyle of a React component and access specific functionality.  The `useState` hook function allows us to have a variable with scope beyond the execution of a function. In Ruby, an instance variable served this same purpose.  It also provides a function to change the value of that variable (i.e. it's state).  When this state variable is changed, the component is re-rendered.  React has a number of hooks, and you can even create your own, but for now, we will focus on `useState`.
 
-In React, there is a special variable for class components called `state`. `state` is an object that belongs to, and manages data **within a given component**.  `state` can be accessed using the `this.state` object and it can be modified using the `this.setState()` function.
+`useState` allows us to have components with data they remember internally and change over time, like instance variables in a Ruby object.
 
-#### Overview
-- You may populate `state` with any object keys you want
-- `setState` takes one parameter that must be an object
-- `setState` will merge any new keys passed in with the existing data in `state` 
-- `setState` will only overwrite data if you pass it an object that contains keys already within `state`
-- We often set the initial state in the constructor function
+When we talk about the term _rendering_, we are talking about React calling our functional component and redrawing the content on the screen.
 
-A really important aspect of state is that whenever the state of a component is changed, it will be **updated**, calling the `render` function. For now, you can think of `setState` as doing the `setState` operation PLUS the `render` _automatically_. We'll learn even more about what else our component does when it is updated later on.
+#### useState Overview
 
-## Syntax
+- will take the initial value of the state object as a parameter
+- will return an array with two elements
+  - the current value of the state
+  - a function to change the state
 
-Commonly, initial state is set in a component's constructor function. This is set using variable assignment (the equals sign).
+## Adding State to the Student Component
 
-```javascript
-// Student.js
-import React from 'react';
+Lets say we want each student component to keep track of whether the student is present or absent and we want to be able to change that value if they are present and re-render the component.
 
-class Student extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: props.name,
-      class: props.class,
-      attendance: props.present,
-      birthday: props.birthday
-    };
-  }
+### Importing useState
 
-  //Code Omitted
-}
-
-export default Student;
-```
-
-Once we know that the initial state is set, we can update our code to use this value within our component class. You'll notice that this looks very similar to the way that we might have filled in the information using `props`. 
+We start by importing the `useState` function.  
 
 ```javascript
-// NameDisplay.js
-import React from 'react';
-
-class Student extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: props.name,
-      class: props.class,
-      pronouns: props.pronouns,
-      attendance: props.present,
-      birthday: props.birthday
-    };
-  }
-
-  //Other Code omitted
-
-  render() {
-    return (
-      <section>
-        <h2 className={buildClasses()}>{this.state.fullName}</h2>
-        <ul className="student-details">
-          <li>Pronouns: {this.state.pronouns}</li>
-          <li>Birthday: {this.state.birthday}</li>
-        </ul>
-      </section>
-    );
-  }
-}
-
-export default Student;
+// src/components/Student.js
+import React, { useState } from 'react';
 ```
 
-## Changing it Up
+**Why do we have { } around `useState`**?
 
-Once the initial state is set, we can then make changes using the `setState` function. (**Reminder:** `setState` will work even if that a variable was not included in the initial `state` object.) This function will merge the object passed in with the existing state object, overriding any existing values on the same variables. `setState` function calls are very often triggered by events that our users can trigger.
+We could call `useState` with `React.useState`, but JavaScript provides a feature called _destructuring_, which we will cover in depth later, which allows us to reference `React.useState` with a variable `useState`, to save typing.
 
-We are going to use this in conjunction with **events** later, but for now, we will conduct a little experiment to see how this works.
+### Calling useState
 
-### Exercise
+We can then call `useState` in our Student component.
 
-We are going to take a few minutes to try and understand how `setState` works in React.
+```javascript
+// src/components/Student.js
+// ...
+const Student = (props) => {
 
-1. Create a new method inside your `Student` component that updates some key in the `state`. Make sure that it sets the value to the same thing each time, and make sure that it returns without calling `setState` if the value is already set. It might look like this:
+  const [present, setPresent] = useState(false);
+  // ...
+```
 
-``` javascript
-  oopsBirthday(){
-    if (this.state.birthday === 'Oct 22nd'){
+When we called `useState` above we passed in the initial value of the state.  In this example we are defaulting students to being not present (absent).
+
+`useState` returns an array.  We could have written the above as `const presentArray = useState(false)` and then `presentArray[0]` would the the value and `presentArray[1]` would be a function we can use to change the state.
+Instead, we are using a feature called destructuring (like we did with the import above) to break that array into two variables `present` and `setPresent`.  This is a common technique when using hooks in React.
+
+Then if we want to change the state of present to `true` we can use the `setPresent` function with the command:  `setPresent(true)`.  This will cause the state variable `present` to change and the Student function to execute again, which is called re-rendering.
+
+In the [next lesson](events.md) we will use this `setPresent` function to change the attendance status of a student when the user clicks a button.
+
+### Adding a button to Student
+
+So right now the Student component has state, but no way for the use to change the state in the browser.  We will add a button to the component as follows:
+
+```javascript
+// src/components/Student.js
+// ...
+
+const Student = (props) => {
+
+  const [present, setPresent] = useState(false);
+  // Component functions always return JSX
+  return (
+    <div>
+      <h3>{props.fullName}</h3>
+      <ul>
+        <li>Class: C13</li>
+        <li>Birthday: {props.birthday}</li>
+        <li>Email: {props.email}</li>
+      </ul>
+      <button>
+        Mark {present ? 'Absent' : 'Present'}
+      </button>
+    </div>
+  );
+};
+```
+
+Now the component renders with a button that displays "Mark" and either present or absent depending on the current value of `present`.  Try changing the default value of `present` and see the change in the browser.
+
+## Rules with Hooks
+
+There are a few rules to keep in mind with hooks like `useState`.
+
+### 1.  You must call hooks from the top-level of a component.
+
+This means that you cannot put `useState` in a loop like this:
+
+```javascript
+  let i = 0;
+  // Big NO NO!
+  studentList.forEach((student) => {
+    [counter, setCounter] = useState(i);  // will generate an error
+    i += 1;
+  });
+```
+
+**Why?**
+
+React depends on the hook functions being called in a specific order when a functional component is run.  It will not allow you to put code into your component which could affect the order in which `useState` is called.  You cannot even put `useState` inside an if statement.
+
+### 2.  You can only call hooks in functional components or other hooks
+
+State is intended to provide a way for a component to have information it remembers and changes internally over time, so it does not make sense for state to be used outside of a component.  Therefore only call `useState` inside a React component.  Later if you create your own hooks, you can call them there. But that's a topic we don't need to know about right now.
+
+## Getting initial values from props
+
+You can use props to set an initial value for the state of a component.  For example we can add a `present` field in `App.js` to give an initial attendance value for a Student.
+
+```javascript
+// src/App.js
+// ...
+const students = [
+  {
+    fullName: "Ada Lovelace",
+    email: "ada@lovelace.uk",
+    present: true,
+  },
+  {
+    fullName: "Katherine Johnson",
+    email: "kat@nasa.gov",
+    present: false,
+  },
+];
+// ...
+```
+
+Then in `StudentCollection` we can pass that initial value in as a prop.
+
+```javascript
+// src/components/StudentCollection.js
+// ...
+        <Student
+          fullName={student.fullName}
+          email={student.email}
+          present={student.present}
+        />
+// ...
+```
+
+Then in our `Student` component we can change `useState(false)` and replace it with:
+
+```javascript
+// src/components/Student.js
+// ...
+  const [present, setPresent] = useState(props.present);
+// ...
+```
+
+## Exercise
+
+We are going to take a few minutes to try and understand how changing a state variable works in React.
+
+1. Create a new method inside your Student component that updates present. Make sure that it sets the value to the same thing each time, and make sure that it returns without calling `setPresent` if the value is already set. It might look like this:
+  
+```javascript
+  const markPresent = function() {
+    if (present) {
       return;
-    }    
-    this.setState({birthday: 'Oct 22nd'});
+    }
+    setPresent(true);
   }
 ```
+2.  We are going to call this method in our Student component. Ideally, we should be calling it somewhere after we have printed or used the relevant data.
+3.  Start the application if it isn't already started and open up developer tools for your browser.  Open up the Web developer tab and select the `Debugger` tab and navigate to the appropriate file. On Firefox, that might look like this:  
+![Firefox has been opened to the sources tab, and the Student.js file is open](images/state_browser_open.png)
 
-2. We are going to call this method in our `Student` component's `render` function. Ideally, we should be calling it somewhere after we have printed or used the relevant data.
+  If you get the error below return to step 1 and fix your code.
+  ![error message, maximum update depth exceeded](images/state_browser_error.png)
+4.  Once you're here, set some breakpoints, and reload the page to start debugging. Follow the execution.
+![breakpoints in the code](images/react-state-breakpoints.png)
 
-1. Start the application if it isn't already started, and open up the developer tools for your browser. Open up the `Sources` tab, and navigate to the appropriate file. On Chrome, that might look like this: ![The browser has been opened to the sources tab, and the Student.js file is open](./images/state_browser_open.png)
-
-1. Once you're here, set some breakpoints, and reload the page to start debugging. Follow the execution. ![The breakpoints are set where the experimental method is called, inside the experimental method, and before rendering begins.](./images/state_browser_breakpoints.png)
-
-If you run into the following error, return to step 1 and fix your code. ![Error text reads: Error, Maximum depth exceeded. This can happen when a component repeatedly calls setState](./images/state_browser_error.png)
-
-What do you notice about how this plays out? In what order do these calls happen? How does the page itself and the data change as each method finishes?
+**Question**  What do you notice about how this plays out? In what order do these calls happen? How does the page itself and the data change as each method finishes?
 
 ## Changing `props` and `state`
-Now that we have learned about both `props` and `state`, we'll need to consider which concept to use for which scenarios.
+
+Now that we have learned about both `props` and `state`, we'll need to consider which concept to use for which scenarios.  In short, props are passed in by a parent component and cannot be changed by component receiving them.  State is managed internally and cannot be changed outside the component.  This is done to make components more reusable and modular.
+
 Here is a helpful chart to assist you in determining whether data belongs in `props` or `state`. For any line item that has "Yes" for both, it means you need to make that decision based on the context of the problem you are trying to solve.
 
- ?     | props     | state
- :------------- | :------------- |:-------------
-Does the data come from the parent component?       | Yes   | Usually
-Do we want the parent component to always decide the value? | Yes | No
-Will this data need to change over time? | No | Yes
-Do we want to pass this value to a child component? | Yes | Yes
-Do we want the child component to manipulate this data? | Yes | No
+ | ?                                                           | props | state                                  |
+ | :---------------------------------------------------------- | :---- | :------------------------------------- |
+ | Can get initial value from parent component?                | Yes   | Usually (through `useState` and props) |
+ | Do we want the parent component to always decide the value? | Yes   | No                                     |
+ | Will this data need to change over time?                    | No    | Yes                                    |
+ | Do we want to pass this value to a child component?         | Yes   | Yes                                    |
+ | Do we want the child component to manipulate this data?     | Yes   | No                                     |
 
 ## Key Takeaway
+
 Using `state` will help you manage data within a React component. Using `props` and `state` together is a powerful way to share and manage data between components. They each have their own purpose, but they can be used together to provide the most dynamic applications.
 
 ## Additional Resources
+
+- [ReactJS - Using the State hook](https://reactjs.org/docs/hooks-state.html)
 - [React Docs: State and lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
+- [The 1st Rule of React Hooks in Plain English](https://itnext.io/the-first-rule-of-react-hooks-in-plain-english-1e0d5ae32009)
+- [Use React Hooks correctly with these two rules](https://chrisachard.com/use-react-hooks-correctly-with-these-two-rules)

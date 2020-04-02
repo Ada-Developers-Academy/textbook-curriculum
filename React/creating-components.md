@@ -103,6 +103,28 @@ We used the existing index.js code to render the `App` component that was provid
 
 In the next phase of this application, we are going to extend our application to support multiple students and switch from hard-coded to dynamic data.
 
+### An example Student Component
+
+```javascript
+import React from 'react';
+
+const Student = () => {
+  // Component functions always return JSX
+  return (
+    <div>
+      <h3>Ada Lovelace</h3>
+      <ul>
+        <li>Class: C13</li>
+        <li>Birthday: December 10th, 1815</li>
+        <li>Email: ada@adadev.org</li>
+      </ul>
+    </div>
+  );
+};
+
+export default Student;
+```
+
 It's often helpful to have a mental model for what the Virtual DOM looks like, to understand how components become 'nested', and to help us see how data moves around our application. 
 
 The DOM is stored as a [node tree](https://en.wikipedia.org/wiki/Tree_(data_structure)). It starts from a single 'parent' node, and each node may have any number of 'child' nodes. Our current tree looks like this: 
