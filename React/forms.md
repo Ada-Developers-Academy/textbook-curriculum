@@ -130,8 +130,8 @@ To link changes in the input field to the `NewStudentForm`'s state we can add an
   const onNameChange = (event) => {
     console.log(`Name Field updated ${ event.target.value }`);
     setFormFields({
+      ...formFields,
       fullName: event.target.value,
-      email: formFields.email,
     });
   };
 ```
