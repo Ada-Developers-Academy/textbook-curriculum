@@ -226,9 +226,7 @@ const addStudent = (student) => {
   const newStudentList = [...students];
 
   // Find the max id and add 1
-  const nextId = newStudentList.reduce((accumulator, currentStudent) => {
-    return Math.max(accumulator, currentStudent.id);
-  }, 0) + 1;
+  const nextId = Math.max(...newStudentList.map(student => student.id)) + 1
 
   newStudentList.push({
     id: nextId,
