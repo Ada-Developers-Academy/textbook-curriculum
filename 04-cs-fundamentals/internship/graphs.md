@@ -13,7 +13,7 @@ By the end of this lesson you should be able to:
 
 - [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=09cd9474-04a2-4460-8eb8-aad8005b7065)
 - [Accompanying Slidedeck](https://docs.google.com/presentation/d/1Z_hHF3PPC9mO3W2hxcvcFZgEel0xUtGjDhKtGDKh9wQ/edit#slide=id.p)
-- [Exercise](https://github.com/Ada-C11/Bipartition-Graph)
+- [Exercise](https://github.com/Ada-C12/Bipartition-Graph)
 
 ## Introduction
 
