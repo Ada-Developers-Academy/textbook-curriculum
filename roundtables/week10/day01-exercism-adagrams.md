@@ -24,7 +24,8 @@ You are encouraged to copy these questions into a document and take notes during
 2. How did it doing it in Ruby compare to in JavaScript?
     * What things were easier, what were harder?
 3. How was your approach to Wave 3 of Adagrams different in JavaScript compared to Ruby?
-4. Wave 4 of Adagrams was optional last time.  Have you made good progress on it?
+4. Have you attempted Wave 4 of Adagrams yet?
+    * Have you made good progress on it?
     * Are there things you know how to do in Ruby but are having trouble doing in JavaScript?
 5. Do you have any remaining questions about Adagrams?
     * Do you want to share your code to get feedback on specific parts?
