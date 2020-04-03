@@ -21,10 +21,13 @@ For this activity, you are encouraged to do the following:
 You are encouraged to copy these questions into a document and take notes during the discussion.
 
 1. What questions did you have from Hamming?
+    * Let's view 3 different implementations! Volunteers?
 2. How did it doing it in Ruby compare to in JavaScript?
     * What things were easier, what were harder?
+    * What kind of loop did you use to iterate through the strings?
 3. How was your approach to Wave 3 of Adagrams different in JavaScript compared to Ruby?
 4. Have you attempted Wave 4 of Adagrams yet?
+    * Did you make use of a helper function?
     * Have you made good progress on it?
     * Are there things you know how to do in Ruby but are having trouble doing in JavaScript?
 5. Do you have any remaining questions about Adagrams?
