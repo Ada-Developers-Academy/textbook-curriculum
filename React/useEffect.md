@@ -140,6 +140,42 @@ So the function above runs on the `update` stage whenever the `studentList` stat
   By saving data into local storage we are saving the information into the **current browser's** local storage.  The information saved is specific to that browser.  If we want to save data for other browswers and people to access, we will need to use an API.
 </details>
 
+## Cleanup Actions
+
+We do not, for now have a good example of this, but if you want to execute a function when the component is unmounted, you can add a return value to your `useEffect` callback functions.
+
+For example if we wanted to save to localStorage when the App component is removed from the DOM.
+
+```javascript
+// src/App.js
+// ...
+
+const App = () => {
+  console.log('rendering');
+  const [studentList, setStudentList] = useState([]);
+
+  useEffect(() => {
+    // get the studentList from localstorage
+    const jsonStudentList = localStorage.getItem('studentList');
+    // Convert the json into an Array, if it's null use the students array.
+    const startingStudents = JSON.parse(jsonStudentList) || students;
+
+    // Use the local storage to update state
+    setStudentList(startingStudents);
+
+    // Cleanup function
+    return () => {
+      // cleanup actions here
+
+      localStorage.setItem('studentList', JSON.stringify(studentList));
+    }
+  }, []);
+
+  // ...
+```
+
+This cleanup function could be used to cancel any actions, like a call to `setIterval` to stop any running actions/routines as the component is removed.
+
 ## Summary
 
 The `useEffect` hook allows us to specify a function to run 
