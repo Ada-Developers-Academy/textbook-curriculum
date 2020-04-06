@@ -22,7 +22,7 @@ You are encouraged to copy these questions into a document and take notes during
 
 1. What questions did you have from Hamming?
     * Let's view 3 different implementations! Volunteers?
-2. How did it doing it in Ruby compare to in JavaScript?
+2. How did doing the Hamming exercise in Ruby compare to doing it in JavaScript?
     * What things were easier, what were harder?
     * What kind of loop did you use to iterate through the strings?
 3. How was your approach to Wave 3 of Adagrams different in JavaScript compared to Ruby?
