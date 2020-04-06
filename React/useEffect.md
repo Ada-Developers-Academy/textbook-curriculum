@@ -10,9 +10,10 @@ By the end of this lesson you should be able to:
 
 ## Stages in React Lifecycle
 
-## useEffect
+Traditionally the lifecycle of a React component can be described by this drawing.
 
-### useEffect with LocalStorage
+![React Lifecycle simplified](lifecycle-phase-diagram-06-2018-simplified.png)
+<!-- Source: http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/ -->
 
 ### 
 
