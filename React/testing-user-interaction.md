@@ -150,7 +150,7 @@ describe('User Interaction', () => {
 });
 ```
 
-The `setup` method above renders the `NewStudentForm` component and returns an object with the testing functions (findByText etc), the callback function for when the form is submitted, and the form elements.
+The `setup` method above renders the `NewStudentForm` component and returns an object with the testing functions (`findByText` etc), the callback function for when the form is submitted, and the form elements.
 
 Then we can use that method in a test to make sure the `fullName` input responds correctly.
 
