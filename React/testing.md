@@ -166,7 +166,7 @@ describe('NewPetForm', () => {
 });
 ```
 
-In the above example we used the testing library's `render` function to create the snapshot.  You can read about `render` [in the library's documentation](https://testing-library.com/docs/react-testing-library/api#render).  The `render` function take the component, renders the html into a DOM provided by Jest and appends the rendered html, by default, to document.body.  
+In the above example we used the testing library's `render` function to create the snapshot.  You can read about `render` [in the library's documentation](https://testing-library.com/docs/react-testing-library/api#render).  The `render` function takes the component, renders the html into a DOM provided by Jest and appends the rendered html, by default, to document.body.  
 
 Now let's break the test, to make sure it's actually testing something.  Modify the `NewStudentForm` component by adding a class attribute to one of the elements.  You should see something like this:
 
