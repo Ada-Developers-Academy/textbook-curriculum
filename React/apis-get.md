@@ -3,7 +3,7 @@
 ## Learning Goals
 
 - Introduce `axios` as our API library
-- Integrate a get API request in react lifecycle method
+- Integrate a get API request in react lifecycle method `useEffect`
 
 ### Setup
 
