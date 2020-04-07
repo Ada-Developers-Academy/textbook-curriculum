@@ -138,7 +138,20 @@ When a component changes, we can be alerted and make corrections, or update the 
 
 **Question:** Can you do TDD with a Snapshot test?
 
+<details>
+  <summary>Answer</summary>
+
+  No, because you have to have the original code to generate a snapshot.
+</details>
+
 **Question:** When would a snapshot test be useful?
+
+<details>
+  <summary>Answer</summary>
+
+  There are several places where a snapshot test would be helpful.  It's helpful to detect changes in the resulting HTML without writing tests covering overly specific details.  It can also be helpful for testing components unlikely to change often.
+</details>
+
 
 ### Creating our First Snapshot
 
