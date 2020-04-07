@@ -199,10 +199,9 @@ With your neighbor discuss: How would you handle errors from the API indicating 
 
 ## Key Takeaway
 
-Using axios within our React application is very similar to the usage in our command-line application. We use the `componentDidMount` function to load the API data within the component lifecycle and `state` to manage the retrieval and ultimately the display of the API data.
+Using axios within our React application is very similar to the usage in our command-line application. We use the `useEffect` hook to load the API data within the component lifecycle and `state` to manage the retrieval and ultimately the display of the API data.
 
 ## Additional Resources
 
-- [Using axios with React](https://alligator.io/react/axios-react/)
 - [axios documentation](https://github.com/axios/axios)
-- [Where to Integrate API calls in React](https://hackernoon.com/where-to-integrate-api-calls-in-reactjs-componentwillmount-vs-componentdidmount-710085dc05c3)
+- [How to fetch data with React Hooks](https://www.robinwieruch.de/react-hooks-fetch-data)
