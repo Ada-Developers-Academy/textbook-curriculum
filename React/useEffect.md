@@ -5,8 +5,8 @@
 By the end of this lesson you should be able to:
 
 - Describe the lifecycle stages of a React component
-- Use the useEffect hook to load content after a component has mounted
-- Use the useEffect hook to run a callback function after state has changed
+- Use the `useEffect` hook to load content after a component has mounted
+- Use the `useEffect` hook to run a callback function after state has changed
 
 ## Stages in React Lifecycle
 
@@ -41,7 +41,7 @@ We can provide React a function to run when it is in the `componentDidMount` sta
 useEffect( /* Function to run when the component is mounted */  () => {  
     // Code to run upon mount
   },
-    [] /* Empty Array indicates to run this once when the component is mounted. */
+  [] /* Empty Array indicates to run this once when the component is mounted. */
 );
 ```
 
@@ -55,7 +55,7 @@ So if we wanted to run a function when our `students` state variable changes we 
 useEffect( /* Function to run when the `students` change */  () => {  
     // Code to run when it changes
   },
-    [students] /* List of variables to watch and run the callback when they change. */
+  [students] /* List of variables to watch and run the callback when they change. */
 );
 ```
 
@@ -77,7 +77,7 @@ useEffect( /* Function to run when the component is mounted */  () => {
 
     };
   },
-    [] /* Empty Array indicates to run this once when the component is mounted. */
+  [] /* Empty Array indicates to run this once when the component is mounted. */
 );
 ```
 
@@ -95,7 +95,7 @@ First we will import the `useEffect` hook.
 import React, { useState, useEffect } from 'react';
 ```
 
-Instead of pulling the information from a static array we can use localStorage.  The code below will, after App is initially rendered access local storage and try to find a key `studentList`, if that key is found it converts the value into an array with `JSON.parse` and updates the state.  If the key does not exist, it uses the initial array.
+Instead of pulling the information from a static array we can use localStorage.  The code below will, after `App` is initially rendered access local storage and try to find a key `studentList`, if that key is found it converts the value into an array with `JSON.parse` and updates the state.  If the key does not exist, it uses the initial array.
 
 ```javascript
 // src/App.js
