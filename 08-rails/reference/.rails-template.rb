@@ -81,9 +81,9 @@ import "bootstrap"
   end
   run "mkdir app/javascript/stylesheets"
   run "mv app/assets/stylesheets/application.css app/assets/stylesheets/application.scss"
-  run "npm install --save bootstrap"
-  run "npm install --save jquery"
-  run "npm install --save popper.js"
+  run "yarn add bootstrap"
+  run "yarn add jquery"
+  run "yarn add popper.js"
 end
 # Mess with generators to get the behavior we expect around new files
 # For these injections, indentation matters!
