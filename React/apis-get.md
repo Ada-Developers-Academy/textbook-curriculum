@@ -46,29 +46,31 @@ Answer:
 - What is the URL to list a single students?
 - What happens when you try to access a students that does not exist?
 
-### Replacing the Static Pets Data
+### Replacing the localstorage Student data
 
 Now we are set up to load axios library code within our React application using an `import` statement.
 
 ```javascript
-// App.js
+// src/App.js
 import axios from 'axios';
 ```
 
-Let's update our pets app to remove the hard-coded data to start. Instead we will set the initial state of `petList` to an empty array. (See below) 
+Let's update our students app to switch from using the localstorage data to start our student list to using the data from the API.  First we will add a constant to store our base URL and then clear out the localStorage content.
 
 ```javascript
-// App.js
-class App extends Component {
-  constructor(props) {
-    super(props);
+// src/App.js
+// ...
+// API URL base
+const API_URL_BASE = 'http://localhost:3000/students';
 
-    this.state = {
-      petList: [],
-      currentPet: undefined,
-      searchTerm: '',
-    };
-  }
+const App = () => {
+  const [studentList, setStudentList] = useState([]);
+
+  useEffect(() => {
+    // Our API Code will go here
+
+  }, []);
+  // ...
 ```
 
 ### Recall axios Structure
@@ -87,33 +89,35 @@ axios.get('url')
   })
 ```
 
-We are going to use this same structure in our React applications within the `componentDidMount` lifecycle method. Recall that this method is regularly used to load in our external data.
+We are going to use this same structure in our React applications within the `useEffect` Hook. Recall that this method is regularly used to load in our external data.  If the 2nd parameter to `useEffect` is an empty array, the callback method will be called only once after the component is initially rendered.
 
 ### Integrate in Lifecycle
 
-First, let's create the `componentDidMount` function without any content.
+Now lets fill in the `useEffect` hook.
 
 ```javascript
-// App.js
-componentDidMount() {
-  // API get request here
-}
+// src/App.js
+// API URL base
+const API_URL_BASE = 'http://localhost:3000/students';
+
+const App = () => {
+  const [studentList, setStudentList] = useState([]);
+
+  useEffect(() => {
+    axios.get(API_URL_BASE)
+      .then( (response) => {
+        // How to handle a successful response
+
+      })
+      .catch((error) => {
+        // Still need to handle errors
+      });
+  }, []);
+  // ...
+
 ```
 
 Next, let's consider how we want our axios request to be structured within this lifecycle method.
-
-```javascript
-// App.js
-componentDidMount() {
-  axios.get('')
-    .then((response) => {
-
-    })
-    .catch((error) => {
-
-    });
-}
-```
 
 **Questions:**
 1. What do you think should happen in the `then` block when the API request is successful? Where will we store this data?
@@ -121,22 +125,27 @@ componentDidMount() {
 
 **Successful Response**
 
-Next, we'll fill in the URL as well as the logic in the success callback to update the state of our application to store the data from the API. By using the `setState` function, we will be able to update our component once the data is sent back from the API.
+Next, we'll fill in the URL as well as the logic in the success callback to update the state of our application to store the data from the API. By using the `setStudentList` function, we will be able to update our component once the data is sent back from the API.
 
 ```javascript
-// App.js
-componentDidMount () {
-    axios.get('http://localhost:3000/pets')
+// src/App.js
+// ...
+const App = () => {
+  const [studentList, setStudentList] = useState([]);
+
+  useEffect(() => {
+    axios.get(API_URL_BASE)
       .then((response) => {
-        this.setState({
-          petList: response.data,
-        });
+        // Get the list of students
+        const apiStudentList = response.data;
+        // Set the state
+        setStudentList(apiStudentList);
       })
       .catch((error) => {
-        // TODO
+        // Still need to handle errors
       });
-  }
-```
+  }, []);
+  ```
 
 **TEST IT!** Let's pause here for a moment because you should now be able to see your React app reloaded with data now coming from the API rather than the hard-coded array. If it isn't working, be sure to check the network tab in your dev tools to see if the API request was made and any errors that it might be returning.
 
@@ -146,35 +155,43 @@ Turn off the server and see what happens when you refresh the browser.
 
 Next, we need to figure out what we want to do when an error occurs. We can utilize the `error` object returned which contains a property called `message`. We can store this in our state to display an error message.
 
+Lets add a new state variable called `errorMessage` which starts as `null`, and set that variable if there is an API error.
+
 ```javascript
-// PetList.js
-class App extends Component {
-  constructor(props) {
-    super(props);
+// src/App.js
+// ...
 
-    this.state = {
-      petList: [],
-      currentPet: undefined,
-      searchTerm: '',
-      error: '',
-    };
-  }
-    // ... other methods
+const App = () => {
+  const [studentList, setStudentList] = useState([]);
+  const [errorMessage, setErrorMessage] = useState(null);
 
-componentDidMount() {
-  axios.get('http://localhost:3000/pets')
-    .then((response) => {
-      this.setState({ petList: response.data });
-    })
-    .catch((error) => {
-      this.setState({ error: error.message });
-    });
-}
+  useEffect(() => {
+    axios.get(API_URL_BASE)
+      .then((response) => {
+        const apiStudentList = response.data;
+        setStudentList(apiStudentList);
+      })
+      .catch((error) => {
+        setErrorMessage(error.message);
+        console.log(error.message);
+      });
+  }, []);
 ```
 
-**Exercise**:
+Then we can display that error message in our JSX.
 
-Now that we have some error handling updating `state`, we should use this in the rendering of our component. With your neighbors, figure out how you can conditionally display this error data if it exists in the `render` function.
+```javascript
+// src/App.js
+// ...
+
+return (
+    <div className="App">
+      { errorMessage ? <div><h2 className="error-msg">{errorMessage}</h2></div> : '' }
+      <StudentCollection students={studentList} onUpdateStudent={updateStudent} />
+      <NewStudentForm addStudentCallback={addStudent} />
+    </div>
+  );
+```
 
 **Question**
 
