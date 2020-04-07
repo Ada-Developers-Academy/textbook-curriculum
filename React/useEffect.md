@@ -55,7 +55,7 @@ So if we wanted to run a function when our `students` state variable changes we 
 useEffect( /* Function to run when the `students` change */  () => {  
     // Code to run when it changes
   },
-    [students] /* List of variables to watch and run the callback when they change. */
+  [students] /* List of variables to watch and run the callback when they change. */
 );
 ```
 
