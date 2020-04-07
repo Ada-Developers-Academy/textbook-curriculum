@@ -5,8 +5,8 @@
 By the end of this lesson you should be able to:
 
 - Describe the lifecycle stages of a React component
-- Use the useEffect hook to load content after a component has mounted
-- Use the useEffect hook to run a callback function after state has changed
+- Use the `useEffect` hook to load content after a component has mounted
+- Use the `useEffect` hook to run a callback function after state has changed
 
 ## Stages in React Lifecycle
 
