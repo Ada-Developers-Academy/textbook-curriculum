@@ -41,7 +41,7 @@ We can provide React a function to run when it is in the `componentDidMount` sta
 useEffect( /* Function to run when the component is mounted */  () => {  
     // Code to run upon mount
   },
-    [] /* Empty Array indicates to run this once when the component is mounted. */
+  [] /* Empty Array indicates to run this once when the component is mounted. */
 );
 ```
 
