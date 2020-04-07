@@ -95,7 +95,7 @@ First we will import the `useEffect` hook.
 import React, { useState, useEffect } from 'react';
 ```
 
-Instead of pulling the information from a static array we can use localStorage.  The code below will, after App is initially rendered access local storage and try to find a key `studentList`, if that key is found it converts the value into an array with `JSON.parse` and updates the state.  If the key does not exist, it uses the initial array.
+Instead of pulling the information from a static array we can use localStorage.  The code below will, after `App` is initially rendered access local storage and try to find a key `studentList`, if that key is found it converts the value into an array with `JSON.parse` and updates the state.  If the key does not exist, it uses the initial array.
 
 ```javascript
 // src/App.js
