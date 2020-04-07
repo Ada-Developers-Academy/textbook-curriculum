@@ -15,7 +15,7 @@ By the end of this lesson you should be able to:
 
 - [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1efbc0a0-fbdd-4324-8428-aadf00cecac3)
 - [Slide Deck](https://docs.google.com/presentation/d/1MBjBhRWt9779iRZQDTIYuVYw-6nywqmBi2JBmamJTt4/edit#slide=id.p)
-- [Exercise](https://github.com/Ada-C12/Hashmap-Questions)
+- [Exercise](https://github.com/Ada-C13/Hashmap-Questions)
 
 ## Hash Tables Overview
 

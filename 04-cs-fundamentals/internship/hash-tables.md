@@ -26,24 +26,24 @@ In practical programming we often spend much more time looking data up in a data
 
 ![cash register](images/cash-register.jpg)
 
-The systems could use an array to store the data with log<sub>2</sub>(n) retrieval times, or a binary search tree of the data, but in that case for `m` lookups and a universe of `n` products it would take O(mlog<sub>2</sub>n) to complete a transation.  It would be better to reduce the _per product_ lookup time to a constant and the entire transaction to O(m).
+The systems could use an array to store the data with log<sub>2</sub>(n) retrieval times, or a binary search tree of the data, but in that case for `m` lookups and a universe of `n` products it would take O(mlog<sub>2</sub>n) to complete a transaction.  It would be better to reduce the _per product_ lookup time to a constant and the entire transaction to O(m).
 
 This is where hash tables come in.  Hash tables reduce lookup times to O(1) or constant time.  They do this by trading space complexity for time complexity.  This is a light trade-off since the increased space complexity is linear, O(n).
 
 ## Hash Table Overview
 
-A hash table is essentially a generalization of an array.  Each element has a _key_ and _value_.  The key is a unique identifier for the element and can be used to quickly retrieve the value from the table.  In the same way an index number can be quickly used to retrieve an element from an array.  However a key can be any type of value, a string, a number, or any other kind of object.  
+A hash table is essentially a generalization of an array.  Each element has a _key_ and _value_.  The key is a unique identifier for the element and can be used to quickly retrieve the value from the table.  This is similar to the way an index number can be quickly used to retrieve an element from an array.  Unlike an index number, a key can be any type of value: a string, a number, or any other kind of object.  
 
 ![hash table](images/hash-table.png)
 
-A hash table is built on an array.  When given a key value, the hash table applies a function called a _hash function_ to the key resulting in a number between 0 and the length of the array.  The hash table then uses that number to either look up or place the item into an element of the array known as a _bucket_.  A bucket is the term used for each element of the hash table's internal array used to store data.
+A hash table is built on an array.  When given a key value, the hash table applies a function called a _hash function_ to the key, resulting in a number between 0 and the length of the array.  The hash table then uses that number to either look up or place the item into an element of the array known as a _bucket_.  A bucket is the term used for each element of the hash table's internal array used to store data.
 
 In the image above, given a key, a hash function is run resulting in an index number used by the hash table to identify the bucket used to store the information.
 
 Hash tables are also often called:
 
 - _Dictionaries_ because like a dictionary is used to look up a definition from a word, in a hash table a key is used to look up a value.  This is a term used in Python.
-- _Hash Map_ because the hash function helps map an item to it's location in a table.
+- _Hash Map_ because the hash function helps map an item to its location in a table.
 
 Hash tables perform relatively well in terms of Big-O
 
@@ -59,7 +59,7 @@ To be useful a hash function must satisfy a few criteria:
 
 - **The hash function must be consistent.** - If the hash function of key k, `h(k)` results in a number, it should always result in the same number.
 - **The hash function should (mostly) map different keys to different values** - We want to avoid situations where two keys map to the same index in the array.
-  - This is even better if the hash  function distributes elements uniformly across the collection.
+  - This is even better if the hash function distributes elements uniformly across the collection.
 - **The hash function should execute in constant time** - The hashing function should scale well and execute relatively quickly.
 - **Hashing should appear to be random** - It should be hard to identify the key from the hashed value.  Hash functions used in hash tables can be reversable, while those used in cryptography should be very hard to reverse.
 
@@ -77,7 +77,7 @@ In the division method, we convert the key to an integer and then take the remai
 
 Because we are taking the remainder of the key divided by the length of the array, we are guaranteed a value `0 <= h(k) < m`.  Therefore the resulting index will be valid for the internal array
 
-We normally use a prime number not close to a power of 2 for `m`, the size of the internal array, because this tends to more evenly dispurse the resulting indexes.  Notice that this technique does require a method to convert a non-integer key into an integer.
+We normally use a prime number not close to a power of 2 for `m`, the size of the internal array, because this tends to more evenly disperse the resulting indexes.  Notice that this technique does require a method to convert a non-integer key into an integer.
 
 ### The Multiplication Method
 
@@ -130,7 +130,7 @@ All general-purpose hashing functions will encounter collisions.  When two keys 
 
 ### Chaining
 
-The first solution, as we discussed in the classroom portion of Ada, is to make each bucket of the hash table's internal array the head of a linked list.  Linked lists are quick to insert and remove items O(1) and can store an arbitrary number of elements.  Unfortunately if there are a high number of items in the same bucket, finding an element starts to approach O(n).  However if the hashing function does a good job of spreading elements out over different buckets the linked lists will be small and the time to search for an item in the hash table approaches O(1).  
+The first solution, as we discussed in the classroom portion of Ada, is to make each bucket of the hash table's internal array the head of a linked list.  Linked lists are quick to insert and remove items O(1) and can store an arbitrary number of elements.  Unfortunately if there are a high number of items in the same bucket, finding an element starts to approach O(n).  However if the hashing function does a good job of spreading elements out over different buckets, the linked lists will be small and the time to search for an item in the hash table approaches O(1).  
 
 ![Chaining](../classroom/images/Example-hash.png)
 
@@ -152,7 +152,7 @@ Quadratic probing is very similar to linear probing in that when inserting an el
 
 **Example**
 
-For example on the `ith` attempt to find an empty bucket, the formula to determine the next index to check could be:
+For example, on the `ith` attempt to find an empty bucket, the formula to determine the next index to check could be:
 
 h(k, i) = (h(k) + i + i<sup>2</sup>) mod m
 
@@ -162,11 +162,11 @@ Quadratic probing makes clustering less likely, although not impossible and it p
 
 ### Rehashing
 
-A third solution to collision is to simply have a secondary hash function.  If there is a collision, then use the secondary hash function to find another bucket to use.  There will however be occasions where both hash functions produce a collision and then another collision resolution scheme would need to be used, like chaining or linear probing.  If the _load factor_ - the ratio of the number of elements to the number of buckets in the hash table - is low, then this occurs rarely, and the seconary hash function helps avoid clustering.  As a fun side-note that when you chain several hash functions together it's called [Cuckoo Hashing](https://en.wikipedia.org/wiki/Cuckoo_hashing)
+A third solution to collision is to simply have a secondary hash function.  If there is a collision, then use the secondary hash function to find another bucket to use.  There will however be occasions where both hash functions produce a collision and then another collision resolution scheme would need to be used, like chaining or linear probing.  If the _load factor_ - the ratio of the number of elements to the number of buckets in the hash table - is low, then this occurs rarely, and the seconary hash function helps avoid clustering.  As a fun side-note, when you chain several hash functions together it's called [Cuckoo Hashing](https://en.wikipedia.org/wiki/Cuckoo_hashing)
 
 ## Ruby & Hash Tables
 
-As stated, Ruby uses the MurmurHash hashing algorithm internally.  It also uses the chaining method to resolve collisions.  To better guarantee performance, ruby hashes also monitor the _density_ of the hash table.  This means it monitors the maximum number of records chained in a given bucket.  For example if the largest linked list in the hash table was of length 4, then the density would be 4.  Ruby sets a maximum density of 5.  When that density is exceeded, Ruby enlarges the internal array and recalculates the hash, placing the elements into new indexes.  
+As stated, Ruby uses the MurmurHash hashing algorithm internally.  It also uses the chaining method to resolve collisions.  To better guarantee performance, Ruby hashes also monitor the _density_ of the hash table.  This means it monitors the maximum number of records chained in a given bucket.  For example if the largest linked list in the hash table was of length 4, then the density would be 4.  Ruby sets a maximum density of 5.  When that density is exceeded, Ruby enlarges the internal array and recalculates the hash, placing the elements into new indexes.  
 
 By limiting the density of the hash, Ruby guarantees the O(1) lookup time for adding elements to the hash.
 
@@ -180,21 +180,21 @@ Now that we've had some theory, when would you expect to use a hash table?  In a
 
 ### Sample Problem
 
-Hash tables are a common, practical, solution to a variety of programming problems.  Below is a sample interview problem taking from [leetcode.com](https://leetcode.com/problems/sort-characters-by-frequency/)
+Hash tables are a common, practical solution to a variety of programming problems.  Below is a sample interview problem taking from [leetcode.com](https://leetcode.com/problems/sort-characters-by-frequency/)
 
 Take a look at the problem below and answer:
 
 <details>
   <summary>Why would a hash table be a good approach here?</summary>
 
-  - To solve this problem we need to store each letter and the number of occurances. <br />
+  - To solve this problem we need to store each letter and the number of occurences. <br />
     - There are a few of ways to do this:
-      1. We could traverse the list repeatably counting the ocurances of each letter.  This would require nested loops and O(n<sup>2</sup>) time complexity.
-      1. We could also sort the string by letter use this sorted string to count the occurances of each letter.  Sorting the string would require O(nlogn) time complexity.
-      1. Or we could use a hash table to with each character as the keys and the number of occurances as the value.  Building this hash would require one traversal of the string or O(n).  
-    - Once we have the list of letters and their number of occurances, we can use this to build the output string.
+      1. We could traverse the list repeatedly counting the occurences of each letter.  This would require nested loops and O(n<sup>2</sup>) time complexity.
+      1. We could also sort the string by letter and use this sorted string to count the occurences of each letter.  Sorting the string would require O(nlogn) time complexity.
+      1. Or we could use a hash table with each character as the keys and the number of occurences as the value.  Building this hash would require one traversal of the string or O(n).  
+    - Once we have the list of letters and their number of occurences, we can use this to build the output string.
 
-  Because looking up an items in a hash table is so fast, hash tables turn out to be excellent data structures.
+  Because looking up an item in a hash table is so fast, hash tables turn out to be excellent data structures.
 
 </details>
 <br />
@@ -257,7 +257,7 @@ You can find a [solution in the example code folder](example-code/character_freq
 
 ## Array, Linked List, Binary Search Tree or Hash Table
 
-Hash tables are execellent for looking up data from a key.  Binary search trees are excellent data structures for maintaining items in order while linked lists provide quick access to the front and rear and maintain a specific order.
+Hash tables are excellent for looking up data from a key.  Binary search trees are excellent data structures for maintaining items in order while linked lists provide quick access to the front and rear and maintain a specific order.
 
 So, which would you use in these situations?
 
@@ -265,7 +265,7 @@ So, which would you use in these situations?
 
 <details>
   <summary>A list of candidate records that need to be stored so that you can find the max or min test scores</summary>
-  Hash tables are not good for maintaining ordered data.  Instead a binary search tree, or sorted array or linked list (sorted by test scores) would serve better.
+  Hash tables are not good for maintaining ordered data.  Instead, a binary search tree, sorted array or linked list (sorted by test scores) would serve better.
 </details>
 
 <!-- source: http://www.cs.cmu.edu/~guna/15-123S11/Lectures/Lecture17.pdf -->
@@ -275,7 +275,7 @@ So, which would you use in these situations?
 
 <details>
   <summary>Fedex needs to provide quick access for customers to check the status of their packages.  Quick lookup time using distinct tracking numbers is important.</summary>
-  Since the tracking numbers are distinct and order is not important, a hash table makes the most sense because of it's quick lookup time.
+  Since the tracking numbers are distinct and order is not important, a hash table makes the most sense because of its quick lookup time.
 </details>
 
 <br />
@@ -291,7 +291,7 @@ So, which would you use in these situations?
 
 Hashes are one of the most practically useful data structures you will encounter.  They make a great many problems easier and with lower time complexity.  You will also likely **never** have to create a hash table data structure yourself, but you will need to know their practical applications and be able to discuss how they function.
 
-There are many ways to structure a hash table.  One of the most common is simple chaining with each element of the internal array or _bucket_ referencing the beginning of a linked list.  Alternative solutions include _dynamic arrays_ which use arrays to store the elements in each bucket and open addressing using either _linear probling_, _quadratic probing_ or _double hashing_.  It's also important to recognize that a hash table depends on **unique** keys.  If the keys for items are not unique there is no way to generate a unique hash result.
+There are many ways to structure a hash table.  One of the most common is simple chaining with each element of the internal array or _bucket_ referencing the beginning of a linked list.  Alternative solutions include _dynamic arrays_ which use arrays to store the elements in each bucket and open addressing using either _linear probing_, _quadratic probing_ or _double hashing_.  It's also important to recognize that a hash table depends on **unique** keys.  If the keys for items are not unique there is no way to generate a unique hash result.
 
 
 <!-- Image from: https://www.bigocheatsheet.com/ -->
@@ -301,15 +301,15 @@ There are many ways to structure a hash table.  One of the most common is simple
 | Term | Definition |
 |-- |-- |
 | **Bucket** | An space in the internal array used by a hash table. |
-| **Clustering** | When multiple elements are mapped to the same bucket in a hash table |
+| **Clustering** | When multiple elements are mapped to the same bucket in a hash table. |
 | **Collision** | When two keys are mapped to the same bucket in a hash table. |
 | **Double Hashing** | A strategy to handle collisions in a hash table where a secondary hash function is used when a collision occurs. |
 | **Hash Function** | A function used in a hash table to determine where to place an item into the internal array |
 | **Heuristic** | Any approach to problem solving or self-discovery that employs a practical method, not guaranteed to be optimal, perfect, or rational, but works well in practice. |
 | **Chaining** | A strategy to handle collisions where each element of a hash table's internal array serves as the head of a linked list.  This allows the same bucket to store multiple items.
-| **Linear Probing** | A strategy to handle collisions where if a collision occurs for the hash table to progress iteratively through the array until an empty element is encounterd |
+| **Linear Probing** | A strategy to handle collisions where if a collision occurs for the hash table to progress iteratively through the array until an empty element is encountered. |
 | **Quadratic Probing** | A strategy to handle collisions where if a collision occurs, a function is applied to determine the next index to attempt to place the item.  |
-| **Load Factor** | The number of elements in a hash divided by the number of buckets.  A lower load factor generally leads to better time efficiency at the expense of memory usage |
+| **Load Factor** | The number of elements in a hash divided by the number of buckets.  A lower load factor generally leads to better time efficiency at the expense of memory usage. |
 
 
 ## Resources

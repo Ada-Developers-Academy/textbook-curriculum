@@ -15,7 +15,7 @@ By the end of this lesson you should be able to
 
 - [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3ae487ad-99fc-41fd-ba79-aad60060e313)
 - [Slides Used](https://docs.google.com/presentation/d/1Lf5eI5ppJ251VvLsQ-LIzQSRxYxoyed-pNcnJmfJKxE/edit?usp=sharing)
-- [Assignment](https://github.com/Ada-C12/recursion-tracing)
+- [Assignment](https://github.com/Ada-C13/recursion-tracing) - No PR Needed
 
 ## Introduction
 

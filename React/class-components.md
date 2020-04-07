@@ -21,9 +21,19 @@ const Student = (props) => {
 };
 ```
 
-These are called, _functional components,_ because they are composed of one function.  Functional components take in data from `props` and return JSX.  These components are easy to read, test and debug because given a set of props they always return the same JSX back.  However often we want to keep track of information over time, or the _state_ of our component.  This is why functional components are often called _Stateless Components_ in React.  They take props as input and return JSX, which can be a mixture of nested components and HTML.
+These are called, _functional components,_ because they are composed of one function.  Functional components take in data from `props` and return JSX.  When functional components **only** use props and not the `useState` hook these functional components are often called _Stateless Components_ in React.  These stateless components are attractive because they are relatively straightforward to read, test and debug.  
 
-If you remember back to Ruby, we built objects which combined data, which could change over time, with functionality by defining classes.  We can build React components which can do the same!
+However we often need to keep track of information over time or the _state_ of our component like we have done with the `useState` hook.
+
+If you remember back to Ruby, we built objects which combined data, which could change over time, with functionality by defining classes.  React _class components_ provide an alternative to the `useState` hook to manage the state of a component, and provide a set of lifecycle methods to manage a component's rendering and state.
+
+### So Why Didn't We Learn Class Components Earlier?  
+
+At Ada we feel that, in most cases, that the recent introduction of hooks make class components _unnecessary_.  With hooks most applications can be written exclusively with functional components.  There are a few [specialized cases](https://reactjs.org/docs/error-boundaries.html) which require class components, but these scenarios are few and far between and may be replaced hook-based solutions at a later date.
+
+### So Why Learn About Class Components?
+
+React has been around for a while now and a great deal of code and documentation has been written using class components.  React is not eliminating class components and a great number of developers find the abstraction of class components attractive.  It's important to know how they work and how to convert between functional and class components.
 
 ## Class Components
 
@@ -84,19 +94,28 @@ In the Student class, `props` are passed into the contructor as arguments and sa
 
 You may have noticed that `App` inherits from `Component` while the `Student` inherits from `React.Component`.  They are both inheriting from the same class, but in `App.js` we have _destructured_ the `React` object with `import React, { Component } from 'react';`.  The `{ Component }` part of the line is the equivalent to:  `const Component = React.Component`.  It's a way of assigning elements of an object to individual variables.
 
-## When to use a Functional or Class Component
+## When to use a Stateless, Functional-with hooks or Class Component
 
-At Ada we start writing functional components because we believe they are the clearest to understand and easiest to get started writing JSX.  Furthermore, most of the time you will likely start a component as a functional component, even if you later change it into a class because you need the additional functionality.
+At Ada we start writing functional components because we believe they are the clearest to understand and easiest to get started writing JSX.  Furthermore, writing functional components is seen as best-practice in industry.
 
-Functional Components
+Stateless Components
 
 - Involve less complicated and lengthy syntax.
 - Can be understood more quickly because of their short, declaritive nature.
 - Are easier to test and debug because they are `deterministic`, i.e. given a set of props, they **always** return the same JSX.
 - In future releases they will provide better **performance** because they do not inherit functionality provided by the Component class.
-- Are more reusable because by only providing the most basic functionality with fewer dependencies, functional components can be reused more often
+- Are more reusable because by only providing the most basic functionality with fewer dependencies, functional components can be reused more often.
 
-Class components however provide access to the state and lifecycle functionality provided by the `Component` class.  In the next lecture we will examine [`state`](state.md) and how it works.  Your applications going forward will consist of a mix of class and functional components.  You will find that most of your business logic resides in your class components, while functional components provide much of the presentation structure.
+Functional Components with `useState`
+
+- Also involve less lengthy syntax and complicated lifecycle methods
+- Often result in smaller bundle size when deployed in production
+
+Class Components
+- Provide a set of lifecycle methods from their parent `Component` class which are called as the class componenent is created, mounted, rendered, and eventually, removed.
+- Provide an alternative method to manage a component's state using the `setState` method.
+
+In general, you should default to using **only** a mix of stateless and stateful functional components unless a class is required.
 
 ## Recap
 
@@ -104,7 +123,6 @@ Class components however provide access to the state and lifecycle functionality
 - A class component extends React's `Component` class.
 - A class component **must** have a `render` method.
 - `props` are passed into a class component from it's constructor method.
-- Functional components are easier to read and understand, but _stateless_.
 
 ## Additional Resources
 
