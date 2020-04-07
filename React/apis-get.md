@@ -25,14 +25,14 @@ We have the json-server package pre-installed and set up in our `package.json` f
 ```json
 "scripts": {
     "start": "react-scripts start",
-    "server": "json-server --watch src/data/pets.json",
+    "server": "json-server --watch src/data/students.json",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
 ```
 
-Check out the `server` line.  This adds a command to start the json-server package on the port 3000.  The command is: `npm run server`.  You can open the api in the browser with [http://localhost:3000/pets](http://localhost:3000/pets).  You can do all the RESTful routes for a pets resource, listing showing, creating etc.  All these operations will update the pets.json file.  So `pets.json` will serve as an imitation API for us to learn with.
+Check out the `server` line.  This adds a command to start the json-server package on the port 3000.  The command is: `npm run server`.  You can open the api in the browser with [http://localhost:3000/students](http://localhost:3000/students).  You can do all the RESTful routes for a students resource, listing showing, creating etc.  All these operations will update the students.json file.  So `students.json` will serve as an imitation API for us to learn with.
 
 We have added a `.env` file to start React scripts on port 2999.
 
