@@ -77,7 +77,7 @@ useEffect( /* Function to run when the component is mounted */  () => {
 
     };
   },
-    [] /* Empty Array indicates to run this once when the component is mounted. */
+  [] /* Empty Array indicates to run this once when the component is mounted. */
 );
 ```
 
