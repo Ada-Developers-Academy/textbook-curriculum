@@ -105,11 +105,13 @@ Hmmm... we deleted that text...
 
 <details>
   <summary>Walkthrough</summary>
-1.  The default test in `App.test.js` first renders an instance of the `App` component in a simulated DOM.  
-2.  Once the component is rendered it returns a `RenderResult` object which has a bunch of properties.
-3.  We pull the `getByText` function from the `RenderResult` by using [destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment).
-4.  Then we try to find an element inside the `App` component with the regular expression `/learn react/i`.
-5.  Lastly we have an expectation that element exists... but it doesn't
+  <ol>
+    <li>  The default test in `App.test.js` first renders an instance of the `App` component in a simulated DOM.  </li>
+    <li>Once the component is rendered it returns a `RenderResult` object which has a bunch of properties.</li>
+    <li> We pull the `getByText` function from the `RenderResult` by using [destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment).</li>
+    <li>Then we try to find an element inside the `App` component with the regular expression `/learn react/i`.</li>
+    <li>Lastly we have an expectation that element exists... but it doesn't</li>
+  </ol>
 </details>
 
 Modify the test so that it searches for text which we **have** added to the App component.
@@ -136,7 +138,20 @@ When a component changes, we can be alerted and make corrections, or update the 
 
 **Question:** Can you do TDD with a Snapshot test?
 
+<details>
+  <summary>Answer</summary>
+
+  No, because you have to have the original code to generate a snapshot.
+</details>
+
 **Question:** When would a snapshot test be useful?
+
+<details>
+  <summary>Answer</summary>
+
+  There are several places where a snapshot test would be helpful.  It's helpful to detect changes in the resulting HTML without writing tests covering overly specific details.  It can also be helpful for testing components unlikely to change often.
+</details>
+
 
 ### Creating our First Snapshot
 
