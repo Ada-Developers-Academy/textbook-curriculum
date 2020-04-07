@@ -7,12 +7,12 @@
 
 ### Setup
 
-So far, our pets app has been set up to pull static data from the `App` component and pass that into the `PetList` which handles the display. We're going to modify this to utilize an API instead.  For the purposes of learning we're going to use the [json-server](https://github.com/typicode/json-server) package which can take a json file and generate a sample REST server based on it.
+So far our Ada Students project has been set to pull either static data from the `App` component, or from localStorage.  It then passes those students into `StudentCollection` and then into individual student components.  Now we're going to modify this to utilize an API instead.  For the purposes of learning we're going to use the [json-server](https://github.com/typicode/json-server) package which can take a json file and generate a sample REST server based on it.  This will let us simulate an API on our local machines without having to run one on the internet and have students across the cohort access the same API.
 
-1. First, let's find our pets app from earlier. Locate and navigate to the folder in the terminal.
-2. Next check out the `ada-pets-api` branch with `git checkout ada-pets-api`.  This will load a version of Ada Pets which is already working, but using the imported json file.
+1. First, let's find our students app from earlier. Locate and navigate to the folder in the terminal.
+2. Next check out the `11-api-start` branch with `git checkout origin 11-api-start`.  This will load a version of Ada Students which is already working, but using localstorage, exactly after the [`useEffect` lesson](./useEffect.md).
 3. Next, we'll install the axios package by running `npm install axios --save`.
-4. Verify! Open `package.json` and ensure we see axios in the "dependencies" section.
+5. Verify! Open `package.json` and ensure we see axios and json server in the "dependencies" & dev dependencies sections.
 
 ### Review The Code
 
