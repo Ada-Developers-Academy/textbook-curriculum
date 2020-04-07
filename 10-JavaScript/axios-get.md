@@ -91,7 +91,7 @@ axios.get('https://dog.ceo/api/breeds/image/random/')
 
 Read the code and our walk-through of the code.
 
-1. We install the `axios` package onto our machine with `$ npm install -g axios`
+1. We install the `axios` package for our project by running `$ npm install axios` from our project directory.
 2. We made a JS file `axios-practice.js`, and loaded `axios` with the line `const axios = require('axios');`. This should feel like requiring a gem in Ruby, but specifically, this is utilizing something that `npm` defined: the `require` function, which will look for the right `npm` package, and put those contents into a `const axios` variable.
 3. We make the `GET` request using the syntax `axios.get(SOME API ENDPOINT/URL)`
 4. We determine what happens after a successful response comes back within the `.then((response) => { })` portion
@@ -102,13 +102,14 @@ Read the code and our walk-through of the code.
 
 Do the following:
 
-1. Install `axios` onto your machine with `$ npm install -g axios`
-2. Create a file `axios-practice.js`
-3. Copy and paste the code sample from above, including the `require` statement
-4. Add inside of the anonymous function passed into `.then` (underneath the comment of a successful response) this line: `console.log('Success!');`
-5. Add inside of the anonymous function passed into `.catch` (underneath the comment of an unsuccessful response) this line: `console.log('Failure!');`
-6. Run this file with node using `$ node axios-practice.js` and observe either a success or failure printed to the terminal
-7. High-five or celebrate, if that's your jam!
+1. Navigate to the directory you want to follow along in. (Feel free to create a new directory then `cd` into it.)
+2. Install `axios` onto your machine with `$ npm install axios`
+3. Create a file `axios-practice.js`
+4. Copy and paste the code sample from above, including the `require` statement
+5. Add inside of the anonymous function passed into `.then` (underneath the comment of a successful response) this line: `console.log('Success!');`
+6. Add inside of the anonymous function passed into `.catch` (underneath the comment of an unsuccessful response) this line: `console.log('Failure!');`
+7. Run this file with node using `$ node axios-practice.js` and observe either a success or failure printed to the terminal
+8. High-five or celebrate, if that's your jam!
 
 ## What's Happening With `then` and `catch`?
 
