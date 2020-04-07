@@ -29,6 +29,10 @@ gem_group :development, :test do
 end
 
 gem_group :development do
+  # Automatically run our tests
+  gem "guard"
+  gem "guard-minitest"
+
   # Hot New Debugging Gems
   gem 'debase', '>= 0.2.4.1'
   gem 'ruby-debug-ide', '>= 0.7.0'
@@ -41,10 +45,6 @@ unless API_MODE
 
     # Nice interactive terminal when an exception happens
     gem "binding_of_caller"
-
-    # Automatically run our tests
-    gem "guard"
-    gem "guard-minitest"
   end
 end
 
@@ -136,7 +136,7 @@ Minitest::Reporters.use!(
     RUBY
   end
 
-   gsub_file "test/test_helper.rb", 'parallelize(workers: :number_of_processors)' do
+  gsub_file "test/test_helper.rb", 'parallelize(workers: :number_of_processors)' do
     "# parallelize(workers: :number_of_processors) # causes out of order output."
   end
 
