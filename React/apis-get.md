@@ -38,13 +38,13 @@ We have added a `.env` file to start React scripts on port 2999.
 
 **Exercise**
 
-With your neighbor, and using Postman, access the API to list and show several pets.  
+With your neighbor, and using Postman, access the API to list and show several students.  
 
 Answer: 
 
-- What is the URL to list all pets?
-- What is the URL to list a single pet?
-- What happens when you try to access a pet that does not exist?
+- What is the URL to list all students?
+- What is the URL to list a single students?
+- What happens when you try to access a students that does not exist?
 
 ### Replacing the Static Pets Data
 
