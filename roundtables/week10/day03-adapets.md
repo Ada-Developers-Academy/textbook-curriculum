@@ -24,6 +24,6 @@ You are encouraged to copy these questions into a document and take notes during
 
 1. As of right now, what questions about the project parameters have come up?
 1. Let's compare solutions to Wave 1!
-    * We should pay particular note to how `SetResponse` and `SetError` are being handled.
+    * We should pay particular note to how `SetResult` and `SetError` are being handled.
 1. Looking ahead, what have folks figured out about the requests and messages for later waves?
 
