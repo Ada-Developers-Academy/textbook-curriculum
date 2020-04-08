@@ -16,12 +16,18 @@ State is managed **within a given component**. State can be accessed using the `
 
 When we talk about the term _rendering_, we are talking about React calling our functional component and redrawing the content on the screen.
 
-#### useState Overview
+### `useState` Overview
 
 - will take the initial value of the state object as a parameter
 - will return an array with two elements
   - the current value of the state
   - a function to change the state
+
+### `setResult` and `setError`
+
+This pattern might look somewhat familiar. Instead of directly manipulating values or instance variables we're calling functions to _set_ the value of certain properties.
+
+This is what we were doing in `ada-pets-node`! We were manipulating the state of the program via functions just like when we use the `useState` hook!
 
 ## Adding State to the Student Component
 
