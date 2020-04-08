@@ -6,7 +6,7 @@
 
 ### Setup
 
-We are starting with the pets application that we have already created and integrated with a GET request from the [json-server package](https://www.npmjs.com/package/json-server).  This application already contains the event handlers to submit the form data from a controlled form. In this discussion, we'll be enhancing some of this logic to send a POST request to the API to add a new pet. We'll also need to ensure that our overall pet list is refreshed from the API once we add a new pet.
+We are starting with the students application that we have already created and integrated with a GET request from the [json-server package](https://www.npmjs.com/package/json-server).  This application already contains the event handlers to submit the form data from a controlled form. In this discussion, we'll be enhancing some of this logic to send a POST request to the API to add a new student. We'll also need to ensure that our overall student list is refreshed from the API once we add a new student.
 
 ### Add a Pet
 
