@@ -36,28 +36,33 @@ Let's examine our existing `addPet` function:
 
 This will take the data passed in (from the form) and update the array of students to include that new student information. When we introduce the API request, we likely still want to update the state with the new student's information. The POST request will ensure that the data is not lost and that when we reload the list of pets from the API, we'll see the new one included.
 
-The `post` request function in axios is a bit different than the `get` request. Remember that when we make a POST request, we need to pass along the data we want to POST to the URL we specify. We can use the existing `pet` variable that we used to update the state.
+The `post` request function in axios is a bit different than the `get` request. Remember that when we make a POST request, we need to pass along the data we want to POST to the URL we specify. We can use the existing `student` variable that we used to update the state.
 
 ```javascript
-// App.js
-addPet = (pet) => {
-    axios.post('http://localhost:3000/pets', pet)
+// src/App.js
+// ...
+
+  const addStudent = (student) => {
+    axios.post(API_URL_BASE, student)
       .then((response) => {
         // What should we do when we know the post request worked?
+
+
       })
       .catch((error) => {
         // What should we do when we know the post request failed?
+
       });
   }
 ```
 
 **Think About It**
 
-Take a look at the logic we put in the `then` and `catch` sections in the `componentDidMount` function when we made the GET request. What will be similar and different for the POST request?
+Take a look at the logic we put in the `then` and `catch` sections in the `useEffect` function when we made the GET request. What will be similar and different for the POST request?
 
-Working with your neighbor give it a try, remember that you will need an `id` field for the pet to add it to `PetList`, as each `PetCard` requires an id.  How can you get an ID from the API?  Try making a `post` request with Postman to look for the answer.
+Working with your neighbor give it a try, remember that you will need an `id` field for the student to add it to `studentList`, as each `Student` component requires an id.  How can you get an ID from the API?  Try making a `post` request with Postman to look for the answer.
 
-When you are ready you can look at our [solution](examples/addPet.js).
+When you are ready you can look at our [solution](examples/addStudent.js).
 
 **Checking In**
 
