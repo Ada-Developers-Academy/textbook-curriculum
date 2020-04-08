@@ -12,7 +12,7 @@ For this activity, you are encouraged to do the following:
 * Take notes!
 
 ## Materials
-[Ada Pets Node)](https://github.com/Ada-C13/ada-pets-node)
+[Ada Pets Node](https://github.com/Ada-C13/ada-pets-node)
 
 [Making GET Requests using axios in JavaScript](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/10-JavaScript/axios-get.md)
 
