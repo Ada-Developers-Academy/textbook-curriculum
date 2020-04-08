@@ -12,9 +12,9 @@ For this activity, you are encouraged to do the following:
 * Take notes!
 
 ## Materials
-[Exercism (JavaScript Track)](https://exercism.io/my/tracks/javascript)
+[Ada Pets Node)](https://github.com/Ada-C13/ada-pets-node)
 
-[JS Adagrams](https://github.com/Ada-C13/js-adagrams)
+[Making GET Requests using axios in JavaScript](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/10-JavaScript/axios-get.md)
 
 
 ## Prompts
