@@ -90,6 +90,5 @@ Making a POST request from our React application is very similar to the GET requ
 
 ## Additional Resources
 
-- [Using axios with React](https://alligator.io/react/axios-react/)
 - [axios documentation](https://github.com/axios/axios)
-- [json-server documentation](https://github.com/typicode/json-server)
+- [How to fetch data with React Hooks](https://www.robinwieruch.de/react-hooks-fetch-data)
