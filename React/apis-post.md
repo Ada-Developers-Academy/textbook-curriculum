@@ -73,9 +73,16 @@ Now observe what happens when we submit the form in our application. Check in wi
 - How can you handle validation errors in a real API, like we made before?
 - How could you delete pets from the API with your React App?
   - With your neighbor implement this functionality.
-  - Verify that the pets dissapear from the json file.
 
-When you are ready you can see [our solution](examples/deletePet.js).
+## Exercise
+
+At this point you can list students and add new students, but you cannot delete them.  For this exercise take the working code from this [point in the textbook](https://github.com/AdaGold/ada-students/tree/12-api-post), and add a `delete` button to each student and give the app the ability to delete students.  This should cause a `DELETE` request to be made from the API.  
+
+You can get the code by cloning the repository and checking out the branch with the command
+
+`git checkout origin 12-api-post`
+
+When you are ready check out [our completed solution](https://github.com/AdaGold/ada-students/tree/11-delete-student).
 
 ## Key Takeaway
 
