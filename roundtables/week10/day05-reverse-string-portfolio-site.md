@@ -22,11 +22,10 @@ You are encouraged to copy these questions into a document and take notes during
 
 1. What questions did you have from completing the Reverse String exercise? Was there anything particularly challenging? (Try to keep this to 10 minutes if possible to give plenty of time for show-and-tell time.)
     * Let's view 2 different implementations! Volunteers?
-1. Show and Tell!
-    * Take turns showing off your Personal Portfolio Site! 
-    * If it helps, here are some prompts for what to talk about
-        * What is one thing you did for your site you're proud of?
-        * What was a challenge you faced while working on the site?
+1. Show and Tell!  Take turns showing off your Personal Portfolio Site!  
+    * Give a quick walk through of the featured items and parts of your site.
+    * What is one thing you did for your site you're proud of?  (Please show the group.)
     * Everyone should get a chance to share! So please let your presenting time be 3-5 minutes.
-1. What was your workflow of working on the skeleton of the site (HTML) and the styling (CSS)?      
+1. What was a challenge you faced while working on the site?
+1. What was your workflow of working on the skeleton of the site (HTML) and the styling (CSS)? 
     * Did you refine that workflow at all over the course of your time working on the site?
