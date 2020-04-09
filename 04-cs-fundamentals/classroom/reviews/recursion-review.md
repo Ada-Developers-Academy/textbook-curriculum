@@ -3,8 +3,8 @@
 Answer the following questions:
 
 1.  What is the System Stack?
-    a.  Why is it important with Recursion?
-    b.  How does the call stack impact space complexity?
+    1.  Why is it important with Recursion?
+    1.  How does the call stack impact space complexity?
 2.  Explain the term _base case_.
 3.  Explain the term _recursive case_.
 4.  What will the following method return?
