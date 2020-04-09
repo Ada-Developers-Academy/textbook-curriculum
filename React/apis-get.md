@@ -12,7 +12,7 @@ So far our Ada Students project has been set to pull either static data from the
 1. First, let's find our students app from earlier. Locate and navigate to the folder in the terminal.
 2. Next check out the `11-api-start` branch with `git checkout origin 11-api-start`.  This will load a version of Ada Students which is already working, but using localstorage, exactly after the [`useEffect` lesson](./useEffect.md).
 3. Next, we'll install the axios package by running `npm install axios --save`.
-5. Verify! Open `package.json` and ensure we see axios and json server in the "dependencies" & dev dependencies sections.
+5. Verify! Open `package.json` and ensure we see axios and json server in the "dependencies" & "dev dependencies" sections.
 
 ### Review The Code
 
