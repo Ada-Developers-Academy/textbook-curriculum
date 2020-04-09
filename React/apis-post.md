@@ -19,9 +19,8 @@ Let's examine our existing `addPet` function:
     const newStudentList = [...students];
 
     // Find the max id and add 1
-    const nextId = newStudentList.reduce((accumulator, currentStudent) => {
-      return Math.max(accumulator, currentStudent.id);
-    }, 0) + 1;
+    const studentIds = newStudentList.map(student => student.id);
+    const nextId = Math.max(...studentIds) + 1;
 
     newStudentList.push({
       id: nextId,
