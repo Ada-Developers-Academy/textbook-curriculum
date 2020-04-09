@@ -146,12 +146,14 @@ We could remove the redundant parts by utilizing a _layout_ template:
 <html>
   <head>
     <title>My Website</title>
-
     <!-- Below are things that Rails includes by default -->
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
   <body>
     <%= yield %> <!-- This is the key to utilizing the layout -->
   </body>

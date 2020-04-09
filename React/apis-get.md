@@ -3,7 +3,7 @@
 ## Learning Goals
 
 - Introduce `axios` as our API library
-- Integrate a get API request into the react lifecycle using the `useEffect` function.
+- Integrate a get API request into the react lifecycle using the `useEffect` hook
 
 ### Setup
 
@@ -12,7 +12,7 @@ So far our Ada Students project has been set to pull either static data from the
 1. First, let's find our students app from earlier. Locate and navigate to the folder in the terminal.
 2. Next check out the `11-api-start` branch with `git checkout origin 11-api-start`.  This will load a version of Ada Students which is already working, but using localstorage, exactly after the [`useEffect` lesson](./useEffect.md).
 3. Next, we'll install the axios package by running `npm install axios --save`.
-5. Verify! Open `package.json` and ensure we see axios and json server in the "dependencies" & dev dependencies sections.
+5. Verify! Open `package.json` and ensure we see axios and json server in the "dependencies" & "dev dependencies" sections.
 
 ### Review The Code
 
@@ -33,6 +33,8 @@ We have the json-server package pre-installed and set up in our `package.json` f
 ```
 
 Check out the `server` line.  This adds a command to start the json-server package on the port 3000.  The command is: `npm run server`.  You can open the api in the browser with [http://localhost:3000/students](http://localhost:3000/students).  You can do all the RESTful routes for a students resource, listing showing, creating etc.  All these operations will update the students.json file.  So `students.json` will serve as an imitation API for us to learn with.
+
+This should be familiar to you from the `Ada-Pets-node` project.
 
 We have added a `.env` file to start React scripts on port 2999.
 
