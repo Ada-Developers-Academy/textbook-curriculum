@@ -14,7 +14,7 @@
     - [Worksheet: Functions Practice](exercises/functions-worksheet.md)
     - [Exercise: JS Calculator](exercises/calculator.md)
 1. [Arrow Functions](arrow-functions.md)
-1. [Worksheet: Summary & Wrap-up](summary-worksheet.md)
+1. [Worksheet: Summary & Wrap-up](exercises/summary-worksheet.md)
 
 ## Intro to Asynchronous Programming
 1. [Introduction to Async](async-intro.md)
