@@ -28,7 +28,7 @@ Answer the following questions:
 
 ## Part Two: Make a List of Possible Components with CraigsList
 
-Break into pairs and take a look at [CraigsList](https://seattle.craigslist.org/).
+Take a look at [CraigsList](https://seattle.craigslist.org/).
 
 Identify the visual "components" the website is comprised of, and create a list of components that a React CraigsList would need, just like above.
 
