@@ -24,6 +24,6 @@ You are encouraged to copy these questions into a document and take notes during
     * Let's view 3 different implementations! Volunteers?
 2. What is the time complexity of your solution for Word Count? How do you know? What is the space complexity of your solution for Word Count? How do you know?
     * What approach to Word Count is the most efficient?
-3. TODO: question about Tic Tac Toe Project
+3. When a user clicks on a Square, the Square component needs to be able to respond to the click, and change the Square's value. What props and state need to be affected and changed? What components need to be affected and changed?
 4. What questions do you have about Tic Tac Toe?
     * Do you want to share your code to get feedback on specific parts?
