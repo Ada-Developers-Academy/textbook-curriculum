@@ -20,11 +20,11 @@ For this activity, you are encouraged to do the following:
 ## Prompts
 You are encouraged to copy these questions into a document and take notes during the discussion.
 
-1. In the Identifying Components Worksheet, what elements/parts of the site felt like they should be components? Why did they feel like they should be components?
+1. In the Identifying Components Worksheet Pt 2, what elements/parts of the site felt like they should be components? Why did they feel like they should be components?
     * If possible, everyone should share one
-2. In the Identifying Components Worksheet, did you have any components that were repeated (as in, there were multiples of the same component on this page)? If yes, what parts of those components were similar with each other, and what parts were different from each other?
+2. In the Identifying Components Worksheet Pt 2, did you have any components that were repeated (as in, there were multiples of the same component on this page)? If yes, what parts of those components were similar with each other, and what parts were different from each other?
     * If possible, everyone should share one
-3. In the Identifying Components Worksheet, what components were nested inside of another component? How did you determine that?
+3. In the Identifying Components Worksheet Pt 2, what components were nested inside of another component? How did you determine that?
     * If possible, everyone should share one
 4. What is a prop?
     * In the Timeline project, what were the props given to the `TimelineEvent` component, and how were they passed?
