@@ -34,6 +34,8 @@ We have the json-server package pre-installed and set up in our `package.json` f
 
 Check out the `server` line.  This adds a command to start the json-server package on the port 3000.  The command is: `npm run server`.  You can open the api in the browser with [http://localhost:3000/students](http://localhost:3000/students).  You can do all the RESTful routes for a students resource, listing showing, creating etc.  All these operations will update the students.json file.  So `students.json` will serve as an imitation API for us to learn with.
 
+This should be familiar to you from the `Ada-Pets-node` project.
+
 We have added a `.env` file to start React scripts on port 2999.
 
 **Exercise**
