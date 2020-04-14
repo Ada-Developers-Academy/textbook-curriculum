@@ -165,7 +165,29 @@ Then in our `Student` component we can change `useState(false)` and replace it w
 
 We are going to take a few minutes to try and understand how changing a state variable works in React.
 
-1. Create a new method inside your Student component that updates present. Make sure that it sets the value to the same thing each time, and make sure that it returns without calling `setPresent` if the value is already set. It might look like this:
+1. In `src/index.js` find the line:  
+
+```javascript
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+```
+
+And change it to
+
+```javascript
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
+```
+
+This is because that `React.StrictMode` does some extra method calls to help with debugging. 
+
+2. Create a new method inside your Student component that updates present. Make sure that it sets the value to the same thing each time, and make sure that it returns without calling `setPresent` if the value is already set. It might look like this:
   
 ```javascript
   const markPresent = function() {
@@ -175,14 +197,24 @@ We are going to take a few minutes to try and understand how changing a state va
     setPresent(true);
   }
 ```
-2.  We are going to call this method in our Student component. Ideally, we should be calling it somewhere after we have printed or used the relevant data.
-3.  Start the application if it isn't already started and open up developer tools for your browser.  Open up the Web developer tab and select the `Debugger` tab and navigate to the appropriate file. On Firefox, that might look like this:  
+
+3.  We are going to call this method in our Student component. Ideally, we should be calling it somewhere after we have printed or used the relevant data.
+
+4.  Add some `console.log` statements in `Student.js` to output the current status of props and state.
+
+```javascript
+  console.log(`props are ${ props }`, props);
+  console.log(`present is ${ present }`);
+```
+
+5.  Start the application if it isn't already started and open up developer tools for your browser.  Open up the Web developer tab and select the `Debugger` tab and navigate to the appropriate file. On Firefox, that might look like this:  
   
  ![Firefox has been opened to the sources tab, and the Student.js file is open](images/state_browser_open.png)
  
   If you get the error below return to step 1 and fix your code.
   ![error message, maximum update depth exceeded](images/state_browser_error.png)
-1.  Once you're here, set some breakpoints, and reload the page to start debugging. Follow the execution.
+
+6.  Once you're here, set some breakpoints, and reload the page to start debugging. Follow the execution.
 ![breakpoints in the code](images/react-state-breakpoints.png)
 
 **Question**  What do you notice about how this plays out? In what order do these calls happen? How does the page itself and the data change as each method finishes?
@@ -199,7 +231,7 @@ Here is a helpful chart to assist you in determining whether data belongs in `pr
  | Do we want the parent component to always decide the value? | Yes   | No                                     |
  | Will this data need to change over time?                    | No    | Yes                                    |
  | Do we want to pass this value to a child component?         | Yes   | Yes                                    |
- | Do we want the child component to manipulate this data?     | Yes   | No                                     |
+ | Do we want the child component to manipulate this data?     | No    | Yes                                     |
 
 ## Key Takeaway
 
