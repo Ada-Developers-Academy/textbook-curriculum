@@ -83,6 +83,8 @@ You can get the code by cloning the repository and checking out the branch with 
 
 When you are ready check out [our completed solution](https://github.com/AdaGold/ada-students/tree/11-delete-student).
 
+You can also checkout [how to make a `DELETE` request with Axios](https://github.com/axios/axios#axiosdeleteurl-config) on the documentation.  The documentation on this function is minimal.
+
 ## Key Takeaway
 
 Making a POST request from our React application is very similar to the GET request. We continue to utilize `state` within React as our primary mechanism for storing and updating data that will be displayed to our users.
