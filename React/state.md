@@ -177,11 +177,12 @@ We are going to take a few minutes to try and understand how changing a state va
 ```
 2.  We are going to call this method in our Student component. Ideally, we should be calling it somewhere after we have printed or used the relevant data.
 3.  Start the application if it isn't already started and open up developer tools for your browser.  Open up the Web developer tab and select the `Debugger` tab and navigate to the appropriate file. On Firefox, that might look like this:  
-![Firefox has been opened to the sources tab, and the Student.js file is open](images/state_browser_open.png)
-
+  
+ ![Firefox has been opened to the sources tab, and the Student.js file is open](images/state_browser_open.png)
+ 
   If you get the error below return to step 1 and fix your code.
   ![error message, maximum update depth exceeded](images/state_browser_error.png)
-4.  Once you're here, set some breakpoints, and reload the page to start debugging. Follow the execution.
+1.  Once you're here, set some breakpoints, and reload the page to start debugging. Follow the execution.
 ![breakpoints in the code](images/react-state-breakpoints.png)
 
 **Question**  What do you notice about how this plays out? In what order do these calls happen? How does the page itself and the data change as each method finishes?
