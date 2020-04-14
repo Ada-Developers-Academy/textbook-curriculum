@@ -28,6 +28,8 @@ We let the browser do its thing until the form is submitted - that's why it's ca
 
 To summarize, in a controlled form our JavaScript has the data and gives it to the DOM, whereas in an uncontrolled form the DOM has the data and our JavaScript has to ask for it. We say that our program is the _source of truth_ about what's in the form. If you needed to find out what the form said, you would ask our program rather than looking at the DOM.
 
+![React controlled form diagram](images/controlled-form.png)
+
 | Uncontrolled Form          | Controlled Form                        |
 | -------------------------- | -------------------------------------- |
 | Vanilla JS / jQuery        | React                                  |
