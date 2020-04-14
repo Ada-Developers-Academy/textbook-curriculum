@@ -72,8 +72,8 @@ You can also define the function directly in the JSX with an anynomous function 
 
 ```javascript
 <button onClick={() => onButtonClick(!present)}>
-        Mark {present ? 'Absent' : 'Present'}
-      </button>
+  Mark {present ? 'Absent' : 'Present'}
+</button>
 ```
 
 #### Change the Name
