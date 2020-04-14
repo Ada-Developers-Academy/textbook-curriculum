@@ -75,7 +75,7 @@ Now observe what happens when we submit the form in our application. Check in wi
 
 ## Exercise
 
-At this point you can list students and add new students, but you cannot delete them.  For this exercise take the working code from this [point in the textbook](https://github.com/AdaGold/ada-students/tree/12-api-post), and add a `delete` button to each student and give the app the ability to delete students.  This should cause a `DELETE` request to be made from the API.  
+At this point you can list students and add new students, but you cannot delete them.  For this exercise take the working code from this [point in the textbook](https://github.com/AdaGold/ada-students/tree/12-api-post), and add a `delete` button to each student and give the app the ability to delete students.  Every time a user clicks on a "delete" button for a specific student, our app should send a `DELETE` request to the API.  
 
 You can get the code by cloning the repository and checking out the branch with the command
 
