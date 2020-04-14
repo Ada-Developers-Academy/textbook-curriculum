@@ -198,6 +198,16 @@ This is because that `React.StrictMode` does some extra method calls to help wit
   }
 ```
 
+Call that function inside your jsx
+
+```javascript
+ <button>
+   Mark {present ? 'Absent' : 'Present'}
+ </button>
+ {markPresent()}
+</div>
+```
+
 3.  We are going to call this method in our Student component. Ideally, we should be calling it somewhere after we have printed or used the relevant data.
 
 4.  Add some `console.log` statements in `Student.js` to output the current status of props and state.
