@@ -108,7 +108,7 @@ Hmmm... we deleted that text...
   <ol>
     <li>  The default test in `App.test.js` first renders an instance of the `App` component in a simulated DOM.  </li>
     <li>Once the component is rendered it returns a `RenderResult` object which has a bunch of properties.</li>
-    <li> We pull the `getByText` function from the `RenderResult` by using [destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment).</li>
+    <li> We pull the `getByText` function from the `RenderResult` by using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">destructuring</a>.</li>
     <li>Then we try to find an element inside the `App` component with the regular expression `/learn react/i`.</li>
     <li>Lastly we have an expectation that element exists... but it doesn't</li>
   </ol>
