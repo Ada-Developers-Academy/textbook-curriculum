@@ -2,6 +2,8 @@
 
 ## Component Concepts
 
+![Netflix screenshot](images/netflix.png)
+
 1.  Take a look at the above screenshot, where could you identify potential React components?  
 2.  Do you have any collections of the same type of component?
 3.  What information might be passed into those components?
