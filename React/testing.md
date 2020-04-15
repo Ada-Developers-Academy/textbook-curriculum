@@ -6,9 +6,8 @@ Here we will try to ensure that individual components work predictably by testin
 
 By the end of this lesson you should be able to:
 
-- Explain the terms _Snapshot Test_, and _shallow_ and _deep_ rendering
+- Explain the term _Snapshot Test_
 - Write tests to verify components exist and have not changed
-- Write tests to verify callback functions are called on the correct events
 
 ## Getting Started
 
