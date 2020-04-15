@@ -160,17 +160,17 @@ Let's create a snapshot test for one of our untested components, `NewStudentForm
 First create `src/components/test/NewStudentForm.test.js`
 
 ```javascript
-// src/components/test/NewPetForm.test.js
+// src/components/test/NewStudentForm.test.js
 import React from 'react';
 import { render, cleanup } from '@testing-library/react'
-import NewPetForm from '../NewPetForm';
+import NewStudentForm from '../NewStudentForm';
 
-describe('NewPetForm', () => {
+describe('NewStudentForm', () => {
   test('that it matches the existing snapshot', () => {
     // Arrange-Act
     const { asFragment } = render(
-      <NewPetForm
-        addPetCallback={() => { }}
+      <NewStudentForm
+        addStudentCallback={() => { }}
       />
     );
 
