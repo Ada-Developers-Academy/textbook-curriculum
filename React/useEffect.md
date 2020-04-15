@@ -12,7 +12,8 @@ By the end of this lesson you should be able to:
 
 Traditionally the lifecycle of a React component can be described by this drawing.
 
-![React Lifecycle simplified](lifecycle-phase-diagram-06-2018-simplified.png)
+![React Lifecycle simplified](images/lifecycle-phase-diagram-06-2018-simplified.png)
+
 <!-- Source: http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/ -->
 
 The lifecycle of a component has three stages.
