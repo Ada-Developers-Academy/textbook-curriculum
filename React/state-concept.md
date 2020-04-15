@@ -28,4 +28,6 @@ In general, state might refer to the contents of our servers, the list of parame
 
 In React, we use the `useState` hook to generate a variable we keep track of through the lifetime of a component.  You can think of it like an instance variable in a Ruby class.  Each instance of the component maintains it's own state over the lifetime of the component.  If we were building a chess game, the locations of each piece and it's type (Queen, King, Bishop etc) could be stored in state.
 
-We'll dive into how we store state in another lecture.
+If we were trying to make this chess app, we might decide that there needs to be component called `<Board />`, which renders a series of `<Square />`s. The piece currently on that `<Square />` could be passed to it as a prop. In this way, the location of each chess piece would be kept in the `state` of the `<Board />` component, and rendered by the code of the `<Square />` component.
+
+We'll dive into how we store and use state in another lecture.
