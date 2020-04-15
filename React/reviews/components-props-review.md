@@ -16,4 +16,4 @@
 
 ## Example
 
-Lets walk through this React example.
+Lets look at the Ada Students Project and ask questions.  What is the same as timeline?  What is different?
