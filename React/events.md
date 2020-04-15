@@ -71,7 +71,7 @@ This function is not called immediately instead it is passed into the button to 
 You can also define the function directly in the JSX with an anynomous function like:
 
 ```javascript
-<button onClick={() => onButtonClick(!present)}>
+<button onClick={() => setPresent(!present)}>
   Mark {present ? 'Absent' : 'Present'}
 </button>
 ```
