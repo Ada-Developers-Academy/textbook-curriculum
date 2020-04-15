@@ -245,5 +245,6 @@ In the next lesson we will look at how to test how a react component responds to
 ## Resources
 
 - [React Testing Library Documentation](https://testing-library.com/docs/react-testing-library/intro)
+- [Snapshot Testing Best Practices](https://jestjs.io/docs/en/snapshot-testing#best-practices)
 - [Create-react-app docs on testing with react testing library](https://create-react-app.dev/docs/running-tests/#option-2-react-testing-library)
 - [FreeCodeCamp React Testing with Jest](https://medium.com/p/b71c27b0a795#54c3)
