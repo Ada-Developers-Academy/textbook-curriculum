@@ -26,6 +26,6 @@ Each time we move a chess piece, we can say that the 'state' of the board change
 
 In general, state might refer to the contents of our servers, the list of parameters passed into a function, or the contents of an object.
 
-In React, `state` was came to be used as the key word for the contents that belong to a instance of a Classical Component (don't think Beethoven, think "a component built off a class").
+In React, we use the `useState` hook to generate a variable we keep track of through the lifetime of a component.  You can think of it like an instance variable in a Ruby class.  Each instance of the component maintains it's own state over the lifetime of the component.  If we were building a chess game, the locations of each piece and it's type (Queen, King, Bishop etc) could be stored in state.
 
 We'll dive into how we store state in another lecture.
