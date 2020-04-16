@@ -50,7 +50,7 @@ Technical Questions: Problem Solving approach
 
 ## Slide Deck
 
-- [Slides on Interview Preparation](https://docs.google.com/presentation/d/1Fkz-SXB8D7BGjaELy9uG4Wke8zSFbUKLe5jexFQ7xa0)
+- [Slides on Interview Preparation](https://docs.google.com/presentation/d/1cc6sePkEsksLNW0eFl3HfuPvo3bzJqC4XIzjjc811so/edit#slide=id.p1)
 
 All content is licensed under a [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](http://creativecommons.org/licenses/by-nc-nd/4.0/)
 
@@ -58,17 +58,11 @@ All content is licensed under a [Creative Commons Attribution-NonCommercial-NoDe
 
 ## Previous Interview Questions
 
-- [C3 Compiled Questions](https://docs.google.com/spreadsheets/d/1t-kN_dFZp2OJQJI9yJW8JrS1c_aK-Hi6k9DWP1bw_40/edit?ts=56a027f7#gid=570475651)
-- [C4 Compiled Questions](https://docs.google.com/spreadsheets/d/1pnWSQHcvV8rQ1R-e_D7uTO-YF3cfCmrK6SteoiWwTzM/edit#gid=479496602)
-- [C5 Compiled Questions](https://docs.google.com/spreadsheets/d/1nBLF_YGHmkqP6xb6QfJKrOBtqa2ZA0YpuRltI1wU_bE/edit#gid=0)
-- [C7 Compiled Questions](https://docs.google.com/spreadsheets/d/1ZJ_gL2oidqdYzgL5lk0Ew-KyFm_yK5J8SZmD-sW-G0U/edit#gid=0)
-- [C8 Compiled Questions](https://docs.google.com/spreadsheets/d/1fEDgUvF3e7VVVzlkrV2X6_5nqFA7_34B7FdWsZUDxZc/edit?usp=sharing
-)
-- [C10 Compiled Questions](https://docs.google.com/spreadsheets/d/12gxQs2zFe9cbGrRhEkewAwEh7cgEKqREguzpkoO6aBA/edit#gid=0)
-- [C11 Compiled Questions](https://docs.google.com/spreadsheets/d/1bHiEMYXkgZELo0cBaY04YzQmGZ4RBRMMIU70GFIaV9M/edit#gid=0)
+- [Compiled Interview Questions](https://docs.google.com/spreadsheets/d/1fEDgUvF3e7VVVzlkrV2X6_5nqFA7_34B7FdWsZUDxZc/edit#gid=677105308)
 
 ## Resources
 
 - [Technical Interview Guide](https://yangshun.github.io/tech-interview-handbook/introduction)
 - [Interview Cake Website](https://www.interviewcake.com/)
 - [Leetcode](http://leetcode.com/)
+- [HackerEarth](https://www.hackerearth.com/practice/)
