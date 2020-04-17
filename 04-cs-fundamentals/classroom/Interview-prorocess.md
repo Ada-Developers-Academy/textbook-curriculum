@@ -18,7 +18,7 @@ By the end of this lesson you should be able to:
   
 ## Slides
 
-- [Whiteboarding Interviews Slides](https://docs.google.com/presentation/d/1Qm9WmBUJ2u0kujrQtTDiUv0iKk3yXB_MxYirp1mj8-Q/edit#slide=id.p1) - No video lesson
+- [Whiteboarding Interviews Slides](https://docs.google.com/presentation/d/1cc6sePkEsksLNW0eFl3HfuPvo3bzJqC4XIzjjc811so/edit) - No video lesson
 
 ## The Typical Tech Hiring Process
 
