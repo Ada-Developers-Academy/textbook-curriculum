@@ -25,7 +25,7 @@ You are encouraged to copy these questions into a document and take notes during
 1. What is an event handler? Describe the event handler(s) you needed to make to manage the form data. What was the responsibility of these event handler(s)?
 1. How would you describe the relationship between the five input elements and their event handlers?
     * Do you want to share your code to get feedback on specific parts?
-1. How would you describe what is on state, and how it is managed/updated within this assignment?
+1. How would you describe what is in state, and how it is managed/updated within this assignment?
     * Do you want to share your code to get feedback on specific parts?
 
 ### Exquisite React
