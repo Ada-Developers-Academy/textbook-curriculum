@@ -26,7 +26,7 @@ You are encouraged to copy these questions into a document and take notes during
 1. How would you describe the relationship between the five input elements and their event handlers?
     * Share your code! Let's view 2 different implementations and discuss the elements and event handlers! Volunteers?
 1. How would you describe what is in state, and how it is managed/updated within this assignment?
-    * Do you want to share your code to get feedback on specific parts?
+    * Share your code! Let's view 2 different implementations and discuss how state is managed! Volunteers?```
 
 ### Exquisite React
 
