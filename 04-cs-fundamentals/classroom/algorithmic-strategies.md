@@ -6,7 +6,7 @@ In this lesson we will look at some programming strategies, Divide & Conquer and
 
 - [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cf2584b6-0cd7-48ca-ba90-ab020070f5cc)
 - [Slides](https://docs.google.com/presentation/d/12RqNPG1B1ZTOijfKfL99Ewv4w1p6bR-L7Sj2EHN3Fv4/edit#slide=id.p1)
-- [Exercise](https://github.com/Ada-C12/recursive-dynamic-programming)
+- [Exercise](https://github.com/Ada-C13/recursive-dynamic-programming)
 
 ## Learning Goals
 
