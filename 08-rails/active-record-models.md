@@ -232,6 +232,42 @@ In the rails console:
 1. Create another book
     - What is the new book's ID? Does ActiveRecord reuse IDs?
 
+## Live Code: Update controller and views to point to the database.
+
+First remove hard coded BOOKS hash and then replace references to the `BOOKS` hash in the controller actions with references to the database.
+
+
+```
+#books_controller.rb
+class BooksController < ApplicationController
+  def index
+    @books = Book.all
+  end
+
+  def show
+    book_id = params[:id]
+    @book = Book.find_by(id: book_id)
+    if @book.nil?
+      head :not_found
+      return
+    end
+  end
+end
+```
+
+
+```
+#index.html.erb
+<%= book.title %> By: <%= book.author %>
+```
+
+```
+#show.html.erb
+<h1><%= book.title %></h1>
+<h2>By: <%= @book.author %></h2>
+```
+
+
 ## Summary Tables
 For any call that takes a hash, the argument will be of form `attribute: value` or `attribute: [list, of, possible, values]`. To check multiple attributes, add them to the hash: `author: 'test author', title: 'test title'`. You can also pass a hash object to any of these.
 
