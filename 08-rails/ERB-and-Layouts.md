@@ -68,7 +68,11 @@ class BooksController < ApplicationController
   end
 end
 ```
-... and inside of `app/views/books` ... there is a view file named after the index action. `index.html.erb`.  This is an example of how Ruby favors **convention over configuration**.  The default view for an action/method is named after it and stored in a folder named after the class.  
+... and inside of `app/views/books` ... we will create a file named after the index action: `index.html.erb`. 
+
+We manually added the `index` action to our `Books` controller and thus needed to manually add the corresponding view. Had we created the index action using the rails console with the command `rails generator controller Books index`, there would already be a file in the views directory named after the index action.  
+
+This is an example of how Ruby favors **convention over configuration**.  The default view for an action/method is named after it and stored in a folder named after the class.  
 
 ```html
 <h1>Books#index</h1>
