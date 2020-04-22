@@ -8,4 +8,5 @@ For the following questions we will work with [a sample codesandbox](https://cod
 1.  Explain how the text inputs turn pink or green?
 1.  How could the `SignupForm` pass a registered user up to the App component on a successful registration?
     a.  Try to add that handler and just console.log the created user.
+    b.  How could you prevent submission if the password fields don't match?
  
