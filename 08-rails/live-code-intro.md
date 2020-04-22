@@ -70,6 +70,7 @@ The last step before we're ready to go is to tell the postgres program running o
 
 ```
 $ rails db:create
+$ rails db:migrate
 ```
 
 Because the database is not committed to git, you'll need to repeat this once for each Rails project you run, whether you're creating it from scratch or cloning someone else's project.
@@ -102,6 +103,7 @@ The steps to create a new Rails project are:
 1. `cd project-name`
 1. `git add .; git commit -m "Run rails new"`
 1. `rails db:create`
+1. `rails db:migrate`
 1. `rails server`
 
 Your instructor will now push the library repo they've created. Feel free to clone it now, and remember to run `rails db:create`.
