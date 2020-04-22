@@ -1,6 +1,6 @@
 # Controlled Forms Review
 
-For the following questions we will work with[a sample codesandbox](https://codesandbox.io/s/serene-fire-no8p7?file=/src/components/SignupForm.js)
+For the following questions we will work with [a sample codesandbox](https://codesandbox.io/s/serene-fire-no8p7?file=/src/components/SignupForm.js)
 
 1.  In the `SignupForm` component, what event handlers do you have?
 1.  Is this a controlled form?  What does that mean?
