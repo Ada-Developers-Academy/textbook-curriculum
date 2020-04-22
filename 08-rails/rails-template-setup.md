@@ -15,7 +15,7 @@ There are a few changes we need to make to the default Rails configuration, to m
     -m ~/.rails-template.rb
     ```
 
-1. [Copy this file](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/09-intermediate-rails/reference/.rails-template.rb). Navigate to your home directory using `cd ~` and paste the contents in a new file named `.rails-template.rb`.
+1. [Copy this file](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/08-rails/reference/.rails-template.rb). Navigate to your home directory using `cd ~` and paste the contents in a new file named `.rails-template.rb`.
 
 1. Install yarn 
     ```
