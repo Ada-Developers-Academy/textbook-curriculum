@@ -232,10 +232,9 @@ In the rails console:
 1. Create another book
     - What is the new book's ID? Does ActiveRecord reuse IDs?
 
-## Live Code: Update controller and views to point to the database.
+## Changes to Ada Books app - Live Code
 
 First remove hard coded BOOKS hash and then replace references to the `BOOKS` hash in the controller actions with references to the database.
-
 
 ```
 #books_controller.rb
@@ -255,6 +254,7 @@ class BooksController < ApplicationController
 end
 ```
 
+Update views to use dot notation.
 
 ```
 #index.html.erb
@@ -265,6 +265,28 @@ end
 #show.html.erb
 <h1><%= book.title %></h1>
 <h2>By: <%= @book.author %></h2>
+```
+
+Update show test to create a book and use its id
+
+```
+describe "show" do
+    before do
+      @book = Book.create(title: "hello world")
+    end
+
+    it "will get show for valid ids" do
+      # Arrange
+      valid_book_id = @book.id
+  
+      # Act
+      get "/books/#{valid_book_id}"
+  
+      # Assert
+      must_respond_with :success
+    end
+   
+    ...
 ```
 
 
