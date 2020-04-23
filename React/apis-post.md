@@ -81,7 +81,7 @@ You can get the code by cloning the repository and checking out the branch with 
 
 `git checkout origin 12-api-post`
 
-When you are ready check out [our completed solution](https://github.com/AdaGold/ada-students/tree/11-delete-student).
+When you are ready check out [our completed solution](https://github.com/AdaGold/ada-students/blob/12-api-post).
 
 You can also checkout [how to make a `DELETE` request with Axios](https://github.com/axios/axios#axiosdeleteurl-config) on the documentation.  The documentation on this function is minimal.
 
