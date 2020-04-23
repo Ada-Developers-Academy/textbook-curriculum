@@ -32,9 +32,11 @@ All of this will build on our programming fundamentals that we've learned so far
 ## Stuff to Do Before the First Day of Rails
 
 1. Read and follow all directions in [Installfest for Rails](installfest-rails.md)
+1. Set up the [Ada Rails Template](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/08-rails/rails-template-setup.md) - Time box to 20 minutes
 1. Watch ["What is Ruby on Rails?" by Mackenzie Child](https://youtu.be/zppMfm4fuxM) (4 min.)
 1. Watch ["Your First Rails App" by Mackenzie Child](https://youtu.be/fP64Wvz13AM) (10 min.)
 1. Do pre-reading: [Ada's resource: What is Ruby on Rails?](what-is-ruby-on-rails.md)
+
 
 ## Conclusion
 
