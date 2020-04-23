@@ -26,8 +26,9 @@ You are encouraged to copy these questions into a document and take notes during
 1. What props should Board take?
 1. What props should Card take?
 1. What props should NewCardForm take?
-1. Which component(s) do you expect will have state?  `
-1.  Why do we need to use the `useEffect` hook?
+1. Will there be a component that you need to use an effect hook for? If so which one(s)? Why?
+1. Do you have any questions about snapshot testing? 
+  * Any additional questions about user interaction testing?
 
 ### Exercism: Luhn
 What questions did you have from completing the Luhn exercise? Was there anything particularly challenging? 
