@@ -219,7 +219,7 @@ Does this diagram look familiar? It should!
 Our first step is to add a callback function to `App` and pass that function to `NewStudentForm` as a prop.
 
 ```javascript
-// src/components/StudentCollection.js
+// src/App.js
 ...
 // callback function to add students to the list
 
