@@ -19,6 +19,7 @@
 1. [What is a Database?](database-intro.md)
 1. [Active Record Migrations](active-record-migrations.md)
 1. [Active Record Models](active-record-models.md)
+    - [Using Active Record In Code](using-active-record-in-code.md)
     - [Exercise: Hike Finder Single Model](exercises/hike-finder/single-model.md)
 1. [RESTful Routing](restful-routing.md)
 1. [Safety and Idempotency](safety-idempotency.md)
