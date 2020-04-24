@@ -21,8 +21,8 @@ You are encouraged to copy these questions into a document and take notes during
 
 ### Inspiration Board
 1. What are all the components in this project? How do the components relate to each other? 
-  * Which components contain which other components?
-  * Which components are "siblings" of each other?
+    * Which components contain which other components?
+    * Which components are "siblings" of each other?
 1. What props should Board take?
 1. What props should Card take?
 1. What props should NewCardForm take?
