@@ -257,6 +257,72 @@ Discuss with your partner the steps that you would need to go through to get the
 
 **Hint:** Edit is a mix of two routes, whereas Update will be almost identical to an existing route.
 
+<details>
+    <summary> Solution: Edit action, Show action, and updated views.</summary>  
+  
+    ```
+    #books.controller.erb
+    def edit
+      @book = Book.find_by(id: params[:id])
+
+      if @book.nil?
+        head :not_found
+        return
+      end
+    end
+
+    def update
+      @book = Book.find_by(id: params[:id])
+      if @book.update(
+        author: params[:book][:author], 
+        title: params[:book][:title], 
+        description: params[:book][:description]
+      )
+        redirect_to books_path # go to the index so we can see the book in the list
+        return
+      else # save failed :(
+        render :edit # show the new book form view again
+        return
+      end
+    end
+    ```
+  
+    ```
+    <%# edit.html.erb %>
+
+    <%= form_with model: @book, class: 'create-book' do |f| %>
+      <p>Please provide the following information to edit your book in our database:</p>
+
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+
+      <%= f.label :author %>
+      <%= f.text_field :author %>
+
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+
+      <%= f.submit "Edit Book", class: "book-button" %>
+    <% end %>
+    ```
+
+    ```
+    <%# index.html.erb%>
+
+    <h1>Book List</h1>
+    <ul>
+      <% @books.each do |book|  %>
+        <li>
+          <%= link_to book.title, book_path(book) %>
+          By: <%= book.author %> <%= link_to "Edit Book", edit_book_path(book) %>
+        </li>
+      <% end %>
+    </ul>
+    <%= link_to "Add Book", new_book_path %>
+    ```
+     
+</details>
+
 ## Note on `form_tag` and `form_for`
 
 Prior to Rails 5.1 Rails had two methods to generate forms in ERB:
