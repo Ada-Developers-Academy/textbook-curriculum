@@ -3,7 +3,7 @@ describe "create" do
     book_hash = {
       book: {
         title: 'Practical Object Oriented Programming in Ruby',
-        author_id: authors(:metz).id,
+        author: "Sandi Metz",
         description: 'Looking into the mysteries of Ruby!'
       }
     }
@@ -14,7 +14,7 @@ describe "create" do
 
     must_respond_with :redirect
     expect(Book.last.title).must_equal book_hash[:book][:title]
-    expect(Book.last.author_id).must_equal book_hash[:book][:author_id]
+    expect(Book.last.author).must_equal book_hash[:book][:author]
     expect(Book.last.description).must_equal book_hash[:book][:description]
   end
 
