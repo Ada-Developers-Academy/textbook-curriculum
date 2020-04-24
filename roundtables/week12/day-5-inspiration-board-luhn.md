@@ -32,4 +32,4 @@ You are encouraged to copy these questions into a document and take notes during
 
 ### Exercism: Luhn
 What questions did you have from completing the Luhn exercise? Was there anything particularly challenging? 
-    * Let's view 2 different implementations! Volunteers?
+  * Let's view 2 different implementations! Volunteers?
