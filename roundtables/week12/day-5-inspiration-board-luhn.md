@@ -26,7 +26,7 @@ You are encouraged to copy these questions into a document and take notes during
 1. What props should Board take?
 1. What props should Card take?
 1. What props should NewCardForm take?
-1. Will there be a component that you need to use an effect hook for? If so which one(s) and why do we need to use it?
+1. Will there be a component that you need to use the `useEffect` hook for? If so which one(s) and why do we need to use it?
 1. Do you have any questions about snapshot testing? 
   * Any additional questions about user interaction testing?
 
