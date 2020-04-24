@@ -21,7 +21,7 @@ describe "update" do
 
     book = Book.find_by(id: id)
     expect(book.title).must_equal book_hash[:book][:title]
-    expect(book.author_id).must_equal book_hash[:book][:author_id]
+    expect(book.author).must_equal book_hash[:book][:author]
     expect(book.description).must_equal book_hash[:book][:description]
   end
 
@@ -48,7 +48,7 @@ describe "update" do
 
     book = Book.find_by(id: id)
     expect(book.title).must_equal original_book.title
-    expect(book.author_id).must_equal original_book.author_id
+    expect(book.author).must_equal original_book.author
     expect(book.description).must_equal original_book.description
   end
 end
