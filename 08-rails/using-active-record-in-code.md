@@ -78,6 +78,31 @@ Luckily, since we are using Active Record, this is as simple as treating the dat
 <%= @book.author %>
 ```
 
+## Tests
+
+Note that it is also important to update your tests. We will go into more detail on this soon. 
+
+Here is the updated show test for reference.
+
+```
+describe "show" do
+    before do
+      @book = Book.create(title: "hello world")
+    end
+
+    it "will get show for valid ids" do
+      # Arrange
+      valid_book_id = @book.id
+  
+      # Act
+      get "/books/#{valid_book_id}"
+  
+      # Assert
+      must_respond_with :success
+    end
+    
+    ...
+```
 ### Live Code
 
 Let's dash through the two views we've already made and update them to use this syntax! Once we like our changes, we'll make sure to test it by looking at all of the types of pages we changed.
