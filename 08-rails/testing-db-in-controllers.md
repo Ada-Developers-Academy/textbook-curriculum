@@ -75,9 +75,60 @@ Remember that when we submit a form using `form_with` Rails receives the data as
 
 The example above illustrates that the test can pass in a mock-params hash into the request with the `params: params_hash` argument.  Notice we verify that the number of books in the database increases and that the last book in the database has the correct title, author and description.
 
-**Exercise** You also need to create a test in which the params are invalid or missing.  With a partner write another test in which the params are invalid.  We have an [example solution](code_samples/create_controller_test.rb)
+We will also need to create a test in which the params are invalid or missing.  We will cover this test next week when we cover validations.
 
-**Exercise** Similar to the `create` action tests, write tests to verify the correctness of the `update` action.  You should have at least 2 tests. When you finish you can [view our solution](./code_samples/update_controller_test.rb)
+**Exercise** Similar to the `create` action tests, write tests to verify the correctness of the `update` action.  You should have at least 2 tests. When you finish you can view our solution below.
+
+<details>
+  <summary>
+    Update Tests
+  </summary>
+  
+  ```
+  describe "update" do
+    before do
+      Book.create(title: "We're all wonders", author: " R.J. Palacio", description: "Good kids book")
+    end
+    let (:new_book_hash) {
+      {
+        book: {
+          title: "A Wrinkle in Time",
+          author: "Madeleine L'Engle",
+          description: "A fabulous adventure",
+        },
+      }
+    }
+    it "will update a model with a valid post request" do
+      id = Book.first.id
+      expect {
+        patch book_path(id), params: new_book_hash
+      }.wont_change "Book.count"
+  
+      must_respond_with :redirect
+  
+      book = Book.find_by(id: id)
+      expect(book.title).must_equal new_book_hash[:book][:title]
+      expect(book.author).must_equal new_book_hash[:book][:author]
+      expect(book.description).must_equal new_book_hash[:book][:description]
+    end
+  
+    it "will respond with not_found for invalid ids" do
+      id = -1
+  
+      expect {
+        patch book_path(id), params: new_book_hash
+      }.wont_change "Book.count"
+  
+      must_respond_with :not_found
+    end
+  
+    it "will not update if the params are invalid" do
+      # This test will be examined when we cover validations next week
+    end
+  end
+  ```
+  
+</details>
 
 **Question**: Why 2 tests?
 
