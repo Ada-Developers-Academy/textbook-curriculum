@@ -257,7 +257,7 @@ Discuss with your partner the steps that you would need to go through to get the
 
 **Hint:** Edit is a mix of two routes, whereas Update will be almost identical to an existing route.
 
-<details>
+  <details>
     <summary> Solution: Edit action, Show action, and updated views.</summary>  
   
     ```
@@ -273,7 +273,10 @@ Discuss with your partner the steps that you would need to go through to get the
 
     def update
       @book = Book.find_by(id: params[:id])
-      if @book.update(
+      if @book.nil?
+        head :not_found
+        return
+      elsif @book.update(
         author: params[:book][:author], 
         title: params[:book][:title], 
         description: params[:book][:description]
@@ -286,6 +289,7 @@ Discuss with your partner the steps that you would need to go through to get the
       end
     end
     ```
+
   
     ```
     <%# edit.html.erb %>
@@ -304,9 +308,9 @@ Discuss with your partner the steps that you would need to go through to get the
 
       <%= f.submit "Edit Book", class: "book-button" %>
     <% end %>
-    ```
+   ```
 
-    ```
+   ```
     <%# index.html.erb%>
 
     <h1>Book List</h1>
@@ -319,9 +323,9 @@ Discuss with your partner the steps that you would need to go through to get the
       <% end %>
     </ul>
     <%= link_to "Add Book", new_book_path %>
-    ```
+   ```
      
-</details>
+  </details>
 
 ## Note on `form_tag` and `form_for`
 
