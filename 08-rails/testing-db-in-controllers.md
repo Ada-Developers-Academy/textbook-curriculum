@@ -139,6 +139,36 @@ We will also need to create a test in which the params are invalid or missing.  
   Your tests should check for a valid update, and an update to a nonexistant Book.
 </details>
 
+### Reloading from the database
+
+Notice in our solution above, after we make the `patch` request we have the line:
+
+```ruby
+book = Book.find_by(id: id)
+```
+
+**Question**:  Why did we do this?  
+
+<details>
+  <summary>Answer</summary>
+
+  This is because when we make the `patch` request we update the <em>database</em> but not the local variable in the test.  So we needed to refetch the data in the database.
+
+  It's important to know that changes in the database do not immediately get reflected in local variables until the data is pulled in.
+</details>
+
+We can also replace the line:
+
+```ruby
+book = Book.find_by(id: id)
+```
+
+with this:
+
+```ruby
+book.reload
+```
+
 ## Rails Matchers
 
 |   Matcher	|   Sample	|
