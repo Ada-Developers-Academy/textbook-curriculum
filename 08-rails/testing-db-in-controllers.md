@@ -176,3 +176,7 @@ book.reload
 |   `must_respond_with`	|   `must_respond_with :success`	|
 |   `must_redirect_to`	|   `must_redirect_to root_path`	|
 |   `must_differ`	|   `expect {delete book_path(books(:poodr).id) }.must_differ 'Book.count', -1`	|
+
+## Summary
+
+We've looked at how we can check and verify that controller actions make changes to the database.  We verified that `create` actions create new entries in the database and `update` actions change existing entries in the database.  
