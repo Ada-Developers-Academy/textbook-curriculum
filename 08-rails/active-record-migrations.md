@@ -47,6 +47,11 @@ Rails provides a collection of `rails` commands to describe that state of _migra
 
 - Use `rails db:migrate:status` to see the up/down status of all _migrations_
 - Use `rails db:migrate` to apply all pending _migrations_ to the schema
+- Use `rails db:rollback` to undo the most recent _migration_
+
+#### A Quick Note on Rollback
+
+Not all migrations can roll back smoothly. Any time you are running a migration that changes the fields of a database, there is a possibility that the data you stored in the affected columns is permanantly lost. When working collaboratively, it's very important that any migrations that will be applied to a public database are thoroughly checked before they are run, so that no vital data is lost.
 
 To create our new database schema, we are going to run `rails db:migrate`.
 
