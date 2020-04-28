@@ -81,7 +81,7 @@ In this file we will tell Rails where to send incoming HTTP requests.
   <summary>
     Answer
   </summary>
-  The two pieces of an HTTP request that our router is interested in are the _verb_ and the _path_.
+  The two pieces of an HTTP request that our router is interested in are the <em>verb</em> and the <em>path</em>.
 </details>
 
 Given the two parts of the http request, Rails can deduce which _controller_ and _action_ to use. The `routes.rb` file acts kind of like a big `case` statement, though the syntax is a little different.
