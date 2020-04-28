@@ -40,6 +40,28 @@ brew info postgresql
 brew postgresql-upgrade-database
 ```
 
+### Permissions Issues with rbenv and Brew
+
+You can fix permissions issues by:
+
+```
+# Fix permissions issues on Homebrew
+sudo chown -R $(whoami) $(brew --prefix)/*
+```
+
+You can then use `brew doctor` to see issues brew detects and run any suggested commands to fix them.
+
+### Reinstalling XCode Command Line tools
+
+Sometimes Xcode updates erronously and you get the message: `gyp: No Xcode or CLT version detected macOS Catalina`
+
+If you see something similar when running yarn (the template runs this when you start a new rails app), you can fix it by:
+
+1. Find where command line tools are installed with `xcode-select --print-path`
+2. For me it was `/Library/Developer/CommandLineTools` and I removed it with:  `sudo rm -r -f /Library/Developer/CommandLineTools`
+3. Then reinstall them with the command:  `xcode-select --install`
+
+After it’s installed you can use `yarn` and other tools to set up Rails applications etc.
 
 ### Heroku Using `GET` rather than `POST`
 
