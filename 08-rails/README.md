@@ -10,6 +10,7 @@
     - [Rails Templates](rails-template-setup.md)
     - [Configuring Rails to use Postgres](how-to-use-postgres.md)
     - [Live Code Intro](live-code-intro.md)
+    - [What to do when you clone a rails project?](reference/cloning-rails-projects.md)
 1. [Controllers and the Index Action](controllers.md)
 1. [ERB & Layouts](ERB-and-Layouts.md)
 1. [Intro to Testing Controllers: Adding Tests to the Index Action](intro-to-testing-controllers.md)
