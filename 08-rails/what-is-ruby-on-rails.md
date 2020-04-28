@@ -34,18 +34,7 @@ Fully open source, it is constantly adapting to new trends and requirements of m
 
 ## Before We Begin
 
-First let's install Rails version 6.
-
-```bash
-$ gem install rails --no-rdoc --no-ri
-$ rails -v
-```
-
-You should see the rails version as `6.0.0` or later.
-
-__Questions:__ Why `--no-rdoc` and `--no-ri`?
-
-The docs take _a year_ to install, and we'll never look at them. There are docs that are easier to use than what's provided by rdoc & ri.
+Make sure you follow the [installfest for rails](installfest-rails.md)
 
 ## Creating a New Rails Project
 ```bash
