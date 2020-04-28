@@ -34,7 +34,7 @@ Fully open source, it is constantly adapting to new trends and requirements of m
 
 ## Before We Begin
 
-First let's install Rails version 5.
+First let's install Rails version 6.
 
 ```bash
 $ gem install rails --no-rdoc --no-ri
