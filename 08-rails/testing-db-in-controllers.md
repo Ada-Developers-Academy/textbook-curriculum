@@ -139,6 +139,36 @@ We will also need to create a test in which the params are invalid or missing.  
   Your tests should check for a valid update, and an update to a nonexistant Book.
 </details>
 
+### Reloading from the database
+
+Notice in our solution above, after we make the `patch` request we have the line:
+
+```ruby
+book = Book.find_by(id: id)
+```
+
+**Question**:  Why did we do this?  
+
+<details>
+  <summary>Answer</summary>
+
+  This is because when we make the `patch` request we update the <em>database</em> but not the local variable in the test.  So we needed to refetch the data in the database.
+
+  It's important to know that changes in the database do not immediately get reflected in local variables until the data is pulled in.
+</details>
+
+We can also replace the line:
+
+```ruby
+book = Book.find_by(id: id)
+```
+
+with this:
+
+```ruby
+book.reload
+```
+
 ## Rails Matchers
 
 |   Matcher	|   Sample	|
@@ -146,3 +176,7 @@ We will also need to create a test in which the params are invalid or missing.  
 |   `must_respond_with`	|   `must_respond_with :success`	|
 |   `must_redirect_to`	|   `must_redirect_to root_path`	|
 |   `must_differ`	|   `expect {delete book_path(books(:poodr).id) }.must_differ 'Book.count', -1`	|
+
+## Summary
+
+We've looked at how we can check and verify that controller actions make changes to the database.  We verified that `create` actions create new entries in the database and `update` actions change existing entries in the database.  
