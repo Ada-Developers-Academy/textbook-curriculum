@@ -27,6 +27,6 @@ You are encouraged to copy these questions into a document and take notes during
 1. Describe the parts of the MVC pattern. 
 1. What are the different parts of a route?
 1. How is ERB used to generate html? What is the difference between a value tag and a code tag?
-1. What tests / assertions are needed for a controller action?
+1. What new expectations are needed for a controller action tests?
 1. Share your code for the baseline phase of Task List. 
     - What files did you need to update/create the complete the index action?
