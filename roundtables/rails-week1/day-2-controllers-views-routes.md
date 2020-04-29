@@ -12,12 +12,12 @@ For this discussion, think of your instructor as a mediator and guide, rather th
 * Take notes!
 
 ## Materials
-* [What is Ruby on Rails](what-is-ruby-on-rails.md)
-* [Rails Template](rails-template-setup.md)
-* [Live Code Intro](live-code-intro.md) 
-* [Controllers and the Index Action](controllers.md)
-* [ERB & Layouts](ERB-and-Layouts.md)
-* [Intro to Testing Controllers: Adding Tests to the Index Action](intro-to-testing-controllers.md)
+* [What is Ruby on Rails](https://github.com/Ada-Developers-Academy/textbook-curriculum/tree/master/08-rails/what-is-ruby-on-rails.md)
+* [Rails Template](https://github.com/Ada-Developers-Academy/textbook-curriculum/tree/master/08-rails/rails-template-setup.md)
+* [Live Code Intro](https://github.com/Ada-Developers-Academy/textbook-curriculum/tree/master/08-rails/live-code-intro.md) 
+* [Controllers and the Index Action](https://github.com/Ada-Developers-Academy/textbook-curriculum/tree/master/08-rails/controllers.md)
+* [ERB & Layouts](https://github.com/Ada-Developers-Academy/textbook-curriculum/tree/master/08-rails/ERB-and-Layouts.md)
+* [Intro to Testing Controllers: Adding Tests to the Index Action](https://github.com/Ada-Developers-Academy/textbook-curriculum/tree/master/08-rails/intro-to-testing-controllers.md)
 * [Ada Books](https://github.com/AdaGold/ada-books)
 * [Task List](https://github.com/Ada-c13/task-list)
 
