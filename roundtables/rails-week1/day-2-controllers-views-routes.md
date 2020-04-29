@@ -12,17 +12,14 @@ For this discussion, think of your instructor as a mediator and guide, rather th
 * Take notes!
 
 ## Materials
-[What is Ruby on Rails](what-is-ruby-on-rails.md)
-[Rails Template](rails-template-setup.md)
-[Live Code Intro](live-code-intro.md) 
-[Controllers and the Index Action](controllers.md)
-[ERB & Layouts](ERB-and-Layouts.md)
-[Intro to Testing Controllers: Adding Tests to the Index Action](intro-to-testing-controllers.md)
-[Route Parameters & the Show Action](route-parameters.md)
-[Intro to the Show Action and its Tests](show-action-intro.md)
-[Requests and Responses](requests-and-responses.md)
-[Ada Books](https://github.com/AdaGold/ada-books)
-[Task List](https://github.com/Ada-c13/task-list)
+* [What is Ruby on Rails](what-is-ruby-on-rails.md)
+* [Rails Template](rails-template-setup.md)
+* [Live Code Intro](live-code-intro.md) 
+* [Controllers and the Index Action](controllers.md)
+* [ERB & Layouts](ERB-and-Layouts.md)
+* [Intro to Testing Controllers: Adding Tests to the Index Action](intro-to-testing-controllers.md)
+* [Ada Books](https://github.com/AdaGold/ada-books)
+* [Task List](https://github.com/Ada-c13/task-list)
 
 ## Prompts
 You are encouraged to copy these questions into a document and take notes during the discussion.
