@@ -184,7 +184,7 @@ As mentioned above, the `yield` command is where the _view_ is placed inside the
 
 With Rails the partial template, known as a _view_ is stored in a folder named after the resource with a filename named after the method.  So for the books/index path the view is `app/views/books/index.html.erb`.  Rails automatically looks for a layout template in its default location: `app/views/layouts/application.html.erb`. If that file exists, Rails will render that template and then place the content of the partial view in the place where the `yield` command exists in the layout.
 
-```ruby
+```erb
 <!-- views/layouts/application.html.erb -->
 <!DOCTYPE html>
 <html>
