@@ -164,7 +164,7 @@ We could remove the redundant parts by utilizing a _layout_ template:
 </html>
 ```
 
-The `yield` command inside of the_ value tag_ in this _layout_ tells ERB that it should replace that tag with the content of another ERB template. With the common code extracted to the _layout_, the other _views_ are now much smaller:
+The `yield` command inside of the _value tag_ in this _layout_ tells ERB that it should replace that tag with the content of another ERB template. With the common code extracted to the _layout_, the other _views_ are now much smaller:
 
 ```erb
 <!-- app/views/website/index.html.erb -->
@@ -185,30 +185,33 @@ As mentioned above, the `yield` command is where the _view_ is placed inside the
 With Rails the partial template, known as a _view_ is stored in a folder named after the resource with a filename named after the method.  So for the books/index path the view is `app/views/books/index.html.erb`.  Rails automatically looks for a layout template in its default location: `app/views/layouts/application.html.erb`. If that file exists, Rails will render that template and then place the content of the partial view in the place where the `yield` command exists in the layout.
 
 ```ruby
+<!-- views/layouts/application.html.erb -->
 <!DOCTYPE html>
 <html>
-<head>
-  <title>RailsLearning</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>My Website</title>
+    <!-- Below are things that Rails includes by default -->
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-<%= yield %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
 
-</body>
+  <body>
+    <%= yield %> <!-- This is the key to utilizing the layout -->
+  </body>
 </html>
 ```
 
 This will render the `app/views/layouts/application.html.erb` file, and then place the contents of `app/views/books/index.html.erb` in place of the `<%= yield %>` value tag.
 
 ## Notes on JavaScript & CSS Links
-If you examine the layout above you will notice embedded ruby with `stylesheet_link_tag` and another with `javascript_include_tag`.  These methods are used to link in CSS and JavaScript content. We will see later how to include our own CSS content.  
+If you examine the layout above you will notice embedded ruby with `stylesheet_link_tag` and another with `javascript_pack_tag`.  These methods are used to link in CSS and JavaScript content. We will see later how to include our own CSS content.  
 
 The `csrf_meta_tag` is essentially a digital signature acting as verification that requests coming into Rails are in fact from properly logged in users.  You can do a view-source and look at what the csrf meta tag does.  More information is available [here](http://www.gnucitizen.org/blog/csrf-demystified/).
 
 ## Resources
 
--  [Rails Views Tutorials Point](https://www.tutorialspoint.com/ruby-on-rails/rails-views.htm)
+- [Rails Views Tutorials Point](https://www.tutorialspoint.com/ruby-on-rails/rails-views.htm)
 - [Rails Controllers and Views (video)](https://www.youtube.com/watch?v=hp66U7Q8YXY)
