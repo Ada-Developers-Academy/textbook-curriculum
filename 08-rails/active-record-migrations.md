@@ -56,7 +56,7 @@ Not all migrations can roll back smoothly. Any time you are running a migration 
 To create our new database schema, we are going to run `rails db:migrate`.
 
 ### Migrations without Models
-Often, you will need to modify the database schema outside the confines of creating a new _model_. A really common example is altering a _column_ name or datatype of an existing table. Just like `rails` can generate _models_, it can generate _migrations_ that are not associated with a model:
+Often, you will need to modify the database schema outside the confines of creating a new _model_. When we use `rails` to generate a _model_, a _migration_ is generated as well. We can also use `rails` to generate a _migration_ without creating a new _model_. A really common example is altering a _column_ name or datatype of an existing table. 
 
 ```bash
 $ rails generate migration add_description_to_books
