@@ -99,9 +99,9 @@ We will also need to create a test in which the params are invalid or missing.  
       }
     }
     it "will update a model with a valid post request" do
-      id = Book.first.id
+      book = Book.first
       expect {
-        patch book_path(id), params: new_book_hash
+        patch book_path(book.id), params: new_book_hash
       }.wont_change "Book.count"
   
       must_respond_with :redirect
