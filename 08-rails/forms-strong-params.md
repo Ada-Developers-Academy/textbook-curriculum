@@ -77,27 +77,8 @@ A few things to note here:
 1. We chain the method calls of `require` and `permit`. This works because the `:description` `:author` and `:title` fields are located **within** the `:book` param.
 1. If the request is made **without** `:book` in `params` the application will raise an error.  
 
-If we update our tests we can verify that the page responds with an error if a submission is made without the `:book` key-value pair.
+Later we will write tests to verify that the controller responds with :bad_request when the params are missing.  For now, we do not have validations to test it against.
 
-```ruby
-  it "will not update if the params are invalid" do
-    id = Book.first.id
-    original_book = Book.find_by(id: id)
-
-    expect {
-      # an update with nothing in the body of the request
-      patch book_path(id), params: {}
-    }.wont_change "Book.count"
-
-    must_respond_with :error
-
-    book = Book.find_by(id: id)
-    expect(book.title).must_equal original_book.title
-    expect(book.author_id).must_equal original_book.author_id
-    expect(book.description).must_equal original_book.description
-  end
-end
-```
 
 ## Key Takeaway
 We use strong params within our controllers to provide a safe way to require and permit data that comes from our forms. This is a Rails controller pattern that we should follow rather than specifying each field individually.
