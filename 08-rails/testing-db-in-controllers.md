@@ -64,7 +64,7 @@ describe "create" do
       post books_path, params: book_hash
     }.must_differ 'Book.count', 1
 
-    must_respond_with  :redirect
+    must_redirect_to books_path
   end
 end
 ```
@@ -104,7 +104,7 @@ We will also need to create a test in which the params are invalid or missing.  
         patch book_path(book.id), params: new_book_hash
       }.wont_change "Book.count"
   
-      must_respond_with :redirect
+      must_redirect_to books_path
   
       book = Book.find_by(id: id)
       expect(book.title).must_equal new_book_hash[:book][:title]
