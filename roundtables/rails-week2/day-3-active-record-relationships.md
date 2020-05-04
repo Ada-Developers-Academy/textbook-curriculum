@@ -36,8 +36,10 @@ Assume that the following records of data exist in our database:
 
 | id | title | author_id | description |
 |---|---|---|---|
-| 778 | `"Frankenstein"` | 241 | `"It's a book"`
-| 81 | `"Another Book"` | 99 | `"It's another book"`
+| 778 | `"Frankenstein"` | 241 | `"It's a book"` |
+| 81 | `"Another Book"` | 99 | `"It's another book"`|
+
+
 `authors`
 
 | id | name |
