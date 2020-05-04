@@ -57,13 +57,7 @@ Now that we've decided on a view helper, we can get to work. The [`time_ago_in_w
 module ApplicationHelper
   def readable_date(date)
     return "[unknown]" unless date
-    return (
-      "<span class='date' title='".html_safe +
-      date.to_s +
-      "'>".html_safe +
-      time_ago_in_words(date) +
-      " ago</span>".html_safe
-    )
+    return content_tag(:span, "#{time_ago_in_words(date)} ago", class: 'date', title: date.to_s)
   end
 end
 ```
@@ -83,9 +77,9 @@ A few things to notice here:
 - We write our HTML as a sequence of strings concatenated (plussed) together
 - We call the method `html_safe` on some but not all of the strings
 
-### `html_safe`
+### `content_tag`
 
-The `html_safe` method lets Rails know that we trust the HTML in a certain string. Without it the generated HTML will be escaped. In other words, instead of
+The `content_tag` method lets Rails know that we would like to create a HTML tag. Without it the generated HTML will be escaped. In other words, instead of
 
 ```html
 <span class="date" title="2019-04-21T19:33:26-07:00">14 minutes ago</span>
@@ -108,20 +102,6 @@ This is rendered by the browser into literal less-than and greater-than characte
 ```
 
 Ruby has good reason to be so suspicious. Imagine the following scenario: A malicious user creates a new book on our site. Instead of a real description, they write some malicious JavaScript inside of a `<script>` tag. If Rails didn't escape the angle brackets in the tag, then any other browser that viewed that book would immediately begin executing that JavaScript. All of a sudden our site has become an attack vector for someone else!
-
-**Never ever call `html_safe` on content that came from a user!** Usually that means you should only call `html_safe` on string literals.
-
-We can see this rule being followed in the `readable_date` method above:
-
-```ruby
-"<span class='date' title='".html_safe +
-date.to_s +
-"'>".html_safe +
-time_ago_in_words(date) +
-" ago</span>".html_safe
-```
-
-We need to tell Rails to trust all the bits of the `<span>` tag, but we can't trust the `date` since that may have come from the user. Following the rule above, we break the string up into literals that we trust, and variables that we do not.
 
 ### Testing
 
