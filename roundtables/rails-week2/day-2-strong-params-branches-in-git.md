@@ -1,4 +1,4 @@
-# Strong Params, Branches in git
+# Strong Params, So Much Rails, Branches in git
 
 Today we are going to be discussing strong params and the development workflow using branches in git
 
@@ -13,6 +13,9 @@ For this discussion, think of your instructor as a mediator and guide, rather th
 
 ## Materials
 * [Strong Params](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/08-rails/forms-strong-params.md)
+* [Testing Database Changes in Controllers](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/08-rails/testing-db-in-controllers.md)
+* [Routes with Resources](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/08-rails/routes-and-resources.md)
+* [View Partials](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/08-rails/partial-views.md)
 * Branching in git
   * [1.2: Branches - Git and GitHub for Poets](https://www.youtube.com/watch?v=oPpnCh7InLY)
   * [Learn git Branching Lessons 1-4](https://learngitbranching.js.org/)
@@ -50,7 +53,25 @@ You are encouraged to copy these questions into a document and take notes during
     - If the Book model changed, and now had a fourth attribute `subject`, does this method `book_params` need to change? How?
     - In our `book_params` method, we are saying that we expect the form-data to be nested in a key named `book`. What part of the syntax determines that?
 
+### Testing Database Changes in Controllers
+
+When we test the `create` action in the `BooksControllers`...
+1. What change in the database can we test for?
+1. What goes in the curly braces inside the `expect ... must_differ` syntax?
+
+When we test the `update` action in the `BooksControllers`...
+1. After we successfully update an existing book, what multiple changes in the database can we test for?
+1. Why do we have two tests for the `update` action?
+1. In our tests, what code can we write to reload data from our test database?
+
+### Resources and Partial Views
+
+1. What questions do we have on using `resources` to refactor our routes?
+1. What questions do we have on using view partials?
+
 ### Branching in git
+
+Note: Review as much of this as you can. Any leftover material in this section should be reviewed tomorrow.
 
 1. Define in your own words: What is a branch in git?
 1. What are some examples of when you would use a branch in git?

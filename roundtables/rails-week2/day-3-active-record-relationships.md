@@ -18,6 +18,10 @@ For this discussion, think of your instructor as a mediator and guide, rather th
 ## Prompts
 You are encouraged to copy these questions into a document and take notes during the discussion.
 
+### Finish Reviewing Git Branching
+
+If there is need for the group, spend a few moments finishing the review of git branching from [yesterday's Roundtable Discussion](day-2-strong-params-branches-in-git.md).
+
 ### Updating our Models and Database
 
 On a high-level, we want there to be two models, `Book` and `Author`, and we want them to have a one-to-many relationship, where one `Author` has many `Book`s.
