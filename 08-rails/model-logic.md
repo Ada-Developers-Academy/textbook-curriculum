@@ -45,6 +45,82 @@ There are a few things to observe here:
 
 **Question:** How would we call this method? Where should we put this call?
 
+## Updating Ada Books
+
+We can then update Ada books to use this method and have an Authors controller.
+
+<details>
+  <summary>routes.rb</summary>
+
+  ```ruby
+  # config/routes.rb
+  Rails.application.routes.draw do
+  # verb 'path', to: 'controller#action'
+
+    root to: 'books#index'
+
+    resources :books
+    resources :authors, only: [:index, :show]
+  end
+  ```
+</details>
+
+<details>
+  <summary>app/controllers/authors_controller.rb</summary>
+
+  ```ruby
+    class AuthorsController < ApplicationController
+    def index
+      @authors = Author.all.order(:name)
+    end
+
+    def show
+      @author = Author.find_by(id: params[:id])
+
+      if @author.nil?
+        head :not_found
+        return
+      end
+    end
+  end
+  ```
+
+</details>
+
+<details>
+  <summary>app/views/index.html.erb</summary>
+
+  ```erb
+    <h1>Authors</h1>
+
+    <ul>
+    <% @authors.each do |author| %>
+      <li><%= link_to author.name, author_path(author.id) %>
+    <% end %>
+    </ul>
+  ```
+
+</details>
+
+<details>
+  <summary>app/views/show.html.erb</summary>
+
+  ```erb
+    <h1><%= @author.name %></h1>
+    <h2>First Published <%= @author.first_published.nil? ? "Never": @author.first_published %>
+
+    <h2>Books</h2>
+    <ul>
+      <% @author.books.each do |book| %>
+        <li><%= link_to book.title, book_path(book.id) %></li>
+      <% end %>
+    </ul>
+  ```
+
+</details>
+
+
+
 ## Summary
 
 - Business logic is anything concerned with the problem domain
