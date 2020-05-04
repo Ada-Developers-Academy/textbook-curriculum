@@ -37,7 +37,17 @@ We would call this a __one-to-many__ association. We would say that Author *has_
 
 
 ### Defining an Association
+
 ActiveRecord provides lovely methods to quickly create an association between two (or more!) models. We can use class methods within models to make the definition.
+
+First we can create a new Model for our books to have a relationship with:
+
+```bash
+rails generate model Author name:string 
+rails db:migrate
+```
+
+We can specify this relationship in the Model classes.
 
 ```ruby
 class Author < ApplicationRecord
@@ -55,7 +65,28 @@ end
 
 To make this relationship work, the underlying `books` table needs to have an `author_id` column to store the ID of the associated `Author`.
 
+So we can update the `Book` model to remove the `.author` field and replace it with an `author_id` field which references the author to which this book belongs.
+
+```bash
+rails generate migration relateBooksToAuthors
+```
+
+Then we can remove the author field in the `Book` model and add a reference to the `Authors` table.
+
+```ruby
+class RelateBooksToAuthors < ActiveRecord::Migration[6.0]
+  def change
+    remove_column :books, :author
+    add_reference :books, :author, index: true
+  end
+end 
+```
+
+And run `rails db:migrate` to run the migrations.
+
 __Note:__ ActiveRecord does _not_ require a formal `foreign_key` relationship defined at the database level in order to leverage these associations, but it can be a really good idea to create them in your migrations.
+
+__Note:__ We will also need to update all our views and controllers to reference the fact that our Author is now a related model.
 
 ### So what do these associations give us?
 A whole slew of nice lookup methods that help us build queries for the associated model. Here'a sampling, and the [Rails Guides on Active Record Associations](http://guides.rubyonrails.org/association_basics.html) has complete details:
