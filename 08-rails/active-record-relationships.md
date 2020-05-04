@@ -86,7 +86,7 @@ And run `rails db:migrate` to run the migrations.
 
 __Note:__ ActiveRecord does _not_ require a formal `foreign_key` relationship defined at the database level in order to leverage these associations, but it can be a really good idea to create them in your migrations.
 
-__Note:__ We will also need to update all our views and controllers to reference the fact that our Author is now a related model.
+__Note:__ We will also need to update all our views and controllers to reference the fact that our Author is now a related model.  So we will need to change `book.author` to `book.author.name`
 
 ### So what do these associations give us?
 A whole slew of nice lookup methods that help us build queries for the associated model. Here'a sampling, and the [Rails Guides on Active Record Associations](http://guides.rubyonrails.org/association_basics.html) has complete details:
