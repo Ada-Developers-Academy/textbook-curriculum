@@ -30,6 +30,30 @@ This is a simplified example which assumes that we have already created an `Auth
 ```ruby
 # db/seeds.rb
 
+authors = [
+  {
+    name: "Margot Lee Shetterly",
+    bio_url: "https://en.wikipedia.org/wiki/Roxane_Gay"
+  },
+  {
+    name: "Sandi Metz",
+    bio_url: "https://en.wikipedia.org/wiki/Sandi_Metz"
+  },
+  {
+    name: "Octavia E. Butler",
+    bio_url: "https://en.wikipedia.org/wiki/Octavia_E._Butler"
+  },
+  {
+    name: "Jim Butcher",
+    bio_url: "https://en.wikipedia.org/wiki/Jim_Butcher"
+  }
+]
+
+authors.each do |author|
+  Author.create(author)
+end
+
+
 books = [
   {
     title: "Practical Object Oriented Programming in Ruby",
@@ -50,6 +74,10 @@ books = [
     publication_date: 2000
   },    
 ]
+
+books.each do |book|
+  Book.create(book)
+end
 ```
 
 Once this seed file is ready to go, we run the Rails seed command in the terminal to run the seed script, which populates the database.
