@@ -32,15 +32,15 @@
 1. [View Partials](partial-views.md)
 
 ## Week 2
-1. [Active Record Relationships](active-record-relationships.md)
+20. [Active Record Relationships](active-record-relationships.md)
     - [Exercise: Hike Finder One-to-Many](exercises/hike-finder/one-to-many.md)
-1. [DB Seeds](db-seeds.md)
-1. [Logic in the Model](model-logic.md)
-1. [Active Record Validations](active-record-validations.md)
-1. [Nested Routes](nested-routes.md)
-1. [Deploying to Heroku](deploying-to-heroku.md)
-1. [Many-to-Many Relationships](many-to-many-relationships.md)
-1. [Indirect Relationships (Has-Many Through)](indirect-relations.md)
+21. [DB Seeds](db-seeds.md)
+22. [Logic in the Model](model-logic.md)
+23. [Active Record Validations](active-record-validations.md)
+24. [Deploying to Heroku](deploying-to-heroku.md)
+25. [Nested Routes](nested-routes.md)
+26. [Many-to-Many Relationships](many-to-many-relationships.md)
+27. [Indirect Relationships (Has-Many Through)](indirect-relations.md)
 
 ## Week 3
 1. [Testing Introduction](test-intro.md)
