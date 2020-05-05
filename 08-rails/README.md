@@ -43,8 +43,8 @@
 27. [Indirect Relationships (Has-Many Through)](indirect-relations.md)
 
 ## Week 3
-1. [Testing Introduction](test-intro.md)
-1. [Rails Testing Setup](test-setup.md)
-1. [Unit Testing Models](test-models.md)
-1. [The Test Database](test-the-test-database.md)
-1. [Intro to Integration Testing](test-integration-intro.md)
+- [Testing Introduction](test-intro.md)
+- [Rails Testing Setup](test-setup.md)
+28. [Unit Testing Models](test-models.md)
+29. [The Test Database](test-the-test-database.md)
+- [Intro to Integration Testing](test-integration-intro.md)
