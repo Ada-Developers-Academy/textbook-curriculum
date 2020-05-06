@@ -84,7 +84,7 @@ We will also need to create a test in which the params are invalid or missing.  
     Update Tests
   </summary>
   
-  ```
+  ```ruby
   describe "update" do
     before do
       Book.create(title: "We're all wonders", author: " R.J. Palacio", description: "Good kids book")
