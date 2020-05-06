@@ -1,11 +1,11 @@
 # Rails Intermediate Index
 
 ## More Ruby on Rails
-1. [Flash](./flash.md)
-1. [Session](./session.md)
-1. [Testing Session](./testing-session.md)
-1. [Controller Filters](./controller-filters.md)
-1. [View helpers](./view-helpers.md)
+30. [Flash](./flash.md)
+31. [Session](./session.md)
+32. [Testing Session](./testing-session.md)
+33. [Controller Filters](./controller-filters.md)
+34. [View helpers](./view-helpers.md)
 1. [Advanced Validations](./advanced-validations.md)
 1. [Testing Controllers: Revisited](testing-controllers-revisited.md)
 
