@@ -89,9 +89,21 @@ class BooksController < ApplicationController
 end
 ```
 
-**Question:** Do we need to make any changes to the `books#index` view template? Why or why not?
+<details>
+  <summary>
+    <strong>Question:</strong> What should our code do if the author is not found, that is, if the user goes to <code style="white-space: nowrap;">/authors/789012/books</code> or <code>/authors/toaster/books</code>?
+  </summary>
+  Though the above code does not handle this case, if we were doing this for a project, we would want to make sure that we respond with a not_found (404) response code in this case.
+</details>
 
-**Question:** What should our code do if the author is not found, that is, if the user goes to `/authors/789012/books` or `/authors/toaster/books`?
+#### Adding a link
+
+Now that we've added a new route and updated the controller to handle this route, we need to add at least one link to this route. (Just because we understand restful routes doesn't mean the user will know how to find this route!)
+
+We could add the following line to our authors show view:
+```erb
+  <%= link_to "Books by #{@author.name}", author_books_path(@author.id) %>
+```
 
 ### New
 
@@ -119,6 +131,15 @@ end
 Now if we go to `/authors/2/books/new`, we should see that the dropdown menu starts with the second author selected.
 
 **Question:** Can we omit the dropdown entirely when the author is already filled in? How will this affect the view for the new action?
+
+#### Adding a link
+Again, since we've added a new route, we need to add at least one link to this route so the user can actually get to it!
+
+We could add the following line somewhere in our authors show view:
+```erb
+  <%= link_to "New book by #{@author.name}", new_author_book_path(@author.id) %>
+```
+
 
 ## Over-nesting
 
