@@ -49,7 +49,7 @@ Get the most recent version of the book site code from your instructor, then wor
 
     ```html+erb
     <!-- app/views/users/login_form.html.erb -->
-    <%= form_with model: @user, url: login_path do |f| %>
+    <%= form_with model: @user, class: 'login__form', url: login_path do |f| %>
       <%= f.label :username %>
       <%= f.text_field :username %>
 
@@ -81,6 +81,7 @@ Get the most recent version of the book site code from your instructor, then wor
       end
 
       redirect_to root_path
+      return
     end
     ```
     </details>
@@ -98,6 +99,7 @@ Get the most recent version of the book site code from your instructor, then wor
       unless @current_user
         flash[:error] = "You must be logged in to see this page"
         redirect_to root_path
+        return
       end
     end
     ```
