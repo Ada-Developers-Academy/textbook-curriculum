@@ -1,6 +1,6 @@
 # "M, V, or C" Activity and More Rails
 
-Today we are going to be discussing strong params and the development workflow using branches in git
+Today we are going to review the MVC paradigm and review database seeds and logic in the model, particularly as they pertain to the Ride Share Rails project.
 
 For this discussion, think of your instructor as a mediator and guide, rather than as a lecturer. You are encouraged to do the following:
 
