@@ -25,6 +25,8 @@ metz:
   name: Sandi Metz
 butler:
   name: Octavia E. Butler
+madeleine_lengle:
+  name: Madeleine L'Engle
 ```
 
 YML is a set of key/value pairs separated by a colon. It's also __white space sensitive__. It knows how to nest key/value pairs based on their indentation, so pay close attention to your formatting. In the example above, we define two sets of data with keys `metz` and `butler`. Each of those keys has a value which is a second set of key/value pairs (like a hash of hashes). Because our `Author` model doesn't track much data, the _fixtures_ are pretty small. Let's take a look at another set of _fixtures_, this time for the `Book` model:
@@ -33,21 +35,18 @@ YML is a set of key/value pairs separated by a colon. It's also __white space se
 kindred:
   title: Kindred
   author: butler
-  synopsis: A good sci-fi book
-  publication_year: 1979
-  publication_city: New York
+  description: A good sci-fi book
+  publication_date: 1979
 parable:
   title: Parable of the Sower
   author: butler
-  synopsis: Fire drugs?
-  publication_year: 1993
-  publication_city: New York
+  description: Fire drugs?
+  publication_date: 1993
 poodr:
   title: Practical Object Oriented Design in Ruby
   author: metz
-  synopsis: A good book on programming
-  publication_year: 2012
-  publication_city: Chicago
+  description: A good book on programming
+  publication_date: 2012
 ```
 
 In this example, we define two data sets, each representing one `Book`. Each _fixture_ contains quite a bit of data. Take a look at the values for the `author` key in each _fixture_. Because we're using Rails, and because Rails knows that an `Book` `belongs_to` an `Author`, and because we're defining our test data with _fixtures_, we can __reference other _fixture_ data in related models by key__. So `author: metz` will connect the _fixture_ `poodr` with the `Author` _fixture_ `metz`.
@@ -84,13 +83,13 @@ describe Book do
   describe 'relations' do
     it "has an author" do
       book = books(:poodr)
-      book.author.must_equal authors(:metz)
+      expect(book.author).must_equal authors(:metz)
     end
 
     it "can set the author" do
       book = Book.new(title: "test book")
       book.author = authors(:metz)
-      book.author_id.must_equal authors(:metz).id
+      expect(book.author_id).must_equal authors(:metz).id
     end
   end
 end
