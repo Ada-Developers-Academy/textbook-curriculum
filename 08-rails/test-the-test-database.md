@@ -109,7 +109,7 @@ As a general rule of thumb, fixtures are useful for valid data and positive test
 
 - Learned about the _test environment_, and how it is torn down and re-created for each test
 - Used _fixtures_ to define data available for every test
-- Used _fixtures_ to clean up an existing test
+- Used _fixtures_ to clean up our test code
 - Considered when _fixtures_ **aren't** the best choice
 
 ## Additional Resources
