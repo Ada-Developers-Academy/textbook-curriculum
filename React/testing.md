@@ -161,7 +161,7 @@ First create `src/components/test/NewStudentForm.test.js`
 ```javascript
 // src/components/test/NewStudentForm.test.js
 import React from 'react';
-import { render, cleanup } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import NewStudentForm from '../NewStudentForm';
 
 describe('NewStudentForm', () => {
@@ -175,7 +175,6 @@ describe('NewStudentForm', () => {
 
     // Assert
     expect(asFragment()).toMatchSnapshot();
-    cleanup();
   });
 });
 ```
@@ -195,20 +194,6 @@ In our case the change to the rendered HTML is expected, which means we need to 
 **Exercise** Create a test file and a test for the `Student` component.  Write a snapshot test for it.
 
 You can see a solution on the [testing branch of the repository](https://github.com/AdaGold/ada-students/tree/9-testing-after).
-
-<details>
-  <summary>
-  Take a look at the [library's documentation](https://testing-library.com/docs/react-testing-library/api#cleanup).  What is "cleanup();" doing?  Is there a better way to use it?  If so, how?
-  </summary>
-
-  The cleanup function removes any elements rendered into the DOM Jest creates for the test.  So it's a good idea to run cleanup after any test involving a render.  
-
-  You can also put this line inside a describe and outside any test block to run the cleanup function after any test.
-
-  ```javascript
-  afterEach(cleanup);
-  ```
-</details>
 
 ### Snapshots Files
 

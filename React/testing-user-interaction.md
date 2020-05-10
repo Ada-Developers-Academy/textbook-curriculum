@@ -35,7 +35,7 @@ For our `Student` component we could write a test to verify that the student nam
 
 ```javascript
   // src/components/test/Student.test.js
-  import { render, cleanup } from '@testing-library/react'
+  import { render } from '@testing-library/react'
 
   // ... Other tests and imports
 
