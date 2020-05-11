@@ -50,12 +50,12 @@ When you are building a system it can be a very good idea to look at the problem
 
 There are several terms we use when talking about Finite Automata.  
 
-Term | Symbol | Definition
---- | --- | ---
-Alphabet | &Sigma; | The list of symbols the machine can take as input.  This must be a finite list.
-States | _S_ | The list of states the FSM can be in.
-Start State | S<sub>0</sub> | The single starting state for the FSM.
-Transition Function | 	&Delta; | A function which takes in the current state, the input and returns the next FSM's next state.
+| Term                | Symbol        | Definition                                                                                    |
+| ------------------- | ------------- | --------------------------------------------------------------------------------------------- |
+| Alphabet            | &Sigma;       | The list of symbols the machine can take as input.  This must be a finite list.               |
+| States              | _S_           | The list of states the FSM can be in.                                                         |
+| Start State         | S<sub>0</sub> | The single starting state for the FSM.                                                        |
+| Transition Function | &Delta;       | A function which takes in the current state, the input and returns the next FSM's next state. |
 
 ## Writing a State Machine for an Input Pattern
 
@@ -91,10 +91,10 @@ You can also represent an FSM in a table format.  The diagram and chart below il
 ![Finite State Machine example 1](fsm-images/FSM1.png)
 
 
-Current State | Transition Given a 1 | Transition Given a 0
---- | --- | ---
-A | A | B
-B | A | B
+| Current State | Transition Given a 1 | Transition Given a 0 |
+| ------------- | -------------------- | -------------------- |
+| A             | A                    | B                    |
+| B             | A                    | B                    |
 
 
 ## Exercises
@@ -127,21 +127,21 @@ B | A | B
 
 **States**
 
-  Current State | State symbols
-  --- | --- 
-  Farm lights Red - Highway Green | FR - HG
-  Farm lights Yellow - Highway Red | FY - HR
-  Farm lights Green - Highway Red | FG - HR
-  Farm lights Red - Highway Yellow | FR - HY
+  | Current State                    | State symbols |
+  | -------------------------------- | ------------- |
+  | Farm lights Red - Highway Green  | FR - HG       |
+  | Farm lights Yellow - Highway Red | FY - HR       |
+  | Farm lights Green - Highway Red  | FG - HR       |
+  | Farm lights Red - Highway Yellow | FR - HY       |
 
   Inputs (Alphabet)
 
-  Input | Input symbols
-  --- | --- 
-  Farm Sensor - Timer Expired | FS - TEX
-  Farm Sensor - Timer Running | FS - TR
-  No Farm Sensor - Timer Running | NFS - TR
-  No Farm Sensor - Timer Expired | NFS - TEX
+  | Input                          | Input symbols |
+  | ------------------------------ | ------------- |
+  | Farm Sensor - Timer Expired    | FS - TEX      |
+  | Farm Sensor - Timer Running    | FS - TR       |
+  | No Farm Sensor - Timer Running | NFS - TR      |
+  | No Farm Sensor - Timer Expired | NFS - TEX     |
 
 **Bonus**
 
