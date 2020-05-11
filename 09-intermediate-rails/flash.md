@@ -2,6 +2,7 @@
 
 ## Learning Goals
 - Learn about and utilize `flash` in Rails
+- Understand when `flash.now` is appropriate to use
 
 ## `flash`
 `flash` is a special type of hash that we utilize to send one-time messages from controllers to our views. It is similar to `params` in that it is something special that Rails creates for us. It is different because it persists from one one request to another.
