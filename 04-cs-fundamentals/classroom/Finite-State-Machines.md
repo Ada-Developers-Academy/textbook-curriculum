@@ -176,6 +176,9 @@ Turing machines were used in mathematical proofs to illustrate a class of proble
 - [Free Stamford Course on Finite Automata](https://lagunita.stanford.edu/courses/course-v1:ComputerScience+Automata+SelfPaced/about)
 - [State Machine Design pattern —Part 1: When, Why & How](https://medium.com/datadriveninvestor/state-machine-design-pattern-why-how-example-through-spring-state-machine-part-1-f13872d68c2d)
 - [freeCodeCamp - Understanding State Machines](https://www.freecodecamp.org/news/state-machines-basics-of-computer-science-d42855debc66/)
+- [Stanford on the basics of Automata Theory](https://cs.stanford.edu/people/eroberts/courses/soco/projects/2004-05/automata-theory/basics.html)
+- [XState a JavaScript library to build and use finite state machines](https://xstate.js.org/docs/guides/start.html)
+
 
 ## References
 
