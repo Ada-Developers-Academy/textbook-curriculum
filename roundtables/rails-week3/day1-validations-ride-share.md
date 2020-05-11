@@ -37,7 +37,7 @@ book.errors
 book.valid?
 ```
 
-1. Describe or hypothesize the validations in the above `Book` model. For each validation: when is a book valid, and when is it invalid?
+1. Describe or hypothesize the validations in the above `Book` model. For each validation rule: when is a book valid, and when is it invalid?
 1. Look at the above code for `book`.
     - When is `book.errors` not empty?
     - When is `book.errors` empty?
@@ -51,7 +51,7 @@ book.valid?
 
 ### Ride Share Rails
 
-1. Everyone should quickly give a brief update describing where you and your team is in the Ride Share Rails project:
+1. Everyone should quickly give a brief update describing where you and your team is in the Ride Share Rails project. Each person's update should be small and quick and 1-3 sentences, much like a stand-up meeting.
     - What is the most recent line of code you and your team wrote that you're proud of?
     - What is the current or upcoming challenge that you and your team need to tackle next?
 1. What questions and help would you like to ask other groups about the project?
