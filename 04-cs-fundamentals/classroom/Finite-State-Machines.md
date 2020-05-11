@@ -16,6 +16,12 @@ By the end of this lesson you should be able to:
 - Explain what kinds of problems a FSM cannot solve
 - Use XState to create a simple FSM in JavaScript
 
+## Video Lesson and Slides
+
+- [Video Lesson]() - Pending
+- [Slides](https://docs.google.com/presentation/d/1LstWpdCw-17jMYoWH-bwJer0VDok5rp3swcWG3tedYo/edit#slide=id.p)
+- [Exercise](https://github.com/AdaGold/traffic-light-state-machine)
+
 ## What is a Finite State Machine
 
 A Finite State Machine is a relatively simple model of computation.  An FSM is a model of a machine which can be in exactly *one* of a limited (i.e. finite) set of states.  The machine can take in input which causes the machine to change from one state to another.  Moving from one state to another is called a **transition**.  An FSM always has one state in which it starts and one or more states which are valid end-points.  If a FSM takes in input and ends at a valid end-point, the input is considered accepted.  Otherwise the input is considered invalid and rejected.  
