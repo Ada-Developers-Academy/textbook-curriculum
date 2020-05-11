@@ -2,7 +2,7 @@
 
 People have been struggling with the theory of computation long before computers existed.  Mathematics is a powerful tool and mathematicians have long sought to answer, "What can I compute?"  There are problems that **cannot** be solved computationally and there are problems we cannot solve in a reasonable (non-exponential) amount of time.
 
-The study of this field is called [**Automata Theory**](https://en.wikipedia.org/wiki/Automata_theory).  It's really about what can and cannot be computed and how to represent it.  If you are curious for an example of what **cannot** be computed, a good example is the [_halting problem_](https://www.wired.com/2014/02/halting-problem/), which states that you cannot write a program which will analyze another program and tell you if it will **ever** finish.
+The study of this field is called [**Automata Theory**](https://en.wikipedia.org/wiki/Automata_theory).  It's really about what can and cannot be computed and how to represent it with math.  If you are curious for an example of what **cannot** be computed, a good example is the [_halting problem_](https://www.wired.com/2014/02/halting-problem/), which states that you cannot write a program which will analyze another program and tell you if it will **ever** finish.
 
 We will only touch on the 1st level of Automata theory, **Finite State Machines** (FSMs).  This is one of several ways to model computation, and a good place to start.
 
@@ -14,6 +14,7 @@ By the end of this lesson you should be able to:
 - Identify the languages a FSM can solve
 - Design a FSM to solve for a specific language pattern
 - Explain what kinds of problems a FSM cannot solve
+- Use XState to create a simple FSM in JavaScript
 
 ## What is a Finite State Machine
 
@@ -40,7 +41,7 @@ Finite State Machines are used in a wide variety of applications including:
 - Processing text
 - Verifying Regular Expressions
 - Developing compilers and interpreters like the Ruby interpreter
-- Modeling simple patterns of events, think of the checkout process in bEtsy
+- Modeling simple patterns of events, think of a login process
 
 FSMs can make an effective tool to help design systems which have a limited number of states, like authenticating into a website, or processing a credit card purchase.
 
@@ -50,12 +51,12 @@ When you are building a system it can be a very good idea to look at the problem
 
 There are several terms we use when talking about Finite Automata.  
 
-Term | Symbol | Definition
---- | --- | ---
-Alphabet | &Sigma; | The list of symbols the machine can take as input.  This must be a finite list.
-States | _S_ | The list of states the FSM can be in.
-Start State | S<sub>0</sub> | The single starting state for the FSM.
-Transition Function | 	&Delta; | A function which takes in the current state, the input and returns the next FSM's next state.
+| Term                | Symbol        | Definition                                                                                    |
+| ------------------- | ------------- | --------------------------------------------------------------------------------------------- |
+| Alphabet            | &Sigma;       | The list of symbols the machine can take as input.  This must be a finite list.               |
+| States              | _S_           | The list of states the FSM can be in.                                                         |
+| Start State         | S<sub>0</sub> | The single starting state for the FSM.                                                        |
+| Transition Function | &Delta;       | A function which takes in the current state, the input and returns the next FSM's next state. |
 
 ## Writing a State Machine for an Input Pattern
 
@@ -91,10 +92,10 @@ You can also represent an FSM in a table format.  The diagram and chart below il
 ![Finite State Machine example 1](fsm-images/FSM1.png)
 
 
-Current State | Transition Given a 1 | Transition Given a 0
---- | --- | ---
-A | A | B
-B | A | B
+| Current State | Transition Given a 1 | Transition Given a 0 |
+| ------------- | -------------------- | -------------------- |
+| A             | A                    | B                    |
+| B             | A                    | B                    |
 
 
 ## Exercises
@@ -127,33 +128,147 @@ B | A | B
 
 **States**
 
-  Current State | State symbols
-  --- | --- 
-  Farm lights Red - Highway Green | FR - HG
-  Farm lights Yellow - Highway Red | FY - HR
-  Farm lights Green - Highway Red | FG - HR
-  Farm lights Red - Highway Yellow | FR - HY
+  | Current State                    | State symbols |
+  | -------------------------------- | ------------- |
+  | Farm lights Red - Highway Green  | FR - HG       |
+  | Farm lights Yellow - Highway Red | FY - HR       |
+  | Farm lights Green - Highway Red  | FG - HR       |
+  | Farm lights Red - Highway Yellow | FR - HY       |
 
   Inputs (Alphabet)
 
-  Input | Input symbols
-  --- | --- 
-  Farm Sensor - Timer Expired | FS - TEX
-  Farm Sensor - Timer Running | FS - TR
-  No Farm Sensor - Timer Running | NFS - TR
-  No Farm Sensor - Timer Expired | NFS - TEX
+  | Input                          | Input symbols |
+  | ------------------------------ | ------------- |
+  | Farm Sensor - Timer Expired    | FS - TEX      |
+  | Farm Sensor - Timer Running    | FS - TR       |
+  | No Farm Sensor - Timer Running | NFS - TR      |
+  | No Farm Sensor - Timer Expired | NFS - TEX     |
 
 **Bonus**
 
 Can you write a FSM which will determine if given the alphabet {a, b} that the input has an even number of the letter `a` or `b`?
 
-## Summary
+## FSM Summary
 
 A Finite State Machine is a mathematical way to model computation.  The model consists of a limited number of states and a finite alphabet of possible input characters.  The machine transitions from state to state as it reads in each item of input.  An FSM does not remember previous input, but only the current state it is in.  
 
 FSMs are used in a variety of applications and can be an effective way to model and understand systems which consist of a limited number of potential states.  
 
-## Further Concepts
+## XState
+
+The [XState](https://xstate.js.org/docs/) library is a tool that has been getting a great deal of attention in the JavaScript community lately.  XState implements Finite State Machines and statecharts in JavaScript and is widely used to simplify the management of web applications.  
+
+To use XState you first create a "Machine," really a blueprint for a finite state machine. 
+
+```javascript
+import { createMachine, interpret } from 'xstate';
+
+// Stateless machine definition
+// machine.transition(...) is a pure function used by the interpreter.
+const lightBulbMachine = createMachine({
+  id: 'lightBulb',
+  initial: 'inactive',
+  states: {
+    inactive: { on: { TOGGLE: 'active' } },
+    active: { on: { TOGGLE: 'inactive' } }
+  }
+});
+```
+
+The code above creates [this visualization](https://xstate.js.org/viz/?gist=d9ed7c358e35077d0aa6547defb8153e).
+
+![Lightbulb Visualization](images/lightbulb-visualization.png)
+
+XCode even provides a tool that lets you put your code in and get a visualization of the state machine.  It's called [XState Visualizer](https://xstate.js.org/viz).
+
+After you have created a blueprint of a state machine, you can thing implement an instance of that state machine with the `interpret` function.
+
+```javascript
+const service = interpret(lightMachine);
+```
+
+Then you can send events to the machine to change it's state with service's `send` function.
+
+```javascript
+service.send('TOGGLE');
+```
+
+So this sets up the blueprint of the machine and you can then send inputs to the machine, but it's not DOING anything yet.  You can add code to run in service's `onTransition` function.
+
+```javascript
+service.onTransition(state => {
+      console.log(state);
+      switch (state.value) {
+        case 'inactive': 
+          // code to run when the machine moves to inactive state
+          break;
+        case 'active': 
+          // code to run when the machine goes to active state
+          break;
+        default: console.log('ERROR invalid state');
+      }
+    });
+```
+
+### Why Bother?
+
+There are a few reasons to define the states of your application as an FSM.  
+
+1.  Applications get big and complicated.  Having a good FSM diagram and *relatively* simple FSM makes it easier to get your brain around how the application works.
+2.  It makes it easier to communicate with your team what states or modes your application can go into.  This especially applies to designers who can style the app to specific looks for each state.  Team members are less likely to misunderstand how the application flows.
+3.  By only doing specific actions when you 1st move into a state you can make sure you only do certain actions when you move into specific modes.  Consider, have you ever been to an online store and when you submit your payment it tells you, "Do not hit submit twice?"  If you define a state machine as follows, you can make sure you only submit the credit card API call once and not repeat unless the payment is rejected.  If the application is in the `loading` state it won't respond to a `submit` input.  
+
+![Credit Card PMT FSM](images/credit-card-pmt-fsm.png)
+
+### Example Application
+
+We have a sample [React application](https://github.com/AdaGold/light-switch-fsm) which uses XState and React to simulate a lightbulb application.  This application sets up the machine with this state machine definition.
+
+```javascript
+const toggle = createMachine({
+  id: 'toggler',
+  initial: 'off',
+  states: {
+    off: {
+      on: {
+        toggle: 'on',
+        break: 'broken',
+      },
+    },
+    on: {
+      on: {
+        toggle: 'off',
+        break: 'broken'
+      },
+    },
+    broken: {
+      on: {},
+    },
+  },
+});
+```
+
+Then we make an interpreter of that state machine and respond to changes in state and set the state of the lightbulb.
+
+```javascript
+useEffect(() => {
+    service.onTransition(state => {
+      console.log('Transitioning', state);
+      switch (state.value) {
+        case 'on': setBulbOn(true);
+          break;
+        case 'off': setBulbOn(false);
+          break;
+        case 'broken': setBulbOn(false);
+          break;
+        default:
+      }
+    });
+    service.start();
+  });
+```
+
+## Further Concepts - Optional Reading
 
 An FSM isn't a complete computational system.  Full computers can **remember** more than one particular value.  To model this mathematicains have developed additional systems which build on FSMs.
 
@@ -176,6 +291,9 @@ Turing machines were used in mathematical proofs to illustrate a class of proble
 - [Free Stamford Course on Finite Automata](https://lagunita.stanford.edu/courses/course-v1:ComputerScience+Automata+SelfPaced/about)
 - [State Machine Design pattern —Part 1: When, Why & How](https://medium.com/datadriveninvestor/state-machine-design-pattern-why-how-example-through-spring-state-machine-part-1-f13872d68c2d)
 - [freeCodeCamp - Understanding State Machines](https://www.freecodecamp.org/news/state-machines-basics-of-computer-science-d42855debc66/)
+- [Stanford on the basics of Automata Theory](https://cs.stanford.edu/people/eroberts/courses/soco/projects/2004-05/automata-theory/basics.html)
+- [XState a JavaScript library to build and use finite state machines](https://xstate.js.org/docs/guides/start.html)
+
 
 ## References
 
