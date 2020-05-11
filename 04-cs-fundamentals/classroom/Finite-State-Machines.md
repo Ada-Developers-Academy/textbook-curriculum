@@ -62,17 +62,11 @@ There are several terms we use when talking about Finite Automata.
 
 ### Example 1
 
-If we have an alphabet  &Sigma; consisting of {0, 1}, and need to design an FSM to determine of the input has the pattern 1111, 1011 or 101?
+If we have an alphabet  &Sigma; consisting of {0, 1}, and need to design an FSM to determine of the input has the pattern `aba`, `aaa` or `baa`?
 
 ![Solution to example 1](fsm-images/fsm-example1.png).
 
 The trick in this case is to look at the current largest suffix of one of the string we've seen so far at each state which matches one of the patterns we are trying to match.
-
-### Example 2
-
-Now try draw a FSM which determines if 1111, 1011, 101 are contained in the input string.  You can assume the same alphabet.  
-
-When you finish checkout our solution [solution](fsm-images/fsm-example2.png).
 
 ### A Real-Life Example
 
