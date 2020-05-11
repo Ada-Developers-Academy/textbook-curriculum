@@ -18,7 +18,7 @@ By the end of this lesson you should be able to:
 
 ## Video Lesson and Slides
 
-- [Video Lesson]() - Pending
+- [Video Lesson](https://adaacademy.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=b032b115-5528-4329-b7a6-abb80076489b) - Pending
 - [Slides](https://docs.google.com/presentation/d/1LstWpdCw-17jMYoWH-bwJer0VDok5rp3swcWG3tedYo/edit#slide=id.p)
 - [Exercise](https://github.com/AdaGold/traffic-light-state-machine)
 
