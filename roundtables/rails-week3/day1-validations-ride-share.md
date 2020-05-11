@@ -26,13 +26,13 @@ Assume we have the following code:
 # app/models/book.rb
 class Book < ApplicationRecord
   validates :title, uniqueness: true
-  validates :last_name, presence: true
+  validates :publication_date, presence: true
   validates :description, length: { maximum: 500 }
 end
 ```
 
 ```ruby
-book = Book.new(last_name: nil)
+book = Book.new(publication_date: nil)
 book.errors
 book.valid?
 ```
