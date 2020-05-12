@@ -12,31 +12,34 @@
 The scenario that we are going to use to utilize `flash` is when we are adding a new book. Previously, we added the new book to the database and then used `redirect_to` to go back to the book list page. We want to add some sort of notice to the book list page to inform the user that their new book has been added successfully. Let's take a lot at our `create` method as it exists right now.
 ```ruby
 # app/controllers/books_controller.rb
-  def create
-    @book = Book.create book_params
-
-    if @book.id != nil
-      redirect_to books_path
-    else
-      render :new
-    end
+def create
+  @book = Book.new(book_params)
+  if @book.save
+    redirect_to root_path
+    return
+  else
+    render :new, status: :bad_request
+    return
   end
+end
 ```
 
 Let's update this controller action to add a key-value pair in the `flash` hash to contain a message that we want to display on the book list page when a book has been successfully added.
 
 ```ruby
 # app/controllers/books_controller.rb
-  def create
-    @book = Book.create book_params
-
-    if @book.id != nil
-      flash[:success] = "Book added successfully"
-      redirect_to books_path
-    else
-      render :new
-    end
+def create
+  @book = Book.new(book_params)
+  if @book.save
+    flash[:success] = "Book added successfully"
+    redirect_to root_path
+    return
+  else
+    flash.now[:error] = "Something happened. Book not added."
+    render :new, status: :bad_request
+    return
   end
+end
 ```
 
 Now let's test it out to see if this will be displayed somewhere on our book list page after successful creation. Any luck? No!
@@ -47,9 +50,11 @@ As with all variables that we set in our controller actions, the way we get this
 # app/views/layouts/application.html.erb
 ...
 <body>
-  <section class="flash">
+  <section class="flash-msg__section">
     <% flash.each do |name, message| %>
-      <div class="<%= name %>"><%= message %></div>
+      <strong class="<%= name %>">
+        <%= message %>
+      </strong>
     <% end %>
   </section>
 
