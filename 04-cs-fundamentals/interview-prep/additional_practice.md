@@ -4,3 +4,4 @@ The following resources would help with getting additional white boarding interv
 - [Practice problems on LeetCode](https://leetcode.com/)
 - [Code challenge and white boarding practice on CodeFlights](https://codefights.com/)
 - [White boarding practice by pairing up on Pramp](https://www.pramp.com/#/)
+- [TSiege Interview Cheat Sheet](https://github.com/TSiege/Tech-Interview-Cheat-Sheet)
