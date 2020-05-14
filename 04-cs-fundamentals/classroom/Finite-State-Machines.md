@@ -22,7 +22,7 @@ A Finite State Machine is a relatively simple model of computation.  An FSM is a
 
 Below is a state machine that takes in input consisting of zeros (0) or ones (1), and is satisfied if the input ends with a zero.
 
-![Finite State Machine example 1](fsm-images/FSM1.png)
+![Finite State Machine example 1](fsm-images/FSM0.png)
 
 The machine starts in state **A** and if it receives an input of `0` it will move to state **B**.  If the machine is in state **A** and receives a `1` it will remain in state **A**.  If the machine is in state **B** and receives a `1` it will move to state **A**.  If it is in state **B**, and recieves a `0` it will remain in state **B**.  State **B** is an **End-State** which is indicated by the two circles around it.  
 
