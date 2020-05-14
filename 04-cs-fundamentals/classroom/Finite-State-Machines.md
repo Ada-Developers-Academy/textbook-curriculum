@@ -101,7 +101,7 @@ You can also represent an FSM in a table format.  The diagram and chart below il
 
 ### Creating FSMs
 
-1.  Create a Finite State Machine which accepts 1s or 0s and accepts input which contain at least a single 1.
+1.  Create a Finite State Machine which takes an alphabet of 1s or 0s and accepts input which contain at least a single 1.
 
 2.  Create a FSM which takes an input alphabet of 1s and 0s and will only accept input consisting of all ones, any 0s in the input cause the machine to reject the input.
 
