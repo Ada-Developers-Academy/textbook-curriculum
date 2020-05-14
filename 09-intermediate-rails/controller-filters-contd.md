@@ -24,18 +24,18 @@ In the `app/controllers/application_controller.rb`:
   def require_login
     if current_user.nil?
       flash[:error] = "You must be logged in to view this section"
-      redirect_to session_path
+      redirect_to login_path
     end
   end
 ```
 
-This before filter assumes that the application has set the `session[:user_id]` property in the `SessionsController` as part of the *User Authentication* process.
+This before filter assumes that the application has set the `session[:user_id]` property in the `UsersController` as part of the *User Authentication* process.
 
 If we add this to our application currently, it will cause issues since every action will require login and based on the logic inside of the `require_login` method, every action will then redirect to the login page again and again and again...
 
 We want to ensure that our users can login without already being logged in! We can accomplish this by **excluding** this `require_login` `before_action` on the login controller actions.
 
-In the `app/controllers/sessions_controller.rb`:
+In the `app/controllers/users_controller.rb`:
 ```ruby
 ...
 skip_before_action :require_login, only: [:create]
