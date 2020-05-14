@@ -89,7 +89,7 @@ Take a look at the state diagram, even with only 2 possible inputs at each state
 
 You can also represent an FSM in a table format.  The diagram and chart below illustrate the same FSM.  The left column lists the starting state and subsequent columns list the new state for the given input.  This is called a **transition table**.
 
-![Finite State Machine example 1](fsm-images/FSM1.png)
+![Finite State Machine example 1](fsm-images/FSM0.png)
 
 
 | Current State | Transition Given a 1 | Transition Given a 0 |
