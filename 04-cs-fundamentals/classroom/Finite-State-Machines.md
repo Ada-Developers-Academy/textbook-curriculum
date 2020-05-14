@@ -97,8 +97,46 @@ You can also represent an FSM in a table format.  The diagram and chart below il
 | A             | A                    | B                    |
 | B             | A                    | B                    |
 
-
 ## Exercises
+
+### Creating FSMs
+
+1.  Create a Finite State Machine which accepts 1s or 0s and accepts input which contain at least a single 1.
+
+2.  Create a FSM which takes an input alphabet of 1s and 0s and will only accept input consisting of all ones, any 0s in the input cause the machine to reject the input.
+
+3.  Create a FSM which takes an input alphabet of 1s and 0s and will accept only an odd number of 1s.
+
+4.  Create an FSM which takes an input alphabet of [FGOR] and will accept any input containing the "FROG".
+
+5.  Create an FSM which takes an input alphabet of [ABEILRST] and will accept any input containing exactly either "ART", "ARTS" or "ABLE".
+
+### State Transition Tables Exercises
+
+6.  Create a state transition table for questions 1 & 2.
+7.  Given the state transition table below, draw the FSM.
+
+| Current State | Input | Next State |
+| ------------- | ----- | ---------- |
+| A             | 0     | A          |
+| A             | 1     | B          |
+| B             | 0     | A          |
+| B             | 1     | B          |
+
+8.  Given the state transition table below draw the FSM.
+
+| Current State | Input | Next State |
+| ------------- | ----- | ---------- |
+| A             | 0     | C          |
+| A             | 1     | B          |
+| B             | 0     | A          |
+| B             | 1     | C          |
+| C             | 0     | C          |
+| C             | 1     | A          |
+
+## Further Exercises
+
+These questions are for students who may want further practice.
 
 1. Given an alphabet of {a, b} design a FSM which will determine if the input contains `aabaa`.
 
