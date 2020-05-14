@@ -324,6 +324,9 @@ A Pushdown Automata is a finite state machine that also has access to a **stack*
 
 Turing machines were used in mathematical proofs to illustrate a class of problems which are not computable.  In other words, you cannot write a computer program to solve them in all cases.  A classic example is that you cannot write a program which will read in another program and predict with perfect accuracy if that program will ever end (no infinite loops).
 
+![Turing Machine Image](fsm-images/turing.gif)
+Image source [MIT](https://web.mit.edu/manoli/turing/www/turing.html)
+
 ## Resources
 
 - [Free Stamford Course on Finite Automata](https://lagunita.stanford.edu/courses/course-v1:ComputerScience+Automata+SelfPaced/about)
