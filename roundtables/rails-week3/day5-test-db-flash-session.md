@@ -11,6 +11,8 @@ For this discussion, think of your instructor as a mediator and guide, rather th
 * When discussing code, you are encouraged to use VS Code Liveshare, and or screen sharing through zoom.
 * Take notes!
 
+### Resources
+
 * [The Test Database](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/08-rails/test-the-test-database.md)
 * [Flash](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/09-intermediate-rails/flash.md)
 * [Session](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/09-intermediate-rails/session.md)
