@@ -29,20 +29,21 @@ In the `app/controllers/application_controller.rb`:
   end
 ```
 
-This before filter assumes that the application has set the `session[:user_id]` property in the `UsersController` as part of the *User Authentication* process.
+This `before_action` filter assumes that the application has set the `session[:user_id]` property in the `UsersController` as part of the *User Authentication* process.
 
 If we add this to our application currently, it will cause issues since every action will require login and based on the logic inside of the `require_login` method, every action will then redirect to the login page again and again and again...
 
-We want to ensure that our users can login without already being logged in! We can accomplish this by **excluding** this `require_login` `before_action` on the login controller actions.
+We want to ensure that our users can login without already being logged in! We can accomplish this by combining two things Rails has for controller filters: the `skip_before_action` filter, and the options to define which actions to exclude with `except`.
 
 In the `app/controllers/users_controller.rb`:
 ```ruby
 ...
-skip_before_action :require_login, only: [:create]
+skip_before_action :require_login, except: [:current_user]
 ...
 ```
 
-This ensures that the `require_login` method is **not** called before the `create` action to ensure that the user can successfully log in.
+The `skip_before_action` ensures that the `require_login` method is **skipped on every action defined in this controller,** *except* the action listed after `except`: the `current_user` action.
 
 ## Additional Resources
+- [Rails Documentation on Controller Filters](https://guides.rubyonrails.org/action_controller_overview.html#filters)
 - [Basics of Ruby Memoization](http://gavinmiller.io/2013/basics-of-ruby-memoization/)
