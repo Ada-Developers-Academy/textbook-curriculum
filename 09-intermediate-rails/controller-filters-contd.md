@@ -2,7 +2,6 @@
 
 ## Learning Goals
 - Use controller filters to require user login
-- Practice using memoization
 
 ## Getting Started
 
@@ -46,4 +45,3 @@ The `skip_before_action` ensures that the `require_login` method is **skipped on
 
 ## Additional Resources
 - [Rails Documentation on Controller Filters](https://guides.rubyonrails.org/action_controller_overview.html#filters)
-- [Basics of Ruby Memoization](http://gavinmiller.io/2013/basics-of-ruby-memoization/)
