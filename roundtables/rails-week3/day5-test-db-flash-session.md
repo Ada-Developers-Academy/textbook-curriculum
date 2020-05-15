@@ -38,10 +38,10 @@ You are encouraged to copy these questions into a document and take notes during
 
 ### Session
 
-1. As a group, come up with a definition for Session in your own words, and how it helps with log-in functionality
-1. As a group, come up with a description for how Session helps with log-in functionality
+1. As a group, come up with a definition for `session` in your own words, and how it helps with log-in functionality
+1. As a group, come up with a description for how `session` helps with log-in functionality
 1. How would our controller tests be affected by log-in functionality?
-1. How does someone "clear" the contents of session...
+1. How does someone "clear" the contents of `session`...
     - in our Rails code?
     - in our browser?
-1. Share code: If anyone has an example of session being used in one Controller action (even if it's not working or in-progress), share with the group! Practice talking through your code. Feel free to use this time to ask questions, especially if you don't have flash working.
+1. Share code: If anyone has an example of `session` being used in a controller action (even if it's not working or in-progress), share with the group! Practice talking through your code. Feel free to use this time to ask questions, especially if you don't have `session` working.
