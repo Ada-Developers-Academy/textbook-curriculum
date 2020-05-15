@@ -15,10 +15,6 @@ For this discussion, think of your instructor as a mediator and guide, rather th
 * [Flash](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/09-intermediate-rails/flash.md)
 * [Session](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/09-intermediate-rails/session.md)
 * [Testing Session](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/09-intermediate-rails/testing-session.md)
-* The Test Database
-* Flash
-* Session
-* Testing Session
 
 ## Prompts
 You are encouraged to copy these questions into a document and take notes during the discussion.
