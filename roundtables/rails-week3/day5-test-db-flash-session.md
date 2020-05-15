@@ -28,10 +28,10 @@ You are encouraged to copy these questions into a document and take notes during
 
 ### Flash
 
-1. As a group, come up with a definition for Flash in your own words
-1. As a group, come up with a definition for Flash.now in your own words. How does it differ from Flash in syntax and use case?
-1. In Media Ranker, how will flash be used?
-1. Share code: If anyone has an example of flash being used in one Controller action (even if it's not working or in-progress), share with the group! Practice talking through your code. Feel free to use this time to ask questions, especially if you don't have flash working.
+1. As a group, come up with a definition for `flash` in your own words
+1. As a group, come up with a definition for `flash.now` in your own words. How does it differ from `flash` in syntax and use case?
+1. In Media Ranker, how will `flash` be used?
+1. Share code: If anyone has an example of `flash` being used in a controller action (even if it's not working or in-progress), share with the group! Practice talking through your code. Feel free to use this time to ask questions, especially if you don't have `flash` working.
 
 ### Session
 
