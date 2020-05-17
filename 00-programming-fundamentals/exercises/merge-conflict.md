@@ -1,16 +1,21 @@
 # Merge Conflict Carnival
+
 ## Overview
+
 This year the Ada staff has generously agreed to contribute their culinary skills to a coding bootcamp booth offering food & info pamphlets at the [Georgetown Carnival](http://www.georgetowncarnival.com/). It's the day before the festivities kick off and _someone's_ Cavalier King Charles Spaniel has done his best to shred all of their recipes! Oh no! Can you help Ada staff put everything back together and save Carnival?
 
 In this activity you'll be working with your fellow Adies to put together multiple scraps from a single recipe using Git. You'll accomplish this by successively merging in content from each individuals' copy of the recipes repo. Once all the of merges are finished (and any merge conflicts resolved) you'll have a complete recipe document which can be submitted to the original repository with a pull request.
 
 ## Learning Goals
+
 The goal of this activity is to give you exposure to the process of resolving merge conflicts. Because merge conflicts are a natural part of any collaborative development effort, this is an important skill to have as a developer.
 
 With this activity you will be able to encounter and resolve merge conflicts in a controlled scenario where the correct resolution of all merge conflicts is clear.
 
 ## Instructions
+
 ### Baseline Setup
+
 Before we can start putting the recipe together we need to make sure that everyone in your group is working from the same starting point and can effectively contribute to the recipe building effort.
 
 1. **Split into groups**: Each table is marked with a particular group number and everyone at that table will be part of the group. There should be six people in each group.
@@ -22,9 +27,11 @@ Before we can start putting the recipe together we need to make sure that everyo
 **Do not** push your changes to GitHub yet! If you're finished early with this step help your groupmates.
 
 ### Building the recipe
+
 Once everyone in your group has completed the baseline setup instructions above you're ready to start building the recipe together.
 
 #### General advice
+
 There are a few things to look out for when working through this activity:
 
 - If you're still unsure about what a merge conflict is, or how to resolve one please review the [Merge Conflicts curriculum](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/00-programming-fundamentals/git-merge-conflicts.md).
@@ -36,6 +43,7 @@ There are a few things to look out for when working through this activity:
 - Have fun!
 
 #### Recipe building process
+
 Because each member of your group now has a different version of the recipe file in their local repository, building the complete recipe by merging those versions together will result in merge conflicts. To handle those merge conflicts sensibly your group should use the following process to construct the final recipe file:
 
 1. Split your group into two teams of three.
@@ -56,9 +64,11 @@ Because each member of your group now has a different version of the recipe file
     - Write up a set of steps to follow when dealing with merge conflicts.
 
 ##### Activity Workflow
+
 ![activity workflow](images/mergeConflictDiagram.png)
 
 #### Collaboration strategies
+
 There are a number of ways that a group of developers can collaborate to handle merging their changes together into a final, correct result. Each strategy has pros and cons. For example if a particular strategy is good for minimizing the number of complex merge conflicts, it probably requires a slower development process in which developers are often waiting on their peers to merge in changes before they can start working.
 
 - **Round robin**: This strategy involves direct coordination between everyone in the group, resulting in a strictly ordered merge sequence.
@@ -72,4 +82,5 @@ There are a number of ways that a group of developers can collaborate to handle 
   - Branching is generally considered the heart of a Git-based workflow and you'll have an opportunity to try it on a larger team project.
 
 # Resources
+
 - [Original Diagram Image](https://www.lucidchart.com/invitations/accept/c3fd712e-9be6-4fec-be51-9d433d7ed941)
