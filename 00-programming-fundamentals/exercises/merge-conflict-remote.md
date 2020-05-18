@@ -58,7 +58,7 @@ Because each member of your group now has a different version of the recipe file
 2. Each person on a team will create a branch with `git checkout -b BRANCH-NAME`, selecting their own branch name based off the recipe scrap they have, and commit the changes they have made to the recipe.
 3. Each team member will push their changes up to github with `git push origin BRANCH-NAME`.
 4. Both teams then will use the _round robin_ strategy separately.
-    - Each team member will open a **pull request** trying to merge their branch on github into `master`.  **Be very careful to make the PR against your repository and NOT ada Gold.**
+    - Each team member will open a **pull request** trying to merge their branch on github into `master`.  **Be very careful to make the PR against your forked repository and NOT AdaGold.**
     - If there is a report of a merge conflict they will need to:
      1. Pull the current state of master into their branch with `git pull origin master`
      2. Resolve the merge conflicts and commit the result
