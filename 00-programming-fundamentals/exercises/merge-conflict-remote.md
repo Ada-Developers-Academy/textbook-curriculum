@@ -28,7 +28,7 @@ Before we can start putting the recipe together we need to make sure that everyo
    7. Breakout Room 2:  Rhino
    8. Breakout Room 2:  Curassow
 2. **Fork the activity repo**: One person in your group should fork the carnival-recipes repo and then add everyone else as a collaborator.
-3. **Clone the forked repo**: Everyone else in your group should clone the forked repository.
+3. **Clone the forked repo**: Everyone in your group should clone the forked repository.
 4. **Find your recipe scrap**: Each group is assigned six recipe scraps that should all be part of the same recipe. You can split these scraps up amongst your group however you wish. The scraps assigned to each group are listed in the carnival-recipes repo. If your group has fewer than six people someone may need to take multiple scraps.
 5. **Add your recipe scrap**: Copy the contents of your recipe scrap into the recipe file and then add and commit your changes to the recipe file. After completing this step each person in your group should have **different** content within the recipe file in their local repository.
 
