@@ -54,7 +54,7 @@ There are a few things to look out for when working through this activity:
 
 Because each member of your group now has a different version of the recipe file in their local repository, building the complete recipe by merging those versions together will result in merge conflicts. To handle those merge conflicts sensibly your group should use the following process to construct the final recipe file:
 
-1. Split your group into two teams of two or three.
+1. Split your group into two teams of three. (There may be a group of two if your group only has 5 people.)
 2. Each person on a team will create a branch with `git checkout -b BRANCH-NAME`, selecting their own branch name based off the recipe scrap they have, and commit the changes they have made to the recipe.
 3. Each team member will push their changes up to github with `git push origin BRANCH-NAME`.
 4. Both teams then will use the _round robin_ strategy separately.
