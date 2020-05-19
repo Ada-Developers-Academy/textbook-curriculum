@@ -28,7 +28,7 @@ Before we can start putting the recipe together we need to make sure that everyo
    1. Breakout Room 2:  Rhino
    1. Breakout Room 2:  Curassow
 2. **Fork the activity repo**: One person in your group should fork the carnival-recipes repo and then add everyone else as a collaborator.
-3. **Clone the forked repo**: Everyone else in your group should clone the forked repository.
+3. **Clone the forked repo**: Everyone in your group should clone the forked repository.
 4. **Find your recipe scrap**: Each group is assigned six recipe scraps that should all be part of the same recipe. You can split these scraps up amongst your group however you wish. The scraps assigned to each group are listed in the carnival-recipes repo. If your group has fewer than six people someone may need to take multiple scraps.
 5. **Add your recipe scrap**: Copy the contents of your recipe scrap into the recipe file and then add and commit your changes to the recipe file. After completing this step each person in your group should have **different** content within the recipe file in their local repository.
 
@@ -54,11 +54,11 @@ There are a few things to look out for when working through this activity:
 
 Because each member of your group now has a different version of the recipe file in their local repository, building the complete recipe by merging those versions together will result in merge conflicts. To handle those merge conflicts sensibly your group should use the following process to construct the final recipe file:
 
-1. Split your group into two teams of two or three.
+1. Split your group into two teams of three. (There may be a group of two if your group only has 5 people.)
 2. Each person on a team will create a branch with `git checkout -b BRANCH-NAME`, selecting their own branch name based off the recipe scrap they have, and commit the changes they have made to the recipe.
 3. Each team member will push their changes up to github with `git push origin BRANCH-NAME`.
 4. Both teams then will use the _round robin_ strategy separately.
-    - Each team member will open a **pull request** trying to merge their branch on github into `master`.  **Be very careful to make the PR against your repository and NOT ada Gold.**
+    - Each team member will open a **pull request** trying to merge their branch on github into `master`.  **Be very careful to make the PR against your forked repository and NOT AdaGold.**
     - If there is a report of a merge conflict they will need to:
      - Pull the current state of master into their branch with `git pull origin master`
      - Resolve the merge conflicts and commit the result
