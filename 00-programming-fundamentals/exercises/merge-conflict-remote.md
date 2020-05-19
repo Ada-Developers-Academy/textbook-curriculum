@@ -20,13 +20,13 @@ Before we can start putting the recipe together we need to make sure that everyo
 
 1. **Split into groups**: The class will be divided into groups using the breakout sections feature of Zoom, these assignments are random.
    1. Breakout Room 1:  Aardvark
-   2. Breakout Room 2:  Tarsier
-   3. Breakout Room 2:  Gecko
-   4. Breakout Room 2:  Sloth
-   5. Breakout Room 2:  Lionfish
-   6. Breakout Room 2:  Pangolin
-   7. Breakout Room 2:  Rhino
-   8. Breakout Room 2:  Curassow
+   1. Breakout Room 2:  Tarsier
+   1. Breakout Room 2:  Gecko
+   1. Breakout Room 2:  Sloth
+   1. Breakout Room 2:  Lionfish
+   1. Breakout Room 2:  Pangolin
+   1. Breakout Room 2:  Rhino
+   1. Breakout Room 2:  Curassow
 2. **Fork the activity repo**: One person in your group should fork the carnival-recipes repo and then add everyone else as a collaborator.
 3. **Clone the forked repo**: Everyone else in your group should clone the forked repository.
 4. **Find your recipe scrap**: Each group is assigned six recipe scraps that should all be part of the same recipe. You can split these scraps up amongst your group however you wish. The scraps assigned to each group are listed in the carnival-recipes repo. If your group has fewer than six people someone may need to take multiple scraps.
@@ -60,10 +60,10 @@ Because each member of your group now has a different version of the recipe file
 4. Both teams then will use the _round robin_ strategy separately.
     - Each team member will open a **pull request** trying to merge their branch on github into `master`.  **Be very careful to make the PR against your repository and NOT ada Gold.**
     - If there is a report of a merge conflict they will need to:
-     1. Pull the current state of master into their branch with `git pull origin master`
-     2. Resolve the merge conflicts and commit the result
-     3. Push the result up to git hub with `git push origin BRANCH-NAME`
-     4. Then attempt to merge their pull request.  If new changes have happened on master they may have to repeat step 1 above. 
+     - Pull the current state of master into their branch with `git pull origin master`
+     - Resolve the merge conflicts and commit the result
+     - Push the result up to git hub with `git push origin BRANCH-NAME`
+     - Then attempt to merge their pull request.  If new changes have happened on master they may have to repeat step 1 above. 
 5. Both teams start merging their changes simultaneously, kind of like the _ad-hoc_ strategy.
     - **Remember**: Whoever on your team is merging their changes into master must successfully finish that process (including fixing any merge conflicts!) before the next person can begin.  Help them with resolving the conflicts.
     - Work with your fellow team members to resolve any merge conflicts.
