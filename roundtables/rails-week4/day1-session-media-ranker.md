@@ -36,3 +36,11 @@ You are encouraged to copy these questions into a document and take notes during
     - What is the most recent line of code you wrote that you're proud of?
     - What is the current or upcoming challenge that you need to tackle next?
 1. What questions and help would you like to ask others about the project?
+
+### Heroku
+
+1.  What purpose does Heroku serve?
+1.  Who has tried to deploy a Rails application to Heroku?
+  - Did you encounter any issues?
+  - What actions did you have to do after `git push heroku master`   Why?
+  - Why does the Heroku instance have different data than localhost?
