@@ -41,6 +41,6 @@ You are encouraged to copy these questions into a document and take notes during
 
 1.  What purpose does Heroku serve?
 1.  Who has tried to deploy a Rails application to Heroku?
-  - Did you encounter any issues?
-  - What actions did you have to do after `git push heroku master`   Why?
-  - Why does the Heroku instance have different data than localhost?
+    - Did you encounter any issues?
+    - What actions did you have to do after `git push heroku master`   Why?
+    - Why does the Heroku instance have different data than localhost?
