@@ -63,7 +63,7 @@ Because each member of your group now has a different version of the recipe file
        - Resolve the merge conflicts and commit the result
        - Push the result up to git hub with `git push origin BRANCH-NAME`
        - Then attempt to merge their pull request.  If new changes have happened on master they may have to repeat step 1 above. 
-1. Both teams start merging their changes simultaneously, kind of like the _ad-hoc_ strategy.
+1. Merge changes simultaneously, kind of like the _ad-hoc_ strategy.
     - **Remember**: Whoever on your team is merging their changes into master must successfully finish that process (including fixing any merge conflicts!) before the next person can begin.  Help them with resolving the conflicts.
     - Work with your fellow team members to resolve any merge conflicts.
 1. Once everyone's changes have been merged together, the group as a whole should review it for completeness.
