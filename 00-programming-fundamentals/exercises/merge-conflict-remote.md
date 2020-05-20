@@ -21,12 +21,12 @@ Before we can start putting the recipe together we need to make sure that everyo
 1. **Split into groups**: The class will be divided into groups using the breakout sections feature of Zoom, these assignments are random.
    - Breakout Room 1:  Aardvark
    - Breakout Room 2:  Tarsier
-   - Breakout Room 2:  Gecko
-   - Breakout Room 2:  Sloth
-   - Breakout Room 2:  Lionfish
-   - Breakout Room 2:  Pangolin
-   - Breakout Room 2:  Rhino
-   - Breakout Room 2:  Curassow
+   - Breakout Room 3:  Gecko
+   - Breakout Room 4:  Sloth
+   - Breakout Room 5:  Lionfish
+   - Breakout Room 6:  Pangolin
+   - Breakout Room 7:  Rhino
+   - Breakout Room 8:  Curassow
 1. **Fork the activity repo**: One person in your group should fork the carnival-recipes repo and then add everyone else as a collaborator.
 1. **Clone the forked repo**: Everyone in your group should clone the forked repository.
 1. **Find your recipe scrap**: Each group is assigned six recipe scraps that should all be part of the same recipe. You can split these scraps up amongst your group however you wish. The scraps assigned to each group are listed in the carnival-recipes repo. If your group has fewer than six people someone may need to take multiple scraps.
