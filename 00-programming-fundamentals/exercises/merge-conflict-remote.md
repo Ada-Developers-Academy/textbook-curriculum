@@ -43,7 +43,7 @@ Once everyone in your group has completed the baseline setup instructions above 
 There are a few things to look out for when working through this activity:
 
 - If you're still unsure about what a merge conflict is, or how to resolve one please review the [Merge Conflicts curriculum](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/00-programming-fundamentals/git-merge-conflicts.md).
-- You can review the [slides](https://docs.google.com/presentation/d/15OFyyoNJevzk7IpdZCP6VwMLju0MVS2pv0qeETLOa6Q/edit?usp=sharing) and [example walkthrough video](https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ec7dbf60-e59b-4317-a4a5-abbe002eb7ea) if you are unsure about how to complete the activity.
+- You can review the [slides](https://docs.google.com/presentation/d/15OFyyoNJevzk7IpdZCP6VwMLju0MVS2pv0qeETLOa6Q/edit?usp=sharing)
 - The end result should be a real, usable recipe. The original recipe files were all complete works from various recipe websites online.
 - If you find that the result of one of your merges is missing critical ingredients or any numbered steps, you should go back and double check that you didn't lose any lines while resolving a merge conflict.
 - Your recipe scraps may have duplicate lines. We've added these in to more accurately portray the full range of potential merge conflicts. **Important**: you should get rid of any duplicate lines while merging.
@@ -60,10 +60,10 @@ Because each member of your group now has a different version of the recipe file
 1. Both teams then will use the _round robin_ strategy separately.
     - Each team member will open a **pull request** trying to merge their branch on github into `master`.  **Be very careful to make the PR against your forked repository and NOT AdaGold.**
     - If there is a report of a merge conflict they will need to:
-     - Pull the current state of master into their branch with `git pull origin master`
-     - Resolve the merge conflicts and commit the result
-     - Push the result up to git hub with `git push origin BRANCH-NAME`
-     - Then attempt to merge their pull request.  If new changes have happened on master they may have to repeat step 1 above. 
+       - Pull the current state of master into their branch with `git pull origin master`
+       - Resolve the merge conflicts and commit the result
+       - Push the result up to git hub with `git push origin BRANCH-NAME`
+       - Then attempt to merge their pull request.  If new changes have happened on master they may have to repeat step 1 above. 
 1. Both teams start merging their changes simultaneously, kind of like the _ad-hoc_ strategy.
     - **Remember**: Whoever on your team is merging their changes into master must successfully finish that process (including fixing any merge conflicts!) before the next person can begin.  Help them with resolving the conflicts.
     - Work with your fellow team members to resolve any merge conflicts.
