@@ -55,23 +55,23 @@ There are a few things to look out for when working through this activity:
 Because each member of your group now has a different version of the recipe file in their local repository, building the complete recipe by merging those versions together will result in merge conflicts. To handle those merge conflicts sensibly your group should use the following process to construct the final recipe file:
 
 1. Split your group into two teams of three. (There may be a group of two if your group only has 5 people.)
-2. Each person on a team will create a branch with `git checkout -b BRANCH-NAME`, selecting their own branch name based off the recipe scrap they have, and commit the changes they have made to the recipe.
-3. Each team member will push their changes up to github with `git push origin BRANCH-NAME`.
-4. Both teams then will use the _round robin_ strategy separately.
+1. Each person on a team will create a branch with `git checkout -b BRANCH-NAME`, selecting their own branch name based off the recipe scrap they have, and commit the changes they have made to the recipe.
+1. Each team member will push their changes up to github with `git push origin BRANCH-NAME`.
+1. Both teams then will use the _round robin_ strategy separately.
     - Each team member will open a **pull request** trying to merge their branch on github into `master`.  **Be very careful to make the PR against your forked repository and NOT AdaGold.**
     - If there is a report of a merge conflict they will need to:
      - Pull the current state of master into their branch with `git pull origin master`
      - Resolve the merge conflicts and commit the result
      - Push the result up to git hub with `git push origin BRANCH-NAME`
      - Then attempt to merge their pull request.  If new changes have happened on master they may have to repeat step 1 above. 
-5. Both teams start merging their changes simultaneously, kind of like the _ad-hoc_ strategy.
+1. Both teams start merging their changes simultaneously, kind of like the _ad-hoc_ strategy.
     - **Remember**: Whoever on your team is merging their changes into master must successfully finish that process (including fixing any merge conflicts!) before the next person can begin.  Help them with resolving the conflicts.
     - Work with your fellow team members to resolve any merge conflicts.
-6. Once everyone's changes have been merged together, the group as a whole should review it for completeness.
+1. Once everyone's changes have been merged together, the group as a whole should review it for completeness.
     - Make sure that none of the lines from your individual scrap are missing from the final result.
     - If there are any fixes needed, pick one person in the group to make the necessary changes and commit them.
-7. When everyone agrees that the recipe looks correct _one_ person should submit a PR to the original carnival-recipes repo.
-8. Finally, debrief with your whole group about how things went.
+1. When everyone agrees that the recipe looks correct _one_ person should submit a PR to the original carnival-recipes repo.
+1. Finally, debrief with your whole group about how things went.
     - What went well? What didn't?
     - Were there any merge conflicts that were particularly tricky to figure out?
     - How could this process have been made easier?
@@ -79,7 +79,7 @@ Because each member of your group now has a different version of the recipe file
 
 ##### Activity Workflow
 
-![activity workflow](images/mergeConflictDiagram.png)
+![activity workflow](images/merge-carnival.png)
 
 #### Collaboration strategies
 
