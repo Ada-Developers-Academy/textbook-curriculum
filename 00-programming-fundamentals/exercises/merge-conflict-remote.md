@@ -19,18 +19,18 @@ With this activity you will be able to encounter and resolve merge conflicts in 
 Before we can start putting the recipe together we need to make sure that everyone in your group is working from the same starting point and can effectively contribute to the recipe building effort.
 
 1. **Split into groups**: The class will be divided into groups using the breakout sections feature of Zoom, these assignments are random.
-   1. Breakout Room 1:  Aardvark
-   1. Breakout Room 2:  Tarsier
-   1. Breakout Room 2:  Gecko
-   1. Breakout Room 2:  Sloth
-   1. Breakout Room 2:  Lionfish
-   1. Breakout Room 2:  Pangolin
-   1. Breakout Room 2:  Rhino
-   1. Breakout Room 2:  Curassow
-2. **Fork the activity repo**: One person in your group should fork the carnival-recipes repo and then add everyone else as a collaborator.
-3. **Clone the forked repo**: Everyone in your group should clone the forked repository.
-4. **Find your recipe scrap**: Each group is assigned six recipe scraps that should all be part of the same recipe. You can split these scraps up amongst your group however you wish. The scraps assigned to each group are listed in the carnival-recipes repo. If your group has fewer than six people someone may need to take multiple scraps.
-5. **Add your recipe scrap**: Copy the contents of your recipe scrap into the recipe file and then add and commit your changes to the recipe file. After completing this step each person in your group should have **different** content within the recipe file in their local repository.
+   - Breakout Room 1:  Aardvark
+   - Breakout Room 2:  Tarsier
+   - Breakout Room 2:  Gecko
+   - Breakout Room 2:  Sloth
+   - Breakout Room 2:  Lionfish
+   - Breakout Room 2:  Pangolin
+   - Breakout Room 2:  Rhino
+   - Breakout Room 2:  Curassow
+1. **Fork the activity repo**: One person in your group should fork the carnival-recipes repo and then add everyone else as a collaborator.
+1. **Clone the forked repo**: Everyone in your group should clone the forked repository.
+1. **Find your recipe scrap**: Each group is assigned six recipe scraps that should all be part of the same recipe. You can split these scraps up amongst your group however you wish. The scraps assigned to each group are listed in the carnival-recipes repo. If your group has fewer than six people someone may need to take multiple scraps.
+1. **Add your recipe scrap**: Copy the contents of your recipe scrap into the recipe file and then add and commit your changes to the recipe file. After completing this step each person in your group should have **different** content within the recipe file in their local repository.
 
 **Do not** push your changes to GitHub yet! If you're finished early with this step help your groupmates.
 
