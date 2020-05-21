@@ -2,6 +2,13 @@
 
 With another student or two, practice using these problems on a whiteboarding exercise.  Use [Repl.it](https://repl.it) to practice online whiteboarding.
 
+As you play the role of interviewer take notes on:
+
+- Do they ask good clarifying questions.
+- Do they test their code
+- Do they cover necessary edge-cases
+- Do they explain their thinking clearly
+
 ##  Max Consecutive Ones
 
 Given a binary array, find the maximum number of consecutive 1s in this array.
