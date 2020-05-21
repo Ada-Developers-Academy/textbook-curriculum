@@ -231,7 +231,7 @@ describe "index" do
 - Read client data and used it to create a new resource
 - Handled errors in a polite and helpful manner
 
-You can find a completed [ada-pets](https://github.com/AdaGold/ada-pets/tree/solution) project on the Ada pets solution branch.
+You can find a completed [ada-pets](https://github.com/AdaGold/ada-pets-rails-api/tree/show-action-and-tests) project on the Ada pets `show-action-and-tests` branch.
 
 ## Resources
 
