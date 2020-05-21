@@ -48,16 +48,18 @@ In our API we can make a post request similar to our previous create actions
     let(:pet_data) {
       {
         pet: {
+          name: "Stinker",
+          species: "Dog",
           age: 13,
-          name: 'Stinker',
-          human: 'Grace'
+          owner: "Grace"
         }
       }
     }
+
     it "can create a new pet" do
       expect {
         post pets_path, params: pet_data
-      }.must_differ 'Pet.count', 1
+      }.must_differ "Pet.count", 1
 
       must_respond_with :created
     end
@@ -120,6 +122,9 @@ We can set up our tests as:
   # pets_controller_test.rb
 it "will respond with bad_request for invalid data" do
   # Arrange - using let from above
+  # Our PetsController test should just test generically
+  # for any kind of invalid data, so we will randomly pick
+  # the age attribute to invalidate
   pet_data[:pet][:age] = nil
 
   expect {
@@ -151,9 +156,9 @@ Now we need to make the dern thing pass.
       return
     else
       render json: {
-        ok: false,
-        errors: pet.errors.messages
-      }, status: :bad_request
+          ok: false,
+          errors: pet.errors.messages
+        }, status: :bad_request
       return
     end
   end
@@ -172,7 +177,7 @@ So we can create a helper method & a constant:
 
 ```ruby
   # pets_controller_test.rb
-  PET_FIELDS = %w(id age name human).sort
+  REQUIRED_PET_FIELDS = ["id", "name", "species", "age", "owner"].sort
 
   def check_response(expected_type:, expected_status: :success)
     must_respond_with expected_status
@@ -188,12 +193,10 @@ We can now call this method in our tests, eliminating a great deal of duplicated
 
 ```ruby
 # pets_controller_test.rb
-describe "index" do
+  describe "index" do
     it "responds with JSON and success" do
-      # Act
       get pets_path
 
-      # Assert
       check_response(expected_type: Array)
     end
 
@@ -205,7 +208,9 @@ describe "index" do
       body = check_response(expected_type: Array)
 
       body.each do |pet|
-        expect(pet.keys.sort).must_equal PET_FIELDS
+        expect(pet).must_be_instance_of Hash
+
+        expect(pet.keys.sort).must_equal REQUIRED_PET_FIELDS
       end
     end
 
@@ -221,6 +226,37 @@ describe "index" do
       expect(body).must_equal []
     end
   end
+
+  describe "create" do
+    # ... let(:pet_data) ...
+
+    it "can create a new pet" do
+      expect {
+        post pets_path, params: pet_data
+      }.must_differ "Pet.count", 1
+
+      check_response(expected_type: Hash, expected_status: :created)
+    end
+
+    it "will respond with bad_request for invalid data" do
+      # Arrange - using let from above
+      # Our PetsController test should just test generically
+      # for any kind of invalid data, so we will randomly pick
+      # the age attribute to invalidate
+      pet_data[:pet][:age] = nil
+
+      expect {
+        # Act
+        post pets_path, params: pet_data
+
+      # Assert
+      }.wont_change "Pet.count"
+
+      body = check_response(expected_type: Hash, expected_status: :bad_request)
+      expect(body["errors"].keys).must_include "age"
+    end
+
+  end
 ```
 
 **Project Challenge**  Dry up your create and show tests using a similar method.
@@ -231,7 +267,7 @@ describe "index" do
 - Read client data and used it to create a new resource
 - Handled errors in a polite and helpful manner
 
-You can find a completed [ada-pets](https://github.com/AdaGold/ada-pets/tree/solution) project on the Ada pets solution branch.
+Continue to reference our [Ada Pets Rails API code](https://github.com/AdaGold/ada-pets-rails-api) and the appropriate branches for our solution.
 
 ## Resources
 
