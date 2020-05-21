@@ -18,7 +18,7 @@ So currently our controller is responding with:
 
 ```ruby
 def index
-  render json: { ready_for_lunch: "yassss" }, status: :ok
+  render json: { ready_for_lunch: "yessss" }, status: :ok
 end
 ```
 
@@ -37,7 +37,10 @@ Our tests are passing.  However our *job* was to provide data about pets!  So we
     expect(body).must_be_instance_of Array
     body.each do |pet|
       expect(pet).must_be_instance_of Hash
-      expect(pet.keys.sort).must_equal ["age", "human", "id", "name"]
+
+      required_pet_attrs = ["id", "name", "species", "age", "owner"]
+
+      expect(pet.keys.sort).must_equal required_pet_attrs.sort
     end
   end
 ```
@@ -47,8 +50,8 @@ The test above:
 1. Performs a get request to `/pets`
 1. Takes the body of the server's response and parses the JSON into regular Ruby arrays and hashes.
 1. Ensures that the response is an array
-1. Ensures that each response has only the age, human and name fields
-    - The age, human and name fields are strings because JSON doesn't know about symbols and returns all the keys as strings.
+1. Ensures that each response has only the id, name, species, age, and owner fields
+    - These fields are strings because JSON doesn't know about symbols and returns all the keys as strings.
 
 The test fails and now we can edit our controller to match.  
 
@@ -67,7 +70,7 @@ So our test wants a list of pets, luckily Rails knows how to convert a model col
 Rails converted all the pets into JSON like this:
 
 ```json
-[{"id":1,"name":"Peanut","age":2,"human":"Ada","created_at":"2019-10-29T21:19:34.854Z","updated_at":"2019-10-29T21:19:34.854Z"},{"id":2,"name":"Horsetooth","age":14,"human":"Grace","created_at":"2019-10-29T21:19:34.857Z","updated_at":"2019-10-29T21:19:34.857Z"},{"id":3,"name":"Beansprout","age":1,"human":"Katherine","created_at":"2019-10-29T21:19:34.859Z","updated_at":"2019-10-29T21:19:34.859Z"}]
+[{"id":1054079548,"name":"Alligator","species":"Dog","age":10,"owner":"Sarah","created_at":"2020-05-20T23:49:35.198Z","updated_at":"2020-05-20T23:49:35.198Z"}]
 ```
 
 Very handy!  Our tests are _almost_ passing.  We just need a way to exclude some fields.
@@ -77,7 +80,7 @@ So we can adjust our controller:
 ```ruby
   # pets_controller.rb
   def index
-    pets = Pet.all.as_json(only: [:id, :name, :age, :human])
+    pets = Pet.all.as_json(only: [:id, :name, :age, :owner, :species])
     render json: pets, status: :ok
   end
 ```

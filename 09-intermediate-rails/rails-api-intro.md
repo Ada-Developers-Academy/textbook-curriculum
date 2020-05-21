@@ -47,17 +47,15 @@ We want to build a small Rails app that will act as an API for providing data ab
 
 Given the context of our application, we should have a model and controller that reference our main resource, pets. Once you clone this repo, you'll notice that we have these things already created for you!
 
-[https://github.com/AdaGold/ada-pets](https://github.com/AdaGold/ada-pets)
+[https://github.com/AdaGold/ada-pets-rails-api](https://github.com/AdaGold/ada-pets-rails-api)
 
 To get started, run the following:
 
-```bash
-$ git clone https://github.com/AdaGold/ada-pets.git
-$ cd ada-pets
-$ bundle install
-$ rails db:reset
-$ rails server
-```
+1. Clone the repo
+1. `cd` in
+1. Run `bundle install`
+1. Run the commands to setup the database (`db:create`, `db:migrate`, `db:seed`, etc.)
+1. Start the rails server
 
 Once you've downloaded it, take a few minutes to go through this Rails app with the person next to you.
 
@@ -96,7 +94,7 @@ So lets write a test to specify what we **want** to be rendered back to us on `g
 
 With your neighbor answer the following questions:
 
-1. What kind of information should be returned here?  HTML?
+1. What kind of information should be returned here? (What are the contents of the information?) What data format should this API give responses in?
 1. How much information should be returned?
 1. What information about each pet should be included?
 1. What response code should be returned?  Should it ever vary?
@@ -111,9 +109,10 @@ With your neighbor answer the following questions:
   - id
   - name
   - age
-  - human
+  - species
+  - owner
 
-Which means we will need to exclude some fields here. (ie. the `created_at` and `updated_at fields)
+Which means we will need to exclude some fields here. (ie. the `created_at` and `updated_at` fields)
 
 We will also expect the action to always return 200 ok.
 </details>
@@ -155,14 +154,14 @@ We can convert any array or hash into JSON like this:
 ```ruby
 # pets_controller.rb
 def index
-  render json: { ready_for_lunch: "yassss" }, status: :ok
+  render json: { ready_for_lunch: "yessss" }, status: :ok
 end
 ```
 
 In the code above we told Rails to render JSON instead of HTML and we passed in a Ruby hash, which it converted into JSON.  If you load the page into the browser you will get:
 
 ```json
-{"ready_for_lunch":"yassss"}
+{"ready_for_lunch":"yessss"}
 ```
 
 So we have Rails returning JSON data and a 200 response code, but it's not the data we want yet.  Instead we will want a list (array) of pets.  
@@ -179,7 +178,7 @@ $ rails new <APPLICATION-NAME> --api
 
 The `--api` flag indicates to Rails that this app will not need any CSS, HTML or JavaScript and does not need to generate views for any controller actions.  Our Rails template is already cunningly written to handle this situation.
 
-That said, we will use the pre-generated rails application [Ada Pets](https://github.com/AdaGold/ada-pets) in our classroom lessons.
+That said, we will use the pre-generated rails application [Ada Pets](https://github.com/AdaGold/ada-pets-rails-api) in our classroom lessons.
 
 ## Resources
 
