@@ -4,6 +4,7 @@
 
 Students should be able to...
 
+- Setup an API with an endpoint to allow users to create new items
 - Compare testing a Rails API with a Rails website
 - Test API response body & response codes
 - Identify edge cases in testing an API endpoint
