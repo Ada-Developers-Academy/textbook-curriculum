@@ -135,7 +135,7 @@ Questions to consider:
   - There should be at least one test already in the project but see if you should add more
 - How do the two endpoints we've implemented so far compare to similar functionality in a non-API Rails app?
 
-When you finish you can check your solution against the [solution branch](https://github.com/AdaGold/ada-pets/compare/solution) of our implementation.
+When you finish, you can check your implementation against the appropriate branch of our implementation.
 
 ## What Have We Accomplished
 
