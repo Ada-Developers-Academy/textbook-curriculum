@@ -70,7 +70,7 @@ As before, the big difference from a web app is in what we send back. While in a
 
 ### Cross-Site Request Forgery (CSRF)
 
-**ALERT!** Rails is built with CSRF protection which essentially prevents malicious requests. You might remember seeing notes in passing about this in our forms curriculum, where we had to explicitly add an _authenticity token_ to each form.
+**ALERT!** Rails is built with CSRF protection which essentially prevents malicious requests. You might vaguely remember seeing a note about this in our forms curriculum, where we had to explicitly add an _authenticity token_ to each form. (The token was a little erb code that looked like `<%= csrf_meta_tags %>`.)
 
 If we don't do this in an API application, we might need to modify our code if we wanted to serve both API (JSON) and browser requests (HTML).
 
