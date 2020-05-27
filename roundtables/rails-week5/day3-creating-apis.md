@@ -1,4 +1,4 @@
-# Exercism: Creating APIs, Video Store API
+# Creating APIs, Video Store API
 
 Today we are going to be reviewing APIs in Rails, and discussing the current progress on Video Store API.
 
@@ -32,4 +32,3 @@ You are encouraged to copy these questions into a document and take notes during
     - What is the most recent line of code you wrote that you're proud of?
     - What is the current or upcoming challenge that you need to tackle next?
 1. What questions and help would you like to ask others about the project?
-
