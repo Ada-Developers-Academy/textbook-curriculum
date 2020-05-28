@@ -182,6 +182,8 @@ return 2.
 
 **Note:** You may assume the string contain only lowercase letters.
 
+[Reference](https://leetcode.com/problems/first-unique-character-in-a-string/)
+
 ## Employee Importance
 
 You are given a data structure of employee information, which includes the employee's unique id, his importance value and his direct subordinates' id.
@@ -206,6 +208,8 @@ Employee 1 has importance value 5, and he has two direct subordinates: employee 
 - One employee has at most one direct leader and may have several subordinates.
 - The maximum number of employees won't exceed 2000.
 
+[Reference](https://leetcode.com/problems/employee-importance/)
+
 ## Missing Ranges
 
 Given a sorted integer array nums, where the range of elements are in the inclusive range [lower, upper], return its missing ranges.
@@ -216,6 +220,8 @@ Given a sorted integer array nums, where the range of elements are in the inclus
 Input: nums = [0, 1, 3, 50, 75], lower = 0 and upper = 99,
 Output: ["2", "4->49", "51->74", "76->99"]
 ```
+
+[Reference](https://leetcode.com/problems/missing-ranges/)
 
 ## Shortest Word Distance
 
@@ -251,13 +257,19 @@ Input: word1 = "makes", word2 = "makes"
 Output: 3
 ```
 
+[Reference](https://leetcode.com/problems/shortest-word-distance-iii/)
+
 ## Die Hard - Jugs of Water
 
 You have a 5-quart jug and a 3-quart jug and an unlimited supply of water, but no measuring cups.  How do you come up with exactly 4 quarts of water?  Note that the jugs are oddly shaped, such that filling up exactly "half" of the jug would be impossible.
 
+**From Cracking the Coding Interview Book**
+
 ## Recursive Multiplication
 
 Write a recursive function to multiply two positive integers without using the `*` operator.  You can use addition, subtraction, and bit shifting, but you should minimize the number of those operations.
+
+**From Cracking the Coding Interview Book**
 
 ## Further Problems
 
