@@ -166,6 +166,103 @@ There are two ways to make 3943 a palindrome by changing no more than k=1 digits
 
 [Reference](https://www.hackerrank.com/challenges/richie-rich/problem)
 
+## First Unique Character in a String
+
+Given a string, find the first non-repeating character in it and return it's index. If it doesn't exist, return -1.
+
+**Examples:**
+
+```
+s = "leetcode"
+return 0.
+
+s = "loveleetcode",
+return 2.
+```
+
+**Note:** You may assume the string contain only lowercase letters.
+
+## Employee Importance
+
+You are given a data structure of employee information, which includes the employee's unique id, his importance value and his direct subordinates' id.
+
+For example, employee 1 is the leader of employee 2, and employee 2 is the leader of employee 3. They have importance value 15, 10 and 5, respectively. Then employee 1 has a data structure like [1, 15, [2]], and employee 2 has [2, 10, [3]], and employee 3 has [3, 5, []]. Note that although employee 3 is also a subordinate of employee 1, the relationship is not direct.
+
+Now given the employee information of a company, and an employee id, you need to return the total importance value of this employee and all his subordinates.
+
+**Example 1:**
+
+```
+Input: [[1, 5, [2, 3]], [2, 3, []], [3, 3, []]], 1
+
+Output: 11
+```
+
+**Explanation:**
+Employee 1 has importance value 5, and he has two direct subordinates: employee 2 and employee 3. They both have importance value 3. So the total importance value of employee 1 is 5 + 3 + 3 = 11.
+
+**Note:**
+
+- One employee has at most one direct leader and may have several subordinates.
+- The maximum number of employees won't exceed 2000.
+
+## Missing Ranges
+
+Given a sorted integer array nums, where the range of elements are in the inclusive range [lower, upper], return its missing ranges.
+
+**Example:**
+
+```
+Input: nums = [0, 1, 3, 50, 75], lower = 0 and upper = 99,
+Output: ["2", "4->49", "51->74", "76->99"]
+```
+
+## Shortest Word Distance
+
+Given a list of words and two words word1 and word2, return the shortest distance between these two words in the list.
+
+**Example:**
+
+Assume that words = `["practice", "makes", "perfect", "coding", "makes"]`.
+
+```
+Input: word1 = “coding”, word2 = “practice”
+Output: 3
+Input: word1 = "makes", word2 = "coding"
+Output: 1
+```
+
+**Note:**
+You may assume that word1 does not equal to word2, and word1 and word2 are both in the list.
+
+### Going Further with Shortest Word Distance
+
+Now assume *word1* and *word2* may be the same and they represent two individual words in the list.
+
+**Example:**
+
+Assume that words = `["practice", "makes", "perfect", "coding", "makes"]`.
+
+```
+Input: word1 = “makes”, word2 = “coding”
+Output: 1
+
+Input: word1 = "makes", word2 = "makes"
+Output: 3
+```
+
+## Die Hard - Jugs of Water
+
+You have a 5-quart jug and a 3-quart jug and an unlimited supply of water, but no measuring cups.  How do you come up with exactly 4 quarts of water?  Note that the jugs are oddly shaped, such that filling up exactly "half" of the jug would be impossible.
+
+## Recursive Multiplication
+
+Write a recursive function to multiply two positive integers without using the `*` operator.  You can use addition, subtraction, and bit shifting, but you should minimize the number of those operations.
+
 ## Further Problems
 
-You can find further problems on the [Questions from Previous Cohorts](https://docs.google.com/spreadsheets/d/1fEDgUvF3e7VVVzlkrV2X6_5nqFA7_34B7FdWsZUDxZc/edit#gid=677105308) document.
+You can find further problems on:
+  - [Questions from Previous Cohorts](https://docs.google.com/spreadsheets/d/1fEDgUvF3e7VVVzlkrV2X6_5nqFA7_34B7FdWsZUDxZc/edit#gid=677105308) document.
+- [Leetcode](https://leetcode.com/)
+- [Interview Cake](https://www.interviewcake.com/table-of-contents)
+- [Hackerrank](https://www.hackerrank.com/domains/algorithms?filters%5Bstatus%5D%5B%5D=unsolved&badge_type=problem-solving)
