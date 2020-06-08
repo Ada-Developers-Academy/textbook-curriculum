@@ -314,16 +314,7 @@ Also, while we're here, let's evolve our `User` model so that it can save the `n
       add_column :users, :uid, :integer
       add_column :users, :provider, :string
       add_column :users, :email, :string
-    end
-    <!-- ... -->
-    ```
-1. Generate a new migration with `rails generate migration add_name_and_email_to_users`
-1. Modify the migration so that it resembles this code:
-    ```ruby
-    <!-- ... -->
-    def change
       add_column :users, :name, :string
-      add_column :users, :email, :string
     end
     <!-- ... -->
     ```
