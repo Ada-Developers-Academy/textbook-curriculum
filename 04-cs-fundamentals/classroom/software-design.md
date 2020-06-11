@@ -69,6 +69,14 @@ Encapsulation is the concept of wrapping data and methods that work on that data
 
 ### Inheritance
 
+Inheritance is the ability of one class to inherit capabilities or properties of another class, called the super class. When we write a class, we inherit properties from the parent class. So when we create a class, we do not need to write all the properties and functions again and again, as these can be inherited from another class which possesses it.  Inheritance allows the user to reuse the code whenever possible and reduce its redundancy. 
+
+#### Inheritance vs Composition
+
+Well inheritance allows us to reuse code, but if our class *has-an* instance of another class as an instance variable, i.e. composition.  When should you use one over the other?  
+
+In general, unless one class is a specialized version of the parent class, you want to default to using composition.  Otherwise you will violate a principle of good design known as the Liskov Substitution Principle, more on this later.  
+
 ### Polymorphism
 
 ## Design Principles
