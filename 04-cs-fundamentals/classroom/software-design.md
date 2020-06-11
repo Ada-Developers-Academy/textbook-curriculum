@@ -57,6 +57,7 @@ In Agile, the teams regularly release working software rather than make one majo
 
 ## Object Oriented Design
 
+Most modern programming languages support Object-Oriented Programming (OOP).  They have classes which encompass both data and methods which operate on that data.  In this way we often model objects based on real-world objects with the state and behaviors of those real-world items.  The key components of OOP are *encapsulation*, *inheritance*, and *polymorphism*.
 
 
 ### Encapsulation
