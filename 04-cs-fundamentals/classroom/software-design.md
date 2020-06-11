@@ -14,7 +14,17 @@ By the end of this lesson you should be able to:
 * Conduct an introductory discussion on design principles
 * Explain the concept of design patterns
 
+## Notes
+
+* [Slides used in class](https://docs.google.com/presentation/d/1D6X9J-4Jk5RZzoPjSCvOPP1DBb67i3eM55LIJyTluPw/edit#slide=id.p1)
+
+## The Goals of Software Design
+
+### Project Organization with Agile
+
 ## Object Oriented Design
+
+
 
 ### Encapsulation
 
