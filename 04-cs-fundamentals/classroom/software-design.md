@@ -1,5 +1,11 @@
 # Introduction to software design principles
 
+![life of a software engineer](images/software-eng.jpg)
+
+<!--  Image from https://www.geeksaresexy.net/2015/03/14/the-life-of-a-software-engineer-comic/ -->
+
+Designing software is a complicated and difficult undertaking.  Because of this **software design** is a field of study that's grown up around techniques and strategies used to create software.  
+
 ## Learning Goals
 
 By the end of this lesson you should be able to:
