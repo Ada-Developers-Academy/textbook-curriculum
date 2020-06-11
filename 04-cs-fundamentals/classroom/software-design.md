@@ -20,6 +20,8 @@ By the end of this lesson you should be able to:
 
 ## The Goals of Software Design
 
+The goal of a software design team is to write code which accomplishes the current requirements and is relatively easy to maintain and adapt over time.  Over the history of software development, we have a long history of failed designs and over time have developed some strategies for creating software which satisfies requirements and is more suited to change over time.
+
 ### Project Organization with Agile
 
 ## Object Oriented Design
