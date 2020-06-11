@@ -10,6 +10,7 @@ Designing software is a complicated and difficult undertaking.  Because of this 
 
 By the end of this lesson you should be able to:
 
+* Describe the Agile Software Development Process
 * Explain Object Oriented Design - common terms and concepts
 * Conduct an introductory discussion on design principles
 * Explain the concept of design patterns
