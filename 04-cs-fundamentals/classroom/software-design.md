@@ -40,14 +40,55 @@ SOLID is an acronym first proposed in 2000 by Bob C Martin, aka "Uncle Bob," as 
 
 The SOLID principles are:
 
-1. Single Responsibility Rule
+1. Single Responsibility Principle
 1. Open/Closed Principle
 1. Liskov Substitution Principle
 1. Interface Segregation Principle
 1. Dependency Inversion Principle
 
-#### Single Responsibility Rule
+#### Single Responsibility Principle
 
+As the name suggests this principle means that every class or module should have a single role.  So if you have a Product class it should handle information relating directly to products and have methods which act on products.  You shouldn't have an instance variable in the Product class which stores the merchant's  image.  That would be mixing roles and giving the Product class multiple responsibilities between merchant and product data.
+
+Consider the following class:
+
+```ruby
+class TextManipulator
+  attr_reader :text
+
+  def initialize(text) 
+    @text = text
+  end
+
+  def append_text(new_text)
+    @text.concat(new_text)
+  end
+
+  def find_and_replace(word, replacement)
+    if @text.include?(word)
+      @text.gsub!(word, replacement)
+    end
+    return @text
+  end
+
+  def find_and_delete(word)
+    return self.find_and_replace(word, "")
+  end
+
+  def print_text
+    puts @text
+  end
+end
+```
+
+<details>
+  <summary><em>Question:</em> Does this class exemplify the single responsibilty principle?</summary>
+
+No!  This class mixes manipulating the text and printing the text out.  It's mixing display and data manipulation.
+
+Instead we could create a `TextPrinter` class which might have a `TextManipulator` object as an instance variable, and handles the display of the text.
+
+</details>
 
 
 #### Open/Closed Principle
