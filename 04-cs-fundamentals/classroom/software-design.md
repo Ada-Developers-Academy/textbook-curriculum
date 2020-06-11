@@ -442,6 +442,10 @@ Something like this:
 The factory method pattern here is often specified in a framework and then implemented by users of the framework.
 
 
+### Another Design Pattern:  MVC
+
+The Model-View-Controller (MVC) architecture which you use in Rails applications is a very common design pattern for large applications.  It allows separation of files, and follows the SOLID design principles by giving each component a single responsibility, makes the application open to extension and trys to ensure that no component is dependent on the implementation details of another.
+
 ## Optional: Reading Material
 
 * When would you choose [**Inheritance** verses **Composition**](https://www.thoughtworks.com/insights/blog/composition-vs-inheritance-how-choose)
