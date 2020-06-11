@@ -65,6 +65,8 @@ Most modern programming languages support Object-Oriented Programming (OOP).  Th
 
 ### Encapsulation
 
+Encapsulation is the concept of wrapping data and methods that work on that data within a single unit, a class.  This concept is used to hide the internal state, and implementation details from code which uses that class.  By using encapsulation you can change the implementation details within a class and as long as the public interface remains the same no code which use the class needs to change.  This makes the code more flexible and helps prevent users from writing code which depend on the implementation details of other classes.
+
 ### Inheritance
 
 ### Polymorphism
