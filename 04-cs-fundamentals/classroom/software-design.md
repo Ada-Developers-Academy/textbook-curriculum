@@ -24,6 +24,37 @@ The goal of a software design team is to write code which accomplishes the curre
 
 ### Project Organization with Agile
 
+Agile is currently the dominant approach teams take to building software.  Agile is an *incremental* approach to building software centered on satisfying user requirements.  Agile isn't however software building recipe that you can just follow.  Agile is more of an approach and a set of principles.
+
+The Agile principles include:
+
+1. Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.
+1. Welcome changing requirements, even late in development. Agile processes harness change for the customer’s competitive advantage.
+1. Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale.
+1. Business people and developers must work together daily throughout the project.
+1. Build projects around motivated individuals. Give them the environment and support they need, and trust them to get the job done.
+1. The most efficient and effective method of conveying information to and within a development team is face-to-face conversation.
+1. Working software is the primary measure of progress.
+1. Agile processes promote sustainable development. The sponsors, developers, and users should be able to maintain a constant pace indefinitely.
+1. Continuous attention to technical excellence and good design enhances agility.
+1. Simplicity–the art of maximizing the amount of work not done–is essential.
+1. The best architectures, requirements, and designs emerge from self-organizing teams.
+1. At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly.
+
+At Ada we follow the Agile approach by:
+
+1.  First gathering requirements in the form of [user stories](https://www.mountaingoatsoftware.com/agile/user-stories).  This keeps the project focused on helping the end-users.
+1.  Second, the user stories are prioritized and broken into tasks
+1.  Then the developers assign a set of tasks to developers to be completed in a timeboxed unit known as a **[sprint](https://www.wrike.com/project-management-guide/faq/what-is-a-sprint-in-agile/)**.
+1.  Developers work on their assigned tasks over the course of the sprint, holding a daily [stand up meeting](https://www.agilealliance.org/glossary/daily-meeting/) in which they update, their team on what they have worked on, what they will work on and any blockers.  Other topics that come up are not discussed but rather scheduled in another meeting.
+1.  At the end of the sprint the team demonstrates the currently working code to the customer or management team.  They then receive feedback and make adjustments to take into account in future sprints.
+1.  Lastly the team does a retrospective in which they reflect as a team on what went well, what needs improvement and questions to consider.  
+1.  Then they begin the next sprint, if needed.
+
+In Agile, the teams regularly release working software rather than make one major "complete" release.  This allows the team to regularly get additional feedback and make adjustments.
+
+![Agile cycle](images/agile-development.jpg)
+
 ## Object Oriented Design
 
 
