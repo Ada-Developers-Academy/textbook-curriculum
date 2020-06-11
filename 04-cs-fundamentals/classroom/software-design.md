@@ -59,6 +59,9 @@ In Agile, the teams regularly release working software rather than make one majo
 
 Most modern programming languages support Object-Oriented Programming (OOP).  They have classes which encompass both data and methods which operate on that data.  In this way we often model objects based on real-world objects with the state and behaviors of those real-world items.  The key components of OOP are *encapsulation*, *inheritance*, and *polymorphism*.
 
+![OOP World View](images/oop-world-view.jpg)
+
+*[Image from a medium article](https://medium.com/swlh/5-free-object-oriented-programming-online-courses-for-programmers-156afd0a3a73)*
 
 ### Encapsulation
 
