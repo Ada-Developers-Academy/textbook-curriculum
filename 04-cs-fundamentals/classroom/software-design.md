@@ -79,6 +79,100 @@ In general, unless one class is a specialized version of the parent class, you w
 
 ### Polymorphism
 
+Polymorphism is the ability of data to be processed in more than one form. It allows the performance of the same task in various ways. It consists of method overloading and method overriding, i.e., writing the method once and performing a number of tasks using the same method name.
+
+To pull an example from [getlaura](http://www.getlaura.com/polymorphism-in-ruby/), you can do polymorphism with inheritance.  In the below example there is a person class with an `introduce` method which does one thing, but the subclasses do the same method in different ways by overriding the parent method.  
+
+```ruby
+class Person
+  def initialize(first, last, age)
+    @first_name = first
+    @last_name = last
+    @age = age
+  end
+
+  def birthday
+    @age += 1
+  end
+
+  def introduce
+    puts "Hi everyone. My name is #{@first_name} #{@last_name}."
+  end
+end
+
+class Student < Person
+  def introduce
+    puts "Hello teacher. My name is #{@first_name} #{@last_name}."
+  end
+end
+
+class Teacher < Person
+  def introduce
+    puts "Hello class. My name is #{@first_name} #{@last_name}."
+  end
+end
+
+class Parent < Person     
+  def introduce           
+    puts "Hi. I'm one of the parents. My name is #{@first_name} #{@last_name}."     
+  end 
+end 
+
+john = Student.new("John", "Doe", 18) 
+john.introduce   #=> Hello teacher. My name is John Doe.
+```
+
+In Ruby however you can also implement polymorphism via [duck typing](), or basically making the same method signature in totally unrelated objects and passing them in via parameters to methods which call this method.
+
+```ruby
+class Student
+  attr_accessor :first_name, :last_name, :age
+  def initialize(first, last, age)
+    @first_name = first
+    @last_name = last
+    @age = age
+  end
+
+  def birthday
+    @age += 1
+  end
+end
+
+class ViewStudent
+  def initialize(student)
+    @student = student
+  end
+
+  def do_something
+    puts "Student name: #{@student.first_name} #{@student.last_name}"
+  end
+end
+
+class UpdateStudent
+  def initialize(student)
+    @student = student
+  end
+
+  def do_something
+    puts "What is the student's first name?"
+    @student.first_name = gets.chomp
+    puts "What is the student's last name?"
+    @student.last_name = gets.chomp
+    puts "Updated student: #{@student.first_name} #{@student.last_name}"
+  end
+end
+
+choices = [ViewStudent, UpdateStudent]
+
+student = Student.new("John", "Doe", 18)
+
+puts "Select 1 to view student or 2 to update student."
+selection = gets.chomp.to_i
+obj = choices[selection - 1]
+obj = obj.new(student)
+obj.do_something
+```
+
 ## Design Principles
 
 ### Have SOLID Principles
