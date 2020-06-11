@@ -36,7 +36,19 @@ By the end of this lesson you should be able to:
 
 ### Have SOLID Principles
 
+SOLID is an acronym first proposed in 2000 by Bob C Martin, aka "Uncle Bob," as a set of princples to strive for to create software which is maintainable, extensible and understandable.
+
+The SOLID principles are:
+
+1. Single Responsibility Rule
+1. Open/Closed Principle
+1. Liskov Substitution Principle
+1. Interface Segregation Principle
+1. Dependency Inversion Principle
+
 #### Single Responsibility Rule
+
+
 
 #### Open/Closed Principle
 
