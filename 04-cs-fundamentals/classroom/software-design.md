@@ -175,6 +175,8 @@ obj.do_something
 
 ## Design Principles
 
+In programming design principles, are general rules we follow in order to have a good design.  The most commonly adopted design principles are known as by the SOLID acronym.
+
 ### Have SOLID Principles
 
 SOLID is an acronym first proposed in 2000 by Bob C Martin, aka "Uncle Bob," as a set of princples to strive for to create software which is maintainable, extensible and understandable.
