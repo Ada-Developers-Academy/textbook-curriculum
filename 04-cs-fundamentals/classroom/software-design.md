@@ -278,6 +278,27 @@ We could now switch our implementation from Postgres to another database without
 
 ## Design Patterns
 
+A lot of problems are commonly encountered in software design.  A design pattern is like a blueprint to solve these common problems in your code.  This isn't the same as library code where you just import the method or class and the problem is solved.  The solution is a general concept or approach to solving the problem.  It's similar to an algorithm, but where an algorithm is a step-by-step solution to a problem, a design pattern is more of a high-level description of an approach.  You can think of it as a general template for how to solve a problem that can be used in many different situations.  
+
+### Example the Factory Method Design Pattern
+
+With the factory method design pattern we want to build an interface to create an object, but let subclasses design which class to instantiate.  This lets us defer the decision of which class to instantiate to the subclasses.  So the parent class provides the *interface* for creating objects, but subclasses can determine the ype of objects created.  
+
+Imagine that you are working at SpaceX.  At present your code is coupled to create instances of the `FalconRocket` class.  If you wanted to add a new type of Rocket, maybe the `FalcolnHeavyRocket` class, you would need to make major changes to the whole codebase.  Then if you added a further type of rocket, maybe the `FalconSuperHeavyRocket` you would have to do a whole lot more!
+
+Instead you can create an interface to generate rockets and implement those methods in methods which implement that interface.
+
+![Rocket Factory Example](images/rocket-factory.png)
+
+To fit this pattern every object returned by the `createRocket` method should be a subclass of a common parent.  
+
+Something like this:
+
+![Rocket classes with inheritance](images/falconRocket.png)
+
+The factory method pattern here is often specified in a framework and then implemented by users of the framework.
+
+
 ## Optional: Reading Material
 
 * When would you choose [**Inheritance** verses **Composition**](https://www.thoughtworks.com/insights/blog/composition-vs-inheritance-how-choose)
