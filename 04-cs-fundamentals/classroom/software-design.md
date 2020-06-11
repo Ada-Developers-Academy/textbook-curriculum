@@ -222,6 +222,60 @@ So many very small and specific interfaces are preferable to a large and complic
 
 #### Dependency Inversion Principle
 
+The Dependence Inversion Principle states that a class should not depend on the implementation details of another class.  Instead you should rely on Duck Typing and abstractions.
+
+Here is an example which violates this principle:
+
+```ruby
+class PostgresConnector
+  def connect
+    # code to connect to Postgres database
+  end
+  # ...
+end
+
+class Post
+  attr_reader :db_connection
+
+  def initialize
+    @db_connection = PostgresConnector.new
+  end
+
+  def make_post(text)
+    db_connection.connect()
+    # ...
+  end
+end
+```
+
+Here this `Post` class maintains a variable which is a connection to a database.  It might work great... until your team switches to MySQL or another database.  The `Post` class here depends on implementation of the `PostgresConnector` class.  
+
+It would be better to pass in an object as an argument to `initialize` and then the only dependency that `Post` has is that `@db_connection` implements a `connect` method.
+
+```ruby
+class PostgresConnector
+  def connect
+    # code to connect to Postgres database
+  end
+  # ...
+end
+
+class Post
+  attr_reader :db_connection
+
+  def initialize(connection)
+    @db_connection = connection
+  end
+
+  def make_post(text)
+    db_connection.connect()
+    # ...
+  end
+end
+```
+
+We could now switch our implementation from Postgres to another database without having to rewrite the `Post` class.
+
 ## Design Patterns
 
 ## Optional: Reading Material
