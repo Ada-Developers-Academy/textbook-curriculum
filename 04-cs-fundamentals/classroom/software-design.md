@@ -216,6 +216,10 @@ Notice that we often create abstract superclasses to make our code more extensib
 
 #### Interface Segregation Principle
 
+The Interface Segregation Principle states that if you have an abstract superclass it should not force subclasses to have a bunch of unwanted methods.  So abstract classes should be relatively small.  In other languages (Java for example), you can create interfaces which are lists of abtract methods and a class can choose to implement multiple interfaces.  The idea is that each interface should be a relatively small set of abtract methods.  
+
+So many very small and specific interfaces are preferable to a large and complicated set of abstract methods in one interface.
+
 #### Dependency Inversion Principle
 
 ## Design Patterns
