@@ -93,6 +93,38 @@ Instead we could create a `TextPrinter` class which might have a `TextManipulato
 
 #### Open/Closed Principle
 
+This principle dictates that a long-standing and well-tested class should not be modified when new features need to be built.  If you do that, you might introduce new bugs to older features.  Instead of changing that class, you should use inheritance or composition to create new classes to add new features.  The idea is that the codebase is open to extension, via inheritance and composition, but older classes are closed for modification.
+
+Consider this class which sends notifications to the user.
+
+```ruby
+class Notifier
+  # ...
+  def send(user, message)
+    EmailSender.send(user, message)
+  end
+end
+```
+
+But what if requirements change and we want to send push notifications instead of emails... we could modify the `Notifier` class, but that could introduce bugs.  Instead we should set this up to be open to extension, but without letting the user modify the class which sends email notifications.
+
+```ruby
+class Notifier
+  # Abstract method
+  def send(user:, message:)
+    raise NotImplementedError, "Attempted to call an abstract method"
+  end
+end
+
+class EmailNotifier < Notifier
+  def send(user: message:)
+    # code to send emails
+  end
+end
+```
+
+Then we could easily create new subclasses of `Notifier` which send push notifications, text messages etc.  It becomes much easier to extend our features without users modifing classes being used in deployed code.  
+
 #### Liskov Substitution Principle
 
 #### Interface Segregation Principle
