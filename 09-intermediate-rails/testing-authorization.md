@@ -1,6 +1,6 @@
 # Testing Authorization
 
-We have written [tests for logging in and logging out](testing-login.md), but authentication is only half of our security story. Testing the other half, authorization, is the subject of this lesson.
+We have written [tests for logging in and logging out](testing-session.md), but authentication is only half of our security story. Testing the other half, authorization, is the subject of this lesson.
 
 ## Learning Goals
 By the end of this lesson, students should be able to...
