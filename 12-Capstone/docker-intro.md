@@ -107,7 +107,7 @@ ruby '2.5.7'
 # More stuff below
 ```
 
-_.ruby-version file_x
+_.ruby-version file_
 
 ```.ruby-version
 2.5.7
