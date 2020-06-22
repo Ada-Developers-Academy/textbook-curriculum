@@ -329,6 +329,27 @@ $ bundle exec rake appengine:exec -- bundle exec rake db:seed
 
  Now if you add `gcloud app browse`, you should see the application running on the web.  
 
+ ## One Last Thing... Environment Variables
+
+ You can set your github client ID and secret with environment variables:
+
+ ```yaml
+entrypoint: bundle exec rails server Puma -p $PORT
+env: flex
+runtime: ruby
+
+env_variables:
+  SECRET_KEY_BASE: "d81ddb40fbbffd3f830f107b026a8b0177a66556ac70e243f399b805696df309707a5eb7c5f15fd5a598657da56435d5de8a0dd0bf540fe464ec0804c2116108"
+  GITHUB_CLIENT_ID: [YOUR_CLIENT_ID]
+  GITHUB_CLIENT_SECRET: [YOUR_CLIENT_SECRET]
+
+beta_settings:
+  cloud_sql_instances: [YOUR_INSTANCE_CONNECTION_NAME]
+
+ ```
+
+This **does** mean that your `app.yaml` file will need to be added to `.gitignore`
+
 ## Summary
 
 In this tutorial you have created a Rails application, set up a Postgres database using Google's CloudSQL and deployed the Rails application using Google's command-line tools.  
