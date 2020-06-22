@@ -281,11 +281,11 @@ First retrieve your project  number with:
 $ gcloud projects list
 ```
 
-Copy the [PROJECT ID] and use it here.  
+Copy the [PROJECT ID] and [PROJECT NUMBER] then use it here.  
 
 ```bash
 gcloud projects add-iam-policy-binding [YOUR-PROJECT-ID] \
-  --member=serviceAccount:[YOUR-PROJECT-ID]@cloudbuild.gserviceaccount.com \
+  --member=serviceAccount:[YOUR-PROJECT-NUMBER]@cloudbuild.gserviceaccount.com \
   --role=roles/editor
 
 gcloud services enable sqladmin.googleapis.com
