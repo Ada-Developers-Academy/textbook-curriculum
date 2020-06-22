@@ -208,9 +208,9 @@ production:
   encoding: unicode
   pool: 5
   timeout: 5000
-  username: "pets"
+  username: "books"
   password: "password"
-  database: "pets"
+  database: "books"
   host:   "/cloudsql/[YOUR_INSTANCE_CONNECTION_NAME]"
 ```
 
