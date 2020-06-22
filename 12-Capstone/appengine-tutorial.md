@@ -62,7 +62,7 @@ You will receive the free credits, but will be required to add either a bank acc
 
 To build a Rails project we will need to turn on the following APIs.  These APIs are turned off initially for security, but will allow the pieces of our Rails application to work together and allow you to manage your deployment from the command line.
 
-- Compute APIs - To run and access google virtual machines
+- Compute Engine APIs - To run and access google virtual machines
 - Cloud SQL Admin API - To allow us to access and set up a database server
 - Google App Engine Flexible Environment
 - App Engine Admin API
