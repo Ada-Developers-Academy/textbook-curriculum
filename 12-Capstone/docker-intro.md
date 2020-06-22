@@ -85,59 +85,85 @@ $ touch dockerfile
 The first thing we'll add is this line to the `Dockerfile`
 
 ```dockerfile
-FROM ruby:2.5
+FROM ruby:2.6
 ```
 
 This command starts our image from a base that someone else on Docker Hub created.  This image is of a basic linux machine with ruby 2.5 installed.  That sounds like a good place to start!  You can see the list of Ruby Docker images on [docker hub](https://hub.docker.com/_/ruby) and this specific parent image [Dockerfile on github](https://github.com/docker-library/ruby/blob/82eecb7596c3cb466dd87d4b0350d189a330b925/2.5/buster/Dockerfile).
 
 Hmm... our Ada books was written for a different version...
 
-We can update our `Gemfile` and `.ruby-version` file to 2.5.7 (which is installed in the base image).
+We can update our `Gemfile` and `.ruby-version` file to 2.6.5 (which is installed in the base image).
 
 ```Gemfile
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.7'
+ruby '2.6.5'
 
 # More stuff below
 ```
 
 ```.ruby-version
-2.5.7
+2.6.5
 ```
 
 #### Installing Dependencies
 
-Next in our Dockerfile we will add a Linux command `apt-get` to install nodejs and postgresql-client.  Then we'll create a folder, called `/myapp` for our Rails app to live in.
+Next in our Dockerfile we will add a Linux command `apt-get` to install nodejs and postgresql-client.  Then we'll create a folder, called `/app` for our Rails app to live in.  Next we will set `/app` as the working directory for our app.
 
 ```Dockerfile
-FROM ruby:2.5
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
-RUN mkdir /myapp
+# Dockerfile
+# Use ruby image to build our own image
+FROM ruby:2.6
+
+# YARN repository
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+
+# Convention to use update and install on same line to actually install new packages
+# We also use the line separation to make this easier to change
+RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
+  nodejs \
+  yarn
+
+# We specify everything will happen within the /app folder inside the container
+RUN mkdir /app
+WORKDIR /app
 ```
 
 #### Set Working Directory and Installing App
 
-Next we will set `/myapp` as the working directory for our app, copy over the Gemfile and run bundle install to install all the gems.  Then we will copy over the rest of our application files.
+Then we copy over the Gemfile and run bundle install to install all the gems.  Then we will copy over the rest of our application files.
 
 ```Dockerfile
-# Set parent image and install dependencies
-FROM ruby:2.5
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+# Dockerfile
+# Use ruby image to build our own image
+FROM ruby:2.6
 
-# Create folder for Rails app and 
-RUN mkdir /myapp
-WORKDIR /myapp
+# YARN repository
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+
+# Convention to use update and install on same line to actually install new packages
+# We also use the line separation to make this easier to change
+RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
+  nodejs \
+  yarn
+
+# We specify everything will happen within the /app folder inside the container
+RUN mkdir /app
+WORKDIR /app
+
+# We copy these files from our current application to the /app container
+COPY Gemfile .
 
 # run bundle install
-RUN gem install bundler
-COPY ./Gemfile /myapp
-COPY ./Gemfile.lock /myapp
+RUN gem install bundler:2.1.4
 RUN bundle install
 
 # Copy app files to container
-COPY . /myapp
+COPY . .
+RUN yarn
 ```
 
 We did this so because Docker by default, when it notices a change will re-run all subsequent lines in the Dockerfile.  So if we modified a controller, we don't want the container to re-run `bundle install`.  So we copy the application code later and the Gemfiles first.  This way only if the Gemfile changes, will we re-run bundle install.
@@ -163,33 +189,37 @@ exec "$@"
 
 _Dockerfile_
 ```dockerfile
-# Set parent image and install dependencies
-FROM ruby:2.5
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+# Dockerfile
+# Use ruby image to build our own image
+FROM ruby:2.6
+# We specify everything will happen within the /app folder inside the container
+WORKDIR /app
+# YARN repository
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
-# Create folder for Rails app and 
-RUN mkdir /myapp
-WORKDIR /myapp
+# Convention to use update and install on same line to actually install new packages
+# We also use the line separation to make this easier to change
+RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
+  nodejs \
+  yarn
 
-# run bundle install
-RUN gem install bundler
-COPY ./Gemfile /myapp
-COPY ./Gemfile.lock /myapp
+# We copy these files from our current application to the /app container
+COPY Gemfile Gemfile.lock ./
+
+# We install all the dependencies
+# Install Bundler Version
+RUN gem install bundler:2.1.4
 RUN bundle install
+# We copy all the files from our current application to the /app container
+COPY . .
+RUN yarn
 
-# Copy app files to container
-COPY . /myapp
 
-
-# Add a script to be executed every time the container starts.
-COPY entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
+# We expose the port
 EXPOSE 3000
-
 # Start the main process.
-# It runs rails server -b on localhost (for the container)
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["sh", "./entrypoint.sh"]
 ```
 
 ### Docker Compose
@@ -219,18 +249,20 @@ services:
     image: postgres
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
   web:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
-      - .:/myapp
+      - .:/app
     ports:
-      - "3000:3000"
-    environment:
-      - GITHUB_CLIENT_ID=${GITHUB_CLIENT_ID}
-      - GITHUB_CLIENT_SECRET=${GITHUB_CLIENT_SECRET}
+      - "80:3000"
     depends_on:
       - db
+    environment:
+      PG_PASSWORD: password
+      GITHUB_CLIENT_ID: ${GITHUB_CLIENT_ID}
+      GITHUB_CLIENT_SECRET: ${GITHUB_CLIENT_SECRET}
 ```
 
 This file tells `docker-compose` to create two containers, one from a postgres image on dockerhub called `db`, and another called `web` which is built from the local `Dockerfile` and links port 3000 on your machine to Docker's port 3000 on the virtual machine.  So when you go to port 3000 on your local computer the request gets forwarded to Docker's virtual machine and the running container.  
