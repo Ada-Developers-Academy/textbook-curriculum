@@ -121,8 +121,8 @@ Then wait, it could take up to five minutes to complete.  We have configured a *
 
 1. When the instance is created, click on the instance ID to look at the details.  
 1. You will see a number of tabs, `Overview`, `Connections`, `Users`, `Databases` etc.  Click on the `Users` tab.
-1. Create a user account with the name: `pets` and the password `password`.  
-1. Next click on the `Databases` tab and create a database named `pets`. 
+1. Create a user account with the name: `books` and the password `password`.  
+1. Next click on the `Databases` tab and create a database named `books`. 
 1. Lastly go back to the `Overview` tab and find the area labeled, `Connect to this instance` and copy the `Instance connection name` to a text file for later.  
 
 ## Using the Google CLI to create and deploy a rails app
@@ -152,11 +152,13 @@ project = <YOUR PROJECT ID>
 
 ### Cloning the application
 
-Clone the repository from https://github.com/AdaGold/appengine-sample-pets
+Clone the repository from https://github.com/AdaGold/ada-books
+
+Checkout the branch `35-implementing-an-OAuth-Solution` with `git checkout 35-implementing-an-OAuth-Solution`
 
 Then run `bundle install`, `rails db:reset`.
 
-Then run the application and verify that it works with `rails server`.
+Then run the application and verify that it works with `rails server`.  You will need to add a `.env` file with your Oauth tokens.
 
 ### Add the appengine gem
 
