@@ -273,7 +273,7 @@ beta_settings:
 
 ## Grant the appengine gem permission
 
-Next grant the cloudbuild service account to run commands on the database server.
+Next grant the cloudbuild service account to run commands on the database server.  Also grant sqaladmin access.
 
 First retrieve your project  number with:
 
@@ -281,12 +281,14 @@ First retrieve your project  number with:
 $ gcloud projects list
 ```
 
-Copy the [PROJECT NUMBER] and use it here.  
+Copy the [PROJECT ID] and use it here.  
 
 ```bash
 gcloud projects add-iam-policy-binding [YOUR-PROJECT-ID] \
-  --member=serviceAccount:[PROJECT_NUMBER]@cloudbuild.gserviceaccount.com \
+  --member=serviceAccount:[YOUR-PROJECT-ID]@cloudbuild.gserviceaccount.com \
   --role=roles/editor
+
+gcloud services enable sqladmin.googleapis.com
 ```
 
 
