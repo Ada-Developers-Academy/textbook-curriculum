@@ -62,10 +62,10 @@ You will receive the free credits, but will be required to add either a bank acc
 
 To build a Rails project we will need to turn on the following APIs.  These APIs are turned off initially for security, but will allow the pieces of our Rails application to work together and allow you to manage your deployment from the command line.
 
-- Compute APIs - To run and access google virtual machines
-- Cloud SQL Admin API - To allow us to access and set up a database server
-- Google App Engine Flexible Environment
-- App Engine Admin API
+- **Compute Engine APIs** - To run and access google virtual machines
+- **Cloud SQL Admin API** - To allow us to access and set up a database server
+- **Google App Engine Flexible Environment** - So we can use the Google App Engine
+- **App Engine Admin API** - So we can administer App Engine
 
 Go to the web console and select APIs & Services --> Library.
 
@@ -121,8 +121,8 @@ Then wait, it could take up to five minutes to complete.  We have configured a *
 
 1. When the instance is created, click on the instance ID to look at the details.  
 1. You will see a number of tabs, `Overview`, `Connections`, `Users`, `Databases` etc.  Click on the `Users` tab.
-1. Create a user account with the name: `pets` and the password `password`.  
-1. Next click on the `Databases` tab and create a database named `pets`. 
+1. Create a user account with the name: `books` and the password `password`.  
+1. Next click on the `Databases` tab and create a database named `books`. 
 1. Lastly go back to the `Overview` tab and find the area labeled, `Connect to this instance` and copy the `Instance connection name` to a text file for later.  
 
 ## Using the Google CLI to create and deploy a rails app
@@ -152,11 +152,13 @@ project = <YOUR PROJECT ID>
 
 ### Cloning the application
 
-Clone the repository from https://github.com/AdaGold/appengine-sample-pets
+Clone the repository from https://github.com/AdaGold/ada-books
+
+Checkout the branch `35-implementing-an-OAuth-Solution` with `git checkout 35-implementing-an-OAuth-Solution`
 
 Then run `bundle install`, `rails db:reset`.
 
-Then run the application and verify that it works with `rails server`.
+Then run the application and verify that it works with `rails server`.  You will need to add a `.env` file with your Oauth tokens.
 
 ### Add the appengine gem
 
@@ -184,21 +186,21 @@ default: &default
 
 development:
   <<: *default
-  database: pets_development
+  database: books_development
 
 test:
   <<: *default
-  database: pets_test
+  database: books_test
 
 
 production:
   <<: *default
-  database: pets_production
-  username: pets
-  password: <%= ENV['PETS_DATABASE_PASSWORD'] %>
+  database: books_production
+  username: books
+  password: <%= ENV['books_DATABASE_PASSWORD'] %>
 ```
 
-Now update the `production` section of the `database.yml` file. Remember we set the username and database to the name `pets` and the password to `password`.  
+Now update the `production` section of the `database.yml` file. Remember we set the username and database to the name `books` and the password to `password`.  
 
 ```yml
 production:
@@ -206,22 +208,22 @@ production:
   encoding: unicode
   pool: 5
   timeout: 5000
-  username: "pets"
+  username: "books"
   password: "password"
-  database: "pets"
+  database: "books"
   host:   "/cloudsql/[YOUR_INSTANCE_CONNECTION_NAME]"
 ```
 
 ### Update the `.ruby-version` file
 
-App Engine tries to get the version of ruby from the `.ruby-version` file, but requires just the straight number without `ruby-` in front.  Change `ruby-2.5.5` in the file to `2.5.5`.
+App Engine tries to get the version of ruby from the `.ruby-version` file, but requires just the straight number without `ruby-` in front.  Change `ruby-2.6.5` in the file to `2.6.5`.
 
 ### Create an `app.yaml` file
 
 App Engine flexible environments use a file called `app.yaml` to describe the app's configuration.  Create the file below:  
 
 ```yaml
-entrypoint: bundle exec rackup --port $PORT
+entrypoint: bundle exec rails server Puma -p $PORT
 env: flex
 runtime: ruby
 ```
@@ -241,7 +243,7 @@ Copy the generated secret key to your clipboard. **You use the secret key in the
 Next, open the file `app.yaml` that you created earlier, and add an env_variables section. The env_variables defines environment variables in the App Engine environment. The `app.yaml` should look similar to the example below with [SECRET_KEY] replaced with the secret key in your clipboard.
 
 ```yaml
-entrypoint: bundle exec rackup --port $PORT
+entrypoint: bundle exec rails server Puma -p $PORT
 env: flex
 runtime: ruby
 
@@ -258,7 +260,7 @@ Open the file `app.yaml`, and add a new section named beta_settings and define a
 The `app.yaml` file should now look similar to the following with [INSTANCE_CONNECTION_NAME] replaced with the value of the Cloud SQL instance connection name.
 
 ```yaml
-entrypoint: bundle exec rackup --port $PORT
+entrypoint: bundle exec rails server Puma -p $PORT
 env: flex
 runtime: ruby
 
@@ -271,7 +273,7 @@ beta_settings:
 
 ## Grant the appengine gem permission
 
-Next grant the cloudbuild service account to run commands on the database server.
+Next grant the cloudbuild service account to run commands on the database server.  Also grant sqaladmin access.
 
 First retrieve your project  number with:
 
@@ -279,12 +281,14 @@ First retrieve your project  number with:
 $ gcloud projects list
 ```
 
-Copy the [PROJECT NUMBER] and use it here.  
+Copy the [PROJECT ID] and [PROJECT NUMBER] then use it here.  
 
 ```bash
 gcloud projects add-iam-policy-binding [YOUR-PROJECT-ID] \
-  --member=serviceAccount:[PROJECT_NUMBER]@cloudbuild.gserviceaccount.com \
+  --member=serviceAccount:[YOUR-PROJECT-NUMBER]@cloudbuild.gserviceaccount.com \
   --role=roles/editor
+
+gcloud services enable sqladmin.googleapis.com
 ```
 
 
@@ -325,6 +329,27 @@ $ bundle exec rake appengine:exec -- bundle exec rake db:seed
 
  Now if you add `gcloud app browse`, you should see the application running on the web.  
 
+ ## One Last Thing... Environment Variables
+
+ You can set your github client ID and secret with environment variables:
+
+ ```yaml
+entrypoint: bundle exec rails server Puma -p $PORT
+env: flex
+runtime: ruby
+
+env_variables:
+  SECRET_KEY_BASE: "d81ddb40fbbffd3f830f107b026a8b0177a66556ac70e243f399b805696df309707a5eb7c5f15fd5a598657da56435d5de8a0dd0bf540fe464ec0804c2116108"
+  GITHUB_CLIENT_ID: [YOUR_CLIENT_ID]
+  GITHUB_CLIENT_SECRET: [YOUR_CLIENT_SECRET]
+
+beta_settings:
+  cloud_sql_instances: [YOUR_INSTANCE_CONNECTION_NAME]
+
+ ```
+
+This **does** mean that your `app.yaml` file will need to be added to `.gitignore`
+
 ## Summary
 
 In this tutorial you have created a Rails application, set up a Postgres database using Google's CloudSQL and deployed the Rails application using Google's command-line tools.  
@@ -333,3 +358,5 @@ In this tutorial you have created a Rails application, set up a Postgres databas
 
 - [App Engine Documentation](https://cloud.google.com/appengine/docs/)
 - [App Engine Flexible vs Standard Environments](https://cloud.google.com/appengine/docs/the-appengine-environments)
+- [The Tutorial I built this from](https://cloud.google.com/ruby/rails/using-cloudsql-postgres) - Warning it has errors
+
