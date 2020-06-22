@@ -216,14 +216,14 @@ production:
 
 ### Update the `.ruby-version` file
 
-App Engine tries to get the version of ruby from the `.ruby-version` file, but requires just the straight number without `ruby-` in front.  Change `ruby-2.5.5` in the file to `2.5.5`.
+App Engine tries to get the version of ruby from the `.ruby-version` file, but requires just the straight number without `ruby-` in front.  Change `ruby-2.6.5` in the file to `2.6.5`.
 
 ### Create an `app.yaml` file
 
 App Engine flexible environments use a file called `app.yaml` to describe the app's configuration.  Create the file below:  
 
 ```yaml
-entrypoint: bundle exec rackup --port $PORT
+entrypoint: bundle exec rails server Puma -p $PORT
 env: flex
 runtime: ruby
 ```
@@ -243,7 +243,7 @@ Copy the generated secret key to your clipboard. **You use the secret key in the
 Next, open the file `app.yaml` that you created earlier, and add an env_variables section. The env_variables defines environment variables in the App Engine environment. The `app.yaml` should look similar to the example below with [SECRET_KEY] replaced with the secret key in your clipboard.
 
 ```yaml
-entrypoint: bundle exec rackup --port $PORT
+entrypoint: bundle exec rails server Puma -p $PORT
 env: flex
 runtime: ruby
 
@@ -260,7 +260,7 @@ Open the file `app.yaml`, and add a new section named beta_settings and define a
 The `app.yaml` file should now look similar to the following with [INSTANCE_CONNECTION_NAME] replaced with the value of the Cloud SQL instance connection name.
 
 ```yaml
-entrypoint: bundle exec rackup --port $PORT
+entrypoint: bundle exec rails server Puma -p $PORT
 env: flex
 runtime: ruby
 
