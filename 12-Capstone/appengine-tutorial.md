@@ -358,3 +358,5 @@ In this tutorial you have created a Rails application, set up a Postgres databas
 
 - [App Engine Documentation](https://cloud.google.com/appengine/docs/)
 - [App Engine Flexible vs Standard Environments](https://cloud.google.com/appengine/docs/the-appengine-environments)
+- [The Tutorial I built this from](https://cloud.google.com/ruby/rails/using-cloudsql-postgres) - Warning it has errors
+
