@@ -186,21 +186,21 @@ default: &default
 
 development:
   <<: *default
-  database: pets_development
+  database: books_development
 
 test:
   <<: *default
-  database: pets_test
+  database: books_test
 
 
 production:
   <<: *default
-  database: pets_production
-  username: pets
-  password: <%= ENV['PETS_DATABASE_PASSWORD'] %>
+  database: books_production
+  username: books
+  password: <%= ENV['books_DATABASE_PASSWORD'] %>
 ```
 
-Now update the `production` section of the `database.yml` file. Remember we set the username and database to the name `pets` and the password to `password`.  
+Now update the `production` section of the `database.yml` file. Remember we set the username and database to the name `books` and the password to `password`.  
 
 ```yml
 production:
