@@ -275,5 +275,6 @@ Forms in a React component can be bound to a component's state which allows it t
 ## Additional Resources
 
 - [React Docs: Forms](https://reactjs.org/docs/forms.html)
+- [What is preventDefault()?](https://www.robinwieruch.de/react-preventdefault)
 - [An Imperative Guide to Forms in React](https://blog.logrocket.com/an-imperative-guide-to-forms-in-react-927d9670170a)
 - [Controlled & Uncontrolled form inputs](https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/)
