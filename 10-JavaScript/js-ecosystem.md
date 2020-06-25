@@ -38,7 +38,7 @@ The other major reason for using a build system with your JS project is to autom
 
 This can be accomplished with "minifier" tools such as [UglifyJS](https://github.com/mishoo/UglifyJS2/tree/harmony). There are a wide variety of techniques employed by these tools, chief among them are removing all unnecessary white space (i.e. blank lines, comments, and spaces/tabs at the beginning of lines), and renaming all variables to be as short as possible.
 
-Regardless of the techniques used the goal is always the same: Generate valid JavaScript code which behaves exactly the same as your source code, but requires fewer characters to represent. Usually this generated code is [not readable by humans](https://code.lengstorf.com/images/learn-rollup-05@2x.jpg).
+Regardless of the techniques used the goal is always the same: Generate valid JavaScript code which behaves exactly the same as your source code, but requires fewer characters to represent. Usually this generated code is not readable by humans.
 
 ## Tools in the modern JS ecosystem
 * [npm](https://npmjs.com/) - Node Package Manager
