@@ -79,7 +79,7 @@ Steve Jobs had a [weird thing](http://www.cultofmac.com/269222/steve-jobs-hated-
 You can also two-finger click or control-click
 
 ## Split Screen
-When you write code on a laptop, it is often important to be able to see documentation and code side-by-side. The latest version of Mac OS allows you to do this without any additional apps. Apps like [Spectacle](https://www.spectacleapp.com/) will give you even more control over this, if desired.
+When you write code on a laptop, it is often important to be able to see documentation and code side-by-side. The latest version of Mac OS allows you to do this without any additional apps. Apps like [Rectangle](https://rectangleapp.com/) will give you even more control over this, if desired.
 
 1. Click and hold on the green maximize icon in the upper left corner of an app until it responds (by shrinking)
 1. Drag the window to one side of your screen
