@@ -118,7 +118,3 @@ Then select the shortcuts tab.
 Then select the **App Shortcuts** and use the `+` sign to add a shortcut.  You will need to give it a name & use the keyboard shortcut in the little box provided.  You can create shortcuts for a particular app or all apps in general.  If two conflicting shortcuts exist, macOS will use the one for the more specific application.  So if there's a general shortcut and one for Chrome, macOS will use the Chrome specific shortcut for that app.
 
 ![App Shortcuts](images/appshortcuts.png)
-
----
-## Source of much of this material
-*  [Jeri's Guide to Going from PC to Mac](https://gist.github.com/drvonnjerryxlii/9898254abef2d184c659)
