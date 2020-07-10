@@ -207,6 +207,8 @@ You can install Rectangle with the command:
 $ brew cask install rectangle
 ```
 
+Next run `Rectangle` by opening spotlight with cmd-space and typing Rectangle.
+
 Then you can authorize it in system preferences -- > Security & Privacy and put a checkmark next to `Rectangle`.
 
 ![Authorize Rectangle](images/rectangle.png)
