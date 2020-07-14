@@ -234,16 +234,22 @@ With these two lines Git is showing us first what file we have modified in our p
 
 If we were to run `git log` again, we would see our new commit at the top of the list.
 
+## On The Term `master`
+
+You may have noticed the term `master` in Git.  The default branch for any Git Repository is currently always called `master`.  This term carries a long history of white supremecy in this country.  [Currently Github and Git are working to replace the term with a more neutral and descriptive term like `main`](https://www.zdnet.com/article/github-to-replace-master-with-alternative-term-to-avoid-slavery-references/).
+
+However the original source code of git is hard coded with the term and it will take time to change.  Once that change is made Ada plans to adjust our curriculum.  Until then, this is a lesson about hardcoding values into your code and unforeseen consequences.
+
 ## Summary
 
-command                 | description
-------------------------|-----------------------------------------------------
-`git clone $GITHUB_URI` | Make a local copy of `$GITHUB_URI` from github.
-`git status`            | Check the status of the repository you are inside of.
-`git add $FILE`         | Stage changes to `$FILE` (add to the next commit).
-`git add .`             | Stage changes to all files in this folder and its children.
-`git commit`            | Create a new commit with all of your staged changes.
-`git log`               | Show the history of the repository.  (Remember `q` quits this view!)
+| command                 | description                                                          |
+| ----------------------- | -------------------------------------------------------------------- |
+| `git clone $GITHUB_URI` | Make a local copy of `$GITHUB_URI` from github.                      |
+| `git status`            | Check the status of the repository you are inside of.                |
+| `git add $FILE`         | Stage changes to `$FILE` (add to the next commit).                   |
+| `git add .`             | Stage changes to all files in this folder and its children.          |
+| `git commit`            | Create a new commit with all of your staged changes.                 |
+| `git log`               | Show the history of the repository.  (Remember `q` quits this view!) |
 
 ## Commit Early, Commit Often
 Commits, ideally, should be _atomic_. That is, any single commit should include changes that encompass a single idea. This is a habit that must be built. It's easy to "get in the zone" while programming and, before, you know it, you've got fifty changes in ten files and you're not sure how you ended up there. Making _commits_ is fast and provides you a history of how you got from there to here. Here's some good examples of when to _commit_:
