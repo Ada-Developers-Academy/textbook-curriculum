@@ -2,6 +2,7 @@
 
 ## Learning Goals
 - Understand Ada's recommended best-practices for using sprint boards in Trello
+- Practice creating a sprint board with tasks scheduled by sprint
 
 ## Prerequisite
 This lesson will be hard to follow if students haven't first received the [Intro to Agile lesson](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/00-programming-fundamentals/intro-to-agile.md)
