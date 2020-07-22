@@ -1,8 +1,8 @@
-# Using Sprint Boards
+# Using Planning Boards
 
 ## Learning Goals
-- Understand Ada's recommended best-practices for using sprint boards in Trello
-- Practice creating a sprint board with tasks scheduled by sprint
+- Understand Ada's recommended best-practices for using planning boards in Trello
+- Practice creating a planning board with tasks scheduled by iteration
 
 ## Prerequisite
 This lesson will be hard to follow if students haven't first received the [Intro to Agile lesson](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/00-programming-fundamentals/intro-to-agile.md)
@@ -17,7 +17,7 @@ This lesson will be hard to follow if students haven't first received the [Intro
 1. Use checklists on each user story to break the story up into smaller tasks. 
     - This makes it easier to ensure every task you’re working on is directly related to the user story you’re currently focused on.
     - This way, with each user story you complete, you know you already have this much to show off for your demo!
-1. Organize Trello cards by “Sprint/Week”. 
+1. Organize Trello cards by “Iteration/Week”. 
     - This way you have some idea how you’re tracking: whether you’re ahead, behind, or on-track. 
     - The easiest way to do this is probably to estimate what percentage of your project each user story represents and set a due date for it accordingly. 
       - eg. If a story represents ~30% of what you have left to do for the project, it should be due in 13 days * .30 = 3.9 days (or around to 4 days).
