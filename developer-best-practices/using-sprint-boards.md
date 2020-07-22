@@ -1,15 +1,10 @@
 # Using Sprint Boards
 
 ## Learning Goals
-- Understand what a sprint board is
-- Understand why sprint boards are often used in software development
 - Understand Ada's recommended best-practices for using sprint boards in Trello
 
-## What is a Sprint Board?
-TODO
-
-## Why is a Sprint Board?
-TODO
+## Prerequisite
+This lesson will be hard to follow if students haven't first received the [Intro to Agile lesson](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/00-programming-fundamentals/intro-to-agile.md)
 
 ## Ada Best Practices
 1. Create cards as User Stories 
