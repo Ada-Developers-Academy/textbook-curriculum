@@ -25,5 +25,6 @@ This lesson will be hard to follow if students haven't first received the [Intro
     - That will give you more time to make mistakes and it will give you more time to change your idea if something seems like it isn’t quite going to work like you expected.
 
   ## Exercise
-  TODO This is a lot of information. We need to give students a chance to apply all this.
-  We could use an example Trello that we build as a class or ask bEtsy groups to create and/or update their boards based on these practices (or both?). 
+  Let's create a trello board for bEtsy togeher!
+  After we've created all the user-stories, we'll walk through this list and make sure we've followed each of them.
+  (We won't take the time to make checklists for each user story but we'll pick a couple to make checklists for.)
