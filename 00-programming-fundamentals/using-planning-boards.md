@@ -17,14 +17,17 @@ This lesson will be hard to follow if students haven't first received the [Intro
 1. Use checklists on each user story to break the story up into smaller tasks. 
     - This makes it easier to ensure every task you’re working on is directly related to the user story you’re currently focused on.
     - This way, with each user story you complete, you know you already have this much to show off for your demo!
-1. Organize Trello cards by “Iteration/Week”. 
+1. Organize Trello cards by “Iteration", week, or priority. 
+    - Find some way of setting due dates for a piece of work
+      - eg. If a story represents ~30% of what you have left to do for the project and you have 13 more working days, it should be due in 13 days * .30 = 3.9 days (or around to 4 days).
+      - For bEtsy, your stories might be small enough that you want to set due date a whole list, then use that due date to assign due dates for each story in the list
     - This way you have some idea how you’re tracking: whether you’re ahead, behind, or on-track. 
-    - The easiest way to do this is probably to estimate what percentage of your project each user story represents and set a due date for it accordingly. 
-      - eg. If a story represents ~30% of what you have left to do for the project, it should be due in 13 days * .30 = 3.9 days (or around to 4 days).
-1. If there are one or two user stories that feel the scariest or riskiest, see if you can do those first. 
+1. If there are one or two user stories that feel the scariest or riskiest, start working on those as early as you possibly can. 
     - That will give you more time to make mistakes and it will give you more time to change your idea if something seems like it isn’t quite going to work like you expected.
 
   ## Exercise
   Let's create a trello board for bEtsy togeher!
   After we've created all the user-stories, we'll walk through this list and make sure we've followed each of them.
   (We won't take the time to make checklists for each user story but we'll pick a couple to make checklists for.)
+  
+  Here is a [template of a bEtsy trello board](https://trello.com/b/v9k5cmBB/example-betsy-board), but we're going to make one from scratch to practice.
