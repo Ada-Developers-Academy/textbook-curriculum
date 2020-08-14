@@ -25,6 +25,8 @@ Shortcut | Effect
 `^⌥I`   | Auto Fix Your Indentation
 `⌘ ←(Backspace)`    | Delete the current line
 
+Fun fact: RubyMine makes it really easy for us to change these shortcuts and make our own new shortcuts! If any of these shortcuts feel hard to remember, maybe try switching them to something that makes more sense to you personally.
+
 Remember that normal macOS keyboard shortcuts will work here too!
 
 Shortcut | Effect
