@@ -23,7 +23,7 @@ Double-press <kbd>shift</kbd>  | Search Everywhere. Find anything related to Rub
 <kbd>⌘</kbd> + <kbd>C</kbd> (nothing highlighted)    | Copy the current line
 <kbd>⌘</kbd> + <kbd>/</kbd>     | Comment out the current line
 <kbd>^</kbd> + <kbd>⌥</kbd> + <kbd>I</kbd>   | Auto Fix Your Indentation
-<kbd>⌘</kdb> + <kbd>delete</kbd>    | Delete the current line
+<kbd>⌘</kbd> + <kbd>delete</kbd>    | Delete the current line
 
 **Note:** <kbd>⌘</kbd> is the command key, <kbd>⌥</kbd> is the option key and <kbd>^</kbd> is the control key.  (Your keyboard probably has symbols on the keys to help with this.)
 
