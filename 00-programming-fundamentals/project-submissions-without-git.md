@@ -82,7 +82,7 @@ Almost there -- to actually finish project submission, you'll need to open and c
 1. Finish opening the pull Request by clicking the green "Create Pull Request" button
 
 1. The next page should give you details about the PR that you need to fill out. As part of project submission, you will need to fill out the following things:
-    1. The title of this PR should be "`<YOUR CLASSROOM NAME> - <YOUR NAME>`", such as "Ports - Dee"
+    1. The title of this PR should be "`<YOUR CLASSROOM NAME> - <YOUR NAME>`", such as "Ports - Simon"
     1. There should be a bunch of text already filled in as the detail for the PR! This is our way of giving each person project reflection questions to answer. It is in the format of a table created in `markdown` formatting. Please spend a few minutes filling out an answer for each question, about 1-2 sentences for each answer.
 ![PR Details](./images/project-submissions-without-git/open-pr.png)
 

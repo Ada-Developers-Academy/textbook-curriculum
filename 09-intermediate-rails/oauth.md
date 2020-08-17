@@ -110,7 +110,7 @@ Each provider requires you to provide some credentials for your application, so 
 1. On the left-hand vertical side bar, choose the option named "OAuth Apps" within these Settings / Developer Settings. From here, click he button that says [Register a new application](https://github.com/settings/applications/new)
 1. On this form to register a new OAuth app, use the following pieces of information in this form:
 
-    - Application name: whatever you feel like, like "OmniAuth in Books App Test" or "Dee's Books App"
+    - Application name: whatever you feel like, like "OmniAuth in Books App Test" or "Simon's Books App"
     - Homepage URL: `http://localhost:3000`
     - Application description: Leave blank, or fill in whatever you feel like
     - Authorization callback URL: `http://localhost:3000/auth/github/callback`

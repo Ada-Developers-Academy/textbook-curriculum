@@ -60,7 +60,7 @@ The `post()` function takes in the same two parameters: URL first, and an option
 const axios = require('axios');
 
 const tripData = {
-  name: 'Dee\'s Chill Trip to Chicago',
+  name: 'Simon\'s Chill Trip to Chicago',
   continent: 'North America',
   about: 'A tour around good architecture and hot dogs.',
   category: 'casual',
@@ -124,7 +124,7 @@ Confirm your understanding of the code by answering these questions (use the [ax
   // ...
 
   axios.post('https://trektravel.herokuapp.com/trips', {
-      name: 'Dee\'s Chill Trip to Chicago',
+      name: 'Simon\'s Chill Trip to Chicago',
       continent: 'North America',
       about: 'A tour around good architecture and hot dogs.',
       category: 'casual',
@@ -156,7 +156,7 @@ When we run this code together and it responds with success:
   ```js
   {
     id: 136,
-    name: "Dee's Chill Trip to Chicago",
+    name: "Simon's Chill Trip to Chicago",
     continent: 'North America',
     about: 'A tour around good architecture and hot dogs.',
     category: 'casual',
@@ -239,8 +239,8 @@ Utilizing the [Ada Trip Reserving Service™ Trip API™™™](https://github.c
   const tripId = 136;
 
   const tripReservationData = {
-    name: 'dee',
-    email: 'dee@deemail.dev',
+    name: 'Simon',
+    email: 'Simon@tildeemail.dev',
   };
 
   axios.post(`https://trektravel.herokuapp.com/trips/${tripId}/reservations`, tripReservationData)

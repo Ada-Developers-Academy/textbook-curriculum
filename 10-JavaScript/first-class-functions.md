@@ -27,7 +27,7 @@ We will be applying this idea of an object to much more realistic use-cases of o
 const task = {
   name: 'practice iteration in JavaScript',
   dueDate: 'end of the week',
-  owner: 'dee',
+  owner: 'simon',
   isComplete: false
 }
 ```
@@ -45,7 +45,7 @@ We can attach _behavior_ to an object by making it a member, using this syntax:
 const task = {
   name: 'practice iteration in JavaScript',
   dueDate: 'end of the week',
-  owner: 'dee',
+  owner: 'simon',
   isComplete: false,
   markComplete() {
     console.log('Wow...');
@@ -78,7 +78,7 @@ Within an object itself, other members (such as properties) can be accessed thro
 const task = {
   name: 'practice iteration in JavaScript',
   dueDate: 'end of the week',
-  owner: 'dee',
+  owner: 'simon',
   isComplete: false,
   markComplete() {
     console.log('Wow...');
@@ -114,7 +114,7 @@ Given this base code for an object named `task`, make another method on it:
   const task = {
     name: 'practice iteration in JavaScript',
     dueDate: 'end of the week',
-    owner: 'dee',
+    owner: 'simon',
     isComplete: false,
     markComplete() {
       console.log('Wow...');

@@ -68,7 +68,7 @@ If I attempted the following:
   my_hash = MyHash.new
   my_hash["Dan"] = "Lead Instructor"
   my_hash["Chris"] = "CS Fun Instructor"
-  my_hash["Dee"] = "Instructor Extraordinaire"
+  my_hash["Simon"] = "Instructor Extraordinaire"
   my_hash[356] = "A big number"
 ```
 
@@ -142,12 +142,12 @@ Output: Following pairs have symmetric pairs
         (30, 40)
         (5, 10)  
 
-Input: arr[] = {{"Dan", "Dee"}, {"Lisa", "Val"}, {"Kaida", "Chris"}, {"Devin", "Susan"}, {"Christine", "Jane"}}
+Input: arr[] = {{"Dan", "Simon"}, {"Lisa", "Val"}, {"Kaida", "Chris"}, {"Devin", "Susan"}, {"Christine", "Jane"}}
 Output: No symmetric pairs
 
-Input: arr[] = {{"Dan", "Dee"}, {"Kaida", "Val"}, {"Kaida", "Chris"}, {"Devin", "Susan"}, {"Dee", "Dan"}, {"Devin", "Susan"}}
+Input: arr[] = {{"Dan", "Simon"}, {"Kaida", "Val"}, {"Kaida", "Chris"}, {"Devin", "Susan"}, {"Simon", "Dan"}, {"Devin", "Susan"}}
 Output: Following pairs have symmetric pairs
-       (Dan, Dee)
+       (Dan, Simon)
 ```
 
 When you are finished you can see [our solution](examples/symetric_pairs.rb)

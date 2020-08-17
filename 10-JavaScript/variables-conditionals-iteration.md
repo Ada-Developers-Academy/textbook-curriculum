@@ -67,9 +67,9 @@ There are three keywords to use to declare a variable, all specifying different 
 Observe variable declaration and assignment below:
 
 ```javascript
-var deesFavoriteColor = 'green';
-let deesFavoriteNumber = 72;
-const deesFavoriteGame = 'night in the woods';
+var simonsFavColor = 'green';
+let simonsFavNum = 72;
+const simonsFavGame = 'night in the woods';
 ```
 
 ### We Prefer `let` for Reassignable Variables
@@ -84,15 +84,15 @@ Constants cannot change their value through reassignment. **We will always use `
 
 In your Node REPL, input these lines. Do you get what you expect?
 
-1. `var deesFavoriteColor = 'green';`
-1. `deesFavoriteColor;`
-1. `let deesFavoriteNumber = 72;`
-1. `deesFavoriteNumber;`
-1. `const deesFavoriteGame = 'night in the woods';`
-1. `deesFavoriteGame;`
-1. `deesFavoriteNumber = 16;`
-1. `let deesFavoriteNumber;`
-1. `deesFavoriteGame = 'butterfly soup';`
+1. `var simonsFavColor = 'green';`
+1. `simonsFavColor;`
+1. `let simonsFavNum = 72;`
+1. `simonsFavNum;`
+1. `const simonsFavGame = 'night in the woods';`
+1. `simonsFavGame;`
+1. `simonsFavNum = 16;`
+1. `let simonsFavNum;`
+1. `simonsFavGame = 'butterfly soup';`
 
 <details>
 
@@ -107,7 +107,7 @@ In your Node REPL, input these lines. Do you get what you expect?
   1. `undefined`
   1. `'night in the woods'`
   1. `16`
-  1. `Thrown: SyntaxError: Identifier 'deesFavoriteNumber' has already been  declared` You only need to do the variable declaration (using `let` or `const`) once. You can just re-assign a `let` variable without the keyword `let`.
+  1. `Thrown: SyntaxError: Identifier 'simonsFavNum' has already been  declared` You only need to do the variable declaration (using `let` or `const`) once. You can just re-assign a `let` variable without the keyword `let`.
   1. `Thrown: TypeError: Assignment to constant variable.` You can't re-assign a `const` variable.
 
 </details>

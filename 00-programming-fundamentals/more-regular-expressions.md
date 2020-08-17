@@ -71,7 +71,7 @@ Your other option is to use the special variables named `$1`, `$2`, etc. We'll s
 Now that we've got access to the captured data, we can make use of it. Here is a slightly more complex version of the same program:
 
 ```ruby
-emails = ['dan@adadev.org', 'dee@adadev.org', 'karib@gmail.com']
+emails = ['dan@adadev.org', 'simon@adadev.org', 'karib@gmail.com']
 email_regex = /.*@(.*\..*)/
 
 # Create a new hash where missing values are initialized to 0

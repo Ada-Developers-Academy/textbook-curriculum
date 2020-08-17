@@ -19,7 +19,7 @@ Authentication is a process in web apps which verifies that a user is who truly 
 
 We've already learned about creating user login functionality in Rails using Rails' `session` hash. This "login functionality" was really just a person declaring they were a certain user by filling out a name in a form.
 
-However, that person could have been lying. Chris could have gone to a website and filled out the name "Dee," even though Dee is not his name. Currently, we don't have a great way to authenticate, or verify, this fake "Dee" user in Rails, because we don't have an authentication process.
+However, that person could have been lying. Chris could have gone to a website and filled out the name "Simon," even though Simon is not his name. Currently, we don't have a great way to authenticate, or verify, this fake "Simon" user in Rails, because we don't have an authentication process.
 
 In the web, we'll want to augment our login systems so that they can confirm the identity of a user, whether through some evidence or using some system that knows how to authenticate.
 
@@ -48,16 +48,16 @@ If you've ever followed a link to "log in with Facebook" (or Google, Twitter, Gi
 
 The process of the end user coming across OAuth is usually like this:
 
-1. The user, Dee, is on the website [Glitch.com](https://glitch.com/)
-1. Dee needs to sign-in in order to save their project, and clicks the "sign in" button
+1. The user, Simon, is on the website [Glitch.com](https://glitch.com/)
+1. Simon needs to sign-in in order to save their project, and clicks the "sign in" button
 ![Glitch before logging in](images/intro-to-oauth/before.png)
-1. Dee doesn't have an account on Glitch, but sees the "Sign in with GitHub" option
+1. Simon doesn't have an account on Glitch, but sees the "Sign in with GitHub" option
 ![Glitch's options for logging in](images/intro-to-oauth/login.png)
-1. Dee clicks on it, and is redirected to a page in GitHub styling and branding that asks them to log in to GitHub
-1. Then, after successful login, GitHub automatically goes to another GitHub page that asks Dee to give GitHub permission to authorize Glitch. By agreeing, Dee says "Yes, GitHub, I trust Glitch, and Glitch may use my GitHub user information"
+1. Simon clicks on it, and is redirected to a page in GitHub styling and branding that asks them to log in to GitHub
+1. Then, after successful login, GitHub automatically goes to another GitHub page that asks Simon to give GitHub permission to authorize Glitch. By agreeing, Simon says "Yes, GitHub, I trust Glitch, and Glitch may use my GitHub user information"
 ![GitHub asking the user to authorize Glitch](images/intro-to-oauth/authorize.png)
-1. After Dee clicks on the big green button, Dee is redirected back to Glitch
-1. Dee sees that on Glitch, they are fully logged in, and all of the Glitch UI reflects their user icon and user name
+1. After Simon clicks on the big green button, Simon is redirected back to Glitch
+1. Simon sees that on Glitch, they are fully logged in, and all of the Glitch UI reflects their user icon and user name
 ![Glitch after logging in](images/intro-to-oauth/after.png)
 
 ## The Authentication Process Details

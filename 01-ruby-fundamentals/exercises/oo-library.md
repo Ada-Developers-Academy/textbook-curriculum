@@ -55,11 +55,11 @@ sorcers_stone = Book.new(
 puts sorcers_stone.title
 # will output "Harry Potter and the Sorcer's Stone" in terminal
 
-sorcers_stone.checkout("Dee")
+sorcers_stone.checkout("Simon")
 sorcers_stone.checkout("Cedrick")
 
 puts sorcers_stone.checked_out_by
-# will output "Dee" and "Cedrick" to the terminal
+# will output "Simon" and "Cedrick" to the terminal
 
 puts sorcers_stone.copies_available
 # will output "1" to the terminal
@@ -70,7 +70,7 @@ puts sorcers_stone.copies_available
 
 sorcers_stone.checkin("Cedrick")
 puts sorcers_stone.checked_out_by
-# will output "Dee"
+# will output "Simon"
 
 puts sorcers_stone.copies_available
 # will output "5"
