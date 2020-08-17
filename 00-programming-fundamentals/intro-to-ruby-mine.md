@@ -18,12 +18,14 @@ Below are a few you'll likely use.
 Shortcut | Effect
 ---      | ---
 `Double ⇧`  | Search Everywhere. Find anything related to RubyMine or your project and open it, execute it, or jump to it.
-`⇧⌘A`     | Find a command and execute it. Perfect when you don't remember the shortcut for something else
-`⌘B` or `⌘click`     | Go to declaration. Navigate to the initial declaration of the instantiated class, called method, or field. This is one of the powerful things IDEs can do for us!
-`⌘C` (nothing highlighted)    | Copy the current line
-`⌘/`     | Comment out the current line
-`^⌥I`   | Auto Fix Your Indentation
-`⌘ ←(Backspace)`    | Delete the current line
+<kbd>shift</kbd> + <kbd>⌘</kbd> + <kbd>A</kbd>     | Find a command and execute it. Perfect when you don't remember the shortcut for something else
+<kbd>⌘</kbd> + <kbd>B</kbd> or <kbd>⌘</kbd> + click     | Go to declaration. Navigate to the initial declaration of the instantiated class, called method, or field. This is one of the powerful things IDEs can do for us!
+<kbd>⌘</kbd> + <kbd>C</kbd> (nothing highlighted)    | Copy the current line
+<kbd>⌘</kbd> + <kbd>/</kbd>     | Comment out the current line
+<kbd>^</kbd> + <kbd>⌥</kbd> + <kbd>I</kbd>   | Auto Fix Your Indentation
+<kbd>⌘</kdb> + <kbd>delete</kbd>    | Delete the current line
+
+**Note:** <kbd>⌘</kbd> is the command key, <kbd>⌥</kbd> is the option key and <kbd>^</kbd> is the control key.  (Your keyboard probably has symbols on the keys to help with this.)
 
 Fun fact: RubyMine makes it really easy for us to change these shortcuts and make our own new shortcuts! If any of these shortcuts feel hard to remember, maybe try switching them to something that makes more sense to you personally.
 
