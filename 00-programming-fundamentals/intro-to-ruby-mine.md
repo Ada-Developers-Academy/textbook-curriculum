@@ -17,7 +17,7 @@ Below are a few you'll likely use.
 
 Shortcut | Effect
 ---      | ---
-Double-click <kbd>shift</kbd>  | Search Everywhere. Find anything related to RubyMine or your project and open it, execute it, or jump to it.
+Double-press <kbd>shift</kbd>  | Search Everywhere. Find anything related to RubyMine or your project and open it, execute it, or jump to it.
 <kbd>shift</kbd> + <kbd>⌘</kbd> + <kbd>A</kbd>     | Find a command and execute it. Perfect when you don't remember the shortcut for something else
 <kbd>⌘</kbd> + <kbd>B</kbd> or <kbd>⌘</kbd> + click     | Go to declaration. Navigate to the initial declaration of the instantiated class, called method, or field. This is one of the powerful things IDEs can do for us!
 <kbd>⌘</kbd> + <kbd>C</kbd> (nothing highlighted)    | Copy the current line
