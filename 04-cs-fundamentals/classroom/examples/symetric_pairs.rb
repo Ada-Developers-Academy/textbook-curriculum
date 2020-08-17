@@ -19,5 +19,5 @@ end
 
 puts "#{symetric_pairs([[11, 20], [30, 40], [5, 10], [40, 30], [10, 5]])}"
 
-puts "#{symetric_pairs([["Dan", "Dee"], ["Lisa", "Val"], ["Kaida", "Chris"], ["Devin", "Susan"], ["Christine", "Jane"]])}"
-puts "#{symetric_pairs([["Dan", "Dee"], ["Dee", "Dan"], ["Kaida", "Chris"], ["Devin", "Susan"], ["Devin", "Jane"]])}"
+puts "#{symetric_pairs([["Dan", "Simon"], ["Lisa", "Val"], ["Kaida", "Chris"], ["Devin", "Susan"], ["Christine", "Jane"]])}"
+puts "#{symetric_pairs([["Dan", "Simon"], ["Simon", "Dan"], ["Kaida", "Chris"], ["Devin", "Susan"], ["Devin", "Jane"]])}"

@@ -11,7 +11,7 @@ What happens when more than one CSS rule-set applies to an element? Observe the 
 
 ```html
 <article>
-  <h2><em>Why My Cats are the Most Charming</em> <span id="article-author" class="featured-author">by Dee Del Rosario</span></h2>
+  <h2><em>Why My Cats are the Most Charming</em> <span id="article-author" class="featured-author">by Simon Del Rosario</span></h2>
 </article>
 ```
 
@@ -39,7 +39,7 @@ span {
 }
 ```
 
-What will the text `by Dee Del Rosario` look like?
+What will the text `by Simon Del Rosario` look like?
 
 How does this get determined? Do styles override one another? Do styles get ignored? Which ones? When?
 

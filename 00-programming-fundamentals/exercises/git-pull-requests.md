@@ -31,7 +31,7 @@ As a group, assign each person as role A, B, C, or D. If there aren't four peopl
 1. Person A should add all members (B, C, and D) as collaborators to this repo, and ensure they have push permissions
 1. Person A should share their repo URL with B, C, and D
 1. All people (A, B, C, and D) should clone this repo to their computers
-1. All people (A, B, C, and D) should create a branch on their local machine, and name this branch by their initials and then `/feature-branch-example` ( For example, if Dee's initials were "ddr", then `$ git checkout -b ddr/feature-branch-example`)
+1. All people (A, B, C, and D) should create a branch on their local machine, and name this branch by their initials and then `/feature-branch-example` ( For example, if Simon's initials were "sdr", then `$ git checkout -b ddr/feature-branch-example`)
 1. All people should spend less than 2 minutes making some changes and git commits on their own branch:
     - Make at least one `.txt` file, with some text in it, such as `$ touch favorite-color.txt` or `$ touch my-secrets.txt`
     - add and commit here

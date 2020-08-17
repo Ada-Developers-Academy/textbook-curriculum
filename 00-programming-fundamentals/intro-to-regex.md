@@ -77,7 +77,7 @@ Character | Meaning            | Example
 ### Practice
 
 Write a regular expression to match a valid email of form `name@domain.tld`
-- Matches `dee@adadev.org`, `adalovelace@gmail.com`, `magictavern@puppies.supplies`
+- Matches `simon@adadev.org`, `adalovelace@gmail.com`, `magictavern@puppies.supplies`
 - Rejects `dan@adadev.`, `charles.com`, `@adadev.org`, `sarah@.org`
 - Use `\.` for a literal period (more on this later)
 
