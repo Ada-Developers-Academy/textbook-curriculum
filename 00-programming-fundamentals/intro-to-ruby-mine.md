@@ -33,13 +33,17 @@ Remember that normal macOS keyboard shortcuts will work here too!
 
 Shortcut | Effect
 ---      | ---
-`⌥left` & `⌥right` | Jump left or right by one word
-`⌘left` & `⌘right` | Jump to the beginning or the end of the current line
-`⌘up` & `⌘down` | Jump to the top or the bottom of the document
-`⌘⇧[` & `⌘⇧]` | Switch tabs left or right
-`⌘,`     | Open the settings page
-`⌘w`     | Close the current tab
-`⌘⇧w`    | Close the current window (all tabs)
+<kbd>⌥</kbd> + <kbd>←</kbd> | Jump left by one word
+<kbd>⌥</kbd> + <kbd>→</kbd> | Jump right by one word
+<kbd>⌘</kbd> + <kbd>←</kbd> | Jump to the beginning of the current line
+<kbd>⌘</kbd> + <kbd>→</kbd> | Jump to the end of the current line
+<kbd>⌘</kbd> + <kbd>↑</kbd> | Jump to the top of the document
+<kbd>⌘</kbd> + <kbd>↓</kbd> | Jump to the bottom of the document
+<kbd>⌘</kbd> + <kbd>shift</kbd> + <kbd>[</kbd> | Switch tabs left
+<kbd>⌘</kbd> + <kbd>shift</kbd> + <kbd>]</kbd> | Switch tabs right
+<kbd>⌘</kbd> + <kbd>,</kbd>  | Open the settings page
+<kbd>⌘</kbd> + <kbd>w</kbd>     | Close the current tab
+<kbd>⌘</kbd> + <kbd>shift</kbd> + <kbd>w</kbd>    | Close the current window (all tabs)
 
 ### Plugins
 There are a lot of plugins RubyMine will offer to install for you. For the sake of reducing noise, we recommend that the only plugins you install are Git and Github.
