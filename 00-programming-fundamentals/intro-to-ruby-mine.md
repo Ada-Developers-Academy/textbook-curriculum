@@ -46,4 +46,4 @@ Shortcut | Effect
 <kbd>⌘</kbd> + <kbd>shift</kbd> + <kbd>w</kbd>    | Close the current window (all tabs)
 
 ### Plugins
-There are a lot of plugins RubyMine will offer to install for you. For the sake of reducing noise, we recommend that the only plugins you install are the "Git" and "Github" plugins.
+There are a lot of plugins RubyMine will offer to install for you. For the sake of reducing noise, we recommend that the only plugins you install are the "Git" and "Github" plugins. There will likely be lots of plugins automatically checked for you that we suggest you un-check.
