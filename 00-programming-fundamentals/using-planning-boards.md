@@ -17,6 +17,7 @@ This lesson will be hard to follow if students haven't first received the [Intro
 1. Use checklists on each user story to break the story up into smaller tasks. 
     - This makes it easier to ensure every task you’re working on is directly related to the user story you’re currently focused on.
     - This way, with each user story you complete, you know you already have this much to show off for your demo!
+    - If something in the checklist ends up being a big task in its own right, you can turn individual checklist items into their own cards!
 1. Organize Trello cards by “Iteration", week, or priority. 
     - Find some way of setting due dates for a piece of work
       - eg. If a story represents ~30% of what you have left to do for the project and you have 13 more working days, it should be due in 13 days * .30 = 3.9 days (or around to 4 days).
