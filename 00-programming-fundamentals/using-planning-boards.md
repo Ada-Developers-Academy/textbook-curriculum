@@ -11,7 +11,7 @@ This lesson will be hard to follow if students haven't first received the [Intro
 1. Create cards as User Stories 
     - Format: "As a user, I can ...[, so that I...]". 
         - eg. "As a user, I can browse products by merchant, so that I can explore all the cool stuff my favorite merchant sells and buy more stuff."
-    - This helps you as a developer focus on what matters to the user. Without articulating your work this way, it's SO EASY to get distracted by lots of technical issues that may or may not actually matter to the user your application is meant to serve.
+    - This helps you as a developer focus on what matters to the user. Without articulating your work this way, it's SO EASY to get distracted by lots of technical issues that may or may not actually matter to the end user!
 1. Sort user stories by priority and approach the project by focusing on completing one story at a time.
     - For group projects, this means focusing on one story at a time per person.
 1. Use checklists on each user story to break the story up into smaller tasks. 
