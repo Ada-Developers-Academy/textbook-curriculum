@@ -7,7 +7,7 @@
 ## Prerequisite
 This lesson will be hard to follow if students haven't first received the [Intro to Agile lesson](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/00-programming-fundamentals/intro-to-agile.md)
 
-## Ada Best Practices
+## Ada Suggested Practices
 1. Create cards as User Stories 
     - Format: "As a user, I can ...[, so that I...]". 
         - eg. "As a user, I can browse products by merchant, so that I can explore all the cool stuff my favorite merchant sells and buy more stuff."
