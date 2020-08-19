@@ -1,7 +1,7 @@
 # Introduction to RubyMine
 
 RubyMine will be the application we use to read and write Ruby code from now on. It is referred to as an Integrated Development Environment for Ruby (or Ruby IDE, for short). In other words, it's more than a text editor.
-We have started to get familiar with VS Code, which we will use again later on in the curriculum, but before we spend much time with Ruby we want to get comfortable with a heftier tool that understands how to read Ruby and is able to help us _debug_ Ruby programs (something we will learn how to do very soon). 
+We have started to get familiar with VS Code, which we will use again later on in the curriculum, but before we spend a lot of time with Ruby, we want to get comfortable with a heftier tool that understands how to read Ruby and is able to help us _debug_ Ruby programs (something we will learn how to do very soon). 
 
 VS Code is to RubyMine what a paper map is to a GPS. We _can_ build big projects in Ruby with VS Code. However, RubyMine is a tool that enables us to focus less on missing that right turn so that we can focus more on understanding the big picture of where we want to go.
 
