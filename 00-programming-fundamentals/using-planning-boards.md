@@ -20,7 +20,7 @@ This lesson will be hard to follow if students haven't first received the [Intro
     - If something in the checklist ends up being a big task in its own right, you can turn individual checklist items into their own cards!
 1. Organize Trello cards by “Iteration", week, or priority. 
     - Find some way of setting due dates for a piece of work
-      - eg. If a story represents ~30% of what you have left to do for the project and you have 13 more working days, it should be due in 13 days * .30 = 3.9 days (or around to 4 days).
+      - eg. If a story represents ~30% of what you have left to do for the project and you have 13 more working days, it should be due in 13 days * .30 = 3.9 days (or around 4 days).
       - For bEtsy, your stories might be small enough that you want to set due date a whole list, then use that due date to assign due dates for each story in the list
     - This way you have some idea how you’re tracking: whether you’re ahead, behind, or on-track. 
 1. If there are one or two user stories that feel the scariest or riskiest, start working on those as early as you possibly can. 
